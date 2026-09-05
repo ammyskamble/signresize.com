@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://signresize.com/sitemap-index.xml
