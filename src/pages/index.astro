@@ -2,7 +2,6 @@
 // src/pages/index.astro
 import '../styles/global.css';
 import Header from '../components/Header.astro';
-import LayoutComparisonBanner from '../components/LayoutComparisonBanner.astro';
 import { SignatureTool } from '../components/SignatureTool';
 import ExamSpecsTable from '../components/ExamSpecsTable.astro';
 import GuideSection from '../components/GuideSection.astro';
@@ -155,11 +154,8 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
   </head>
 
   <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
-    <!-- Layout Comparison Banner -->
-    <LayoutComparisonBanner activeOption="3" />
-
     <!-- Navigation Header -->
-    <Header activeLayout="original" />
+    <Header />
 
     <!-- Main Container (Command Center & Assistant Architecture) -->
     <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8">
