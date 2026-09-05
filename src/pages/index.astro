@@ -1,0 +1,140 @@
+---
+// src/pages/index.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import { SignatureTool } from '../components/SignatureTool';
+import ExamSpecsTable from '../components/ExamSpecsTable.astro';
+import GuideSection from '../components/GuideSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "Online Signature Resizer & Compressor (10KB to 20KB) for SSC, IBPS, UPSC";
+const pageDescription = "Instantly resize, crop, and compress signatures to exact KB and pixel dimensions (140x60 px, 10-20 KB) for SSC, IBPS, UPSC, GATE, and PAN Card forms. 100% client-side privacy.";
+const canonicalUrl = "https://signresize.com/";
+---
+
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content="signature resize, signature resizer, signature resize 10 to 20 kb, 140 x 60 pixels signature resize, ssc signature resizer, ibps signature resizer, upsc signature crop, pan card signature size 200 dpi, signature size reducer online free" />
+    <meta name="author" content="SignResize.com" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Hreflang Tags for English (India) -->
+    <link rel="alternate" hreflang="en-IN" href="https://signresize.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://signresize.com/" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- WebApplication Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SignResize",
+      "url": "https://signresize.com/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
+      "description": "Instant client-side online signature resizer, cropper, and compressor for competitive exams and government portals.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "featureList": [
+        "Exact 10 KB to 20 KB compression guarantee for SSC & IBPS",
+        "Interactive cropping with aspect ratio lock",
+        "Smart Clean White Paper filter to remove shadows from phone photos",
+        "100% Client-Side processing with zero server uploads",
+        "Digital signature drawing pad with touchscreen support"
+      ]
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col">
+    <!-- Navigation Header -->
+    <Header />
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+      <!-- Hero Section -->
+      <section class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          <span>India's #1 Dedicated Sarkari Exam Signature Resizer</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+          Resize Signature to <span class="text-primary">10KB – 20KB</span> Online
+        </h1>
+
+        <p class="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          Instantly crop, adjust dimensions (<span class="font-mono text-foreground font-medium">140×60 px</span>, <span class="font-mono text-foreground font-medium">4×2 cm</span>), remove phone photo shadows, and hit exact portal KB limits for <strong>SSC, IBPS, UPSC, GATE & PAN Card</strong>.
+        </p>
+
+        <!-- Feature Badges -->
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs">
+          <span class="px-3 py-1 rounded-lg bg-card border border-border shadow-xs text-muted-foreground flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Guaranteed 10–20 KB Compliance
+          </span>
+          <span class="px-3 py-1 rounded-lg bg-card border border-border shadow-xs text-muted-foreground flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Auto Clean White Paper
+          </span>
+          <span class="px-3 py-1 rounded-lg bg-card border border-border shadow-xs text-muted-foreground flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Zero Server Uploads (100% Private)
+          </span>
+        </div>
+      </section>
+
+      <!-- The Flagship Interactive Tool Workspace -->
+      <SignatureTool client:load />
+
+      <!-- Official Guidelines & Dimensions Table -->
+      <ExamSpecsTable />
+
+      <!-- Comprehensive Rejection Avoidance & Mobile Capture Guide -->
+      <GuideSection />
+
+      <!-- Frequently Asked Questions -->
+      <FaqSection />
+    </main>
+
+    <!-- Global Footer -->
+    <Footer />
+  </body>
+</html>

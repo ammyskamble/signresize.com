@@ -1,0 +1,79 @@
+---
+// FaqSection.astro
+const faqs = [
+  {
+    q: "What is the standard signature size for SSC CGL, CHSL, and MTS exams?",
+    a: "The Staff Selection Commission (SSC) mandates signature dimensions of 140 × 60 pixels (width × height) or roughly 4.0 cm × 2.0 cm. The file size must strictly fall between 10 KB and 20 KB in JPG or JPEG format. Signing in capital letters or using colored inks is strictly prohibited."
+  },
+  {
+    q: "Why does the portal say 'Signature file size must be between 10 KB and 20 KB'?",
+    a: "Indian government portals employ automated file validators. If your file is 9.9 KB, it is rejected for being under-sized; if it is 20.1 KB, it is rejected for being over-sized. SignResize uses iterative binary search compression to ensure your final image lands comfortably inside the 10 KB to 20 KB range (typically ~15 KB)."
+  },
+  {
+    q: "Can I use blue ink for Sarkari exam signatures?",
+    a: "While some examinations like GATE allow dark blue or black ink, SSC, IBPS, and SBI explicitly insist on black ink pen only. We recommend always signing with a black ballpoint or gel pen on clean white paper for maximum compatibility across all Indian portals."
+  },
+  {
+    q: "Is it safe to resize my signature on SignResize.com?",
+    a: "Yes, 100% safe. Unlike traditional image compressor websites that upload your personal documents to remote cloud servers, SignResize runs completely client-side in your web browser. Your signature image never leaves your phone or computer, ensuring zero data retention and total privacy."
+  },
+  {
+    q: "What if I don't have a paper copy with me right now?",
+    a: "SignResize includes a built-in Digital Signature Pad. Click 'Sign on Screen', draw your signature directly with your finger, mouse, or stylus on a clean white canvas, and apply your exam preset for instant download."
+  },
+  {
+    q: "What are the signature requirements for UPSC Civil Services (IAS/IPS)?",
+    a: "UPSC requires signature dimensions between 350 × 350 pixels (minimum) to 1000 × 1000 pixels (maximum). The file size must be between 20 KB and 300 KB (or under 100 KB depending on the notification stage) in JPG format."
+  },
+  {
+    q: "What DPI resolution should I select for PAN card applications?",
+    a: "NSDL / Protean and UTIITSL PAN card portals specify 200 DPI resolution for applicant signatures, with dimensions around 400 × 200 pixels (2 cm × 4.5 cm) and file size under 50 KB."
+  }
+];
+---
+
+<section id="faq" class="space-y-6 pt-8 border-t border-border">
+  <div class="max-w-2xl mx-auto text-center space-y-2">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+      Got Questions?
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+      Frequently Asked Questions
+    </h2>
+    <p class="text-sm text-muted-foreground">
+      Quick answers about Indian exam signature rules, upload errors, and formatting.
+    </p>
+  </div>
+
+  <div class="max-w-3xl mx-auto space-y-3">
+    {faqs.map((faq, index) => (
+      <details class="group p-4 rounded-xl border border-border bg-card shadow-xs transition-all open:ring-1 open:ring-primary/40">
+        <summary class="flex items-center justify-between font-semibold text-foreground text-sm cursor-pointer list-none select-none">
+          <span>{faq.q}</span>
+          <span class="w-5 h-5 flex items-center justify-center rounded-full bg-muted text-muted-foreground group-open:rotate-180 transition-transform">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <p class="pt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          {faq.a}
+        </p>
+      </details>
+    ))}
+  </div>
+
+  <!-- FAQ Schema for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
+    }))
+  })} />
+</section>

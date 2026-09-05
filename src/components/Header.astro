@@ -1,0 +1,93 @@
+---
+// Header.astro
+---
+
+<header class="sticky top-0 z-40 w-full border-b border-border/80 bg-card/85 backdrop-blur-md transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <!-- Brand Logo -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="w-9 h-9 rounded-xl bg-primary text-primary-foreground flex items-center justify-center font-extrabold shadow-md shadow-primary/30 group-hover:scale-105 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+          <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+          <path d="M2 2l7.586 7.586"/>
+          <circle cx="11" cy="11" r="2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <span class="font-bold text-lg tracking-tight text-foreground">SignResize</span>
+          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-primary/10 text-primary border border-primary/20">
+            .com
+          </span>
+        </div>
+        <p class="text-[10px] text-muted-foreground hidden sm:block">Govt Exam Signature Resizer</p>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-muted-foreground">
+      <a href="#tool-workspace" class="hover:text-foreground transition">Resizer Tool</a>
+      <a href="#exam-specs" class="hover:text-foreground transition">Exam Guidelines</a>
+      <a href="#rejection-guide" class="hover:text-foreground transition">Avoid Rejection</a>
+      <a href="#faq" class="hover:text-foreground transition">FAQs</a>
+    </nav>
+
+    <!-- Right Controls: Privacy Badge & Dark Mode Toggle -->
+    <div class="flex items-center gap-3">
+      <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-medium border border-emerald-500/20">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>100% Client-Side Private</span>
+      </div>
+
+      <!-- Theme Toggle Button -->
+      <button
+        id="theme-toggle"
+        type="button"
+        class="p-2 rounded-xl border border-border bg-card text-foreground hover:bg-muted transition"
+        aria-label="Toggle theme"
+      >
+        <!-- Sun Icon -->
+        <svg id="theme-icon-sun" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <circle cx="12" cy="12" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41m14.14-14.14l-1.41 1.41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <!-- Moon Icon -->
+        <svg id="theme-icon-moon" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  // Theme Toggle logic
+  const themeToggle = document.getElementById('theme-toggle');
+  const sunIcon = document.getElementById('theme-icon-sun');
+  const moonIcon = document.getElementById('theme-icon-moon');
+
+  function updateThemeUI(isDark) {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      sunIcon?.classList.remove('hidden');
+      moonIcon?.classList.add('hidden');
+    } else {
+      document.documentElement.classList.remove('dark');
+      sunIcon?.classList.add('hidden');
+      moonIcon?.classList.remove('hidden');
+    }
+  }
+
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+  updateThemeUI(isDark);
+
+  themeToggle?.addEventListener('click', () => {
+    const isCurrentlyDark = document.documentElement.classList.contains('dark');
+    const newTheme = isCurrentlyDark ? 'light' : 'dark';
+    localStorage.setItem('theme', newTheme);
+    updateThemeUI(!isCurrentlyDark);
+  });
+</script>

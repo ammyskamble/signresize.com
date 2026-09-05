@@ -1,0 +1,92 @@
+---
+// GuideSection.astro
+---
+
+<section id="rejection-guide" class="space-y-8 pt-8 border-t border-border">
+  <div class="max-w-3xl mx-auto text-center space-y-3">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
+      Essential Aspirant Advice
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+      Why Signatures Get Rejected in Indian Govt Portals
+    </h2>
+    <p class="text-sm text-muted-foreground leading-relaxed">
+      Thousands of candidates face application rejection every year due to technical signature discrepancies. Follow these crucial guidelines to ensure your submission passes automated validation on the first attempt.
+    </p>
+  </div>
+
+  <!-- Rejection Reasons Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="p-5 rounded-xl border border-border bg-card space-y-3 shadow-xs">
+      <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center font-bold">
+        1
+      </div>
+      <h3 class="font-bold text-foreground text-base">Signing in Capital Letters (ALL CAPS)</h3>
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        SSC, IBPS, and Railway RRB explicitly state that signatures in <strong>BLOCK / CAPITAL letters</strong> will be disqualified. A signature must be your customary running cursive hand.
+      </p>
+    </div>
+
+    <div class="p-5 rounded-xl border border-border bg-card space-y-3 shadow-xs">
+      <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center font-bold">
+        2
+      </div>
+      <h3 class="font-bold text-foreground text-base">File Size Below Minimum (e.g. &lt; 10 KB)</h3>
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        Portals like SSC CGL and IBPS reject files below <strong>10 KB</strong> just as strictly as files over 20 KB. SignResize uses smart precision compression that guarantees your file lands strictly between 10 KB and 20 KB.
+      </p>
+    </div>
+
+    <div class="p-5 rounded-xl border border-border bg-card space-y-3 shadow-xs">
+      <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center font-bold">
+        3
+      </div>
+      <h3 class="font-bold text-foreground text-base">Dark Shadow & Gray Paper Background</h3>
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        Photos taken under indoor yellow lighting or casting telephone shadows are rejected by OCR scanners. Our <strong>Clean White Paper</strong> tool algorithmically whitens the paper while maintaining sharp ink density.
+      </p>
+    </div>
+  </div>
+
+  <!-- Step-by-Step Mobile Photo Guide -->
+  <div class="p-6 sm:p-8 rounded-2xl border border-border bg-muted/30 space-y-6">
+    <h3 class="text-xl font-bold tracking-tight text-foreground flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+      How to Capture & Resize Your Signature on Mobile (4 Easy Steps)
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+      <div class="space-y-2 p-4 rounded-xl bg-card border border-border">
+        <span class="font-bold text-primary font-mono text-sm">Step 01</span>
+        <h4 class="font-semibold text-foreground">Sign on Clean White Paper</h4>
+        <p class="text-muted-foreground">
+          Use an unruled, plain A4 white sheet. For SSC and IBPS, use a <strong>black ink pen</strong> (gel or ballpoint).
+        </p>
+      </div>
+
+      <div class="space-y-2 p-4 rounded-xl bg-card border border-border">
+        <span class="font-bold text-primary font-mono text-sm">Step 02</span>
+        <h4 class="font-semibold text-foreground">Photograph in Day Light</h4>
+        <p class="text-muted-foreground">
+          Hold your phone directly above the paper. Ensure no hand shadows fall across the signature area.
+        </p>
+      </div>
+
+      <div class="space-y-2 p-4 rounded-xl bg-card border border-border">
+        <span class="font-bold text-primary font-mono text-sm">Step 03</span>
+        <h4 class="font-semibold text-foreground">Select Your Exam Preset</h4>
+        <p class="text-muted-foreground">
+          Upload your image to SignResize. Click your target exam (e.g. SSC, UPSC) to apply official dimensions and KB limits.
+        </p>
+      </div>
+
+      <div class="space-y-2 p-4 rounded-xl bg-card border border-border">
+        <span class="font-bold text-primary font-mono text-sm">Step 04</span>
+        <h4 class="font-semibold text-foreground">Auto-Clean & Download</h4>
+        <p class="text-muted-foreground">
+          Toggle <strong>Clean White Paper</strong> to remove phone shadows, then tap Download to get your portal-ready JPG.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

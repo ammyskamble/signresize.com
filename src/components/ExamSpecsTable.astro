@@ -1,0 +1,65 @@
+---
+// ExamSpecsTable.astro
+import { EXAM_PRESETS } from '../data/examPresets';
+---
+
+<section id="exam-specs" class="space-y-6 pt-6">
+  <div class="space-y-2 text-center max-w-2xl mx-auto">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+      Official Guidelines 2026
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+      Official Signature Dimensions & Size Guidelines
+    </h2>
+    <p class="text-sm text-muted-foreground">
+      Verified technical requirements across major Indian competitive exams and government application portals.
+    </p>
+  </div>
+
+  <div class="overflow-x-auto rounded-xl border border-border bg-card shadow-sm">
+    <table class="w-full text-left text-xs sm:text-sm">
+      <thead class="bg-muted/60 border-b border-border text-muted-foreground font-semibold uppercase tracking-wider text-[11px]">
+        <tr>
+          <th class="py-3.5 px-4">Exam / Portal</th>
+          <th class="py-3.5 px-4">Required Dimensions</th>
+          <th class="py-3.5 px-4">Print Size (cm)</th>
+          <th class="py-3.5 px-4">Allowed File Size</th>
+          <th class="py-3.5 px-4">Ink & Paper Rules</th>
+          <th class="py-3.5 px-4 text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        {EXAM_PRESETS.map((preset) => (
+          <tr class="hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4">
+              <div class="font-semibold text-foreground">{preset.name}</div>
+              <div class="text-[11px] text-muted-foreground">{preset.authority}</div>
+            </td>
+            <td class="py-3 px-4 font-mono font-medium text-foreground">
+              {preset.widthPx} × {preset.heightPx} px
+            </td>
+            <td class="py-3 px-4 font-mono text-muted-foreground">
+              {preset.widthCm} × {preset.heightCm} cm
+            </td>
+            <td class="py-3 px-4">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20">
+                {preset.minKb} KB – {preset.maxKb} KB
+              </span>
+            </td>
+            <td class="py-3 px-4 text-xs text-muted-foreground max-w-xs">
+              <span class="font-medium text-foreground">{preset.inkRequirement}</span>: {preset.notes}
+            </td>
+            <td class="py-3 px-4 text-right">
+              <a
+                href="#tool-workspace"
+                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-muted hover:bg-primary hover:text-primary-foreground border border-border transition"
+              >
+                Apply Preset
+              </a>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
