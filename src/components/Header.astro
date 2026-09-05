@@ -1,11 +1,15 @@
 ---
 // Header.astro
+interface Props {
+  activeLayout?: 'original' | 'option1' | 'option2' | 'option3' | 'option4';
+}
+const { activeLayout = 'original' } = Astro.props;
 ---
 
 <header class="sticky top-0 z-40 w-full border-b border-border/80 bg-card/85 backdrop-blur-md transition-colors">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
     <!-- Brand Logo -->
-    <a href="/" class="flex items-center gap-2.5 group">
+    <a href={activeLayout === 'option2' ? '/layout-2' : activeLayout === 'option3' ? '/layout-3' : activeLayout === 'option4' ? '/layout-4' : '/'} class="flex items-center gap-2.5 group">
       <div class="w-9 h-9 rounded-xl bg-primary text-primary-foreground flex items-center justify-center font-extrabold shadow-md shadow-primary/30 group-hover:scale-105 transition">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 19l7-7 3 3-7 7-3-3z"/>
@@ -25,20 +29,67 @@
       </div>
     </a>
 
-    <!-- Nav Links -->
-    <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-muted-foreground">
-      <a href="#tool-workspace" class="hover:text-foreground transition">Resizer Tool</a>
-      <a href="#exam-specs" class="hover:text-foreground transition">Exam Specs</a>
-      <a href="#seo-guide" class="hover:text-foreground transition">Resizing Guide</a>
-      <a href="#rejection-guide" class="hover:text-foreground transition">Avoid Rejection</a>
-      <a href="#faq" class="hover:text-foreground transition">FAQs</a>
+    <!-- Layout Switcher in Nav -->
+    <div class="hidden lg:flex items-center p-1 rounded-xl bg-muted/80 border border-border text-xs">
+      <a
+        href="/"
+        class={`px-3 py-1 rounded-lg font-medium transition ${
+          activeLayout === 'original' || activeLayout === 'option1'
+            ? 'bg-primary text-primary-foreground shadow-xs font-semibold'
+            : 'text-muted-foreground hover:text-foreground'
+        }`}
+        title="Original Layout: Classic Studio Flow"
+      >
+        Original Layout
+      </a>
+      <a
+        href="/layout-2"
+        class={`px-3 py-1 rounded-lg font-medium transition ${
+          activeLayout === 'option2'
+            ? 'bg-primary text-primary-foreground shadow-xs font-semibold'
+            : 'text-muted-foreground hover:text-foreground'
+        }`}
+        title="Option 2: Pro Cockpit Dashboard"
+      >
+        Option 2: Cockpit
+      </a>
+      <a
+        href="/layout-3"
+        class={`px-3 py-1 rounded-lg font-medium transition ${
+          activeLayout === 'option3'
+            ? 'bg-primary text-primary-foreground shadow-xs font-semibold'
+            : 'text-muted-foreground hover:text-foreground'
+        }`}
+        title="Option 3: Command Center & Assistant"
+      >
+        Option 3: Command
+      </a>
+      <a
+        href="/layout-4"
+        class={`px-3 py-1 rounded-lg font-medium transition ${
+          activeLayout === 'option4'
+            ? 'bg-primary text-primary-foreground shadow-xs font-semibold'
+            : 'text-muted-foreground hover:text-foreground'
+        }`}
+        title="Option 4: Stepper & Bento Portal"
+      >
+        Option 4: Stepper
+      </a>
+    </div>
+
+    <!-- Nav Links (Desktop) -->
+    <nav class="hidden lg:flex items-center gap-5 text-xs font-medium text-muted-foreground">
+      <a href="#tool-workspace" class="hover:text-foreground transition">Resizer</a>
+      <a href="#exam-specs" class="hover:text-foreground transition">Specs</a>
+      <a href="#seo-guide" class="hover:text-foreground transition">Guide</a>
+      <a href="#faq" class="hover:text-foreground transition">FAQ</a>
     </nav>
 
     <!-- Right Controls: Privacy Badge & Dark Mode Toggle -->
     <div class="flex items-center gap-3">
       <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-medium border border-emerald-500/20">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>100% Client-Side Private</span>
+        <span>100% Private</span>
       </div>
 
       <!-- Theme Toggle Button -->

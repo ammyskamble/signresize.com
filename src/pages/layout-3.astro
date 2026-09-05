@@ -1,5 +1,5 @@
 ---
-// src/pages/index.astro
+// src/pages/layout-3.astro (Option 3: Dual-Column Command Center & Assistant Layout)
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import LayoutComparisonBanner from '../components/LayoutComparisonBanner.astro';
@@ -10,193 +10,81 @@ import SeoContentSection from '../components/SeoContentSection.astro';
 import FaqSection from '../components/FaqSection.astro';
 import Footer from '../components/Footer.astro';
 
-const pageTitle = "Signature Resize | Resize Signature to 10 to 20 KB Online (Sign Resize & Compressor)";
-const pageDescription = "Free online signature resize & compressor tool. Resize signature to 10 to 20 kb, adjust width and height in cm, crop thumb impression for SSC, PAN card, RRB & NSDL. 100% private, no server upload.";
-const canonicalUrl = "https://signresize.com/";
+const pageTitle = "Option 3: Command Center & Assistant | Online Signature Resize";
+const pageDescription = "Layout Option 3: Modern Dual-Column Command Center with sticky Live Compliance Assistant sidebar, instant CM-to-PX converter widget, and portal requirements scanner.";
+const canonicalUrl = "https://signresize.com/layout-3";
 const ogImageUrl = "https://signresize.com/og-image.png";
-const keywordsContent = "signature resize, signature resize 10 to 20 kb, signature resize width and height in cm, ssc signature resize, pan card signature resize, rrb signature resize, pan card photo and signature resize, resize signature, sign resize, thumb impression, pi7, pdf pi7 org, pi7 image, pi7 image tool, signature resizer, nsdl pan card signature resize, signature size should be at least 20kb, signature compressor";
 ---
 
 <!doctype html>
-<html lang="en-IN">
+<html lang="en-IN" class="theme-amber">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
-    <meta name="keywords" content={keywordsContent} />
-    <meta name="author" content="SignResize.com" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalUrl} />
-
-    <!-- Hreflang Tags for English (India) & Global -->
-    <link rel="alternate" hreflang="en-IN" href="https://signresize.com/" />
-    <link rel="alternate" hreflang="en" href="https://signresize.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://signresize.com/" />
+    <meta name="robots" content="noindex, follow" />
 
     <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="SignResize" />
-    <meta property="og:locale" content="en_IN" />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:secure_url" content={ogImageUrl} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="SignResize - Online Signature Resize and Compressor Tool" />
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={pageDescription} />
-    <meta name="twitter:image" content={ogImageUrl} />
-    <meta name="twitter:image:alt" content="SignResize - Online Signature Resize and Compressor Tool" />
-
-    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Favicon & Vector Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- WebApplication Schema.org JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "SignResize",
-      "url": "https://signresize.com/",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
-      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
-      "description": "Free online signature resize, crop, and compressor tool. Resize signature to 10 to 20 KB, customize width and height in cm, and compress thumb impressions for SSC, PAN Card, RRB, and NSDL.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
-      "featureList": [
-        "Signature resize 10 to 20 kb precision compression",
-        "Signature resize width and height in cm & pixels",
-        "SSC signature resize & RRB signature resizer preset",
-        "PAN card photo and signature resize (NSDL / UTIITSL 200 DPI)",
-        "Thumb impression resizer with square aspect ratio",
-        "Dual-boundary control when signature size should be at least 20kb",
-        "Clean White Paper background shadow remover",
-        "100% client-side privacy with zero server uploads"
-      ]
-    })} />
-
-    <!-- HowTo Schema.org JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Resize Signature to 10 to 20 KB Online",
-      "description": "Step-by-step guide to crop, resize, and compress your signature to exact 10 KB to 20 KB file bounds for SSC, RRB, and government portal uploads.",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Sign on Clean White Paper",
-          "text": "Sign using a black ballpoint pen on plain, unruled white paper in your natural running handwriting.",
-          "position": 1
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Upload Image to SignResize",
-          "text": "Upload the photograph or scan to the SignResize online workspace.",
-          "position": 2
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Select Exam Preset or Target KB",
-          "text": "Select your exam preset (e.g., SSC 140x60 px) or adjust the target file size slider between 10 KB and 20 KB.",
-          "position": 3
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Clean White Paper & Download",
-          "text": "Enable the Clean White Paper filter to remove shadows, preview the output file size, and download your portal-ready JPG.",
-          "position": 4
-        }
-      ]
-    })} />
-
-    <!-- BreadcrumbList Schema.org JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://signresize.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Signature Resize Tool",
-          "item": "https://signresize.com/#tool-workspace"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Exam Guidelines",
-          "item": "https://signresize.com/#exam-specs"
-        }
-      ]
-    })} />
   </head>
 
   <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
     <!-- Layout Comparison Banner -->
-    <LayoutComparisonBanner activeOption="3" />
+    <LayoutComparisonBanner activeOption="3" defaultTheme="theme-amber" />
 
     <!-- Navigation Header -->
-    <Header activeLayout="original" />
+    <Header activeLayout="option3" />
 
-    <!-- Main Container (Command Center & Assistant Architecture) -->
+    <!-- Main Container with subtle mesh grid effect -->
     <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8">
       
-      <!-- Hero / Command Header Banner -->
+      <!-- Top Command Bar: Status Tickers & Live Metrics -->
       <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-sm backdrop-blur">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div class="space-y-1.5">
             <div class="flex items-center gap-2">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
-                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                Online Signature Resizer &amp; Compressor
+              <span class="px-2.5 py-0.5 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-primary text-primary-foreground shadow-xs">
+                Option 3: Command Center
               </span>
-              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                100% Client-Side Private
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-primary bg-primary/10 border border-primary/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Sarkari Portal Engine v2.4 Live
               </span>
             </div>
-            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-              Online <span class="text-primary">Signature Resize</span> &amp; Compressor (10KB to 20KB)
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              Signature &amp; Thumb Impression <span class="text-primary">Precision Resizer</span>
             </h1>
-            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
-              Instantly <strong>resize signature</strong>, adjust <strong>width and height in cm</strong> (<span class="font-mono text-foreground font-medium">140×60 px</span>, <span class="font-mono text-foreground font-medium">4×2 cm</span>), remove phone photo background shadows, and compress <strong>thumb impressions</strong> for <strong>SSC, PAN Card (NSDL), RRB &amp; UPSC</strong>.
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl">
+              Dual-column workflow equipped with a <strong>live compliance assistant</strong>, real-time CM to Pixel converter, and automatic white background clean filter for <strong>SSC, PAN Card, RRB &amp; State PSCs</strong>.
             </p>
           </div>
 
           <!-- Quick System Badges -->
-          <div class="flex items-center gap-2 flex-wrap shrink-0">
-            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+          <div class="flex items-center gap-2 flex-wrap">
+            <div class="px-3 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
               <div class="text-[9px] uppercase font-bold text-muted-foreground">Standard</div>
               <div class="text-xs font-bold text-foreground font-mono">140×60 PX</div>
             </div>
-            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+            <div class="px-3 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
               <div class="text-[9px] uppercase font-bold text-muted-foreground">Size Target</div>
               <div class="text-xs font-bold text-primary font-mono">10 KB – 20 KB</div>
             </div>
-            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+            <div class="px-3 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
               <div class="text-[9px] uppercase font-bold text-muted-foreground">Resolution</div>
               <div class="text-xs font-bold text-foreground font-mono">200 DPI</div>
             </div>
@@ -204,7 +92,7 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
         </div>
       </section>
 
-      <!-- Dual-Column Command Center: Workspace (Left 8 cols) + Sticky Assistant (Right 4 cols) -->
+      <!-- 2-Column Split: Studio Workspace (Left 8 cols) + Sticky Assistant Sidebar (Right 4 cols) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
         <!-- Left Side: Main Interactive Resizer Tool Workspace -->
@@ -213,7 +101,7 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
             <SignatureTool client:load />
           </div>
 
-          <!-- Bottom Accordion Knowledge Base & Specifications -->
+          <!-- Bottom Tabbed Document Hub for Fast Navigation -->
           <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-4">
             <div class="flex items-center justify-between border-b border-border pb-3">
               <h3 class="text-base font-bold text-foreground flex items-center gap-2">
@@ -247,7 +135,7 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
                 </div>
               </details>
 
-              <details class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition" open>
+              <details class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
                 <summary class="font-semibold text-xs text-foreground cursor-pointer flex items-center justify-between select-none">
                   <span>📖 3. Complete Aspirant Guide (CM to Pixel Formulas &amp; DPI)</span>
                   <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
