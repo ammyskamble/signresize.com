@@ -2,55 +2,59 @@
 // FaqSection.astro
 const faqs = [
   {
-    q: "What is the standard signature size for SSC CGL, CHSL, and MTS exams?",
-    a: "The Staff Selection Commission (SSC) mandates signature dimensions of 140 × 60 pixels (width × height) or roughly 4.0 cm × 2.0 cm. The file size must strictly fall between 10 KB and 20 KB in JPG or JPEG format. Signing in capital letters or using colored inks is strictly prohibited."
+    q: "How do I perform signature resize 10 to 20 kb for SSC and RRB exams?",
+    a: "To resize signature 10 to 20 kb, upload your image to SignResize.com, select the 'SSC' or 'RRB' preset (which sets 140 × 60 pixels and 4.0 cm × 2.0 cm), ensure the target slider is set between 10 KB and 20 KB (recommended: 15 KB), and click Download JPG. The tool automatically ensures your file lands within the strict 10 KB to 20 KB window."
   },
   {
-    q: "Why does the portal say 'Signature file size must be between 10 KB and 20 KB'?",
-    a: "Indian government portals employ automated file validators. If your file is 9.9 KB, it is rejected for being under-sized; if it is 20.1 KB, it is rejected for being over-sized. SignResize uses iterative binary search compression to ensure your final image lands comfortably inside the 10 KB to 20 KB range (typically ~15 KB)."
+    q: "How to set signature resize width and height in cm?",
+    a: "Select your desired physical dimensions in centimeters (such as 4.0 cm × 2.0 cm for SSC or 4.5 cm × 2.0 cm for PAN cards). At 200 DPI scanner resolution, 1 cm equals approximately 79 pixels. SignResize automatically calculates the precise pixel aspect ratio (e.g. 140 × 60 px) to match the official centimeter guidelines."
   },
   {
-    q: "Can I use blue ink for Sarkari exam signatures?",
-    a: "While some examinations like GATE allow dark blue or black ink, SSC, IBPS, and SBI explicitly insist on black ink pen only. We recommend always signing with a black ballpoint or gel pen on clean white paper for maximum compatibility across all Indian portals."
+    q: "What should I do if an exam portal says 'signature size should be at least 20kb'?",
+    a: "Certain exams like UPSC Civil Services or state recruitments enforce a minimum limit where the signature size should be at least 20kb (e.g. 20 KB to 50 KB or 20 KB to 300 KB). In SignResize, set the 'Min KB' to 20 KB and 'Max KB' to 50 KB. The engine dynamically tunes compression quality to keep the output securely above 20 KB without exceeding the upper threshold."
   },
   {
-    q: "Is it safe to resize my signature on SignResize.com?",
-    a: "Yes, 100% safe. Unlike traditional image compressor websites that upload your personal documents to remote cloud servers, SignResize runs completely client-side in your web browser. Your signature image never leaves your phone or computer, ensuring zero data retention and total privacy."
+    q: "What are the requirements for NSDL PAN card signature resize and photo resize?",
+    a: "For NSDL (Protean) and UTIITSL PAN card signature resize, the signature must be in JPEG format, scanned at 200 DPI resolution, with dimensions of 2 cm × 4.5 cm (400 × 200 pixels) and file size under 50 KB. For PAN card photo resize, dimensions are 3.5 cm × 2.5 cm (213 × 213 pixels) with file size under 50 KB."
   },
   {
-    q: "What if I don't have a paper copy with me right now?",
-    a: "SignResize includes a built-in Digital Signature Pad. Click 'Sign on Screen', draw your signature directly with your finger, mouse, or stylus on a clean white canvas, and apply your exam preset for instant download."
+    q: "Can I resize and compress a thumb impression for IBPS, SSC, or NEET?",
+    a: "Yes. SignResize includes a dedicated Thumb Impression preset. Candidate left-hand thumb impressions should be taken on unruled white paper using blue or black stamp ink. You can crop it to a 1:1 square ratio (3 cm × 3 cm or 240 × 240 pixels) and compress it to between 10 KB and 20 KB or 20 KB and 50 KB."
   },
   {
-    q: "What are the signature requirements for UPSC Civil Services (IAS/IPS)?",
-    a: "UPSC requires signature dimensions between 350 × 350 pixels (minimum) to 1000 × 1000 pixels (maximum). The file size must be between 20 KB and 300 KB (or under 100 KB depending on the notification stage) in JPG format."
+    q: "How does SignResize compare to pi7, pdf pi7 org, or pi7 image tool?",
+    a: "Unlike tools like pi7, pdf pi7 org, or pi7 image tool that upload your personal documents to external servers, SignResize is 100% client-side. Your signature is processed entirely in your web browser using HTML5 Canvas—no files are uploaded to any server, offering complete privacy and instant zero-latency downloads."
   },
   {
-    q: "What DPI resolution should I select for PAN card applications?",
-    a: "NSDL / Protean and UTIITSL PAN card portals specify 200 DPI resolution for applicant signatures, with dimensions around 400 × 200 pixels (2 cm × 4.5 cm) and file size under 50 KB."
+    q: "Why do SSC, IBPS, and RRB reject signatures in capital letters?",
+    a: "Staff Selection Commission (SSC), IBPS, and Railway Recruitment Boards (RRB) mandate that an applicant must sign in their customary running cursive handwriting. Writing your name in ALL CAPS / BLOCK LETTERS is treated as typed text rather than a valid legal signature and leads to automatic rejection."
+  },
+  {
+    q: "Can I use blue ink or is black ink mandatory for Sarkari exam signatures?",
+    a: "SSC, IBPS, and SBI explicitly mandate black ink pen on clean white paper. While GATE, IIT JAM, and certain universities permit dark blue ink, we strongly recommend signing with a black ballpoint or gel pen for guaranteed acceptance across all Indian application portals."
   }
 ];
 ---
 
-<section id="faq" class="space-y-6 pt-8 border-t border-border">
+<section id="faq" class="space-y-6 pt-12 border-t border-border">
   <div class="max-w-2xl mx-auto text-center space-y-2">
     <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
       Got Questions?
     </div>
     <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-      Frequently Asked Questions
+      Frequently Asked Questions (FAQ)
     </h2>
     <p class="text-sm text-muted-foreground">
-      Quick answers about Indian exam signature rules, upload errors, and formatting.
+      Authoritative answers regarding signature resize, 10–20 KB rules, centimeter dimensions, and portal compliance.
     </p>
   </div>
 
   <div class="max-w-3xl mx-auto space-y-3">
-    {faqs.map((faq, index) => (
+    {faqs.map((faq) => (
       <details class="group p-4 rounded-xl border border-border bg-card shadow-xs transition-all open:ring-1 open:ring-primary/40">
         <summary class="flex items-center justify-between font-semibold text-foreground text-sm cursor-pointer list-none select-none">
           <span>{faq.q}</span>
-          <span class="w-5 h-5 flex items-center justify-center rounded-full bg-muted text-muted-foreground group-open:rotate-180 transition-transform">
+          <span class="w-5 h-5 flex items-center justify-center rounded-full bg-muted text-muted-foreground group-open:rotate-180 transition-transform shrink-0 ml-2">
             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>

@@ -5,12 +5,15 @@ import Header from '../components/Header.astro';
 import { SignatureTool } from '../components/SignatureTool';
 import ExamSpecsTable from '../components/ExamSpecsTable.astro';
 import GuideSection from '../components/GuideSection.astro';
+import SeoContentSection from '../components/SeoContentSection.astro';
 import FaqSection from '../components/FaqSection.astro';
 import Footer from '../components/Footer.astro';
 
-const pageTitle = "Online Signature Resizer & Compressor (10KB to 20KB) for SSC, IBPS, UPSC";
-const pageDescription = "Instantly resize, crop, and compress signatures to exact KB and pixel dimensions (140x60 px, 10-20 KB) for SSC, IBPS, UPSC, GATE, and PAN Card forms. 100% client-side privacy.";
+const pageTitle = "Signature Resize | Resize Signature to 10 to 20 KB Online (Sign Resize & Compressor)";
+const pageDescription = "Free online signature resize & compressor tool. Resize signature to 10 to 20 kb, adjust width and height in cm, crop thumb impression for SSC, PAN card, RRB & NSDL. 100% private, no server upload.";
 const canonicalUrl = "https://signresize.com/";
+const ogImageUrl = "https://signresize.com/og-image.png";
+const keywordsContent = "signature resize, signature resize 10 to 20 kb, signature resize width and height in cm, ssc signature resize, pan card signature resize, rrb signature resize, pan card photo and signature resize, resize signature, sign resize, thumb impression, pi7, pdf pi7 org, pi7 image, pi7 image tool, signature resizer, nsdl pan card signature resize, signature size should be at least 20kb, signature compressor";
 ---
 
 <!doctype html>
@@ -20,26 +23,36 @@ const canonicalUrl = "https://signresize.com/";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
-    <meta name="keywords" content="signature resize, signature resizer, signature resize 10 to 20 kb, 140 x 60 pixels signature resize, ssc signature resizer, ibps signature resizer, upsc signature crop, pan card signature size 200 dpi, signature size reducer online free" />
+    <meta name="keywords" content={keywordsContent} />
     <meta name="author" content="SignResize.com" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalUrl} />
 
-    <!-- Hreflang Tags for English (India) -->
+    <!-- Hreflang Tags for English (India) & Global -->
     <link rel="alternate" hreflang="en-IN" href="https://signresize.com/" />
+    <link rel="alternate" hreflang="en" href="https://signresize.com/" />
     <link rel="alternate" hreflang="x-default" href="https://signresize.com/" />
 
-    <!-- Open Graph / Social Sharing -->
+    <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="SignResize" />
     <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:secure_url" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SignResize - Online Signature Resize and Compressor Tool" />
 
-    <!-- Twitter Cards -->
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="SignResize - Online Signature Resize and Compressor Tool" />
 
     <!-- Google Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,7 +62,7 @@ const canonicalUrl = "https://signresize.com/";
       rel="stylesheet"
     />
 
-    <!-- Favicon -->
+    <!-- Favicon & Vector Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- WebApplication Schema.org JSON-LD -->
@@ -59,20 +72,83 @@ const canonicalUrl = "https://signresize.com/";
       "name": "SignResize",
       "url": "https://signresize.com/",
       "applicationCategory": "UtilityApplication",
-      "operatingSystem": "All",
+      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
       "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
-      "description": "Instant client-side online signature resizer, cropper, and compressor for competitive exams and government portals.",
+      "description": "Free online signature resize, crop, and compressor tool. Resize signature to 10 to 20 KB, customize width and height in cm, and compress thumb impressions for SSC, PAN Card, RRB, and NSDL.",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "INR"
       },
       "featureList": [
-        "Exact 10 KB to 20 KB compression guarantee for SSC & IBPS",
-        "Interactive cropping with aspect ratio lock",
-        "Smart Clean White Paper filter to remove shadows from phone photos",
-        "100% Client-Side processing with zero server uploads",
-        "Digital signature drawing pad with touchscreen support"
+        "Signature resize 10 to 20 kb precision compression",
+        "Signature resize width and height in cm & pixels",
+        "SSC signature resize & RRB signature resizer preset",
+        "PAN card photo and signature resize (NSDL / UTIITSL 200 DPI)",
+        "Thumb impression resizer with square aspect ratio",
+        "Dual-boundary control when signature size should be at least 20kb",
+        "Clean White Paper background shadow remover",
+        "100% client-side privacy with zero server uploads"
+      ]
+    })} />
+
+    <!-- HowTo Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Signature to 10 to 20 KB Online",
+      "description": "Step-by-step guide to crop, resize, and compress your signature to exact 10 KB to 20 KB file bounds for SSC, RRB, and government portal uploads.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Sign on Clean White Paper",
+          "text": "Sign using a black ballpoint pen on plain, unruled white paper in your natural running handwriting.",
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload Image to SignResize",
+          "text": "Upload the photograph or scan to the SignResize online workspace.",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Select Exam Preset or Target KB",
+          "text": "Select your exam preset (e.g., SSC 140x60 px) or adjust the target file size slider between 10 KB and 20 KB.",
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Clean White Paper & Download",
+          "text": "Enable the Clean White Paper filter to remove shadows, preview the output file size, and download your portal-ready JPG.",
+          "position": 4
+        }
+      ]
+    })} />
+
+    <!-- BreadcrumbList Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Signature Resize Tool",
+          "item": "https://signresize.com/#tool-workspace"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Exam Guidelines",
+          "item": "https://signresize.com/#exam-specs"
+        }
       ]
     })} />
   </head>
@@ -82,20 +158,20 @@ const canonicalUrl = "https://signresize.com/";
     <Header />
 
     <!-- Main Content Container -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-14">
       <!-- Hero Section -->
       <section class="text-center max-w-3xl mx-auto space-y-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
           <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-          <span>India's #1 Dedicated Sarkari Exam Signature Resizer</span>
+          <span>Online Signature Resizer &amp; Compressor</span>
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-          Resize Signature to <span class="text-primary">10KB – 20KB</span> Online
+          Online <span class="text-primary">Signature Resize</span> &amp; Compressor (10KB to 20KB)
         </h1>
 
         <p class="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Instantly crop, adjust dimensions (<span class="font-mono text-foreground font-medium">140×60 px</span>, <span class="font-mono text-foreground font-medium">4×2 cm</span>), remove phone photo shadows, and hit exact portal KB limits for <strong>SSC, IBPS, UPSC, GATE & PAN Card</strong>.
+          Instantly <strong>resize signature</strong>, adjust <strong>width and height in cm</strong> (<span class="font-mono text-foreground font-medium">140×60 px</span>, <span class="font-mono text-foreground font-medium">4×2 cm</span>), remove phone photo shadows, and compress <strong>thumb impressions</strong> for <strong>SSC, PAN Card (NSDL), RRB &amp; UPSC</strong>.
         </p>
 
         <!-- Feature Badges -->
@@ -104,19 +180,19 @@ const canonicalUrl = "https://signresize.com/";
             <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            Guaranteed 10–20 KB Compliance
+            Signature Resize 10 to 20 KB
           </span>
           <span class="px-3 py-1 rounded-lg bg-card border border-border shadow-xs text-muted-foreground flex items-center gap-1.5">
             <svg class="w-4 h-4 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            Auto Clean White Paper
+            Width &amp; Height in CM / Pixels
           </span>
           <span class="px-3 py-1 rounded-lg bg-card border border-border shadow-xs text-muted-foreground flex items-center gap-1.5">
             <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
-            Zero Server Uploads (100% Private)
+            Zero Server Upload (100% Private)
           </span>
         </div>
       </section>
@@ -130,7 +206,10 @@ const canonicalUrl = "https://signresize.com/";
       <!-- Comprehensive Rejection Avoidance & Mobile Capture Guide -->
       <GuideSection />
 
-      <!-- Frequently Asked Questions -->
+      <!-- Comprehensive 800-1200 Words SEO Guide Section -->
+      <SeoContentSection />
+
+      <!-- Frequently Asked Questions with FAQ Schema -->
       <FaqSection />
     </main>
 

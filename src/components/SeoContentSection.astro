@@ -1,0 +1,261 @@
+---
+// src/components/SeoContentSection.astro
+---
+
+<article id="seo-guide" class="space-y-10 pt-12 border-t border-border text-foreground">
+  <!-- Section Header -->
+  <div class="max-w-3xl mx-auto text-center space-y-3">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+      Official Aspirant Guide
+    </div>
+    <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+      Online Signature Resize &amp; Compression Guide
+    </h2>
+    <p class="text-sm sm:text-base text-muted-foreground leading-relaxed">
+      Learn how to perform <strong>signature resize 10 to 20 kb</strong>, set <strong>signature resize width and height in cm</strong>, and ensure full compliance for <strong>SSC, PAN Card, RRB, NSDL</strong>, and <strong>thumb impression</strong> uploads.
+    </p>
+  </div>
+
+  <!-- Main Editorial Content -->
+  <div class="max-w-4xl mx-auto space-y-8 text-sm sm:text-base leading-relaxed text-muted-foreground">
+
+    <!-- 1. Overview & Problem -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Why You Need a Dedicated Signature Resizer &amp; Compressor
+      </h3>
+      <p>
+        Every year, millions of applicants register for competitive exams and government portals such as the Staff Selection Commission (SSC), Railway Recruitment Boards (RRB), Institute of Banking Personnel Selection (IBPS), UPSC, and Income Tax PAN Card services. Yet, thousands face application rejection due to a simple technical error: an incorrectly sized signature or thumb impression.
+      </p>
+      <p>
+        Government registration servers use automated scripts that validate digital files against strict criteria. If a notification states the file must be between 10 KB and 20 KB, an upload of 9.8 KB or 20.2 KB is rejected instantly. Similarly, wrong aspect ratios make signatures appear stretched or unreadable on admit cards.
+      </p>
+      <p>
+        This is why a dedicated <strong>signature resizer</strong> and <strong>signature compressor</strong> is essential. Instead of complex photo editors that blur ink strokes, an intelligent <strong>sign resize</strong> platform lets you configure target pixels, centimeter scales, and exact kilobyte boundaries with automated precision.
+      </p>
+    </section>
+
+    <!-- 2. Step-by-Step 10 to 20 KB -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        How to Resize Signature 10 to 20 KB Online Without Losing Quality
+      </h3>
+      <p>
+        Completing a <strong>signature resize 10 to 20 kb</strong> is standard for Indian exam portals. Follow these four simple steps to <strong>resize signature</strong> files accurately:
+      </p>
+      <ol class="list-decimal pl-5 space-y-2 text-foreground/90 font-normal">
+        <li>
+          <strong>Capture or Draw Signature:</strong> Sign in running cursive hand with a black ballpoint pen on plain white paper, or use our digital signature pad to draw directly with your finger or stylus.
+        </li>
+        <li>
+          <strong>Upload Image:</strong> Select your photo. SignResize processes your file 100% locally in your browser with zero server uploads for total privacy.
+        </li>
+        <li>
+          <strong>Choose Preset or Custom Size:</strong> Select presets like <em>SSC (140×60 px, 10–20 KB)</em> or adjust the slider between 10 KB and 20 KB (recommended target: 15 KB).
+        </li>
+        <li>
+          <strong>Clean Background &amp; Download:</strong> Turn on the <em>Clean White Paper</em> filter to remove photo shadows and tap <em>Download JPG</em>.
+        </li>
+      </ol>
+      <p class="text-xs sm:text-sm bg-muted/50 p-3.5 rounded-xl border border-border text-foreground/80">
+        <strong>How it works:</strong> Unlike basic tools that degrade quality, SignResize employs client-side binary search compression. It checks quantization levels iteratively to hit your 10–20 KB target while keeping ink lines sharp.
+      </p>
+    </section>
+
+    <!-- 3. Width & Height in CM -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Signature Resize Width and Height in CM: DPI Conversion Guide
+      </h3>
+      <p>
+        Official recruitment bulletins often state dimensions in physical units. For instance, SSC requires <strong>4.0 cm × 2.0 cm</strong>, PAN card mandates <strong>4.5 cm × 2.0 cm</strong>, and NEET specifies <strong>3.5 cm × 1.5 cm</strong>.
+      </p>
+      <p>
+        When configuring <strong>signature resize width and height in cm</strong>, convert centimeters to pixels using the standard formula:
+      </p>
+      <div class="p-3 rounded-xl bg-muted/60 font-mono text-center text-xs sm:text-sm text-foreground border border-border font-semibold">
+        Pixels = (Centimeters / 2.54) × DPI
+      </div>
+      <p>
+        Most government portals recommend <strong>200 DPI</strong> resolution for clear scanning. Here is a quick reference table:
+      </p>
+
+      <!-- Conversion Table -->
+      <div class="overflow-x-auto rounded-xl border border-border">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-muted/80 text-foreground font-semibold border-b border-border">
+            <tr>
+              <th class="py-2 px-3">Portal / Exam</th>
+              <th class="py-2 px-3">Dimensions (CM)</th>
+              <th class="py-2 px-3">Standard Pixels</th>
+              <th class="py-2 px-3">Allowed File Size</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border/60">
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">SSC (CGL, CHSL, MTS)</td>
+              <td class="py-2 px-3 font-mono">4.0 cm × 2.0 cm</td>
+              <td class="py-2 px-3 font-mono">140 × 60 px</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">10 KB – 20 KB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">PAN Card (NSDL/UTIITSL)</td>
+              <td class="py-2 px-3 font-mono">4.5 cm × 2.0 cm</td>
+              <td class="py-2 px-3 font-mono">400 × 200 px (200 DPI)</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">10 KB – 50 KB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">RRB Railways (NTPC, ALP)</td>
+              <td class="py-2 px-3 font-mono">4.0 cm × 2.0 cm</td>
+              <td class="py-2 px-3 font-mono">140 × 60 px</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">10 KB – 20 KB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">Left Thumb Impression</td>
+              <td class="py-2 px-3 font-mono">3.0 cm × 3.0 cm</td>
+              <td class="py-2 px-3 font-mono">240 × 240 px (200 DPI)</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">10 KB – 50 KB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">NTA NEET / JEE Main</td>
+              <td class="py-2 px-3 font-mono">3.5 cm × 1.5 cm</td>
+              <td class="py-2 px-3 font-mono">140 × 60 px</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">4 KB – 30 KB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Portal-Specific Requirements -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Exam Requirements: SSC, PAN Card, RRB &amp; Thumb Impression
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- SSC Card -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">SSC Signature Resize (CGL, CHSL, MTS)</h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>ssc signature resize</strong>, the Staff Selection Commission requires 140 × 60 pixels (4.0 cm × 2.0 cm) and 10 KB to 20 KB. Sign in black ink on white paper. Signatures in capital letters (ALL CAPS) are strictly rejected.
+          </p>
+        </div>
+
+        <!-- PAN Card Card -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">PAN Card Signature Resize &amp; NSDL Guidelines</h4>
+          <p class="text-xs sm:text-sm">
+            Applying through NSDL or UTIITSL requires <strong>nsdl pan card signature resize</strong> and <strong>pan card photo and signature resize</strong>. For <strong>pan card signature resize</strong>, keep the file under 50 KB at 200 DPI (4.5 cm × 2.0 cm). Photos must be 3.5 cm × 2.5 cm under 50 KB.
+          </p>
+        </div>
+
+        <!-- RRB Card -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">RRB Signature Resize (Railways NTPC &amp; Group D)</h4>
+          <p class="text-xs sm:text-sm">
+            In railway recruitments, <strong>rrb signature resize</strong> requires 140 × 60 pixels and 10 to 20 KB file size. Candidates must sign in a natural running hand. Discrepancies during document verification lead to cancellation.
+          </p>
+        </div>
+
+        <!-- Thumb Impression Card -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">Left Thumb Impression Resizing Rules</h4>
+          <p class="text-xs sm:text-sm">
+            Examinations like IBPS, SSC, RRB, and NEET require a clear left <strong>thumb impression</strong> on white paper with blue or black stamp ink. Use square cropping (3.0 cm × 3.0 cm or 240 × 240 px) and compress to 10–20 KB or 20–50 KB with visible ridges.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Solving "Signature size should be at least 20kb" -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Fixing: "Signature Size Should Be at Least 20KB" Error
+      </h3>
+      <p>
+        While many need to shrink files, some portals show the reverse error: <strong>"signature size should be at least 20kb"</strong>. Portals such as UPSC (Civil Services, NDA, CDS), state PSCs, and universities require a minimum file size (e.g., 20 KB to 50 KB or 20 KB to 300 KB).
+      </p>
+      <p>
+        When you crop a small signature, basic compressors shrink it down to 6 KB or 8 KB, causing instant rejection. SignResize solves this with dual-boundary controls: set your minimum threshold (20 KB) and maximum target (50 KB). The engine optimizes encoding to keep your image sharp and securely above 20 KB.
+      </p>
+    </section>
+
+    <!-- 6. Comparison: SignResize vs PI7 -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Why SignResize is the Best Alternative to PI7 Tools (pi7, pdf pi7 org)
+      </h3>
+      <p>
+        Many applicants search for legacy tools such as <strong>pi7</strong>, <strong>pdf pi7 org</strong>, <strong>pi7 image</strong>, or the <strong>pi7 image tool</strong>. While widely used, SignResize provides a faster, privacy-first alternative:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
+        <div class="p-4 rounded-xl border border-border bg-muted/30 space-y-1.5">
+          <div class="font-bold text-foreground text-sm flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            Zero Server Uploads
+          </div>
+          <p class="text-xs text-muted-foreground">
+            Unlike pi7 image tool or pdf pi7 org which upload files to remote servers, SignResize works 100% locally in your browser. Your signature never leaves your device.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-border bg-muted/30 space-y-1.5">
+          <div class="font-bold text-foreground text-sm flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Instant Real-Time Crop
+          </div>
+          <p class="text-xs text-muted-foreground">
+            Lock official aspect ratios (140:60, 4:2, 1:1, 3:1) and preview exact KB output in real time without repetitive trial downloads.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-border bg-muted/30 space-y-1.5">
+          <div class="font-bold text-foreground text-sm flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            Clean White Background
+          </div>
+          <p class="text-xs text-muted-foreground">
+            Mobile photos often suffer from yellow shadows. The Clean White Paper filter removes background tint while keeping ink strokes crisp.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Tips to Avoid Disqualification -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Important Aspirant Rules for Form Submission
+      </h3>
+      <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-muted-foreground">
+        <li>
+          <strong class="text-foreground">Never Sign in Capital Letters:</strong> Writing your name in all capital letters (e.g. "RAHUL SHARMA") is disqualified by SSC, IBPS, and RRB. Use your standard cursive signature.
+        </li>
+        <li>
+          <strong class="text-foreground">Use Black Ink When Specified:</strong> While exams like GATE allow blue ink, SSC and IBPS mandate <strong>black ballpoint ink</strong> on white paper.
+        </li>
+        <li>
+          <strong class="text-foreground">Use Plain Unruled Sheets:</strong> Avoid notebook paper with lines or watermarks, as these interfere with automatic document scanners.
+        </li>
+        <li>
+          <strong class="text-foreground">Crop Closely:</strong> Ensure the signature fills 75% to 85% of the crop box so it appears clear on admit cards.
+        </li>
+      </ul>
+    </section>
+
+  </div>
+</article>
+
