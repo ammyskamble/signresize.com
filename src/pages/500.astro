@@ -1,0 +1,120 @@
+---
+// src/pages/500.astro - 500 Internal Server / Application Error
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "500 - Application Error | SignResize.com";
+const pageDescription = "An unexpected error occurred while processing your request. SignResize operates 100% locally in your browser.";
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-xl w-full text-center space-y-8">
+        
+        <!-- Animated 500 Badge -->
+        <div class="relative inline-flex items-center justify-center">
+          <div class="absolute inset-0 rounded-3xl bg-amber-500/20 blur-2xl transform scale-125"></div>
+          <div class="relative px-6 py-4 rounded-2xl bg-card border border-amber-500/30 shadow-xl">
+            <span class="text-7xl sm:text-8xl font-black tracking-tight text-amber-500 font-mono">
+              500
+            </span>
+          </div>
+        </div>
+
+        <!-- Headings & Message -->
+        <div class="space-y-3">
+          <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+            Application Processing Error
+          </h1>
+          <p class="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-md mx-auto">
+            Something went wrong while rendering the requested page or processing an image canvas. Your original files remain completely safe and untouched on your device.
+          </p>
+        </div>
+
+        <!-- Troubleshooting Card -->
+        <div class="p-6 rounded-2xl border border-border bg-card shadow-sm space-y-5 text-left">
+          <div class="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border pb-2.5">
+            Quick Recovery Steps
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 font-bold">1</div>
+              <div>
+                <strong class="text-foreground">Refresh the Page:</strong> A simple reload will re-initialize the HTML5 canvas engine.
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 font-bold">2</div>
+              <div>
+                <strong class="text-foreground">Check File Format:</strong> Ensure your image is a standard JPG, PNG, WEBP, or BMP file.
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 font-bold">3</div>
+              <div>
+                <strong class="text-foreground">Clear Local Cache:</strong> Clear your browser session if a canvas memory bottleneck occurred.
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row gap-3">
+            <button
+              onclick="window.location.reload()"
+              class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-card border border-border text-foreground font-semibold hover:bg-muted transition"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Reload Page</span>
+            </button>
+
+            <a
+              href="/"
+              class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-primary text-primary-foreground font-bold shadow-md shadow-primary/25 hover:opacity-95 transition"
+            >
+              <span>Go to Homepage</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- In-Browser Offline Note -->
+        <div class="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span>All operations run locally in your browser. No files are stored or lost on servers.</span>
+        </div>
+
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

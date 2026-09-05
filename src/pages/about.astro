@@ -1,0 +1,126 @@
+---
+// src/pages/about.astro - About Us
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "About Us | SignResize.com";
+const pageDescription = "Learn about SignResize.com — the mission behind our 100% client-side, zero-upload signature resizing tool built for students and job aspirants across India.";
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href="https://signresize.com/about" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+      
+      <!-- Page Header -->
+      <div class="border-b border-border pb-6 space-y-3">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+          <span>🇮🇳 Built for Indian Aspirants &amp; Citizens</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+          About SignResize.com
+        </h1>
+        <p class="text-base text-muted-foreground leading-relaxed">
+          Empowering millions of students and job applicants with instant, private, and mathematically precise signature resizing tools.
+        </p>
+      </div>
+
+      <!-- Mission Overview -->
+      <section class="space-y-4 text-sm sm:text-base leading-relaxed text-muted-foreground">
+        <h2 class="text-xl font-bold text-foreground">Our Mission: Simplifying Sarkari Application Prep</h2>
+        <p>
+          Every year, millions of Indian applicants apply for competitive recruitment exams such as <strong>SSC (CGL, CHSL, GD, MTS)</strong>, <strong>UPSC</strong>, <strong>Banking (IBPS PO &amp; Clerk)</strong>, <strong>Railway (RRB NTPC, ALP, Group D)</strong>, and identity documents like <strong>PAN Cards (NSDL/UTIITSL)</strong>.
+        </p>
+        <p>
+          Unfortunately, thousands of applications face rejection or server upload errors due to strict, unforgiving requirements: <em>"Signature must be between 10 KB to 20 KB"</em>, <em>"Width must be exactly 140 pixels and height 60 pixels"</em>, or <em>"Resolution must be 200 DPI on clean white paper"</em>.
+        </p>
+        <p>
+          <strong>SignResize.com</strong> was founded with a singular purpose: to provide a completely free, lightning-fast, and 100% private web utility that eliminates technical friction for aspirants in every corner of India.
+        </p>
+      </section>
+
+      <!-- Why We Are Different Grid -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-foreground">Why SignResize is Different</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          
+          <div class="p-5 rounded-2xl border border-border bg-card shadow-xs space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-base">
+              🔒
+            </div>
+            <h3 class="font-bold text-foreground text-sm">100% Client-Side Privacy</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Unlike traditional image converters that upload your personal signature to remote cloud databases, our engine processes every single byte inside your browser using HTML5 Canvas &amp; WebAssembly. Your signature never leaves your phone or laptop.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl border border-border bg-card shadow-xs space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-base">
+              ⚖️
+            </div>
+            <h3 class="font-bold text-foreground text-sm">Dual-Boundary Compression</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Standard compressors only let you reduce size. Our dual-boundary algorithm ensures your output file lands precisely between both minimum and maximum limits (e.g., strictly 10.0 KB to 20.0 KB) so portals never reject your upload.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl border border-border bg-card shadow-xs space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-base">
+              📐
+            </div>
+            <h3 class="font-bold text-foreground text-sm">Centimeter to Pixel Precision</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Official notifications often specify sizes in Centimeters (e.g., 4.0 cm × 2.0 cm) or Inches. Our built-in unit converter automatically calculates exact pixel dimensions at 200 DPI standard scanning density.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl border border-border bg-card shadow-xs space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-base">
+              ✍️
+            </div>
+            <h3 class="font-bold text-foreground text-sm">Digital Drawing Canvas</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              No paper or scanner handy? Sign directly on your mobile screen with your finger or stylus, crop to dimensions, and download an official-compliant JPEG in seconds.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Commitment to Accessibility & Quality -->
+      <section class="p-6 rounded-2xl bg-muted/30 border border-border space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        <h2 class="text-base font-bold text-foreground">Our Commitment to Quality and Accessibility</h2>
+        <p>
+          SignResize.com is designed to work smoothly on entry-level Android smartphones with low 3G/4G connectivity, as well as desktop workstations in cyber cafes and schools. We require no app installs, no registration, and no software licenses.
+        </p>
+        <p>
+          Have questions, suggestions, or want to report an updated exam specification? Visit our <a href="/contact" class="text-primary underline font-semibold">Contact Page</a> to reach our team.
+        </p>
+      </section>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

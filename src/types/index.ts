@@ -2,6 +2,26 @@ export type UnitType = 'px' | 'cm' | 'mm' | 'in';
 
 export type OutputFormat = 'image/jpeg' | 'image/png' | 'image/webp';
 
+export interface BatchSignatureItem {
+  id: string;
+  file?: File;
+  fileName: string;
+  originalSize: number;
+  image: HTMLImageElement;
+  status: 'pending' | 'processing' | 'done' | 'error';
+  rotation: number;
+  flipH: boolean;
+  flipV: boolean;
+  customCrop?: CropArea;
+  resultBlob?: Blob;
+  resultDataUrl?: string;
+  resultSizeKb?: number;
+  resultWidth?: number;
+  resultHeight?: number;
+  withinBounds?: boolean;
+  errorMessage?: string;
+}
+
 export interface ExamPreset {
   id: string;
   name: string;

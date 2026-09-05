@@ -1,0 +1,116 @@
+---
+// src/pages/404.astro - 404 Page Not Found
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "404 - Page Not Found | SignResize.com";
+const pageDescription = "The requested page or tool preset could not be found. Return to SignResize to resize and compress your signature.";
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-xl w-full text-center space-y-8">
+        
+        <!-- Animated 404 Badge -->
+        <div class="relative inline-flex items-center justify-center">
+          <div class="absolute inset-0 rounded-3xl bg-primary/20 blur-2xl transform scale-125"></div>
+          <div class="relative px-6 py-4 rounded-2xl bg-card border border-border shadow-xl">
+            <span class="text-7xl sm:text-8xl font-black tracking-tight text-primary font-mono">
+              404
+            </span>
+          </div>
+        </div>
+
+        <!-- Headings & Message -->
+        <div class="space-y-3">
+          <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+            Page or Preset Not Found
+          </h1>
+          <p class="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-md mx-auto">
+            The link you followed may be broken, or the exam preset URL may have moved. Don't worry—the resizer studio is ready for you.
+          </p>
+        </div>
+
+        <!-- Quick Jump Action Card -->
+        <div class="p-6 rounded-2xl border border-border bg-card shadow-sm space-y-4">
+          <div class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+            Popular Exam Shortcuts
+          </div>
+          
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
+            <a href="/#tool-workspace" class="p-2.5 rounded-xl border border-border bg-muted/30 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition font-medium text-left flex flex-col">
+              <span class="font-bold text-foreground">SSC CGL / GD</span>
+              <span class="text-[10px] text-muted-foreground">140×60 px (10–20 KB)</span>
+            </a>
+            <a href="/#tool-workspace" class="p-2.5 rounded-xl border border-border bg-muted/30 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition font-medium text-left flex flex-col">
+              <span class="font-bold text-foreground">PAN Card</span>
+              <span class="text-[10px] text-muted-foreground">4.5×2 cm (200 DPI)</span>
+            </a>
+            <a href="/#tool-workspace" class="p-2.5 rounded-xl border border-border bg-muted/30 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition font-medium text-left flex flex-col">
+              <span class="font-bold text-foreground">RRB Railway</span>
+              <span class="text-[10px] text-muted-foreground">10–20 KB JPEG</span>
+            </a>
+            <a href="/#tool-workspace" class="p-2.5 rounded-xl border border-border bg-muted/30 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition font-medium text-left flex flex-col">
+              <span class="font-bold text-foreground">Left Thumb</span>
+              <span class="text-[10px] text-muted-foreground">3×3 cm Square</span>
+            </a>
+            <a href="/#tool-workspace" class="p-2.5 rounded-xl border border-border bg-muted/30 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition font-medium text-left flex flex-col">
+              <span class="font-bold text-foreground">UPSC IAS</span>
+              <span class="text-[10px] text-muted-foreground">350×350 px</span>
+            </a>
+            <a href="/#faq" class="p-2.5 rounded-xl border border-border bg-muted/30 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition font-medium text-left flex flex-col">
+              <span class="font-bold text-foreground">Aspirant FAQ</span>
+              <span class="text-[10px] text-muted-foreground">Common Solutions</span>
+            </a>
+          </div>
+
+          <!-- Primary CTA Button -->
+          <div class="pt-2">
+            <a
+              href="/"
+              class="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-xl bg-primary text-primary-foreground font-bold text-sm shadow-md shadow-primary/25 hover:opacity-95 transition transform active:scale-98"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              <span>Return to Signature Resizer Studio</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Privacy & Offline Assurance -->
+        <div class="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span>All processing is 100% in-browser. No images ever leave your device.</span>
+        </div>
+
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

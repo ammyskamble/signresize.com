@@ -1,0 +1,99 @@
+---
+// src/pages/disclaimer.astro - Disclaimer
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "Disclaimer | SignResize.com";
+const pageDescription = "Official non-affiliation disclaimer and educational use declaration for SignResize.com.";
+const lastUpdated = "September 2026";
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href="https://signresize.com/disclaimer" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+      
+      <!-- Page Header -->
+      <div class="border-b border-border pb-6 space-y-2">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+          Disclaimer
+        </h1>
+        <p class="text-xs text-muted-foreground font-mono">
+          Last Updated: {lastUpdated}
+        </p>
+      </div>
+
+      <div class="space-y-8 text-sm leading-relaxed text-muted-foreground">
+        
+        <!-- Non-affiliation notice -->
+        <section class="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-foreground space-y-2">
+          <h2 class="text-base font-bold text-amber-900 dark:text-amber-300 flex items-center gap-2">
+            <span>⚠️ Official Non-Affiliation Declaration</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed">
+            <strong>SignResize.com</strong> is an independent software tool and is <strong>NOT</strong> affiliated, associated, authorized, endorsed by, or in any way officially connected with the <strong>Staff Selection Commission (SSC)</strong>, <strong>Union Public Service Commission (UPSC)</strong>, <strong>Railway Recruitment Boards (RRB)</strong>, <strong>National Testing Agency (NTA)</strong>, <strong>Institute of Banking Personnel Selection (IBPS)</strong>, <strong>NSDL e-Gov (Protean)</strong>, <strong>UTIITSL</strong>, or any other Central or State government organization in India.
+          </p>
+        </section>
+
+        <!-- General Educational & Utility Disclaimer -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">1. Educational &amp; Productivity Purpose</h2>
+          <p>
+            The information and tools provided on SignResize.com are for general educational, illustrative, and formatting assistance purposes only. All specifications (including pixel dimensions, aspect ratios, file size bounds in kilobytes, and scanning DPI thresholds) are compiled from publicly released recruitment advertisements and official portal FAQs.
+          </p>
+        </section>
+
+        <!-- Accuracy & User Responsibility -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">2. Examination Rules &amp; User Verification</h2>
+          <p>
+            Recruiting authorities and exam boards frequently revise upload criteria across different exam cycles. While we make every effort to keep our preset values up-to-date:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Users are strongly advised to check the official notification PDF of their specific exam before final application submission.</li>
+            <li>SignResize.com accepts no responsibility or liability for application rejections resulting from outdated, mismatched, or altered rules by recruiting bodies.</li>
+          </ul>
+        </section>
+
+        <!-- Trademarks & Names -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">3. Trademarks &amp; Brand Names</h2>
+          <p>
+            All names, logos, acronyms, and registered trademarks (such as SSC, UPSC, RRB, NSDL, IBPS, IIT GATE, NEET) mentioned on this website belong to their respective trademark holders. Reference to these entities is purely for descriptive, comparative, and identification purposes and does not imply any partnership or endorsement.
+          </p>
+        </section>
+
+        <!-- Contact -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">4. Questions &amp; Inquiries</h2>
+          <p>
+            If you have questions regarding this disclaimer, please visit our <a href="/contact" class="text-primary underline font-semibold">Contact Us</a> page.
+          </p>
+        </section>
+
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

@@ -5,23 +5,23 @@ const currentYear = new Date().getFullYear();
 
 <footer class="border-t border-border bg-card/60 mt-16 pt-12 pb-8 text-xs text-muted-foreground">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       {/* Brand & Mission */}
-      <div class="space-y-3 md:col-span-2">
+      <div class="space-y-3 sm:col-span-2 md:col-span-1">
         <div class="flex items-center gap-2">
           <div class="w-7 h-7 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs shadow-sm">
             SR
           </div>
           <span class="font-bold text-base text-foreground tracking-tight">SignResize.com</span>
         </div>
-        <p class="text-xs leading-relaxed max-w-sm">
+        <p class="text-xs leading-relaxed">
           An instant, privacy-first signature resizer, cropper, and compressor engineered specifically for Indian competitive exams (SSC, IBPS, UPSC, GATE, Railways) and government application portals.
         </p>
         <div class="flex items-center gap-2 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
-          <span>All image processing happens locally in your browser.</span>
+          <span>100% In-Browser Privacy</span>
         </div>
       </div>
 
@@ -29,24 +29,35 @@ const currentYear = new Date().getFullYear();
       <div class="space-y-2">
         <h4 class="font-semibold text-foreground text-xs uppercase tracking-wider">Exam Tools</h4>
         <ul class="space-y-1.5 text-xs">
-          <li><a href="#tool-workspace" class="hover:text-foreground transition">SSC Signature Resizer (10-20 KB)</a></li>
-          <li><a href="#tool-workspace" class="hover:text-foreground transition">RRB Signature Resize (10-20 KB)</a></li>
-          <li><a href="#tool-workspace" class="hover:text-foreground transition">PAN Card Photo & Signature Resize</a></li>
-          <li><a href="#tool-workspace" class="hover:text-foreground transition">Thumb Impression Resizer</a></li>
-          <li><a href="#tool-workspace" class="hover:text-foreground transition">IBPS / SBI Signature Resizer</a></li>
-          <li><a href="#tool-workspace" class="hover:text-foreground transition">UPSC Signature Cropper</a></li>
+          <li><a href="/#tool-workspace" class="hover:text-primary transition">SSC Signature (10-20 KB)</a></li>
+          <li><a href="/#tool-workspace" class="hover:text-primary transition">RRB Railway Signature</a></li>
+          <li><a href="/#tool-workspace" class="hover:text-primary transition">PAN Card Photo &amp; Sign</a></li>
+          <li><a href="/#tool-workspace" class="hover:text-primary transition">Thumb Impression Resizer</a></li>
+          <li><a href="/#tool-workspace" class="hover:text-primary transition">IBPS / SBI Signature</a></li>
+          <li><a href="/#tool-workspace" class="hover:text-primary transition">UPSC Signature Cropper</a></li>
         </ul>
       </div>
 
       {/* Guidelines & Resources */}
       <div class="space-y-2">
-        <h4 class="font-semibold text-foreground text-xs uppercase tracking-wider">Guidelines</h4>
+        <h4 class="font-semibold text-foreground text-xs uppercase tracking-wider">Aspirant Guides</h4>
         <ul class="space-y-1.5 text-xs">
-          <li><a href="#seo-guide" class="hover:text-foreground transition">Signature Resize Guide (CM & KB)</a></li>
-          <li><a href="#exam-specs" class="hover:text-foreground transition">Dimension Specifications</a></li>
-          <li><a href="#rejection-guide" class="hover:text-foreground transition">How to Avoid Rejections</a></li>
-          <li><a href="#seo-guide" class="hover:text-foreground transition">SignResize vs PI7 Tools</a></li>
-          <li><a href="#faq" class="hover:text-foreground transition">Frequently Asked Questions</a></li>
+          <li><a href="/#seo-guide" class="hover:text-primary transition">CM to Pixel Conversion</a></li>
+          <li><a href="/#exam-specs" class="hover:text-primary transition">Exam Dimensions Matrix</a></li>
+          <li><a href="/#guide" class="hover:text-primary transition">How to Avoid Rejections</a></li>
+          <li><a href="/#faq" class="hover:text-primary transition">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      {/* Legal & Company (AdSense Policy Compliant) */}
+      <div class="space-y-2">
+        <h4 class="font-semibold text-foreground text-xs uppercase tracking-wider">Legal &amp; Support</h4>
+        <ul class="space-y-1.5 text-xs">
+          <li><a href="/about" class="hover:text-primary transition">About Us</a></li>
+          <li><a href="/contact" class="hover:text-primary transition">Contact Support</a></li>
+          <li><a href="/privacy" class="hover:text-primary transition">Privacy Policy</a></li>
+          <li><a href="/terms" class="hover:text-primary transition">Terms &amp; Conditions</a></li>
+          <li><a href="/disclaimer" class="hover:text-primary transition">Disclaimer</a></li>
         </ul>
       </div>
     </div>
@@ -54,11 +65,18 @@ const currentYear = new Date().getFullYear();
     {/* Disclaimer & Copyright */}
     <div class="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
       <p>
-        © {currentYear} SignResize.com. Free online tool for students & aspirants.
+        © {currentYear} SignResize.com. Free online tool for students &amp; aspirants.
       </p>
-      <p class="text-[10px] text-muted-foreground/80 max-w-md text-center sm:text-right">
-        Disclaimer: SignResize.com is an independent utility tool and is not affiliated with SSC, UPSC, IBPS, or any government portal.
-      </p>
+      <div class="flex flex-wrap items-center gap-3 text-[10px] text-muted-foreground/80">
+        <a href="/privacy" class="hover:underline">Privacy Policy</a>
+        <span>•</span>
+        <a href="/terms" class="hover:underline">Terms</a>
+        <span>•</span>
+        <a href="/disclaimer" class="hover:underline">Disclaimer</a>
+        <span>•</span>
+        <a href="/contact" class="hover:underline">Contact</a>
+      </div>
     </div>
   </div>
 </footer>
+
