@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://signresize.com',
+  site: 'https://signresize.in',
   build: {
     inlineStylesheets: 'always'
   },
