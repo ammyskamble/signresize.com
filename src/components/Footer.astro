@@ -1,5 +1,6 @@
 ---
 // Footer.astro
+import Logo from './Logo.astro';
 const currentYear = new Date().getFullYear();
 ---
 
@@ -9,9 +10,7 @@ const currentYear = new Date().getFullYear();
       {/* Brand & Mission */}
       <div class="space-y-3 sm:col-span-2 md:col-span-1">
         <div class="flex items-center gap-2">
-          <div class="w-7 h-7 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs shadow-sm">
-            SR
-          </div>
+          <Logo class="w-7 h-7 rounded-lg shadow-sm" />
           <span class="font-bold text-base text-foreground tracking-tight">SignResize.in</span>
         </div>
         <p class="text-xs leading-relaxed">

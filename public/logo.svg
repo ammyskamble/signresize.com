@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="logo-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d81456" />
+      <stop offset="25%" stop-color="#2010e5" />
+      <stop offset="100%" stop-color="#eca0ff" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" rx="123" fill="url(#logo-gradient)" />
+  <g transform="translate(149, 149) rotate(3, 151, 151)">
+    <svg width="302" height="302" viewBox="0 0 24 24" fill="#ffffff" fill-opacity="0.9" stroke="rgba(6, 6, 6, 1)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 19 7-7 3 3-7 7-3-3z" />
+      <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+      <path d="m2 2 7.586 7.586" />
+      <circle cx="11" cy="11" r="2" />
+    </svg>
+  </g>
+</svg>
