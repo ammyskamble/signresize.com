@@ -30,7 +30,6 @@ import {
   Scaling,
   XCircle
 } from 'lucide-react';
-import JSZip from 'jszip';
 import { EXAM_PRESETS, CATEGORIES } from '../data/examPresets';
 import type {
   ExamPreset,
@@ -805,6 +804,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
 
     setIsZipCreating(true);
     try {
+      const { default: JSZip } = await import('jszip');
       const zip = new JSZip();
       const ext = targetFormat === 'image/jpeg' ? 'jpg' : targetFormat === 'image/png' ? 'png' : 'webp';
       const cleanExamTag = selectedPreset ? `${selectedPreset.shortCode.toLowerCase()}_` : '';
@@ -1149,13 +1149,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
             className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition ${
               toolMode === 'batch'
                 ? 'bg-primary text-primary-foreground shadow-xs'
-                : 'text-muted-foreground hover:text-foreground'
+                : 'text-zinc-600 dark:text-zinc-400 hover:text-foreground'
             }`}
           >
             <Layers className="w-3.5 h-3.5 shrink-0" />
             <span>Batch Editor</span>
-            <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono font-bold ${
-              toolMode === 'batch' ? 'bg-primary-foreground/20 text-primary-foreground' : 'bg-primary/10 text-primary'
+            <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-mono font-bold ${
+              toolMode === 'batch'
+                ? 'bg-primary-foreground/20 text-primary-foreground'
+                : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200'
             }`}>
               {batchItems.length > 0 ? `${batchItems.length}/10` : 'Up to 10'}
             </span>
@@ -1707,9 +1709,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
               </div>
 
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold tracking-tight text-foreground">
+                <h2 className="text-2xl font-bold tracking-tight text-foreground">
                   Drop your Signature Image here
-                </h3>
+                </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Instant client-side resizing and compression for SSC, IBPS, UPSC, GATE, and PAN Card forms.
                   <br className="hidden sm:inline" />

@@ -8,6 +8,8 @@ import GuideSection from '../components/GuideSection.astro';
 import SeoContentSection from '../components/SeoContentSection.astro';
 import FaqSection from '../components/FaqSection.astro';
 import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
 
 const pageTitle = "Signature Resize | Resize Signature to 10 to 20 KB Online (Sign Resize & Compressor)";
 const pageDescription = "Free online signature resize & compressor tool. Resize signature to 10 to 20 kb, adjust width and height in cm, crop thumb impression for SSC, PAN card, RRB & NSDL. 100% private, no server upload.";
@@ -20,14 +22,7 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
 <html lang="en-IN" class="scroll-smooth">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1N3EF3HFPH"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-1N3EF3HFPH');
-    </script>
+    <GoogleAnalytics />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
@@ -62,26 +57,8 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content="SignResize - Online Signature Resize and Compressor Tool" />
 
-    <!-- High-Performance Async Google Fonts (Inter & JetBrains Mono) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-      />
-    </noscript>
+    <!-- Async Google Fonts (Inter & JetBrains Mono) -->
+    <GoogleFonts />
 
     <!-- Favicon & PWA Icons / Capabilities -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -233,7 +210,7 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
                 <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                 Updated 2026 Guidelines
               </span>
-              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/10 border border-emerald-500/20">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 0 Bytes Uploaded • 100% In-Browser Private
               </span>
@@ -270,18 +247,18 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
         <!-- Left Side: Main Interactive Resizer Tool Workspace -->
         <div class="lg:col-span-8 space-y-6">
           <div class="bg-card border border-border rounded-2xl p-4 sm:p-6 shadow-sm">
-            <SignatureTool client:idle />
+            <SignatureTool client:visible />
           </div>
 
           <!-- Bottom Accordion Knowledge Base & Specifications -->
           <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-4">
             <div class="flex items-center justify-between border-b border-border pb-3">
-              <h3 class="text-base font-bold text-foreground flex items-center gap-2">
+              <h2 class="text-base font-bold text-foreground flex items-center gap-2">
                 <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 Official Verification Matrix &amp; Knowledge Base
-              </h3>
+              </h2>
               <span class="text-xs text-muted-foreground hidden sm:inline">2026 Examination Standards</span>
             </div>
 
@@ -393,22 +370,24 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
 
             <div class="grid grid-cols-2 gap-2 text-xs">
               <div class="space-y-1">
-                <label class="text-[10px] text-muted-foreground font-medium">Width (cm):</label>
+                <label for="calc-w-cm" class="text-[10px] text-zinc-600 dark:text-zinc-400 font-medium">Width (cm):</label>
                 <input
                   id="calc-w-cm"
                   type="number"
                   step="0.1"
                   value="4.0"
+                  aria-label="Width in centimeters"
                   class="w-full px-2.5 py-1.5 rounded-lg border border-border bg-background font-mono text-foreground text-xs"
                 />
               </div>
               <div class="space-y-1">
-                <label class="text-[10px] text-muted-foreground font-medium">Height (cm):</label>
+                <label for="calc-h-cm" class="text-[10px] text-zinc-600 dark:text-zinc-400 font-medium">Height (cm):</label>
                 <input
                   id="calc-h-cm"
                   type="number"
                   step="0.1"
                   value="2.0"
+                  aria-label="Height in centimeters"
                   class="w-full px-2.5 py-1.5 rounded-lg border border-border bg-background font-mono text-foreground text-xs"
                 />
               </div>

@@ -3,6 +3,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
 
 const pageTitle = "About Us | SignResize.in";
 const pageDescription = "Learn about SignResize.in — the mission behind our 100% client-side, zero-upload signature resizing tool built for students and job aspirants across India.";
@@ -12,14 +14,7 @@ const pageDescription = "Learn about SignResize.in — the mission behind our 10
 <html lang="en-IN" class="scroll-smooth">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1N3EF3HFPH"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-1N3EF3HFPH');
-    </script>
+    <GoogleAnalytics />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
@@ -34,13 +29,8 @@ const pageDescription = "Learn about SignResize.in — the mission behind our 10
     <meta name="apple-mobile-web-app-title" content="SignResize" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Async Google Fonts -->
+    <GoogleFonts />
   </head>
 
   <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">

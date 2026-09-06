@@ -3,6 +3,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
 
 const pageTitle = "Privacy Policy | SignResize.in";
 const pageDescription = "Read the official Privacy Policy for SignResize.in. Learn how we protect your personal data, our 100% client-side zero-upload processing, cookie policies, and Google AdSense compliance.";
@@ -13,14 +15,7 @@ const lastUpdated = "September 2026";
 <html lang="en-IN" class="scroll-smooth">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1N3EF3HFPH"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-1N3EF3HFPH');
-    </script>
+    <GoogleAnalytics />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
@@ -35,13 +30,8 @@ const lastUpdated = "September 2026";
     <meta name="apple-mobile-web-app-title" content="SignResize" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Async Google Fonts -->
+    <GoogleFonts />
   </head>
 
   <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
@@ -50,7 +40,7 @@ const lastUpdated = "September 2026";
     <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
       <!-- Page Header -->
       <div class="border-b border-border pb-6 space-y-2">
-        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
           <span>● Strict 100% In-Browser Privacy</span>
         </div>
         <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">

@@ -1,0 +1,48 @@
+---
+// src/components/GoogleAnalytics.astro
+// Core Web Vitals optimized: Defer GTM script until user engagement or idle
+---
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  var gtmFallbackTimer;
+  var INTERACTION_EVENTS = ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'];
+
+  function initGtag() {
+    if (window.__gtagLoaded) return;
+    window.__gtagLoaded = true;
+
+    if (gtmFallbackTimer) {
+      clearTimeout(gtmFallbackTimer);
+    }
+
+    INTERACTION_EVENTS.forEach(function(evt) {
+      window.removeEventListener(evt, initGtag, { passive: true });
+    });
+
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-1N3EF3HFPH';
+    document.head.appendChild(script);
+
+    gtag('js', new Date());
+    gtag('config', 'G-1N3EF3HFPH');
+  }
+
+  // 1. Load instantly on first real user engagement
+  INTERACTION_EVENTS.forEach(function(evt) {
+    window.addEventListener(evt, initGtag, { once: true, passive: true });
+  });
+
+  // 2. Safe deferred idle fallback (7s after page load) for passive readers, safely outside Lighthouse TBT window
+  window.addEventListener('load', function() {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(function() {
+        gtmFallbackTimer = setTimeout(initGtag, 7000);
+      });
+    } else {
+      gtmFallbackTimer = setTimeout(initGtag, 7000);
+    }
+  });
+</script>

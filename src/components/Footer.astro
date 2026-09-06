@@ -4,7 +4,7 @@ import Logo from './Logo.astro';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-border bg-card/60 mt-16 pt-12 pb-8 text-xs text-muted-foreground">
+<footer class="border-t border-border bg-card/60 mt-16 pt-12 pb-8 text-xs text-zinc-600 dark:text-zinc-400">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       {/* Brand & Mission */}
@@ -13,11 +13,11 @@ const currentYear = new Date().getFullYear();
           <Logo class="w-7 h-7 rounded-lg shadow-sm" />
           <span class="font-bold text-base text-foreground tracking-tight">SignResize.in</span>
         </div>
-        <p class="text-xs leading-relaxed">
+        <p class="text-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
           An instant, privacy-first signature resizer, cropper, and compressor engineered specifically for Indian competitive exams (SSC, IBPS, UPSC, GATE, Railways) and government application portals.
         </p>
-        <div class="flex items-center gap-2 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="flex items-center gap-2 text-[11px] text-emerald-700 dark:text-emerald-300 font-semibold">
+          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
           <span>100% In-Browser Privacy</span>
@@ -27,59 +27,58 @@ const currentYear = new Date().getFullYear();
       {/* Quick Links */}
       <div class="space-y-2">
         <h4 class="font-semibold text-foreground text-xs uppercase tracking-wider">Exam Pages</h4>
-        <ul class="space-y-1.5 text-xs">
-          <li><a href="/ssc-signature-resize" class="hover:text-primary transition">SSC Signature (10–20 KB)</a></li>
-          <li><a href="/upsc-signature-resize" class="hover:text-primary transition">UPSC Signature (350×350)</a></li>
-          <li><a href="/rrb-signature-resize" class="hover:text-primary transition">RRB Railway Signature</a></li>
-          <li><a href="/pan-card-signature-resize" class="hover:text-primary transition">PAN Card Signature (200 DPI)</a></li>
-          <li><a href="/ibps-signature-resize" class="hover:text-primary transition">IBPS &amp; SBI Signature</a></li>
-          <li><a href="/gate-signature-resize" class="hover:text-primary transition">GATE Signature (5×2 cm)</a></li>
-          <li><a href="/thumb-impression-resize" class="hover:text-primary transition">Thumb Impression Resizer</a></li>
+        <ul class="space-y-1 text-xs">
+          <li><a href="/ssc-signature-resize" class="inline-block py-1.5 hover:text-primary transition">SSC Signature (10–20 KB)</a></li>
+          <li><a href="/upsc-signature-resize" class="inline-block py-1.5 hover:text-primary transition">UPSC Signature (350×350)</a></li>
+          <li><a href="/rrb-signature-resize" class="inline-block py-1.5 hover:text-primary transition">RRB Railway Signature</a></li>
+          <li><a href="/pan-card-signature-resize" class="inline-block py-1.5 hover:text-primary transition">PAN Card Signature (200 DPI)</a></li>
+          <li><a href="/ibps-signature-resize" class="inline-block py-1.5 hover:text-primary transition">IBPS &amp; SBI Signature</a></li>
+          <li><a href="/gate-signature-resize" class="inline-block py-1.5 hover:text-primary transition">GATE Signature (5×2 cm)</a></li>
+          <li><a href="/thumb-impression-resize" class="inline-block py-1.5 hover:text-primary transition">Thumb Impression Resizer</a></li>
         </ul>
       </div>
 
       {/* Online Tools */}
       <div class="space-y-2">
         <h4 class="font-semibold text-foreground text-xs uppercase tracking-wider">Free Tools &amp; Guides</h4>
-        <ul class="space-y-1.5 text-xs">
-          <li><a href="/compress-image-to-kb" class="text-primary font-medium hover:underline">Compress Image to KB</a></li>
-          <li><a href="/signature-creator" class="text-primary font-medium hover:underline">Online Signature Creator</a></li>
-          <li><a href="/#tool-workspace" class="hover:text-primary transition">Signature Resizer Workspace</a></li>
-          <li><a href="/#seo-guide" class="hover:text-primary transition">CM to Pixel Conversion</a></li>
-          <li><a href="/#exam-specs" class="hover:text-primary transition">Exam Dimensions Matrix</a></li>
-          <li><a href="/#guide" class="hover:text-primary transition">How to Avoid Rejections</a></li>
-          <li><a href="/#faq" class="hover:text-primary transition">Frequently Asked Questions</a></li>
+        <ul class="space-y-1 text-xs">
+          <li><a href="/compress-image-to-kb" class="inline-block py-1.5 text-primary font-semibold hover:underline">Compress Image to KB</a></li>
+          <li><a href="/signature-creator" class="inline-block py-1.5 text-primary font-semibold hover:underline">Online Signature Creator</a></li>
+          <li><a href="/#tool-workspace" class="inline-block py-1.5 hover:text-primary transition">Signature Resizer Workspace</a></li>
+          <li><a href="/#seo-guide" class="inline-block py-1.5 hover:text-primary transition">CM to Pixel Conversion</a></li>
+          <li><a href="/#exam-specs" class="inline-block py-1.5 hover:text-primary transition">Exam Dimensions Matrix</a></li>
+          <li><a href="/#guide" class="inline-block py-1.5 hover:text-primary transition">How to Avoid Rejections</a></li>
+          <li><a href="/#faq" class="inline-block py-1.5 hover:text-primary transition">Frequently Asked Questions</a></li>
         </ul>
       </div>
 
       {/* Legal & Company (AdSense Policy Compliant) */}
       <div class="space-y-2">
         <h4 class="font-semibold text-foreground text-xs uppercase tracking-wider">Legal &amp; Support</h4>
-        <ul class="space-y-1.5 text-xs">
-          <li><a href="/about" class="hover:text-primary transition">About Us</a></li>
-          <li><a href="/contact" class="hover:text-primary transition">Contact Support</a></li>
-          <li><a href="/privacy" class="hover:text-primary transition">Privacy Policy</a></li>
-          <li><a href="/terms" class="hover:text-primary transition">Terms &amp; Conditions</a></li>
-          <li><a href="/disclaimer" class="hover:text-primary transition">Disclaimer</a></li>
+        <ul class="space-y-1 text-xs">
+          <li><a href="/about" class="inline-block py-1.5 hover:text-primary transition">About Us</a></li>
+          <li><a href="/contact" class="inline-block py-1.5 hover:text-primary transition">Contact Support</a></li>
+          <li><a href="/privacy" class="inline-block py-1.5 hover:text-primary transition">Privacy Policy</a></li>
+          <li><a href="/terms" class="inline-block py-1.5 hover:text-primary transition">Terms &amp; Conditions</a></li>
+          <li><a href="/disclaimer" class="inline-block py-1.5 hover:text-primary transition">Disclaimer</a></li>
         </ul>
       </div>
     </div>
 
     {/* Disclaimer & Copyright */}
     <div class="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
-      <p>
+      <p class="text-zinc-600 dark:text-zinc-400">
         © {currentYear} SignResize.in. Free online tool for students &amp; aspirants.
       </p>
-      <div class="flex flex-wrap items-center gap-3 text-[10px] text-muted-foreground/80">
-        <a href="/privacy" class="hover:underline">Privacy Policy</a>
-        <span>•</span>
-        <a href="/terms" class="hover:underline">Terms</a>
-        <span>•</span>
-        <a href="/disclaimer" class="hover:underline">Disclaimer</a>
-        <span>•</span>
-        <a href="/contact" class="hover:underline">Contact</a>
+      <div class="flex flex-wrap items-center gap-1 text-xs text-zinc-600 dark:text-zinc-400">
+        <a href="/privacy" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Privacy Policy</a>
+        <span aria-hidden="true" class="text-zinc-400 dark:text-zinc-600 select-none">•</span>
+        <a href="/terms" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Terms</a>
+        <span aria-hidden="true" class="text-zinc-400 dark:text-zinc-600 select-none">•</span>
+        <a href="/disclaimer" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Disclaimer</a>
+        <span aria-hidden="true" class="text-zinc-400 dark:text-zinc-600 select-none">•</span>
+        <a href="/contact" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Contact</a>
       </div>
     </div>
   </div>
 </footer>
-
