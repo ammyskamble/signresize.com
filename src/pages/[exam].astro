@@ -1,0 +1,436 @@
+---
+// src/pages/[exam].astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SignatureTool } from '../components/SignatureTool';
+import { EXAM_PAGES_DATA, type ExamPageInfo } from '../data/examPagesData';
+
+export async function getStaticPaths() {
+  return EXAM_PAGES_DATA.map((page) => ({
+    params: { exam: page.slug },
+    props: { examData: page }
+  }));
+}
+
+const { examData } = Astro.props as { examData: ExamPageInfo };
+
+const canonicalUrl = `https://signresize.in/${examData.slug}`;
+const ogImageUrl = 'https://signresize.in/og-image.png';
+const currentYear = 2026;
+const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1N3EF3HFPH"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1N3EF3HFPH');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{examData.pageTitle}</title>
+    <meta name="description" content={examData.metaDescription} />
+    <meta name="keywords" content={examData.keywords} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={examData.pageTitle} />
+    <meta property="og:description" content={examData.metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={examData.pageTitle} />
+    <meta name="twitter:description" content={examData.metaDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- PWA & Mobile Meta Tags -->
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- High-Performance Async Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": examData.h1,
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
+      "description": examData.metaDescription,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "featureList": [
+        `${examData.widthPx}x${examData.heightPx} px exact dimensions`,
+        `${examData.minKb} KB to ${examData.maxKb} KB target file size`,
+        "Clean White Paper background shadow removal",
+        "100% private in-browser client-side execution"
+      ]
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": examData.h1,
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": examData.faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": `How to resize signature for ${examData.authority}`,
+      "description": `Step-by-step instructions to crop, resize, and compress signature to ${examData.minKb}–${examData.maxKb} KB for ${examData.authority} portals.`,
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Sign on Clean White Paper",
+          "text": `Sign in running handwriting using ${examData.ink} on spotless white paper.`,
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload to SignResize",
+          "text": "Upload your camera photo or scan to the online workspace.",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Verify Preset Bounds",
+          "text": `Preset automatically enforces ${examData.widthPx}x${examData.heightPx} px and ${examData.minKb}–${examData.maxKb} KB bounds.`,
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Clean Background & Download",
+          "text": "Activate Clean White Paper to whiten shadows, verify file size, and download portal-ready JPG.",
+          "position": 4
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">{examData.authority} Resizer</span>
+      </nav>
+
+      <!-- Hero Header Banner with Exam Badges -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-sm backdrop-blur">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Official {currentYear} Guidelines
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                100% Client-Side Private
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-mono text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20">
+                {examData.authority}
+              </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+              {examData.h1}
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              {examData.subheading} Applicable for <strong>{examData.targetExams}</strong>.
+            </p>
+          </div>
+
+          <!-- Quick Matrix Badges -->
+          <div class="flex items-center gap-2 flex-wrap shrink-0">
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Dimensions</div>
+              <div class="text-xs font-bold text-foreground font-mono">{examData.widthPx} × {examData.heightPx} PX</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Size Range</div>
+              <div class="text-xs font-bold text-primary font-mono">{examData.minKb} – {examData.maxKb} KB</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Centimeters</div>
+              <div class="text-xs font-bold text-foreground font-mono">{examData.widthCm} × {examData.heightCm} CM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Strict Warning Alert -->
+        <div class="mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2.5">
+          <span class="text-base leading-none">⚠️</span>
+          <div>
+            <strong>Rejection Warning:</strong> {examData.strictNotice}
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Interactive Resizer Tool Workspace -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Left Side: Interactive Tool -->
+        <div class="lg:col-span-8 space-y-6">
+          <div class="bg-card border border-border rounded-2xl p-4 sm:p-6 shadow-sm">
+            <SignatureTool client:idle initialPresetId={examData.presetId} />
+          </div>
+
+          <!-- Exam Authority Knowledge & FAQ Section -->
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-6">
+            
+            <!-- Specifications Deep Dive Table -->
+            <div class="space-y-3">
+              <h2 class="text-base font-bold text-foreground flex items-center gap-2">
+                <span>📋</span> {examData.authority} Official Dimension &amp; Upload Standards
+              </h2>
+              
+              <div class="overflow-x-auto rounded-xl border border-border">
+                <table class="w-full text-xs text-left">
+                  <thead class="bg-muted/60 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border">
+                    <tr>
+                      <th class="px-4 py-2.5">Specification Parameter</th>
+                      <th class="px-4 py-2.5">Mandatory Portal Value</th>
+                      <th class="px-4 py-2.5">Verification Rule</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-border/60">
+                    <tr>
+                      <td class="px-4 py-2 font-medium text-foreground">Pixel Width &amp; Height</td>
+                      <td class="px-4 py-2 font-mono text-primary font-bold">{examData.widthPx} × {examData.heightPx} px</td>
+                      <td class="px-4 py-2 text-muted-foreground">Standard aspect ratio {examData.aspectRatioLabel}</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2 font-medium text-foreground">Centimeter Physical Size</td>
+                      <td class="px-4 py-2 font-mono text-foreground">{examData.widthCm} cm × {examData.heightCm} cm</td>
+                      <td class="px-4 py-2 text-muted-foreground">Based on {examData.dpi} DPI scanning resolution</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2 font-medium text-foreground">File Size Bounds</td>
+                      <td class="px-4 py-2 font-mono text-emerald-600 dark:text-emerald-400 font-bold">{examData.minKb} KB to {examData.maxKb} KB</td>
+                      <td class="px-4 py-2 text-muted-foreground">Recommended target ~{examData.recommendedKb} KB</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2 font-medium text-foreground">Mandatory Ink Requirement</td>
+                      <td class="px-4 py-2 font-medium text-foreground">{examData.ink}</td>
+                      <td class="px-4 py-2 text-muted-foreground">Unruled white paper (no notebook lines)</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2 font-medium text-foreground">Supported File Formats</td>
+                      <td class="px-4 py-2 font-mono text-foreground">JPG / JPEG</td>
+                      <td class="px-4 py-2 text-muted-foreground">Baseline progressive JPEG without EXIF bloat</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tailored Pro Tips for Rejection-Proof Uploads -->
+            <div class="space-y-3 pt-4 border-t border-border">
+              <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
+                <span>🛡️</span> 4 Rules to Avoid Signature Rejection for {examData.authority}
+              </h3>
+              <ul class="space-y-2 text-xs text-muted-foreground">
+                {examData.tips.map((tip, idx) => (
+                  <li class="flex items-start gap-2.5 p-2.5 rounded-xl bg-muted/30 border border-border/70">
+                    <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[11px] shrink-0">
+                      {idx + 1}
+                    </span>
+                    <span class="text-foreground leading-relaxed">{tip}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Tailored FAQ Accordion -->
+            <div class="space-y-3 pt-4 border-t border-border">
+              <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
+                <span>❓</span> Frequently Asked Questions ({examData.authority})
+              </h3>
+              <div class="space-y-2">
+                {examData.faqs.map((faq) => (
+                  <details class="group p-3.5 rounded-xl border border-border bg-muted/20 open:bg-card transition">
+                    <summary class="flex items-center justify-between font-semibold text-foreground text-xs cursor-pointer select-none">
+                      <span>{faq.q}</span>
+                      <span class="text-primary group-open:rotate-180 transition-transform ml-2">▼</span>
+                    </summary>
+                    <p class="pt-2 text-xs text-muted-foreground leading-relaxed">
+                      {faq.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Side: Sticky Assistant & Portal Shortcuts -->
+        <aside class="lg:col-span-4 space-y-4 sticky top-16">
+          
+          <!-- Card 1: Checklist -->
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                {examData.authority} Checklist
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 font-bold">2026 Ready</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <div>
+                  <div class="font-medium text-foreground">Target Size: {examData.minKb}–{examData.maxKb} KB</div>
+                  <div class="text-[11px] text-muted-foreground">Guaranteed by dual-boundary canvas compression.</div>
+                </div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <div>
+                  <div class="font-medium text-foreground">Dimensions: {examData.widthPx} × {examData.heightPx} px</div>
+                  <div class="text-[11px] text-muted-foreground">Matches portal upload validation checks.</div>
+                </div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <div>
+                  <div class="font-medium text-foreground">Zero Uploads • 100% Privacy</div>
+                  <div class="text-[11px] text-muted-foreground">Document never leaves your browser.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Other Exam Quick Links -->
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-3 text-xs">
+            <div class="font-bold text-foreground flex items-center justify-between">
+              <span>Explore Other Exam Tools</span>
+              <span class="text-[10px] text-muted-foreground">Instant Presets</span>
+            </div>
+            <div class="space-y-1.5">
+              {otherExams.map((item) => (
+                <a
+                  href={`/${item.slug}`}
+                  class="flex items-center justify-between p-2 rounded-lg hover:bg-muted transition group text-[11px]"
+                >
+                  <span class="font-medium text-foreground group-hover:text-primary transition">{item.authority}</span>
+                  <span class="font-mono text-[10px] text-muted-foreground">{item.minKb}–{item.maxKb} KB →</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Card 3: Standalone Tools -->
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-3 text-xs">
+            <div class="font-bold text-foreground">More Free Student Tools</div>
+            <div class="space-y-2">
+              <a
+                href="/compress-image-to-kb"
+                class="block p-2.5 rounded-xl bg-primary/5 hover:bg-primary/10 border border-primary/20 transition"
+              >
+                <div class="font-semibold text-primary">Compress Image to KB Tool</div>
+                <div class="text-[10px] text-muted-foreground">Compress certificates, marksheets &amp; photos to 20 KB, 50 KB, 100 KB.</div>
+              </a>
+              <a
+                href="/signature-creator"
+                class="block p-2.5 rounded-xl bg-muted/50 hover:bg-muted border border-border transition"
+              >
+                <div class="font-semibold text-foreground">Online Signature Creator</div>
+                <div class="text-[10px] text-muted-foreground">Generate digital signatures with cursive calligraphy fonts or draw pad.</div>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

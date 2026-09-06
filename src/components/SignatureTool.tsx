@@ -49,7 +49,14 @@ import {
 } from '../utils/imageProcessor';
 import { SignaturePadModal } from './SignaturePadModal';
 
-export const SignatureTool: React.FC = () => {
+export interface SignatureToolProps {
+  initialPresetId?: string;
+}
+
+export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId }) => {
+  // Determine initial preset from prop if provided
+  const initialPreset = (initialPresetId && EXAM_PRESETS.find(p => p.id === initialPresetId)) || EXAM_PRESETS[0];
+
   // Mode state: 'single' or 'batch'
   const [toolMode, setToolMode] = useState<'single' | 'batch'>('single');
 
@@ -67,23 +74,23 @@ export const SignatureTool: React.FC = () => {
 
   // Preset state
   const [selectedCategory, setSelectedCategory] = useState<string>('Popular');
-  const [selectedPreset, setSelectedPreset] = useState<ExamPreset | null>(EXAM_PRESETS[0]);
+  const [selectedPreset, setSelectedPreset] = useState<ExamPreset | null>(initialPreset);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Unit and dimension settings
   const [unit, setUnit] = useState<UnitType>('px');
-  const [width, setWidth] = useState<number>(140);
-  const [height, setHeight] = useState<number>(60);
-  const [widthInput, setWidthInput] = useState<string>('140');
-  const [heightInput, setHeightInput] = useState<string>('60');
-  const [dpi, setDpi] = useState<number>(200);
+  const [width, setWidth] = useState<number>(initialPreset.widthPx);
+  const [height, setHeight] = useState<number>(initialPreset.heightPx);
+  const [widthInput, setWidthInput] = useState<string>(String(initialPreset.widthPx));
+  const [heightInput, setHeightInput] = useState<string>(String(initialPreset.heightPx));
+  const [dpi, setDpi] = useState<number>(initialPreset.dpi);
   const [lockAspect, setLockAspect] = useState<boolean>(true);
 
   // File size & format settings
-  const [minKb, setMinKb] = useState<number>(10);
-  const [maxKb, setMaxKb] = useState<number>(20);
-  const [minKbInput, setMinKbInput] = useState<string>('10');
-  const [maxKbInput, setMaxKbInput] = useState<string>('20');
+  const [minKb, setMinKb] = useState<number>(initialPreset.minKb);
+  const [maxKb, setMaxKb] = useState<number>(initialPreset.maxKb);
+  const [minKbInput, setMinKbInput] = useState<string>(String(initialPreset.minKb));
+  const [maxKbInput, setMaxKbInput] = useState<string>(String(initialPreset.maxKb));
   const [targetFormat, setTargetFormat] = useState<OutputFormat>('image/jpeg');
 
   // Global Transformation settings (Applies in Batch & Single mode)
@@ -144,6 +151,20 @@ export const SignatureTool: React.FC = () => {
       initCropBox(sourceImage, preset.aspectRatio);
     }
   };
+
+  // Sync preset if prop or URL param ?preset= changes
+  useEffect(() => {
+    const urlPreset = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('preset') : null;
+    const targetId = initialPresetId || urlPreset;
+    if (targetId) {
+      const matched = EXAM_PRESETS.find(
+        (p) => p.id.toLowerCase() === targetId.toLowerCase() || p.shortCode.toLowerCase() === targetId.toLowerCase()
+      );
+      if (matched && matched.id !== selectedPreset?.id) {
+        applyPreset(matched);
+      }
+    }
+  }, [initialPresetId]);
 
   // Initialize crop box to centered aspect ratio
   const initCropBox = (img: HTMLImageElement, targetAspect: number) => {

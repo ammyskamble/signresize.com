@@ -1,0 +1,303 @@
+---
+// src/pages/compress-image-to-kb.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ImageCompressorTool } from '../components/ImageCompressorTool';
+
+const pageTitle = "Compress Image to KB Online (20KB, 50KB, 100KB, 200KB) - SignResize";
+const pageDescription = "Free online image compressor to exact target KB. Compress JPG, PNG, and WebP photos, certificates, and marksheets to 20 KB, 50 KB, 100 KB, or 200 KB. 100% private, zero server upload.";
+const canonicalUrl = "https://signresize.in/compress-image-to-kb";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "compress image to kb, compress image to 20 kb, compress image to 50 kb, compress image to 100 kb, compress image to 200 kb, compress photo to 20 kb, reduce image size in kb, compress marksheet, image compressor online free";
+
+const faqs = [
+  {
+    q: "How to compress an image to 20 KB or 50 KB online?",
+    a: "Upload your photo or document into the SignResize Image Compressor. Select either the 20 KB or 50 KB preset button (or type your exact target KB in the custom input). The tool immediately performs iterative canvas compression to reduce the file size without pixelating text, and you can download your JPG/PNG instantly."
+  },
+  {
+    q: "Will compressing my certificate or marksheet make the text unreadable?",
+    a: "No. SignResize uses advanced high-frequency edge-preserving compression algorithms on your browser's HTML5 canvas. Even when compressing documents to 50 KB or 100 KB, text characters and roll numbers remain sharp and legible for exam portal scrutiny."
+  },
+  {
+    q: "What image formats are supported for compression?",
+    a: "You can upload JPG, JPEG, PNG, WebP, GIF, and standard smartphone camera photos. You can export the compressed output as standard JPEG (accepted by all government portals), WebP, or PNG."
+  },
+  {
+    q: "Is it safe to compress government ID cards and sensitive certificates here?",
+    a: "Yes, 100%. SignResize runs entirely on your device's client-side browser memory. Zero bytes are uploaded to external servers or cloud databases, guaranteeing absolute privacy for your Aadhaar card, PAN card, caste certificates, and marksheets."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1N3EF3HFPH"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1N3EF3HFPH');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- PWA & Mobile Meta Tags -->
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- High-Performance Async Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Compress Image to KB Tool",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
+      "description": pageDescription,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "featureList": [
+        "Compress image to 20 KB, 50 KB, 100 KB, 200 KB, 500 KB",
+        "Fine-tuning target KB slider",
+        "JPG, PNG, WebP format support",
+        "100% in-browser privacy with zero server uploads"
+      ]
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compress Image to KB",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Compress Image to KB</span>
+      </nav>
+
+      <!-- Hero Header Banner -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-sm backdrop-blur">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Precision KB Engine
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                0 Bytes Uploaded • 100% Private
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+              Compress Image to <span class="text-primary">Target KB</span> (20KB, 50KB, 100KB)
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Fast, lossless-quality in-browser compressor for photos, certificates, marksheets, and admit cards. Shrink any image to exact kilobyte limits required by government recruitment and admission portals.
+            </p>
+          </div>
+
+          <!-- Quick KB Badges -->
+          <div class="flex items-center gap-2 flex-wrap shrink-0">
+            <div class="px-3 py-2 rounded-xl bg-card border border-border text-center">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">SSC &amp; Bank</div>
+              <div class="text-xs font-bold text-primary font-mono">20 KB</div>
+            </div>
+            <div class="px-3 py-2 rounded-xl bg-card border border-border text-center">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">PAN &amp; UPSC</div>
+              <div class="text-xs font-bold text-primary font-mono">50 KB</div>
+            </div>
+            <div class="px-3 py-2 rounded-xl bg-card border border-border text-center">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Certificates</div>
+              <div class="text-xs font-bold text-primary font-mono">100–200 KB</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Layout: Compressor Tool + Knowledge Sidebar -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-8 space-y-6">
+          <div class="bg-card border border-border rounded-2xl p-4 sm:p-6 shadow-sm">
+            <ImageCompressorTool client:idle />
+          </div>
+
+          <!-- Guide Section -->
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-4">
+            <h2 class="text-base font-bold text-foreground flex items-center gap-2">
+              <span>📖</span> How Target KB Compression Works
+            </h2>
+            <div class="space-y-3 text-xs text-muted-foreground leading-relaxed">
+              <p>
+                Most online document portals enforce hard ceilings on file uploads: <strong>SSC (20 KB)</strong>, <strong>IBPS (20–50 KB)</strong>, <strong>UPSC (20–300 KB)</strong>, and <strong>NTA/State PSCs (100–300 KB)</strong>. If your file is 1 KB over the limit, the server automatically rejects the upload.
+              </p>
+              <p>
+                SignResize's binary-search quantization engine evaluates iterative compression quality directly on your local device. It pinpoints the exact compression factor that yields the maximum visual clarity while ensuring the file size strictly remains below your specified KB threshold.
+              </p>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="pt-4 border-t border-border space-y-3">
+              <h3 class="text-sm font-bold text-foreground">Frequently Asked Questions</h3>
+              <div class="space-y-2">
+                {faqs.map((f) => (
+                  <details class="group p-3.5 rounded-xl border border-border bg-muted/20 open:bg-card transition">
+                    <summary class="flex items-center justify-between font-semibold text-foreground text-xs cursor-pointer select-none">
+                      <span>{f.q}</span>
+                      <span class="text-primary group-open:rotate-180 transition-transform ml-2">▼</span>
+                    </summary>
+                    <p class="pt-2 text-xs text-muted-foreground leading-relaxed">{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="lg:col-span-4 space-y-4 sticky top-16">
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-3 text-xs">
+            <div class="font-bold text-foreground">Common Portal Size Requirements</div>
+            <ul class="space-y-2 text-[11px] text-muted-foreground">
+              <li class="flex items-center justify-between pb-1.5 border-b border-border/50">
+                <strong class="text-foreground">Candidate Photograph:</strong>
+                <span class="font-mono text-primary">20 KB – 50 KB</span>
+              </li>
+              <li class="flex items-center justify-between pb-1.5 border-b border-border/50">
+                <strong class="text-foreground">Candidate Signature:</strong>
+                <span class="font-mono text-primary">10 KB – 20 KB</span>
+              </li>
+              <li class="flex items-center justify-between pb-1.5 border-b border-border/50">
+                <strong class="text-foreground">Left Thumb Impression:</strong>
+                <span class="font-mono text-primary">10 KB – 20 KB</span>
+              </li>
+              <li class="flex items-center justify-between pb-1.5 border-b border-border/50">
+                <strong class="text-foreground">Class 10th / 12th Certificate:</strong>
+                <span class="font-mono text-primary">100 KB – 200 KB</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <strong class="text-foreground">Caste / EWS / PwD Certificate:</strong>
+                <span class="font-mono text-primary">100 KB – 300 KB</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-3 text-xs">
+            <div class="font-bold text-foreground">Need to Resize a Signature?</div>
+            <p class="text-[11px] text-muted-foreground">
+              Use our dedicated signature resizer to automatically crop to 140×60 px (4×2 cm) with Clean White Paper shadow removal.
+            </p>
+            <a
+              href="/#tool-workspace"
+              class="block w-full text-center py-2 px-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:bg-primary/90 transition shadow-xs"
+            >
+              Go to Signature Resizer →
+            </a>
+          </div>
+        </aside>
+      </div>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

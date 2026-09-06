@@ -20,13 +20,18 @@ import Logo from './Logo.astro';
     </a>
 
     <!-- Nav Links (Desktop) -->
-    <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-muted-foreground">
-      <a href="#tool-workspace" class="hover:text-primary transition flex items-center gap-1">
-        <span>Resizer Tool</span>
+    <nav class="hidden md:flex items-center gap-5 text-xs font-semibold text-muted-foreground">
+      <a href="/#tool-workspace" class="hover:text-primary transition flex items-center gap-1">
+        <span>Resizer</span>
       </a>
-      <a href="#exam-specs" class="hover:text-primary transition">Exam Specs</a>
-      <a href="#seo-guide" class="hover:text-primary transition">Aspirant Guide</a>
-      <a href="#faq" class="hover:text-primary transition">FAQ</a>
+      <a href="/compress-image-to-kb" class="hover:text-primary transition flex items-center gap-1">
+        <span class="text-primary font-bold">Compress Image</span>
+      </a>
+      <a href="/signature-creator" class="hover:text-primary transition">
+        <span>Signature Creator</span>
+      </a>
+      <a href="/#exam-specs" class="hover:text-primary transition">Exam Specs</a>
+      <a href="/#faq" class="hover:text-primary transition">FAQ</a>
     </nav>
 
     <!-- Right Controls: Privacy Badge & Dark Mode Toggle -->
@@ -86,4 +91,13 @@ import Logo from './Logo.astro';
     localStorage.setItem('theme', newTheme);
     updateThemeUI(!isCurrentlyDark);
   });
+
+  // Register Service Worker for PWA & Offline Support
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch((err) => {
+        console.debug('SW registration notice:', err);
+      });
+    });
+  }
 </script>

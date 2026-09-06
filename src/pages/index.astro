@@ -38,10 +38,8 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Hreflang Tags for English (India) & Global -->
-    <link rel="alternate" hreflang="en-IN" href="https://signresize.in/" />
-    <link rel="alternate" hreflang="en" href="https://signresize.in/" />
-    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
+    <!-- Google Search Console Verification Meta -->
+    <meta name="google-site-verification" content="GSC_VERIFICATION_CODE_PLACEHOLDER" />
 
     <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:type" content="website" />
@@ -64,20 +62,37 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content="SignResize - Online Signature Resize and Compressor Tool" />
 
-    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <!-- High-Performance Async Google Fonts (Inter & JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
 
-    <!-- Favicon & PWA Icons -->
+    <!-- Favicon & PWA Icons / Capabilities -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- WebApplication Schema.org JSON-LD -->
@@ -166,6 +181,40 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
         }
       ]
     })} />
+
+    <!-- Organization Schema (E-E-A-T) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SignResize",
+      "url": "https://signresize.in/",
+      "logo": "https://signresize.in/favicon-96x96.png",
+      "description": "Free client-side online signature resize and compression platform engineered for Indian competitive exams.",
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://github.com/ammyskamble/signresize.com",
+        "https://x.com/signresize"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@signresize.in",
+        "availableLanguage": ["English", "Hindi"]
+      }
+    })} />
+
+    <!-- Person / Editorial Specialist Schema (E-E-A-T) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "SignResize Technical & Verification Team",
+      "jobTitle": "Examination Document Standards Lead",
+      "url": "https://signresize.in/about",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "SignResize"
+      }
+    })} />
   </head>
 
   <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
@@ -182,11 +231,11 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
             <div class="flex items-center gap-2">
               <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
                 <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                Online Signature Resizer &amp; Compressor
+                Updated 2026 Guidelines
               </span>
               <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                100% Client-Side Private
+                0 Bytes Uploaded • 100% In-Browser Private
               </span>
             </div>
             <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
@@ -221,7 +270,7 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
         <!-- Left Side: Main Interactive Resizer Tool Workspace -->
         <div class="lg:col-span-8 space-y-6">
           <div class="bg-card border border-border rounded-2xl p-4 sm:p-6 shadow-sm">
-            <SignatureTool client:load />
+            <SignatureTool client:idle />
           </div>
 
           <!-- Bottom Accordion Knowledge Base & Specifications -->
