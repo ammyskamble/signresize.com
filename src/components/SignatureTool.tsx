@@ -2368,7 +2368,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
         {/* Official Guidance Alert for Active Preset - High Contrast Theme-Safe */}
         {selectedPreset && (
-          <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900 border-2 border-amber-400 text-amber-50 dark:bg-slate-950 dark:border-amber-400 shadow-sm">
+          <div className="flex items-start gap-3 p-3.5 rounded-xl bg-amber-500/10 border-2 border-amber-500/40 text-amber-900 dark:bg-amber-950/40 dark:text-amber-200 dark:border-amber-500/50 shadow-xs">
             <div className="p-1.5 rounded-lg bg-amber-400 text-slate-950 shrink-0 mt-0.5 font-bold">
               <AlertCircle className="w-4 h-4" />
             </div>
@@ -3789,7 +3789,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                   className={`p-6 rounded-2xl border border-border flex flex-col items-center justify-center min-h-[220px] sm:min-h-[260px] overflow-hidden relative transition-colors shadow-inner ${
                     previewBg === 'checker'
                       ? 'bg-[repeating-conic-gradient(#cbd5e1_0%_25%,#ffffff_0%_50%)] dark:bg-[repeating-conic-gradient(#334155_0%_25%,#0f172a_0%_50%)] [background-size:20px_20px]'
-                      : 'bg-white dark:bg-zinc-950'
+                      : 'bg-muted/30 dark:bg-slate-900/60'
                   }`}
                 >
                   {processedResult ? (
@@ -3806,7 +3806,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                   ) : (
                     /* Simulated preview before upload */
                     <div className="flex flex-col items-center justify-center text-center space-y-3 py-2">
-                      <div className={`border-2 border-dashed border-border/80 shadow-xs rounded-xl flex items-center justify-center p-3 ${targetType === 'photo' ? 'w-[140px] h-[175px]' : targetType === 'document' ? 'w-[150px] h-[190px]' : 'w-[240px] h-[90px]'} bg-white dark:bg-slate-900`}>
+                      <div className={`border-2 border-dashed border-border/80 shadow-xs rounded-xl flex items-center justify-center p-3 ${targetType === 'photo' ? 'w-[140px] h-[175px]' : targetType === 'document' ? 'w-[150px] h-[190px]' : 'w-[240px] h-[90px]'} bg-card dark:bg-slate-900`}>
                         {targetType === 'photo' ? (
                           <div className="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 space-y-1">
                             <User className="w-10 h-10 stroke-1 text-primary/60" />
@@ -3830,7 +3830,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                   )}
 
                   {/* Corner Dimension Overlay Badge */}
-                  <div className="absolute bottom-3 right-3 px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-bold bg-slate-950/85 text-white shadow-md border border-white/10 pointer-events-none backdrop-blur-xs">
+                  <div className="absolute bottom-3 right-3 px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-bold bg-foreground/80 text-background shadow-md border border-border/20 pointer-events-none backdrop-blur-xs">
                     {targetWidthPx} × {targetHeightPx} px
                   </div>
                 </div>
@@ -4226,7 +4226,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
             </div>
 
             {/* Inspection Stage / Canvas View */}
-            <div className="p-6 bg-slate-900/10 dark:bg-slate-950 flex items-center justify-center min-h-[260px] overflow-auto relative">
+            <div className="p-6 bg-muted/40 dark:bg-slate-900/50 flex items-center justify-center min-h-[260px] overflow-auto relative">
               <div className="relative inline-block border border-border/60 rounded-lg shadow-md bg-white overflow-hidden p-2">
                 {inspectTab === 'processed' ? (
                   <img
