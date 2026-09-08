@@ -1,6 +1,6 @@
 # InchPixels Design System (DESIGN.md)
 
-**Domain:** inchpixels.com  
+**Domain:** signresize.in  
 **Design Philosophy:** Precision engineering meets modern creative workflow. Ultra-clean dark/light aesthetic optimized for UI/UX designers, printmakers, and developers who demand pixel-perfect accuracy, instantaneous feedback, and export efficiency.
 
 ---

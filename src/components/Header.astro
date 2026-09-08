@@ -1,12 +1,26 @@
 ---
 // Header.astro
 import Logo from './Logo.astro';
+import { EXAM_PRESETS } from '../data/examPresets';
+
+// Compact JSON of all presets for instant client-side searching & dropdown display
+const searchablePresets = EXAM_PRESETS.map((p) => ({
+  id: p.id,
+  name: p.name,
+  shortCode: p.shortCode,
+  category: p.category,
+  widthPx: p.widthPx,
+  heightPx: p.heightPx,
+  minKb: p.minKb,
+  maxKb: p.maxKb,
+  inkRequirement: p.inkRequirement
+}));
 ---
 
 <header class="sticky top-0 z-40 w-full border-b border-border/80 bg-card/85 backdrop-blur-md transition-colors">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
     <!-- Brand Logo -->
-    <a href="/" class="flex items-center gap-2.5 group">
+    <a href="/" class="flex items-center gap-2.5 group shrink-0">
       <Logo class="w-9 h-9 rounded-xl shadow-md shadow-indigo-500/20 group-hover:scale-105 transition" />
       <div>
         <div class="flex items-center gap-1.5">
@@ -30,12 +44,93 @@ import Logo from './Logo.astro';
       <a href="/signature-creator" class="hover:text-primary transition">
         <span>Signature Creator</span>
       </a>
-      <a href="/#exam-specs" class="hover:text-primary transition">Exam Specs</a>
-      <a href="/#faq" class="hover:text-primary transition">FAQ</a>
+
+      <!-- EXAMS & PORTALS DEDICATED MEGA MENU -->
+      <div class="relative group py-2">
+        <button
+          type="button"
+          class="hover:text-primary transition flex items-center gap-1.5 text-xs font-semibold text-muted-foreground group-hover:text-primary focus:outline-none cursor-pointer"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span>All Exams &amp; Portals</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+
+        <!-- Dropdown Panel (4-Column Mega Menu) -->
+        <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-1/2 -translate-x-1/2 mt-1 w-[820px] max-w-[92vw] bg-card/95 backdrop-blur-md rounded-2xl shadow-2xl border border-border p-5 z-50">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-5 text-xs">
+            
+            <!-- Column 1: Central & Banking -->
+            <div>
+              <h4 class="font-bold text-[11px] text-primary uppercase tracking-wider mb-2 flex items-center gap-1">
+                <span>Central &amp; Banking</span>
+              </h4>
+              <ul class="space-y-1">
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="ssc"><span>SSC (CGL, CHSL, MTS)</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">140×60</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="ibps"><span>IBPS / SBI PO &amp; Clerk</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">10–20KB</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="upsc"><span>UPSC (IAS, NDA, CDS)</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">350×350</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="rbi"><span>RBI Grade B &amp; Assistant</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">10–20KB</span></button></li>
+              </ul>
+            </div>
+
+            <!-- Column 2: Railways & Defense -->
+            <div>
+              <h4 class="font-bold text-[11px] text-primary uppercase tracking-wider mb-2 flex items-center gap-1">
+                <span>Railways &amp; Defense</span>
+              </h4>
+              <ul class="space-y-1">
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="rrb"><span>RRB (NTPC, ALP, Group D)</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">140×60</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="afcat"><span>AFCAT (Air Force)</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">10–50KB</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="agniveer"><span>Agniveer Recruitment</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">10–20KB</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="coastguard"><span>Indian Coast Guard</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">10–20KB</span></button></li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Entrance & Law -->
+            <div>
+              <h4 class="font-bold text-[11px] text-primary uppercase tracking-wider mb-2 flex items-center gap-1">
+                <span>Entrance &amp; Law</span>
+              </h4>
+              <ul class="space-y-1">
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="neet"><span>NEET / JEE Main (NTA)</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">4–30KB</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="gate"><span>GATE &amp; IIT JAM</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">5–200KB</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="cat"><span>CAT (IIMs)</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">10–80KB</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="clat"><span>CLAT &amp; AILET (Law)</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">10–50KB</span></button></li>
+              </ul>
+            </div>
+
+            <!-- Column 4: Identity & State PSC -->
+            <div>
+              <h4 class="font-bold text-[11px] text-primary uppercase tracking-wider mb-2 flex items-center gap-1">
+                <span>Identity &amp; State PSC</span>
+              </h4>
+              <ul class="space-y-1">
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="pan"><span>PAN Card (NSDL/UTI)</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">400×200</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="thumb"><span>Thumb Impression (1:1)</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">10–50KB</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="uppsc"><span>UPPSC / BPSC</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">State PSC</span></button></li>
+                <li><button type="button" class="preset-btn text-left text-foreground hover:text-primary hover:bg-muted/60 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between group/item cursor-pointer" data-exam="mpsc"><span>MPSC / TNPSC</span><span class="text-[10px] text-muted-foreground group-hover/item:text-primary">State PSC</span></button></li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Mega Menu Footer Link to 40+ Exam Table -->
+          <div class="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+            <span>Need detailed technical guidelines for all exams?</span>
+            <a href="/#exam-specs" class="text-primary font-bold hover:underline flex items-center gap-1">
+              <span>View Full 40+ Exam Table</span>
+              <span>↓</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </nav>
 
-    <!-- Right Controls: Privacy Badge & Dark Mode Toggle -->
-    <div class="flex items-center gap-3">
+    <!-- Right Controls: Privacy Badge, Dark Mode Toggle & Search Bar in Right Corner -->
+    <div class="flex items-center gap-2.5">
       <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-semibold border border-emerald-500/20">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
         <span>100% Private</span>
@@ -45,7 +140,7 @@ import Logo from './Logo.astro';
       <button
         id="theme-toggle"
         type="button"
-        class="p-2 rounded-xl border border-border bg-card text-foreground hover:bg-muted transition"
+        class="p-2 rounded-xl border border-border bg-card text-foreground hover:bg-muted transition cursor-pointer shrink-0"
         aria-label="Toggle theme"
       >
         <!-- Sun Icon -->
@@ -58,9 +153,252 @@ import Logo from './Logo.astro';
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
+
+      <!-- 🔍 SMALL SEARCH BAR AT RIGHT SIDE CORNER AFTER THEME TOGGLE -->
+      <div id="header-search-container" class="relative">
+        <button
+          type="button"
+          id="header-search-trigger"
+          class="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl border border-border bg-card/90 hover:bg-muted/70 hover:border-primary/40 text-foreground transition text-xs shadow-2xs group focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer shrink-0"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          title="Search all exams (Press / or Ctrl+K)"
+        >
+          <svg class="w-3.5 h-3.5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <span class="font-medium text-muted-foreground group-hover:text-foreground hidden sm:inline">
+            Search Exam
+          </span>
+          <kbd class="hidden xl:inline-flex items-center gap-0.5 px-1.5 py-0.2 text-[9px] font-mono font-semibold text-muted-foreground bg-muted border border-border/80 rounded">
+            Ctrl K
+          </kbd>
+          <svg class="w-3 h-3 text-muted-foreground group-hover:text-primary transition-transform duration-150 hidden sm:inline-block" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+
+        <!-- Search Combobox Popover Dropdown Panel (Aligned to the Right) -->
+        <div
+          id="header-search-popover"
+          class="hidden absolute right-0 mt-2 w-[92vw] sm:w-[580px] md:w-[640px] bg-card/95 backdrop-blur-md rounded-2xl shadow-2xl border border-border p-4 z-50 flex-col space-y-3"
+          style="max-height: calc(85vh - 4rem);"
+        >
+          <!-- Search Input Toolbar inside Popover -->
+          <div class="relative flex items-center shrink-0">
+            <svg class="w-4 h-4 text-primary absolute left-3 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              id="header-exam-search"
+              placeholder="Filter 40+ exams (e.g. UPSC, SSC, GATE, PAN, RRB, MPSC, CAT)..."
+              class="w-full pl-9 pr-14 py-2 text-xs rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              autocomplete="off"
+            />
+            <div class="absolute right-2 flex items-center gap-1">
+              <button
+                type="button"
+                id="header-search-clear"
+                class="hidden text-[10px] px-1.5 py-0.5 rounded text-muted-foreground hover:text-foreground bg-muted hover:bg-muted/80 cursor-pointer"
+                title="Clear search"
+              >
+                ✕
+              </button>
+              <kbd class="hidden sm:inline-block text-[9px] font-mono px-1 py-0.5 rounded bg-muted text-muted-foreground border border-border">ESC</kbd>
+            </div>
+          </div>
+
+          <!-- Dynamic Real-Time Filter Results (shown when searching) -->
+          <div id="header-search-results" class="hidden overflow-y-auto max-h-[55vh] pr-1 space-y-1.5 text-xs">
+            <!-- Dynamically populated via JS -->
+          </div>
+
+          <!-- All Available Exams Dropdown View (Shown by default on click) -->
+          <div id="header-search-categories" class="overflow-y-auto max-h-[55vh] pr-1 space-y-4 text-xs">
+            
+            <!-- Category 1: Trending / Common -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-bold text-[11px] text-amber-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <span>🔥</span> Trending / Common
+                </span>
+                <span class="text-[10px] text-muted-foreground font-mono font-medium">Top Applied</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="ssc">
+                  <span class="font-bold text-foreground group-hover:text-primary">SSC (CGL, CHSL)</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">140×60 • 10–20 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="upsc">
+                  <span class="font-bold text-foreground group-hover:text-primary">UPSC (IAS, NDA)</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">350×350 • 20–300 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="ibps">
+                  <span class="font-bold text-foreground group-hover:text-primary">IBPS / SBI Bank</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">140×60 • 10–20 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="gate">
+                  <span class="font-bold text-foreground group-hover:text-primary">GATE &amp; JAM</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">400×160 • 5–200 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="rrb">
+                  <span class="font-bold text-foreground group-hover:text-primary">RRB Railway</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">140×60 • 10–20 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="neet">
+                  <span class="font-bold text-foreground group-hover:text-primary">NEET / JEE</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">NTA • 4–30 KB</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Category 2: State PSCs -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-bold text-[11px] text-primary uppercase tracking-wider flex items-center gap-1.5">
+                  <span>🏛️</span> State PSCs
+                </span>
+                <span class="text-[10px] text-muted-foreground font-mono font-medium">State Commissions</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="mpsc">
+                  <span class="font-bold text-foreground group-hover:text-primary">MPSC</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">Maharashtra</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="uppsc">
+                  <span class="font-bold text-foreground group-hover:text-primary">UPPSC</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">Uttar Pradesh</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="bpsc">
+                  <span class="font-bold text-foreground group-hover:text-primary">BPSC</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">Bihar</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="tnpsc">
+                  <span class="font-bold text-foreground group-hover:text-primary">TNPSC</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">Tamil Nadu</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="kpsc-karnataka">
+                  <span class="font-bold text-foreground group-hover:text-primary">KPSC</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">Karnataka</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="wbpsc-west-bengal">
+                  <span class="font-bold text-foreground group-hover:text-primary">WBPSC</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">West Bengal</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="rpsc-ras">
+                  <span class="font-bold text-foreground group-hover:text-primary">RPSC (RAS)</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">Rajasthan</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="gpsc-ojas">
+                  <span class="font-bold text-foreground group-hover:text-primary">GPSC (OJAS)</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">Gujarat</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Category 3: Management & Law -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-bold text-[11px] text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <span>⚖️</span> Management &amp; Law
+                </span>
+                <span class="text-[10px] text-muted-foreground font-mono font-medium">Entrance Exams</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="cat">
+                  <span class="font-bold text-foreground group-hover:text-primary">CAT (IIMs)</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">10–80 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="clat">
+                  <span class="font-bold text-foreground group-hover:text-primary">CLAT Law</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">10–50 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="xat-mba">
+                  <span class="font-bold text-foreground group-hover:text-primary">XAT (XLRI)</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">10–50 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="ailet-law">
+                  <span class="font-bold text-foreground group-hover:text-primary">AILET</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">Law NLU</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Category 4: Identity & Driving -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-bold text-[11px] text-indigo-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <span>🪪</span> Identity &amp; Driving
+                </span>
+                <span class="text-[10px] text-muted-foreground font-mono font-medium">Official Documents</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="pan">
+                  <span class="font-bold text-foreground group-hover:text-primary">PAN Card Sign</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">400×200 • 10–50KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="sarathi-dl">
+                  <span class="font-bold text-foreground group-hover:text-primary">Parivahan DL</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">200×230 • Sarathi</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="thumb">
+                  <span class="font-bold text-foreground group-hover:text-primary">Thumb Sign</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">1:1 • 10–50 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="passport-seva">
+                  <span class="font-bold text-foreground group-hover:text-primary">Passport Seva</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">4.5×3.5 cm</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Category 5: Defense & Armed Forces -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-bold text-[11px] text-red-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <span>🎖️</span> Defense &amp; Forces
+                </span>
+                <span class="text-[10px] text-muted-foreground font-mono font-medium">Armed Forces</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="afcat">
+                  <span class="font-bold text-foreground group-hover:text-primary">AFCAT (IAF)</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">10–50 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="agniveer">
+                  <span class="font-bold text-foreground group-hover:text-primary">Agniveer</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">10–20 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="coastguard">
+                  <span class="font-bold text-foreground group-hover:text-primary">Coast Guard</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">10–20 KB</span>
+                </button>
+                <button type="button" class="preset-btn text-left p-2 rounded-xl bg-muted/40 hover:bg-primary/10 hover:border-primary/30 border border-border/70 transition flex flex-col justify-between group cursor-pointer" data-exam="capf-ac">
+                  <span class="font-bold text-foreground group-hover:text-primary">CAPF AC</span>
+                  <span class="text-[10px] text-muted-foreground font-mono">UPSC • 20–300 KB</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dropdown Footer -->
+          <div class="pt-2.5 border-t border-border flex items-center justify-between text-xs text-muted-foreground shrink-0">
+            <span class="text-[11px]">Looking for all 40+ official criteria?</span>
+            <a href="/#exam-specs" class="text-primary font-bold hover:underline flex items-center gap-1">
+              <span>View Full Specs Matrix Table</span>
+              <span>↓</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+
+<!-- Pass All Exam Presets safely to Script for Instant Filtering -->
+<script id="exam-presets-dataset" type="application/json" set:html={JSON.stringify(searchablePresets)} />
 
 <script is:inline>
   // Theme Toggle logic
@@ -100,4 +438,200 @@ import Logo from './Logo.astro';
       });
     });
   }
+
+  // Preset Selection Core Handler
+  function handlePresetSelection(examKey) {
+    if (!examKey) return;
+    const studio = document.getElementById('tool-workspace') || document.getElementById('studio-container');
+    if (studio) {
+      window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: examKey }));
+      const url = new URL(window.location.href);
+      url.searchParams.set('preset', examKey);
+      window.history.replaceState({}, '', url.toString());
+      studio.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = `/?preset=${encodeURIComponent(examKey)}#tool-workspace`;
+    }
+  }
+
+  // Attach Preset Handlers on all header preset-btn elements
+  function attachPresetListeners(container) {
+    (container || document).querySelectorAll('header .preset-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const examKey = e.currentTarget.getAttribute('data-exam');
+        handlePresetSelection(examKey);
+        closeSearchPopover();
+      });
+    });
+  }
+  attachPresetListeners(document);
+
+  // -------------------------------------------------------------------------
+  // 🔍 Right-Corner Small Search Bar & All Available Exams Dropdown
+  // -------------------------------------------------------------------------
+  const searchContainer = document.getElementById('header-search-container');
+  const searchTrigger = document.getElementById('header-search-trigger');
+  const searchPopover = document.getElementById('header-search-popover');
+  const searchInput = document.getElementById('header-exam-search');
+  const searchClear = document.getElementById('header-search-clear');
+  const searchResults = document.getElementById('header-search-results');
+  const searchCategories = document.getElementById('header-search-categories');
+
+  let allPresets = [];
+  try {
+    const dataEl = document.getElementById('exam-presets-dataset');
+    if (dataEl) allPresets = JSON.parse(dataEl.textContent || '[]');
+  } catch (err) {
+    console.error('Failed to parse exam presets dataset', err);
+  }
+
+  function openSearchPopover() {
+    searchPopover?.classList.remove('hidden');
+    searchPopover?.classList.add('flex');
+    searchTrigger?.setAttribute('aria-expanded', 'true');
+    searchInput?.focus();
+    searchInput?.select();
+  }
+
+  function closeSearchPopover() {
+    searchPopover?.classList.add('hidden');
+    searchPopover?.classList.remove('flex');
+    searchTrigger?.setAttribute('aria-expanded', 'false');
+  }
+
+  function toggleSearchPopover() {
+    if (searchPopover?.classList.contains('hidden')) {
+      openSearchPopover();
+    } else {
+      closeSearchPopover();
+    }
+  }
+
+  searchTrigger?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleSearchPopover();
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (searchContainer && !searchContainer.contains(e.target)) {
+      closeSearchPopover();
+    }
+  });
+
+  // Global Keyboard Shortcuts: '/' and 'Ctrl+K' / 'Cmd+K'
+  document.addEventListener('keydown', (e) => {
+    const active = document.activeElement;
+    const isEditing =
+      active &&
+      (active.tagName === 'INPUT' ||
+        active.tagName === 'TEXTAREA' ||
+        active.isContentEditable);
+
+    // Ctrl+K or Cmd+K
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      openSearchPopover();
+      return;
+    }
+
+    // '/' shortcut when not already typing
+    if (e.key === '/' && !isEditing) {
+      e.preventDefault();
+      openSearchPopover();
+      return;
+    }
+
+    // ESC to close
+    if (e.key === 'Escape' && !searchPopover?.classList.contains('hidden')) {
+      e.preventDefault();
+      closeSearchPopover();
+    }
+  });
+
+  // Fast Filter Search logic
+  function renderFilteredResults(query) {
+    const q = query.trim().toLowerCase();
+    if (!q) {
+      searchResults?.classList.add('hidden');
+      searchCategories?.classList.remove('hidden');
+      searchClear?.classList.add('hidden');
+      return;
+    }
+
+    searchClear?.classList.remove('hidden');
+    searchCategories?.classList.add('hidden');
+    searchResults?.classList.remove('hidden');
+
+    const filtered = allPresets.filter((p) => {
+      return (
+        p.name.toLowerCase().includes(q) ||
+        p.shortCode.toLowerCase().includes(q) ||
+        p.id.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q)
+      );
+    });
+
+    if (filtered.length === 0) {
+      searchResults.innerHTML = `
+        <div class="p-6 text-center text-xs text-muted-foreground space-y-2">
+          <p>No exams found for "<strong>${query.replace(/</g, '&lt;')}</strong>".</p>
+          <p class="text-[11px]">Try searching by portal name like <em>UPSC</em>, <em>SSC</em>, <em>GATE</em>, or <em>PAN</em>.</p>
+        </div>
+      `;
+      return;
+    }
+
+    const itemsHtml = filtered
+      .map(
+        (p) => `
+        <button
+          type="button"
+          class="preset-btn w-full text-left p-2.5 rounded-xl border border-border/80 bg-muted/30 hover:bg-primary/10 hover:border-primary/40 transition flex items-center justify-between gap-2 group cursor-pointer"
+          data-exam="${p.id}"
+        >
+          <div class="min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-foreground group-hover:text-primary">${p.shortCode}</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-muted text-muted-foreground">${p.category}</span>
+            </div>
+            <div class="text-[11px] text-muted-foreground truncate mt-0.5">${p.name}</div>
+          </div>
+          <div class="text-right shrink-0">
+            <div class="font-mono text-primary font-bold text-xs">${p.widthPx}×${p.heightPx} px</div>
+            <div class="text-[10px] font-mono text-muted-foreground">${p.minKb}–${p.maxKb} KB</div>
+          </div>
+        </button>
+      `
+      )
+      .join('');
+
+    searchResults.innerHTML = `
+      <div class="text-[10px] uppercase font-bold text-muted-foreground px-1 pb-1 flex justify-between">
+        <span>Matching Exams</span>
+        <span>${filtered.length} found</span>
+      </div>
+      <div class="space-y-1.5">${itemsHtml}</div>
+    `;
+
+    attachPresetListeners(searchResults);
+  }
+
+  searchInput?.addEventListener('input', (e) => {
+    renderFilteredResults(e.target.value);
+  });
+
+  searchClear?.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      searchInput.focus();
+      renderFilteredResults('');
+    }
+  });
+
+  // Listen for custom trigger event from page buttons (like "Change Preset")
+  window.addEventListener('open-header-preset-search', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    openSearchPopover();
+  });
 </script>

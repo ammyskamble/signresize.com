@@ -7,6 +7,7 @@ import ExamSpecsTable from '../components/ExamSpecsTable.astro';
 import GuideSection from '../components/GuideSection.astro';
 import SeoContentSection from '../components/SeoContentSection.astro';
 import FaqSection from '../components/FaqSection.astro';
+import TroubleshootingSection from '../components/TroubleshootingSection.astro';
 import Footer from '../components/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
@@ -199,10 +200,10 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
     <Header />
 
     <!-- Main Container (Command Center & Assistant Architecture) -->
-    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8">
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-5 space-y-5">
       
       <!-- Hero / Command Header Banner -->
-      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-sm backdrop-blur">
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-3.5 sm:p-5 shadow-xs backdrop-blur">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div class="space-y-1.5">
             <div class="flex items-center gap-2">
@@ -241,129 +242,19 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
         </div>
       </section>
 
-      <!-- Quick Portal Navigation Hub (Link to all dedicated pages) -->
-      <section class="rounded-2xl border border-border bg-card/60 p-4 sm:p-5 shadow-xs">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-foreground">
-            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            <span>Dedicated Exam Resizers &amp; Free Tools</span>
-          </div>
-          <span class="text-[11px] text-muted-foreground hidden sm:inline">Pre-configured 10–20 KB limits, aspect ratios &amp; guidelines</span>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-xs">
-          <a
-            href="/ssc-signature-resize"
-            class="p-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-foreground group-hover:text-primary transition-colors">SSC Resizer</span>
-              <span class="text-[10px] text-muted-foreground group-hover:text-primary transition-colors">→</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 • 10–20 KB</div>
-          </a>
-          <a
-            href="/upsc-signature-resize"
-            class="p-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-foreground group-hover:text-primary transition-colors">UPSC IAS</span>
-              <span class="text-[10px] text-muted-foreground group-hover:text-primary transition-colors">→</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">350×350 • 20–300 KB</div>
-          </a>
-          <a
-            href="/rrb-signature-resize"
-            class="p-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-foreground group-hover:text-primary transition-colors">RRB Railway</span>
-              <span class="text-[10px] text-muted-foreground group-hover:text-primary transition-colors">→</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 • 10–20 KB</div>
-          </a>
-          <a
-            href="/pan-card-signature-resize"
-            class="p-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-foreground group-hover:text-primary transition-colors">PAN Card (NSDL)</span>
-              <span class="text-[10px] text-muted-foreground group-hover:text-primary transition-colors">→</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">4.5×2 cm • &lt;50 KB</div>
-          </a>
-          <a
-            href="/ibps-signature-resize"
-            class="p-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-foreground group-hover:text-primary transition-colors">IBPS &amp; SBI</span>
-              <span class="text-[10px] text-muted-foreground group-hover:text-primary transition-colors">→</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 • 10–20 KB</div>
-          </a>
-          <a
-            href="/gate-signature-resize"
-            class="p-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-foreground group-hover:text-primary transition-colors">GATE IIT</span>
-              <span class="text-[10px] text-muted-foreground group-hover:text-primary transition-colors">→</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">5×2 cm • 5–200 KB</div>
-          </a>
-          <a
-            href="/thumb-impression-resize"
-            class="p-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-foreground group-hover:text-primary transition-colors">Thumb Impression</span>
-              <span class="text-[10px] text-muted-foreground group-hover:text-primary transition-colors">→</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">3×3 cm • 10–20 KB</div>
-          </a>
-          <a
-            href="/compress-image-to-kb"
-            class="p-2.5 rounded-xl border border-primary/30 bg-primary/5 hover:border-primary/60 hover:bg-primary/10 hover:text-primary transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-primary">Compress Image</span>
-              <span class="text-[10px] text-primary">→</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">To 20, 50, 100 KB</div>
-          </a>
-          <a
-            href="/signature-creator"
-            class="p-2.5 rounded-xl border border-primary/30 bg-primary/5 hover:border-primary/60 hover:bg-primary/10 hover:text-primary transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-primary">Signature Creator</span>
-              <span class="text-[10px] text-primary">→</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">Draw or Type Free</div>
-          </a>
-          <a
-            href="#exam-specs"
-            class="p-2.5 rounded-xl border border-border bg-muted/40 hover:bg-muted hover:text-foreground transition group shadow-2xs flex flex-col justify-between"
-          >
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="font-bold text-foreground">Specs Table</span>
-              <span class="text-[10px] text-muted-foreground group-hover:text-foreground">↓</span>
-            </div>
-            <div class="text-[10px] font-mono text-muted-foreground">All Govt Standards</div>
-          </a>
-        </div>
+      <!-- Main Interactive Resizer Studio (Full-Width Studio Command Center) -->
+      <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm">
+        <SignatureTool client:visible />
       </section>
 
-      <!-- Dual-Column Command Center: Workspace (Left 8 cols) + Sticky Assistant (Right 4 cols) -->
+      <!-- Portal Diagnostics & Troubleshooting Common Portal Upload Errors -->
+      <TroubleshootingSection />
+
+      <!-- Knowledge Base & Portal Assistant Dual-Column Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
-        <!-- Left Side: Main Interactive Resizer Tool Workspace -->
+        <!-- Left Side: Official Verification Matrix & Knowledge Base (8 cols) -->
         <div class="lg:col-span-8 space-y-6">
-          <div class="bg-card border border-border rounded-2xl p-4 sm:p-6 shadow-sm">
-            <SignatureTool client:visible />
-          </div>
-
-          <!-- Bottom Accordion Knowledge Base & Specifications -->
           <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-4">
             <div class="flex items-center justify-between border-b border-border pb-3">
               <h2 class="text-base font-bold text-foreground flex items-center gap-2">
@@ -596,6 +487,21 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
 
       inputW?.addEventListener('input', calculatePixels);
       inputH?.addEventListener('input', calculatePixels);
+
+      // Trending & Workspace Preset Buttons Handler
+      document.querySelectorAll('main .preset-btn').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          const examKey = e.currentTarget.getAttribute('data-exam');
+          if (examKey) {
+            window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: examKey }));
+            const url = new URL(window.location.href);
+            url.searchParams.set('preset', examKey);
+            window.history.replaceState({}, '', url.toString());
+            const studio = document.getElementById('tool-workspace') || document.getElementById('studio-container');
+            studio?.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
     </script>
   </body>
 </html>

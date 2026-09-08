@@ -1,0 +1,180 @@
+---
+// src/components/TroubleshootingSection.astro
+---
+
+<section id="troubleshooting" class="space-y-6 pt-6">
+  <div class="space-y-2 text-center max-w-2xl mx-auto">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
+      <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+      Portal Diagnostics &amp; Upload Solutions
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+      Troubleshooting Common Portal Upload Errors
+    </h2>
+    <p class="text-sm text-muted-foreground">
+      Avoid rejection on SSC, UPSC, IBPS, and State PSC servers with these verified diagnostic fixes.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Error 1: File size below minimum limit -->
+    <div class="p-5 rounded-2xl border border-border bg-card shadow-xs hover:border-primary/40 transition space-y-3.5 flex flex-col justify-between">
+      <div class="space-y-2.5">
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 font-bold">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Portal Error #1</span>
+            <h3 class="text-sm font-bold text-foreground">"File size is below the minimum limit (&lt; 10 KB or &lt; 20 KB)"</h3>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-muted/40 border border-border/80 space-y-1.5 text-xs">
+          <div class="font-semibold text-muted-foreground flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+            <span>Root Cause:</span>
+          </div>
+          <p class="text-muted-foreground leading-relaxed">
+            Standard online compressors shrink clean line art aggressively, dropping files below strict validation floors (such as UPSC's 20 KB floor or SSC's 10 KB limit).
+          </p>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 space-y-1.5 text-xs">
+        <div class="font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Recommended Fix in SignResize:</span>
+        </div>
+        <p class="text-foreground leading-relaxed">
+          In the <strong>Target File Bounds</strong> panel, raise the <strong>Min KB</strong> slider to at least <strong>15 KB</strong> (for 10–20 KB rules) or <strong>25 KB</strong> (for UPSC / gatekeeper portals). This forces the encoder to use higher quantization quality and preserve clean pixel density.
+        </p>
+      </div>
+    </div>
+
+    <!-- Error 2: Signature stretched or squashed -->
+    <div class="p-5 rounded-2xl border border-border bg-card shadow-xs hover:border-primary/40 transition space-y-3.5 flex flex-col justify-between">
+      <div class="space-y-2.5">
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 font-bold">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Portal Error #2</span>
+            <h3 class="text-sm font-bold text-foreground">"Signature appears stretched, squashed, or blurred"</h3>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-muted/40 border border-border/80 space-y-1.5 text-xs">
+          <div class="font-semibold text-muted-foreground flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+            <span>Root Cause:</span>
+          </div>
+          <p class="text-muted-foreground leading-relaxed">
+            Forcing a rectangular signature image into a square frame (or vice versa) without locking the native aspect ratio causes distortion and blurry strokes.
+          </p>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 space-y-1.5 text-xs">
+        <div class="font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Recommended Fix in SignResize:</span>
+        </div>
+        <ul class="space-y-1 text-foreground list-disc list-inside">
+          <li>Ensure <strong>Lock Aspect Ratio</strong> is enabled.</li>
+          <li>Click the <strong>Balanced (+15%)</strong> crop margin button so strokes do not collide with boundaries.</li>
+          <li>Ensure the canvas is rendered at the standard <strong>200 DPI</strong> before downloading.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Error 3: Invalid File Format / MIME Type Mismatch -->
+    <div class="p-5 rounded-2xl border border-border bg-card shadow-xs hover:border-primary/40 transition space-y-3.5 flex flex-col justify-between">
+      <div class="space-y-2.5">
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-xl bg-purple-500/15 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 font-bold">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Portal Error #3</span>
+            <h3 class="text-sm font-bold text-foreground">"Invalid File Format / MIME Type Mismatch"</h3>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-muted/40 border border-border/80 space-y-1.5 text-xs">
+          <div class="font-semibold text-muted-foreground flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+            <span>Root Cause:</span>
+          </div>
+          <p class="text-muted-foreground leading-relaxed">
+            Manually renaming a file extension from <code class="px-1 py-0.5 rounded bg-muted font-mono">.png</code> to <code class="px-1 py-0.5 rounded bg-muted font-mono">.jpg</code>, or uploading progressive JPEGs or modern smartphone WebP/HEIC files that legacy NIC/Govt servers cannot parse.
+          </p>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 space-y-1.5 text-xs">
+        <div class="font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Recommended Fix in SignResize:</span>
+        </div>
+        <p class="text-foreground leading-relaxed">
+          Always export using SignResize's standard <strong>Baseline JPEG / JPG</strong> output. The tool automatically transcodes raw HEIC, WebP, and PNG uploads into portal-compatible standard JFIF/JPEG binary headers.
+        </p>
+      </div>
+    </div>
+
+    <!-- Error 4: Disqualified Capital Letters or Faint Ink -->
+    <div class="p-5 rounded-2xl border border-border bg-card shadow-xs hover:border-primary/40 transition space-y-3.5 flex flex-col justify-between">
+      <div class="space-y-2.5">
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-xl bg-rose-500/15 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 font-bold">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+            </svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">Portal Error #4</span>
+            <h3 class="text-sm font-bold text-foreground">"Disqualified / Rejected: Capital Letters or Faint Ink"</h3>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-muted/40 border border-border/80 space-y-1.5 text-xs">
+          <div class="font-semibold text-muted-foreground flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+            <span>Root Cause:</span>
+          </div>
+          <p class="text-muted-foreground leading-relaxed">
+            Automated OCR algorithms flag block/capital letters as typed text rather than genuine legal signatures. Gray shadows from camera photography also cause background opacity rejections.
+          </p>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 space-y-1.5 text-xs">
+        <div class="font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Recommended Fix in SignResize:</span>
+        </div>
+        <ul class="space-y-1 text-foreground list-disc list-inside">
+          <li>Always sign in your natural <strong>running cursive handwriting</strong>.</li>
+          <li>Turn on the <strong>Clean White Paper Shadow</strong> filter to convert yellowish/gray camera paper tints to stark <code class="font-mono">#FFFFFF</code>.</li>
+          <li>If the pen stroke is faint, toggle <strong>Pure Black &amp; White Mode</strong> to snap strokes to deep black and background to white.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

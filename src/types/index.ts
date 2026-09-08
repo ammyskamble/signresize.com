@@ -27,7 +27,20 @@ export interface ExamPreset {
   name: string;
   shortCode: string;
   authority: string;
-  category: 'SSC' | 'Banking' | 'UPSC' | 'Engineering' | 'Railways' | 'Identity' | 'State PSC' | 'General';
+  category:
+    | 'SSC'
+    | 'Banking'
+    | 'UPSC'
+    | 'Engineering'
+    | 'Railways'
+    | 'Identity'
+    | 'State PSC'
+    | 'Law'
+    | 'Management'
+    | 'Defense'
+    | 'Teaching'
+    | 'PSU & Regulators'
+    | 'General';
   widthPx: number;
   heightPx: number;
   widthCm?: number;

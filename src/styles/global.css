@@ -146,3 +146,25 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
+
+/* Compact the top header margins and padding */
+.tool-header-section {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Hide non-essential step guides on desktop resizer view */
+.resizer-step-guide {
+  display: none;
+}
+
+/* Align studio toolbar inline */
+.studio-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+}

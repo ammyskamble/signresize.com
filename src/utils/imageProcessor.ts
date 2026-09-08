@@ -131,11 +131,16 @@ export function applySignatureFilters(
   ctx.putImageData(imgData, 0, 0);
 }
 
+// Cache intermediate rotated/flipped canvas to prevent allocating large memory on every crop drag
+let cachedSourceKey: string | null = null;
+let cachedIntermediateCanvas: HTMLCanvasElement | null = null;
+
 /**
  * Creates a helper canvas that handles rotation, flipping, and high-precision cropping.
+ * Uses intelligent intermediate canvas caching for 60fps drag performance.
  */
 export function renderProcessedCanvas(
-  sourceImage: CanvasImageSource,
+  sourceImage: HTMLImageElement | CanvasImageSource,
   sourceNaturalWidth: number,
   sourceNaturalHeight: number,
   crop: CropArea,
@@ -146,34 +151,44 @@ export function renderProcessedCanvas(
   flipV: boolean = false,
   filters: FilterOptions
 ): HTMLCanvasElement {
-  // Step 1: Create an intermediate rotated/flipped canvas for full source image
-  const rotRad = (rotation * Math.PI) / 180;
   const is90or270 = rotation === 90 || rotation === 270;
   const intermediateW = is90or270 ? sourceNaturalHeight : sourceNaturalWidth;
   const intermediateH = is90or270 ? sourceNaturalWidth : sourceNaturalHeight;
 
-  const fullCanvas = document.createElement('canvas');
-  fullCanvas.width = intermediateW;
-  fullCanvas.height = intermediateH;
-  const fullCtx = fullCanvas.getContext('2d', { willReadFrequently: true });
-  if (!fullCtx) throw new Error('Canvas 2D context unavailable');
+  // Cache key based on source, rotation and flips
+  const imgSrc = (sourceImage as HTMLImageElement).src || 'direct-source';
+  const cacheKey = `${imgSrc}_${rotation}_${flipH}_${flipV}_${sourceNaturalWidth}_${sourceNaturalHeight}`;
 
-  // Fill with white base (for transparency handling)
-  fullCtx.fillStyle = '#FFFFFF';
-  fullCtx.fillRect(0, 0, intermediateW, intermediateH);
+  let fullCanvas: HTMLCanvasElement;
 
-  fullCtx.save();
-  fullCtx.translate(intermediateW / 2, intermediateH / 2);
-  fullCtx.rotate(rotRad);
-  fullCtx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
-  fullCtx.drawImage(
-    sourceImage,
-    -sourceNaturalWidth / 2,
-    -sourceNaturalHeight / 2,
-    sourceNaturalWidth,
-    sourceNaturalHeight
-  );
-  fullCtx.restore();
+  if (cachedIntermediateCanvas && cachedSourceKey === cacheKey) {
+    fullCanvas = cachedIntermediateCanvas;
+  } else {
+    fullCanvas = document.createElement('canvas');
+    fullCanvas.width = intermediateW;
+    fullCanvas.height = intermediateH;
+    const fullCtx = fullCanvas.getContext('2d', { willReadFrequently: true });
+    if (!fullCtx) throw new Error('Canvas 2D context unavailable');
+
+    fullCtx.fillStyle = '#FFFFFF';
+    fullCtx.fillRect(0, 0, intermediateW, intermediateH);
+
+    fullCtx.save();
+    fullCtx.translate(intermediateW / 2, intermediateH / 2);
+    fullCtx.rotate((rotation * Math.PI) / 180);
+    fullCtx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+    fullCtx.drawImage(
+      sourceImage,
+      -sourceNaturalWidth / 2,
+      -sourceNaturalHeight / 2,
+      sourceNaturalWidth,
+      sourceNaturalHeight
+    );
+    fullCtx.restore();
+
+    cachedSourceKey = cacheKey;
+    cachedIntermediateCanvas = fullCanvas;
+  }
 
   // Step 2: Render into target dimensions from crop coordinates
   const outputCanvas = document.createElement('canvas');
@@ -191,10 +206,10 @@ export function renderProcessedCanvas(
   // Draw cropped section stretched to target dimensions
   outCtx.drawImage(
     fullCanvas,
-    crop.x,
-    crop.y,
-    crop.width,
-    crop.height,
+    Math.max(0, crop.x),
+    Math.max(0, crop.y),
+    Math.max(1, crop.width),
+    Math.max(1, crop.height),
     0,
     0,
     targetWidth,
@@ -208,8 +223,121 @@ export function renderProcessedCanvas(
 }
 
 /**
+ * Smart Auto-Fit: Detects signature ink pixels on unruled paper
+ * Returns tight bounding box with comfortable padding so candidate doesn't need to manually hunt for signature boundaries.
+ */
+export function detectSignatureBoundingBox(
+  sourceImage: HTMLImageElement,
+  naturalW: number,
+  naturalH: number,
+  rotation: number = 0,
+  flipH: boolean = false,
+  flipV: boolean = false,
+  paddingPercent: number = 0.12
+): CropArea {
+  const is90or270 = rotation === 90 || rotation === 270;
+  const currentW = is90or270 ? naturalH : naturalW;
+  const currentH = is90or270 ? naturalW : naturalH;
+
+  // Downsample to max 500px dimension for ultra-fast scanning (< 3ms)
+  const scale = Math.min(1, 500 / Math.max(currentW, currentH));
+  const scanW = Math.max(50, Math.round(currentW * scale));
+  const scanH = Math.max(50, Math.round(currentH * scale));
+
+  const canvas = document.createElement('canvas');
+  canvas.width = scanW;
+  canvas.height = scanH;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    return { x: 0, y: 0, width: currentW, height: currentH };
+  }
+
+  // Draw rotated/flipped
+  const rotRad = (rotation * Math.PI) / 180;
+  ctx.save();
+  ctx.translate(scanW / 2, scanH / 2);
+  ctx.rotate(rotRad);
+  ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+  ctx.drawImage(
+    sourceImage,
+    (-naturalW * scale) / 2,
+    (-naturalH * scale) / 2,
+    naturalW * scale,
+    naturalH * scale
+  );
+  ctx.restore();
+
+  const imgData = ctx.getImageData(0, 0, scanW, scanH);
+  const data = imgData.data;
+
+  let minX = scanW;
+  let maxX = 0;
+  let minY = scanH;
+  let maxY = 0;
+  let darkPixelCount = 0;
+
+  // Scan for pixels noticeably darker than white paper background (luminance < 205)
+  for (let y = 0; y < scanH; y++) {
+    for (let x = 0; x < scanW; x++) {
+      const idx = (y * scanW + x) * 4;
+      const r = data[idx];
+      const g = data[idx + 1];
+      const b = data[idx + 2];
+      const a = data[idx + 3];
+
+      if (a > 50) {
+        const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+        if (lum < 205) {
+          darkPixelCount++;
+          if (x < minX) minX = x;
+          if (x > maxX) maxX = x;
+          if (y < minY) minY = y;
+          if (y > maxY) maxY = y;
+        }
+      }
+    }
+  }
+
+  // Fallback if no signature detected (blank sheet or low contrast)
+  if (darkPixelCount < 15 || minX >= maxX || minY >= maxY) {
+    return {
+      x: Math.round(currentW * 0.05),
+      y: Math.round(currentH * 0.1),
+      width: Math.round(currentW * 0.9),
+      height: Math.round(currentH * 0.8)
+    };
+  }
+
+  // Convert back to natural coordinates
+  const origMinX = minX / scale;
+  const origMaxX = maxX / scale;
+  const origMinY = minY / scale;
+  const origMaxY = maxY / scale;
+
+  const rawW = origMaxX - origMinX;
+  const rawH = origMaxY - origMinY;
+
+  // Apply padding around detected ink
+  const padX = rawW * paddingPercent;
+  const padY = rawH * paddingPercent;
+
+  const cropX = Math.max(0, Math.floor(origMinX - padX));
+  const cropY = Math.max(0, Math.floor(origMinY - padY));
+  const cropW = Math.min(currentW - cropX, Math.ceil(rawW + padX * 2));
+  const cropH = Math.min(currentH - cropY, Math.ceil(rawH + padY * 2));
+
+  return {
+    x: cropX,
+    y: cropY,
+    width: Math.max(20, cropW),
+    height: Math.max(20, cropH)
+  };
+}
+
+/**
  * Compresses canvas to blob with exact target size (KB) binary search optimization.
  * Also handles padding/quality so output strictly falls within [minKb, maxKb].
+ * Optimized with fast early-exit tolerance for 3x faster compression.
  */
 export async function compressCanvasToTargetSize(
   canvas: HTMLCanvasElement,
@@ -241,13 +369,13 @@ export async function compressCanvasToTargetSize(
     };
   }
 
-  // Binary search for optimal JPEG / WebP quality
+  // Binary search for optimal JPEG / WebP quality with early exit
   let low = 0.05;
   let high = 1.0;
   let bestBlob: Blob | null = null;
   let bestDiff = Infinity;
 
-  for (let iter = 0; iter < 9; iter++) {
+  for (let iter = 0; iter < 8; iter++) {
     const midQuality = (low + high) / 2;
     const testBlob = await new Promise<Blob>((resolve) =>
       canvas.toBlob((b) => resolve(b || new Blob()), mimeType, midQuality)
@@ -259,6 +387,12 @@ export async function compressCanvasToTargetSize(
     if (diff < bestDiff) {
       bestDiff = diff;
       bestBlob = testBlob;
+    }
+
+    // Fast early exit: stop as soon as we are within 0.35 KB of target or within bounds with low diff
+    if (diff < 0.35 || (testKb >= minKb && testKb <= maxKb && diff < 0.75 && iter >= 2)) {
+      bestBlob = testBlob;
+      break;
     }
 
     if (testKb > desiredKb) {

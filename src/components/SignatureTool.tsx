@@ -28,7 +28,16 @@ import {
   SlidersHorizontal,
   FolderArchive,
   Scaling,
-  XCircle
+  XCircle,
+  ZoomIn,
+  ZoomOut,
+  Search,
+  Wand2,
+  Maximize2,
+  X,
+  Move,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import { EXAM_PRESETS, CATEGORIES } from '../data/examPresets';
 import type {
@@ -44,9 +53,13 @@ import {
   convertUnits,
   formatFileSize,
   renderProcessedCanvas,
-  compressCanvasToTargetSize
+  compressCanvasToTargetSize,
+  detectSignatureBoundingBox
 } from '../utils/imageProcessor';
 import { SignaturePadModal } from './SignaturePadModal';
+import { ToastNotification, type ToastItem } from './tool/ToastNotification';
+import { StepIndicator } from './tool/StepIndicator';
+import { PresetBanner } from './tool/PresetBanner';
 
 export interface SignatureToolProps {
   initialPresetId?: string;
@@ -70,6 +83,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
   const [isBatchProcessing, setIsBatchProcessing] = useState<boolean>(false);
   const [batchProgress, setBatchProgress] = useState<{ current: number; total: number }>({ current: 0, total: 0 });
   const [isZipCreating, setIsZipCreating] = useState<boolean>(false);
+
+  // Toast notifications state
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
+  const addToast = useCallback((message: string, title?: string, type: 'success' | 'info' | 'warning' = 'success') => {
+    const id = Date.now().toString() + Math.random().toString(36).substring(2, 6);
+    setToasts((prev) => [...prev.slice(-3), { id, message, title, type }]);
+  }, []);
+  const removeToast = useCallback((id: string) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  }, []);
 
   // Preset state
   const [selectedCategory, setSelectedCategory] = useState<string>('Popular');
@@ -123,6 +146,41 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
   const [isDrawingPadOpen, setIsDrawingPadOpen] = useState<boolean>(false);
   const [isDragOver, setIsDragOver] = useState<boolean>(false);
 
+  // New: Advanced Preview & Cropper UX States
+  const [cropperZoom, setCropperZoom] = useState<number>(1);
+  const [previewBg, setPreviewBg] = useState<'white' | 'checker'>('white');
+  const [previewScale, setPreviewScale] = useState<number>(1.2);
+  const [isInspectModalOpen, setIsInspectModalOpen] = useState<boolean>(false);
+  const [inspectZoom, setInspectZoom] = useState<number>(2);
+  const [inspectTab, setInspectTab] = useState<'processed' | 'original' | 'split'>('processed');
+
+  // Consolidated Combobox Popover state & Category Accordions
+  const [isExamDropdownOpen, setIsExamDropdownOpen] = useState<boolean>(false);
+  const [comboboxSearch, setComboboxSearch] = useState<string>('');
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
+    'Management': true,
+    'Banking': true,
+    'UPSC': true,
+    'Engineering': true,
+    'SSC': true
+  });
+  const comboboxRef = useRef<HTMLDivElement | null>(null);
+
+  // Close combobox when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (comboboxRef.current && !comboboxRef.current.contains(e.target as Node)) {
+        setIsExamDropdownOpen(false);
+      }
+    };
+    if (isExamDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isExamDropdownOpen]);
+
   // Non-blocking batch sync timer ref
   const batchSyncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -131,7 +189,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
   const targetHeightPx = Math.max(10, convertUnits(height, unit, 'px', dpi));
 
   // Apply an exam preset
-  const applyPreset = (preset: ExamPreset) => {
+  const applyPreset = useCallback((preset: ExamPreset) => {
     setSelectedPreset(preset);
     setWidth(preset.widthPx);
     setHeight(preset.heightPx);
@@ -149,21 +207,69 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
     if (sourceImage) {
       initCropBox(sourceImage, preset.aspectRatio);
     }
-  };
 
-  // Sync preset if prop or URL param ?preset= changes
+    addToast(
+      `Applied ${preset.name} (${preset.widthPx}×${preset.heightPx} px, ${preset.minKb}–${preset.maxKb} KB)`,
+      'Preset Applied',
+      'success'
+    );
+  }, [sourceImage, addToast]);
+
+const PRESET_ALIASES: Record<string, string> = {
+  ssc: 'ssc-general',
+  ibps: 'ibps-sbi',
+  upsc: 'upsc-civil-services',
+  rrb: 'rrb-railway',
+  neet: 'nta-neet-jee',
+  pan: 'pan-card-nsdl',
+  gate: 'gate-jam',
+  thumb: 'thumb-impression-general',
+  afcat: 'afcat-iaf',
+  agniveer: 'agniveer-recruitment',
+  coastguard: 'indian-coast-guard',
+  cat: 'cat-iim',
+  clat: 'clat-law',
+  uppsc: 'uppsc',
+  bpsc: 'bpsc',
+  mpsc: 'mpsc',
+  tnpsc: 'tnpsc',
+  rbi: 'rbi-grade-b'
+};
+
+const findPresetByKey = (key: string): ExamPreset | undefined => {
+  const norm = key.toLowerCase().trim();
+  const aliasId = PRESET_ALIASES[norm] || norm;
+  return (
+    EXAM_PRESETS.find((p) => p.id.toLowerCase() === aliasId) ||
+    EXAM_PRESETS.find((p) => p.shortCode.toLowerCase() === norm) ||
+    EXAM_PRESETS.find((p) => p.id.toLowerCase().includes(norm))
+  );
+};
+
+  // Sync preset if prop or URL param ?preset= changes, or when select-exam-preset custom event fires
   useEffect(() => {
     const urlPreset = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('preset') : null;
     const targetId = initialPresetId || urlPreset;
     if (targetId) {
-      const matched = EXAM_PRESETS.find(
-        (p) => p.id.toLowerCase() === targetId.toLowerCase() || p.shortCode.toLowerCase() === targetId.toLowerCase()
-      );
+      const matched = findPresetByKey(targetId);
       if (matched && matched.id !== selectedPreset?.id) {
         applyPreset(matched);
       }
     }
-  }, [initialPresetId]);
+
+    const handleCustomPresetSelect = (e: any) => {
+      const presetId = e?.detail;
+      if (presetId) {
+        const matched = findPresetByKey(presetId);
+        if (matched) {
+          applyPreset(matched);
+        }
+      }
+    };
+
+    window.addEventListener('select-exam-preset', handleCustomPresetSelect);
+    return () => window.removeEventListener('select-exam-preset', handleCustomPresetSelect);
+  }, [initialPresetId, applyPreset, selectedPreset?.id]);
 
   // Initialize crop box to centered aspect ratio
   const initCropBox = (img: HTMLImageElement, targetAspect: number) => {
@@ -907,6 +1013,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
     return p.category === selectedCategory;
   });
 
+  // Diagnostic Auto-Fix for Error: File size below minimum limit (<10KB or <20KB)
+  const autoFixMinKb = () => {
+    const isUpsc = selectedPreset?.id === 'upsc-civil-services' || selectedPreset?.category === 'UPSC';
+    const targetMin = isUpsc ? 25 : 15;
+    setMinKb(targetMin);
+    setMinKbInput(String(targetMin));
+    if (maxKb < targetMin + 5) {
+      const targetMax = targetMin + 15;
+      setMaxKb(targetMax);
+      setMaxKbInput(String(targetMax));
+    }
+  };
+
   // Handle Single Download
   const handleDownload = () => {
     if (!processedResult) return;
@@ -920,6 +1039,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    addToast(`Downloaded ${filename} (${Math.round(processedResult.sizeKb)} KB)`, 'Signature Downloaded', 'success');
   };
 
   // Handle Copy to Clipboard
@@ -935,8 +1056,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
       }
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (e) {
-      console.warn('Clipboard write failed', e);
+      addToast('Signature copied to clipboard', 'Copied to Clipboard', 'success');
+    } catch (err) {
+      console.error('Failed to copy image to clipboard', err);
+      addToast('Failed to copy to clipboard', 'Copy Error', 'warning');
     }
   };
 
@@ -967,6 +1090,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
 
     const deltaX = (clientX - dragStart.x) * scaleX;
     const deltaY = (clientY - dragStart.y) * scaleY;
+    const targetAspect = targetWidthPx / targetHeightPx;
 
     if (activeHandle === 'move') {
       let newX = cropStart.x + deltaX;
@@ -975,33 +1099,124 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
       newY = Math.max(0, Math.min(naturalH - crop.height, newY));
       setCrop((prev) => ({ ...prev, x: Math.round(newX), y: Math.round(newY) }));
     } else if (activeHandle === 'se') {
-      let newW = Math.max(40, cropStart.width + deltaX);
-      let newH = lockAspect ? newW / (targetWidthPx / targetHeightPx) : Math.max(20, cropStart.height + deltaY);
+      let newW = Math.max(30, cropStart.width + deltaX);
+      let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height + deltaY);
 
-      if (crop.x + newW > naturalW) {
-        newW = naturalW - crop.x;
-        if (lockAspect) newH = newW / (targetWidthPx / targetHeightPx);
+      if (cropStart.x + newW > naturalW) {
+        newW = naturalW - cropStart.x;
+        if (lockAspect) newH = newW / targetAspect;
       }
-      if (crop.y + newH > naturalH) {
-        newH = naturalH - crop.y;
-        if (lockAspect) newW = newH * (targetWidthPx / targetHeightPx);
+      if (cropStart.y + newH > naturalH) {
+        newH = naturalH - cropStart.y;
+        if (lockAspect) newW = newH * targetAspect;
       }
 
       setCrop((prev) => ({ ...prev, width: Math.round(newW), height: Math.round(newH) }));
-    } else if (activeHandle === 'nw') {
-      let newW = Math.max(40, cropStart.width - deltaX);
-      let newH = lockAspect ? newW / (targetWidthPx / targetHeightPx) : Math.max(20, cropStart.height - deltaY);
-      let newX = cropStart.x + deltaX;
-      let newY = cropStart.y + (lockAspect ? -(newH - cropStart.height) : deltaY);
+    } else if (activeHandle === 'sw') {
+      let newW = Math.max(30, cropStart.width - deltaX);
+      let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height + deltaY);
+      let newX = cropStart.x + (cropStart.width - newW);
 
-      if (newX >= 0 && newY >= 0) {
-        setCrop({
-          x: Math.round(newX),
-          y: Math.round(newY),
-          width: Math.round(newW),
-          height: Math.round(newH)
-        });
+      if (newX < 0) {
+        newW = cropStart.x + cropStart.width;
+        newX = 0;
+        if (lockAspect) newH = newW / targetAspect;
       }
+      if (cropStart.y + newH > naturalH) {
+        newH = naturalH - cropStart.y;
+        if (lockAspect) {
+          newW = newH * targetAspect;
+          newX = cropStart.x + (cropStart.width - newW);
+        }
+      }
+
+      setCrop({
+        x: Math.round(newX),
+        y: Math.round(cropStart.y),
+        width: Math.round(newW),
+        height: Math.round(newH)
+      });
+    } else if (activeHandle === 'ne') {
+      let newW = Math.max(30, cropStart.width + deltaX);
+      let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height - deltaY);
+      let newY = cropStart.y + (cropStart.height - newH);
+
+      if (cropStart.x + newW > naturalW) {
+        newW = naturalW - cropStart.x;
+        if (lockAspect) {
+          newH = newW / targetAspect;
+          newY = cropStart.y + (cropStart.height - newH);
+        }
+      }
+      if (newY < 0) {
+        newH = cropStart.y + cropStart.height;
+        newY = 0;
+        if (lockAspect) newW = newH * targetAspect;
+      }
+
+      setCrop({
+        x: Math.round(cropStart.x),
+        y: Math.round(newY),
+        width: Math.round(newW),
+        height: Math.round(newH)
+      });
+    } else if (activeHandle === 'nw') {
+      let newW = Math.max(30, cropStart.width - deltaX);
+      let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height - deltaY);
+      let newX = cropStart.x + (cropStart.width - newW);
+      let newY = cropStart.y + (cropStart.height - newH);
+
+      if (newX < 0) {
+        newW = cropStart.x + cropStart.width;
+        newX = 0;
+        if (lockAspect) newH = newW / targetAspect;
+      }
+      if (newY < 0) {
+        newH = cropStart.y + cropStart.height;
+        newY = 0;
+        if (lockAspect) newW = newH * targetAspect;
+      }
+
+      setCrop({
+        x: Math.round(newX),
+        y: Math.round(newY),
+        width: Math.round(newW),
+        height: Math.round(newH)
+      });
+    } else if (activeHandle === 'e') {
+      let newW = Math.max(30, Math.min(naturalW - cropStart.x, cropStart.width + deltaX));
+      let newH = lockAspect ? newW / targetAspect : cropStart.height;
+      let newY = lockAspect ? cropStart.y - (newH - cropStart.height) / 2 : cropStart.y;
+      newY = Math.max(0, Math.min(naturalH - newH, newY));
+      setCrop((prev) => ({ ...prev, width: Math.round(newW), height: Math.round(newH), y: Math.round(newY) }));
+    } else if (activeHandle === 'w') {
+      let newW = Math.max(30, cropStart.width - deltaX);
+      let newX = cropStart.x + (cropStart.width - newW);
+      if (newX < 0) {
+        newW = cropStart.x + cropStart.width;
+        newX = 0;
+      }
+      let newH = lockAspect ? newW / targetAspect : cropStart.height;
+      let newY = lockAspect ? cropStart.y - (newH - cropStart.height) / 2 : cropStart.y;
+      newY = Math.max(0, Math.min(naturalH - newH, newY));
+      setCrop({ x: Math.round(newX), y: Math.round(newY), width: Math.round(newW), height: Math.round(newH) });
+    } else if (activeHandle === 's') {
+      let newH = Math.max(20, Math.min(naturalH - cropStart.y, cropStart.height + deltaY));
+      let newW = lockAspect ? newH * targetAspect : cropStart.width;
+      let newX = lockAspect ? cropStart.x - (newW - cropStart.width) / 2 : cropStart.x;
+      newX = Math.max(0, Math.min(naturalW - newW, newX));
+      setCrop((prev) => ({ ...prev, height: Math.round(newH), width: Math.round(newW), x: Math.round(newX) }));
+    } else if (activeHandle === 'n') {
+      let newH = Math.max(20, cropStart.height - deltaY);
+      let newY = cropStart.y + (cropStart.height - newH);
+      if (newY < 0) {
+        newH = cropStart.y + cropStart.height;
+        newY = 0;
+      }
+      let newW = lockAspect ? newH * targetAspect : cropStart.width;
+      let newX = lockAspect ? cropStart.x - (newW - cropStart.width) / 2 : cropStart.x;
+      newX = Math.max(0, Math.min(naturalW - newW, newX));
+      setCrop({ x: Math.round(newX), y: Math.round(newY), width: Math.round(newW), height: Math.round(newH) });
     }
   };
 
@@ -1010,106 +1225,469 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
     setActiveHandle(null);
   };
 
+  // Smart Auto-Fit Signature Detection (One-click ink shrinkwrap)
+  const handleAutoFitSignature = (padding: number = 0.12) => {
+    if (!sourceImage) return;
+    const detected = detectSignatureBoundingBox(
+      sourceImage,
+      sourceDimensions.width,
+      sourceDimensions.height,
+      rotation,
+      flipH,
+      flipV,
+      padding
+    );
+
+    if (lockAspect) {
+      const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
+      let w = detected.width;
+      let h = w / targetAspect;
+
+      if (h < detected.height) {
+        h = detected.height;
+        w = h * targetAspect;
+      }
+
+      const centerX = detected.x + detected.width / 2;
+      const centerY = detected.y + detected.height / 2;
+
+      let x = Math.max(0, centerX - w / 2);
+      let y = Math.max(0, centerY - h / 2);
+
+      if (x + w > naturalW) {
+        x = Math.max(0, naturalW - w);
+      }
+      if (y + h > naturalH) {
+        y = Math.max(0, naturalH - h);
+      }
+
+      setCrop({
+        x: Math.round(x),
+        y: Math.round(y),
+        width: Math.round(Math.min(naturalW, w)),
+        height: Math.round(Math.min(naturalH, h))
+      });
+    } else {
+      setCrop(detected);
+    }
+  };
+
+  // Adjust margin padding around current selection
+  const applyMarginPreset = (factor: number) => {
+    const centerX = crop.x + crop.width / 2;
+    const centerY = crop.y + crop.height / 2;
+    const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
+
+    let newW = crop.width * factor;
+    let newH = lockAspect ? newW / targetAspect : crop.height * factor;
+
+    newW = Math.min(naturalW, Math.max(30, newW));
+    newH = Math.min(naturalH, Math.max(20, newH));
+
+    let newX = Math.max(0, Math.min(naturalW - newW, centerX - newW / 2));
+    let newY = Math.max(0, Math.min(naturalH - newH, centerY - newH / 2));
+
+    setCrop({
+      x: Math.round(newX),
+      y: Math.round(newY),
+      width: Math.round(newW),
+      height: Math.round(newH)
+    });
+  };
+
+  // Quick Aspect Ratio Presets
+  const applyAspectPreset = (ratio: number | 'free') => {
+    if (ratio === 'free') {
+      setLockAspect(false);
+      return;
+    }
+
+    setLockAspect(true);
+    let newH = crop.width / ratio;
+    let newW = crop.width;
+
+    if (newH > naturalH) {
+      newH = naturalH * 0.9;
+      newW = newH * ratio;
+    }
+
+    const centerX = crop.x + crop.width / 2;
+    const centerY = crop.y + crop.height / 2;
+
+    let newX = Math.max(0, Math.min(naturalW - newW, centerX - newW / 2));
+    let newY = Math.max(0, Math.min(naturalH - newH, centerY - newH / 2));
+
+    setCrop({
+      x: Math.round(newX),
+      y: Math.round(newY),
+      width: Math.round(newW),
+      height: Math.round(newH)
+    });
+  };
+
+  // Keyboard Nudge Support (Arrow keys for 2px, Shift+Arrow for 10px)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!sourceImage || toolMode !== 'single') return;
+      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
+
+      const step = e.shiftKey ? 10 : 2;
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setCrop((prev) => ({ ...prev, x: Math.max(0, prev.x - step) }));
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        setCrop((prev) => ({ ...prev, x: Math.min(naturalW - prev.width, prev.x + step) }));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setCrop((prev) => ({ ...prev, y: Math.max(0, prev.y - step) }));
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setCrop((prev) => ({ ...prev, y: Math.min(naturalH - prev.height, prev.y + step) }));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [sourceImage, toolMode, naturalW, naturalH]);
+
   const totalLoadedCount = batchItems.length > 0 ? batchItems.length : sourceImage ? 1 : 0;
 
-  // Preset Selector Component (Reusable across Single and Batch mode)
-  const renderPresetSelector = () => (
-    <div className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-3">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-wider text-muted-foreground">
-            <Zap className="w-4 h-4 text-primary" />
-            <span>Govt Exam / Portal Presets:</span>
-          </div>
-          {selectedPreset && (
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-primary/10 text-primary border border-primary/20">
-              Active: {selectedPreset.shortCode} ({targetWidthPx}×{targetHeightPx}px, {minKb}–{maxKb}KB)
-            </span>
-          )}
-        </div>
-        <div className="relative w-full sm:w-64">
-          <input
-            type="text"
-            placeholder="Search exam (e.g. SSC, UPSC, PAN)..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-3 py-1.5 text-xs rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
-          />
-        </div>
-      </div>
+  // Group presets into intuitive Category Accordions for the Consolidated Combobox
+  const CATEGORY_GROUPS = [
+    { name: 'Management & MBA', categories: ['Management'], description: 'CAT (IIM), XAT, SNAP, NMAT & CMAT' },
+    { name: 'Civil Services / UPSC', categories: ['UPSC'], description: 'UPSC IAS, NDA, CDS, CMS & CAPF (AC)' },
+    { name: 'Banking & Financial', categories: ['Banking', 'PSU & Regulators'], description: 'IBPS, SBI, RBI Grade B, SEBI & LIC' },
+    { name: 'Engineering & Medical', categories: ['Engineering'], description: 'GATE & IIT JAM, NEET / JEE (NTA)' },
+    { name: 'Staff Selection (SSC) & Railways', categories: ['SSC', 'Railways'], description: 'SSC CGL, CHSL, MTS, GD & Railway RRB' },
+    { name: 'State PSCs', categories: ['State PSC'], description: 'UPPSC, BPSC, MPSC, TNPSC, KPSC, RPSC, WBPSC & GPSC' },
+    { name: 'Defense & Paramilitary', categories: ['Defense'], description: 'AFCAT, Agniveer (Army/Navy/AirForce) & Coast Guard' },
+    { name: 'Law & Legal Entrances', categories: ['Law'], description: 'CLAT UG/PG, AILET & LSAT India' },
+    { name: 'Teaching & Eligibility', categories: ['Teaching'], description: 'CTET, State TETs & CSIR UGC-NET' },
+    { name: 'Identity & Portals', categories: ['Identity', 'General'], description: 'PAN Card (NSDL), Left Thumb, Sarathi DL & Passport' }
+  ];
 
-      {/* Category Filter Pills */}
-      <div className="flex flex-wrap gap-1.5 border-b border-border/50 pb-2">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            type="button"
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-3 py-1 rounded-lg text-xs font-medium transition ${
-              selectedCategory === cat
-                ? 'bg-primary text-primary-foreground font-semibold shadow-xs'
-                : 'bg-muted/60 text-muted-foreground hover:text-foreground hover:bg-muted'
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+  // Top 4 Pinned Entrance Exams based on ongoing registration seasons
+  const PINNED_TOP_EXAMS = [
+    { id: 'ssc-general', short: 'SSC', label: 'SSC (CGL, CHSL)', specs: '140×60 • 10–20 KB' },
+    { id: 'upsc-civil-services', short: 'UPSC', label: 'UPSC (IAS, NDA)', specs: '350×350 • 20–300 KB' },
+    { id: 'ibps-sbi', short: 'IBPS', label: 'IBPS & SBI (PO/Clerk)', specs: '140×60 • 10–20 KB' },
+    { id: 'cat-iim', short: 'CAT', label: 'CAT (IIMs)', specs: '300×132 • 10–80 KB' }
+  ];
 
-      {/* Presets Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 max-h-48 overflow-y-auto pr-1">
-        {filteredPresets.map((preset) => {
-          const isSelected = selectedPreset?.id === preset.id;
-          return (
-            <button
-              key={preset.id}
-              type="button"
-              onClick={() => applyPreset(preset)}
-              className={`text-left p-2.5 rounded-xl border transition text-xs flex flex-col justify-between ${
-                isSelected
-                  ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
-                  : 'border-border/70 bg-card hover:border-primary/40 hover:bg-muted/40'
-              }`}
-            >
-              <div>
-                <div className="font-bold text-foreground truncate">{preset.shortCode}</div>
-                <div className="text-[11px] text-muted-foreground truncate">{preset.name}</div>
-              </div>
-              <div className="pt-2 flex items-center justify-between text-[10px] font-mono text-muted-foreground">
-                <span>{preset.widthPx}×{preset.heightPx}px</span>
-                <span className="text-primary font-bold">{preset.minKb}-{preset.maxKb}KB</span>
-              </div>
-            </button>
-          );
-        })}
-      </div>
+  // Filter presets for search inside combobox
+  const comboboxFilteredPresets = EXAM_PRESETS.filter((p) => {
+    if (!comboboxSearch.trim()) return true;
+    const q = comboboxSearch.toLowerCase();
+    return (
+      p.name.toLowerCase().includes(q) ||
+      p.shortCode.toLowerCase().includes(q) ||
+      p.authority.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      p.notes.toLowerCase().includes(q)
+    );
+  });
 
-      {/* Official Guidance Alert for Active Preset - High Contrast Theme-Safe */}
-      {selectedPreset && (
-        <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900 border-2 border-amber-400 text-amber-50 dark:bg-slate-950 dark:border-amber-400 shadow-sm">
-          <div className="p-1.5 rounded-lg bg-amber-400 text-slate-950 shrink-0 mt-0.5 font-bold">
-            <AlertCircle className="w-4 h-4" />
-          </div>
-          <div className="space-y-1 text-xs">
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase tracking-wider">
-                Official Rule
-              </span>
-              <span className="font-bold text-amber-300">
-                {selectedPreset.name} Upload Guidelines
-              </span>
+  // Toggle Category Accordion in Combobox
+  const toggleCategoryAccordion = (catName: string) => {
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [catName]: !prev[catName]
+    }));
+  };
+
+  // Consolidated Exam Selector Dropdown & Search System
+  const renderPresetSelector = () => {
+    const isPinnedActive = PINNED_TOP_EXAMS.some((item) => item.id === selectedPreset?.id);
+
+    return (
+      <div className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-3 relative" ref={comboboxRef}>
+        
+        {/* Top Header: Title & Active Preset Badge */}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-wider text-muted-foreground">
+              <Zap className="w-4 h-4 text-primary" />
+              <span>Govt Exam Presets:</span>
             </div>
-            <p className="leading-relaxed text-amber-100">
-              {selectedPreset.notes} • <strong>Ink:</strong> {selectedPreset.inkRequirement}
-            </p>
+            {selectedPreset && (
+              <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-primary/10 text-primary border border-primary/20 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                <span>Active: {selectedPreset.shortCode}</span>
+                <span className="text-muted-foreground font-normal">({targetWidthPx}×{targetHeightPx}px, {minKb}–{maxKb}KB)</span>
+              </span>
+            )}
           </div>
+
+          <a
+            href="/#exam-specs"
+            className="text-[11px] font-medium text-primary hover:underline flex items-center gap-1"
+          >
+            <span>Full Specs Matrix Table</span>
+            <span>→</span>
+          </a>
         </div>
-      )}
-    </div>
-  );
+
+        {/* Pinned Top 4 Exams Bar + "More Exams (30+) ▾" Combobox Trigger */}
+        <div className="flex flex-wrap items-center gap-2 pt-1">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground shrink-0 flex items-center gap-1 mr-1">
+            <Sparkles className="w-3.5 h-3.5 text-primary" /> Top Registration Seasons:
+          </span>
+
+          {/* 4 Pinned Chips */}
+          {PINNED_TOP_EXAMS.map((item) => {
+            const isSelected = selectedPreset?.id === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => {
+                  const p = EXAM_PRESETS.find((x) => x.id === item.id);
+                  if (p) applyPreset(p);
+                  setIsExamDropdownOpen(false);
+                }}
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs ${
+                  isSelected
+                    ? 'bg-primary text-primary-foreground font-bold shadow-sm'
+                    : 'bg-muted/70 hover:bg-muted text-foreground border border-border/70 hover:border-primary/40'
+                }`}
+              >
+                <span>{item.short}</span>
+                <span className={`text-[10px] font-mono font-normal opacity-80 ${isSelected ? 'text-primary-foreground' : 'text-muted-foreground'}`}>
+                  {item.specs.split('•')[0]}
+                </span>
+              </button>
+            );
+          })}
+
+          {/* Consolidated Dropdown Trigger Button */}
+          <button
+            type="button"
+            onClick={() => setIsExamDropdownOpen(!isExamDropdownOpen)}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 border shadow-2xs ${
+              isExamDropdownOpen || (!isPinnedActive && selectedPreset)
+                ? 'bg-primary/15 text-primary border-primary/40 shadow-xs'
+                : 'bg-card hover:bg-muted text-foreground border-border hover:border-primary/40'
+            }`}
+            aria-expanded={isExamDropdownOpen}
+            aria-haspopup="dialog"
+          >
+            <Search className="w-3.5 h-3.5 text-primary" />
+            <span>
+              {!isPinnedActive && selectedPreset ? `Exam: ${selectedPreset.shortCode}` : 'More Exams (30+)'}
+            </span>
+            {isExamDropdownOpen ? (
+              <ChevronUp className="w-3.5 h-3.5 text-primary" />
+            ) : (
+              <ChevronDown className="w-3.5 h-3.5 text-primary" />
+            )}
+          </button>
+        </div>
+
+        {/* Consolidated Exam Selector Dropdown Combobox Popover */}
+        {isExamDropdownOpen && (
+          <div className="mt-2 p-4 rounded-2xl bg-card border-2 border-primary/30 shadow-2xl space-y-4 z-30 animate-in fade-in slide-in-from-top-2 duration-150">
+            
+            {/* Combobox Search Toolbar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/80 pb-3">
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <input
+                  type="text"
+                  placeholder="Search 30+ exams (e.g. GATE, NEET, PAN, BPSC, AFCAT)..."
+                  value={comboboxSearch}
+                  onChange={(e) => setComboboxSearch(e.target.value)}
+                  autoFocus
+                  className="w-full pl-9 pr-8 py-2 text-xs rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                />
+                {comboboxSearch && (
+                  <button
+                    type="button"
+                    onClick={() => setComboboxSearch('')}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1"
+                    title="Clear search"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+
+              <div className="flex items-center justify-between sm:justify-end gap-3 text-xs">
+                <span className="text-muted-foreground font-mono text-[11px]">
+                  {comboboxFilteredPresets.length} exams found
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setIsExamDropdownOpen(false)}
+                  className="px-2.5 py-1 rounded-lg border border-border hover:bg-muted text-xs font-semibold text-muted-foreground hover:text-foreground transition"
+                >
+                  Close ✕
+                </button>
+              </div>
+            </div>
+
+            {/* When Searching: Flat Search Results Grid */}
+            {comboboxSearch.trim() ? (
+              <div className="space-y-2 max-h-[360px] overflow-y-auto pr-1">
+                {comboboxFilteredPresets.length === 0 ? (
+                  <div className="p-8 text-center text-xs text-muted-foreground">
+                    No matching exams found for &ldquo;{comboboxSearch}&rdquo;. Try typing SSC, UPSC, GATE, or PAN.
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                    {comboboxFilteredPresets.map((preset) => {
+                      const isSelected = selectedPreset?.id === preset.id;
+                      return (
+                        <button
+                          key={preset.id}
+                          type="button"
+                          onClick={() => {
+                            applyPreset(preset);
+                            setIsExamDropdownOpen(false);
+                          }}
+                          className={`text-left p-3 rounded-xl border transition text-xs flex flex-col justify-between ${
+                            isSelected
+                              ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
+                              : 'border-border/70 bg-card hover:border-primary/40 hover:bg-muted/40'
+                          }`}
+                        >
+                          <div>
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="font-bold text-foreground truncate">{preset.shortCode}</span>
+                              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-muted text-muted-foreground">
+                                {preset.category}
+                              </span>
+                            </div>
+                            <div className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">{preset.name}</div>
+                          </div>
+                          <div className="pt-2 flex items-center justify-between text-[10px] font-mono border-t border-border/40 mt-2">
+                            <span>{preset.widthPx}×{preset.heightPx}px ({preset.widthCm}×{preset.heightCm}cm)</span>
+                            <span className="text-primary font-bold">{preset.minKb}–{preset.maxKb}KB</span>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            ) : (
+              /* When Not Searching: Category Accordions */
+              <div className="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+                {CATEGORY_GROUPS.map((group) => {
+                  const groupPresets = EXAM_PRESETS.filter((p) => group.categories.includes(p.category));
+                  if (groupPresets.length === 0) return null;
+
+                  const isExpanded = expandedCategories[group.name] ?? false;
+
+                  return (
+                    <div key={group.name} className="border border-border/80 rounded-xl overflow-hidden bg-muted/20">
+                      <button
+                        type="button"
+                        onClick={() => toggleCategoryAccordion(group.name)}
+                        className="w-full p-3 flex items-center justify-between text-left hover:bg-muted/40 transition select-none"
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-xs text-foreground">{group.name}</span>
+                          <span className="text-[10px] text-muted-foreground hidden sm:inline">• {group.description}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-muted text-muted-foreground border border-border">
+                            {groupPresets.length} presets
+                          </span>
+                          {isExpanded ? (
+                            <ChevronUp className="w-3.5 h-3.5 text-muted-foreground" />
+                          ) : (
+                            <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" />
+                          )}
+                        </div>
+                      </button>
+
+                      {isExpanded && (
+                        <div className="p-3 pt-1 border-t border-border/60 bg-card">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                            {groupPresets.map((preset) => {
+                              const isSelected = selectedPreset?.id === preset.id;
+                              return (
+                                <button
+                                  key={preset.id}
+                                  type="button"
+                                  onClick={() => {
+                                    applyPreset(preset);
+                                    setIsExamDropdownOpen(false);
+                                  }}
+                                  className={`text-left p-2.5 rounded-xl border transition text-xs flex flex-col justify-between ${
+                                    isSelected
+                                      ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
+                                      : 'border-border/70 bg-card hover:border-primary/40 hover:bg-muted/40'
+                                  }`}
+                                >
+                                  <div>
+                                    <div className="flex items-center justify-between gap-1">
+                                      <span className="font-bold text-foreground truncate">{preset.shortCode}</span>
+                                      <span className="text-[10px] font-mono font-bold text-primary">{preset.minKb}–{preset.maxKb}KB</span>
+                                    </div>
+                                    <div className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">{preset.name}</div>
+                                  </div>
+                                  <div className="pt-2 flex items-center justify-between text-[10px] font-mono text-muted-foreground border-t border-border/40 mt-1.5">
+                                    <span>{preset.widthPx}×{preset.heightPx}px ({preset.widthCm}×{preset.heightCm}cm)</span>
+                                    <span className="text-[9px] text-muted-foreground">{preset.inkRequirement}</span>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Bottom Reference Link */}
+            <div className="pt-2 border-t border-border/60 flex items-center justify-between text-xs">
+              <span className="text-muted-foreground text-[11px]">Looking for official print size rules?</span>
+              <a
+                href="/#exam-specs"
+                onClick={() => setIsExamDropdownOpen(false)}
+                className="font-bold text-primary hover:underline flex items-center gap-1"
+              >
+                <span>Browse Full Exam Dimensions Matrix (30+ Guidelines)</span>
+                <span>↓</span>
+              </a>
+            </div>
+
+          </div>
+        )}
+
+        {/* Official Guidance Alert for Active Preset - High Contrast Theme-Safe */}
+        {selectedPreset && (
+          <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900 border-2 border-amber-400 text-amber-50 dark:bg-slate-950 dark:border-amber-400 shadow-sm">
+            <div className="p-1.5 rounded-lg bg-amber-400 text-slate-950 shrink-0 mt-0.5 font-bold">
+              <AlertCircle className="w-4 h-4" />
+            </div>
+            <div className="space-y-1 text-xs">
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase tracking-wider">
+                  Official Rule
+                </span>
+                <span className="font-bold text-amber-300">
+                  {selectedPreset.name} Upload Guidelines
+                </span>
+              </div>
+              <p className="leading-relaxed text-amber-100">
+                {selectedPreset.notes} • <strong>Ink:</strong> {selectedPreset.inkRequirement}
+              </p>
+            </div>
+          </div>
+        )}
+
+      </div>
+    );
+  };
 
   return (
-    <div className="w-full max-w-7xl mx-auto space-y-6" id="tool-workspace">
+    <div className="w-full max-w-7xl mx-auto space-y-6 scroll-mt-24" id="tool-workspace">
       
       {/* Hidden Multi-File Input */}
       <input
@@ -1125,95 +1703,62 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
         }}
       />
 
-      {/* Top Mode Selector & Global Workspace Actions */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-card border border-border shadow-xs">
-        
-        {/* Mode Switcher Tabs */}
-        <div className="inline-flex items-center gap-1.5 p-1 rounded-xl bg-muted/60 border border-border shrink-0 self-start sm:self-auto">
-          <button
-            type="button"
-            onClick={() => setToolMode('single')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition ${
-              toolMode === 'single'
-                ? 'bg-card text-foreground shadow-xs border border-border'
-                : 'text-muted-foreground hover:text-foreground'
-            }`}
-          >
-            <PenTool className="w-3.5 h-3.5 text-primary shrink-0" />
-            <span>Single Studio</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setToolMode('batch')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition ${
-              toolMode === 'batch'
-                ? 'bg-primary text-primary-foreground shadow-xs'
-                : 'text-zinc-600 dark:text-zinc-400 hover:text-foreground'
-            }`}
-          >
-            <Layers className="w-3.5 h-3.5 shrink-0" />
-            <span>Batch Editor</span>
-            <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-mono font-bold ${
-              toolMode === 'batch'
-                ? 'bg-primary-foreground/20 text-primary-foreground'
-                : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200'
-            }`}>
-              {batchItems.length > 0 ? `${batchItems.length}/10` : 'Up to 10'}
-            </span>
-          </button>
-        </div>
-
-        {/* Global Action Buttons */}
-        <div className="flex flex-wrap items-center gap-2 text-xs">
-          <button
-            type="button"
-            onClick={() => fileInputRef.current?.click()}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-primary text-primary-foreground hover:opacity-95 font-semibold whitespace-nowrap shadow-xs transition"
-          >
-            <Plus className="w-3.5 h-3.5 shrink-0" />
-            <span>Upload Signs</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={loadSampleBatchSignatures}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-card border border-border text-foreground hover:bg-muted font-medium whitespace-nowrap transition shadow-xs"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-primary shrink-0" />
-            <span>Sample Signs</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setIsDrawingPadOpen(true)}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-card border border-border text-foreground hover:bg-muted font-medium whitespace-nowrap transition shadow-xs"
-          >
-            <PenTool className="w-3.5 h-3.5 text-primary shrink-0" />
-            <span>Draw Sign</span>
-          </button>
-
-          {/* Prominent Clear All Selected Files Button */}
-          {totalLoadedCount > 0 && (
-            <button
-              type="button"
-              onClick={clearAllSelectedFiles}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/30 hover:bg-red-500/20 font-semibold whitespace-nowrap transition shadow-xs"
-              title="Clear all uploaded signatures and reset workspace"
-            >
-              <Trash2 className="w-3.5 h-3.5 shrink-0" />
-              <span>Clear All ({totalLoadedCount})</span>
-            </button>
-          )}
-        </div>
-      </div>
-
       {/* ========================================================================= */}
       {/* ⚡ BATCH MODE: SIMULTANEOUS MASTER EDITING SUITE (All 10 Signs Together) */}
       {/* ========================================================================= */}
       {toolMode === 'batch' && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           
+          {/* Mode Switcher Bar in Batch Mode */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 rounded-2xl bg-card border border-border shadow-xs">
+            <div className="inline-flex items-center gap-1 p-0.5 rounded-lg bg-muted/60 border border-border shrink-0">
+              <button
+                type="button"
+                onClick={() => setToolMode('single')}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-muted-foreground hover:text-foreground transition cursor-pointer"
+              >
+                <PenTool className="w-3.5 h-3.5 text-primary shrink-0" />
+                <span>Single Studio</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setToolMode('batch')}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold bg-primary text-primary-foreground shadow-xs cursor-pointer"
+              >
+                <Layers className="w-3.5 h-3.5 shrink-0" />
+                <span>Batch Editor</span>
+                <span className="px-1.5 py-0.2 rounded-full text-[10px] font-mono font-bold bg-primary-foreground/20 text-primary-foreground">
+                  {batchItems.length > 0 ? `${batchItems.length}/10` : 'Up to 10'}
+                </span>
+              </button>
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="px-3 py-1.5 bg-primary text-primary-foreground text-xs font-semibold rounded-xl hover:opacity-95 shadow-xs transition cursor-pointer"
+              >
+                + Add Images
+              </button>
+              <button
+                type="button"
+                onClick={loadSampleBatchSignatures}
+                className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-xl hover:bg-muted/80 border border-border transition cursor-pointer"
+              >
+                Sample Signs
+              </button>
+              {batchItems.length > 0 && (
+                <button
+                  type="button"
+                  onClick={clearAllSelectedFiles}
+                  className="px-3 py-1.5 text-xs font-semibold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 rounded-xl border border-red-200 dark:border-red-900/50 transition cursor-pointer"
+                >
+                  Clear All
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* 1. Exam Preset Selector right at top of Batch Editor */}
           {renderPresetSelector()}
 
@@ -1688,224 +2233,396 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
       {/* ========================================================================= */}
       {/* 🎨 SINGLE SIGNATURE STUDIO (Cropper & Fine Tuning) */}
       {/* ========================================================================= */}
-      {toolMode === 'single' && !sourceImage && (
-        <div className="space-y-6">
-          <div
-            onDragOver={(e) => {
-              e.preventDefault();
-              setIsDragOver(true);
-            }}
-            onDragLeave={() => setIsDragOver(false)}
-            onDrop={handleDrop}
-            className={`relative overflow-hidden rounded-2xl border-2 border-dashed transition-all p-8 md:p-14 text-center ${
-              isDragOver
-                ? 'border-primary bg-primary/5 scale-[1.005]'
-                : 'border-border bg-card/60 hover:border-primary/40 hover:bg-muted/30 shadow-sm'
-            }`}
-          >
-            <div className="max-w-xl mx-auto space-y-5">
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/10 text-primary flex items-center justify-center shadow-inner border border-primary/20">
-                <Upload className="w-8 h-8 animate-pulse" />
-              </div>
-
-              <div className="space-y-2">
-                <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                  Drop your Signature Image here
-                </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Instant client-side resizing and compression for SSC, IBPS, UPSC, GATE, and PAN Card forms.
-                  <br className="hidden sm:inline" />
-                  <span className="text-primary font-medium"> 100% Private</span>: Your document never leaves your device.
-                </p>
-              </div>
-
-              {/* Main Action Buttons */}
-              <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:opacity-90 active:scale-95 transition"
-                >
-                  <FileImage className="w-5 h-5" />
-                  Select Image(s) from Device
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setIsDrawingPadOpen(true)}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-muted active:scale-95 transition shadow-sm"
-                >
-                  <PenTool className="w-4 h-4 text-primary" />
-                  Sign on Screen
-                </button>
-
-                <button
-                  type="button"
-                  onClick={loadSingleSampleSignature}
-                  className="flex items-center gap-1.5 px-4 py-3 rounded-xl bg-accent/40 border border-border text-accent-foreground text-xs font-semibold hover:bg-accent active:scale-95 transition"
-                >
-                  <Sparkles className="w-4 h-4 text-cyan-500" />
-                  Test Sample Signature
-                </button>
-              </div>
-
-              <div className="flex items-center justify-center gap-6 pt-4 text-xs text-muted-foreground border-t border-border/50">
-                <span className="inline-flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-500" /> Zero Server Uploads
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Zap className="w-4 h-4 text-amber-500" /> Instant Real-Time KB Tuning
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-cyan-500" /> SSC &amp; Banking Guaranteed
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Preset Selector below single dropzone */}
-          {renderPresetSelector()}
-        </div>
-      )}
-
-      {/* Main Active Studio Interface (Single Mode when Image is loaded) */}
-      {toolMode === 'single' && sourceImage && (
-        <div className="space-y-6">
+      {/* ========================================================================= */}
+      {/* 🎨 UNIFIED SINGLE SIGNATURE STUDIO (Canvas Studio + Enlarged Live Preview) */}
+      {/* ========================================================================= */}
+      {toolMode === 'single' && (
+        <div className="space-y-3.5 scroll-mt-24" id="studio-container">
           
-          {/* Top Bar: Active Preset & Quick Actions */}
-          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-card border border-border shadow-sm">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold font-mono text-sm border border-primary/20">
-                {selectedPreset ? selectedPreset.shortCode : 'CUS'}
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h3 className="font-semibold text-foreground text-sm sm:text-base">
-                    {selectedPreset ? selectedPreset.name : 'Custom Sizing'}
-                  </h3>
-                  {selectedPreset?.isPopular && (
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary/15 text-primary border border-primary/30">
-                      Popular Exam
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  Target:{' '}
-                  <span className="font-mono font-medium text-foreground">
-                    {targetWidthPx} × {targetHeightPx} px
-                  </span>{' '}
-                  • Allowed:{' '}
-                  <span className="font-mono font-medium text-foreground">
-                    {minKb} KB – {maxKb} KB
-                  </span>{' '}
-                  • DPI: {dpi}
-                </p>
-              </div>
-            </div>
+          {/* 3-Step Guided Workflow Bar */}
+          <StepIndicator
+            hasImage={!!sourceImage}
+            isProcessed={!!processedResult}
+          />
 
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-muted text-foreground hover:bg-muted/80 border border-border transition"
-              >
-                <Upload className="w-3.5 h-3.5" />
-                Change Image
-              </button>
-              <button
-                type="button"
-                onClick={clearAllSelectedFiles}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 border border-red-200 dark:border-red-900/50 transition"
-              >
-                <Trash2 className="w-3.5 h-3.5" />
-                Clear File
-              </button>
-            </div>
-          </div>
+          {/* Top Bar: Active Preset One-Line Banner with Change Preset */}
+          <PresetBanner
+            selectedPreset={selectedPreset}
+            targetWidthPx={targetWidthPx}
+            targetHeightPx={targetHeightPx}
+            minKb={minKb}
+            maxKb={maxKb}
+            dpi={dpi}
+            hasSourceImage={!!sourceImage}
+            onChangePresetClick={() => window.dispatchEvent(new CustomEvent('open-header-preset-search'))}
+            onClearClick={clearAllSelectedFiles}
+            onToast={addToast}
+          />
 
-          {/* Exam Preset Selector right above the 2-column Studio */}
-          {renderPresetSelector()}
-
-          {/* Main Studio Dual Column */}
+          {/* Main Studio 2-Column Grid: Left Column (Cropper & Filters) + Right Column (Live Preview & Custom Inputs) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             
-            {/* Left Column: Interactive Crop Area (8 Cols) */}
-            <div className="lg:col-span-8 space-y-4">
-              <div className="bg-card border border-border rounded-xl p-4 shadow-sm space-y-4">
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                    <Maximize className="w-4 h-4 text-primary" />
-                    Interactive Crop &amp; Alignment:
-                  </span>
-                  <span className="text-xs text-muted-foreground font-mono">
-                    Original: {sourceDimensions.width} × {sourceDimensions.height} px
-                  </span>
-                </div>
+            {/* Left Column: Interactive Crop Area & Enhancements (7 Cols) */}
+            <div className="lg:col-span-7 space-y-5">
+              
+              {/* Card 1: Interactive Cropper Canvas */}
+              <div className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
+                <div className="studio-meta-bar flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-2">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    {/* Mode Selector & Canvas Title Merged Inline */}
+                    <div className="inline-flex items-center gap-1 p-0.5 rounded-lg bg-muted/60 border border-border shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => setToolMode('single')}
+                        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                          toolMode === 'single'
+                            ? 'bg-card text-foreground shadow-xs border border-border font-bold'
+                            : 'text-muted-foreground hover:text-foreground'
+                        }`}
+                      >
+                        <PenTool className="w-3.5 h-3.5 text-primary shrink-0" />
+                        <span>Single Studio</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setToolMode('batch')}
+                        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                          toolMode === 'batch'
+                            ? 'bg-primary text-primary-foreground shadow-xs font-bold'
+                            : 'text-muted-foreground hover:text-foreground'
+                        }`}
+                      >
+                        <Layers className="w-3.5 h-3.5 shrink-0" />
+                        <span>Batch Editor</span>
+                        <span
+                          className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono font-bold ${
+                            toolMode === 'batch'
+                              ? 'bg-primary-foreground/20 text-primary-foreground'
+                              : 'bg-muted text-muted-foreground'
+                          }`}
+                        >
+                          {batchItems.length > 0 ? `${batchItems.length}/10` : 'Up to 10'}
+                        </span>
+                      </button>
+                    </div>
 
-                {/* Cropper Container */}
-                <div
-                  ref={containerRef}
-                  onMouseMove={handleContainerMouseMove}
-                  onTouchMove={handleContainerMouseMove}
-                  onMouseUp={handleContainerMouseUp}
-                  onTouchEnd={handleContainerMouseUp}
-                  className="relative overflow-hidden rounded-lg bg-muted/40 border border-border select-none cursor-crosshair min-h-[300px] flex items-center justify-center p-2"
-                  style={{ touchAction: 'none' }}
-                >
-                  <div className="relative inline-block max-w-full max-h-[460px]">
-                    <img
-                      src={sourceImage.src}
-                      alt="Source Signature"
-                      draggable={false}
-                      style={{
-                        transform: `rotate(${rotation}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`,
-                        maxHeight: '420px',
-                        width: 'auto',
-                        display: 'block'
-                      }}
-                      className="rounded shadow-xs pointer-events-none"
-                    />
-
-                    {/* Crop Overlay Box */}
-                    <div
-                      onMouseDown={(e) => handleCropMouseDown(e, 'move')}
-                      onTouchStart={(e) => handleCropMouseDown(e, 'move')}
-                      style={{
-                        left: `${(crop.x / naturalW) * 100}%`,
-                        top: `${(crop.y / naturalH) * 100}%`,
-                        width: `${(crop.width / naturalW) * 100}%`,
-                        height: `${(crop.height / naturalH) * 100}%`,
-                        cursor: isDraggingCrop ? 'grabbing' : 'grab'
-                      }}
-                      className="absolute border-2 border-primary bg-primary/10 shadow-2xl backdrop-contrast-125"
-                    >
-                      {/* Grid lines inside crop box */}
-                      <div className="w-full h-full grid grid-cols-3 grid-rows-3 pointer-events-none opacity-40">
-                        <div className="border-r border-b border-primary/50"></div>
-                        <div className="border-r border-b border-primary/50"></div>
-                        <div className="border-b border-primary/50"></div>
-                        <div className="border-r border-b border-primary/50"></div>
-                        <div className="border-r border-b border-primary/50"></div>
-                        <div className="border-b border-primary/50"></div>
-                        <div className="border-r border-b border-primary/50"></div>
-                        <div className="border-r border-b border-primary/50"></div>
-                        <div></div>
-                      </div>
-
-                      {/* Resize Handles */}
-                      <div
-                        onMouseDown={(e) => handleCropMouseDown(e, 'nw')}
-                        onTouchStart={(e) => handleCropMouseDown(e, 'nw')}
-                        className="absolute -top-1.5 -left-1.5 w-3.5 h-3.5 bg-primary rounded-full border-2 border-white cursor-nwse-resize shadow-md"
-                      />
-                      <div
-                        onMouseDown={(e) => handleCropMouseDown(e, 'se')}
-                        onTouchStart={(e) => handleCropMouseDown(e, 'se')}
-                        className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 bg-primary rounded-full border-2 border-white cursor-nwse-resize shadow-md"
-                      />
+                    <div className="flex items-center gap-2 pl-1 border-l border-border/60">
+                      <span className="text-xs font-bold uppercase tracking-wider text-foreground flex items-center gap-1.5">
+                        <Maximize className="w-4 h-4 text-primary" />
+                        Interactive Studio Canvas:
+                      </span>
+                      {sourceImage && (
+                        <span className="text-xs text-muted-foreground font-mono">
+                          ({sourceDimensions.width} × {sourceDimensions.height} px)
+                        </span>
+                      )}
                     </div>
                   </div>
+
+                  {sourceImage && (
+                    <div className="flex items-center gap-1 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setCropperZoom((prev) => Math.max(0.6, Number((prev - 0.2).toFixed(1))))}
+                        className="p-1.5 rounded-lg border border-border bg-card hover:bg-muted text-foreground transition cursor-pointer"
+                        title="Zoom Out Canvas"
+                      >
+                        <ZoomOut className="w-3.5 h-3.5" />
+                      </button>
+                      <span className="font-mono text-[11px] font-bold px-1.5 text-muted-foreground">
+                        {Math.round(cropperZoom * 100)}%
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => setCropperZoom((prev) => Math.min(2.5, Number((prev + 0.2).toFixed(1))))}
+                        className="p-1.5 rounded-lg border border-border bg-card hover:bg-muted text-foreground transition cursor-pointer"
+                        title="Zoom In Canvas"
+                      >
+                        <ZoomIn className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setCropperZoom(1)}
+                        className="px-2 py-1 rounded-lg border border-border bg-card hover:bg-muted text-[10px] font-bold text-muted-foreground transition ml-0.5 cursor-pointer"
+                      >
+                        Fit View
+                      </button>
+                      <button
+                        type="button"
+                        onClick={clearAllSelectedFiles}
+                        className="px-2 py-1 rounded-lg border border-red-200 dark:border-red-900/50 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 text-[10px] font-bold transition ml-1 cursor-pointer"
+                        title="Clear current signature"
+                      >
+                        Clear
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                {/* Selection Criteria Quick Bar (Auto-Fit, Aspect Ratios & Margins) */}
+                <div className="p-2.5 rounded-xl bg-muted/30 border border-border/80 flex flex-wrap items-center justify-between gap-2 text-xs">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    {/* Smart Auto-Fit Signature Button */}
+                    <button
+                      type="button"
+                      onClick={() => handleAutoFitSignature(0.12)}
+                      disabled={!sourceImage}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground font-bold shadow-xs hover:opacity-95 active:scale-95 transition disabled:opacity-40 cursor-pointer"
+                      title="Automatically locate signature strokes and wrap crop tightly"
+                    >
+                      <Wand2 className="w-3.5 h-3.5 text-primary-foreground" />
+                      <span>Auto-Fit Signature</span>
+                    </button>
+
+                    {/* Quick Aspect Ratio Chips */}
+                    <div className="hidden sm:flex items-center gap-1 pl-1 border-l border-border/60">
+                      <span className="text-[10px] uppercase font-bold text-muted-foreground">Ratio:</span>
+                      <button
+                        type="button"
+                        onClick={() => applyAspectPreset(selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx)}
+                        className={`ratio-btn px-2 py-1 rounded-md text-[11px] font-medium transition cursor-pointer ${
+                          lockAspect
+                            ? 'bg-primary/15 text-primary font-bold border border-primary/30'
+                            : 'bg-card text-muted-foreground border border-border hover:bg-muted'
+                        }`}
+                        data-ratio="default"
+                      >
+                        {selectedPreset?.shortCode || 'Preset'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => applyAspectPreset(1)}
+                        className="ratio-btn px-2 py-1 rounded-md text-[11px] font-medium bg-card text-muted-foreground border border-border hover:bg-muted cursor-pointer"
+                        data-ratio="1/1"
+                        title="Square 1:1 (UPSC / Thumb Impression)"
+                      >
+                        1:1
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => applyAspectPreset(140 / 60)}
+                        className="ratio-btn px-2 py-1 rounded-md text-[11px] font-medium bg-card text-muted-foreground border border-border hover:bg-muted cursor-pointer"
+                        data-ratio="7/3"
+                        title="7:3 Standard (SSC / Banking / Railway)"
+                      >
+                        7:3
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => applyAspectPreset('free')}
+                        className={`ratio-btn px-2 py-1 rounded-md text-[11px] font-medium transition cursor-pointer ${
+                          !lockAspect
+                            ? 'bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold border border-amber-500/30'
+                            : 'bg-card text-muted-foreground border border-border hover:bg-muted'
+                        }`}
+                        data-ratio="free"
+                      >
+                        Freeform
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Margin Padding Chips */}
+                  <div className="flex items-center gap-1">
+                    <span className="text-[10px] uppercase font-bold text-muted-foreground">Margin:</span>
+                    <button
+                      type="button"
+                      onClick={() => applyMarginPreset(0.9)}
+                      disabled={!sourceImage}
+                      className="px-2 py-1 rounded-md text-[11px] font-medium bg-card hover:bg-muted text-foreground border border-border transition disabled:opacity-40"
+                      title="Contract crop tighter"
+                    >
+                      Tight
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => applyMarginPreset(1.15)}
+                      disabled={!sourceImage}
+                      className="px-2 py-1 rounded-md text-[11px] font-medium bg-card hover:bg-muted text-foreground border border-border transition disabled:opacity-40"
+                      title="Add balanced breathing room (Prevents edge collision)"
+                    >
+                      Balanced
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => applyMarginPreset(1.3)}
+                      disabled={!sourceImage}
+                      className="px-2 py-1 rounded-md text-[11px] font-medium bg-card hover:bg-muted text-foreground border border-border transition disabled:opacity-40"
+                      title="Expand margin wide"
+                    >
+                      Wide
+                    </button>
+                  </div>
+                </div>
+
+                {/* Cropper Container Stage or Embedded Dropzone */}
+                <div
+                  id="crop-workspace"
+                  className="relative overflow-hidden rounded-xl bg-muted/40 border border-border select-none min-h-[350px] sm:min-h-[400px] flex items-center justify-center p-3"
+                >
+                  {sourceImage ? (
+                    <div
+                      ref={containerRef}
+                      onMouseMove={handleContainerMouseMove}
+                      onTouchMove={handleContainerMouseMove}
+                      onMouseUp={handleContainerMouseUp}
+                      onTouchEnd={handleContainerMouseUp}
+                      className="w-full h-full flex items-center justify-center cursor-crosshair"
+                      style={{ touchAction: 'none' }}
+                    >
+                      <div
+                        className="relative inline-block max-w-full max-h-[460px]"
+                        style={{
+                          transform: `scale(${cropperZoom})`,
+                          transformOrigin: 'center',
+                          transition: 'transform 0.15s ease-out'
+                        }}
+                      >
+                        <img
+                          id="source-image"
+                          src={sourceImage.src}
+                          alt="Source Signature"
+                          draggable={false}
+                          style={{
+                            transform: `rotate(${rotation}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`,
+                            maxHeight: '400px',
+                            width: 'auto',
+                            display: 'block'
+                          }}
+                          className="rounded shadow-xs pointer-events-none"
+                        />
+
+                        {/* Crop Overlay Box with 8-Point Resize Handles */}
+                        <div
+                          onMouseDown={(e) => handleCropMouseDown(e, 'move')}
+                          onTouchStart={(e) => handleCropMouseDown(e, 'move')}
+                          style={{
+                            left: `${(crop.x / naturalW) * 100}%`,
+                            top: `${(crop.y / naturalH) * 100}%`,
+                            width: `${(crop.width / naturalW) * 100}%`,
+                            height: `${(crop.height / naturalH) * 100}%`,
+                            cursor: isDraggingCrop ? 'grabbing' : 'grab'
+                          }}
+                          className="absolute border-2 border-primary bg-primary/10 shadow-2xl backdrop-contrast-125 group"
+                        >
+                          {/* Grid lines inside crop box */}
+                          <div className="w-full h-full grid grid-cols-3 grid-rows-3 pointer-events-none opacity-40">
+                            <div className="border-r border-b border-primary/50"></div>
+                            <div className="border-r border-b border-primary/50"></div>
+                            <div className="border-b border-primary/50"></div>
+                            <div className="border-r border-b border-primary/50"></div>
+                            <div className="border-r border-b border-primary/50"></div>
+                            <div className="border-b border-primary/50"></div>
+                            <div className="border-r border-b border-primary/50"></div>
+                            <div className="border-r border-b border-primary/50"></div>
+                            <div></div>
+                          </div>
+
+                          {/* Dimensions Tooltip badge inside crop box */}
+                          <div className="absolute -top-6 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-900/90 text-white pointer-events-none shadow whitespace-nowrap">
+                            {crop.width} × {crop.height} px
+                          </div>
+
+                          {/* 8-Point Precision Resize Handles */}
+                          <div
+                            onMouseDown={(e) => handleCropMouseDown(e, 'nw')}
+                            onTouchStart={(e) => handleCropMouseDown(e, 'nw')}
+                            className="absolute -top-2 -left-2 w-4 h-4 bg-primary rounded-full border-2 border-white cursor-nwse-resize shadow-md hover:scale-125 transition-transform"
+                            title="Resize Top-Left"
+                          />
+                          <div
+                            onMouseDown={(e) => handleCropMouseDown(e, 'ne')}
+                            onTouchStart={(e) => handleCropMouseDown(e, 'ne')}
+                            className="absolute -top-2 -right-2 w-4 h-4 bg-primary rounded-full border-2 border-white cursor-nesw-resize shadow-md hover:scale-125 transition-transform"
+                            title="Resize Top-Right"
+                          />
+                          <div
+                            onMouseDown={(e) => handleCropMouseDown(e, 'sw')}
+                            onTouchStart={(e) => handleCropMouseDown(e, 'sw')}
+                            className="absolute -bottom-2 -left-2 w-4 h-4 bg-primary rounded-full border-2 border-white cursor-nesw-resize shadow-md hover:scale-125 transition-transform"
+                            title="Resize Bottom-Left"
+                          />
+                          <div
+                            onMouseDown={(e) => handleCropMouseDown(e, 'se')}
+                            onTouchStart={(e) => handleCropMouseDown(e, 'se')}
+                            className="absolute -bottom-2 -right-2 w-4 h-4 bg-primary rounded-full border-2 border-white cursor-nwse-resize shadow-md hover:scale-125 transition-transform"
+                            title="Resize Bottom-Right"
+                          />
+                          <div
+                            onMouseDown={(e) => handleCropMouseDown(e, 'n')}
+                            onTouchStart={(e) => handleCropMouseDown(e, 'n')}
+                            className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-6 h-2 bg-primary rounded-full border border-white cursor-ns-resize shadow hover:scale-125 transition-transform"
+                            title="Resize Top Edge"
+                          />
+                          <div
+                            onMouseDown={(e) => handleCropMouseDown(e, 's')}
+                            onTouchStart={(e) => handleCropMouseDown(e, 's')}
+                            className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-6 h-2 bg-primary rounded-full border border-white cursor-ns-resize shadow hover:scale-125 transition-transform"
+                            title="Resize Bottom Edge"
+                          />
+                          <div
+                            onMouseDown={(e) => handleCropMouseDown(e, 'w')}
+                            onTouchStart={(e) => handleCropMouseDown(e, 'w')}
+                            className="absolute -left-1.5 top-1/2 -translate-y-1/2 w-2 h-6 bg-primary rounded-full border border-white cursor-ew-resize shadow hover:scale-125 transition-transform"
+                            title="Resize Left Edge"
+                          />
+                          <div
+                            onMouseDown={(e) => handleCropMouseDown(e, 'e')}
+                            onTouchStart={(e) => handleCropMouseDown(e, 'e')}
+                            className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-2 h-6 bg-primary rounded-full border border-white cursor-ew-resize shadow hover:scale-125 transition-transform"
+                            title="Resize Right Edge"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Dropzone Embedded inside Crop Studio Frame when no image */
+                    <div
+                      id="upload-dropzone"
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        setIsDragOver(true);
+                      }}
+                      onDragLeave={() => setIsDragOver(false)}
+                      onDrop={handleDrop}
+                      className={`w-full h-full min-h-[340px] p-6 text-center flex flex-col items-center justify-center rounded-xl border-2 border-dashed transition-all ${
+                        isDragOver ? 'border-primary bg-primary/10' : 'border-border/80 bg-card/60 hover:border-primary/40'
+                      }`}
+                    >
+                      <div className="w-14 h-14 mx-auto rounded-2xl bg-primary/10 text-primary flex items-center justify-center shadow-inner border border-primary/20 mb-3">
+                        <Upload className="w-7 h-7 animate-pulse" />
+                      </div>
+                      <h4 className="font-bold text-base text-foreground mb-1">
+                        Drop your signature image here
+                      </h4>
+                      <p className="text-xs text-muted-foreground mb-4 max-w-sm leading-relaxed">
+                        JPG, PNG, WebP up to 10MB • Auto-configured for <span className="font-semibold text-foreground">{targetWidthPx} × {targetHeightPx} px</span> ({minKb}–{maxKb} KB)
+                      </p>
+                      <div className="flex flex-wrap items-center justify-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => fileInputRef.current?.click()}
+                          className="px-4 py-2 bg-primary text-primary-foreground font-semibold rounded-xl text-xs hover:opacity-95 shadow-xs transition cursor-pointer"
+                        >
+                          Upload Signature
+                        </button>
+                        <button
+                          type="button"
+                          onClick={loadSingleSampleSignature}
+                          className="px-3.5 py-2 bg-card border border-border text-foreground font-medium rounded-xl text-xs hover:bg-muted transition shadow-2xs cursor-pointer"
+                        >
+                          Test Sample
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setIsDrawingPadOpen(true)}
+                          className="px-3.5 py-2 bg-card border border-border text-foreground font-medium rounded-xl text-xs hover:bg-muted transition shadow-2xs cursor-pointer"
+                        >
+                          Draw Sign
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Transformation Toolbar */}
@@ -1914,7 +2631,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                     <button
                       type="button"
                       onClick={() => setRotation((prev) => (prev - 90 + 360) % 360)}
-                      className="p-2 rounded-lg border border-border bg-card hover:bg-muted text-foreground transition"
+                      disabled={!sourceImage}
+                      className="p-2 rounded-lg border border-border bg-card hover:bg-muted text-foreground transition disabled:opacity-40 cursor-pointer"
                       title="Rotate 90° Left"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -1922,7 +2640,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                     <button
                       type="button"
                       onClick={() => setRotation((prev) => (prev + 90 + 360) % 360)}
-                      className="p-2 rounded-lg border border-border bg-card hover:bg-muted text-foreground transition"
+                      disabled={!sourceImage}
+                      className="p-2 rounded-lg border border-border bg-card hover:bg-muted text-foreground transition disabled:opacity-40 cursor-pointer"
                       title="Rotate 90° Right"
                     >
                       <RotateCw className="w-4 h-4" />
@@ -1930,7 +2649,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                     <button
                       type="button"
                       onClick={() => setFlipH(!flipH)}
-                      className={`p-2 rounded-lg border transition ${
+                      disabled={!sourceImage}
+                      className={`p-2 rounded-lg border transition disabled:opacity-40 cursor-pointer ${
                         flipH ? 'bg-primary text-primary-foreground border-primary' : 'bg-card border-border hover:bg-muted text-foreground'
                       }`}
                       title="Flip Horizontal"
@@ -1940,7 +2660,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                     <button
                       type="button"
                       onClick={() => setFlipV(!flipV)}
-                      className={`p-2 rounded-lg border transition ${
+                      disabled={!sourceImage}
+                      className={`p-2 rounded-lg border transition disabled:opacity-40 cursor-pointer ${
                         flipV ? 'bg-primary text-primary-foreground border-primary' : 'bg-card border-border hover:bg-muted text-foreground'
                       }`}
                       title="Flip Vertical"
@@ -1953,7 +2674,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                     <button
                       type="button"
                       onClick={() => setLockAspect(!lockAspect)}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition ${
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition cursor-pointer ${
                         lockAspect
                           ? 'bg-primary/10 border-primary/30 text-primary font-semibold'
                           : 'bg-card border-border text-muted-foreground'
@@ -1964,118 +2685,327 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                     </button>
 
                     <button
+                      id="reset-crop-btn"
                       type="button"
                       onClick={() => {
                         if (sourceImage) {
                           const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
                           initCropBox(sourceImage, targetAspect);
                         }
+                        setRotation(0);
+                        setFlipH(false);
+                        setFlipV(false);
                       }}
-                      className="px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-muted text-foreground transition"
+                      className="px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-muted text-foreground transition cursor-pointer"
                     >
                       Reset Crop
                     </button>
                   </div>
                 </div>
-
               </div>
-            </div>
 
-            {/* Right Column: Settings, Enhancements & Live Download (4 Cols) */}
-            <div className="lg:col-span-4 space-y-4">
-              
-              {/* Live Processed Output Card */}
-              <div className="bg-card border border-border rounded-xl p-4 shadow-sm space-y-4">
+              {/* IMAGE ENHANCEMENT FILTERS */}
+              <div className="rounded-2xl border border-border bg-card p-4 sm:p-5 shadow-xs space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                    <Eye className="w-4 h-4 text-primary" />
-                    Real-Time Output Preview
-                  </span>
-                  {isProcessing && (
-                    <span className="flex items-center gap-1 text-[11px] text-primary font-mono animate-pulse">
-                      <RefreshCw className="w-3 h-3 animate-spin" />
-                      Compressing...
-                    </span>
-                  )}
+                  <h4 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-primary" />
+                    <span>Image Enhancement Filters</span>
+                  </h4>
+                  <span className="text-[11px] text-muted-foreground font-mono">Real-time Paper Cleanup</span>
                 </div>
 
-                {/* Canvas Preview Container */}
-                <div className="p-3 rounded-lg bg-muted/40 border border-border flex items-center justify-center min-h-[120px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                  <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
+                    <div>
+                      <span className="text-foreground font-semibold block">Clean White Paper</span>
+                      <span className="text-[10px] text-muted-foreground">Blows out yellow/gray photo shadows</span>
+                    </div>
+                    <input
+                      type="checkbox"
+                      id="clean-paper-filter"
+                      checked={filters.cleanPaper}
+                      onChange={(e) => setFilters({ ...filters, cleanPaper: e.target.checked })}
+                      className="w-4 h-4 rounded text-primary focus:ring-primary"
+                    />
+                  </label>
+
+                  <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
+                    <div>
+                      <span className="text-foreground font-semibold block">Pure Black &amp; White Mode</span>
+                      <span className="text-[10px] text-muted-foreground">High-contrast dense ink lines</span>
+                    </div>
+                    <input
+                      type="checkbox"
+                      id="bw-mode-filter"
+                      checked={filters.blackAndWhite}
+                      onChange={(e) => setFilters({ ...filters, blackAndWhite: e.target.checked })}
+                      className="w-4 h-4 rounded text-primary focus:ring-primary"
+                    />
+                  </label>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Right Column: Big Size Real-Time Live Preview Canvas & Custom Bounds (5 Cols, Sticky) */}
+            <div className="lg:col-span-5 space-y-5 lg:sticky lg:top-20">
+              
+              {/* Big Live Output Preview Card */}
+              <div className="bg-card border-2 border-primary/20 rounded-2xl p-5 shadow-md space-y-4">
+                
+                {/* Header: Title, Live indicator & Inspect Button */}
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+                      <Eye className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-sm text-foreground flex items-center gap-2">
+                        <span>Real-Time Output Preview</span>
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                          Live Sync
+                        </span>
+                      </h3>
+                      <p className="text-[11px] text-muted-foreground">
+                        Scaled simulated output view.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-2">
+                    <span id="preview-dim-tag" className="text-xs font-mono font-bold bg-primary/10 text-primary px-2.5 py-0.5 rounded-full border border-primary/20">
+                      {targetWidthPx} × {targetHeightPx} px
+                    </span>
+                    {processedResult && (
+                      <button
+                        type="button"
+                        onClick={() => setIsInspectModalOpen(true)}
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold text-primary bg-primary/10 hover:bg-primary/20 border border-primary/25 transition shadow-2xs cursor-pointer"
+                        title="Open Full Detail Inspection Zoom Modal"
+                      >
+                        <Maximize2 className="w-3 h-3" />
+                        <span>Inspect</span>
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {/* Preview Display Controls (Scale & Background Paper Switcher) */}
+                <div className="flex items-center justify-between p-2 rounded-xl bg-muted/40 border border-border/80 text-xs">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[11px] uppercase font-bold text-muted-foreground px-1">Scale:</span>
+                    {[
+                      { val: 1, label: '1x' },
+                      { val: 1.5, label: '1.5x' },
+                      { val: 2, label: '2x' }
+                    ].map((s) => (
+                      <button
+                        key={s.val}
+                        type="button"
+                        onClick={() => setPreviewScale(s.val)}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-mono transition cursor-pointer ${
+                          previewScale === s.val
+                            ? 'bg-primary text-primary-foreground font-bold shadow-xs'
+                            : 'text-muted-foreground hover:text-foreground bg-card border border-border/60'
+                        }`}
+                      >
+                        {s.label}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setPreviewBg('white')}
+                      className={`px-3 py-1 rounded-lg text-xs font-medium transition cursor-pointer ${
+                        previewBg === 'white'
+                          ? 'bg-primary text-primary-foreground font-bold shadow-xs'
+                          : 'text-muted-foreground hover:text-foreground bg-card border border-border/60'
+                      }`}
+                      title="Show on Pure White Paper background"
+                    >
+                      White
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPreviewBg('checker')}
+                      className={`px-3 py-1 rounded-lg text-xs font-medium transition cursor-pointer ${
+                        previewBg === 'checker'
+                          ? 'bg-primary text-primary-foreground font-bold shadow-xs'
+                          : 'text-muted-foreground hover:text-foreground bg-card border border-border/60'
+                      }`}
+                      title="Show on Transparency Grid background"
+                    >
+                      Grid
+                    </button>
+                  </div>
+                </div>
+
+                {/* Big Size Canvas Preview Container (Visual Scaling for 140x60 etc) */}
+                <div
+                  className={`p-6 rounded-2xl border border-border flex flex-col items-center justify-center min-h-[220px] sm:min-h-[260px] overflow-hidden relative transition-colors shadow-inner ${
+                    previewBg === 'checker'
+                      ? 'bg-[repeating-conic-gradient(#cbd5e1_0%_25%,#ffffff_0%_50%)] dark:bg-[repeating-conic-gradient(#334155_0%_25%,#0f172a_0%_50%)] [background-size:20px_20px]'
+                      : 'bg-white dark:bg-zinc-950'
+                  }`}
+                >
                   {processedResult ? (
                     <img
                       src={processedResult.dataUrl}
-                      alt="Processed Preview"
-                      className="max-h-24 max-w-full object-contain rounded shadow-xs border border-border/50 bg-white"
+                      alt="Processed Signature Preview"
+                      style={{
+                        transform: `scale(${previewScale})`,
+                        transformOrigin: 'center',
+                        transition: 'transform 0.15s ease'
+                      }}
+                      className="max-h-[160px] sm:max-h-[200px] max-w-full object-contain rounded-lg shadow-sm border border-border/40"
                     />
                   ) : (
-                    <div className="text-xs text-muted-foreground">Rendering preview...</div>
+                    /* Simulated Signature preview before upload */
+                    <div className="flex flex-col items-center justify-center text-center space-y-3 py-2">
+                      <div className="w-[240px] h-[90px] bg-white dark:bg-slate-900 border-2 border-dashed border-border/80 shadow-xs rounded-xl flex items-center justify-center p-3">
+                        <span className="font-serif italic text-xl text-slate-400 dark:text-slate-500 select-none tracking-wider">
+                          Sample Signature
+                        </span>
+                      </div>
+                      <span id="preview-status-text" className="text-[11px] text-muted-foreground font-mono">
+                        Awaiting signature upload... ({targetWidthPx} × {targetHeightPx} px)
+                      </span>
+                    </div>
                   )}
+
+                  {/* Corner Dimension Overlay Badge */}
+                  <div className="absolute bottom-3 right-3 px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-bold bg-slate-950/85 text-white shadow-md border border-white/10 pointer-events-none backdrop-blur-xs">
+                    {targetWidthPx} × {targetHeightPx} px
+                  </div>
                 </div>
 
                 {/* Exact File Size & Target Metric Pill */}
-                {processedResult && (
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 p-3 rounded-xl bg-muted/30 border border-border text-xs">
+                  <div>
+                    <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Output File Size</div>
+                    <div className="font-mono font-extrabold text-base text-foreground">
+                      {processedResult ? `${processedResult.sizeKb} KB` : `${selectedPreset?.recommendedKb || 15} KB (Est)`}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Target Bounds</div>
+                    <div className="font-mono text-xs font-bold text-primary">
+                      {minKb} KB – {maxKb} KB
+                    </div>
+                  </div>
+
+                  <div className="col-span-2 sm:col-span-1">
+                    <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Status</div>
+                    <div className="pt-0.5">
+                      {processedResult ? (
+                        processedResult.withinTargetBounds ? (
+                          <span className="inline-flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-400 text-[11px]">
+                            <CheckCircle2 className="w-3.5 h-3.5" />
+                            <span>Ready</span>
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 font-bold text-amber-600 dark:text-amber-400 text-[11px]">
+                            <AlertCircle className="w-3.5 h-3.5" />
+                            <span>Check Bounds</span>
+                          </span>
+                        )
+                      ) : (
+                        <span className="text-[11px] text-muted-foreground font-mono">Ready to process</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Warning Alert if out of bounds */}
+                {processedResult && !processedResult.withinTargetBounds && (
+                  <div className="p-3 rounded-xl bg-amber-500/15 border-2 border-amber-500/40 text-amber-900 dark:text-amber-200 text-xs space-y-1.5">
+                    <div className="flex items-start gap-2 font-semibold">
+                      <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
                       <div>
-                        <div className="text-[10px] text-muted-foreground uppercase font-bold">Result Size</div>
-                        <div className="font-mono font-extrabold text-base text-foreground">
-                          {processedResult.sizeKb} KB
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-[10px] text-muted-foreground uppercase font-bold">Portal Bounds</div>
-                        <div className="font-mono text-xs font-bold text-primary">
-                          {minKb} KB – {maxKb} KB
-                        </div>
+                        {processedResult.sizeKb < minKb ? (
+                          <span>File size below {minKb} KB floor. Portals may reject files under {minKb} KB.</span>
+                        ) : (
+                          <span>File size exceeds {maxKb} KB limit. Portals reject files over {maxKb} KB.</span>
+                        )}
                       </div>
                     </div>
-
-                    {/* Out of Bounds Warning Pill */}
-                    {!processedResult.withinTargetBounds && (
-                      <div className="p-2 rounded-lg bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-xs">
-                        <AlertCircle className="w-4 h-4 shrink-0 text-slate-950" />
-                        <span>Adjust dimensions or KB slider to fit allowed range.</span>
-                      </div>
+                    {processedResult.sizeKb < minKb && (
+                      <button
+                        type="button"
+                        onClick={autoFixMinKb}
+                        className="px-3 py-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition cursor-pointer"
+                      >
+                        Auto-Fix Min KB Floor →
+                      </button>
                     )}
                   </div>
                 )}
 
-                {/* Download & Copy Buttons */}
+                {/* Primary Download & Copy Action Buttons */}
                 <div className="space-y-2 pt-1">
                   <button
+                    id="download-btn"
                     type="button"
-                    onClick={handleDownload}
-                    disabled={!processedResult}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-primary-foreground font-bold shadow-md shadow-primary/25 hover:opacity-95 active:scale-98 transition disabled:opacity-50"
+                    onClick={() => {
+                      if (processedResult) {
+                        handleDownload();
+                      } else {
+                        fileInputRef.current?.click();
+                      }
+                    }}
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-primary-foreground font-bold shadow-md shadow-primary/20 hover:opacity-95 active:scale-98 transition text-xs sm:text-sm cursor-pointer"
                   >
                     <Download className="w-4 h-4" />
-                    <span>Download Resized Signature</span>
+                    <span>
+                      {processedResult
+                        ? `Download Resized Signature (${processedResult.sizeKb} KB JPG)`
+                        : 'Upload Signature to Download'}
+                    </span>
                   </button>
 
-                  <button
-                    type="button"
-                    onClick={handleCopy}
-                    disabled={!processedResult}
-                    className="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-xl bg-card border border-border text-foreground hover:bg-muted text-xs font-semibold transition"
-                  >
-                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copied ? 'Copied to Clipboard!' : 'Copy to Clipboard'}</span>
-                  </button>
+                  {processedResult && (
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        type="button"
+                        onClick={handleCopy}
+                        className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-card border border-border text-foreground hover:bg-muted text-xs font-semibold transition cursor-pointer"
+                      >
+                        {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                        <span>{copied ? 'Copied!' : 'Copy to Clipboard'}</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setIsInspectModalOpen(true)}
+                        className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-card border border-border text-foreground hover:bg-muted text-xs font-semibold transition cursor-pointer"
+                      >
+                        <Maximize2 className="w-3.5 h-3.5 text-primary" />
+                        <span>Inspect Detail</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
 
               </div>
 
-              {/* Dimension & Unit Controls */}
-              <div className="bg-card border border-border rounded-xl p-4 shadow-sm space-y-4 text-xs">
+              {/* Card 2: Custom Dimensions & Units Controls */}
+              <div className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-4 text-xs">
                 <div className="flex items-center justify-between border-b border-border/60 pb-2">
-                  <span className="font-bold text-foreground">Custom Dimensions &amp; Units</span>
+                  <span className="font-bold text-foreground flex items-center gap-1.5">
+                    <Scaling className="w-4 h-4 text-primary" />
+                    <span>Custom Dimensions &amp; Bounds</span>
+                  </span>
                   <div className="flex rounded-lg border border-border p-0.5 bg-muted/40">
                     {(['px', 'cm', 'mm', 'in'] as UnitType[]).map((u) => (
                       <button
                         key={u}
                         type="button"
                         onClick={() => handleUnitChange(u)}
-                        className={`px-2 py-0.5 rounded text-[11px] font-mono transition ${
+                        className={`px-2 py-0.5 rounded text-[11px] font-mono transition cursor-pointer ${
                           unit === u
                             ? 'bg-primary text-primary-foreground font-bold'
                             : 'text-muted-foreground hover:text-foreground'
@@ -2098,11 +3028,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                       <button
                         type="button"
                         onClick={() => adjustWidth(-1)}
-                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground"
+                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         -
                       </button>
                       <input
+                        id="width-input"
                         type="text"
                         inputMode="decimal"
                         value={widthInput}
@@ -2112,7 +3043,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                       <button
                         type="button"
                         onClick={() => adjustWidth(1)}
-                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground"
+                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         +
                       </button>
@@ -2128,11 +3059,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                       <button
                         type="button"
                         onClick={() => adjustHeight(-1)}
-                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground"
+                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         -
                       </button>
                       <input
+                        id="height-input"
                         type="text"
                         inputMode="decimal"
                         value={heightInput}
@@ -2142,7 +3074,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                       <button
                         type="button"
                         onClick={() => adjustHeight(1)}
-                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground"
+                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         +
                       </button>
@@ -2150,8 +3082,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                   </div>
                 </div>
 
-                {/* Target File Size Controls (Min KB - Max KB) */}
-                <div className="space-y-2 pt-1 border-t border-border/60">
+                {/* Target File Size Bounds Panel (Min KB - Max KB) */}
+                <div className="space-y-2 pt-2 border-t border-border/60">
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-foreground">Target File Bounds</span>
                     <span className="font-mono text-primary font-bold">{minKb} KB – {maxKb} KB</span>
@@ -2159,16 +3091,17 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
 
                   <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-1">
-                      <span className="text-muted-foreground text-[11px]">Min KB</span>
+                      <span className="text-muted-foreground text-[11px]">Min KB (Floor)</span>
                       <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background">
                         <button
                           type="button"
                           onClick={() => adjustMinKb(-1)}
-                          className="px-2 py-1 hover:bg-muted font-bold text-foreground"
+                          className="px-2 py-1 hover:bg-muted font-bold text-foreground cursor-pointer"
                         >
                           -
                         </button>
                         <input
+                          id="min-kb-input"
                           type="text"
                           inputMode="numeric"
                           value={minKbInput}
@@ -2178,7 +3111,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                         <button
                           type="button"
                           onClick={() => adjustMinKb(1)}
-                          className="px-2 py-1 hover:bg-muted font-bold text-foreground"
+                          className="px-2 py-1 hover:bg-muted font-bold text-foreground cursor-pointer"
                         >
                           +
                         </button>
@@ -2186,16 +3119,17 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                     </div>
 
                     <div className="space-y-1">
-                      <span className="text-muted-foreground text-[11px]">Max KB</span>
+                      <span className="text-muted-foreground text-[11px]">Max KB (Ceiling)</span>
                       <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background">
                         <button
                           type="button"
                           onClick={() => adjustMaxKb(-1)}
-                          className="px-2 py-1 hover:bg-muted font-bold text-foreground"
+                          className="px-2 py-1 hover:bg-muted font-bold text-foreground cursor-pointer"
                         >
                           -
                         </button>
                         <input
+                          id="max-kb-input"
                           type="text"
                           inputMode="numeric"
                           value={maxKbInput}
@@ -2205,38 +3139,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
                         <button
                           type="button"
                           onClick={() => adjustMaxKb(1)}
-                          className="px-2 py-1 hover:bg-muted font-bold text-foreground"
+                          className="px-2 py-1 hover:bg-muted font-bold text-foreground cursor-pointer"
                         >
                           +
                         </button>
                       </div>
                     </div>
                   </div>
-                </div>
-
-                {/* Filters & Paper Cleaner */}
-                <div className="space-y-2 pt-2 border-t border-border/60">
-                  <span className="font-bold text-foreground">Image Enhancement Filters</span>
-                  
-                  <label className="flex items-center justify-between p-2 rounded-lg bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
-                    <span className="font-medium text-foreground">Clean White Paper Shadow</span>
-                    <input
-                      type="checkbox"
-                      checked={filters.cleanPaper}
-                      onChange={(e) => setFilters({ ...filters, cleanPaper: e.target.checked })}
-                      className="w-4 h-4 rounded text-primary focus:ring-primary"
-                    />
-                  </label>
-
-                  <label className="flex items-center justify-between p-2 rounded-lg bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
-                    <span className="font-medium text-foreground">Pure Black &amp; White Mode</span>
-                    <input
-                      type="checkbox"
-                      checked={filters.blackAndWhite}
-                      onChange={(e) => setFilters({ ...filters, blackAndWhite: e.target.checked })}
-                      className="w-4 h-4 rounded text-primary focus:ring-primary"
-                    />
-                  </label>
                 </div>
 
               </div>
@@ -2266,6 +3175,178 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId })
           }}
         />
       )}
+
+      {/* 🔍 Full-Detail Signature Pixel Inspector & Quality Verification Modal */}
+      {isInspectModalOpen && processedResult && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-150"
+          onClick={() => setIsInspectModalOpen(false)}
+        >
+          <div
+            className="w-full max-w-2xl bg-card border border-border rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] text-foreground"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-4 border-b border-border bg-muted/30">
+              <div className="space-y-0.5">
+                <h3 className="text-base font-bold flex items-center gap-2 text-foreground">
+                  <Maximize2 className="w-4 h-4 text-primary" />
+                  <span>Signature Quality &amp; Pixel Inspector</span>
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Inspect ink edge definition, stroke contrast, and portal compliance at magnified zoom.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsInspectModalOpen(false)}
+                className="p-1.5 rounded-xl hover:bg-muted text-muted-foreground hover:text-foreground transition"
+                title="Close Modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Inspection Toolbar: Mode & Zoom Level */}
+            <div className="p-3 border-b border-border bg-card flex flex-wrap items-center justify-between gap-3 text-xs">
+              {/* Tab Selector */}
+              <div className="flex rounded-lg border border-border p-0.5 bg-muted/40">
+                <button
+                  type="button"
+                  onClick={() => setInspectTab('processed')}
+                  className={`px-3 py-1 rounded-md font-medium transition ${
+                    inspectTab === 'processed'
+                      ? 'bg-primary text-primary-foreground font-bold shadow-xs'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  Processed ({processedResult.sizeKb} KB)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setInspectTab('original')}
+                  className={`px-3 py-1 rounded-md font-medium transition ${
+                    inspectTab === 'original'
+                      ? 'bg-primary text-primary-foreground font-bold shadow-xs'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  Raw Source Photo
+                </button>
+              </div>
+
+              {/* Zoom Buttons */}
+              <div className="flex items-center gap-1">
+                <span className="text-[11px] font-semibold text-muted-foreground mr-1">Magnification:</span>
+                {[
+                  { z: 1, label: '100% (1x)' },
+                  { z: 2, label: '200% (2x)' },
+                  { z: 3, label: '300% (3x)' }
+                ].map((item) => (
+                  <button
+                    key={item.z}
+                    type="button"
+                    onClick={() => setInspectZoom(item.z)}
+                    className={`px-2.5 py-1 rounded-md text-[11px] font-mono transition ${
+                      inspectZoom === item.z
+                        ? 'bg-primary text-primary-foreground font-bold'
+                        : 'bg-muted/60 text-muted-foreground hover:text-foreground border border-border'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Inspection Stage / Canvas View */}
+            <div className="p-6 bg-slate-900/10 dark:bg-slate-950 flex items-center justify-center min-h-[260px] overflow-auto relative">
+              <div className="relative inline-block border border-border/60 rounded-lg shadow-md bg-white overflow-hidden p-2">
+                {inspectTab === 'processed' ? (
+                  <img
+                    src={processedResult.dataUrl}
+                    alt="Processed Signature"
+                    style={{
+                      transform: `scale(${inspectZoom})`,
+                      transformOrigin: 'center',
+                      transition: 'transform 0.15s ease-out'
+                    }}
+                    className="max-h-48 object-contain select-none"
+                  />
+                ) : (
+                  sourceImage && (
+                    <img
+                      src={sourceImage.src}
+                      alt="Original Source"
+                      style={{
+                        transform: `scale(${inspectZoom * 0.6}) rotate(${rotation}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`,
+                        transformOrigin: 'center',
+                        transition: 'transform 0.15s ease-out'
+                      }}
+                      className="max-h-48 object-contain select-none"
+                    />
+                  )
+                )}
+              </div>
+            </div>
+
+            {/* Technical Verification Status Bar */}
+            <div className="p-3 border-t border-border bg-muted/20 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center">
+              <div className="p-2 rounded-lg bg-card border border-border/60">
+                <div className="text-[10px] text-muted-foreground uppercase font-semibold">Dimensions</div>
+                <div className="font-mono font-bold text-foreground">{targetWidthPx} × {targetHeightPx} px</div>
+              </div>
+              <div className="p-2 rounded-lg bg-card border border-border/60">
+                <div className="text-[10px] text-muted-foreground uppercase font-semibold">Exact Size</div>
+                <div className="font-mono font-bold text-emerald-600 dark:text-emerald-400">{processedResult.sizeKb} KB</div>
+              </div>
+              <div className="p-2 rounded-lg bg-card border border-border/60">
+                <div className="text-[10px] text-muted-foreground uppercase font-semibold">Format</div>
+                <div className="font-mono font-bold text-foreground">{processedResult.format} (200 DPI)</div>
+              </div>
+              <div className="p-2 rounded-lg bg-card border border-border/60">
+                <div className="text-[10px] text-muted-foreground uppercase font-semibold">Portal Status</div>
+                <div className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span>Verified OK</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Actions */}
+            <div className="p-4 border-t border-border bg-card flex items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={() => setIsInspectModalOpen(false)}
+                className="px-4 py-2 rounded-xl border border-border bg-card hover:bg-muted text-xs font-semibold transition"
+              >
+                Close Inspector
+              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="px-4 py-2 rounded-xl border border-border bg-card hover:bg-muted text-xs font-semibold transition flex items-center gap-1.5"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copied ? 'Copied' : 'Copy'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handleDownload}
+                  className="px-5 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-md shadow-primary/25 hover:opacity-95 transition flex items-center gap-1.5"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download File</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Toast Notification Stack */}
+      <ToastNotification toasts={toasts} onDismiss={removeToast} />
 
     </div>
   );
