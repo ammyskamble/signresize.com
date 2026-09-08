@@ -9,10 +9,10 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       {/* Brand & Mission */}
       <div class="space-y-3 sm:col-span-2 md:col-span-1">
-        <div class="flex items-center gap-2">
-          <Logo class="w-7 h-7 rounded-lg shadow-sm" />
-          <span class="font-bold text-base text-foreground tracking-tight">SignResize.in</span>
-        </div>
+        <a href="/" class="flex items-center gap-2 group hover:opacity-90 transition">
+          <Logo class="w-7 h-7 rounded-lg shadow-sm group-hover:scale-105 transition-transform" />
+          <span class="font-bold text-base text-foreground tracking-tight group-hover:text-primary transition-colors">SignResize.in</span>
+        </a>
         <p class="text-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
           An instant, privacy-first signature resizer, cropper, and compressor engineered specifically for Indian competitive exams (SSC, IBPS, UPSC, GATE, Railways) and government application portals.
         </p>
@@ -42,6 +42,7 @@ const currentYear = new Date().getFullYear();
       <div class="space-y-2">
         <h4 class="font-semibold text-foreground text-xs uppercase tracking-wider">Free Tools &amp; Guides</h4>
         <ul class="space-y-1 text-xs">
+          <li><a href="/" class="inline-block py-1.5 font-semibold text-foreground hover:text-primary transition">Home / Main Resizer</a></li>
           <li><a href="/compress-image-to-kb" class="inline-block py-1.5 text-primary font-semibold hover:underline">Compress Image to KB</a></li>
           <li><a href="/signature-creator" class="inline-block py-1.5 text-primary font-semibold hover:underline">Online Signature Creator</a></li>
           <li><a href="/#tool-workspace" class="inline-block py-1.5 hover:text-primary transition">Signature Resizer Workspace</a></li>

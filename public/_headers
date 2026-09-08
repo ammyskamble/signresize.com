@@ -11,6 +11,8 @@
 # HTML and root documents: always revalidate so clients never receive outdated HTML pointing to old chunks
 /*
   Cache-Control: public, max-age=0, must-revalidate
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
 
 # Prevent indexing on the pages.dev preview subdomain
 https://signresize.pages.dev/*

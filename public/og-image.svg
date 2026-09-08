@@ -8,14 +8,30 @@
       <stop offset="0%" stop-color="#3b82f6" />
       <stop offset="100%" stop-color="#06b6d4" />
     </linearGradient>
+    <linearGradient id="logo-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d81456" />
+      <stop offset="25%" stop-color="#2010e5" />
+      <stop offset="100%" stop-color="#eca0ff" />
+    </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" />
   <rect x="0" y="0" width="1200" height="10" fill="url(#brand)" />
   
   <g transform="translate(100, 140)">
-    <rect x="0" y="0" width="70" height="70" rx="16" fill="#3b82f6" />
-    <text x="35" y="46" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="#ffffff" text-anchor="middle">SR</text>
-    <text x="90" y="48" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#ffffff">SignResize<tspan fill="#38bdf8">.com</tspan></text>
+    <g>
+      <rect width="70" height="70" rx="14.35" fill="url(#logo-gradient)" />
+      <g transform="scale(0.116667)">
+        <g transform="translate(149, 149) rotate(3, 151, 151)">
+          <svg width="302" height="302" viewBox="0 0 24 24" fill="#ffffff" fill-opacity="0.9" stroke="rgba(6, 6, 6, 1)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19 7-7 3 3-7 7-3-3z" />
+            <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+            <path d="m2 2 7.586 7.586" />
+            <circle cx="11" cy="11" r="2" />
+          </svg>
+        </g>
+      </g>
+    </g>
+    <text x="90" y="48" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#ffffff">SignResize<tspan fill="#eca0ff">.in</tspan></text>
     
     <text x="0" y="140" font-family="system-ui, sans-serif" font-size="52" font-weight="800" fill="#ffffff">
       Online Signature Resizer &amp; Compressor
