@@ -1,6 +1,12 @@
 ---
 // src/components/GoogleFonts.astro
-// Self-hosted fonts: Inter and JetBrains Mono are imported locally via @fontsource-variable in global.css
-// Eliminates external roundtrips to fonts.googleapis.com and fonts.gstatic.com for instant LCP/FCP.
+// Preload primary Inter Variable web font directly in <head> to eliminate FOYT / FOUT layout shift (0 CLS)
 ---
+<link
+  rel="preload"
+  href="/fonts/inter-latin-wght-normal.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin="anonymous"
+/>
 

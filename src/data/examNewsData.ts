@@ -322,7 +322,7 @@ export function getExamLiveStatus(item: ExamNewsItem): {
     return {
       status: 'upcoming',
       label: 'Upcoming',
-      badgeClass: 'bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30',
+      badgeClass: 'bg-amber-100 dark:bg-amber-950/70 text-amber-900 dark:text-amber-200 border-amber-500/40',
       daysRemaining: Math.ceil((start.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
     };
   }
@@ -348,7 +348,7 @@ export function getExamLiveStatus(item: ExamNewsItem): {
   return {
     status: 'active',
     label: item.badgeText || 'Apply Now',
-    badgeClass: 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30',
+    badgeClass: 'bg-emerald-100 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-200 border-emerald-500/40',
     daysRemaining
   };
 }

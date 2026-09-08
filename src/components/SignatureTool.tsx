@@ -2137,7 +2137,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                   if (p) applyPreset(p);
                   setIsExamDropdownOpen(false);
                 }}
-                className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs cursor-pointer ${
+                className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs cursor-pointer ${
                   isSelected
                     ? 'bg-primary text-primary-foreground font-bold shadow-sm'
                     : 'bg-muted/70 hover:bg-muted text-foreground border border-border/70 hover:border-primary/40'
@@ -2155,7 +2155,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
           <button
             type="button"
             onClick={() => setIsExamDropdownOpen(!isExamDropdownOpen)}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 border shadow-2xs cursor-pointer ${
+            className={`min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 border shadow-2xs cursor-pointer ${
               isExamDropdownOpen || (!isPinnedActive && selectedPreset)
                 ? 'bg-primary/15 text-primary border-primary/40 shadow-xs'
                 : 'bg-card hover:bg-muted text-foreground border-border hover:border-primary/40'
@@ -2186,6 +2186,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                 <input
                   type="text"
                   placeholder={modeConfig.searchPlaceholder}
+                  aria-label="Search presets by exam or authority"
                   value={comboboxSearch}
                   onChange={(e) => setComboboxSearch(e.target.value)}
                   autoFocus
@@ -2392,11 +2393,13 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto space-y-6 scroll-mt-24" id="tool-workspace">
+    <div className="w-full max-w-7xl mx-auto space-y-6 scroll-mt-24 min-h-[900px] sm:min-h-[800px] lg:min-h-[660px]" id="tool-workspace">
       
       {/* Hidden Multi-File Input */}
       <input
         ref={fileInputRef}
+        id="signature-file-input"
+        aria-label="Upload signature or photo files"
         type="file"
         multiple
         accept="image/*,.heic,.heif"
@@ -2411,7 +2414,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
       {/* ========================================================================= */}
       {/* 🚀 PRIMARY DEDICATED EXAM RESIZER SELECTOR (Signature / Photo / Documents) */}
       {/* ========================================================================= */}
-      <div className="p-3 sm:p-4 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-3">
+      <div className="p-3 sm:p-4 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-3 min-h-[185px] sm:min-h-[110px]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-2.5">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
@@ -2420,7 +2423,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
             <div>
               <h2 className="text-xs sm:text-sm font-extrabold text-foreground flex items-center gap-2">
                 <span>Select Dedicated Exam Resizer Mode</span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-200 border border-emerald-500/40">
                   ⚡ 100% Portal Compliance
                 </span>
               </h2>
@@ -2452,7 +2455,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
               </div>
               <div>
                 <div className="font-bold text-xs">Signature Resizer</div>
-                <div className={`text-[10px] ${targetType === 'signature' ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+                <div className={`text-[10px] ${targetType === 'signature' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
                   140×60 px • 10–20 KB standard
                 </div>
               </div>
@@ -2475,7 +2478,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
               </div>
               <div>
                 <div className="font-bold text-xs">Passport Photo Resizer</div>
-                <div className={`text-[10px] ${targetType === 'photo' ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+                <div className={`text-[10px] ${targetType === 'photo' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
                   3.5×4.5 cm • 20–50 KB • Name & Date
                 </div>
               </div>
@@ -2498,7 +2501,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
               </div>
               <div>
                 <div className="font-bold text-xs">Document Resizer</div>
-                <div className={`text-[10px] ${targetType === 'document' ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+                <div className={`text-[10px] ${targetType === 'document' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
                   Marksheet, Caste, ID • 100–300 KB
                 </div>
               </div>
@@ -2661,7 +2664,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         key={u}
                         type="button"
                         onClick={() => handleUnitChange(u)}
-                        className={`px-1.5 py-0.5 rounded text-[10px] font-mono transition ${
+                        aria-label={`Select unit ${u}`}
+                        className={`min-h-[36px] min-w-[36px] flex items-center justify-center rounded text-[11px] font-mono transition cursor-pointer ${
                           unit === u
                             ? 'bg-primary text-primary-foreground font-bold'
                             : 'text-muted-foreground hover:text-foreground'
@@ -2676,21 +2680,24 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                 {/* Width & Height Steppers */}
                 <div className="grid grid-cols-2 gap-2">
                   <div className="space-y-1">
-                    <label className="text-[11px] text-muted-foreground flex justify-between">
+                    <label htmlFor="batch-width-input" className="text-[11px] text-muted-foreground flex justify-between">
                       <span>Width ({unit})</span>
                       <span className="font-mono text-foreground font-bold">{targetWidthPx}px</span>
                     </label>
-                    <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background">
+                    <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background min-h-[44px]">
                       <button
                         type="button"
                         onClick={() => adjustWidth(-1)}
-                        className="px-2 py-1 hover:bg-muted font-bold text-foreground"
+                        aria-label="Decrease batch width"
+                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         -
                       </button>
                       <input
+                        id="batch-width-input"
                         type="text"
                         inputMode="decimal"
+                        aria-label={`Target width for all images in ${unit}`}
                         value={widthInput}
                         onChange={(e) => handleWidthChange(e.target.value)}
                         className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
@@ -2698,7 +2705,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                       <button
                         type="button"
                         onClick={() => adjustWidth(1)}
-                        className="px-2 py-1 hover:bg-muted font-bold text-foreground"
+                        aria-label="Increase batch width"
+                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         +
                       </button>
@@ -2706,21 +2714,24 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[11px] text-muted-foreground flex justify-between">
+                    <label htmlFor="batch-height-input" className="text-[11px] text-muted-foreground flex justify-between">
                       <span>Height ({unit})</span>
                       <span className="font-mono text-foreground font-bold">{targetHeightPx}px</span>
                     </label>
-                    <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background">
+                    <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background min-h-[44px]">
                       <button
                         type="button"
                         onClick={() => adjustHeight(-1)}
-                        className="px-2 py-1 hover:bg-muted font-bold text-foreground"
+                        aria-label="Decrease batch height"
+                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         -
                       </button>
                       <input
+                        id="batch-height-input"
                         type="text"
                         inputMode="decimal"
+                        aria-label={`Target height for all images in ${unit}`}
                         value={heightInput}
                         onChange={(e) => handleHeightChange(e.target.value)}
                         className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
@@ -2728,7 +2739,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                       <button
                         type="button"
                         onClick={() => adjustHeight(1)}
-                        className="px-2 py-1 hover:bg-muted font-bold text-foreground"
+                        aria-label="Increase batch height"
+                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         +
                       </button>
@@ -2866,7 +2878,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
             <div className="p-10 text-center rounded-2xl bg-muted/20 border-2 border-dashed border-border space-y-4">
               <FolderArchive className="w-12 h-12 text-muted-foreground/40 mx-auto" />
               <div className="space-y-1">
-                <h4 className="font-bold text-base text-foreground">{modeConfig.batchEmptyTitle}</h4>
+                <p className="font-bold text-base text-foreground">{modeConfig.batchEmptyTitle}</p>
                 <p className="text-xs text-muted-foreground max-w-md mx-auto leading-relaxed">
                   {modeConfig.batchEmptyDesc}
                 </p>
@@ -3196,8 +3208,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         onClick={() => applyAspectPreset(selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx)}
                         className={`ratio-btn px-2 py-1 rounded-md text-[11px] font-medium transition cursor-pointer ${
                           lockAspect
-                            ? 'bg-primary/15 text-primary font-bold border border-primary/30'
-                            : 'bg-card text-muted-foreground border border-border hover:bg-muted'
+                            ? 'bg-primary text-primary-foreground font-bold border border-primary shadow-xs'
+                            : 'bg-card text-slate-800 dark:text-slate-200 border border-border hover:bg-muted font-medium'
                         }`}
                         data-ratio="default"
                       >
@@ -3210,8 +3222,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                           onClick={() => applyAspectPreset(item.ratio)}
                           className={`ratio-btn px-2 py-1 rounded-md text-[11px] font-medium transition cursor-pointer ${
                             (item.ratio === 'free' && !lockAspect) || (item.ratio !== 'free' && lockAspect && Math.abs((selectedPreset?.aspectRatio || targetWidthPx / targetHeightPx) - Number(item.ratio)) < 0.05)
-                              ? 'bg-primary/15 text-primary font-bold border border-primary/30'
-                              : 'bg-card text-muted-foreground border border-border hover:bg-muted'
+                              ? 'bg-primary text-primary-foreground font-bold border border-primary shadow-xs'
+                              : 'bg-card text-slate-800 dark:text-slate-200 border border-border hover:bg-muted font-medium'
                           }`}
                           data-ratio={item.label}
                           title={item.title}
@@ -3412,9 +3424,9 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                       <div className="w-14 h-14 mx-auto rounded-2xl bg-primary/10 text-primary flex items-center justify-center shadow-inner border border-primary/20 mb-3">
                         <Upload className="w-7 h-7 animate-pulse" />
                       </div>
-                      <h4 className="font-bold text-base text-foreground mb-1">
+                      <p className="font-bold text-base text-foreground mb-1">
                         {modeConfig.dropzoneTitle}
-                      </h4>
+                      </p>
                       <p className="text-xs text-muted-foreground mb-4 max-w-sm leading-relaxed">
                         JPG, PNG, WebP up to 10MB • Auto-configured for <span className="font-semibold text-foreground">{targetWidthPx} × {targetHeightPx} px</span> ({minKb}–{maxKb} KB)
                       </p>
@@ -3530,10 +3542,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
               {targetType === 'photo' && (
                 <div className="rounded-2xl border-2 border-primary/25 bg-card p-4 sm:p-5 shadow-xs space-y-4">
                   <div className="flex items-center justify-between border-b border-border/60 pb-2.5">
-                    <h4 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
+                    <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
                       <Camera className="w-3.5 h-3.5 text-primary" />
                       <span>Passport Photo Compliance Tools</span>
-                    </h4>
+                    </h3>
                     <span className="text-[10px] font-mono font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-md border border-primary/20">
                       Govt Norms
                     </span>
@@ -3576,20 +3588,24 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                     {addNameDateStamp && (
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 border-t border-primary/10">
                         <div className="space-y-1">
-                          <label className="text-[10px] uppercase font-bold text-muted-foreground">Candidate Full Name:</label>
+                          <label htmlFor="candidate-name-input" className="text-[10px] uppercase font-bold text-muted-foreground">Candidate Full Name:</label>
                           <input
+                            id="candidate-name-input"
                             type="text"
                             placeholder="e.g. RAHUL SHARMA"
+                            aria-label="Candidate Full Name"
                             value={candidateName}
                             onChange={(e) => setCandidateName(e.target.value)}
                             className="w-full px-3 py-1.5 text-xs rounded-lg border border-border bg-background text-foreground font-semibold"
                           />
                         </div>
                         <div className="space-y-1">
-                          <label className="text-[10px] uppercase font-bold text-muted-foreground">Date of Photo (DoP):</label>
+                          <label htmlFor="date-of-photo-input" className="text-[10px] uppercase font-bold text-muted-foreground">Date of Photo (DoP):</label>
                           <input
+                            id="date-of-photo-input"
                             type="text"
                             placeholder="DD/MM/YYYY"
+                            aria-label="Date of Photo"
                             value={dateOfPhoto}
                             onChange={(e) => setDateOfPhoto(e.target.value)}
                             className="w-full px-3 py-1.5 text-xs rounded-lg border border-border bg-background text-foreground font-mono font-semibold"
@@ -3605,10 +3621,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
               {targetType === 'document' && (
                 <div className="rounded-2xl border-2 border-primary/25 bg-card p-4 sm:p-5 shadow-xs space-y-3">
                   <div className="flex items-center justify-between border-b border-border/60 pb-2.5">
-                    <h4 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
+                    <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
                       <FileText className="w-3.5 h-3.5 text-primary" />
                       <span>Document &amp; Certificate Scanner Tools</span>
-                    </h4>
+                    </h3>
                     <span className="text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/30">
                       OCR Legibility
                     </span>
@@ -3632,10 +3648,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
               {/* IMAGE ENHANCEMENT FILTERS */}
               <div className="rounded-2xl border border-border bg-card p-4 sm:p-5 shadow-xs space-y-3">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
+                  <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-primary" />
                     <span>Image Enhancement Filters</span>
-                  </h4>
+                  </h3>
                   <span className="text-[11px] text-muted-foreground font-mono">{modeConfig.filtersSubtitle}</span>
                 </div>
 
@@ -3840,12 +3856,12 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                     <div className="pt-0.5">
                       {processedResult ? (
                         processedResult.withinTargetBounds ? (
-                          <span className="inline-flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-400 text-[11px]">
+                          <span className="inline-flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-300 text-[11px]">
                             <CheckCircle2 className="w-3.5 h-3.5" />
                             <span>Ready</span>
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 font-bold text-amber-600 dark:text-amber-400 text-[11px]">
+                          <span className="inline-flex items-center gap-1 font-bold text-amber-900 dark:text-amber-300 text-[11px]">
                             <AlertCircle className="w-3.5 h-3.5" />
                             <span>Check Bounds</span>
                           </span>
@@ -3859,9 +3875,9 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
                 {/* Warning Alert if out of bounds */}
                 {processedResult && !processedResult.withinTargetBounds && (
-                  <div className="p-3 rounded-xl bg-amber-500/15 border-2 border-amber-500/40 text-amber-900 dark:text-amber-200 text-xs space-y-1.5">
+                  <div className="p-3 rounded-xl bg-amber-100 dark:bg-amber-950/70 border-2 border-amber-500/40 text-amber-900 dark:text-amber-200 text-xs space-y-1.5">
                     <div className="flex items-start gap-2 font-semibold">
-                      <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                      <AlertCircle className="w-4 h-4 text-amber-800 dark:text-amber-300 shrink-0 mt-0.5" />
                       <div>
                         {processedResult.sizeKb < minKb ? (
                           <span>File size below {minKb} KB floor. Portals may reject files under {minKb} KB.</span>
@@ -3942,7 +3958,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         key={u}
                         type="button"
                         onClick={() => handleUnitChange(u)}
-                        className={`px-2 py-0.5 rounded text-[11px] font-mono transition cursor-pointer ${
+                        aria-label={`Select unit ${u}`}
+                        className={`min-h-[36px] min-w-[36px] flex items-center justify-center rounded text-[11px] font-mono transition cursor-pointer ${
                           unit === u
                             ? 'bg-primary text-primary-foreground font-bold'
                             : 'text-muted-foreground hover:text-foreground'
@@ -3957,15 +3974,16 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                 {/* Width & Height Inputs */}
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="text-muted-foreground font-medium flex justify-between">
+                    <label htmlFor="width-input" className="text-muted-foreground font-medium flex justify-between">
                       <span>Width ({unit})</span>
                       <span className="font-mono text-foreground font-bold">{targetWidthPx}px</span>
                     </label>
-                    <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background">
+                    <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background min-h-[44px]">
                       <button
                         type="button"
                         onClick={() => adjustWidth(-1)}
-                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground cursor-pointer"
+                        aria-label="Decrease width"
+                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         -
                       </button>
@@ -3973,6 +3991,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         id="width-input"
                         type="text"
                         inputMode="decimal"
+                        aria-label={`Target width in ${unit}`}
                         value={widthInput}
                         onChange={(e) => handleWidthChange(e.target.value)}
                         className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
@@ -3980,7 +3999,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                       <button
                         type="button"
                         onClick={() => adjustWidth(1)}
-                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground cursor-pointer"
+                        aria-label="Increase width"
+                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         +
                       </button>
@@ -3988,15 +4008,16 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-muted-foreground font-medium flex justify-between">
+                    <label htmlFor="height-input" className="text-muted-foreground font-medium flex justify-between">
                       <span>Height ({unit})</span>
                       <span className="font-mono text-foreground font-bold">{targetHeightPx}px</span>
                     </label>
-                    <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background">
+                    <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background min-h-[44px]">
                       <button
                         type="button"
                         onClick={() => adjustHeight(-1)}
-                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground cursor-pointer"
+                        aria-label="Decrease height"
+                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         -
                       </button>
@@ -4004,6 +4025,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         id="height-input"
                         type="text"
                         inputMode="decimal"
+                        aria-label={`Target height in ${unit}`}
                         value={heightInput}
                         onChange={(e) => handleHeightChange(e.target.value)}
                         className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
@@ -4011,7 +4033,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                       <button
                         type="button"
                         onClick={() => adjustHeight(1)}
-                        className="px-2.5 py-1.5 hover:bg-muted font-bold text-foreground cursor-pointer"
+                        aria-label="Increase height"
+                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                       >
                         +
                       </button>
@@ -4028,12 +4051,13 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
                   <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-1">
-                      <span className="text-muted-foreground text-[11px]">Min KB (Floor)</span>
-                      <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background">
+                      <label htmlFor="min-kb-input" className="text-muted-foreground text-[11px] block">Min KB (Floor)</label>
+                      <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background min-h-[44px]">
                         <button
                           type="button"
                           onClick={() => adjustMinKb(-1)}
-                          className="px-2 py-1 hover:bg-muted font-bold text-foreground cursor-pointer"
+                          aria-label="Decrease minimum KB limit"
+                          className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                         >
                           -
                         </button>
@@ -4041,6 +4065,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                           id="min-kb-input"
                           type="text"
                           inputMode="numeric"
+                          aria-label="Minimum file size in KB"
                           value={minKbInput}
                           onChange={(e) => handleMinKbChange(e.target.value)}
                           className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
@@ -4048,7 +4073,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         <button
                           type="button"
                           onClick={() => adjustMinKb(1)}
-                          className="px-2 py-1 hover:bg-muted font-bold text-foreground cursor-pointer"
+                          aria-label="Increase minimum KB limit"
+                          className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                         >
                           +
                         </button>
@@ -4056,12 +4082,13 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                     </div>
 
                     <div className="space-y-1">
-                      <span className="text-muted-foreground text-[11px]">Max KB (Ceiling)</span>
-                      <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background">
+                      <label htmlFor="max-kb-input" className="text-muted-foreground text-[11px] block">Max KB (Ceiling)</label>
+                      <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background min-h-[44px]">
                         <button
                           type="button"
                           onClick={() => adjustMaxKb(-1)}
-                          className="px-2 py-1 hover:bg-muted font-bold text-foreground cursor-pointer"
+                          aria-label="Decrease maximum KB limit"
+                          className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                         >
                           -
                         </button>
@@ -4069,6 +4096,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                           id="max-kb-input"
                           type="text"
                           inputMode="numeric"
+                          aria-label="Maximum file size in KB"
                           value={maxKbInput}
                           onChange={(e) => handleMaxKbChange(e.target.value)}
                           className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
@@ -4076,7 +4104,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         <button
                           type="button"
                           onClick={() => adjustMaxKb(1)}
-                          className="px-2 py-1 hover:bg-muted font-bold text-foreground cursor-pointer"
+                          aria-label="Increase maximum KB limit"
+                          className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
                         >
                           +
                         </button>

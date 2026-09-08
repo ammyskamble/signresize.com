@@ -229,6 +229,8 @@ export const ImageCompressorTool: React.FC = () => {
           </button>
           <input
             ref={fileInputRef}
+            id="compressor-file-input"
+            aria-label="Upload image to compress"
             type="file"
             accept="image/*"
             class="hidden"
