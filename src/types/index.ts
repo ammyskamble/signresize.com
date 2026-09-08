@@ -54,7 +54,14 @@ export interface ExamPreset {
   notes: string;
   inkRequirement: 'Black Ink Only' | 'Black or Blue Ink' | 'Any Ink';
   isPopular?: boolean;
+  targetType?: 'signature' | 'photo' | 'document';
+  requiresNameDate?: boolean;
+  faceGuide?: boolean;
+  docCategory?: string;
 }
+
+export type ToolTargetMode = 'signature' | 'photo' | 'document';
+
 
 export interface CropArea {
   x: number;

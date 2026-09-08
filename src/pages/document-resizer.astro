@@ -1,0 +1,240 @@
+---
+// src/pages/document-resizer.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import { SignatureTool } from '../components/SignatureTool';
+import { DOCUMENT_PRESETS } from '../data/examPresets';
+
+const pageTitle = "Document Resizer Online (100KB to 300KB) | Marksheet, Caste Certificate & ID Resizer - SignResize";
+const pageDescription = "Free online document and certificate resizer to 100 to 300 kb, A4 proportions for 10th marksheets, caste certificates, domicile, and photo ID cards for SSC, UPSC, and State PSC portals. 100% client-side private.";
+const canonicalUrl = "https://signresize.in/document-resizer";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "document resizer, marksheet resize 100 to 300 kb, caste certificate resize, 10th marksheet compressor, domicile certificate resize, aadhaar card photo resize, certificate scanner online, compress document to 200 kb";
+
+const docFaqs = [
+  {
+    q: "What is the standard file size for uploading marksheets and certificates?",
+    a: "Most central and state government exam portals (SSC CGL/CHSL, UPSC, State PSCs) mandate that uploaded educational marksheets, caste certificates, and domicile proofs fall between 100 KB and 300 KB (or 50 KB and 200 KB) in JPG, JPEG, or PDF format."
+  },
+  {
+    q: "Will compressing my 10th marksheet make roll numbers and seal stamps blurry?",
+    a: "No. The SignResize Document Resizer utilizes high-frequency text-edge sharpening algorithms that maintain high micro-contrast around numbers, signatures, and board stamps while lowering background photo noise."
+  },
+  {
+    q: "Can I resize my Caste Certificate (SC/ST/OBC-NCL/EWS) or Domicile proof here?",
+    a: "Yes. Simply select the 'Caste Certificate' or 'Domicile Certificate' preset. The tool formats the image into a standard A4 portrait scan ratio with exact 100 KB – 300 KB bounds."
+  },
+  {
+    q: "Is it safe to compress Aadhaar cards and sensitive certificates here?",
+    a: "Yes, 100%. SignResize runs completely in your device's browser memory via client-side HTML5 canvas. No files or documents are ever uploaded to external servers, providing maximum privacy for your documents."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- PWA & Mobile Meta Tags -->
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="SignResize Docs" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <GoogleFonts />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Document & Certificate Resizer for Govt Exams",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "10th Marksheet and Matriculation certificate resize to 100 to 300 kb",
+        "Caste Certificate (SC/ST/OBC/EWS) compression",
+        "Domicile & Resident Certificate formatting",
+        "Photo ID (Aadhaar / Voter ID / PAN) card resizer",
+        "Left Thumb Impression 240x240 px 1:1 ratio resizer"
+      ]
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-5 space-y-5">
+      
+      <!-- Hero Banner -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Document Scrutiny Compliance 2026
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/10 border border-emerald-500/20">
+                ⚡ 100% In-Browser Private
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              Online <span class="text-primary">Document &amp; Marksheet Resizer</span> (100KB to 300KB)
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Compress and resize <strong>10th / 12th Marksheets</strong>, <strong>Caste Certificates (SC/ST/OBC/EWS)</strong>, <strong>Domicile Proofs</strong>, and <strong>Photo ID Cards</strong> to exact <strong>100 KB – 300 KB</strong> limits with razor-sharp text legibility for <strong>SSC, UPSC &amp; State PSC</strong> portals.
+            </p>
+          </div>
+
+          <!-- Quick Badges -->
+          <div class="flex items-center gap-2 flex-wrap shrink-0">
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Proportions</div>
+              <div class="text-xs font-bold text-foreground font-mono">Standard A4 / Card</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Target Size</div>
+              <div class="text-xs font-bold text-primary font-mono">100 KB – 300 KB</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">OCR Text</div>
+              <div class="text-xs font-bold text-foreground font-mono">High Clarity</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Tool Workspace initialized in Document Mode -->
+      <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm">
+        <SignatureTool client:visible initialMode="document" />
+      </section>
+
+      <!-- Document Guidelines & Specifications Matrix -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs space-y-4">
+        <div class="flex items-center justify-between border-b border-border/60 pb-3">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+              <span>Official Government Exam Document Upload Limits Matrix</span>
+            </h2>
+            <p class="text-xs text-muted-foreground">
+              Official file size limits and formatting guidelines for educational, reservation, and identity certificates.
+            </p>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left">
+            <thead class="bg-muted/40 text-muted-foreground font-bold uppercase text-[10px] tracking-wider border-b border-border">
+              <tr>
+                <th class="p-3">Document / Certificate</th>
+                <th class="p-3">Aspect Ratio / Scan</th>
+                <th class="p-3">File Size Bound</th>
+                <th class="p-3">Verification Rule</th>
+                <th class="p-3">Accepted Formats</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border/60">
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">10th / Matriculation Marksheet</td>
+                <td class="p-3 font-mono">Portrait A4 (~700×990 px)</td>
+                <td class="p-3 font-mono font-bold text-primary">100 KB – 300 KB</td>
+                <td class="p-3">DOB, candidate name, and roll number must be readable</td>
+                <td class="p-3">JPG / JPEG / PDF</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">12th / Intermediate Certificate</td>
+                <td class="p-3 font-mono">Portrait A4 (~700×990 px)</td>
+                <td class="p-3 font-mono font-bold text-primary">100 KB – 300 KB</td>
+                <td class="p-3">Marks breakdown and board seal clear</td>
+                <td class="p-3">JPG / JPEG / PDF</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">Caste / Category (SC/ST/OBC/EWS)</td>
+                <td class="p-3 font-mono">Portrait A4 (~700×990 px)</td>
+                <td class="p-3 font-mono font-bold text-primary">100 KB – 300 KB</td>
+                <td class="p-3">Issuing officer designation &amp; barcode sharp</td>
+                <td class="p-3">JPG / JPEG / PDF</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">Domicile / Residence Proof</td>
+                <td class="p-3 font-mono">Portrait A4 (~700×990 px)</td>
+                <td class="p-3 font-mono font-bold text-primary">100 KB – 300 KB</td>
+                <td class="p-3">Tehsildar / SDO digital signature legible</td>
+                <td class="p-3">JPG / JPEG / PDF</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">Photo ID (Aadhaar / Voter / PAN)</td>
+                <td class="p-3 font-mono">Card Ratio (~800×500 px)</td>
+                <td class="p-3 font-mono font-bold text-primary">50 KB – 200 KB</td>
+                <td class="p-3">Front photo and ID number completely clear</td>
+                <td class="p-3">JPG / JPEG</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">Left Thumb Impression (Biometric)</td>
+                <td class="p-3 font-mono">1:1 Square (240×240 px)</td>
+                <td class="p-3 font-mono font-bold text-primary">10 KB – 50 KB</td>
+                <td class="p-3">Blue/black ink ridges clearly distinguishable</td>
+                <td class="p-3">JPG / JPEG</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FAQs -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs space-y-4">
+        <h2 class="text-base sm:text-lg font-bold text-foreground">
+          Frequently Asked Questions (Document &amp; Certificate Resizer)
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          {docFaqs.map((faq) => (
+            <div class="p-4 rounded-xl bg-muted/20 border border-border space-y-2">
+              <h3 class="font-bold text-foreground text-xs sm:text-sm">{faq.q}</h3>
+              <p class="text-muted-foreground leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

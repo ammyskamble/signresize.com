@@ -14,7 +14,7 @@ import {
 import type { OutputFormat } from '../types';
 import { formatFileSize, compressCanvasToTargetSize } from '../utils/imageProcessor';
 
-const KB_PRESETS = [10, 20, 50, 100, 200, 500];
+const KB_PRESETS = [10, 20, 50, 100, 200, 300, 500];
 
 export const ImageCompressorTool: React.FC = () => {
   const [sourceImage, setSourceImage] = useState<HTMLImageElement | null>(null);
@@ -23,6 +23,7 @@ export const ImageCompressorTool: React.FC = () => {
   const [sourceDimensions, setSourceDimensions] = useState<{ width: number; height: number }>({ width: 0, height: 0 });
 
   const [targetKb, setTargetKb] = useState<number>(50);
+  const [debouncedTargetKb, setDebouncedTargetKb] = useState<number>(50);
   const [targetKbInput, setTargetKbInput] = useState<string>('50');
   const [format, setFormat] = useState<OutputFormat>('image/jpeg');
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -35,6 +36,26 @@ export const ImageCompressorTool: React.FC = () => {
 
   const [copied, setCopied] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const baseCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Debounce slider updates for 60fps instant UI with zero drag lag
+  const handleSliderChange = (val: number) => {
+    setTargetKb(val);
+    setTargetKbInput(String(val));
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    debounceTimerRef.current = setTimeout(() => {
+      setDebouncedTargetKb(val);
+    }, 80);
+  };
+
+  // Immediate preset selector (no delay)
+  const handlePresetSelect = (val: number) => {
+    setTargetKb(val);
+    setTargetKbInput(String(val));
+    setDebouncedTargetKb(val);
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+  };
 
   // Handle incoming file
   const handleFile = (file: File) => {
@@ -52,13 +73,25 @@ export const ImageCompressorTool: React.FC = () => {
       img.onload = () => {
         setSourceImage(img);
         setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+
+        // Cache base canvas once per upload to avoid repeated heavy context draws
+        const baseCanvas = document.createElement('canvas');
+        baseCanvas.width = img.naturalWidth;
+        baseCanvas.height = img.naturalHeight;
+        const ctx = baseCanvas.getContext('2d');
+        if (ctx) {
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, baseCanvas.width, baseCanvas.height);
+          ctx.drawImage(img, 0, 0);
+        }
+        baseCanvasRef.current = baseCanvas;
       };
       img.src = e.target?.result as string;
     };
     reader.readAsDataURL(file);
   };
 
-  // Process compression
+  // Process compression ultra-fast
   useEffect(() => {
     if (!sourceImage) return;
 
@@ -66,26 +99,27 @@ export const ImageCompressorTool: React.FC = () => {
     setIsProcessing(true);
 
     const processCompression = async () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = sourceImage.naturalWidth;
-      canvas.height = sourceImage.naturalHeight;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
+      const canvas = baseCanvasRef.current || document.createElement('canvas');
+      if (!baseCanvasRef.current) {
+        canvas.width = sourceImage.naturalWidth;
+        canvas.height = sourceImage.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(sourceImage, 0, 0);
+        }
+      }
 
-      // Draw original image on canvas with white background (to avoid black JPG artifacts)
-      ctx.fillStyle = '#FFFFFF';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(sourceImage, 0, 0);
-
-      const minKb = Math.max(1, targetKb * 0.85);
-      const maxKb = targetKb;
+      const minKb = Math.max(1, debouncedTargetKb * 0.85);
+      const maxKb = debouncedTargetKb;
 
       const result = await compressCanvasToTargetSize(
         canvas,
         format,
         minKb,
         maxKb,
-        targetKb
+        debouncedTargetKb
       );
 
       if (isCurrent) {
@@ -104,7 +138,8 @@ export const ImageCompressorTool: React.FC = () => {
     return () => {
       isCurrent = false;
     };
-  }, [sourceImage, targetKb, format]);
+  }, [sourceImage, debouncedTargetKb, format]);
+
 
   const handleDownload = () => {
     if (!compressedResult) return;
@@ -226,16 +261,18 @@ export const ImageCompressorTool: React.FC = () => {
 
             {/* Quick KB Buttons */}
             <div class="space-y-2">
-              <label class="text-xs font-semibold text-foreground">Quick Presets:</label>
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-semibold text-foreground">Quick Presets:</label>
+                <span class="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                  ⚡ Zero Lag Engine
+                </span>
+              </div>
               <div class="flex flex-wrap gap-2">
                 {KB_PRESETS.map((kb) => (
                   <button
                     key={kb}
                     type="button"
-                    onClick={() => {
-                      setTargetKb(kb);
-                      setTargetKbInput(String(kb));
-                    }}
+                    onClick={() => handlePresetSelect(kb)}
                     class={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition font-mono ${
                       targetKb === kb
                         ? 'bg-primary text-primary-foreground shadow'
@@ -252,8 +289,8 @@ export const ImageCompressorTool: React.FC = () => {
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
               <div class="sm:col-span-8 space-y-1">
                 <div class="flex justify-between text-xs text-muted-foreground">
-                  <span>Fine Adjust Slider:</span>
-                  <span class="font-mono font-bold text-foreground">{targetKb} KB</span>
+                  <span>Fine Adjust Slider (Instant Response):</span>
+                  <span class="font-mono font-bold text-primary">{targetKb} KB</span>
                 </div>
                 <input
                   type="range"
@@ -261,11 +298,7 @@ export const ImageCompressorTool: React.FC = () => {
                   max="1000"
                   step="5"
                   value={targetKb}
-                  onChange={(e) => {
-                    const val = Number(e.target.value);
-                    setTargetKb(val);
-                    setTargetKbInput(String(val));
-                  }}
+                  onChange={(e) => handleSliderChange(Number(e.target.value))}
                   class="w-full accent-primary cursor-pointer"
                 />
               </div>
@@ -281,7 +314,7 @@ export const ImageCompressorTool: React.FC = () => {
                     onChange={(e) => {
                       setTargetKbInput(e.target.value);
                       const n = parseInt(e.target.value, 10);
-                      if (n && n > 0) setTargetKb(n);
+                      if (n && n > 0) handleSliderChange(n);
                     }}
                     class="w-full px-3 py-1.5 rounded-xl border border-border bg-background text-foreground font-mono text-xs"
                   />
@@ -289,6 +322,7 @@ export const ImageCompressorTool: React.FC = () => {
                 </div>
               </div>
             </div>
+
 
             {/* Format Selector */}
             <div class="space-y-2 pt-2 border-t border-border">

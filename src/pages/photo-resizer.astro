@@ -1,0 +1,240 @@
+---
+// src/pages/photo-resizer.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import { SignatureTool } from '../components/SignatureTool';
+import { PHOTO_PRESETS } from '../data/examPresets';
+
+const pageTitle = "Passport Photo Resizer 20 to 50 KB (3.5x4.5 cm) Online for Govt Exams - SignResize";
+const pageDescription = "Free online passport photo resizer and compressor to 20 to 50 kb, 3.5x4.5 cm for SSC, UPSC, IBPS, RRB, and NEET portals. Add Name and Date of Photo (DoP), face alignment guide, 100% client-side private.";
+const canonicalUrl = "https://signresize.in/photo-resizer";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "passport photo resizer, photo resize 20 to 50 kb, ssc photo resize, upsc photo size 350x350, ibps photo resize, neet passport photo size, 3.5x4.5 cm photo resize, date of photo on photo, ssc cgl photo resizer, compress photo to 20 kb";
+
+const photoFaqs = [
+  {
+    q: "What is the standard passport photo size for Indian government exams?",
+    a: "Most Indian competitive exams (SSC CGL/CHSL, IBPS, RRB, State PSCs) require a photograph with dimensions of 3.5 cm width by 4.5 cm height (approximately 200×230 px to 240×320 px) and a file size strictly between 20 KB and 50 KB in JPG/JPEG format."
+  },
+  {
+    q: "How do I add my Name and Date of Photo (DoP) for SSC and State PSC forms?",
+    a: "In the SignResize Photo Resizer, simply check the 'Add Name & Date of Photo (DoP)' box. Type your name in capital letters (e.g. RAHUL SHARMA) and the date the photo was captured. The tool automatically stamps a compliant white strip with black text at the bottom of your image."
+  },
+  {
+    q: "Why do UPSC and PAN Card ask for square 350x350 or 213x213 px photos?",
+    a: "UPSC Civil Services OTR and PAN Card (NSDL/UTIITSL) use square aspect ratios (1:1). UPSC requires minimum 350×350 px (20–300 KB) where candidate's face occupies 3/4th of the photo, while PAN card requires 213×213 px at 200 DPI under 50 KB."
+  },
+  {
+    q: "Are my personal photos uploaded to any server or cloud database?",
+    a: "Never. SignResize processes everything 100% locally on your device's browser memory using HTML5 canvas. No photographs, signatures, or personal identity details ever leave your device."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- PWA & Mobile Meta Tags -->
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="SignResize Photo" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <GoogleFonts />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Passport Photo Resizer for Govt Exams",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "Resize photo to 20 to 50 kb for SSC, IBPS, RRB",
+        "Crop to 3.5x4.5 cm with 200 DPI",
+        "Candidate Name and Date of Photo (DoP) stamping",
+        "Face alignment oval guideline",
+        "UPSC square 350x350 px and PAN card 213x213 px support"
+      ]
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-5 space-y-5">
+      
+      <!-- Hero Banner -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Official 2026 Photo Guidelines
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/10 border border-emerald-500/20">
+                ⚡ 100% In-Browser Private
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              Online <span class="text-primary">Passport Photo Resizer</span> (20KB to 50KB)
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Format passport photos to exact <strong>3.5 × 4.5 cm</strong> dimensions, <strong>20 KB – 50 KB</strong> file size, light/white background, and stamp <strong>Candidate Name &amp; Date of Photo (DoP)</strong> for <strong>SSC, UPSC, IBPS, RRB &amp; NEET</strong>.
+            </p>
+          </div>
+
+          <!-- Quick Badges -->
+          <div class="flex items-center gap-2 flex-wrap shrink-0">
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Dimensions</div>
+              <div class="text-xs font-bold text-foreground font-mono">3.5 × 4.5 CM</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">File Bound</div>
+              <div class="text-xs font-bold text-primary font-mono">20 KB – 50 KB</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Print DPI</div>
+              <div class="text-xs font-bold text-foreground font-mono">200 / 300 DPI</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Tool Workspace initialized in Photo Mode -->
+      <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm">
+        <SignatureTool client:visible initialMode="photo" />
+      </section>
+
+      <!-- Exam Photo Specifications Reference Table -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs space-y-4">
+        <div class="flex items-center justify-between border-b border-border/60 pb-3">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+              <span>Official Exam Passport Photo Specifications Matrix</span>
+            </h2>
+            <p class="text-xs text-muted-foreground">
+              Official dimensions, file size limits, and Date of Photo (DoP) requirements for major competitive exams.
+            </p>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left">
+            <thead class="bg-muted/40 text-muted-foreground font-bold uppercase text-[10px] tracking-wider border-b border-border">
+              <tr>
+                <th class="p-3">Exam Authority</th>
+                <th class="p-3">Dimensions</th>
+                <th class="p-3">File Size</th>
+                <th class="p-3">Name &amp; Date Rule</th>
+                <th class="p-3">Background</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border/60">
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">SSC (CGL, CHSL, MTS, GD)</td>
+                <td class="p-3 font-mono">3.5 × 4.5 cm (200×230 px)</td>
+                <td class="p-3 font-mono font-bold text-primary">20 KB – 50 KB</td>
+                <td class="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">Mandatory on latest notices</td>
+                <td class="p-3">Pure White / Light Grey</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">UPSC (IAS, NDA, CDS)</td>
+                <td class="p-3 font-mono">350 × 350 px (1:1 square)</td>
+                <td class="p-3 font-mono font-bold text-primary">20 KB – 300 KB</td>
+                <td class="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">Name &amp; Capture Date required</td>
+                <td class="p-3">White / Plain Light</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">IBPS &amp; SBI PO / Clerk</td>
+                <td class="p-3 font-mono">200 × 230 px (4.5×3.5 cm)</td>
+                <td class="p-3 font-mono font-bold text-primary">20 KB – 50 KB</td>
+                <td class="p-3 text-muted-foreground">Not mandatory</td>
+                <td class="p-3">White background</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">Railway RRB (NTPC, Group D)</td>
+                <td class="p-3 font-mono">35 × 45 mm (240×320 px)</td>
+                <td class="p-3 font-mono font-bold text-primary">20 KB – 50 KB</td>
+                <td class="p-3 text-muted-foreground">Clear frontal view</td>
+                <td class="p-3">Plain White</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">NTA (NEET / JEE Main)</td>
+                <td class="p-3 font-mono">3.5 × 4.5 cm (300 DPI)</td>
+                <td class="p-3 font-mono font-bold text-primary">10 KB – 200 KB</td>
+                <td class="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">Candidate Name &amp; Date printed</td>
+                <td class="p-3">White (80% face coverage)</td>
+              </tr>
+              <tr class="hover:bg-muted/20 transition">
+                <td class="p-3 font-semibold text-foreground">PAN Card (NSDL / Protean)</td>
+                <td class="p-3 font-mono">213 × 213 px (200 DPI)</td>
+                <td class="p-3 font-mono font-bold text-primary">10 KB – 50 KB</td>
+                <td class="p-3 text-muted-foreground">Standard color photo</td>
+                <td class="p-3">Pure White</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FAQs -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs space-y-4">
+        <h2 class="text-base sm:text-lg font-bold text-foreground">
+          Frequently Asked Questions (Passport Photo Resizer)
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          {photoFaqs.map((faq) => (
+            <div class="p-4 rounded-xl bg-muted/20 border border-border space-y-2">
+              <h3 class="font-bold text-foreground text-xs sm:text-sm">{faq.q}</h3>
+              <p class="text-muted-foreground leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

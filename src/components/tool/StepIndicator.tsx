@@ -1,25 +1,33 @@
 import React from 'react';
 import { Upload, Sliders, Download, Check } from 'lucide-react';
+import type { ToolTargetMode } from '../../types';
 
 interface StepIndicatorProps {
   hasImage: boolean;
   isProcessed: boolean;
+  targetType?: ToolTargetMode;
 }
 
-export const StepIndicator: React.FC<StepIndicatorProps> = ({ hasImage, isProcessed }) => {
+export const StepIndicator: React.FC<StepIndicatorProps> = ({ hasImage, isProcessed, targetType = 'signature' }) => {
+  const step1Label = targetType === 'photo' ? 'Upload Photo' : targetType === 'document' ? 'Upload Document' : 'Upload Sign';
+  const step1Detail = targetType === 'photo' ? 'Passport / headshot' : targetType === 'document' ? 'Marksheet, cert or ID' : 'Photo or scan';
+
+  const step2Label = targetType === 'photo' ? 'Align & Crop' : targetType === 'document' ? 'Align & Enhance' : 'Align & Whiten';
+  const step2Detail = targetType === 'photo' ? 'Face guide & crop' : targetType === 'document' ? 'Legibility & crop' : 'Crop & enhance';
+
   const steps = [
     {
       num: 1,
-      label: 'Upload Sign',
-      detail: 'Photo or scan',
+      label: step1Label,
+      detail: step1Detail,
       icon: Upload,
       active: !hasImage,
       completed: hasImage,
     },
     {
       num: 2,
-      label: 'Align & Whiten',
-      detail: 'Crop & enhance',
+      label: step2Label,
+      detail: step2Detail,
       icon: Sliders,
       active: hasImage && !isProcessed,
       completed: hasImage && isProcessed,

@@ -10,6 +10,7 @@ interface PresetBannerProps {
   maxKb: number;
   dpi: number;
   hasSourceImage?: boolean;
+  targetType?: 'signature' | 'photo' | 'document';
   onChangePresetClick?: () => void;
   onClearClick?: () => void;
   onToast?: (message: string, title?: string, type?: 'success' | 'info' | 'warning') => void;
@@ -23,6 +24,7 @@ export const PresetBanner: React.FC<PresetBannerProps> = ({
   maxKb,
   dpi,
   hasSourceImage,
+  targetType = 'signature',
   onChangePresetClick,
   onClearClick,
   onToast,
@@ -69,8 +71,14 @@ export const PresetBanner: React.FC<PresetBannerProps> = ({
         </span>
         <span className="text-muted-foreground truncate">
           <strong className="text-foreground font-mono">{targetWidthPx}×{targetHeightPx} px</strong> ({minKb}–{maxKb} KB)
-          {selectedPreset?.inkRequirement && (
+          {selectedPreset?.inkRequirement && targetType === 'signature' && (
             <span> • <span className="text-amber-700 dark:text-amber-300 font-medium">{selectedPreset.inkRequirement}</span></span>
+          )}
+          {targetType === 'photo' && (
+            <span> • <span className="text-blue-600 dark:text-blue-400 font-medium">Light / White BG</span></span>
+          )}
+          {targetType === 'document' && (
+            <span> • <span className="text-emerald-600 dark:text-emerald-400 font-medium">Clear Board Stamp</span></span>
           )}
           {selectedPreset?.notes && (
             <span className="hidden sm:inline"> • {selectedPreset.notes.split('.')[0]}</span>

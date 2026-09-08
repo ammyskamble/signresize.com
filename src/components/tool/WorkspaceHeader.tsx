@@ -6,6 +6,7 @@ interface WorkspaceHeaderProps {
   onModeChange: (mode: 'single' | 'batch') => void;
   batchCount: number;
   totalLoadedCount: number;
+  targetType?: 'signature' | 'photo' | 'document';
   onUploadClick: () => void;
   onSampleBatchClick: () => void;
   onDrawClick: () => void;
@@ -17,11 +18,14 @@ export const WorkspaceHeader: React.FC<WorkspaceHeaderProps> = ({
   onModeChange,
   batchCount,
   totalLoadedCount,
+  targetType = 'signature',
   onUploadClick,
   onSampleBatchClick,
   onDrawClick,
   onClearAllClick,
 }) => {
+  const nounPlural = targetType === 'photo' ? 'Photos' : targetType === 'document' ? 'Documents' : 'Signs';
+
   return (
     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-card border border-border shadow-xs">
       {/* Mode Switcher Tabs */}
@@ -70,7 +74,7 @@ export const WorkspaceHeader: React.FC<WorkspaceHeaderProps> = ({
           className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-primary text-primary-foreground hover:opacity-95 font-semibold whitespace-nowrap shadow-xs transition cursor-pointer"
         >
           <Plus className="w-3.5 h-3.5 shrink-0" />
-          <span>Upload Signs</span>
+          <span>Upload {nounPlural}</span>
         </button>
 
         <button
@@ -79,17 +83,19 @@ export const WorkspaceHeader: React.FC<WorkspaceHeaderProps> = ({
           className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-card border border-border text-foreground hover:bg-muted font-medium whitespace-nowrap transition shadow-xs cursor-pointer"
         >
           <Sparkles className="w-3.5 h-3.5 text-primary shrink-0" />
-          <span>Sample Signs</span>
+          <span>Sample {nounPlural}</span>
         </button>
 
-        <button
-          type="button"
-          onClick={onDrawClick}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-card border border-border text-foreground hover:bg-muted font-medium whitespace-nowrap transition shadow-xs cursor-pointer"
-        >
-          <PenTool className="w-3.5 h-3.5 text-primary shrink-0" />
-          <span>Draw Sign</span>
-        </button>
+        {targetType === 'signature' && (
+          <button
+            type="button"
+            onClick={onDrawClick}
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-card border border-border text-foreground hover:bg-muted font-medium whitespace-nowrap transition shadow-xs cursor-pointer"
+          >
+            <PenTool className="w-3.5 h-3.5 text-primary shrink-0" />
+            <span>Draw Sign</span>
+          </button>
+        )}
 
         {/* Prominent Clear All Selected Files Button */}
         {totalLoadedCount > 0 && (
@@ -97,7 +103,7 @@ export const WorkspaceHeader: React.FC<WorkspaceHeaderProps> = ({
             type="button"
             onClick={onClearAllClick}
             className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/30 hover:bg-red-500/20 font-semibold whitespace-nowrap transition shadow-xs cursor-pointer"
-            title="Clear all uploaded signatures and reset workspace"
+            title={`Clear all uploaded ${nounPlural.toLowerCase()} and reset workspace`}
           >
             <Trash2 className="w-3.5 h-3.5 shrink-0" />
             <span>Clear All ({totalLoadedCount})</span>
