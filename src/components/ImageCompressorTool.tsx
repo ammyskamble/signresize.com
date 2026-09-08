@@ -67,28 +67,30 @@ export const ImageCompressorTool: React.FC = () => {
     setSourceFileName(file.name.replace(/\.[^/.]+$/, ''));
     setSourceOriginalSize(file.size);
 
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const img = new Image();
-      img.onload = () => {
-        setSourceImage(img);
-        setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+    const objectUrl = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      setSourceImage(img);
+      setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
 
-        // Cache base canvas once per upload to avoid repeated heavy context draws
-        const baseCanvas = document.createElement('canvas');
-        baseCanvas.width = img.naturalWidth;
-        baseCanvas.height = img.naturalHeight;
-        const ctx = baseCanvas.getContext('2d');
-        if (ctx) {
-          ctx.fillStyle = '#FFFFFF';
-          ctx.fillRect(0, 0, baseCanvas.width, baseCanvas.height);
-          ctx.drawImage(img, 0, 0);
-        }
-        baseCanvasRef.current = baseCanvas;
-      };
-      img.src = e.target?.result as string;
+      // Cache base canvas once per upload to avoid repeated heavy context draws
+      const baseCanvas = document.createElement('canvas');
+      baseCanvas.width = img.naturalWidth;
+      baseCanvas.height = img.naturalHeight;
+      const ctx = baseCanvas.getContext('2d');
+      if (ctx) {
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, baseCanvas.width, baseCanvas.height);
+        ctx.drawImage(img, 0, 0);
+      }
+      baseCanvasRef.current = baseCanvas;
     };
-    reader.readAsDataURL(file);
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      alert('Could not decode the uploaded image.');
+    };
+    img.src = objectUrl;
   };
 
   // Process compression ultra-fast
@@ -123,11 +125,16 @@ export const ImageCompressorTool: React.FC = () => {
       );
 
       if (isCurrent) {
-        setCompressedResult({
-          blob: result.blob,
-          url: result.dataUrl,
-          sizeBytes: result.sizeBytes,
-          sizeKb: result.sizeKb,
+        setCompressedResult((prev) => {
+          if (prev?.url) {
+            URL.revokeObjectURL(prev.url);
+          }
+          return {
+            blob: result.blob,
+            url: result.dataUrl,
+            sizeBytes: result.sizeBytes,
+            sizeKb: result.sizeKb,
+          };
         });
         setIsProcessing(false);
       }

@@ -67,57 +67,57 @@ export function applySignatureFilters(
   height: number,
   filters: FilterOptions
 ): void {
-  const imgData = ctx.getImageData(0, 0, width, height);
-  const data = imgData.data;
   const { cleanPaper, brightness, contrast, blackAndWhite } = filters;
 
-  // Contrast factor calculation: [-50, 50] -> factor
-  const contrastFactor = (259 * (contrast + 255)) / (255 * (259 - contrast));
-  const brightnessOffset = (brightness / 50) * 128;
+  // ⚡ Bypass completely if all filters are default
+  if (!cleanPaper && brightness === 0 && contrast === 0 && !blackAndWhite) {
+    return;
+  }
+
+  const imgData = ctx.getImageData(0, 0, width, height);
+  const data = imgData.data;
+
+  // Precompute 256-byte Lookup Table (LUT) for brightness & contrast (O(1) lookups)
+  const hasAdjustments = brightness !== 0 || contrast !== 0;
+  let lut: Uint8Array | null = null;
+  if (hasAdjustments) {
+    lut = new Uint8Array(256);
+    const contrastFactor = (259 * (contrast + 255)) / (255 * (259 - contrast));
+    const brightnessOffset = (brightness / 50) * 128;
+    for (let i = 0; i < 256; i++) {
+      let v = i;
+      if (brightness !== 0) v = Math.min(255, Math.max(0, v + brightnessOffset));
+      if (contrast !== 0) v = Math.min(255, Math.max(0, contrastFactor * (v - 128) + 128));
+      lut[i] = v | 0;
+    }
+  }
 
   for (let i = 0; i < data.length; i += 4) {
-    let r = data[i];
-    let g = data[i + 1];
-    let b = data[i + 2];
+    let r = lut ? lut[data[i]] : data[i];
+    let g = lut ? lut[data[i + 1]] : data[i + 1];
+    let b = lut ? lut[data[i + 2]] : data[i + 2];
 
-    // 1. Brightness & Contrast
-    if (brightness !== 0) {
-      r = Math.min(255, Math.max(0, r + brightnessOffset));
-      g = Math.min(255, Math.max(0, g + brightnessOffset));
-      b = Math.min(255, Math.max(0, b + brightnessOffset));
-    }
+    // Fast integer luminance approximation of Rec. 709 (0.2126*R + 0.7152*G + 0.0722*B)
+    const lum = (r * 54 + g * 183 + b * 19) >> 8;
 
-    if (contrast !== 0) {
-      r = Math.min(255, Math.max(0, contrastFactor * (r - 128) + 128));
-      g = Math.min(255, Math.max(0, contrastFactor * (g - 128) + 128));
-      b = Math.min(255, Math.max(0, contrastFactor * (b - 128) + 128));
-    }
-
-    // Luminance using standard Rec. 709 weights
-    const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-
-    // 2. Clean Paper Algorithm
-    // Paper in photos is typically yellowish/grayish (lum > 145-170).
-    // Push background to pure #FFFFFF while darkening the signature ink.
+    // 2. Clean Paper Algorithm (bitwise integer blending)
     if (cleanPaper) {
       if (lum > 155) {
-        // Softly clamp paper background to pure white
         const blend = (lum - 155) / 100;
-        r = Math.min(255, r + (255 - r) * blend);
-        g = Math.min(255, g + (255 - g) * blend);
-        b = Math.min(255, b + (255 - b) * blend);
+        r = Math.min(255, (r + (255 - r) * blend) | 0);
+        g = Math.min(255, (g + (255 - g) * blend) | 0);
+        b = Math.min(255, (b + (255 - b) * blend) | 0);
       } else {
-        // Deepen signature strokes
-        r = Math.max(0, r * 0.85);
-        g = Math.max(0, g * 0.85);
-        b = Math.max(0, b * 0.85);
+        r = (r * 217) >> 8; // approx * 0.85
+        g = (g * 217) >> 8;
+        b = (b * 217) >> 8;
       }
     }
 
     // 3. Black and White Monochrome
     if (blackAndWhite) {
-      const finalLum = 0.299 * r + 0.587 * g + 0.114 * b;
-      const val = finalLum > 160 ? 255 : Math.max(0, finalLum * 0.7);
+      const bwLum = (r * 77 + g * 150 + b * 29) >> 8;
+      const val = bwLum > 160 ? 255 : (bwLum * 179) >> 8;
       r = val;
       g = val;
       b = val;
@@ -396,29 +396,27 @@ export function applyDocumentFilters(
   const imgData = ctx.getImageData(0, 0, width, height);
   const data = imgData.data;
   const factor = (259 * (contrastBoost + 255)) / (255 * (259 - contrastBoost));
+  const lut = new Uint8Array(256);
+  for (let i = 0; i < 256; i++) {
+    lut[i] = Math.min(255, Math.max(0, factor * (i - 128) + 128)) | 0;
+  }
 
   for (let i = 0; i < data.length; i += 4) {
-    let r = data[i];
-    let g = data[i + 1];
-    let b = data[i + 2];
+    let r = lut[data[i]];
+    let g = lut[data[i + 1]];
+    let b = lut[data[i + 2]];
 
-    // Contrast
-    r = Math.min(255, Math.max(0, factor * (r - 128) + 128));
-    g = Math.min(255, Math.max(0, factor * (g - 128) + 128));
-    b = Math.min(255, Math.max(0, factor * (g - 128) + 128));
-
-    // High paper whiteness threshold
-    const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+    // Integer luminance
+    const lum = (r * 77 + g * 150 + b * 29) >> 8;
     if (lum > 175) {
-      const boost = (lum - 175) / 80;
-      r = Math.min(255, r + 40 * boost);
-      g = Math.min(255, g + 40 * boost);
-      b = Math.min(255, b + 40 * boost);
+      const boost = ((lum - 175) * 40) >> 6; // fast bitshift approximation of / 80 * 40
+      r = Math.min(255, r + boost);
+      g = Math.min(255, g + boost);
+      b = Math.min(255, b + boost);
     } else if (lum < 110) {
-      // Darken print text
-      r = Math.max(0, r * 0.88);
-      g = Math.max(0, g * 0.88);
-      b = Math.max(0, b * 0.88);
+      r = (r * 225) >> 8; // approx * 0.88
+      g = (g * 225) >> 8;
+      b = (b * 225) >> 8;
     }
 
     data[i] = r;
@@ -490,10 +488,15 @@ export async function compressCanvasToTargetSize(
     }
   }
 
+// Session quality predictor: stores last successful quality to make incremental slider/crop updates instant
+let lastSuccessfulQuality: number = 0.75;
+
   // 3. Fast Predictive Bounded Quality Binary Search (Max 3-4 iterations)
   let low = 0.08;
   let high = 0.98;
-  let currentQuality = 0.75;
+  let currentQuality = (lastSuccessfulQuality >= 0.15 && lastSuccessfulQuality <= 0.95)
+    ? lastSuccessfulQuality
+    : 0.75;
   let bestBlob: Blob | null = null;
   let bestDiff = Infinity;
 
@@ -508,11 +511,13 @@ export async function compressCanvasToTargetSize(
     if (diff < bestDiff) {
       bestDiff = diff;
       bestBlob = testBlob;
+      lastSuccessfulQuality = currentQuality;
     }
 
     // Instant exit if within 0.6 KB or comfortably within min-max bounds
     if (diff <= 0.6 || (testKb >= minKb && testKb <= maxKb && diff < 1.5)) {
       bestBlob = testBlob;
+      lastSuccessfulQuality = currentQuality;
       break;
     }
 

@@ -717,6 +717,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   // Canvas and results
   const containerRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const dragRafRef = useRef<number | null>(null);
 
   const [processedResult, setProcessedResult] = useState<ProcessedImageResult | null>(null);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -918,7 +919,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     });
   };
 
-  // Helper to load a single file
+  // Helper to load a single file instantly using zero-copy Object URL
   const loadSingleImageFile = (file: File) => {
     if (!file.type.startsWith('image/')) {
       alert('Please upload a valid image file (JPG, PNG, WebP, etc.)');
@@ -928,18 +929,20 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     setSourceFileName(file.name.replace(/\.[^/.]+$/, ''));
     setSourceOriginalSize(file.size);
 
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const img = new Image();
-      img.onload = () => {
-        setSourceImage(img);
-        setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
-        const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
-        initCropBox(img, targetAspect);
-      };
-      img.src = e.target?.result as string;
+    const objectUrl = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      setSourceImage(img);
+      setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+      const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
+      initCropBox(img, targetAspect);
     };
-    reader.readAsDataURL(file);
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      alert('Could not decode the uploaded image file.');
+    };
+    img.src = objectUrl;
   };
 
   // Process incoming files (Handles 1 up to 10 signatures)
@@ -972,41 +975,42 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     // Switch to batch mode
     setToolMode('batch');
 
-    // Read and load all images into batch state
+    // Read and load all images into batch state via zero-copy Object URLs
     filesToLoad.forEach((file) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const img = new Image();
-        img.onload = () => {
-          const newItem: BatchSignatureItem = {
-            id: `${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
-            file,
-            fileName: file.name,
-            originalSize: file.size,
-            image: img,
-            status: 'pending',
-            rotation: 0,
-            flipH: false,
-            flipV: false
-          };
-
-          setBatchItems((prev) => {
-            if (prev.length >= 10) return prev;
-            return [...prev, newItem];
-          });
-
-          // Also set as active single image if none currently selected
-          if (!sourceImage) {
-            setSourceImage(img);
-            setSourceFileName(file.name.replace(/\.[^/.]+$/, ''));
-            setSourceOriginalSize(file.size);
-            setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
-            initCropBox(img, selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx);
-          }
+      const objectUrl = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        URL.revokeObjectURL(objectUrl);
+        const newItem: BatchSignatureItem = {
+          id: `${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
+          file,
+          fileName: file.name,
+          originalSize: file.size,
+          image: img,
+          status: 'pending',
+          rotation: 0,
+          flipH: false,
+          flipV: false
         };
-        img.src = e.target?.result as string;
+
+        setBatchItems((prev) => {
+          if (prev.length >= 10) return prev;
+          return [...prev, newItem];
+        });
+
+        // Also set as active single image if none currently selected
+        if (!sourceImage) {
+          setSourceImage(img);
+          setSourceFileName(file.name.replace(/\.[^/.]+$/, ''));
+          setSourceOriginalSize(file.size);
+          setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+          initCropBox(img, selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx);
+        }
       };
-      reader.readAsDataURL(file);
+      img.onerror = () => {
+        URL.revokeObjectURL(objectUrl);
+      };
+      img.src = objectUrl;
     });
   };
 
@@ -1220,7 +1224,12 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
         (minKb + maxKb) / 2
       );
 
-      setProcessedResult(result);
+      setProcessedResult((prev) => {
+        if (prev?.dataUrl) {
+          URL.revokeObjectURL(prev.dataUrl);
+        }
+        return result;
+      });
     } catch (err) {
       console.error('Error processing image:', err);
     } finally {
@@ -1689,146 +1698,157 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
   const handleContainerMouseMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (!isDraggingCrop || !containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const scaleX = naturalW / rect.width;
-    const scaleY = naturalH / rect.height;
-
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
     const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
 
-    const deltaX = (clientX - dragStart.x) * scaleX;
-    const deltaY = (clientY - dragStart.y) * scaleY;
-    const targetAspect = targetWidthPx / targetHeightPx;
-
-    if (activeHandle === 'move') {
-      let newX = cropStart.x + deltaX;
-      let newY = cropStart.y + deltaY;
-      newX = Math.max(0, Math.min(naturalW - crop.width, newX));
-      newY = Math.max(0, Math.min(naturalH - crop.height, newY));
-      setCrop((prev) => ({ ...prev, x: Math.round(newX), y: Math.round(newY) }));
-    } else if (activeHandle === 'se') {
-      let newW = Math.max(30, cropStart.width + deltaX);
-      let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height + deltaY);
-
-      if (cropStart.x + newW > naturalW) {
-        newW = naturalW - cropStart.x;
-        if (lockAspect) newH = newW / targetAspect;
-      }
-      if (cropStart.y + newH > naturalH) {
-        newH = naturalH - cropStart.y;
-        if (lockAspect) newW = newH * targetAspect;
-      }
-
-      setCrop((prev) => ({ ...prev, width: Math.round(newW), height: Math.round(newH) }));
-    } else if (activeHandle === 'sw') {
-      let newW = Math.max(30, cropStart.width - deltaX);
-      let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height + deltaY);
-      let newX = cropStart.x + (cropStart.width - newW);
-
-      if (newX < 0) {
-        newW = cropStart.x + cropStart.width;
-        newX = 0;
-        if (lockAspect) newH = newW / targetAspect;
-      }
-      if (cropStart.y + newH > naturalH) {
-        newH = naturalH - cropStart.y;
-        if (lockAspect) {
-          newW = newH * targetAspect;
-          newX = cropStart.x + (cropStart.width - newW);
-        }
-      }
-
-      setCrop({
-        x: Math.round(newX),
-        y: Math.round(cropStart.y),
-        width: Math.round(newW),
-        height: Math.round(newH)
-      });
-    } else if (activeHandle === 'ne') {
-      let newW = Math.max(30, cropStart.width + deltaX);
-      let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height - deltaY);
-      let newY = cropStart.y + (cropStart.height - newH);
-
-      if (cropStart.x + newW > naturalW) {
-        newW = naturalW - cropStart.x;
-        if (lockAspect) {
-          newH = newW / targetAspect;
-          newY = cropStart.y + (cropStart.height - newH);
-        }
-      }
-      if (newY < 0) {
-        newH = cropStart.y + cropStart.height;
-        newY = 0;
-        if (lockAspect) newW = newH * targetAspect;
-      }
-
-      setCrop({
-        x: Math.round(cropStart.x),
-        y: Math.round(newY),
-        width: Math.round(newW),
-        height: Math.round(newH)
-      });
-    } else if (activeHandle === 'nw') {
-      let newW = Math.max(30, cropStart.width - deltaX);
-      let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height - deltaY);
-      let newX = cropStart.x + (cropStart.width - newW);
-      let newY = cropStart.y + (cropStart.height - newH);
-
-      if (newX < 0) {
-        newW = cropStart.x + cropStart.width;
-        newX = 0;
-        if (lockAspect) newH = newW / targetAspect;
-      }
-      if (newY < 0) {
-        newH = cropStart.y + cropStart.height;
-        newY = 0;
-        if (lockAspect) newW = newH * targetAspect;
-      }
-
-      setCrop({
-        x: Math.round(newX),
-        y: Math.round(newY),
-        width: Math.round(newW),
-        height: Math.round(newH)
-      });
-    } else if (activeHandle === 'e') {
-      let newW = Math.max(30, Math.min(naturalW - cropStart.x, cropStart.width + deltaX));
-      let newH = lockAspect ? newW / targetAspect : cropStart.height;
-      let newY = lockAspect ? cropStart.y - (newH - cropStart.height) / 2 : cropStart.y;
-      newY = Math.max(0, Math.min(naturalH - newH, newY));
-      setCrop((prev) => ({ ...prev, width: Math.round(newW), height: Math.round(newH), y: Math.round(newY) }));
-    } else if (activeHandle === 'w') {
-      let newW = Math.max(30, cropStart.width - deltaX);
-      let newX = cropStart.x + (cropStart.width - newW);
-      if (newX < 0) {
-        newW = cropStart.x + cropStart.width;
-        newX = 0;
-      }
-      let newH = lockAspect ? newW / targetAspect : cropStart.height;
-      let newY = lockAspect ? cropStart.y - (newH - cropStart.height) / 2 : cropStart.y;
-      newY = Math.max(0, Math.min(naturalH - newH, newY));
-      setCrop({ x: Math.round(newX), y: Math.round(newY), width: Math.round(newW), height: Math.round(newH) });
-    } else if (activeHandle === 's') {
-      let newH = Math.max(20, Math.min(naturalH - cropStart.y, cropStart.height + deltaY));
-      let newW = lockAspect ? newH * targetAspect : cropStart.width;
-      let newX = lockAspect ? cropStart.x - (newW - cropStart.width) / 2 : cropStart.x;
-      newX = Math.max(0, Math.min(naturalW - newW, newX));
-      setCrop((prev) => ({ ...prev, height: Math.round(newH), width: Math.round(newW), x: Math.round(newX) }));
-    } else if (activeHandle === 'n') {
-      let newH = Math.max(20, cropStart.height - deltaY);
-      let newY = cropStart.y + (cropStart.height - newH);
-      if (newY < 0) {
-        newH = cropStart.y + cropStart.height;
-        newY = 0;
-      }
-      let newW = lockAspect ? newH * targetAspect : cropStart.width;
-      let newX = lockAspect ? cropStart.x - (newW - cropStart.width) / 2 : cropStart.x;
-      newX = Math.max(0, Math.min(naturalW - newW, newX));
-      setCrop({ x: Math.round(newX), y: Math.round(newY), width: Math.round(newW), height: Math.round(newH) });
+    if (dragRafRef.current) {
+      cancelAnimationFrame(dragRafRef.current);
     }
+
+    dragRafRef.current = requestAnimationFrame(() => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const scaleX = naturalW / rect.width;
+      const scaleY = naturalH / rect.height;
+
+      const deltaX = (clientX - dragStart.x) * scaleX;
+      const deltaY = (clientY - dragStart.y) * scaleY;
+      const targetAspect = targetWidthPx / targetHeightPx;
+
+      if (activeHandle === 'move') {
+        let newX = cropStart.x + deltaX;
+        let newY = cropStart.y + deltaY;
+        newX = Math.max(0, Math.min(naturalW - crop.width, newX));
+        newY = Math.max(0, Math.min(naturalH - crop.height, newY));
+        setCrop((prev) => ({ ...prev, x: Math.round(newX), y: Math.round(newY) }));
+      } else if (activeHandle === 'se') {
+        let newW = Math.max(30, cropStart.width + deltaX);
+        let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height + deltaY);
+
+        if (cropStart.x + newW > naturalW) {
+          newW = naturalW - cropStart.x;
+          if (lockAspect) newH = newW / targetAspect;
+        }
+        if (cropStart.y + newH > naturalH) {
+          newH = naturalH - cropStart.y;
+          if (lockAspect) newW = newH * targetAspect;
+        }
+
+        setCrop((prev) => ({ ...prev, width: Math.round(newW), height: Math.round(newH) }));
+      } else if (activeHandle === 'sw') {
+        let newW = Math.max(30, cropStart.width - deltaX);
+        let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height + deltaY);
+        let newX = cropStart.x + (cropStart.width - newW);
+
+        if (newX < 0) {
+          newW = cropStart.x + cropStart.width;
+          newX = 0;
+          if (lockAspect) newH = newW / targetAspect;
+        }
+        if (cropStart.y + newH > naturalH) {
+          newH = naturalH - cropStart.y;
+          if (lockAspect) {
+            newW = newH * targetAspect;
+            newX = cropStart.x + (cropStart.width - newW);
+          }
+        }
+
+        setCrop({
+          x: Math.round(newX),
+          y: Math.round(cropStart.y),
+          width: Math.round(newW),
+          height: Math.round(newH)
+        });
+      } else if (activeHandle === 'ne') {
+        let newW = Math.max(30, cropStart.width + deltaX);
+        let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height - deltaY);
+        let newY = cropStart.y + (cropStart.height - newH);
+
+        if (cropStart.x + newW > naturalW) {
+          newW = naturalW - cropStart.x;
+          if (lockAspect) {
+            newH = newW / targetAspect;
+            newY = cropStart.y + (cropStart.height - newH);
+          }
+        }
+        if (newY < 0) {
+          newH = cropStart.y + cropStart.height;
+          newY = 0;
+          if (lockAspect) newW = newH * targetAspect;
+        }
+
+        setCrop({
+          x: Math.round(cropStart.x),
+          y: Math.round(newY),
+          width: Math.round(newW),
+          height: Math.round(newH)
+        });
+      } else if (activeHandle === 'nw') {
+        let newW = Math.max(30, cropStart.width - deltaX);
+        let newH = lockAspect ? newW / targetAspect : Math.max(20, cropStart.height - deltaY);
+        let newX = cropStart.x + (cropStart.width - newW);
+        let newY = cropStart.y + (cropStart.height - newH);
+
+        if (newX < 0) {
+          newW = cropStart.x + cropStart.width;
+          newX = 0;
+          if (lockAspect) newH = newW / targetAspect;
+        }
+        if (newY < 0) {
+          newH = cropStart.y + cropStart.height;
+          newY = 0;
+          if (lockAspect) newW = newH * targetAspect;
+        }
+
+        setCrop({
+          x: Math.round(newX),
+          y: Math.round(newY),
+          width: Math.round(newW),
+          height: Math.round(newH)
+        });
+      } else if (activeHandle === 'e') {
+        let newW = Math.max(30, Math.min(naturalW - cropStart.x, cropStart.width + deltaX));
+        let newH = lockAspect ? newW / targetAspect : cropStart.height;
+        let newY = lockAspect ? cropStart.y - (newH - cropStart.height) / 2 : cropStart.y;
+        newY = Math.max(0, Math.min(naturalH - newH, newY));
+        setCrop((prev) => ({ ...prev, width: Math.round(newW), height: Math.round(newH), y: Math.round(newY) }));
+      } else if (activeHandle === 'w') {
+        let newW = Math.max(30, cropStart.width - deltaX);
+        let newX = cropStart.x + (cropStart.width - newW);
+        if (newX < 0) {
+          newW = cropStart.x + cropStart.width;
+          newX = 0;
+        }
+        let newH = lockAspect ? newW / targetAspect : cropStart.height;
+        let newY = lockAspect ? cropStart.y - (newH - cropStart.height) / 2 : cropStart.y;
+        newY = Math.max(0, Math.min(naturalH - newH, newY));
+        setCrop({ x: Math.round(newX), y: Math.round(newY), width: Math.round(newW), height: Math.round(newH) });
+      } else if (activeHandle === 's') {
+        let newH = Math.max(20, Math.min(naturalH - cropStart.y, cropStart.height + deltaY));
+        let newW = lockAspect ? newH * targetAspect : cropStart.width;
+        let newX = lockAspect ? cropStart.x - (newW - cropStart.width) / 2 : cropStart.x;
+        newX = Math.max(0, Math.min(naturalW - newW, newX));
+        setCrop((prev) => ({ ...prev, height: Math.round(newH), width: Math.round(newW), x: Math.round(newX) }));
+      } else if (activeHandle === 'n') {
+        let newH = Math.max(20, cropStart.height - deltaY);
+        let newY = cropStart.y + (cropStart.height - newH);
+        if (newY < 0) {
+          newH = cropStart.y + cropStart.height;
+          newY = 0;
+        }
+        let newW = lockAspect ? newH * targetAspect : cropStart.width;
+        let newX = lockAspect ? cropStart.x - (newW - cropStart.width) / 2 : cropStart.x;
+        newX = Math.max(0, Math.min(naturalW - newW, newX));
+        setCrop({ x: Math.round(newX), y: Math.round(newY), width: Math.round(newW), height: Math.round(newH) });
+      }
+    });
   };
 
   const handleContainerMouseUp = () => {
+    if (dragRafRef.current) {
+      cancelAnimationFrame(dragRafRef.current);
+      dragRafRef.current = null;
+    }
     setIsDraggingCrop(false);
     setActiveHandle(null);
   };

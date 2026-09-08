@@ -8,9 +8,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://signresize.in',
   trailingSlash: 'never',
-  build: {
-    inlineStylesheets: 'always'
-  },
+
   vite: {
     plugins: [tailwindcss()],
   },
