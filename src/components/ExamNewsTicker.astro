@@ -1,0 +1,134 @@
+---
+// src/components/ExamNewsTicker.astro
+import { ONGOING_EXAMS_DATA, getExamLiveStatus } from '../data/examNewsData';
+
+// Prepare items with calculated status
+const itemsWithStatus = ONGOING_EXAMS_DATA.map(item => ({
+  ...item,
+  liveStatus: getExamLiveStatus(item)
+}));
+
+// Duplicate items to ensure smooth continuous marquee loop
+const marqueeList = [...itemsWithStatus, ...itemsWithStatus];
+---
+
+<div class="relative w-full bg-card/95 dark:bg-slate-900/95 border-y border-primary/20 backdrop-blur-md overflow-hidden text-xs select-none z-30 max-w-full">
+  <div class="w-full flex items-center h-10 px-0">
+    
+    <!-- Left Pinned Pill: Live Indicator with subtle shadow & divider -->
+    <div class="flex items-center gap-1.5 shrink-0 pl-3 sm:pl-4 pr-3 py-1 border-r border-border/80 z-20 bg-card dark:bg-slate-900 shadow-xs">
+      <a href="/blog" class="group flex items-center gap-1.5 font-bold tracking-wider text-[11px] uppercase text-primary hover:opacity-85 transition">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+        </span>
+        <span class="hidden sm:inline whitespace-nowrap">Live Exam Alerts</span>
+        <span class="sm:hidden whitespace-nowrap">Alerts</span>
+      </a>
+    </div>
+
+    <!-- Full-Width Center Scrolling News Ticker (End to End) -->
+    <div class="relative flex-1 overflow-hidden h-full flex items-center group/ticker">
+      <!-- Gradient Fade Edge on Left -->
+      <div class="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-card dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
+      <!-- Gradient Fade Edge on Right -->
+      <div class="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-card dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
+
+      <!-- Animated Track: Right to Left movement across the entire width -->
+      <div class="ticker-track-rtl flex items-center gap-8 whitespace-nowrap will-change-transform group-hover/ticker:pause-animation">
+        {marqueeList.map((item, idx) => {
+          const targetUrl = item.toolSlug ? `/${item.toolSlug}` : '/#tool-workspace';
+          return (
+            <div class="inline-flex items-center gap-2.5 shrink-0 py-1">
+              <!-- Category Tag -->
+              <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-muted text-muted-foreground border border-border">
+                {item.category}
+              </span>
+
+              <!-- Exam Name & Brief -->
+              <a 
+                href={targetUrl} 
+                class="font-semibold text-foreground hover:text-primary transition flex items-center gap-1.5"
+                title={`Open ${item.examName} signature resize tool`}
+              >
+                <span>{item.examName}</span>
+                {item.vacancies && (
+                  <span class="text-muted-foreground font-normal text-[11px] hidden md:inline">
+                    ({item.vacancies})
+                  </span>
+                )}
+              </a>
+
+              <!-- Status Badge -->
+              <span class:list={[
+                "px-2 py-0.5 rounded-full text-[10px] font-semibold border flex items-center gap-1",
+                item.liveStatus.badgeClass
+              ]}>
+                {item.liveStatus.status === 'closing-soon' && (
+                  <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
+                )}
+                {item.liveStatus.label}
+              </span>
+
+              <!-- 1-Click Action Link -->
+              <a
+                href={targetUrl}
+                class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-md bg-primary/10 hover:bg-primary/20 text-primary text-[10px] font-semibold border border-primary/20 transition"
+              >
+                <span>Resize</span>
+                <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+
+              <!-- Bullet Separator -->
+              <span class="text-muted-foreground/40 text-xs px-1 select-none">•</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Right Side: Blog & Prep Portal Shortcut -->
+    <div class="hidden xl:flex items-center gap-2 shrink-0 pr-3 sm:pr-4 pl-3 border-l border-border/80 z-20 bg-card dark:bg-slate-900 shadow-xs">
+      <a 
+        href="/blog" 
+        class="inline-flex items-center gap-1 text-[11px] font-semibold text-muted-foreground hover:text-primary transition whitespace-nowrap"
+      >
+        <span>Daily Blog &amp; Prep</span>
+        <svg class="w-3 h-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  /* Moves smoothly from Right to Left end to end */
+  @keyframes ticker-rtl {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .ticker-track-rtl {
+    animation: ticker-rtl 42s linear infinite;
+  }
+
+  .group-hover\/ticker\:pause-animation:hover {
+    animation-play-state: paused;
+  }
+
+  /* Support reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track-rtl {
+      animation: none;
+      overflow-x: auto;
+    }
+  }
+</style>

@@ -1,0 +1,358 @@
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: 'Exam Alerts' | 'Study Prep' | 'Guidelines & Tips' | 'Career Opportunity';
+  publishDate: string;
+  author: string;
+  authorRole: string;
+  readTime: string;
+  tags: string[];
+  featured?: boolean;
+  relatedExamPreset?: string; // e.g. 'ssc-cgl', 'ibps-sbi'
+  contentHtml: string;
+}
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: 'ssc-cgl-2026-notification-dates-signature-guidelines',
+    title: 'SSC CGL 2026 Notification, Exam Dates & Mandatory Signature/Photo Guidelines',
+    excerpt: 'Complete breakdown of SSC CGL 2026 eligibility, 17,727 vacancies, revised photo capture guidelines, and exact 10KB to 20KB signature specifications to avoid rejection.',
+    category: 'Exam Alerts',
+    publishDate: 'Sept 08, 2026',
+    author: 'SignResize Examination Standards Desk',
+    authorRole: 'Official Document Compliance Team',
+    readTime: '4 min read',
+    featured: true,
+    tags: ['SSC CGL', 'Govt Jobs', 'Photo Rules', 'Signature 10-20KB'],
+    relatedExamPreset: 'ssc-cgl',
+    contentHtml: `
+      <h2>SSC CGL 2026: Key Highlights &amp; Important Dates</h2>
+      <p>The Staff Selection Commission has officially published the notification for the <strong>Combined Graduate Level (CGL) Examination 2026</strong> for over 17,700 Group 'B' and Group 'C' posts across central ministries and departments.</p>
+      
+      <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+        <h4 class="font-bold text-primary mb-2">⚡ Crucial Timeline</h4>
+        <ul class="space-y-1 text-sm">
+          <li><strong>Online Application Window:</strong> Live till Sept 24, 2026 (23:00 Hrs)</li>
+          <li><strong>Application Correction Window:</strong> Sept 27 to Sept 29, 2026</li>
+          <li><strong>Tier-I Computer Based Exam (CBE):</strong> Scheduled for October-November 2026</li>
+        </ul>
+      </div>
+
+      <h2>Strict Photo &amp; Signature Compliance for SSC 2026</h2>
+      <p>Under the updated SSC portal norms, candidates upload their photograph via the live webcam capture tool and their signature as a scanned JPG image. Every year, over <strong>1.5 lakh applications get rejected</strong> due to minor signature formatting issues.</p>
+      
+      <h3>Mandatory Signature Specifications:</h3>
+      <ul>
+        <li><strong>File Size Bound:</strong> Must be strictly between <strong>10.0 KB and 20.0 KB</strong>.</li>
+        <li><strong>Pixel Dimensions:</strong> 140 pixels width &times; 60 pixels height (approx 4.0 cm &times; 2.0 cm).</li>
+        <li><strong>Ink &amp; Background:</strong> Black ink ballpoint pen on unruled clean white sheet. Signatures written with blue ink, blurred scans, or dark shadow backgrounds trigger auto-rejection.</li>
+        <li><strong>Capital Letters Warning:</strong> Signatures signed in full capital / block letters will be <em>disqualified immediately</em> without refund.</li>
+      </ul>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Need to Resize for SSC Right Now?</h4>
+        <p class="text-sm text-muted-foreground mt-1">Use our dedicated SSC CGL preset to crop, clean white background, and compress to 10-20 KB in 3 seconds directly on your device.</p>
+        <a href="/ssc-cgl" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+          Open SSC CGL Signature Tool &rarr;
+        </a>
+      </div>
+
+      <h2>Preparation Strategy for Tier 1</h2>
+      <p>Tier 1 consists of 100 questions covering General Intelligence &amp; Reasoning, General Awareness, Quantitative Aptitude, and English Comprehension. Allocate at least 2 hours daily to mock tests and speed calculations.</p>
+    `
+  },
+  {
+    slug: 'top-5-mistakes-photo-signature-rejection-govt-exams',
+    title: 'Top 5 Signature & Photo Mistakes That Lead to Government Exam Rejection',
+    excerpt: 'Avoid the most frequent mistakes that disqualify thousands of candidates in SSC, UPSC, IBPS, and State PSC applications before the exam day.',
+    category: 'Guidelines & Tips',
+    publishDate: 'Sept 07, 2026',
+    author: 'SignResize Technical Verification Team',
+    authorRole: 'Exam Portal Standards & Verification',
+    readTime: '5 min read',
+    featured: false,
+    tags: ['Rejection Prevention', 'Exam Guidelines', 'Document Resizing', 'PAN / SSC'],
+    relatedExamPreset: 'ssc-general',
+    contentHtml: `
+      <h2>Why Do Exam Commissions Reject Candidate Documents?</h2>
+      <p>Government recruitment portals like SSC, UPSC, NTA, and IBPS use automated image scanning software. When an uploaded signature fails dimension or contrast checks, the software flags it as invalid, resulting in immediate rejection without manual review.</p>
+
+      <h2>The 5 Most Common Mistakes</h2>
+      <ol class="space-y-4">
+        <li>
+          <strong>1. Signatures in BLOCK / ALL CAPITAL Letters:</strong>
+          <p>Writing your full name in capital letters is not legally regarded as a running signature. SSC, IBPS, and SBI explicitly mention this in bold red warnings.</p>
+        </li>
+        <li>
+          <strong>2. Grey or Shadowed Camera Background:</strong>
+          <p>Taking a photo of your signature under room lighting often produces grey paper with phone shadows. Always use our <em>"Clean White Paper"</em> filter before uploading to get crisp, pure white background.</p>
+        </li>
+        <li>
+          <strong>3. Incorrect Aspect Ratio (Stretched or Squashed):</strong>
+          <p>Forcing a rectangular signature into a square box without proper canvas padding distorts your signature, causing biometric mismatches at the exam center.</p>
+        </li>
+        <li>
+          <strong>4. Blue Ink When Black Pen is Mandated:</strong>
+          <p>IBPS, SSC, and RRB strictly demand <strong>Black Ink</strong> ballpoint pens for optical character recognition (OCR) scanning clarity.</p>
+        </li>
+        <li>
+          <strong>5. Violating Minimum KB Limit (Under 10KB or Under 20KB):</strong>
+          <p>If an exam portal requires min 20KB and your file is 18.5KB, the portal will show "File size is too small". SignResize's Dual-Boundary engine prevents this by matching the exact range.</p>
+        </li>
+      </ol>
+
+      <div class="my-6 p-4 rounded-xl bg-card border border-border">
+        <p class="text-sm font-medium">💡 <strong>Pro Tip:</strong> Always test-download and inspect your resized file on full screen before clicking final submit on the recruitment portal.</p>
+      </div>
+    `
+  },
+  {
+    slug: 'upsc-cse-2026-preparation-roadmap-daily-study-plan',
+    title: 'UPSC CSE 2026 Daily Study Strategy: Comprehensive 90-Day High-Yield Roadmap',
+    excerpt: 'Detailed hour-by-hour daily timetable, 4-phase subject mastery plan, NCERT mapping, CSAT qualifying hacks, and PYQ analysis methodology for civil services aspirants.',
+    category: 'Study Prep',
+    publishDate: 'Sept 06, 2026',
+    author: 'SignResize Academic Research Desk',
+    authorRole: 'Competitive Exam Methodology Team',
+    readTime: '8 min read',
+    featured: false,
+    tags: ['UPSC CSE', 'Study Strategy', 'Prelims 2026', 'Time Management', 'NCERT Roadmap'],
+    relatedExamPreset: 'upsc-civil-services',
+    contentHtml: `
+      <h2>The Structured 90-Day Foundation Blueprint</h2>
+      <p>Succeeding in the Civil Services Examination (CSE) does not require studying 16 hours a day; it requires systematic consistency, sharp syllabus boundaries, and relentless revision of standard public academic sources. This comprehensive roadmap is designed to guide both full-time aspirants and working professionals through a step-by-step preparation cycle.</p>
+
+      <div class="my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20">
+        <h3 class="text-base font-bold text-primary mb-2">📌 The Golden Rules of High-Yield Preparation</h3>
+        <ul class="space-y-1.5 text-sm text-foreground/90">
+          <li><strong>One Standard Source per Subject:</strong> Read one standard government or canonical academic reference five times rather than five different commercial coaching booklets once.</li>
+          <li><strong>Official PYQ-First Approach:</strong> Solve the last 10 years of official Previous Year Questions (PYQs) published by the Union Public Service Commission before taking mock tests.</li>
+          <li><strong>Active Recall over Passive Highlighting:</strong> Test yourself after every study session using short notes, flash summaries, and mental retrieval.</li>
+          <li><strong>Never Neglect Paper II (CSAT):</strong> Allocate at least 60 to 90 minutes daily from day one to comfortably clear the 33% (66 marks) qualifying benchmark.</li>
+        </ul>
+      </div>
+
+      <h2>Daily Study Timetable: Realistic 8-Hour Master Routine</h2>
+      <p>Follow this balanced daily routine tailored for sustained cognitive focus without burnout:</p>
+
+      <div class="my-5 overflow-x-auto">
+        <table class="w-full text-sm text-left border border-border">
+          <thead class="bg-muted text-foreground font-semibold">
+            <tr>
+              <th class="p-3 border-b border-border">Time Slot</th>
+              <th class="p-3 border-b border-border">Session Type</th>
+              <th class="p-3 border-b border-border">Target Objective &amp; Activities</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border text-xs sm:text-sm">
+            <tr>
+              <td class="p-3 font-mono font-semibold text-primary">06:00 AM – 08:30 AM</td>
+              <td class="p-3 font-semibold">Slot 1: Core Static Subject</td>
+              <td class="p-3 text-muted-foreground">Highest mental alertness window. Cover dense static subjects (Polity / Modern History / Economy).</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-semibold text-primary">08:30 AM – 09:30 AM</td>
+              <td class="p-3">Physical Recharge &amp; Breakfast</td>
+              <td class="p-3 text-muted-foreground">Light physical exercise, walk, breakfast. Screen-free break to refresh memory.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-semibold text-primary">09:30 AM – 11:30 AM</td>
+              <td class="p-3 font-semibold">Slot 2: Current Affairs &amp; PIB</td>
+              <td class="p-3 text-muted-foreground">Standard national daily newspaper analysis + official Press Information Bureau (PIB.gov.in) government releases. Focus on policy decisions, supreme court verdicts, and official economic indicators.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-semibold text-primary">11:30 AM – 01:30 PM</td>
+              <td class="p-3 font-semibold">Slot 3: Secondary Static / Geography</td>
+              <td class="p-3 text-muted-foreground">Physical Geography, Environment &amp; Ecology, Atlas map work (river systems, national parks, global trade straits).</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-semibold text-primary">01:30 PM – 03:00 PM</td>
+              <td class="p-3">Lunch &amp; Power Rest</td>
+              <td class="p-3 text-muted-foreground">Nutritious meal followed by a 20-30 minute restorative nap to reset attention span.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-semibold text-primary">03:00 PM – 04:30 PM</td>
+              <td class="p-3 font-semibold">Slot 4: CSAT Aptitude &amp; Reasoning</td>
+              <td class="p-3 text-muted-foreground">Daily practice of 25 quantitative reasoning questions + 3 reading comprehension passages under timed conditions.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-semibold text-primary">05:00 PM – 07:00 PM</td>
+              <td class="p-3 font-semibold">Slot 5: PYQ Solving &amp; Sectional Test</td>
+              <td class="p-3 text-muted-foreground">Solve 30-40 topic-wise questions from past official exam papers. Mark recurring keywords and question traps.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-semibold text-primary">08:30 PM – 09:30 PM</td>
+              <td class="p-3 font-semibold">Slot 6: Daily Review &amp; Note Making</td>
+              <td class="p-3 text-muted-foreground">Consolidate day's learnings into condensed bullet points. Plan specific targets for the following morning.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Phase-Wise 90-Day Subject Breakdown</h2>
+
+      <h3>Phase 1: Foundation &amp; Standard Public Textbooks (Days 1 to 35)</h3>
+      <ul class="space-y-2 text-sm text-foreground/90">
+        <li><strong>Indian Polity &amp; Constitution:</strong> Preamble, Fundamental Rights (Articles 12-35), Directive Principles (DPSP), Parliament, Constitutional &amp; Statutory Bodies, and key Supreme Court landmark judgments.</li>
+        <li><strong>Modern Indian History:</strong> 1857 Revolt to Indian Independence (1947), British administrative policies, socio-religious reform movements, and national freedom struggle phases.</li>
+        <li><strong>Macroeconomics:</strong> NCERT Class XII (Introductory Macroeconomics) + understanding GDP deflator, repo rate mechanisms, fiscal deficit components, balance of payments, and Union Budget terminology.</li>
+        <li><strong>Geography &amp; Earth Sciences:</strong> NCERT Class XI (Fundamentals of Physical Geography) focusing on geomorphology, atmospheric circulation, monsoon mechanisms, and ocean currents.</li>
+      </ul>
+
+      <h3>Phase 2: Environment, Science &amp; Contemporary Affairs (Days 36 to 65)</h3>
+      <ul class="space-y-2 text-sm text-foreground/90">
+        <li><strong>Ecology &amp; Biodiversity:</strong> NCERT Class XII Biology (Ecology unit chapters 13 to 16), National Parks, Wildlife Sanctuaries, Ramsar Wetlands, and official Wildlife Protection Act schedules.</li>
+        <li><strong>Environmental Conventions:</strong> Official summaries of UNFCCC COP summits, Convention on Biological Diversity (CBD), Montreal Protocol, and IPCC climate assessment reports.</li>
+        <li><strong>Science &amp; Technology:</strong> Biotechnology (CRISPR, gene editing), Space missions (ISRO payloads, satellite orbits), Artificial Intelligence fundamentals, and semiconductor manufacturing initiatives.</li>
+        <li><strong>CSAT Strategy:</strong> Master core arithmetic chapters (Percentages, Ratio &amp; Proportion, Time &amp; Work, Number System, Permutations &amp; Combinations).</li>
+      </ul>
+
+      <h3>Phase 3: High-Intensity Simulation &amp; Revision (Days 66 to 90)</h3>
+      <ul class="space-y-2 text-sm text-foreground/90">
+        <li><strong>Full-Length Timed Mocks:</strong> Attempt at least 20 full-length papers strictly between 09:30 AM – 11:30 AM to align your circadian rhythm with the official exam schedule.</li>
+        <li><strong>Post-Test Error Analysis:</strong> Spend 2 hours analyzing every incorrect answer. Categorize errors into:
+          <span class="text-xs font-mono block mt-1 text-muted-foreground">1. Lack of Knowledge (Revise notes) | 2. Misreading Question (Train focus) | 3. Guesswork Failure (Calibrate risk)</span>
+        </li>
+        <li><strong>Spaced Repetition (The 1-7-30 Rule):</strong> Revise newly read concepts on Day 1, Day 7, and Day 30 to transition short-term memory into permanent cognitive recall.</li>
+      </ul>
+
+      <div class="my-6 p-4 rounded-xl bg-card border border-border">
+        <h4 class="font-bold text-foreground mb-1">💡 Important Note for Working Aspirants</h4>
+        <p class="text-xs sm:text-sm text-muted-foreground">If you are balancing full-time employment or college studies, condense the routine into two focused blocks: 2.5 hours early morning (05:30 AM to 08:00 AM) and 2.5 hours evening (08:30 PM to 11:00 PM). Utilize weekend days exclusively for full-length testing and intensive consolidation.</p>
+      </div>
+    `
+  },
+  {
+    slug: 'ssc-rrb-quantitative-aptitude-reasoning-speed-strategy',
+    title: 'SSC & RRB 2026: Quantitative Aptitude & Reasoning High-Speed Calculation Blueprint',
+    excerpt: 'Step-by-step methodology to solve Math & Reasoning 40% faster using Vedic calculation shortcuts, high-weightage chapter matrices, and daily 50-question drill techniques.',
+    category: 'Study Prep',
+    publishDate: 'Sept 06, 2026',
+    author: 'SignResize Academic Research Desk',
+    authorRole: 'Aptitude & Speed Methodology Team',
+    readTime: '6 min read',
+    featured: false,
+    tags: ['SSC Math', 'RRB NTPC', 'Quantitative Aptitude', 'Speed Math', 'Reasoning Shortcuts'],
+    relatedExamPreset: 'ssc-general',
+    contentHtml: `
+      <h2>The Core Challenge in SSC &amp; RRB Examinations</h2>
+      <p>In competitive examinations like SSC CGL, CHSL, MTS, and RRB NTPC, the true barrier is not question difficulty; it is <strong>time per question</strong>. In SSC Tier 1, you must solve 100 questions in 60 minutes — allowing barely <strong>36 seconds per question</strong> including reading time.</p>
+
+      <h2>Phase 1: Speed Arithmetic Muscle Memory (Days 1 to 15)</h2>
+      <p>Before attempting complex problem sets, memorize these fundamental mathematical tables to eliminate rough-sheet scratch work:</p>
+      
+      <div class="my-4 p-4 rounded-xl bg-card border border-border">
+        <ul class="space-y-1.5 text-sm text-foreground/90">
+          <li><strong>Multiplication Tables:</strong> Memorize up to 30&times;10 thoroughly.</li>
+          <li><strong>Squares &amp; Cubes:</strong> Squares up to 50 (e.g., $37^2 = 1369$) and Cubes up to 25 ($17^3 = 4913$).</li>
+          <li><strong>Fraction to Percentage Conversions:</strong> Memorize $1/2$ to $1/20$ ($1/6 = 16.66\\%$, $1/7 = 14.28\\%$, $1/8 = 12.5\\%$, $1/14 = 7.14\\%$, $1/16 = 6.25\\%$).</li>
+          <li><strong>Pythagorean Triplets:</strong> (3, 4, 5), (5, 12, 13), (7, 24, 25), (8, 15, 17), (9, 40, 41), (11, 60, 61), (12, 35, 37), (20, 21, 29).</li>
+        </ul>
+      </div>
+
+      <h2>Phase 2: High-Weightage Chapter Matrix</h2>
+      <p>Analyze the question distribution to focus your effort where 70% of marks originate:</p>
+
+      <div class="my-4 overflow-x-auto">
+        <table class="w-full text-sm text-left border border-border">
+          <thead class="bg-muted text-foreground font-semibold">
+            <tr>
+              <th class="p-3 border-b">Subject / Module</th>
+              <th class="p-3 border-b">High-Weightage Chapters</th>
+              <th class="p-3 border-b">Expected Questions</th>
+              <th class="p-3 border-b">Target Time per Question</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border text-xs sm:text-sm">
+            <tr>
+              <td class="p-3 font-semibold text-primary">Arithmetic</td>
+              <td class="p-3">Percentage, Profit &amp; Loss, SI &amp; CI, Ratio &amp; Proportion, Time &amp; Work</td>
+              <td class="p-3 font-mono">10–12 Qs</td>
+              <td class="p-3 font-mono">30–40 sec</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Advanced Maths</td>
+              <td class="p-3">Algebra (Identities), Geometry (Circles &amp; Triangles), Trigonometry, Mensuration</td>
+              <td class="p-3 font-mono">8–10 Qs</td>
+              <td class="p-3 font-mono">40–50 sec</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Data Interpretation (DI)</td>
+              <td class="p-3">Bar Charts, Pie Charts, Tabular DI (Calculation-heavy)</td>
+              <td class="p-3 font-mono">3–5 Qs</td>
+              <td class="p-3 font-mono">35 sec</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Reasoning</td>
+              <td class="p-3">Coding-Decoding, Number Series, Syllogism, Blood Relations, Analogy</td>
+              <td class="p-3 font-mono">25 Qs</td>
+              <td class="p-3 font-mono">20–25 sec</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Phase 3: The "Two-Pass" Exam Hall Strategy</h2>
+      <p>Never solve an exam paper in a single linear pass from question 1 to 100. Follow the proven two-pass method:</p>
+      <ul>
+        <li><strong>Pass 1 (0 to 35 minutes):</strong> Answer only questions you can solve immediately in under 30 seconds (Reasoning, English, GK, and direct Arithmetic). Skip any question that looks complex or lengthy. Mark 15-20 moderate questions for review.</li>
+        <li><strong>Pass 2 (36 to 55 minutes):</strong> Return to marked moderate questions (Advanced Geometry, DI calculations, Algebra). Solve them with the confidence that you already secured 50+ guaranteed marks in Pass 1.</li>
+        <li><strong>Final 5 minutes:</strong> Verify your answer markings and prevent negative marking misclicks.</li>
+      </ul>
+    `
+  },
+  {
+    slug: 'mega-railway-banking-recruitment-2026-opportunities',
+    title: 'Upcoming Banking & Railway Recruitment 2026: 45,000+ Vacancies Detailed',
+    excerpt: 'Overview of announced RRB NTPC, Group D, IBPS Clerk, and SBI recruitment drives. Eligibility criteria, age relaxation, and preparation timeline.',
+    category: 'Career Opportunity',
+    publishDate: 'Sept 05, 2026',
+    author: 'SignResize Public Sector Research Desk',
+    authorRole: 'Recruitment Calendar & Career Team',
+    readTime: '4 min read',
+    featured: false,
+    tags: ['Railways', 'Banking Jobs', 'RRB NTPC', 'SBI Clerk'],
+    relatedExamPreset: 'rrb-alp-technician',
+    contentHtml: `
+      <h2>2026 Mega Recruitment Wave</h2>
+      <p>The year 2026 is witnessing historic recruitment numbers across Indian Railways and Public Sector Banks. Aspirants preparing for quantitative aptitude and reasoning have unprecedented opportunities across parallel exams.</p>
+
+      <div class="my-4 overflow-x-auto">
+        <table class="w-full text-sm text-left border border-border">
+          <thead class="bg-muted/50 text-foreground font-semibold">
+            <tr>
+              <th class="p-3 border-b">Recruitment Drive</th>
+              <th class="p-3 border-b">Vacancies</th>
+              <th class="p-3 border-b">Qualification</th>
+              <th class="p-3 border-b">Application Window</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="p-3 font-semibold text-primary">RRB NTPC 2026</td>
+              <td class="p-3">11,558 Posts</td>
+              <td class="p-3">12th Pass / Graduate</td>
+              <td class="p-3">Sept - Oct 2026</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">SBI Clerk 2026</td>
+              <td class="p-3">8,700+ Posts</td>
+              <td class="p-3">Any Graduate Degree</td>
+              <td class="p-3">Sept - Oct 2026</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">SSC GD Constable</td>
+              <td class="p-3">39,481 Posts</td>
+              <td class="p-3">10th (Matriculation)</td>
+              <td class="p-3">Ongoing till Oct 14</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>How to Prepare Simultaneously for SSC, RRB &amp; Banking</h2>
+      <p>Since the core syllabus (Arithmetic, Logical Reasoning, and English/Hindi) shares 75% overlap, prepare common high-weightage chapters first: Percentage, Ratio, Time &amp; Work, Syllogism, and Puzzles.</p>
+    `
+  }
+];

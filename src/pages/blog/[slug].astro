@@ -1,0 +1,231 @@
+---
+// src/pages/blog/[slug].astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import { BLOG_POSTS, type BlogPost } from '../../data/blogPostsData';
+import { EXAM_PRESETS } from '../../data/examPresets';
+
+export function getStaticPaths() {
+  return BLOG_POSTS.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+const pageTitle = `${post.title} | SignResize Blog`;
+const pageDescription = post.excerpt;
+const canonicalUrl = `https://signresize.in/blog/${post.slug}`;
+
+// Find related preset if specified
+const relatedPreset = post.relatedExamPreset
+  ? EXAM_PRESETS.find(p => p.id === post.relatedExamPreset)
+  : null;
+
+// Related posts (excluding current)
+const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <GoogleFonts />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+
+    <!-- Article Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08",
+      "author": {
+        "@type": "Organization",
+        "name": post.author,
+        "url": "https://signresize.in/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SignResize",
+        "url": "https://signresize.in"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      }
+    })} />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+      
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Home
+        </a>
+        <span>/</span>
+        <a href="/blog" class="hover:text-primary transition">Blog</a>
+        <span>/</span>
+        <span class="text-foreground font-medium truncate max-w-[200px] sm:max-w-none">{post.title}</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="space-y-4 border-b border-border pb-6">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+            {post.category}
+          </span>
+          <span class="text-xs text-muted-foreground font-mono">
+            {post.publishDate}
+          </span>
+          <span class="text-muted-foreground">•</span>
+          <span class="text-xs text-muted-foreground font-mono">
+            ⏱️ {post.readTime}
+          </span>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.2]">
+          {post.title}
+        </h1>
+
+        <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+          {post.excerpt}
+        </p>
+
+        <!-- Author / Editorial Badge (E-E-A-T) -->
+        <div class="flex items-center gap-3 pt-2">
+          <div class="w-9 h-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center font-bold text-primary text-sm">
+            SR
+          </div>
+          <div class="text-xs">
+            <div class="font-bold text-foreground">{post.author}</div>
+            <div class="text-muted-foreground">{post.authorRole} • Official Exam Standards</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <article class="prose prose-slate dark:prose-invert max-w-none prose-headings:font-bold prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-3 prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
+        <Fragment set:html={post.contentHtml} />
+      </article>
+
+      <!-- Educational & Fair Use Disclaimer Box -->
+      <section class="rounded-xl border border-border/80 bg-muted/40 p-4 text-xs text-muted-foreground space-y-1.5">
+        <div class="flex items-center gap-1.5 font-semibold text-foreground text-[11px] uppercase tracking-wider">
+          <span>⚖️</span>
+          <span>Educational Disclaimer &amp; Fair Use Notice</span>
+        </div>
+        <p class="leading-relaxed text-[11px]">
+          SignResize.in is an independent, non-governmental document utility and candidate educational guidance platform. All references to public examinations (including SSC, UPSC, RRB, IBPS, and State PSCs), syllabus topics, and government portals are made strictly under nominative fair use for descriptive, identification, and educational assistance. SignResize is neither affiliated with, nor endorsed, sponsored, or certified by any government commission or commercial coaching entity.
+        </p>
+      </section>
+
+      <!-- In-Article Dynamic Resizer Tool Callout -->
+      {relatedPreset && (
+        <section class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/5 via-card to-card p-5 sm:p-6 shadow-xs space-y-3">
+          <div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
+            <span>⚡ Recommended Instant Tool</span>
+          </div>
+          <h3 class="text-lg font-bold text-foreground">
+            Resize Documents for {relatedPreset.name}
+          </h3>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Official Specs: {relatedPreset.widthPx}&times;{relatedPreset.heightPx} px ({relatedPreset.widthCm}&times;{relatedPreset.heightCm} cm), file size strictly {relatedPreset.minKb} to {relatedPreset.maxKb} KB ({relatedPreset.inkRequirement}).
+          </p>
+          <div class="pt-1 flex flex-wrap items-center gap-3">
+            <a
+              href={`/${relatedPreset.id}`}
+              class="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shadow-xs flex items-center gap-1.5"
+            >
+              <span>Launch {relatedPreset.shortCode} Preset Resizer</span>
+              <span>&rarr;</span>
+            </a>
+            <a
+              href="/#tool-workspace"
+              class="px-4 py-2 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:bg-muted transition"
+            >
+              Universal 10-20KB Tool
+            </a>
+          </div>
+        </section>
+      )}
+
+      <!-- Tags -->
+      <div class="flex flex-wrap items-center gap-2 pt-4 border-t border-border">
+        <span class="text-xs font-semibold text-muted-foreground">Topics:</span>
+        {post.tags.map(tag => (
+          <span class="text-xs px-2.5 py-0.5 rounded-lg bg-muted text-muted-foreground border border-border">
+            #{tag}
+          </span>
+        ))}
+      </div>
+
+      <!-- Related Posts Section -->
+      {relatedPosts.length > 0 && (
+        <section class="border-t border-border pt-8 space-y-4">
+          <h3 class="text-lg font-bold text-foreground">More from SignResize Blog</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {relatedPosts.map(p => (
+              <a
+                href={`/blog/${p.slug}`}
+                class="p-4 rounded-xl border border-border bg-card hover:border-primary/40 transition group flex flex-col justify-between space-y-2"
+              >
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-primary">
+                    {p.category}
+                  </span>
+                  <h4 class="font-bold text-sm text-foreground group-hover:text-primary transition mt-1 line-clamp-2">
+                    {p.title}
+                  </h4>
+                </div>
+                <div class="text-xs text-muted-foreground font-mono flex items-center justify-between">
+                  <span>{p.readTime}</span>
+                  <span class="text-primary font-bold group-hover:translate-x-0.5 transition">&rarr;</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

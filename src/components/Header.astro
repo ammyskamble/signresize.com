@@ -1,6 +1,7 @@
 ---
 // Header.astro
 import Logo from './Logo.astro';
+import ExamNewsTicker from './ExamNewsTicker.astro';
 import { EXAM_PRESETS } from '../data/examPresets';
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -9,6 +10,7 @@ const isPhoto = currentPath.startsWith('/photo-resizer');
 const isDoc = currentPath.startsWith('/document-resizer');
 const isCompress = currentPath.startsWith('/compress-image-to-kb');
 const isCreator = currentPath.startsWith('/signature-creator');
+const isBlog = currentPath.startsWith('/blog');
 
 // Compact JSON of all presets for instant client-side searching & dropdown display
 const searchablePresets = EXAM_PRESETS.map((p) => ({
@@ -24,7 +26,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
 }));
 ---
 
-<header class="sticky top-0 z-40 w-full border-b border-border/80 bg-card/95 backdrop-blur-md transition-colors">
+<header class="sticky top-0 z-40 w-full max-w-full overflow-x-clip border-b border-border/80 bg-card/95 backdrop-blur-md transition-colors">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
     <!-- Brand Logo -->
     <a href="/" class="flex items-center gap-2.5 group shrink-0" aria-label="SignResize Home">
@@ -78,20 +80,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
         <span>Document Resizer</span>
       </a>
 
-      <!-- 4. Compress to KB (Visible on xl+ screen or inside More Tools on tablet) -->
-      <a
-        href="/compress-image-to-kb"
-        class:list={[
-          "px-2.5 lg:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 font-semibold hidden xl:flex",
-          isCompress
-            ? "bg-primary/10 text-primary border border-primary/25 shadow-2xs"
-            : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
-        ]}
-      >
-        <span>Compress to KB</span>
-      </a>
-
-      <!-- 5. More Tools Dropdown (Shows Compress on md/lg, Creator & Specs Matrix) -->
+      <!-- 4. More Tools Dropdown (Compress, Creator & Specs Matrix) -->
       <div class="relative group py-2">
         <button
           type="button"
@@ -114,7 +103,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
           <a
             href="/compress-image-to-kb"
             class:list={[
-              "xl:hidden flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-xs",
+              "flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-xs",
               isCompress
                 ? "bg-primary/10 text-primary font-bold"
                 : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium"
@@ -238,15 +227,26 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
           </div>
         </div>
       </div>
+
+      <!-- 7. Daily Exam Blog & Prep -->
+      <a
+        href="/blog"
+        class:list={[
+          "px-2.5 lg:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 font-semibold",
+          isBlog
+            ? "bg-primary/10 text-primary border border-primary/25 shadow-2xs"
+            : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+        ]}
+      >
+        <span>Daily Blog</span>
+        <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
+          ALERTS
+        </span>
+      </a>
     </nav>
 
-    <!-- Right Controls: Privacy Badge, Dark Mode Toggle, Search Bar & Mobile Hamburger -->
-    <div class="flex items-center gap-1.5 sm:gap-2">
-      <div class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-semibold border border-emerald-500/20 whitespace-nowrap">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>100% Private</span>
-      </div>
-
+    <!-- Right Controls: Dark Mode Toggle, Search Bar & Mobile Hamburger -->
+    <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
       <!-- Theme Toggle Button -->
       <button
         id="theme-toggle"
@@ -278,8 +278,8 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
           <svg class="w-3.5 h-3.5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          <span class="font-semibold text-slate-700 dark:text-slate-200 group-hover:text-primary hidden sm:inline whitespace-nowrap">
-            Search Exam
+          <span class="font-semibold text-slate-700 dark:text-slate-200 group-hover:text-primary hidden lg:inline whitespace-nowrap">
+            Search
           </span>
           <kbd class="hidden 2xl:inline-flex items-center px-1.5 py-0.2 text-[9px] font-mono font-semibold text-muted-foreground bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded">
             Ctrl K
@@ -520,6 +520,9 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
     </div>
   </div>
 
+  <!-- Live Scrolling Exam News Headline Ticker -->
+  <ExamNewsTicker />
+
   <!-- Mobile Navigation Drawer -->
   <div
     id="mobile-menu-drawer"
@@ -529,6 +532,30 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
       Resizers &amp; Tools
     </div>
     <div class="grid grid-cols-1 gap-1.5">
+      <!-- Daily Exam Alerts & Blog in Mobile -->
+      <a
+        href="/blog"
+        class:list={[
+          "flex items-center gap-3 p-2.5 rounded-xl text-xs font-semibold transition border border-amber-500/20 bg-amber-500/5",
+          isBlog
+            ? "bg-primary/10 text-primary border-primary/30 shadow-2xs"
+            : "hover:bg-amber-500/10 text-slate-800 dark:text-slate-200"
+        ]}
+      >
+        <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-sm font-bold shrink-0">
+          📢
+        </span>
+        <div>
+          <div class="font-bold flex items-center gap-1.5">
+            <span>Daily Exam Alerts &amp; Blog</span>
+            <span class="px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30">
+              NEW
+            </span>
+          </div>
+          <div class="text-[10px] text-muted-foreground font-normal">Active government exams, prep tips &amp; deadlines</div>
+        </div>
+      </a>
+
       <a
         href="/#tool-workspace"
         class:list={[

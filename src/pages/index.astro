@@ -11,6 +11,7 @@ import TroubleshootingSection from '../components/TroubleshootingSection.astro';
 import Footer from '../components/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
 
 const pageTitle = "Signature Resize | Resize Signature to 10 to 20 KB Online (Sign Resize & Compressor)";
 const pageDescription = "Free online signature resize & compressor tool. Resize signature to 10 to 20 kb, adjust width and height in cm, crop thumb impression for SSC, PAN card, RRB & NSDL. 100% private, no server upload.";
@@ -22,6 +23,9 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
 <!doctype html>
 <html lang="en-IN" class="scroll-smooth">
   <head>
+    <!-- Instant Theme Detection Script (Prevents FOUT/FOUC) -->
+    <ThemeScript />
+
     <!-- Google tag (gtag.js) -->
     <GoogleAnalytics />
     <meta charset="utf-8" />

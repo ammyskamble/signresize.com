@@ -1,5 +1,5 @@
 // Service Worker for SignResize.in (Offline Capability & Cache Management)
-const CACHE_NAME = 'signresize-v2';
+const CACHE_NAME = 'signresize-v3';
 const CORE_ASSETS = [
   '/favicon-96x96.png',
   '/favicon.svg',

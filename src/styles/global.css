@@ -168,3 +168,10 @@ body {
   padding: 0.5rem 0.75rem;
   margin-bottom: 0.5rem;
 }
+
+/* Prevent horizontal viewport overflow and left-right dragging */
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}

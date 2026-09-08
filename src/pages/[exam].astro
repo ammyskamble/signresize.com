@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
 import { SignatureTool } from '../components/SignatureTool';
 import { EXAM_PAGES_DATA, type ExamPageInfo } from '../data/examPagesData';
 
@@ -26,6 +27,7 @@ const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
 <!doctype html>
 <html lang="en-IN" class="scroll-smooth">
   <head>
+    <ThemeScript />
     <!-- Google tag (gtag.js) -->
     <GoogleAnalytics />
 
