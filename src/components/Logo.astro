@@ -4,12 +4,14 @@ interface Props {
   size?: number | string;
 }
 
-const { class: className = "w-9 h-9" } = Astro.props;
+const { class: className = "w-9 h-9", size } = Astro.props;
 ---
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 600 600"
+  width={size}
+  height={size}
   class={`shrink-0 ${className}`}
   aria-label="SignResize Logo"
   role="img"

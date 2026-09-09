@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "astro build && wrangler pages deploy dist --project-name signresize --branch=main --commit-dirty=true"
+    "deploy": "astro build && wrangler pages deploy dist --project-name signresize --branch=main --commit-dirty=true",
+    "daily-article": "node scripts/publish-daily-article.mjs --status"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.4",
