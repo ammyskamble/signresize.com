@@ -11,7 +11,7 @@ import { ONGOING_EXAMS_DATA, getExamLiveStatus } from '../../data/examNewsData';
 
 const pageTitle = "Govt Exam Alerts, Study Preparation & Career Opportunities | SignResize Blog";
 const pageDescription = "Daily government exam notifications, ongoing recruitment calendars, last dates to apply, study preparation strategies, and photo/signature guidelines for SSC, UPSC, Banking, and Railways.";
-const canonicalUrl = "https://signresize.in/blog";
+const canonicalUrl = "https://signresize.in/blog/";
 
 const featuredPost = BLOG_POSTS.find(p => p.featured) || BLOG_POSTS[0];
 const regularPosts = BLOG_POSTS.filter(p => p.slug !== featuredPost.slug);
@@ -96,7 +96,7 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {ONGOING_EXAMS_DATA.map((exam) => {
             const status = getExamLiveStatus(exam);
-            const toolUrl = `/${exam.toolSlug}`;
+            const toolUrl = `/${exam.toolSlug}/`;
             return (
               <div 
                 class="p-4 rounded-xl bg-background/90 dark:bg-slate-800/90 border border-border hover:border-primary/50 hover:shadow-md transition flex flex-col justify-between space-y-3 relative group cursor-pointer exam-card-trigger"
@@ -190,7 +190,7 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
               </span>
             </div>
             <h2 class="text-2xl sm:text-3xl font-bold text-foreground hover:text-primary transition">
-              <a href={`/blog/${featuredPost.slug}`}>
+              <a href={`/blog/${featuredPost.slug}/`}>
                 {featuredPost.title}
               </a>
             </h2>
@@ -208,7 +208,7 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
 
           <div class="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0 w-full lg:w-56 pt-2">
             <a
-              href={`/blog/${featuredPost.slug}`}
+              href={`/blog/${featuredPost.slug}/`}
               class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm text-center shadow-xs hover:opacity-90 transition flex items-center justify-center gap-1.5"
             >
               <span>Read Full Guide</span>
@@ -216,7 +216,7 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
             </a>
             {featuredPost.relatedExamPreset && (
               <a
-                href={`/${featuredPost.relatedExamPreset}`}
+                href={`/${featuredPost.relatedExamPreset}/`}
                 class="px-4 py-2.5 rounded-xl bg-card border border-primary/30 text-primary font-semibold text-xs sm:text-sm text-center hover:bg-primary/5 transition flex items-center justify-center gap-1.5"
               >
                 <span>⚡ Open Resizer Tool</span>
@@ -248,7 +248,7 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
                   </span>
                 </div>
                 <h3 class="font-bold text-base text-foreground hover:text-primary transition line-clamp-2">
-                  <a href={`/blog/${post.slug}`}>
+                  <a href={`/blog/${post.slug}/`}>
                     {post.title}
                   </a>
                 </h3>
@@ -262,7 +262,7 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
                   {post.publishDate}
                 </span>
                 <a
-                  href={`/blog/${post.slug}`}
+                  href={`/blog/${post.slug}/`}
                   class="text-primary font-bold hover:underline flex items-center gap-1"
                 >
                   <span>Read Post</span>
@@ -288,7 +288,7 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
             Launch Signature Resizer
           </a>
           <a
-            href="/photo-resizer"
+            href="/photo-resizer/"
             class="px-5 py-2.5 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted transition"
           >
             Passport Photo Resizer
@@ -564,7 +564,7 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
         // Links
         const toolLink = document.getElementById('modal-tool-link');
         if (toolLink) {
-          toolLink.href = `/${exam.toolSlug}`;
+          toolLink.href = `/${exam.toolSlug}/`;
         }
 
         const officialLink = document.getElementById('modal-official-link');
@@ -575,7 +575,7 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
         const articleLink = document.getElementById('modal-article-link');
         if (articleLink) {
           if (exam.articleSlug) {
-            articleLink.href = `/blog/${exam.articleSlug}`;
+            articleLink.href = `/blog/${exam.articleSlug}/`;
             articleLink.classList.remove('hidden');
           } else {
             articleLink.classList.add('hidden');

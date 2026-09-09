@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://signresize.in',
-  trailingSlash: 'never',
+  trailingSlash: 'always',
 
   build: {
     inlineStylesheets: 'always',

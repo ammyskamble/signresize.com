@@ -5,7 +5,9 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="border-t border-border bg-card/60 mt-16 pt-12 pb-8 text-xs text-zinc-600 dark:text-zinc-400">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    
+    <!-- Top Grid: Brand, Primary Tools & Legal -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       {/* Brand & Mission */}
       <div class="space-y-3 sm:col-span-2 md:col-span-1">
@@ -20,68 +22,148 @@ const currentYear = new Date().getFullYear();
           <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
-          <span>100% In-Browser Privacy</span>
+          <span>100% In-Browser Privacy • Zero Server Upload</span>
         </div>
       </div>
 
-      {/* Quick Links */}
+      {/* Online Tools & Utilities */}
       <div class="space-y-2">
-        <div class="font-semibold text-foreground text-xs uppercase tracking-wider">Exam Pages</div>
+        <div class="font-semibold text-foreground text-xs uppercase tracking-wider">Free Aspirant Tools</div>
         <ul class="space-y-1 text-xs">
-          <li><a href="/ssc-signature-resize" class="inline-block py-1 hover:text-primary transition">SSC CGL / CHSL (10–20 KB)</a></li>
-          <li><a href="/upsc-signature-resize" class="inline-block py-1 hover:text-primary transition">UPSC Signature (350×350)</a></li>
-          <li><a href="/ibps-signature-resize" class="inline-block py-1 hover:text-primary transition">IBPS &amp; SBI PO / Clerk</a></li>
-          <li><a href="/clat-signature-resize" class="inline-block py-1 hover:text-primary transition">CLAT &amp; AILET Law</a></li>
-          <li><a href="/cat-signature-resize" class="inline-block py-1 hover:text-primary transition">CAT &amp; MBA Entrances</a></li>
-          <li><a href="/afcat-signature-resize" class="inline-block py-1 hover:text-primary transition">AFCAT &amp; Defense Exams</a></li>
-          <li><a href="/ctet-signature-resize" class="inline-block py-1 hover:text-primary transition">CTET &amp; State TET</a></li>
-          <li><a href="/rbi-signature-resize" class="inline-block py-1 hover:text-primary transition">RBI, SEBI &amp; PSUs</a></li>
-          <li><a href="/#exam-specs" class="inline-block py-1 text-primary font-medium hover:underline">Browse All 30+ Exams &rarr;</a></li>
+          <li><a href="/" class="inline-block py-1 font-semibold text-foreground hover:text-primary transition">Signature Resizer (Main)</a></li>
+          <li><a href="/photo-resizer/" class="inline-block py-1 text-primary font-semibold hover:underline">Passport Photo Resizer</a></li>
+          <li><a href="/document-resizer/" class="inline-block py-1 text-primary font-semibold hover:underline">Document &amp; Marksheet Resizer</a></li>
+          <li><a href="/compress-image-to-kb/" class="inline-block py-1 text-primary font-semibold hover:underline">Compress Image to KB</a></li>
+          <li><a href="/signature-creator/" class="inline-block py-1 text-primary font-semibold hover:underline">Online Signature Creator</a></li>
+          <li><a href="/blog/" class="inline-block py-1 font-medium hover:text-primary transition">Govt Exam Blog &amp; Notifications</a></li>
         </ul>
       </div>
 
-      {/* Online Tools */}
+      {/* Interactive Guides & Calculators */}
       <div class="space-y-2">
-        <div class="font-semibold text-foreground text-xs uppercase tracking-wider">Free Tools &amp; Guides</div>
+        <div class="font-semibold text-foreground text-xs uppercase tracking-wider">Guides &amp; Rules</div>
         <ul class="space-y-1 text-xs">
-          <li><a href="/" class="inline-block py-1.5 font-semibold text-foreground hover:text-primary transition">Home / Main Resizer</a></li>
-          <li><a href="/compress-image-to-kb" class="inline-block py-1.5 text-primary font-semibold hover:underline">Compress Image to KB</a></li>
-          <li><a href="/signature-creator" class="inline-block py-1.5 text-primary font-semibold hover:underline">Online Signature Creator</a></li>
-          <li><a href="/#tool-workspace" class="inline-block py-1.5 hover:text-primary transition">Signature Resizer Workspace</a></li>
-          <li><a href="/#seo-guide" class="inline-block py-1.5 hover:text-primary transition">CM to Pixel Conversion</a></li>
-          <li><a href="/#exam-specs" class="inline-block py-1.5 hover:text-primary transition">Exam Dimensions Matrix</a></li>
-          <li><a href="/#guide" class="inline-block py-1.5 hover:text-primary transition">How to Avoid Rejections</a></li>
-          <li><a href="/#troubleshooting" class="inline-block py-1.5 hover:text-primary transition">Portal Troubleshooting</a></li>
-          <li><a href="/#faq" class="inline-block py-1.5 hover:text-primary transition">Frequently Asked Questions</a></li>
+          <li><a href="/#tool-workspace" class="inline-block py-1 hover:text-primary transition">Signature Workspace</a></li>
+          <li><a href="/#seo-guide" class="inline-block py-1 hover:text-primary transition">CM to Pixel Conversion</a></li>
+          <li><a href="/#exam-specs" class="inline-block py-1 hover:text-primary transition">Exam Dimensions Matrix</a></li>
+          <li><a href="/#guide" class="inline-block py-1 hover:text-primary transition">How to Avoid Rejections</a></li>
+          <li><a href="/#troubleshooting" class="inline-block py-1 hover:text-primary transition">Portal Troubleshooting</a></li>
+          <li><a href="/#faq" class="inline-block py-1 hover:text-primary transition">Frequently Asked Questions</a></li>
         </ul>
       </div>
 
-      {/* Legal & Company (AdSense Policy Compliant) */}
+      {/* Legal & Support */}
       <div class="space-y-2">
         <div class="font-semibold text-foreground text-xs uppercase tracking-wider">Legal &amp; Support</div>
         <ul class="space-y-1 text-xs">
-          <li><a href="/about" class="inline-block py-1.5 hover:text-primary transition">About Us</a></li>
-          <li><a href="/contact" class="inline-block py-1.5 hover:text-primary transition">Contact Support</a></li>
-          <li><a href="/privacy" class="inline-block py-1.5 hover:text-primary transition">Privacy Policy</a></li>
-          <li><a href="/terms" class="inline-block py-1.5 hover:text-primary transition">Terms &amp; Conditions</a></li>
-          <li><a href="/disclaimer" class="inline-block py-1.5 hover:text-primary transition">Disclaimer</a></li>
+          <li><a href="/about/" class="inline-block py-1 hover:text-primary transition">About Us</a></li>
+          <li><a href="/contact/" class="inline-block py-1 hover:text-primary transition">Contact Support</a></li>
+          <li><a href="/privacy/" class="inline-block py-1 hover:text-primary transition">Privacy Policy</a></li>
+          <li><a href="/terms/" class="inline-block py-1 hover:text-primary transition">Terms &amp; Conditions</a></li>
+          <li><a href="/disclaimer/" class="inline-block py-1 hover:text-primary transition">Disclaimer</a></li>
         </ul>
+      </div>
+    </div>
+
+    <!-- Complete 40+ Exam Directory Section (Solves Orphan Page Problem) -->
+    <div class="border-t border-border/70 pt-8 space-y-6">
+      <div>
+        <h3 class="font-bold text-foreground text-xs uppercase tracking-wider mb-1">
+          Supported Indian Exam &amp; Portal Resizers Directory
+        </h3>
+        <p class="text-[11px] text-zinc-500">
+          Direct access to official 2026 dimension presets, kilobyte compression parameters, and signature guidelines for all major recruitment boards.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-[11px]">
+        
+        <!-- Category 1: Central & National Exams -->
+        <div class="space-y-2">
+          <div class="font-bold text-foreground text-xs">Central &amp; National</div>
+          <ul class="space-y-1">
+            <li><a href="/ssc-signature-resize/" class="hover:text-primary transition">SSC CGL, CHSL, MTS (140×60)</a></li>
+            <li><a href="/upsc-signature-resize/" class="hover:text-primary transition">UPSC Civil Services (350×350)</a></li>
+            <li><a href="/rrb-signature-resize/" class="hover:text-primary transition">RRB Railway Recruitment</a></li>
+            <li><a href="/gate-signature-resize/" class="hover:text-primary transition">GATE &amp; IIT JAM Entrances</a></li>
+            <li><a href="/nta-neet-jee-signature-resize/" class="hover:text-primary transition">NTA NEET &amp; JEE Main</a></li>
+            <li><a href="/ctet-signature-resize/" class="hover:text-primary transition">CTET Central Teacher Test</a></li>
+            <li><a href="/ugc-net-signature-resize/" class="hover:text-primary transition">UGC NET &amp; JRF Assistant</a></li>
+            <li><a href="/isro-drdo-signature-resize/" class="hover:text-primary transition">ISRO &amp; DRDO Recruitment</a></li>
+          </ul>
+        </div>
+
+        <!-- Category 2: Banking, Finance & PSUs -->
+        <div class="space-y-2">
+          <div class="font-bold text-foreground text-xs">Banking &amp; PSUs</div>
+          <ul class="space-y-1">
+            <li><a href="/ibps-signature-resize/" class="hover:text-primary transition">IBPS &amp; SBI PO / Clerk</a></li>
+            <li><a href="/rbi-signature-resize/" class="hover:text-primary transition">RBI Grade B &amp; Assistant</a></li>
+            <li><a href="/sebi-nabard-signature-resize/" class="hover:text-primary transition">SEBI Grade A &amp; NABARD</a></li>
+            <li><a href="/lic-signature-resize/" class="hover:text-primary transition">LIC AAO, ADO &amp; Insurance</a></li>
+            <li><a href="/thumb-impression-resize/" class="hover:text-primary transition">Left Thumb Impression Resizer</a></li>
+          </ul>
+        </div>
+
+        <!-- Category 3: State Public Service Commissions -->
+        <div class="space-y-2">
+          <div class="font-bold text-foreground text-xs">State PSCs (Part 1)</div>
+          <ul class="space-y-1">
+            <li><a href="/uppsc-signature-resize/" class="hover:text-primary transition">UPPSC Uttar Pradesh PCS</a></li>
+            <li><a href="/bpsc-signature-resize/" class="hover:text-primary transition">BPSC Bihar Public Service</a></li>
+            <li><a href="/mpsc-signature-resize/" class="hover:text-primary transition">MPSC Maharashtra Services</a></li>
+            <li><a href="/tnpsc-signature-resize/" class="hover:text-primary transition">TNPSC Tamil Nadu Group 1/2</a></li>
+            <li><a href="/kpsc-signature-resize/" class="hover:text-primary transition">KPSC Karnataka Gazetted</a></li>
+            <li><a href="/wbpsc-signature-resize/" class="hover:text-primary transition">WBPSC West Bengal Civil</a></li>
+          </ul>
+        </div>
+
+        <!-- Category 4: State PSCs & Law / MBA -->
+        <div class="space-y-2">
+          <div class="font-bold text-foreground text-xs">State PSCs (Part 2)</div>
+          <ul class="space-y-1">
+            <li><a href="/appsc-tspsc-signature-resize/" class="hover:text-primary transition">APPSC &amp; TSPSC Telugu States</a></li>
+            <li><a href="/rpsc-signature-resize/" class="hover:text-primary transition">RPSC Rajasthan RAS / RTS</a></li>
+            <li><a href="/opsc-signature-resize/" class="hover:text-primary transition">OPSC Odisha Civil Services</a></li>
+            <li><a href="/gpsc-signature-resize/" class="hover:text-primary transition">GPSC Gujarat Administrative</a></li>
+            <li><a href="/hpsc-ppsc-signature-resize/" class="hover:text-primary transition">HPSC &amp; PPSC Haryana / Punjab</a></li>
+            <li><a href="/state-tet-signature-resize/" class="hover:text-primary transition">State TET (UPTET, REET, MahaTET)</a></li>
+          </ul>
+        </div>
+
+        <!-- Category 5: Defense, Citizen Services & Law/MBA -->
+        <div class="space-y-2">
+          <div class="font-bold text-foreground text-xs">Defense &amp; Citizen Portals</div>
+          <ul class="space-y-1">
+            <li><a href="/afcat-signature-resize/" class="hover:text-primary transition">AFCAT Air Force Recruitment</a></li>
+            <li><a href="/capf-signature-resize/" class="hover:text-primary transition">CAPF (BSF, CRPF, CISF, ITBP)</a></li>
+            <li><a href="/indian-coast-guard-signature-resize/" class="hover:text-primary transition">Indian Coast Guard (Navik/Yantrik)</a></li>
+            <li><a href="/agniveer-signature-resize/" class="hover:text-primary transition">Indian Army Agniveer Rally</a></li>
+            <li><a href="/pan-card-signature-resize/" class="hover:text-primary transition">PAN Card Signature (NSDL/UTI)</a></li>
+            <li><a href="/pan-card-photo-resize/" class="hover:text-primary transition">PAN Card Photo (213×213 px)</a></li>
+            <li><a href="/passport-seva-signature-resize/" class="hover:text-primary transition">Passport Seva Kendra Upload</a></li>
+            <li><a href="/sarathi-dl-signature-resize/" class="hover:text-primary transition">Sarathi Parivahan DL / LL</a></li>
+            <li><a href="/clat-signature-resize/" class="hover:text-primary transition">CLAT Law Entrance</a></li>
+            <li><a href="/cat-signature-resize/" class="hover:text-primary transition">CAT MBA Common Admission</a></li>
+          </ul>
+        </div>
+
       </div>
     </div>
 
     {/* Disclaimer & Copyright */}
     <div class="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
       <p class="text-zinc-600 dark:text-zinc-400">
-        © {currentYear} SignResize.in. Free online tool for students &amp; aspirants.
+        © {currentYear} SignResize.in. Free online tool for students &amp; aspirants across India.
       </p>
       <div class="flex flex-wrap items-center gap-1 text-xs text-zinc-600 dark:text-zinc-400">
-        <a href="/privacy" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Privacy Policy</a>
+        <a href="/privacy/" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Privacy Policy</a>
         <span aria-hidden="true" class="text-zinc-400 dark:text-zinc-600 select-none">•</span>
-        <a href="/terms" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Terms</a>
+        <a href="/terms/" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Terms</a>
         <span aria-hidden="true" class="text-zinc-400 dark:text-zinc-600 select-none">•</span>
-        <a href="/disclaimer" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Disclaimer</a>
+        <a href="/disclaimer/" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Disclaimer</a>
         <span aria-hidden="true" class="text-zinc-400 dark:text-zinc-600 select-none">•</span>
-        <a href="/contact" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Contact</a>
+        <a href="/contact/" class="inline-flex items-center min-h-[44px] px-2 hover:underline hover:text-foreground">Contact</a>
       </div>
     </div>
   </div>

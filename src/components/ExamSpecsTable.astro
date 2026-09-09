@@ -46,7 +46,10 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
         <tbody class="divide-y divide-border/60 font-medium">
           <tr class="hover:bg-muted/40 transition">
             <td class="py-3 px-3.5">
-              <div class="font-bold text-foreground">CAT (IIMs)</div>
+              <a href="/cat-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                <span>CAT (IIMs)</span>
+                <span class="text-[10px] text-primary">→</span>
+              </a>
               <div class="text-[10px] text-muted-foreground">Management Entrances</div>
             </td>
             <td class="py-3 px-3.5 font-mono text-foreground font-bold">300 × 132 px</td>
@@ -61,7 +64,10 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
           </tr>
           <tr class="hover:bg-muted/40 transition">
             <td class="py-3 px-3.5">
-              <div class="font-bold text-foreground">SSC (CGL, CHSL, MTS)</div>
+              <a href="/ssc-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                <span>SSC (CGL, CHSL, MTS)</span>
+                <span class="text-[10px] text-primary">→</span>
+              </a>
               <div class="text-[10px] text-muted-foreground">Staff Selection Commission</div>
             </td>
             <td class="py-3 px-3.5 font-mono text-foreground font-bold">140 × 60 px</td>
@@ -76,7 +82,10 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
           </tr>
           <tr class="hover:bg-muted/40 transition">
             <td class="py-3 px-3.5">
-              <div class="font-bold text-foreground">IBPS / SBI (PO &amp; Clerk)</div>
+              <a href="/ibps-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                <span>IBPS / SBI (PO &amp; Clerk)</span>
+                <span class="text-[10px] text-primary">→</span>
+              </a>
               <div class="text-[10px] text-muted-foreground">Banking Personnel Selection</div>
             </td>
             <td class="py-3 px-3.5 font-mono text-foreground font-bold">140 × 60 px</td>
@@ -91,7 +100,10 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
           </tr>
           <tr class="hover:bg-muted/40 transition">
             <td class="py-3 px-3.5">
-              <div class="font-bold text-foreground">UPSC (Civil Services, NDA)</div>
+              <a href="/upsc-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                <span>UPSC (Civil Services, NDA)</span>
+                <span class="text-[10px] text-primary">→</span>
+              </a>
               <div class="text-[10px] text-muted-foreground">Union Public Service Commission</div>
             </td>
             <td class="py-3 px-3.5 font-mono text-foreground font-bold">350 × 350 px</td>
@@ -106,7 +118,10 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
           </tr>
           <tr class="hover:bg-muted/40 transition">
             <td class="py-3 px-3.5">
-              <div class="font-bold text-foreground">GATE / IIT JAM</div>
+              <a href="/gate-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                <span>GATE / IIT JAM</span>
+                <span class="text-[10px] text-primary">→</span>
+              </a>
               <div class="text-[10px] text-muted-foreground">IITs / IISc Engineering Entrances</div>
             </td>
             <td class="py-3 px-3.5 font-mono text-foreground font-bold">~400 × 160 px</td>
@@ -121,7 +136,10 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
           </tr>
           <tr class="hover:bg-muted/40 transition">
             <td class="py-3 px-3.5">
-              <div class="font-bold text-foreground">NEET / JEE (NTA)</div>
+              <a href="/nta-neet-jee-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                <span>NEET / JEE (NTA)</span>
+                <span class="text-[10px] text-primary">→</span>
+              </a>
               <div class="text-[10px] text-muted-foreground">National Testing Agency</div>
             </td>
             <td class="py-3 px-3.5 font-mono text-foreground font-bold">140 × 60 px</td>
@@ -136,7 +154,10 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
           </tr>
           <tr class="hover:bg-muted/40 transition">
             <td class="py-3 px-3.5">
-              <div class="font-bold text-foreground">Left Thumb Impressions</div>
+              <a href="/thumb-impression-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                <span>Left Thumb Impressions</span>
+                <span class="text-[10px] text-primary">→</span>
+              </a>
               <div class="text-[10px] text-muted-foreground">IBPS, SSC, RRB &amp; NTA Portals</div>
             </td>
             <td class="py-3 px-3.5 font-mono text-foreground font-bold">240 × 240 px</td>
@@ -219,7 +240,7 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
               <td class="py-3 px-4">
                 {dedicatedSlug ? (
                   <a
-                    href={`/${dedicatedSlug}`}
+                    href={`/${dedicatedSlug}/`}
                     aria-label={`View dedicated page for ${preset.name} signature specifications`}
                     class="font-semibold text-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 group"
                   >
@@ -254,7 +275,7 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
                 <div class="flex items-center justify-end gap-2">
                   {dedicatedSlug && (
                     <a
-                      href={`/${dedicatedSlug}`}
+                      href={`/${dedicatedSlug}/`}
                       aria-label={`Read guide for ${preset.name} signature resize`}
                       class="hidden sm:inline-flex items-center justify-center min-h-[44px] px-2.5 py-2 rounded-lg text-xs font-medium text-muted-foreground hover:text-primary transition"
                     >

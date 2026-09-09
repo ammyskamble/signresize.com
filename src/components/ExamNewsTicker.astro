@@ -17,7 +17,7 @@ const marqueeList = [...itemsWithStatus, ...itemsWithStatus];
     
     <!-- Left Pinned Pill: Live Indicator with subtle shadow & divider -->
     <div class="flex items-center gap-1.5 shrink-0 pl-3 sm:pl-4 pr-3 py-1 border-r border-border/80 z-20 bg-card dark:bg-slate-900 shadow-xs">
-      <a href="/blog" class="group flex items-center gap-1.5 font-bold tracking-wider text-[11px] uppercase text-primary hover:opacity-85 transition">
+      <a href="/blog/" class="group flex items-center gap-1.5 font-bold tracking-wider text-[11px] uppercase text-primary hover:opacity-85 transition">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
@@ -37,7 +37,7 @@ const marqueeList = [...itemsWithStatus, ...itemsWithStatus];
       <!-- Animated Track: Right to Left movement across the entire width -->
       <div class="ticker-track-rtl flex items-center gap-8 whitespace-nowrap will-change-transform group-hover/ticker:pause-animation">
         {marqueeList.map((item, idx) => {
-          const targetUrl = item.toolSlug ? `/${item.toolSlug}` : '/#tool-workspace';
+          const targetUrl = item.toolSlug ? `/${item.toolSlug}/` : '/#tool-workspace';
           return (
             <div class="inline-flex items-center gap-2.5 shrink-0 py-1">
               <!-- Category Tag -->
@@ -92,7 +92,7 @@ const marqueeList = [...itemsWithStatus, ...itemsWithStatus];
     <!-- Right Side: Blog & Prep Portal Shortcut -->
     <div class="hidden xl:flex items-center gap-2 shrink-0 pr-3 sm:pr-4 pl-3 border-l border-border/80 z-20 bg-card dark:bg-slate-900 shadow-xs">
       <a 
-        href="/blog" 
+        href="/blog/" 
         class="inline-flex items-center gap-1 text-[11px] font-semibold text-muted-foreground hover:text-primary transition whitespace-nowrap"
       >
         <span>Daily Blog &amp; Prep</span>

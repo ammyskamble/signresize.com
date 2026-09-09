@@ -25,7 +25,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '4 min read',
     featured: true,
     tags: ['SSC CGL', 'Govt Jobs', 'Photo Rules', 'Signature 10-20KB'],
-    relatedExamPreset: 'ssc-cgl',
+    relatedExamPreset: 'ssc-general',
     contentHtml: `
       <h2>SSC CGL 2026: Key Highlights &amp; Important Dates</h2>
       <p>The Staff Selection Commission has officially published the notification for the <strong>Combined Graduate Level (CGL) Examination 2026</strong> for over 17,700 Group 'B' and Group 'C' posts across central ministries and departments.</p>
@@ -53,7 +53,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
         <h4 class="text-base font-bold text-foreground">Need to Resize for SSC Right Now?</h4>
         <p class="text-sm text-muted-foreground mt-1">Use our dedicated SSC CGL preset to crop, clean white background, and compress to 10-20 KB in 3 seconds directly on your device.</p>
-        <a href="/ssc-cgl" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+        <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
           Open SSC CGL Signature Tool &rarr;
         </a>
       </div>

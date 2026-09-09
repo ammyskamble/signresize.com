@@ -8,6 +8,7 @@ import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 import { BLOG_POSTS, type BlogPost } from '../../data/blogPostsData';
 import { EXAM_PRESETS } from '../../data/examPresets';
+import { EXAM_PAGES_DATA } from '../../data/examPagesData';
 
 export function getStaticPaths() {
   return BLOG_POSTS.map((post) => ({
@@ -24,12 +25,17 @@ const { post } = Astro.props;
 
 const pageTitle = `${post.title} | SignResize Blog`;
 const pageDescription = post.excerpt;
-const canonicalUrl = `https://signresize.in/blog/${post.slug}`;
+const canonicalUrl = `https://signresize.in/blog/${post.slug}/`;
 
 // Find related preset if specified
 const relatedPreset = post.relatedExamPreset
   ? EXAM_PRESETS.find(p => p.id === post.relatedExamPreset)
   : null;
+
+const relatedExamPage = post.relatedExamPreset
+  ? EXAM_PAGES_DATA.find(p => p.presetId === post.relatedExamPreset || p.slug === post.relatedExamPreset)
+  : null;
+const relatedExamSlug = relatedExamPage ? relatedExamPage.slug : 'ssc-signature-resize';
 
 // Related posts (excluding current)
 const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
@@ -100,7 +106,7 @@ const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
           Home
         </a>
         <span>/</span>
-        <a href="/blog" class="hover:text-primary transition">Blog</a>
+        <a href="/blog/" class="hover:text-primary transition">Blog</a>
         <span>/</span>
         <span class="text-foreground font-medium truncate max-w-[200px] sm:max-w-none">{post.title}</span>
       </nav>
@@ -170,7 +176,7 @@ const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
           </p>
           <div class="pt-1 flex flex-wrap items-center gap-3">
             <a
-              href={`/${relatedPreset.id}`}
+              href={`/${relatedExamSlug}/`}
               class="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shadow-xs flex items-center gap-1.5"
             >
               <span>Launch {relatedPreset.shortCode} Preset Resizer</span>
@@ -203,7 +209,7 @@ const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {relatedPosts.map(p => (
               <a
-                href={`/blog/${p.slug}`}
+                href={`/blog/${p.slug}/`}
                 class="p-4 rounded-xl border border-border bg-card hover:border-primary/40 transition group flex flex-col justify-between space-y-2"
               >
                 <div>

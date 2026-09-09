@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 const { examData } = Astro.props as { examData: ExamPageInfo };
 
-const canonicalUrl = `https://signresize.in/${examData.slug}`;
+const canonicalUrl = `https://signresize.in/${examData.slug}/`;
 const ogImageUrl = 'https://signresize.in/og-image.png';
 const currentYear = 2026;
 const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
@@ -375,7 +375,7 @@ const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
             <div class="space-y-1.5">
               {otherExams.map((item) => (
                 <a
-                  href={`/${item.slug}`}
+                  href={`/${item.slug}/`}
                   class="flex items-center justify-between p-2 rounded-lg hover:bg-muted transition group text-[11px]"
                 >
                   <span class="font-medium text-foreground group-hover:text-primary transition">{item.authority}</span>
@@ -397,14 +397,14 @@ const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
                 <div class="text-[10px] text-muted-foreground">Custom CM / PX / DPI dimensions with real-time whiten &amp; crop studio.</div>
               </a>
               <a
-                href="/compress-image-to-kb"
+                href="/compress-image-to-kb/"
                 class="block p-2.5 rounded-xl bg-primary/5 hover:bg-primary/10 border border-primary/20 transition"
               >
                 <div class="font-semibold text-primary">Compress Image to KB Tool</div>
                 <div class="text-[10px] text-muted-foreground">Compress certificates, marksheets &amp; photos to 20 KB, 50 KB, 100 KB.</div>
               </a>
               <a
-                href="/signature-creator"
+                href="/signature-creator/"
                 class="block p-2.5 rounded-xl bg-muted/50 hover:bg-muted border border-border transition"
               >
                 <div class="font-semibold text-foreground">Online Signature Creator</div>
