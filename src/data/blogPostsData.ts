@@ -15,6 +15,113 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'ibps-po-clerk-2026-photo-signature-thumb-declaration-guidelines',
+    title: 'IBPS PO & Clerk 2026 Document Upload Guide: Exact Photo, Signature, Thumb Impression & Declaration Rules',
+    excerpt: 'Comprehensive formatting rules for all 4 mandatory IBPS uploads: photograph (20-50KB), running signature (10-20KB), left thumb impression (20-50KB), and handwritten declaration (50-100KB) to avoid disqualification.',
+    category: 'Guidelines & Tips',
+    publishDate: 'Sept 10, 2026',
+    author: 'SignResize Examination Standards Desk',
+    authorRole: 'Official Banking Document Compliance Team',
+    readTime: '6 min read',
+    featured: true,
+    tags: ['IBPS PO', 'IBPS Clerk', 'Handwritten Declaration', 'Left Thumb Impression', 'Bank Exam Guidelines'],
+    relatedExamPreset: 'ibps-sbi',
+    contentHtml: `
+      <h2>The 4 Mandatory Scanned Uploads for IBPS &amp; SBI Recruitment</h2>
+      <p>Applying for banking recruitment exams conducted by the <strong>Institute of Banking Personnel Selection (IBPS)</strong> or <strong>State Bank of India (SBI)</strong> requires uploading four distinct digital assets during online registration. Unlike single-document exams, failing even one parameter among these four leads to instant application rejection or denial of entry at the examination center.</p>
+
+      <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+        <h4 class="font-bold text-primary mb-2">⚡ Quick Upload Specifications Matrix</h4>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border border-border">
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th class="p-2.5 border-b">Document</th>
+                <th class="p-2.5 border-b">File Size Range</th>
+                <th class="p-2.5 border-b">Dimensions / Resolution</th>
+                <th class="p-2.5 border-b">Ink / Paper Rule</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr>
+                <td class="p-2.5 font-semibold text-primary">Passport Photo</td>
+                <td class="p-2.5 font-mono">20 KB to 50 KB</td>
+                <td class="p-2.5 font-mono">200 &times; 230 px (3.5 &times; 4.5 cm)</td>
+                <td class="p-2.5">Light or pure white background</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-semibold text-primary">Candidate Signature</td>
+                <td class="p-2.5 font-mono">10 KB to 20 KB</td>
+                <td class="p-2.5 font-mono">140 &times; 60 px (4.0 &times; 2.0 cm)</td>
+                <td class="p-2.5">Black ink ballpoint pen only</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-semibold text-primary">Left Thumb Impression (LTI)</td>
+                <td class="p-2.5 font-mono">20 KB to 50 KB</td>
+                <td class="p-2.5 font-mono">240 &times; 240 px (3.0 &times; 3.0 cm)</td>
+                <td class="p-2.5">Blue or black ink on clean white sheet</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-semibold text-primary">Handwritten Declaration</td>
+                <td class="p-2.5 font-mono">50 KB to 100 KB</td>
+                <td class="p-2.5 font-mono">800 &times; 400 px (10.0 &times; 5.0 cm)</td>
+                <td class="p-2.5">Candidate's own handwriting in English (Black ink)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2>1. Candidate Signature: Critical Traps to Avoid</h2>
+      <p>The signature is verified via biometric check at the examination hall and during interview document verification. IBPS strictly enforces these three conditions:</p>
+      <ul>
+        <li><strong>Strictly Black Ink:</strong> While blue ink is permitted for the thumb impression, the signature <em>must be executed using a black ballpoint pen</em> on clean white unruled paper.</li>
+        <li><strong>No Block / Capital Letters:</strong> IBPS and SBI guidelines explicitly declare that signatures written entirely in capital letters will be disqualified immediately. Sign only in natural cursive running handwriting.</li>
+        <li><strong>File Dimension &amp; Weight:</strong> Must scale between <strong>10.0 KB and 20.0 KB</strong> at 140 &times; 60 pixels. Files below 10 KB or above 20 KB will be blocked by the IBPS upload validator.</li>
+      </ul>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Resize for IBPS / SBI in 3 Seconds</h4>
+        <p class="text-sm text-muted-foreground mt-1">Our dedicated IBPS tool formats your scanned signature to exact 140&times;60 pixels, removes shadows, and compresses to 10–20 KB with zero cloud uploads.</p>
+        <div class="flex flex-wrap gap-3 mt-3">
+          <a href="/ibps-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Resize IBPS Signature &rarr;
+          </a>
+          <a href="/thumb-impression-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Format Thumb Impression &rarr;
+          </a>
+        </div>
+      </div>
+
+      <h2>2. Left Thumb Impression (LTI) Guidelines</h2>
+      <p>If a candidate has no left thumb, they may use their right thumb (and clearly declare it during application). Key guidelines include:</p>
+      <ol class="space-y-2">
+        <li><strong>Ridge Clarity:</strong> Press your thumb gently onto a blue or black stamp pad. Do not over-saturate with ink, which causes smudges that obscure biometric friction ridges.</li>
+        <li><strong>Crop Aspect Ratio:</strong> Crop in a 1:1 square ratio (240 &times; 240 pixels / 3.0 &times; 3.0 cm) to prevent horizontal or vertical distortion.</li>
+        <li><strong>Dual-Boundary Weight:</strong> Compress within the 20 KB to 50 KB boundary. Our <a href="/thumb-impression-resize/" class="text-primary underline font-medium">Thumb Impression Resizer</a> includes specialized ridge enhancement to ensure your print scans cleanly on portal verification.</li>
+      </ol>
+
+      <h2>3. Handwritten Declaration: Exact Official Text</h2>
+      <p>The handwritten declaration must be written in the candidate's own handwriting in <strong>English only</strong>. Declarations written in capital letters or typed on a computer will be rejected.</p>
+      
+      <div class="my-5 p-4 rounded-xl bg-card border border-border">
+        <p class="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-2">Official Verbatim Text</p>
+        <blockquote class="italic text-foreground font-serif text-sm sm:text-base border-l-4 border-primary pl-4 py-1">
+          &ldquo;I, _______ (Name of the candidate), hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.&rdquo;
+        </blockquote>
+      </div>
+
+      <p>Write this statement on clean white A4 paper using a black ink pen, scan or capture clearly without camera shadow, and format to <strong>50 KB – 100 KB</strong> before uploading.</p>
+
+      <h2>4. Photograph Rules for Banking Exams</h2>
+      <p>IBPS requires a passport-style color photo taken against a light-coloured (preferably pure white) background. Look straight at the camera with a relaxed face. If you wear glasses, ensure there is no flash reflection and your eyes are fully visible. Caps, hats, and dark sunglasses are strictly prohibited.</p>
+
+      <div class="my-6 p-4 rounded-xl bg-card border border-border">
+        <p class="text-sm font-medium">💡 <strong>Pro Tip:</strong> After uploading all four documents to the IBPS portal, preview each file on the final screen before payment. Ensure none of the images are inverted, rotated 90 degrees, or blurred.</p>
+      </div>
+    `
+  },
+  {
     slug: 'ssc-cgl-2026-notification-dates-signature-guidelines',
     title: 'SSC CGL 2026 Notification, Exam Dates & Mandatory Signature/Photo Guidelines',
     excerpt: 'Complete breakdown of SSC CGL 2026 eligibility, 17,727 vacancies, revised photo capture guidelines, and exact 10KB to 20KB signature specifications to avoid rejection.',
@@ -23,7 +130,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'SignResize Examination Standards Desk',
     authorRole: 'Official Document Compliance Team',
     readTime: '4 min read',
-    featured: true,
+    featured: false,
     tags: ['SSC CGL', 'Govt Jobs', 'Photo Rules', 'Signature 10-20KB'],
     relatedExamPreset: 'ssc-general',
     contentHtml: `
