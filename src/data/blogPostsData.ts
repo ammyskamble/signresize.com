@@ -15,6 +15,57 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "rrb-ntpc-2026-document-upload-rules-preparation-strategy",
+    title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
+    excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, and speed calculation methods.",
+    category: "Study Prep",
+    publishDate: "Sept 11, 2026",
+    author: "SignResize Academic Research Desk",
+    authorRole: "Railway Recruitment Strategy Desk",
+    readTime: "6 min read",
+    featured: true,
+    tags: ["RRB NTPC","Railway Exams","CBT 1 Prep","Signature 10-20KB","Maths Shortcuts"],
+    relatedExamPreset: "rrb-railway",
+    contentHtml: `
+<h2>RRB NTPC 2026: Key Examination Overview</h2>
+      <p>The Railway Recruitment Boards (RRB) have activated the recruitment calendar for <strong>Non-Technical Popular Categories (NTPC)</strong>. With intense competition spanning across undergraduate and graduate posts, excelling in Computer Based Test 1 (CBT-1) requires both conceptual clarity and exact document compliance during registration.</p>
+
+      <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+        <h4 class="font-bold text-primary mb-2">⚡ CBT-1 Exam Pattern &amp; Time Distribution</h4>
+        <ul class="space-y-1 text-sm">
+          <li><strong>General Awareness:</strong> 40 Questions (Current Affairs, General Science, Indian History, Geography)</li>
+          <li><strong>Mathematics:</strong> 30 Questions (Number Systems, Decimals, Fractions, LCM-HCF, Ratio, Percentages, Mensuration)</li>
+          <li><strong>General Intelligence &amp; Reasoning:</strong> 30 Questions (Analogies, Coding, Syllogisms, Venn Diagrams)</li>
+          <li><strong>Total Time:</strong> 90 Minutes (100 Questions with 1/3rd negative marking per incorrect response)</li>
+        </ul>
+      </div>
+
+      <h2>Document Upload Compliance to Avoid Cancellation</h2>
+      <p>Railway recruitment notices explicitly enforce strict criteria for candidate photograph and scanned signature files:</p>
+      <ul>
+        <li><strong>Scanned Photograph:</strong> Clear color passport photograph taken against a light or white background. Must be between <strong>20 KB and 50 KB</strong> in JPG format. Glasses with glare or tinted lenses are strictly barred.</li>
+        <li><strong>Candidate Signature:</strong> Must be signed in running handwriting on white unruled paper using a black ballpoint pen. File weight must be between <strong>10 KB and 20 KB</strong> (140 &times; 60 pixels). Signatures written in capital letters will result in immediate disqualification.</li>
+      </ul>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Need RRB Signature &amp; Photo Formatted?</h4>
+        <p class="text-sm text-muted-foreground mt-1">Use our dedicated RRB Railway preset to crop, clean dark shadows, and compress into the exact 10–20 KB bound in seconds.</p>
+        <div class="flex flex-wrap gap-3 mt-3">
+          <a href="/rrb-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Open RRB Resizer &rarr;
+          </a>
+          <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Resize Passport Photo &rarr;
+          </a>
+        </div>
+      </div>
+
+      <h2>Recommended Daily Study Strategy</h2>
+      <p>Divide your preparation into 3 focused blocks: devote 2 hours to Arithmetic drills, 1.5 hours to Logical Reasoning puzzles, and 2 hours to Current Affairs revision and Static GK topics like General Science and Modern Indian History.</p>
+    `
+  },
+
+  {
     slug: 'ibps-po-clerk-2026-photo-signature-thumb-declaration-guidelines',
     title: 'IBPS PO & Clerk 2026 Document Upload Guide: Exact Photo, Signature, Thumb Impression & Declaration Rules',
     excerpt: 'Comprehensive formatting rules for all 4 mandatory IBPS uploads: photograph (20-50KB), running signature (10-20KB), left thumb impression (20-50KB), and handwritten declaration (50-100KB) to avoid disqualification.',
@@ -23,7 +74,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'SignResize Examination Standards Desk',
     authorRole: 'Official Banking Document Compliance Team',
     readTime: '6 min read',
-    featured: true,
+    featured: false,
     tags: ['IBPS PO', 'IBPS Clerk', 'Handwritten Declaration', 'Left Thumb Impression', 'Bank Exam Guidelines'],
     relatedExamPreset: 'ibps-sbi',
     contentHtml: `
