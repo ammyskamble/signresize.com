@@ -15,6 +15,72 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "state-psc-one-time-registration-otr-document-standards",
+    title: "State PSC One-Time Registration (OTR): Mandatory Signature & Photo Guidelines for UPPSC, BPSC, MPSC & RPSC",
+    excerpt: "Detailed checklist for State Public Service Commission One-Time Registration portals: dimensions, dual-boundary compression, and white background verification.",
+    category: "Guidelines & Tips",
+    publishDate: "Sept 12, 2026",
+    author: "SignResize Technical Verification Team",
+    authorRole: "State Commission Standards Desk",
+    readTime: "5 min read",
+    featured: true,
+    tags: ["State PSC","OTR Registration","UPPSC","BPSC","MPSC","Document Guidelines"],
+    relatedExamPreset: "uppsc-uttar-pradesh",
+    contentHtml: `
+<h2>The Shift to Permanent One-Time Registration (OTR)</h2>
+      <p>State Public Service Commissions across India—including <strong>UPPSC (Uttar Pradesh), BPSC (Bihar), MPSC (Maharashtra), and RPSC (Rajasthan)</strong>—have made One-Time Registration (OTR) mandatory. Once an applicant registers their profile, the uploaded photograph and signature are permanently tied to their profile across all upcoming recruitment examinations.</p>
+
+      <h2>Key Dimension &amp; File Size Comparison</h2>
+      <div class="my-5 overflow-x-auto">
+        <table class="w-full text-xs sm:text-sm text-left border border-border">
+          <thead class="bg-muted text-foreground font-semibold">
+            <tr>
+              <th class="p-2.5 border-b">Commission</th>
+              <th class="p-2.5 border-b">Signature Size</th>
+              <th class="p-2.5 border-b">Photo Dimensions &amp; Size</th>
+              <th class="p-2.5 border-b">Special Mandatory Requirements</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="p-2.5 font-semibold text-primary">UPPSC OTR</td>
+              <td class="p-2.5 font-mono">10 KB – 20 KB (140&times;60 px)</td>
+              <td class="p-2.5 font-mono">20 KB – 50 KB (3.5&times;4.5 cm)</td>
+              <td class="p-2.5">Clear white background, name and date beneath photo</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-semibold text-primary">BPSC (Bihar)</td>
+              <td class="p-2.5 font-mono">10 KB – 20 KB (Hindi &amp; English)</td>
+              <td class="p-2.5 font-mono">20 KB – 50 KB</td>
+              <td class="p-2.5">Separate uploads for Hindi and English running signatures</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-semibold text-primary">MPSC (Maharashtra)</td>
+              <td class="p-2.5 font-mono">10 KB – 20 KB</td>
+              <td class="p-2.5 font-mono">20 KB – 50 KB (200&times;230 px)</td>
+              <td class="p-2.5">Strict natural cursive handwriting; black ballpoint pen</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Common Pitfalls in State OTR Forms</h2>
+      <ol class="space-y-2 text-sm text-foreground/90">
+        <li><strong>Uploading Low-Resolution Phone Snapshots:</strong> Taking a picture under low indoor lighting causes grey or shadowy backgrounds that fail automatic optical validation. Always use our "Clean White Sheet" contrast filter.</li>
+        <li><strong>Disregarding Hindi Signature Uploads:</strong> For BPSC and select northern state portals, candidates must supply both an English and a Hindi running signature. Ensure both files match the 10–20 KB bound.</li>
+      </ol>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Prepare Your OTR Files in 1 Click</h4>
+        <p class="text-sm text-muted-foreground mt-1">Select your state commission preset to automatically apply the exact dimensions and compression limits directly in your browser.</p>
+        <a href="/#tool-workspace" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+          Launch State PSC Resizer &rarr;
+        </a>
+      </div>
+    `
+  },
+
+  {
     slug: "rrb-ntpc-2026-document-upload-rules-preparation-strategy",
     title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
     excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, and speed calculation methods.",
@@ -23,7 +89,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "SignResize Academic Research Desk",
     authorRole: "Railway Recruitment Strategy Desk",
     readTime: "6 min read",
-    featured: true,
+    featured: false,
     tags: ["RRB NTPC","Railway Exams","CBT 1 Prep","Signature 10-20KB","Maths Shortcuts"],
     relatedExamPreset: "rrb-railway",
     contentHtml: `
