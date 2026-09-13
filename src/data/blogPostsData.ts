@@ -15,6 +15,69 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "upsc-csat-paper-2-qualifying-speed-strategy-comprehension-hacks",
+    title: "UPSC CSE Prelims: CSAT Paper-II Qualifying Blueprint, Reading Comprehension & Speed Logic Hacks",
+    excerpt: "Master the 33% CSAT qualifying cutoff with proven strategies for high-accuracy reading comprehension, critical reasoning, and arithmetic problem selection.",
+    category: "Study Prep",
+    publishDate: "Sept 13, 2026",
+    author: "SignResize Academic Research Desk",
+    authorRole: "Civil Services Methodology Team",
+    readTime: "7 min read",
+    featured: true,
+    tags: ["UPSC Prelims","CSAT Strategy","Reading Comprehension","Aptitude Speed","Civil Services"],
+    relatedExamPreset: "upsc-civil-services",
+    contentHtml: `
+<h2>The Critical Role of Paper-II (CSAT) in UPSC Prelims</h2>
+      <p>In recent years, the Civil Services Aptitude Test (CSAT Paper-II) has become the decisive eliminator for thousands of diligent aspirants. Despite scoring 100+ in General Studies Paper-I, failing to attain the minimum qualifying threshold of <strong>33% (66.67 marks out of 200)</strong> results in automatic disqualification from the Mains examination.</p>
+
+      <h2>The Three Pillars of CSAT Paper-II</h2>
+      <div class="my-4 overflow-x-auto">
+        <table class="w-full text-xs sm:text-sm text-left border border-border">
+          <thead class="bg-muted text-foreground font-semibold">
+            <tr>
+              <th class="p-2.5 border-b">Section</th>
+              <th class="p-2.5 border-b">Average Questions</th>
+              <th class="p-2.5 border-b">Target Attempt</th>
+              <th class="p-2.5 border-b">Scoring Strategy</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="p-2.5 font-semibold text-primary">Reading Comprehension</td>
+              <td class="p-2.5 font-mono">25–28 Qs</td>
+              <td class="p-2.5 font-mono">20–22 Qs</td>
+              <td class="p-2.5">Focus on central assumptions, logical corollaries, and primary inferences.</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-semibold text-primary">Quantitative Aptitude</td>
+              <td class="p-2.5 font-mono">35–40 Qs</td>
+              <td class="p-2.5 font-mono">15–18 Qs</td>
+              <td class="p-2.5">Select high-accuracy topics: Number Systems, Remainder Theorem, Percentages, Ratio, and Time &amp; Work.</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-semibold text-primary">Logical &amp; Analytical Reasoning</td>
+              <td class="p-2.5 font-mono">15–20 Qs</td>
+              <td class="p-2.5 font-mono">12–15 Qs</td>
+              <td class="p-2.5">Prioritize Syllogisms, Blood Relations, Direction Sense, and simple linear arrangements.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The "45-Question Safe Zone" Rule</h2>
+      <p>To comfortably secure 80+ marks without risking negative marking penalties (0.83 marks deducted per wrong answer), target attempting <strong>45 to 50 well-vetted questions</strong> with at least 80% accuracy. Never rush into solving lengthy combinatorics or multi-case circular puzzles early in the paper.</p>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Preparing UPSC OTR Documents?</h4>
+        <p class="text-sm text-muted-foreground mt-1">Ensure your UPSC passport photo (350&times;350 px, 20–300 KB) and signature (140&times;60 px, 10–20 KB) comply with official OTR standards before the application portal closes.</p>
+        <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+          Open UPSC Resizer Preset &rarr;
+        </a>
+      </div>
+    `
+  },
+
+  {
     slug: "state-psc-one-time-registration-otr-document-standards",
     title: "State PSC One-Time Registration (OTR): Mandatory Signature & Photo Guidelines for UPPSC, BPSC, MPSC & RPSC",
     excerpt: "Detailed checklist for State Public Service Commission One-Time Registration portals: dimensions, dual-boundary compression, and white background verification.",
@@ -23,7 +86,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "SignResize Technical Verification Team",
     authorRole: "State Commission Standards Desk",
     readTime: "5 min read",
-    featured: true,
+    featured: false,
     tags: ["State PSC","OTR Registration","UPPSC","BPSC","MPSC","Document Guidelines"],
     relatedExamPreset: "uppsc-uttar-pradesh",
     contentHtml: `
