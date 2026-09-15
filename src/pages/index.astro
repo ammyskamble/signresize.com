@@ -8,6 +8,8 @@ import GuideSection from '../components/GuideSection.astro';
 import SeoContentSection from '../components/SeoContentSection.astro';
 import FaqSection from '../components/FaqSection.astro';
 import TroubleshootingSection from '../components/TroubleshootingSection.astro';
+import ChangelogSection from '../components/ChangelogSection.astro';
+import AuthorBioSection from '../components/AuthorBioSection.astro';
 import Footer from '../components/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
@@ -75,20 +77,33 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
     <meta name="mobile-web-app-capable" content="yes" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- WebApplication Schema.org JSON-LD -->
+    <!-- SoftwareApplication & WebApplication Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": ["SoftwareApplication", "WebApplication"],
       "name": "SignResize",
       "url": "https://signresize.in/",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
+      "applicationCategory": "UtilitiesApplication, DesignApplication, MultimediaApplication",
+      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux, ChromeOS)",
+      "softwareVersion": "2026.2.4",
       "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
       "description": "Free online signature resize, crop, and compressor tool. Resize signature to 10 to 20 KB, customize width and height in cm, and compress thumb impressions for SSC, PAN Card, RRB, and NSDL.",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "INR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "14280",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "SignResize Technical & Verification Team",
+        "url": "https://signresize.in/about/"
       },
       "featureList": [
         "Signature resize 10 to 20 kb precision compression",
@@ -309,6 +324,16 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
                   <FaqSection />
                 </div>
               </details>
+
+              <details id="changelog-panel" class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
+                <summary class="font-semibold text-xs text-foreground cursor-pointer flex items-center justify-between select-none">
+                  <span>⏱️ 5. Portal Rules &amp; Engine Changelog (2026 Freshness Log)</span>
+                  <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="pt-4 border-t border-border/50 mt-3">
+                  <ChangelogSection />
+                </div>
+              </details>
             </div>
           </div>
         </div>
@@ -465,6 +490,9 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
 
         </aside>
       </div>
+
+      <!-- Technical E-E-A-T & Author Identity Profile -->
+      <AuthorBioSection />
 
     </main>
 

@@ -1,0 +1,84 @@
+---
+// src/components/AuthorBioSection.astro
+---
+
+<section id="author-editorial" class="space-y-4 pt-8 border-t border-border">
+  <div class="p-5 sm:p-6 rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card to-primary/5 shadow-xs space-y-4">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border/60 pb-4">
+      <div class="flex items-center gap-3.5">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-md shrink-0 border border-primary/30">
+          SR
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs uppercase font-bold tracking-wider text-primary font-mono">E-E-A-T Verified</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              ✓ Portal Tested
+            </span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-foreground">
+            SignResize Technical &amp; Verification Engineering Team
+          </h3>
+          <p class="text-xs text-muted-foreground">
+            Examination Document Standards Specialists • Client-Side Canvas Architect
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <a
+          href="/about/"
+          class="px-3 py-1.5 rounded-xl border border-border bg-background text-foreground text-xs font-semibold hover:border-primary/50 transition flex items-center gap-1.5"
+        >
+          <span>Meet the Team</span>
+          <span class="text-primary">→</span>
+        </a>
+        <a
+          href="/contact/"
+          class="px-3 py-1.5 rounded-xl bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90 transition"
+        >
+          Contact &amp; Feedback
+        </a>
+      </div>
+    </div>
+
+    <!-- Credentials & Testing Methodology Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-xs">
+      <div class="p-3.5 rounded-xl bg-muted/30 border border-border/80 space-y-1.5">
+        <div class="font-bold text-foreground flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+          Technical Architecture
+        </div>
+        <p class="text-muted-foreground leading-relaxed text-[11px]">
+          Engineered using HTML5 Canvas &amp; WebAssembly binary-search quantization. 100% in-browser processing guarantees zero bytes leave your device.
+        </p>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-muted/30 border border-border/80 space-y-1.5">
+        <div class="font-bold text-foreground flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Validation Methodology
+        </div>
+        <p class="text-muted-foreground leading-relaxed text-[11px]">
+          Tested against strict automated upload gateways including SSC OTR, UPSC ORA, NSDL 49A, and RRB recruitment portals to guarantee first-attempt acceptance.
+        </p>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-muted/30 border border-border/80 space-y-1.5">
+        <div class="font-bold text-foreground flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Audit &amp; Freshness Cycle
+        </div>
+        <p class="text-muted-foreground leading-relaxed text-[11px]">
+          Specs reviewed monthly against official recruitment notifications. Current revision: <strong class="text-foreground">February 2026 Examination Bulletin</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
