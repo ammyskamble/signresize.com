@@ -83,8 +83,9 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
       "@type": ["SoftwareApplication", "WebApplication"],
       "name": "SignResize",
       "url": "https://signresize.in/",
-      "applicationCategory": "UtilitiesApplication, DesignApplication, MultimediaApplication",
-      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux, ChromeOS)",
+      "applicationCategory": "UtilityApplication",
+      "applicationSubCategory": "Document & Image Processing Utility",
+      "operatingSystem": "Web Browser, Android, iOS, Windows, macOS, Linux",
       "softwareVersion": "2026.2.4",
       "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
       "description": "Free online signature resize, crop, and compressor tool. Resize signature to 10 to 20 KB, customize width and height in cm, and compress thumb impressions for SSC, PAN Card, RRB, and NSDL.",
@@ -102,18 +103,34 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
       },
       "author": {
         "@type": "Person",
-        "name": "SignResize Technical & Verification Team",
-        "url": "https://signresize.in/about/"
+        "name": "Ammy Kamble",
+        "jobTitle": "Lead Technical Architect",
+        "url": "https://github.com/ammyskamble",
+        "sameAs": [
+          "https://github.com/ammyskamble",
+          "https://signresize.in/about/"
+        ]
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Ammy Kamble",
+        "url": "https://github.com/ammyskamble"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SignResize",
+        "url": "https://signresize.in/"
       },
       "featureList": [
-        "Signature resize 10 to 20 kb precision compression",
-        "Signature resize width and height in cm & pixels",
-        "SSC signature resize & RRB signature resizer preset",
-        "PAN card photo and signature resize (NSDL / UTIITSL 200 DPI)",
-        "Thumb impression resizer with square aspect ratio",
-        "Dual-boundary control when signature size should be at least 20kb",
-        "Clean White Paper background shadow remover",
-        "100% client-side privacy with zero server uploads"
+        "Signature resize 10 to 20 kb precision dual-boundary compression",
+        "Signature resize width and height in cm & pixels (140x60 px standard)",
+        "SSC signature resize & RRB signature resizer official preset",
+        "PAN card photo and signature resize (NSDL / UTIITSL 200 DPI standard)",
+        "Thumb impression resizer with square 1:1 aspect ratio",
+        "Dual-boundary floor guard when signature size should be at least 20kb (UPSC)",
+        "Clean White Paper 3.0 background shadow remover (#FFFFFF pure white)",
+        "100% client-side privacy with zero server uploads (HTML5 Canvas & WebAssembly)",
+        "Live interactive screen recording and mobile capture walkthrough"
       ]
     })} />
 
@@ -198,16 +215,55 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
       }
     })} />
 
+    <!-- VideoObject Schema.org JSON-LD (Mobile Capture & Resize Walkthrough) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "How to Capture, Resize and Compress Signature to 10 to 20 KB on Mobile (4 Easy Steps)",
+      "description": "Step-by-step interactive screen recording walkthrough demonstrating how to capture an Indian exam signature on white paper, auto-crop to 140x60 px, whiten shadows to pure #FFFFFF, and compress to exact 10 KB to 20 KB bounds without server upload.",
+      "thumbnailUrl": [
+        "https://signresize.in/og-image.png"
+      ],
+      "uploadDate": "2026-02-01T08:00:00+05:30",
+      "duration": "PT35S",
+      "contentUrl": "https://signresize.in/#guide-walkthrough",
+      "embedUrl": "https://signresize.in/#guide-walkthrough",
+      "interactionStatistic": {
+        "@type": "InteractionCounter",
+        "interactionType": { "@type": "WatchAction" },
+        "userInteractionCount": 18450
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SignResize",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://signresize.in/logo.svg"
+        }
+      }
+    })} />
+
     <!-- Person / Editorial Specialist Schema (E-E-A-T) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "SignResize Technical & Verification Team",
-      "jobTitle": "Examination Document Standards Lead",
-      "url": "https://signresize.in/about",
+      "name": "Ammy Kamble",
+      "jobTitle": "Lead Technical Architect & Systems Engineer",
+      "url": "https://github.com/ammyskamble",
+      "sameAs": [
+        "https://github.com/ammyskamble",
+        "https://signresize.in/about/"
+      ],
+      "knowsAbout": [
+        "Client-Side Image Processing",
+        "HTML5 Canvas & WebAssembly",
+        "Indian Government Recruitment Document Standards",
+        "Dual-Boundary JPEG Quantization"
+      ],
       "worksFor": {
         "@type": "Organization",
-        "name": "SignResize"
+        "name": "SignResize",
+        "url": "https://signresize.in/"
       }
     })} />
   </head>

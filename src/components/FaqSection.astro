@@ -3,55 +3,73 @@
 const faqs = [
   {
     q: "How to resize signature?",
-    a: "To resize a signature, upload your scanned document or phone photo to SignResize. Use the interactive crop tool to frame your signature, choose your target dimensions (in pixels or centimeters, e.g., 140×60 px or 4×2 cm), set your target file size range (e.g. 10 KB to 20 KB), enable the Clean White Paper filter to remove shadows, and download your portal-ready JPG."
+    summary: "To resize a signature, upload your photo to SignResize, select your target dimensions or exam preset, toggle the Clean White Paper filter, and download your compliant JPG in seconds.",
+    details: "Our in-browser canvas engine allows you to specify exact dimensions in pixels or centimeters (such as 140×60 px or 4×2 cm) and lock file weight strictly between 10 KB and 20 KB with zero server uploads."
+  },
+  {
+    q: "What are the exact SSC signature dimensions?",
+    summary: "The exact SSC signature dimensions are 140 pixels width by 60 pixels height (approx 4.0 cm × 2.0 cm) with a file size strictly between 10 KB and 20 KB in JPG format.",
+    details: "The signature must be signed using a black ink pen on clean unruled white paper in natural running cursive handwriting. Signatures written in ALL CAPS / BLOCK letters are automatically disqualified by SSC OTR gateways."
   },
   {
     q: "How to resize photo and signature?",
-    a: "For Indian government competitive exams (such as SSC, UPSC, PAN card, and RRB), photographs and signatures have distinct specifications. Passport photos typically require a 3.5 cm × 4.5 cm (or 350×450 px) aspect ratio with 20–50 KB file size. Signatures require a wider horizontal ratio (such as 4.0 cm × 2.0 cm or 140×60 px) between 10 KB and 20 KB. You can choose the corresponding preset on SignResize or enter custom cm/pixel dimensions with zero server upload."
+    summary: "Resize photos to 3.5 × 4.5 cm (20–50 KB) and signatures to 4.0 × 2.0 cm (10–20 KB) using the one-click exam presets on SignResize.",
+    details: "For Indian government portals like SSC, UPSC, PAN card, and RRB, photographs and signatures use distinct aspect ratios and file constraints. SignResize provides dedicated presets for both documents to ensure first-attempt acceptance."
   },
   {
     q: "How to resize signature for SSC?",
-    a: "To resize signature for SSC (CGL, CHSL, MTS, GD, CPO, Steno), the official Staff Selection Commission rules require dimensions of 140 × 60 pixels (~4.0 cm × 2.0 cm), file size strictly between 10 KB and 20 KB, in JPG/JPEG format, signed in running cursive handwriting with black ink on unruled white paper. Simply choose the 'SSC' preset on SignResize to apply these requirements instantly."
+    summary: "To resize signature for SSC, select the 'SSC' preset on SignResize to instantly lock dimensions to 140 × 60 pixels and the file size between 10 KB and 20 KB.",
+    details: "This preset meets all 2026 Staff Selection Commission guidelines for CGL, CHSL, MTS, GD, CPO, and Stenographer online application portals."
   },
   {
     q: "How to resize signature in 20 KB?",
-    a: "To resize signature in 20 KB, upload your image to SignResize and adjust the Target File Size slider so the upper boundary is set to 20 KB (recommended range: 10 KB – 20 KB). Our real-time canvas compression engine tunes image quality quantization factors automatically so your file never exceeds 20 KB while preserving crisp signature lines."
+    summary: "To resize a signature under 20 KB, upload your image to SignResize and select the 10–20 KB preset to automatically compress the file without losing stroke sharpness.",
+    details: "Our real-time canvas compression engine iteratively calculates optimal JPEG quantization factors so your file never exceeds 20.0 KB while preserving crisp handwriting edges."
   },
   {
     q: "Signature resize 10 to 20 KB: How does it work?",
-    a: "Signature resize 10 to 20 KB enforces dual-boundary compression. Portals reject files under 10 KB due to pixelation and files over 20 KB due to upload limits. SignResize uses binary iterative compression in your browser's HTML5 canvas to guarantee the downloaded file lands precisely between 10.0 KB and 19.9 KB."
+    summary: "Signature resize 10 to 20 KB uses dual-boundary binary search quantization inside your browser to guarantee the final file lands strictly between 10.0 KB and 19.9 KB.",
+    details: "This eliminates rejection from strict recruitment servers that enforce both a 10 KB floor (to prevent unreadable blur) and a 20 KB ceiling (to conserve gateway bandwidth)."
   },
   {
     q: "Signature resize 10 to 20 KB JPG format: How to convert?",
-    a: "Upload your image (PNG, JPG, HEIC, or WebP) to SignResize, ensure the output format is set to 'JPG / JPEG (Govt)', set the target file size to 10–20 KB, and click 'Download Resized Signature'. The output is exported as a standard baseline JPEG accepted by all government recruitment portals."
+    summary: "Upload any PNG, WebP, HEIC, or scanned photo to SignResize, select the 10–20 KB boundary, and click Download to get an official baseline JPG file.",
+    details: "The exported file is a standard baseline JPEG fully compatible with all Indian state and central government recruitment upload gateways."
   },
   {
     q: "SSC signature resize 10 to 20 KB: What are the strict rules?",
-    a: "The official SSC signature upload rules are: (1) Dimensions must be 140 pixels width by 60 pixels height (approx 4.0 cm × 2.0 cm), (2) File size must strictly be between 10 KB and 20 KB, (3) Format must be JPG/JPEG, (4) Signature must be in natural running handwriting (signatures in ALL CAPITAL / BLOCK letters are rejected), and (5) Signed with a black ink pen on clean white paper."
+    summary: "The official SSC rules mandate 140 × 60 px (4×2 cm), file size between 10 KB and 20 KB, JPG format, black ink on clean white paper, and running cursive handwriting.",
+    details: "Signatures must not contain shadows, dark yellow background tints, or typed block letters, all of which trigger automated gate rejection."
   },
   {
     q: "How do I change the width and height of my signature?",
-    a: "On SignResize, navigate to the 'Custom Dimension & File Size' section in the controls panel. Select your unit (px, cm, mm, or inches), type your required Width and Height, and toggle 'Lock Aspect Ratio' as needed. You can also drag the corners of the interactive crop box directly on the visualizer canvas."
+    summary: "To change width and height, choose your preferred unit (px, cm, mm, or inches) under Custom Dimensions in SignResize and type your target measurements.",
+    details: "You can toggle 'Lock Aspect Ratio' or drag the interactive crop box handles directly on the canvas workspace to frame your signature with precision."
   },
   {
     q: "What is the required size for an SSC GD signature in CM format?",
-    a: "For SSC GD Constable applications, the required signature size in centimeter format is 4.0 cm (width) × 2.0 cm (height). When scanned at standard 200 DPI resolution, this corresponds to 140 × 60 pixels, with a file size strictly between 10 KB and 20 KB in JPG format."
+    summary: "The required size for an SSC GD signature in CM format is 4.0 cm width × 2.0 cm height, which corresponds to 140 × 60 pixels at standard 200 DPI scanning resolution.",
+    details: "The file size must strictly remain between 10 KB and 20 KB in JPG format on plain white paper with black ink."
   },
   {
     q: "How can I resize my signature online?",
-    a: "You can resize your signature online for free in 3 simple steps: (1) Open SignResize.in and upload your photo from your phone or PC (or use the 'Sign on Screen' pad), (2) Select your exam preset (e.g., SSC, PAN Card, RRB) or enter custom dimensions, and (3) Click 'Download Resized Signature'. The entire process runs 100% in your browser with no file uploads to external servers."
+    summary: "You can resize your signature online for free by uploading your photo to SignResize.in, choosing your exam preset, and clicking Download.",
+    details: "The entire process takes under 10 seconds and processes 100% inside your browser memory with zero files sent to external servers."
   },
   {
     q: "How can I resize my signature to 300x80 pixels?",
-    a: "In SignResize, set the unit selector to 'px', enter 300 in the Width input, and enter 80 in the Height input. Adjust your crop box on the canvas, set your desired file size range (e.g., 10–20 KB or 20–50 KB), and click Download to get an exact 300 × 80 pixel signature JPG."
+    summary: "In SignResize, set the unit selector to 'px', enter 300 Width and 80 Height, adjust your crop box, and click Download to export an exact 300 × 80 pixel JPG.",
+    details: "Our tool locks pixel aspect ratio while simultaneously compressing the file into your chosen kilobyte target range."
   },
   {
     q: "Can I resize and compress a thumb impression for IBPS, SSC, or NEET?",
-    a: "Yes. SignResize includes a dedicated Thumb Impression preset. Candidate left-hand thumb impressions should be taken on unruled white paper using blue or black ink. You can crop it to a 1:1 square ratio (3 cm × 3 cm or 240 × 240 pixels) and compress it to between 10 KB and 20 KB or 20 KB and 50 KB."
+    summary: "Yes, SignResize includes a dedicated 1:1 square Thumb Impression preset (3 × 3 cm or 240 × 240 px) compressed to 10–20 KB or 20–50 KB.",
+    details: "Candidate thumb impressions should be made using blue or black ink on unruled white paper; our high-contrast filter sharpens biometric whorls and ridges for machine scanning."
   },
   {
     q: "Why do SSC, IBPS, and RRB reject signatures in capital letters?",
-    a: "Staff Selection Commission (SSC), IBPS, and Railway Recruitment Boards (RRB) mandate that an applicant must sign in their customary running cursive handwriting. Writing your name in ALL CAPS / BLOCK LETTERS is treated as typed text rather than a valid legal signature and leads to automatic rejection."
+    summary: "Signatures in capital letters are rejected because recruitment bodies legally require customary running cursive handwriting to verify candidate authenticity.",
+    details: "Writing your name in ALL CAPS / BLOCK LETTERS is treated as printed typography rather than a legally valid signature, causing automatic disqualification."
   }
 ];
 ---
@@ -80,8 +98,9 @@ const faqs = [
             </svg>
           </span>
         </summary>
-        <p class="pt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-          {faq.a}
+        <p class="pt-3 text-xs sm:text-sm leading-relaxed">
+          <strong class="text-foreground font-semibold block sm:inline">{faq.summary}</strong>{" "}
+          <span class="text-muted-foreground">{faq.details}</span>
         </p>
       </details>
     ))}
@@ -96,7 +115,7 @@ const faqs = [
       "name": f.q,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": f.a
+        "text": `${f.summary} ${f.details}`
       }
     }))
   })} />
