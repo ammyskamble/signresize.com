@@ -15,6 +15,40 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "ssc-chsl-tier-1-speed-typing-photo-signature-guidelines-mu3ju4aq",
+    title: "SSC CHSL 2026: Tier-1 Speed Strategy, English Comprehension Hacks & Live Photo Guidelines",
+    excerpt: "Key tactics to crack SSC CHSL Tier-1 with 160+ target scores, Tier-2 typing speed preparation, and live webcam photo compliance rules.",
+    category: "Exam Alerts",
+    publishDate: "Sept 16, 2026",
+    author: "SignResize Examination Standards Desk",
+    authorRole: "Staff Selection Commission Analytics Team",
+    readTime: "5 min read",
+    featured: true,
+    tags: ["SSC CHSL","Tier 1 Prep","Typing Speed","Live Photo Guidelines","Govt Jobs"],
+    relatedExamPreset: "ssc-general",
+    contentHtml: `
+<h2>SSC CHSL 2026: Blueprint for LDC, JSA &amp; DEO Success</h2>
+      <p>The Staff Selection Commission Combined Higher Secondary Level (CHSL) examination remains one of India's most popular recruitment routes for 10+2 candidates. With over 30 lakh applicants competing for Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), and Data Entry Operator (DEO) positions, achieving a competitive cut-off score requires consistent sectional discipline.</p>
+
+      <h2>The Live Webcam Photo Rule &amp; Signature Compliance</h2>
+      <p>Under the revised SSC online application platform, candidate photographs are captured directly using a live webcam or smartphone camera during form submission. Keep these critical requirements in mind:</p>
+      <ul>
+        <li><strong>Illumination:</strong> Sit in front of a natural light source or well-lit wall. Shadows behind your head or ears will cause the AI verification scanner to flag your submission.</li>
+        <li><strong>Eye Contact &amp; Posture:</strong> Look straight into the lens with both ears visible and a neutral facial expression. Spectacles with reflections, caps, or mufflers will trigger automated rejection.</li>
+        <li><strong>Scanned Signature (10–20 KB):</strong> Must be signed in black ballpoint pen on plain white paper, cropped to 140 &times; 60 pixels, and compressed within the 10.0 KB to 20.0 KB limit. Capital letter signatures will be rejected without appeal.</li>
+      </ul>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Format Your SSC Signature in Seconds</h4>
+        <p class="text-sm text-muted-foreground mt-1">Avoid application rejection. Crop, remove phone shadows, and compress your signature to 10–20 KB with 100% privacy.</p>
+        <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+          Resize for SSC CHSL &rarr;
+        </a>
+      </div>
+    `
+  },
+
+  {
     slug: "upsc-csat-paper-2-qualifying-speed-strategy-comprehension-hacks-mu24fywo",
     title: "UPSC CSE Prelims: CSAT Paper-II Qualifying Blueprint, Reading Comprehension & Speed Logic Hacks",
     excerpt: "Master the 33% CSAT qualifying cutoff with proven strategies for high-accuracy reading comprehension, critical reasoning, and arithmetic problem selection.",
@@ -23,7 +57,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "SignResize Academic Research Desk",
     authorRole: "Civil Services Methodology Team",
     readTime: "7 min read",
-    featured: true,
+    featured: false,
     tags: ["UPSC Prelims","CSAT Strategy","Reading Comprehension","Aptitude Speed","Civil Services"],
     relatedExamPreset: "upsc-civil-services",
     contentHtml: `
