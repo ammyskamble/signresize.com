@@ -1,4 +1,8 @@
-export interface BlogPost {
+// scratch/update_blog_data.mjs
+import fs from 'node:fs';
+import path from 'node:path';
+
+const blogPostsContent = `export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
@@ -26,7 +30,7 @@ export const BLOG_POSTS: BlogPost[] = [
     featured: true,
     tags: ["SSC CGL 2026", "Tier 1 Preparation", "Live Photo Rules", "Signature 10-20KB", "Govt Exam Strategy", "Portal Guide"],
     relatedExamPreset: "ssc-general",
-    contentHtml: `
+    contentHtml: \`
       <h2>SSC CGL 2026: Complete Recruitment Overview &amp; Key Milestones</h2>
       <p>The Staff Selection Commission (SSC) has released the official notification for the <strong>Combined Graduate Level (CGL) Examination 2026</strong>. Covering over 17,700 positions across premier central ministries—including Assistant Audit Officer (AAO), Assistant Section Officer (ASO in MEA and IB), Inspector of Income Tax, and Central Excise Inspector—CGL is India's most sought-after non-UPSC recruitment drive.</p>
       
@@ -219,7 +223,7 @@ Target Safe Zone: 75+ Correct Attempts with >= 88% Accuracy -> ~150 Net Score</c
         <p class="text-xs font-bold text-primary uppercase tracking-wider">💡 Pro-Tip for SSC Registration</p>
         <p class="text-xs text-muted-foreground leading-relaxed">Always download and save your final submitted SSC Application Form PDF. Note down your Application ID and keep a copy of the uploaded signature file on your phone for verification during Tier-1 exam entry.</p>
       </div>
-    `
+    \`
   },
 
   {
@@ -234,7 +238,7 @@ Target Safe Zone: 75+ Correct Attempts with >= 88% Accuracy -> ~150 Net Score</c
     featured: false,
     tags: ["RRB NTPC", "Railway Exams", "CBT 1 Prep", "Signature 10-20KB", "Maths Shortcuts", "Document Guidelines"],
     relatedExamPreset: "rrb-railway",
-    contentHtml: `
+    contentHtml: \`
       <h2>RRB NTPC 2026: Master Examination Overview &amp; Selection Stages</h2>
       <p>The Railway Recruitment Boards (RRB) have activated the recruitment calendar for <strong>Non-Technical Popular Categories (NTPC)</strong>. Covering graduate posts like Goods Guard, Senior Clerk-cum-Typist, and Commercial Apprentice, as well as undergraduate roles like Junior Clerk and Train Clerk, competition across all Indian railway zones is exceptionally high.</p>
 
@@ -330,7 +334,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
 
       <h2>Recommended Daily Study Strategy</h2>
       <p>Divide your daily preparation into 3 focused blocks: 2 hours for Arithmetic speed drills, 1.5 hours for Logical Reasoning puzzle practice, and 2 hours for General Science and Current Affairs revision.</p>
-    `
+    \`
   },
 
   {
@@ -345,7 +349,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     featured: false,
     tags: ["UPSC Prelims", "CSAT Strategy", "Reading Comprehension", "Aptitude Speed", "Civil Services", "UPSC OTR"],
     relatedExamPreset: "upsc-civil-services",
-    contentHtml: `
+    contentHtml: \`
       <h2>The Decisive Role of CSAT (Paper-II) in UPSC Prelims</h2>
       <p>In recent Civil Services examinations, CSAT Paper-II has proven to be the major hurdle for thousands of aspirants. Despite scoring 100+ in General Studies Paper-I, failing to secure the mandatory qualifying threshold of <strong>33% (66.67 marks out of 200)</strong> results in immediate disqualification.</p>
 
@@ -406,7 +410,7 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
           Open UPSC Resizer Preset &rarr;
         </a>
       </div>
-    `
+    \`
   },
 
   {
@@ -421,7 +425,7 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     featured: false,
     tags: ["State PSC", "OTR Registration", "UPPSC", "BPSC", "MPSC", "RPSC", "Document Guidelines"],
     relatedExamPreset: "uppsc-uttar-pradesh",
-    contentHtml: `
+    contentHtml: \`
       <h2>State PSC One-Time Registration (OTR) Mandate</h2>
       <p>State Public Service Commissions across India—including <strong>UPPSC (Uttar Pradesh), BPSC (Bihar), MPSC (Maharashtra), and RPSC (Rajasthan)</strong>—have made OTR mandatory. Photographs and signatures uploaded during OTR are permanently locked to candidate profiles for all future competitive exam notices.</p>
 
@@ -491,7 +495,7 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
           Launch State PSC Resizer &rarr;
         </a>
       </div>
-    `
+    \`
   },
 
   {
@@ -506,7 +510,7 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     featured: false,
     tags: ["IBPS PO", "IBPS Clerk", "Handwritten Declaration", "Left Thumb Impression", "Bank Exam Guidelines", "Document Rules"],
     relatedExamPreset: "ibps-sbi",
-    contentHtml: `
+    contentHtml: \`
       <h2>The 4 Mandatory Digital Uploads for IBPS &amp; SBI Recruitment</h2>
       <p>Applying for banking recruitment exams conducted by the <strong>Institute of Banking Personnel Selection (IBPS)</strong> or <strong>State Bank of India (SBI)</strong> requires uploading four distinct scanned assets during online registration. Failing even one parameter results in immediate application rejection or biometric failure at the exam venue.</p>
 
@@ -568,7 +572,7 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
           </a>
         </div>
       </div>
-    `
+    \`
   },
 
   {
@@ -583,7 +587,7 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     featured: false,
     tags: ["Rejection Prevention", "Exam Guidelines", "Document Resizing", "PAN / SSC", "Quality Control"],
     relatedExamPreset: "ssc-general",
-    contentHtml: `
+    contentHtml: \`
       <h2>Why Do Exam Commissions Reject Candidate Documents?</h2>
       <p>Government recruitment portals like SSC, UPSC, NTA, and IBPS use automated optical scanning software. When an uploaded signature fails dimension or contrast checks, the software flags it as invalid, resulting in immediate rejection without manual review.</p>
 
@@ -610,7 +614,7 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
           <p>If an exam portal requires min 20KB and your file is 18.5KB, the portal will show "File size too small". SignResize's Dual-Boundary engine prevents this by matching the exact range.</p>
         </li>
       </ol>
-    `
+    \`
   },
 
   {
@@ -625,7 +629,7 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     featured: false,
     tags: ["UPSC CSE", "Study Strategy", "Prelims 2026", "Time Management", "NCERT Roadmap"],
     relatedExamPreset: "upsc-civil-services",
-    contentHtml: `
+    contentHtml: \`
       <h2>The Structured 90-Day Foundation Blueprint</h2>
       <p>Succeeding in the Civil Services Examination (CSE) does not require studying 16 hours a day; it requires systematic consistency, sharp syllabus boundaries, and relentless revision of standard public academic sources. This comprehensive roadmap is designed to guide both full-time aspirants and working professionals through a step-by-step preparation cycle.</p>
 
@@ -673,6 +677,11 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
           </tbody>
         </table>
       </div>
-    `
+    \`
   }
 ];
+`;
+
+const dataFilePath = path.join(process.cwd(), 'src', 'data', 'blogPostsData.ts');
+fs.writeFileSync(dataFilePath, blogPostsContent, 'utf-8');
+console.log('Successfully updated src/data/blogPostsData.ts with long-form master articles!');

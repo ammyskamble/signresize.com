@@ -22,35 +22,74 @@ function getTodayFormatted() {
  */
 const CURRICULUM_POOL = [
   {
-    slugBase: 'rrb-ntpc-2026-document-upload-rules-preparation-strategy',
+    slugBase: 'rrb-ntpc-2026-master-document-rules-preparation-strategy',
     title: 'RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy',
-    excerpt: 'Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, and speed calculation methods.',
+    excerpt: 'Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, step-by-step navigation, and speed calculation methods.',
     category: 'Study Prep',
     author: 'SignResize Academic Research Desk',
     authorRole: 'Railway Recruitment Strategy Desk',
-    readTime: '6 min read',
-    tags: ['RRB NTPC', 'Railway Exams', 'CBT 1 Prep', 'Signature 10-20KB', 'Maths Shortcuts'],
+    readTime: '8 min read',
+    tags: ['RRB NTPC', 'Railway Exams', 'CBT 1 Prep', 'Signature 10-20KB', 'Maths Shortcuts', 'Document Guidelines'],
     relatedExamPreset: 'rrb-railway',
     generateHtml: (dateStr) => `
-      <h2>RRB NTPC 2026: Key Examination Overview</h2>
-      <p>The Railway Recruitment Boards (RRB) have activated the recruitment calendar for <strong>Non-Technical Popular Categories (NTPC)</strong>. With intense competition spanning across undergraduate and graduate posts, excelling in Computer Based Test 1 (CBT-1) requires both conceptual clarity and exact document compliance during registration.</p>
+      <h2>RRB NTPC 2026: Master Examination Overview &amp; Selection Stages</h2>
+      <p>The Railway Recruitment Boards (RRB) have activated the recruitment calendar for <strong>Non-Technical Popular Categories (NTPC)</strong>. Covering graduate posts like Goods Guard, Senior Clerk-cum-Typist, and Commercial Apprentice, as well as undergraduate roles like Junior Clerk and Train Clerk, competition across all Indian railway zones is exceptionally high.</p>
+
+      <p>Succeeding in CBT-1 and CBT-2 requires a structured study routine paired with strict document compliance during the online registration process.</p>
 
       <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
         <h4 class="font-bold text-primary mb-2">⚡ CBT-1 Exam Pattern &amp; Time Distribution</h4>
-        <ul class="space-y-1 text-sm">
-          <li><strong>General Awareness:</strong> 40 Questions (Current Affairs, General Science, Indian History, Geography)</li>
-          <li><strong>Mathematics:</strong> 30 Questions (Number Systems, Decimals, Fractions, LCM-HCF, Ratio, Percentages, Mensuration)</li>
-          <li><strong>General Intelligence &amp; Reasoning:</strong> 30 Questions (Analogies, Coding, Syllogisms, Venn Diagrams)</li>
+        <ul class="space-y-1.5 text-sm text-foreground/90">
+          <li><strong>General Awareness:</strong> 40 Questions (Current Affairs, General Science, Indian History, Geography, Static GK)</li>
+          <li><strong>Mathematics:</strong> 30 Questions (Number Systems, Decimals, Fractions, LCM-HCF, Ratio, Percentages, Mensuration, Time &amp; Work)</li>
+          <li><strong>General Intelligence &amp; Reasoning:</strong> 30 Questions (Analogies, Coding, Syllogisms, Venn Diagrams, Mathematical Operations)</li>
           <li><strong>Total Time:</strong> 90 Minutes (100 Questions with 1/3rd negative marking per incorrect response)</li>
         </ul>
       </div>
 
-      <h2>Document Upload Compliance to Avoid Cancellation</h2>
-      <p>Railway recruitment notices explicitly enforce strict criteria for candidate photograph and scanned signature files:</p>
+      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
+        <div class="flex items-center justify-between text-slate-400 text-[11px]">
+          <span>⚡ Railway Exam Portal Rules &amp; Negative Marking Snippet</span>
+          <span>RRB Specification Standard</span>
+        </div>
+        <pre class="overflow-x-auto text-emerald-400"><code>CBT-1 Score = (Correct Attempts × 1.0) - (Incorrect Attempts × 0.333)
+Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</code></pre>
+      </div>
+
+      <h2>Document Upload Compliance for Railway Portals</h2>
+      <p>Railway recruitment notices explicitly enforce strict parameters for candidate photo and scanned signature uploads:</p>
       <ul>
-        <li><strong>Scanned Photograph:</strong> Clear color passport photograph taken against a light or white background. Must be between <strong>20 KB and 50 KB</strong> in JPG format. Glasses with glare or tinted lenses are strictly barred.</li>
-        <li><strong>Candidate Signature:</strong> Must be signed in running handwriting on white unruled paper using a black ballpoint pen. File weight must be between <strong>10 KB and 20 KB</strong> (140 &times; 60 pixels). Signatures written in capital letters will result in immediate disqualification.</li>
+        <li><strong>Scanned Passport Photo:</strong> Clear color photograph against a light white background taken within 3 months. File size must range between <strong>20 KB and 50 KB</strong> in JPG/JPEG format. Spectacles with tint or flash glare will be rejected.</li>
+        <li><strong>Candidate Signature:</strong> Must be signed in running handwriting on clean white unruled paper using a black ballpoint pen. File weight must be between <strong>10 KB and 20 KB</strong> (140 &times; 60 pixels). Capital letter signatures trigger immediate cancellation.</li>
       </ul>
+
+      <div class="my-8 p-6 rounded-2xl bg-card border border-border shadow-sm">
+        <h3 class="text-base font-bold text-foreground mb-4 flex items-center gap-2">
+          <span>📐</span> RRB Document Formatting Workflow
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center">
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">1</div>
+            <span class="font-bold text-xs text-foreground">Sign on White Paper</span>
+            <span class="text-[11px] text-muted-foreground">Use dark black ballpoint pen</span>
+          </div>
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">2</div>
+            <span class="font-bold text-xs text-foreground">Crop 140x60 Ratio</span>
+            <span class="text-[11px] text-muted-foreground">Remove surrounding excess paper</span>
+          </div>
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">3</div>
+            <span class="font-bold text-xs text-foreground">Background White Filter</span>
+            <span class="text-[11px] text-muted-foreground">Clean phone shadows automatically</span>
+          </div>
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">4</div>
+            <span class="font-bold text-xs text-foreground">Target 10-20 KB</span>
+            <span class="text-[11px] text-muted-foreground">Compress for zero portal error</span>
+          </div>
+        </div>
+      </div>
 
       <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
         <h4 class="text-base font-bold text-foreground">Need RRB Signature &amp; Photo Formatted?</h4>
@@ -65,67 +104,107 @@ const CURRICULUM_POOL = [
         </div>
       </div>
 
+      <h2>Step-by-Step Railway Registration Workflow</h2>
+      <div class="my-8 space-y-4">
+        <div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-6">
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</div>
+            <h4 class="font-bold text-foreground text-sm">Select Zonal RRB Portal</h4>
+            <p class="text-xs text-muted-foreground mt-1">Visit your chosen zonal portal (e.g. RRB Mumbai, RRB Chennai, RRB Chandigarh) and initiate candidate registration.</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</div>
+            <h4 class="font-bold text-foreground text-sm">Upload Photo (20-50 KB) &amp; Signature (10-20 KB)</h4>
+            <p class="text-xs text-muted-foreground mt-1">Upload JPEG files formatted with SignResize. Verify that your signature image displays clearly without horizontal stretch.</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">3</div>
+            <h4 class="font-bold text-foreground text-sm">Confirm Community Certificate Upload (SC/ST)</h4>
+            <p class="text-xs text-muted-foreground mt-1">If applying for free rail travel authority, upload your scanned caste certificate in PDF format under 500 KB.</p>
+          </div>
+        </div>
+      </div>
+
       <h2>Recommended Daily Study Strategy</h2>
-      <p>Divide your preparation into 3 focused blocks: devote 2 hours to Arithmetic drills, 1.5 hours to Logical Reasoning puzzles, and 2 hours to Current Affairs revision and Static GK topics like General Science and Modern Indian History.</p>
+      <p>Divide your daily preparation into 3 focused blocks: 2 hours for Arithmetic speed drills, 1.5 hours for Logical Reasoning puzzle practice, and 2 hours for General Science and Current Affairs revision.</p>
     `
   },
   {
-    slugBase: 'state-psc-one-time-registration-otr-document-standards',
+    slugBase: 'state-psc-otr-registration-photo-signature-guidelines',
     title: 'State PSC One-Time Registration (OTR): Mandatory Signature & Photo Guidelines for UPPSC, BPSC, MPSC & RPSC',
-    excerpt: 'Detailed checklist for State Public Service Commission One-Time Registration portals: dimensions, dual-boundary compression, and white background verification.',
+    excerpt: 'Detailed checklist for State Public Service Commission One-Time Registration portals: dimensions, dual-boundary compression, step-by-step navigation, and white background verification.',
     category: 'Guidelines & Tips',
     author: 'SignResize Technical Verification Team',
     authorRole: 'State Commission Standards Desk',
-    readTime: '5 min read',
-    tags: ['State PSC', 'OTR Registration', 'UPPSC', 'BPSC', 'MPSC', 'Document Guidelines'],
+    readTime: '7 min read',
+    tags: ['State PSC', 'OTR Registration', 'UPPSC', 'BPSC', 'MPSC', 'RPSC', 'Document Guidelines'],
     relatedExamPreset: 'uppsc-uttar-pradesh',
     generateHtml: (dateStr) => `
-      <h2>The Shift to Permanent One-Time Registration (OTR)</h2>
-      <p>State Public Service Commissions across India—including <strong>UPPSC (Uttar Pradesh), BPSC (Bihar), MPSC (Maharashtra), and RPSC (Rajasthan)</strong>—have made One-Time Registration (OTR) mandatory. Once an applicant registers their profile, the uploaded photograph and signature are permanently tied to their profile across all upcoming recruitment examinations.</p>
+      <h2>State PSC One-Time Registration (OTR) Mandate</h2>
+      <p>State Public Service Commissions across India—including <strong>UPPSC (Uttar Pradesh), BPSC (Bihar), MPSC (Maharashtra), and RPSC (Rajasthan)</strong>—have made OTR mandatory. Photographs and signatures uploaded during OTR are permanently locked to candidate profiles for all future competitive exam notices.</p>
 
-      <h2>Key Dimension &amp; File Size Comparison</h2>
-      <div class="my-5 overflow-x-auto">
+      <h2>State Commission Document Comparison Matrix</h2>
+      <div class="my-6 overflow-x-auto">
         <table class="w-full text-xs sm:text-sm text-left border border-border">
           <thead class="bg-muted text-foreground font-semibold">
             <tr>
-              <th class="p-2.5 border-b">Commission</th>
-              <th class="p-2.5 border-b">Signature Size</th>
-              <th class="p-2.5 border-b">Photo Dimensions &amp; Size</th>
-              <th class="p-2.5 border-b">Special Mandatory Requirements</th>
+              <th class="p-3 border-b">Commission</th>
+              <th class="p-3 border-b">Signature Size &amp; Specs</th>
+              <th class="p-3 border-b">Photo Dimensions &amp; Size</th>
+              <th class="p-3 border-b">Special Rules</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-border">
             <tr>
-              <td class="p-2.5 font-semibold text-primary">UPPSC OTR</td>
-              <td class="p-2.5 font-mono">10 KB – 20 KB (140&times;60 px)</td>
-              <td class="p-2.5 font-mono">20 KB – 50 KB (3.5&times;4.5 cm)</td>
-              <td class="p-2.5">Clear white background, name and date beneath photo</td>
+              <td class="p-3 font-semibold text-primary">UPPSC OTR</td>
+              <td class="p-3 font-mono">10 KB – 20 KB (140&times;60 px)</td>
+              <td class="p-3 font-mono">20 KB – 50 KB (3.5&times;4.5 cm)</td>
+              <td class="p-3">White background; Candidate name &amp; photo date beneath picture</td>
             </tr>
             <tr>
-              <td class="p-2.5 font-semibold text-primary">BPSC (Bihar)</td>
-              <td class="p-2.5 font-mono">10 KB – 20 KB (Hindi &amp; English)</td>
-              <td class="p-2.5 font-mono">20 KB – 50 KB</td>
-              <td class="p-2.5">Separate uploads for Hindi and English running signatures</td>
+              <td class="p-3 font-semibold text-primary">BPSC (Bihar)</td>
+              <td class="p-3 font-mono">10 KB – 20 KB (Separate Files)</td>
+              <td class="p-3 font-mono">20 KB – 50 KB (3.5&times;4.5 cm)</td>
+              <td class="p-3">Requires two separate uploads for Hindi and English running signatures</td>
             </tr>
             <tr>
-              <td class="p-2.5 font-semibold text-primary">MPSC (Maharashtra)</td>
-              <td class="p-2.5 font-mono">10 KB – 20 KB</td>
-              <td class="p-2.5 font-mono">20 KB – 50 KB (200&times;230 px)</td>
-              <td class="p-2.5">Strict natural cursive handwriting; black ballpoint pen</td>
+              <td class="p-3 font-semibold text-primary">MPSC (Maharashtra)</td>
+              <td class="p-3 font-mono">10 KB – 20 KB</td>
+              <td class="p-3 font-mono">20 KB – 50 KB (200&times;230 px)</td>
+              <td class="p-3">Black ballpoint pen on plain white sheet; Cursive running writing</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h2>Common Pitfalls in State OTR Forms</h2>
-      <ol class="space-y-2 text-sm text-foreground/90">
-        <li><strong>Uploading Low-Resolution Phone Snapshots:</strong> Taking a picture under low indoor lighting causes grey or shadowy backgrounds that fail automatic optical validation. Always use our "Clean White Sheet" contrast filter.</li>
-        <li><strong>Disregarding Hindi Signature Uploads:</strong> For BPSC and select northern state portals, candidates must supply both an English and a Hindi running signature. Ensure both files match the 10–20 KB bound.</li>
-      </ol>
+      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
+        <div class="flex items-center justify-between text-slate-400 text-[11px]">
+          <span>⚡ State OTR Portal Error Prevention Code Snippet</span>
+          <span>Portal Validation Standard</span>
+        </div>
+        <pre class="overflow-x-auto text-emerald-400"><code>If photo_background != "white" OR signature_casing == "BLOCK_CAPS":
+    Return Portal_Error: "Document failed OCR automated quality check"</code></pre>
+      </div>
+
+      <h2>Step-by-Step State OTR Navigation Workflow</h2>
+      <div class="my-8 space-y-4">
+        <div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-6">
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</div>
+            <h4 class="font-bold text-foreground text-sm">Register OTR Profile</h4>
+            <p class="text-xs text-muted-foreground mt-1">Enter Aadhar / Mobile / Email to generate permanent OTR Registration ID on your State PSC portal.</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</div>
+            <h4 class="font-bold text-foreground text-sm">Upload High-Contrast Photos &amp; Signatures</h4>
+            <p class="text-xs text-muted-foreground mt-1">Use SignResize to remove background phone shadows and compress signatures precisely to the 10–20 KB bound.</p>
+          </div>
+        </div>
+      </div>
 
       <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
         <h4 class="text-base font-bold text-foreground">Prepare Your OTR Files in 1 Click</h4>
-        <p class="text-sm text-muted-foreground mt-1">Select your state commission preset to automatically apply the exact dimensions and compression limits directly in your browser.</p>
+        <p class="text-sm text-muted-foreground mt-1">Select your state commission preset to automatically apply exact dimensions and compression limits directly in your browser.</p>
         <a href="/#tool-workspace" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
           Launch State PSC Resizer &rarr;
         </a>
@@ -133,92 +212,74 @@ const CURRICULUM_POOL = [
     `
   },
   {
-    slugBase: 'upsc-csat-paper-2-qualifying-speed-strategy-comprehension-hacks',
+    slugBase: 'upsc-csat-paper-2-master-blueprint-comprehension-hacks',
     title: 'UPSC CSE Prelims: CSAT Paper-II Qualifying Blueprint, Reading Comprehension & Speed Logic Hacks',
-    excerpt: 'Master the 33% CSAT qualifying cutoff with proven strategies for high-accuracy reading comprehension, critical reasoning, and arithmetic problem selection.',
+    excerpt: 'Master the 33% CSAT qualifying cutoff with proven strategies for high-accuracy reading comprehension, critical reasoning, arithmetic problem selection, and UPSC OTR document rules.',
     category: 'Study Prep',
     author: 'SignResize Academic Research Desk',
     authorRole: 'Civil Services Methodology Team',
-    readTime: '7 min read',
-    tags: ['UPSC Prelims', 'CSAT Strategy', 'Reading Comprehension', 'Aptitude Speed', 'Civil Services'],
+    readTime: '8 min read',
+    tags: ['UPSC Prelims', 'CSAT Strategy', 'Reading Comprehension', 'Aptitude Speed', 'Civil Services', 'UPSC OTR'],
     relatedExamPreset: 'upsc-civil-services',
     generateHtml: (dateStr) => `
-      <h2>The Critical Role of Paper-II (CSAT) in UPSC Prelims</h2>
-      <p>In recent years, the Civil Services Aptitude Test (CSAT Paper-II) has become the decisive eliminator for thousands of diligent aspirants. Despite scoring 100+ in General Studies Paper-I, failing to attain the minimum qualifying threshold of <strong>33% (66.67 marks out of 200)</strong> results in automatic disqualification from the Mains examination.</p>
+      <h2>The Decisive Role of CSAT (Paper-II) in UPSC Prelims</h2>
+      <p>In recent Civil Services examinations, CSAT Paper-II has proven to be the major hurdle for thousands of aspirants. Despite scoring 100+ in General Studies Paper-I, failing to secure the mandatory qualifying threshold of <strong>33% (66.67 marks out of 200)</strong> results in immediate disqualification.</p>
 
-      <h2>The Three Pillars of CSAT Paper-II</h2>
-      <div class="my-4 overflow-x-auto">
+      <h2>CSAT Sectional Breakdown &amp; Target Matrix</h2>
+      <div class="my-6 overflow-x-auto">
         <table class="w-full text-xs sm:text-sm text-left border border-border">
           <thead class="bg-muted text-foreground font-semibold">
             <tr>
-              <th class="p-2.5 border-b">Section</th>
-              <th class="p-2.5 border-b">Average Questions</th>
-              <th class="p-2.5 border-b">Target Attempt</th>
-              <th class="p-2.5 border-b">Scoring Strategy</th>
+              <th class="p-3 border-b">Section</th>
+              <th class="p-3 border-b">Questions</th>
+              <th class="p-3 border-b">Target Attempt</th>
+              <th class="p-3 border-b">Scoring &amp; Accuracy Strategy</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-border">
             <tr>
-              <td class="p-2.5 font-semibold text-primary">Reading Comprehension</td>
-              <td class="p-2.5 font-mono">25–28 Qs</td>
-              <td class="p-2.5 font-mono">20–22 Qs</td>
-              <td class="p-2.5">Focus on central assumptions, logical corollaries, and primary inferences.</td>
+              <td class="p-3 font-semibold text-primary">Reading Comprehension</td>
+              <td class="p-3 font-mono">25–28 Qs</td>
+              <td class="p-3 font-mono">20 Qs</td>
+              <td class="p-3">Identify author's central assumption, corollaries, and rational implications. Avoid extreme options.</td>
             </tr>
             <tr>
-              <td class="p-2.5 font-semibold text-primary">Quantitative Aptitude</td>
-              <td class="p-2.5 font-mono">35–40 Qs</td>
-              <td class="p-2.5 font-mono">15–18 Qs</td>
-              <td class="p-2.5">Select high-accuracy topics: Number Systems, Remainder Theorem, Percentages, Ratio, and Time &amp; Work.</td>
+              <td class="p-3 font-semibold text-primary">Quantitative Aptitude</td>
+              <td class="p-3 font-mono">35–40 Qs</td>
+              <td class="p-3 font-mono">15 Qs</td>
+              <td class="p-3">Focus on Number Systems, Remainder Theorem, Percentages, Ratio, Work &amp; Time. Avoid complex P&amp;C.</td>
             </tr>
             <tr>
-              <td class="p-2.5 font-semibold text-primary">Logical &amp; Analytical Reasoning</td>
-              <td class="p-2.5 font-mono">15–20 Qs</td>
-              <td class="p-2.5 font-mono">12–15 Qs</td>
-              <td class="p-2.5">Prioritize Syllogisms, Blood Relations, Direction Sense, and simple linear arrangements.</td>
+              <td class="p-3 font-semibold text-primary">Logical &amp; Analytical Reasoning</td>
+              <td class="p-3 font-mono">15–20 Qs</td>
+              <td class="p-3 font-mono">12 Qs</td>
+              <td class="p-3">Prioritize Syllogisms, Blood Relations, Direction Sense, and linear seating arrangements.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h2>The "45-Question Safe Zone" Rule</h2>
-      <p>To comfortably secure 80+ marks without risking negative marking penalties (0.83 marks deducted per wrong answer), target attempting <strong>45 to 50 well-vetted questions</strong> with at least 80% accuracy. Never rush into solving lengthy combinatorics or multi-case circular puzzles early in the paper.</p>
-
-      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
-        <h4 class="text-base font-bold text-foreground">Preparing UPSC OTR Documents?</h4>
-        <p class="text-sm text-muted-foreground mt-1">Ensure your UPSC passport photo (350&times;350 px, 20–300 KB) and signature (140&times;60 px, 10–20 KB) comply with official OTR standards before the application portal closes.</p>
-        <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
-          Open UPSC Resizer Preset &rarr;
-        </a>
+      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
+        <div class="flex items-center justify-between text-slate-400 text-[11px]">
+          <span>⚡ UPSC CSAT Safe Attempt &amp; Score Calculation Snippet</span>
+          <span>UPSC Marking Standard</span>
+        </div>
+        <pre class="overflow-x-auto text-emerald-400"><code>Target: Attempt 45 Questions with >= 80% Accuracy
+Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks (Comfortably clears 66.67)</code></pre>
       </div>
-    `
-  },
-  {
-    slugBase: 'ssc-chsl-tier-1-speed-typing-photo-signature-guidelines',
-    title: 'SSC CHSL 2026: Tier-1 Speed Strategy, English Comprehension Hacks & Live Photo Guidelines',
-    excerpt: 'Key tactics to crack SSC CHSL Tier-1 with 160+ target scores, Tier-2 typing speed preparation, and live webcam photo compliance rules.',
-    category: 'Exam Alerts',
-    author: 'SignResize Examination Standards Desk',
-    authorRole: 'Staff Selection Commission Analytics Team',
-    readTime: '5 min read',
-    tags: ['SSC CHSL', 'Tier 1 Prep', 'Typing Speed', 'Live Photo Guidelines', 'Govt Jobs'],
-    relatedExamPreset: 'ssc-general',
-    generateHtml: (dateStr) => `
-      <h2>SSC CHSL 2026: Blueprint for LDC, JSA &amp; DEO Success</h2>
-      <p>The Staff Selection Commission Combined Higher Secondary Level (CHSL) examination remains one of India's most popular recruitment routes for 10+2 candidates. With over 30 lakh applicants competing for Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), and Data Entry Operator (DEO) positions, achieving a competitive cut-off score requires consistent sectional discipline.</p>
 
-      <h2>The Live Webcam Photo Rule &amp; Signature Compliance</h2>
-      <p>Under the revised SSC online application platform, candidate photographs are captured directly using a live webcam or smartphone camera during form submission. Keep these critical requirements in mind:</p>
+      <h2>UPSC OTR Document Upload Rules</h2>
+      <p>Candidates registering on the UPSC One Time Registration portal (upsconline.nic.in) must adhere to precise file specifications for photo and signature uploads:</p>
       <ul>
-        <li><strong>Illumination:</strong> Sit in front of a natural light source or well-lit wall. Shadows behind your head or ears will cause the AI verification scanner to flag your submission.</li>
-        <li><strong>Eye Contact &amp; Posture:</strong> Look straight into the lens with both ears visible and a neutral facial expression. Spectacles with reflections, caps, or mufflers will trigger automated rejection.</li>
-        <li><strong>Scanned Signature (10–20 KB):</strong> Must be signed in black ballpoint pen on plain white paper, cropped to 140 &times; 60 pixels, and compressed within the 10.0 KB to 20.0 KB limit. Capital letter signatures will be rejected without appeal.</li>
+        <li><strong>Passport Photograph:</strong> 350 &times; 350 pixels, size strictly <strong>20 KB to 300 KB</strong>. Must state candidate's name and photo date at the bottom.</li>
+        <li><strong>Scanned Signature:</strong> 140 &times; 60 pixels, size strictly <strong>10 KB to 20 KB</strong> in black ink.</li>
       </ul>
 
       <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
-        <h4 class="text-base font-bold text-foreground">Format Your SSC Signature in Seconds</h4>
-        <p class="text-sm text-muted-foreground mt-1">Avoid application rejection. Crop, remove phone shadows, and compress your signature to 10–20 KB with 100% privacy.</p>
-        <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
-          Resize for SSC CHSL &rarr;
+        <h4 class="text-base font-bold text-foreground">Preparing UPSC OTR Documents?</h4>
+        <p class="text-sm text-muted-foreground mt-1">Ensure your UPSC passport photo and signature comply with official OTR specs before the registration portal closes.</p>
+        <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+          Open UPSC Resizer Preset &rarr;
         </a>
       </div>
     `
@@ -232,26 +293,34 @@ async function tryGenerateWithGemini(existingSlugs, todayFormatted) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) return null;
 
-  console.log('GEMINI_API_KEY detected. Requesting fresh article from Gemini API...');
-  const prompt = `You are the lead editor for SignResize.in, a specialized document preparation and competitive exam prep portal in India.
+  console.log('GEMINI_API_KEY detected. Requesting fresh long-form article from Gemini API...');
+  const prompt = `You are the lead editor for SignResize.in, a premier document compliance & competitive examination guidance portal in India.
 Current Date: ${todayFormatted}
 Categories to choose from: 'Exam Alerts' | 'Study Prep' | 'Guidelines & Tips' | 'Career Opportunity'
 Existing slugs to avoid: ${JSON.stringify(existingSlugs.slice(0, 10))}
 
-Generate a fresh, highly detailed, realistic, and practical article for Indian competitive exams (e.g. SSC, UPSC, RRB, Banking, State PSCs, Defense).
+Generate an exhaustive, highly detailed, long-form master article (1200+ words) for Indian competitive exams (e.g. SSC, UPSC, RRB, Banking, State PSCs).
+CRITICAL EDITORIAL CONSTRAINTS:
+1. Title and Content MUST match 100% in deep detail. Never write a generic superficial summary.
+2. Must include an HTML SVG diagram / visual illustration or visual comparison card (e.g. Accepted vs Rejected signature graphic).
+3. Must include a numbered Step-by-Step Navigation guide timeline (<div class="my-8 space-y-4">...</div>).
+4. Must include a Rule / Code / Formula Snippet callout box (<div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800">...</div>).
+5. Must include a comparative spec/strategy HTML table (<table>...</table>).
+6. Must include an interactive SignResize tool callout card (<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">...</div>) linking to /photo-resizer/, /ssc-signature-resize/, /upsc-signature-resize/, or /rrb-signature-resize/.
+
 Provide your output strictly in valid JSON format matching this schema:
 {
   "slug": "unique-hyphenated-lowercase-slug-2026",
-  "title": "Compelling SEO Title (under 80 chars)",
+  "title": "Exhaustive SEO Title (under 90 chars)",
   "excerpt": "2-3 informative sentences summarizing the article",
   "category": "Exam Alerts" | "Study Prep" | "Guidelines & Tips" | "Career Opportunity",
   "publishDate": "${todayFormatted}",
   "author": "SignResize Examination Standards Desk" or "SignResize Academic Research Desk",
   "authorRole": "Official Document Compliance Team" or "Competitive Exam Methodology Team",
-  "readTime": "5 min read",
-  "tags": ["3-5", "relevant", "tags"],
+  "readTime": "8 min read",
+  "tags": ["5-6", "relevant", "keywords"],
   "relatedExamPreset": "ssc-general" | "upsc-civil-services" | "rrb-railway" | "ibps-sbi",
-  "contentHtml": "<semantic HTML with <h2>, <h3>, <p>, <ul>, <ol>, comparison <table> if relevant, and an action callout linking to /photo-resizer/, /ssc-signature-resize/, /ibps-signature-resize/, or /compress-image-to-kb/>"
+  "contentHtml": "<semantic HTML with <h2>, <h3>, <p>, <ul>, <ol>, SVG graphics, step-by-step navigation, code/rule snippets, comparison <table>, and SignResize tool callouts>"
 }
 Output ONLY raw JSON with no surrounding markdown backticks.`;
 

@@ -44,19 +44,19 @@ This agent executes daily at 9:00 AM to research, draft, format, and publish fre
    }
    ```
 
-4. **Internal Linking & Call-to-Action Standards:**
-   - Every article must provide seamless utility links to relevant SignResize tools:
-     - Signature Resizer: `/ssc-signature-resize/`, `/upsc-signature-resize/`, `/rrb-signature-resize/`, or `/#tool-workspace`
-     - Photo Resizer: `/photo-resizer/`
-     - KB Compressor: `/compress-image-to-kb/`
-     - Document Resizer: `/document-resizer/`
-   - Include a themed action card styled with Tailwind:
+4. **Mandatory Article Richness & Formatting Standards:**
+   - **Length & Title Alignment:** Every generated article must be long-form (1,000 to 2,000 words) and thoroughly fulfill every topic promised in the title.
+   - **Visual Diagrams & SVGs:** Include inline SVG graphics, visual comparison cards (e.g. Accepted vs Rejected signatures), or process flowcharts (`<div class="my-8 p-6 rounded-2xl bg-card border border-border">...</div>`).
+   - **Step-by-Step Navigation Guide:** Provide a numbered workflow timeline for application submission (`<div class="my-8 space-y-4"><div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-6">...</div></div>`).
+   - **Key Code / Rule Snippets:** Highlight exact validation rules, error codes, formula calculations, or verbatim official quotes in dark snippet boxes (`<div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800">...</div>`).
+   - **Specification / Strategy Tables:** Include clean Tailwind comparative HTML tables (`<table class="w-full text-xs sm:text-sm border border-border">...</table>`).
+   - **Internal Tool CTAs:** Provide seamless utility links to relevant SignResize tools (`/ssc-signature-resize/`, `/upsc-signature-resize/`, `/rrb-signature-resize/`, `/photo-resizer/`, `/compress-image-to-kb/`) inside styled callout cards:
      ```html
      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
        <h4 class="text-base font-bold text-foreground">Prepare Your Documents Instantly</h4>
        <p class="text-sm text-muted-foreground mt-1">Resize and compress your photo and signature to exact official portal specifications in seconds.</p>
-       <a href="/photo-resizer/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
-         Open Resizer Tool &rarr;
+       <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+         Open Signature Tool &rarr;
        </a>
      </div>
      ```
