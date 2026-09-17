@@ -15,6 +15,91 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "rrb-ntpc-2026-document-upload-rules-preparation-strategy-mu4za9v4",
+    title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
+    excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, and speed calculation methods.",
+    category: "Study Prep",
+    publishDate: "Sept 17, 2026",
+    author: "SignResize Academic Research Desk",
+    authorRole: "Railway Recruitment Strategy Desk",
+    readTime: "6 min read",
+    featured: true,
+    tags: ["RRB NTPC","Railway Exams","CBT 1 Prep","Signature 10-20KB","Maths Shortcuts"],
+    relatedExamPreset: "rrb-railway",
+    contentHtml: `
+<h2>RRB NTPC 2026: Key Examination Overview</h2>
+      <p>The Railway Recruitment Boards (RRB) have activated the recruitment calendar for <strong>Non-Technical Popular Categories (NTPC)</strong>. With intense competition spanning across undergraduate and graduate posts, excelling in Computer Based Test 1 (CBT-1) requires both conceptual clarity and exact document compliance during registration.</p>
+
+      <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+        <h4 class="font-bold text-primary mb-2">⚡ CBT-1 Exam Pattern &amp; Time Distribution</h4>
+        <ul class="space-y-1 text-sm">
+          <li><strong>General Awareness:</strong> 40 Questions (Current Affairs, General Science, Indian History, Geography)</li>
+          <li><strong>Mathematics:</strong> 30 Questions (Number Systems, Decimals, Fractions, LCM-HCF, Ratio, Percentages, Mensuration)</li>
+          <li><strong>General Intelligence &amp; Reasoning:</strong> 30 Questions (Analogies, Coding, Syllogisms, Venn Diagrams)</li>
+          <li><strong>Total Time:</strong> 90 Minutes (100 Questions with 1/3rd negative marking per incorrect response)</li>
+        </ul>
+      </div>
+
+      <h2>Document Upload Compliance to Avoid Cancellation</h2>
+      <p>Railway recruitment notices explicitly enforce strict criteria for candidate photograph and scanned signature files:</p>
+      <ul>
+        <li><strong>Scanned Photograph:</strong> Clear color passport photograph taken against a light or white background. Must be between <strong>20 KB and 50 KB</strong> in JPG format. Glasses with glare or tinted lenses are strictly barred.</li>
+        <li><strong>Candidate Signature:</strong> Must be signed in running handwriting on white unruled paper using a black ballpoint pen. File weight must be between <strong>10 KB and 20 KB</strong> (140 &times; 60 pixels). Signatures written in capital letters will result in immediate disqualification.</li>
+      </ul>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Need RRB Signature &amp; Photo Formatted?</h4>
+        <p class="text-sm text-muted-foreground mt-1">Use our dedicated RRB Railway preset to crop, clean dark shadows, and compress into the exact 10–20 KB bound in seconds.</p>
+        <div class="flex flex-wrap gap-3 mt-3">
+          <a href="/rrb-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Open RRB Resizer &rarr;
+          </a>
+          <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Resize Passport Photo &rarr;
+          </a>
+        </div>
+      </div>
+
+      <h2>Recommended Daily Study Strategy</h2>
+      <p>Divide your preparation into 3 focused blocks: devote 2 hours to Arithmetic drills, 1.5 hours to Logical Reasoning puzzles, and 2 hours to Current Affairs revision and Static GK topics like General Science and Modern Indian History.</p>
+    `
+  },
+
+  {
+    slug: "ssc-chsl-tier-1-speed-typing-photo-signature-guidelines-mu3ju4aq",
+    title: "SSC CHSL 2026: Tier-1 Speed Strategy, English Comprehension Hacks & Live Photo Guidelines",
+    excerpt: "Key tactics to crack SSC CHSL Tier-1 with 160+ target scores, Tier-2 typing speed preparation, and live webcam photo compliance rules.",
+    category: "Exam Alerts",
+    publishDate: "Sept 16, 2026",
+    author: "SignResize Examination Standards Desk",
+    authorRole: "Staff Selection Commission Analytics Team",
+    readTime: "5 min read",
+    featured: false,
+    tags: ["SSC CHSL","Tier 1 Prep","Typing Speed","Live Photo Guidelines","Govt Jobs"],
+    relatedExamPreset: "ssc-general",
+    contentHtml: `
+<h2>SSC CHSL 2026: Blueprint for LDC, JSA &amp; DEO Success</h2>
+      <p>The Staff Selection Commission Combined Higher Secondary Level (CHSL) examination remains one of India's most popular recruitment routes for 10+2 candidates. With over 30 lakh applicants competing for Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), and Data Entry Operator (DEO) positions, achieving a competitive cut-off score requires consistent sectional discipline.</p>
+
+      <h2>The Live Webcam Photo Rule &amp; Signature Compliance</h2>
+      <p>Under the revised SSC online application platform, candidate photographs are captured directly using a live webcam or smartphone camera during form submission. Keep these critical requirements in mind:</p>
+      <ul>
+        <li><strong>Illumination:</strong> Sit in front of a natural light source or well-lit wall. Shadows behind your head or ears will cause the AI verification scanner to flag your submission.</li>
+        <li><strong>Eye Contact &amp; Posture:</strong> Look straight into the lens with both ears visible and a neutral facial expression. Spectacles with reflections, caps, or mufflers will trigger automated rejection.</li>
+        <li><strong>Scanned Signature (10–20 KB):</strong> Must be signed in black ballpoint pen on plain white paper, cropped to 140 &times; 60 pixels, and compressed within the 10.0 KB to 20.0 KB limit. Capital letter signatures will be rejected without appeal.</li>
+      </ul>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Format Your SSC Signature in Seconds</h4>
+        <p class="text-sm text-muted-foreground mt-1">Avoid application rejection. Crop, remove phone shadows, and compress your signature to 10–20 KB with 100% privacy.</p>
+        <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+          Resize for SSC CHSL &rarr;
+        </a>
+      </div>
+    `
+  },
+
+  {
     slug: "upsc-csat-paper-2-qualifying-speed-strategy-comprehension-hacks-mu24fywo",
     title: "UPSC CSE Prelims: CSAT Paper-II Qualifying Blueprint, Reading Comprehension & Speed Logic Hacks",
     excerpt: "Master the 33% CSAT qualifying cutoff with proven strategies for high-accuracy reading comprehension, critical reasoning, and arithmetic problem selection.",
@@ -23,7 +108,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "SignResize Academic Research Desk",
     authorRole: "Civil Services Methodology Team",
     readTime: "7 min read",
-    featured: true,
+    featured: false,
     tags: ["UPSC Prelims","CSAT Strategy","Reading Comprehension","Aptitude Speed","Civil Services"],
     relatedExamPreset: "upsc-civil-services",
     contentHtml: `
