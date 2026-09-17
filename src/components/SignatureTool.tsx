@@ -3355,55 +3355,71 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                             {crop.width} × {crop.height} px
                           </div>
 
-                          {/* 8-Point Precision Resize Handles */}
+                          {/* 8-Point Touch-Optimized Precision Resize Handles */}
                           <div
                             onMouseDown={(e) => handleCropMouseDown(e, 'nw')}
                             onTouchStart={(e) => handleCropMouseDown(e, 'nw')}
-                            className="absolute -top-2 -left-2 w-4 h-4 bg-primary rounded-full border-2 border-white cursor-nwse-resize shadow-md hover:scale-125 transition-transform"
+                            className="absolute -top-4 -left-4 w-9 h-9 sm:w-7 sm:h-7 flex items-center justify-center cursor-nwse-resize touch-none select-none z-10"
                             title="Resize Top-Left"
-                          />
+                          >
+                            <div className="w-4 h-4 sm:w-3.5 sm:h-3.5 bg-primary rounded-full border-2 border-white shadow-md hover:scale-125 transition-transform pointer-events-none" />
+                          </div>
                           <div
                             onMouseDown={(e) => handleCropMouseDown(e, 'ne')}
                             onTouchStart={(e) => handleCropMouseDown(e, 'ne')}
-                            className="absolute -top-2 -right-2 w-4 h-4 bg-primary rounded-full border-2 border-white cursor-nesw-resize shadow-md hover:scale-125 transition-transform"
+                            className="absolute -top-4 -right-4 w-9 h-9 sm:w-7 sm:h-7 flex items-center justify-center cursor-nesw-resize touch-none select-none z-10"
                             title="Resize Top-Right"
-                          />
+                          >
+                            <div className="w-4 h-4 sm:w-3.5 sm:h-3.5 bg-primary rounded-full border-2 border-white shadow-md hover:scale-125 transition-transform pointer-events-none" />
+                          </div>
                           <div
                             onMouseDown={(e) => handleCropMouseDown(e, 'sw')}
                             onTouchStart={(e) => handleCropMouseDown(e, 'sw')}
-                            className="absolute -bottom-2 -left-2 w-4 h-4 bg-primary rounded-full border-2 border-white cursor-nesw-resize shadow-md hover:scale-125 transition-transform"
+                            className="absolute -bottom-4 -left-4 w-9 h-9 sm:w-7 sm:h-7 flex items-center justify-center cursor-nesw-resize touch-none select-none z-10"
                             title="Resize Bottom-Left"
-                          />
+                          >
+                            <div className="w-4 h-4 sm:w-3.5 sm:h-3.5 bg-primary rounded-full border-2 border-white shadow-md hover:scale-125 transition-transform pointer-events-none" />
+                          </div>
                           <div
                             onMouseDown={(e) => handleCropMouseDown(e, 'se')}
                             onTouchStart={(e) => handleCropMouseDown(e, 'se')}
-                            className="absolute -bottom-2 -right-2 w-4 h-4 bg-primary rounded-full border-2 border-white cursor-nwse-resize shadow-md hover:scale-125 transition-transform"
+                            className="absolute -bottom-4 -right-4 w-9 h-9 sm:w-7 sm:h-7 flex items-center justify-center cursor-nwse-resize touch-none select-none z-10"
                             title="Resize Bottom-Right"
-                          />
+                          >
+                            <div className="w-4 h-4 sm:w-3.5 sm:h-3.5 bg-primary rounded-full border-2 border-white shadow-md hover:scale-125 transition-transform pointer-events-none" />
+                          </div>
                           <div
                             onMouseDown={(e) => handleCropMouseDown(e, 'n')}
                             onTouchStart={(e) => handleCropMouseDown(e, 'n')}
-                            className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-6 h-2 bg-primary rounded-full border border-white cursor-ns-resize shadow hover:scale-125 transition-transform"
+                            className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-10 h-7 flex items-center justify-center cursor-ns-resize touch-none select-none z-10"
                             title="Resize Top Edge"
-                          />
+                          >
+                            <div className="w-6 h-2 bg-primary rounded-full border border-white shadow hover:scale-125 transition-transform pointer-events-none" />
+                          </div>
                           <div
                             onMouseDown={(e) => handleCropMouseDown(e, 's')}
                             onTouchStart={(e) => handleCropMouseDown(e, 's')}
-                            className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-6 h-2 bg-primary rounded-full border border-white cursor-ns-resize shadow hover:scale-125 transition-transform"
+                            className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-10 h-7 flex items-center justify-center cursor-ns-resize touch-none select-none z-10"
                             title="Resize Bottom Edge"
-                          />
+                          >
+                            <div className="w-6 h-2 bg-primary rounded-full border border-white shadow hover:scale-125 transition-transform pointer-events-none" />
+                          </div>
                           <div
                             onMouseDown={(e) => handleCropMouseDown(e, 'w')}
                             onTouchStart={(e) => handleCropMouseDown(e, 'w')}
-                            className="absolute -left-1.5 top-1/2 -translate-y-1/2 w-2 h-6 bg-primary rounded-full border border-white cursor-ew-resize shadow hover:scale-125 transition-transform"
+                            className="absolute -left-3.5 top-1/2 -translate-y-1/2 w-7 h-10 flex items-center justify-center cursor-ew-resize touch-none select-none z-10"
                             title="Resize Left Edge"
-                          />
+                          >
+                            <div className="w-2 h-6 bg-primary rounded-full border border-white shadow hover:scale-125 transition-transform pointer-events-none" />
+                          </div>
                           <div
                             onMouseDown={(e) => handleCropMouseDown(e, 'e')}
                             onTouchStart={(e) => handleCropMouseDown(e, 'e')}
-                            className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-2 h-6 bg-primary rounded-full border border-white cursor-ew-resize shadow hover:scale-125 transition-transform"
+                            className="absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-10 flex items-center justify-center cursor-ew-resize touch-none select-none z-10"
                             title="Resize Right Edge"
-                          />
+                          >
+                            <div className="w-2 h-6 bg-primary rounded-full border border-white shadow hover:scale-125 transition-transform pointer-events-none" />
+                          </div>
                         </div>
                       </div>
                     </div>

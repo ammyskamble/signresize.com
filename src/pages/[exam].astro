@@ -74,10 +74,10 @@ const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
     <!-- Async Google Fonts -->
     <GoogleFonts />
 
-    <!-- WebApplication Schema -->
+    <!-- SoftwareApplication & WebApplication Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": ["SoftwareApplication", "WebApplication"],
       "name": examData.h1,
       "url": canonicalUrl,
       "applicationCategory": "UtilityApplication",

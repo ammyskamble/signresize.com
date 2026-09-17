@@ -1,0 +1,30 @@
+# SignResize.in Edge Redirect Rules (301 Permanent Redirects)
+
+# 1. Missing Route & Shortcut Redirects (Fixes GSC 404 Error)
+/ssc-cgl /ssc-signature-resize/ 301
+/ssc-cgl/ /ssc-signature-resize/ 301
+/ssc /ssc-signature-resize/ 301
+/ssc/ /ssc-signature-resize/ 301
+/upsc /upsc-signature-resize/ 301
+/upsc/ /upsc-signature-resize/ 301
+/rrb /rrb-signature-resize/ 301
+/rrb/ /rrb-signature-resize/ 301
+/ibps /ibps-signature-resize/ 301
+/ibps/ /ibps-signature-resize/ 301
+/pan /pan-card-signature-resize/ 301
+/pan/ /pan-card-signature-resize/ 301
+/neet /nta-neet-jee-signature-resize/ 301
+/jee /nta-neet-jee-signature-resize/ 301
+/gate /gate-signature-resize/ 301
+
+# 2. Non-Trailing Slash Canonical Redirects (Fixes GSC "Page with redirect" Warnings)
+/contact /contact/ 301
+/disclaimer /disclaimer/ 301
+/privacy /privacy/ 301
+/terms /terms/ 301
+/about /about/ 301
+/blog /blog/ 301
+/photo-resizer /photo-resizer/ 301
+/document-resizer /document-resizer/ 301
+/compress-image-to-kb /compress-image-to-kb/ 301
+/signature-creator /signature-creator/ 301
