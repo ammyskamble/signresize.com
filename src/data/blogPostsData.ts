@@ -15,6 +15,91 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "state-psc-otr-registration-photo-signature-guidelines-mu83y5zr",
+    title: "State PSC One-Time Registration (OTR): Mandatory Signature & Photo Guidelines for UPPSC, BPSC, MPSC & RPSC",
+    excerpt: "Detailed checklist for State Public Service Commission One-Time Registration portals: dimensions, dual-boundary compression, step-by-step navigation, and white background verification.",
+    category: "Guidelines & Tips",
+    publishDate: "Sept 19, 2026",
+    author: "SignResize Technical Verification Team",
+    authorRole: "State Commission Standards Desk",
+    readTime: "7 min read",
+    featured: true,
+    tags: ["State PSC","OTR Registration","UPPSC","BPSC","MPSC","RPSC","Document Guidelines"],
+    relatedExamPreset: "uppsc-uttar-pradesh",
+    contentHtml: `
+<h2>State PSC One-Time Registration (OTR) Mandate</h2>
+      <p>State Public Service Commissions across India—including <strong>UPPSC (Uttar Pradesh), BPSC (Bihar), MPSC (Maharashtra), and RPSC (Rajasthan)</strong>—have made OTR mandatory. Photographs and signatures uploaded during OTR are permanently locked to candidate profiles for all future competitive exam notices.</p>
+
+      <h2>State Commission Document Comparison Matrix</h2>
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-xs sm:text-sm text-left border border-border">
+          <thead class="bg-muted text-foreground font-semibold">
+            <tr>
+              <th class="p-3 border-b">Commission</th>
+              <th class="p-3 border-b">Signature Size &amp; Specs</th>
+              <th class="p-3 border-b">Photo Dimensions &amp; Size</th>
+              <th class="p-3 border-b">Special Rules</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="p-3 font-semibold text-primary">UPPSC OTR</td>
+              <td class="p-3 font-mono">10 KB – 20 KB (140&times;60 px)</td>
+              <td class="p-3 font-mono">20 KB – 50 KB (3.5&times;4.5 cm)</td>
+              <td class="p-3">White background; Candidate name &amp; photo date beneath picture</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">BPSC (Bihar)</td>
+              <td class="p-3 font-mono">10 KB – 20 KB (Separate Files)</td>
+              <td class="p-3 font-mono">20 KB – 50 KB (3.5&times;4.5 cm)</td>
+              <td class="p-3">Requires two separate uploads for Hindi and English running signatures</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">MPSC (Maharashtra)</td>
+              <td class="p-3 font-mono">10 KB – 20 KB</td>
+              <td class="p-3 font-mono">20 KB – 50 KB (200&times;230 px)</td>
+              <td class="p-3">Black ballpoint pen on plain white sheet; Cursive running writing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
+        <div class="flex items-center justify-between text-slate-400 text-[11px]">
+          <span>⚡ State OTR Portal Error Prevention Code Snippet</span>
+          <span>Portal Validation Standard</span>
+        </div>
+        <pre class="overflow-x-auto text-emerald-400"><code>If photo_background != "white" OR signature_casing == "BLOCK_CAPS":
+    Return Portal_Error: "Document failed OCR automated quality check"</code></pre>
+      </div>
+
+      <h2>Step-by-Step State OTR Navigation Workflow</h2>
+      <div class="my-8 space-y-4">
+        <div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-6">
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</div>
+            <h4 class="font-bold text-foreground text-sm">Register OTR Profile</h4>
+            <p class="text-xs text-muted-foreground mt-1">Enter Aadhar / Mobile / Email to generate permanent OTR Registration ID on your State PSC portal.</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</div>
+            <h4 class="font-bold text-foreground text-sm">Upload High-Contrast Photos &amp; Signatures</h4>
+            <p class="text-xs text-muted-foreground mt-1">Use SignResize to remove background phone shadows and compress signatures precisely to the 10–20 KB bound.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Prepare Your OTR Files in 1 Click</h4>
+        <p class="text-sm text-muted-foreground mt-1">Select your state commission preset to automatically apply exact dimensions and compression limits directly in your browser.</p>
+        <a href="/#tool-workspace" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+          Launch State PSC Resizer &rarr;
+        </a>
+      </div>
+    `
+  },
+
+  {
     slug: "ssc-cgl-2026-master-application-preparation-guide",
     title: "SSC CGL 2026 Master Application & Preparation Guide: Tier-1 Strategy, Photo/Signature Rules & Step-by-Step Portal Navigation",
     excerpt: "Comprehensive 2026 candidate handbook for Staff Selection Commission CGL: Tier-1 sectional breakdown, live webcam photo setup, 10-20KB signature rules, step-by-step portal navigation, and 90-day study timetable.",
@@ -23,7 +108,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "SignResize Examination Standards Desk",
     authorRole: "Staff Selection Commission Analytics Team",
     readTime: "9 min read",
-    featured: true,
+    featured: false,
     tags: ["SSC CGL 2026", "Tier 1 Preparation", "Live Photo Rules", "Signature 10-20KB", "Govt Exam Strategy", "Portal Guide"],
     relatedExamPreset: "ssc-general",
     contentHtml: `
