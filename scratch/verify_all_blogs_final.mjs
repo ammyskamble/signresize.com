@@ -26,8 +26,22 @@ BLOG_POSTS.forEach((post, i) => {
   }
 
   // FAQs
-  if (!post.faqs || post.faqs.length !== 10) {
-    issues.push(`faqs count is ${post.faqs ? post.faqs.length : 0} (expected 10)`);
+  if (!post.faqs || post.faqs.length < 10) {
+    issues.push(`faqs count is ${post.faqs ? post.faqs.length : 0} (expected at least 10)`);
+  }
+
+  // Check for Can I clear FAQ
+  const hasCanIClear = post.faqs?.some(f => 
+    (f.question.toLowerCase().includes('can') && f.question.toLowerCase().includes('clear')) ||
+    (f.question.toLowerCase().includes('can') && f.question.toLowerCase().includes('selected'))
+  );
+  if (!hasCanIClear) {
+    issues.push('Missing "Can I clear this exam?" FAQ');
+  }
+
+  // Check for deployment timestamp
+  if (!post.deployedAt) {
+    issues.push('Missing deployedAt timestamp');
   }
 
   // TOC Anchors

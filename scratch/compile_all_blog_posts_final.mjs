@@ -9,6 +9,7 @@ import { livePostsBatch1 } from './live_posts_batch1.mjs';
 import { livePostsBatch2Seo } from './posts_live_batch2_seo.mjs';
 import { remainingOngoingBatch1 } from './posts_remaining_ongoing1.mjs';
 import { remainingOngoingBatch2 } from './posts_remaining_ongoing2.mjs';
+import { canIClearFaqMap } from './add_can_i_clear_faqs.mjs';
 
 // Common Rejection Box HTML snippet
 function createRejectionBox(examName = "Govt Exam") {
@@ -214,10 +215,27 @@ const titleOverrides = {
   "rbi-grade-b-assistant-2026-top-10-faq-guide": "RBI Grade B 2026: 60% Rule, Phase-II Pattern, Salary FAQs"
 };
 
-const ALL_21_POSTS = raw21Posts.map(p => ({
-  ...p,
-  metaTitle: titleOverrides[p.slug] || p.metaTitle
-}));
+const ALL_21_POSTS = raw21Posts.map(p => {
+  const canIClear = canIClearFaqMap[p.slug];
+  let faqs = p.faqs || [];
+  if (canIClear && !faqs.some(f => f.question.toLowerCase().includes('can') && f.question.toLowerCase().includes('clear'))) {
+    faqs = [...faqs, canIClear];
+  }
+
+  const pubDate = p.publishDate || "Sept 20, 2026";
+  const updatedDate = p.lastUpdated || "Sept 20, 2026";
+  const deployedTimestamp = `${updatedDate} • 09:00 AM IST`;
+
+  return {
+    ...p,
+    metaTitle: titleOverrides[p.slug] || p.metaTitle,
+    publishDate: pubDate,
+    publishTime: "09:00 AM IST",
+    lastUpdated: updatedDate,
+    deployedAt: deployedTimestamp,
+    faqs
+  };
+});
 
 console.log(`\nSynthesizing ${ALL_21_POSTS.length} posts...`);
 
@@ -272,7 +290,9 @@ export interface BlogPost {
   excerpt: string;
   category: 'Exam Alerts' | 'Study Prep' | 'Guidelines & Tips' | 'Career Opportunity';
   publishDate: string;
+  publishTime?: string;
   lastUpdated?: string;
+  deployedAt?: string;
   author: string;
   authorRole: string;
   readTime: string;
@@ -296,7 +316,9 @@ function formatPostTs(p) {
     excerpt: ${JSON.stringify(p.excerpt)},
     category: ${JSON.stringify(p.category)},
     publishDate: ${JSON.stringify(p.publishDate)},
+    publishTime: ${JSON.stringify(p.publishTime || "09:00 AM IST")},
     lastUpdated: ${JSON.stringify(p.lastUpdated || "Sept 20, 2026")},
+    deployedAt: ${JSON.stringify(p.deployedAt || `${p.lastUpdated || p.publishDate} • 09:00 AM IST`)},
     author: ${JSON.stringify(p.author)},
     authorRole: ${JSON.stringify(p.authorRole)},
     readTime: ${JSON.stringify(p.readTime)},

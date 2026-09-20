@@ -19,7 +19,9 @@ export interface BlogPost {
   excerpt: string;
   category: 'Exam Alerts' | 'Study Prep' | 'Guidelines & Tips' | 'Career Opportunity';
   publishDate: string;
+  publishTime?: string;
   lastUpdated?: string;
+  deployedAt?: string;
   author: string;
   authorRole: string;
   readTime: string;
@@ -40,7 +42,9 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Comprehensive 2026 candidate handbook for Staff Selection Commission CGL: Tier-1 sectional breakdown, live webcam photo setup, 10-20KB signature rules, step-by-step portal navigation, and 90-day study timetable.",
     category: "Exam Alerts",
     publishDate: "Sept 18, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Staff Selection Commission Analytics Team",
     readTime: "9 min read",
@@ -113,6 +117,10 @@ export const BLOG_POSTS: BlogPost[] = [
         {
             "question": "What is the in-hand salary for Pay Level 7 posts in SSC CGL?",
             "answer": "For Pay Level 7 posts (Basic ₹44,900): In Class X metro cities, gross monthly pay is ~₹85,000, yielding net in-hand earnings of approximately ₹73,000–₹78,000 after NPS and insurance deductions."
+        },
+        {
+            "question": "Can an average student clear SSC CGL from zero in 6 months?",
+            "answer": "Yes. A 6-month roadmap: Months 1–3: Complete 100% syllabus fundamentals and concept notes. Months 4–5: Solve 5,000+ TCS PYQs and build sectional speed. Month 6: Attempt 40 full-length mocks, analyze every incorrect question, and revise formula sheets daily."
         }
     ],
     contentHtml: `
@@ -354,7 +362,9 @@ Target Safe Zone: 75+ Correct Attempts with >= 88% Accuracy -> ~150 Net Score</c
     excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, step-by-step navigation, and speed calculation methods.",
     category: "Study Prep",
     publishDate: "Sept 17, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Academic Research Desk",
     authorRole: "Railway Recruitment Strategy Desk",
     readTime: "8 min read",
@@ -427,6 +437,10 @@ Target Safe Zone: 75+ Correct Attempts with >= 88% Accuracy -> ~150 Net Score</c
         {
             "question": "What is the monthly in-hand salary for a Station Master and Goods Guard?",
             "answer": "Station Master starts at Level 6 with gross pay of ~₹68,000–₹72,000. Goods Train Manager starts at Level 5 with gross pay often exceeding ₹65,000–₹75,000 including running allowances."
+        },
+        {
+            "question": "Can I clear RRB NTPC through self-study and free online mock tests?",
+            "answer": "Yes. RRB NTPC has predictable question types derived directly from Class 10th maths and basic reasoning. Consistent 4 hours of self-study, solving previous RRB papers, and taking free weekly online mocks is completely sufficient to score 80+ in CBT-1."
         }
     ],
     contentHtml: `
@@ -569,7 +583,9 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     excerpt: "Master the 33% CSAT qualifying cutoff with proven strategies for high-accuracy reading comprehension, critical reasoning, arithmetic problem selection, and UPSC OTR document rules.",
     category: "Study Prep",
     publishDate: "Sept 16, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Academic Research Desk",
     authorRole: "Civil Services Methodology Team",
     readTime: "8 min read",
@@ -751,7 +767,9 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     excerpt: "Detailed checklist for State Public Service Commission One-Time Registration portals: dimensions, dual-boundary compression, step-by-step navigation, and white background verification.",
     category: "Guidelines & Tips",
     publishDate: "Sept 15, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Technical Verification Team",
     authorRole: "State Commission Standards Desk",
     readTime: "7 min read",
@@ -824,6 +842,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
         {
             "question": "How does SignResize ensure 100% OTR portal acceptance?",
             "answer": "SignResize provides pre-configured presets for UPPSC, BPSC, MPSC, and TNPSC that automatically crop to exact pixels and compress strictly within commission KB limits."
+        },
+        {
+            "question": "Can I clear State PSC examinations without attending offline coaching in capital cities?",
+            "answer": "Yes. With state board textbooks, standard reference works, and online test series available everywhere, thousands of candidates from small towns and rural areas top State PSC exams (UPPSC, BPSC, MPSC, TNPSC) every year solely through home self-study."
         }
     ],
     contentHtml: `
@@ -942,7 +964,9 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     excerpt: "Comprehensive formatting rules for all 4 mandatory IBPS uploads: photograph (20-50KB), running signature (10-20KB), left thumb impression (20-50KB), and handwritten declaration (50-100KB) with step-by-step navigation.",
     category: "Guidelines & Tips",
     publishDate: "Sept 14, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Official Banking Document Compliance Team",
     readTime: "8 min read",
@@ -1015,6 +1039,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
         {
             "question": "How can I resize all 4 IBPS documents in under 2 minutes?",
             "answer": "Use SignResize dedicated IBPS preset tool to crop, remove phone paper shadows, and compress all four files into their exact KB boundaries directly in your browser."
+        },
+        {
+            "question": "Can an average student clear banking exams in 4 months of structured preparation?",
+            "answer": "Yes. Banking exams have standard syllabus boundaries. Practicing simplification, approximation, number series, quadratic equations, and standard seating arrangements daily for 4 months builds the speed needed to easily clear Prelims and Mains cutoffs."
         }
     ],
     contentHtml: `
@@ -1127,7 +1155,9 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     excerpt: "Avoid the most frequent mistakes that disqualify thousands of candidates in SSC, UPSC, IBPS, and State PSC applications before the exam day.",
     category: "Guidelines & Tips",
     publishDate: "Sept 10, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Technical Verification Team",
     authorRole: "Exam Portal Standards & Verification",
     readTime: "6 min read",
@@ -1200,6 +1230,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
         {
             "question": "How does SignResize prevent application rejections?",
             "answer": "SignResize applies pre-configured official dimension templates, contrast-enhancing shadow filters, and precision KB compression directly in your browser with zero data loss."
+        },
+        {
+            "question": "Can minor document mistakes prevent me from clearing an exam even if I score above the cutoff?",
+            "answer": "Yes. Examination boards strictly reject candidates whose uploaded photo has spectacles, caps, or blurred biometrics, or whose signature was uploaded in BLOCK/CAPITAL letters, irrespective of their examination score. Following official specifications using SignResize eliminates this risk completely."
         }
     ],
     contentHtml: `
@@ -1277,7 +1311,9 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     excerpt: "Detailed hour-by-hour daily timetable, 4-phase subject mastery plan, NCERT mapping, CSAT qualifying hacks, and PYQ analysis methodology for civil services aspirants.",
     category: "Study Prep",
     publishDate: "Sept 08, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Academic Research Desk",
     authorRole: "Competitive Exam Methodology Team",
     readTime: "8 min read",
@@ -1444,7 +1480,9 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     excerpt: "Authoritative candidate advisory for SSC CGL 2026: official live photo guidelines, exact 140×60 px signature bounds, educational eligibility, Tier-1 negative marking, and post preferences.",
     category: "Exam Alerts",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Staff Selection Commission Analytics Team",
     readTime: "9 min read",
@@ -1517,6 +1555,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
         {
             "question": "What is the starting in-hand salary for SSC CGL Pay Level 7 and Pay Level 4 posts?",
             "answer": "Salary depends on Pay Level and city classification (Class X, Y, or Z). For Pay Level 7 posts (Inspector of Income Tax, Central Excise, ASO): Basic Pay is ₹44,900. With current Dearness Allowance (DA ~50%), House Rent Allowance (HRA 30% in Class X cities like Delhi/Mumbai), and Transport Allowance (TA ~₹4,950), gross monthly pay is ~₹85,000, yielding a net in-hand salary of approximately ₹73,000–₹78,000 after NPS and insurance deductions. For Pay Level 4 posts (Tax Assistant): Basic Pay is ₹25,500, with gross salary ~₹45,000 and net in-hand salary around ₹38,000–₹41,000 in Tier-1 metro cities."
+        },
+        {
+            "question": "Can an average student clear SSC CGL 2026 on the first attempt with self-study?",
+            "answer": "Yes. Thousands of candidates clear SSC CGL every year through disciplined self-study without expensive coaching. The blueprint to clear on the first attempt: (1) Master arithmetic and advanced maths fundamentals through NCERTs and standard books. (2) Build daily vocabulary and grammar rules for English Comprehension. (3) Solve 30+ full-length Tier-1 and Tier-2 mock tests with deep error analysis. (4) Maintain consistent 5–6 hours of focused daily study over 6 to 9 months."
         }
     ],
     contentHtml: `
@@ -1746,7 +1788,9 @@ Target Safe Zone (UR/OBC): 76+ Attempts with 90% Accuracy → ~146–152 Net Raw
     excerpt: "Everything Railway aspirants must know for RRB NTPC 2026: single zone rule, graduate vs undergraduate posts, 35×45 mm photo rules, 10–20 KB signature specs, CBAT/TST typing tests, and normalization.",
     category: "Study Prep",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Railway Recruitment Strategy Desk",
     readTime: "9 min read",
@@ -1819,6 +1863,10 @@ Target Safe Zone (UR/OBC): 76+ Attempts with 90% Accuracy → ~146–152 Net Raw
         {
             "question": "What is the starting salary and allowances for Station Master and Goods Guard?",
             "answer": "Station Master (Level 6) has a Basic Pay of ₹35,400. In Class X metro cities, with DA (~50%), HRA (30%), and Transport Allowance, the gross monthly salary is ~₹68,000–₹72,000. Goods Train Manager (Level 5) starts at Basic Pay of ₹29,200, but enjoys generous Running Allowances (Kilometre Allowance for train running duties ~₹4.50 to ₹5.50 per km), allowing monthly take-home earnings to frequently exceed ₹65,000–₹75,000."
+        },
+        {
+            "question": "Can I clear RRB NTPC 2026 with 4 to 6 months of focused preparation?",
+            "answer": "Yes, 4 to 6 months of structured preparation is more than enough to clear RRB NTPC. Since CBT-1 has no sectional time limits and questions are at matriculation/10+2 level difficulty, focus on maximizing speed and accuracy in Mathematics (30 Qs) and Reasoning (30 Qs) where you can easily score 50+ out of 60 marks. Dedicate 2 hours daily to General Awareness, NCERT General Science, and Railway current affairs."
         }
     ],
     contentHtml: `
@@ -1980,7 +2028,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Authoritative candidate handbook for IBPS PO 2026: exact handwritten declaration text, black ink rules, left thumb impression guidelines, sectional cutoff strategy, and 80:20 final merit ratio.",
     category: "Exam Alerts",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Banking Personnel Research Team",
     readTime: "8 min read",
@@ -2053,6 +2103,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the starting monthly in-hand salary and perks for an IBPS PO?",
             "answer": "Under the 12th Bipartite Wage Settlement, the starting Basic Pay of a Scale-I Probationary Officer is ₹36,000 (with 4 advance increments for POs). Including Dearness Allowance (~50%), House Rent Allowance (or leased accommodation up to ₹25,000–₹30,000 in Mumbai), City Compensatory Allowance, and Special Allowance, gross pay is approximately ₹65,000–₹72,000. Net in-hand monthly salary ranges between ₹55,000 and ₹62,000 alongside reimbursement for petrol, newspaper, and medical benefits."
+        },
+        {
+            "question": "Can a beginner or working aspirant clear IBPS PO 2026 without coaching?",
+            "answer": "Yes. Banking exams test speed, accuracy, and question selection rather than memorization. Beginners can crack IBPS PO in 4–5 months by: (1) Mastering Vedic maths, tables up to 30, and percentage fraction equivalents for speedy Quantitative calculations. (2) Solving 4–5 high-level puzzle sets daily for Reasoning. (3) Reading an editorial daily for English and Descriptive Paper. (4) Taking 2 timed sectional tests daily."
         }
     ],
     contentHtml: `
@@ -2211,7 +2265,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Everything candidates ask about SBI Junior Associates: single-state application rule, Local Language Test (LPT) conditions, the unique no-sectional-cutoffs policy, and career progression to Officer.",
     category: "Career Opportunity",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Academic Research Desk",
     authorRole: "Banking Recruitment Strategy Desk",
     readTime: "8 min read",
@@ -2284,6 +2340,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the internal promotion path from SBI Clerk to Officer?",
             "answer": "SBI offers rapid internal career promotion channels. After 3 years of service as a Junior Associate, employees can appear for internal written examinations and interviews for promotion to Trainee Officer (JMGS Scale-I), which puts them on par with directly recruited Probationary Officers. Alternatively, after 4 years, candidates can qualify for promotion to Junior Management Grade Scale-I via the JMGS-I internal fast-track channel."
+        },
+        {
+            "question": "Can an average graduate student clear SBI Clerk 2026 in 90 days?",
+            "answer": "Yes. SBI Clerk has zero sectional cutoffs in Prelims and Mains, allowing candidates to capitalize on their strongest sections. With 90 days of dedicated 6-hour daily study, complete the basic syllabus in the first 45 days and spend the remaining 45 days attempting one full Prelims mock test daily and solving 50 puzzle and arithmetic questions."
         }
     ],
     contentHtml: `
@@ -2410,7 +2470,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Complete candidate defense guide for UPSC CDS & NDA II: OTR 10-day-old photograph rule, visual acuity/spectacles standards, 5-day SSB interview protocol, and female candidate eligibility.",
     category: "Career Opportunity",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Defence Services Advisory Desk",
     readTime: "9 min read",
@@ -2483,6 +2545,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the starting salary and allowances of a newly commissioned Lieutenant?",
             "answer": "A newly commissioned Lieutenant (Army), Sub-Lieutenant (Navy), or Flying Officer (Air Force) starts at Pay Level 10 with Basic Pay of ₹56,100. Adding Military Service Pay (MSP ₹15,500), Dearness Allowance (~50%), High Altitude or Field Area allowances (ranging from ₹10,500 to ₹42,500 in Siachen/High Altitude), and Flying Allowance (for pilots ₹25,000), gross pay easily ranges between ₹1,05,000 and ₹1,35,000 per month."
+        },
+        {
+            "question": "Can I clear UPSC CDS & NDA II 2026 on my first attempt?",
+            "answer": "Yes, hundreds of cadets join IMA, AFA, INA, and NDA on their very first attempt. The written examination tests standard Class 10th to 12th fundamentals. Pair 4 hours of academic study (English grammar, NCERT Science/Polity/History, and Elementary Mathematics) with daily physical fitness (running 3 km, pushups, pull-ups) and newspaper analysis for the 5-Day SSB Interview."
         }
     ],
     contentHtml: `
@@ -2627,7 +2693,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Everything candidates need to know about UP Review Officer / Assistant Review Officer: 'O' Level diploma equivalence, Hindi typing tests, 1/3rd negative marking, and General Hindi scoring hacks.",
     category: "Guidelines & Tips",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Academic Research Desk",
     authorRole: "State Civil Services Strategy Desk",
     readTime: "9 min read",
@@ -2700,6 +2768,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the monthly in-hand salary of a newly appointed Review Officer?",
             "answer": "A Review Officer starts at Pay Level 8 with a Basic Pay of ₹47,600. In Lucknow (Class Y city), with current Dearness Allowance (~50%), House Rent Allowance (18% ~₹8,568), and Secretariat Allowance, gross monthly pay is approximately ₹78,000–₹82,000. After NPS and standard deductions, the net take-home salary is approximately ₹69,000–₹72,000 per month."
+        },
+        {
+            "question": "Can I clear UPPSC RO/ARO 2026 through self-study without offline coaching?",
+            "answer": "Yes. The decisive factor in UPPSC RO/ARO is General Hindi (Paper-II, 60 marks), which has a fixed syllabus of 6 topics (Vilom, Vakya Shuddhi, Anek Shabdon Ke Ek Shabd, Tatsam-Tadbhav, Visheshan, and Paryayvachi). Aspirants who score 55+ in Hindi and 75–80 in General Studies effortlessly clear the Prelims cutoff from home."
         }
     ],
     contentHtml: `
@@ -2822,7 +2894,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Everything candidates ask about SSC GD Constable: 5km/1.6km running times, height and chest physical standards, force preference strategy (SSF vs CISF vs CRPF vs BSF), and live camera rules.",
     category: "Career Opportunity",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Paramilitary Recruitment Strategy Desk",
     readTime: "9 min read",
@@ -2895,6 +2969,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the monthly in-hand salary and risk allowances for an SSC GD Constable?",
             "answer": "Constable (General Duty) is placed under Pay Level 3 (₹21,700 – ₹69,100). Starting Basic Pay is ₹21,700. Adding Dearness Allowance (~50%), House Rent Allowance, Ration Money Allowance (~₹3,900 per month), and Hair Cutting/Soap allowances, standard gross pay is ~₹38,000. In high-risk, counter-insurgency, or high-altitude areas (J&K, North-East, Naxal zones), additional Risk & Hardship Allowance (ranging from ₹9,700 up to ₹17,300 per month) increases total monthly take-home earnings to ₹45,000–₹52,000."
+        },
+        {
+            "question": "Can I clear SSC GD Constable 2026 in 3 months of preparation?",
+            "answer": "Yes. The written examination tests basic 10th-standard subjects (Reasoning, Elementary Maths, General Knowledge, and Hindi/English). With 3 months of disciplined study (3–4 hours study + 1 hour running practice), achieving 120+ marks out of 160 is completely realistic. Concurrently build your stamina to complete the 5 km physical run in under 24 minutes."
         }
     ],
     contentHtml: `
@@ -3033,7 +3111,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Comprehensive candidate handbook for Maharashtra Police Bharti 2026: 17,400+ constable & driver vacancies, physical ground marks, written exam pattern, and photo/sign upload rules.",
     category: "Career Opportunity",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Maharashtra State Police Recruitment Desk",
     readTime: "9 min read",
@@ -3106,6 +3186,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the monthly salary of a Maharashtra Police Constable after joining?",
             "answer": "A Police Constable is appointed under 7th Pay Commission Pay Matrix Level S-7 with Basic Pay of ₹21,700 (Pay Scale ₹21,700–₹69,100). Adding Dearness Allowance (~50%), House Rent Allowance (27% in Mumbai/Pune Class X cities, 18% in Class Y), Transport Allowance, and Police Special Allowance, gross pay is ~₹42,000–₹45,000. Net in-hand monthly salary ranges between ₹36,000 and ₹39,000."
+        },
+        {
+            "question": "Can an average candidate clear Maharashtra Police Bharti 2026 on the first attempt?",
+            "answer": "Yes, absolutely. Over 70% of selected Maharashtra Police constables start from average academic and physical fitness backgrounds. Clearing Bharti requires a balanced dual approach: (1) Ground Physical Endurance: Dedicate 2 hours every morning to 1600m/800m running drills and shot put technique to comfortably secure at least 35–42 out of 50 marks (minimum qualifying is 25). (2) Written Exam: Study 4–5 hours daily focusing on Marathi Grammar, Basic Mathematics, Reasoning, and Maharashtra GK/Current Affairs. Practicing previous 5 years' question papers under timer conditions ensures scoring 85+ marks in the 100-mark written exam."
         }
     ],
     contentHtml: `
@@ -3262,7 +3346,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Authoritative candidate handbook for SSC CHSL 2026: 10+2 eligibility, LDC/DEO post breakdown, typing speed standards, 140×60 px signature rules, and Tier-1 preparation.",
     category: "Exam Alerts",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Staff Selection Commission Analytics Team",
     readTime: "9 min read",
@@ -3335,6 +3421,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the starting monthly in-hand salary for an LDC and DEO?",
             "answer": "For LDC/JSA (Pay Level 2, Basic ₹19,900): In Class X metro cities (Delhi, Mumbai), gross salary is ~₹39,000, yielding net in-hand pay of approximately ₹34,000–₹36,000 per month. For DEO (Pay Level 4, Basic ₹25,500): Gross pay is ~₹46,000, with net in-hand salary around ₹40,000–₹43,000 per month."
+        },
+        {
+            "question": "Can an average 12th-pass aspirant clear SSC CHSL 2026 on the first attempt?",
+            "answer": "Yes. SSC CHSL syllabus is very similar to SSC CGL but with standard 12th-level arithmetic and comprehension. To clear on your first attempt: (1) Complete syllabus fundamentals across Reasoning, Maths, English, and GK within 3 months. (2) Solve last 5 years' TCS question papers. (3) Start 30 minutes of daily keyboard typing practice to easily achieve the required 35 words per minute speed for LDC/DEO posts."
         }
     ],
     contentHtml: `
@@ -3425,7 +3515,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Comprehensive candidate handbook for Railway RRB ALP & Technician 2026: 18,799+ posts, strict A-1 medical vision criteria, CBAT psycho test, and document upload rules.",
     category: "Study Prep",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Academic Research Desk",
     authorRole: "Railway Technical Recruitment Desk",
     readTime: "9 min read",
@@ -3498,6 +3590,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the starting in-hand salary and running allowance for an Assistant Loco Pilot?",
             "answer": "ALP starts at 7th CPC Pay Level 2 with Basic Pay of ₹19,900. In addition to DA (~50%), HRA, and Transport Allowance, ALPs earn generous Running Allowance (Kilometre Allowance for train running duties at approx. ₹4.50 to ₹5.50 per km), allowing monthly gross earnings to routinely reach ₹52,000–₹65,000, with net in-hand salary ~₹45,000–₹58,000."
+        },
+        {
+            "question": "Can an ITI or Diploma candidate clear RRB ALP & Technician 2026?",
+            "answer": "Yes. The majority of successful ALP and Technician candidates are ITI and Diploma holders. The key to clearing is: (1) Score 75+ in CBT-1 by mastering Basic Science & Engineering, Maths, and Reasoning. (2) In CBT-2 Part B, secure at least 35% qualifying marks in your trade theory. (3) For ALP aspirants, practice memory and observation tests for the CBAT aptitude stage."
         }
     ],
     contentHtml: `
@@ -3577,7 +3673,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Everything candidates ask about India Post GDS 2026: 44,000+ Branch Postmaster (BPM) & ABPM vacancies, 10th marks merit cutoffs, no exam selection, and photo specs.",
     category: "Career Opportunity",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Academic Research Desk",
     authorRole: "Postal Department Recruitment Desk",
     readTime: "8 min read",
@@ -3650,6 +3748,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the monthly in-hand salary of a BPM and ABPM including allowances?",
             "answer": "Branch Postmaster (BPM) receives a minimum TRCA of ₹12,000 for 4 hours of daily duty. Adding Dearness Allowance (~50%), Office Maintenance Allowance (OMA ₹500), and stationary allowance, gross monthly pay is ~₹18,500–₹21,000. Assistant Branch Postmaster (ABPM) receives TRCA of ₹10,000, with gross monthly pay around ~₹15,500–₹17,500."
+        },
+        {
+            "question": "Can I get selected in India Post GDS 2026 with average 10th marks?",
+            "answer": "Selection in India Post GDS is 100% merit-based on 10th-grade percentages with no entrance examination. While popular urban division cutoffs often exceed 95%+, candidates with 75% to 88% marks frequently get selected in subsequent merit lists (Lists 2, 3, and 4) by strategically choosing rural, tribal, or remote branch post offices with lower applicant ratios."
         }
     ],
     contentHtml: `
@@ -3729,7 +3831,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Everything candidates ask about UP Police Constable & SI 2026: 60,244 vacancies, 4.8km running criteria, Digilocker document upload rules, and OMR written exam strategy.",
     category: "Career Opportunity",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "UP Police Recruitment Advisory Desk",
     readTime: "9 min read",
@@ -3802,6 +3906,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the monthly starting salary for a UP Police Constable?",
             "answer": "Constable is appointed under Pay Matrix Level 3 (Pay Band ₹5,200–₹20,200 with Grade Pay ₹2,000). Starting Basic Pay is ₹21,700. Including DA (~50%), HRA, and allowances, gross salary is ~₹38,000–₹41,000, with net in-hand salary of approximately ₹33,000–₹36,000 per month."
+        },
+        {
+            "question": "Can I clear UP Police Constable 2026 written exam and 4.8 km run in 60 days?",
+            "answer": "Yes. The 60,244 vacancies offer unprecedented odds. In 60 days: (1) Written: Practice General Hindi (37 Qs) and Reasoning (55 Qs)—these two sections alone account for 92 out of 150 questions (184 marks out of 300). (2) Physical: Begin jogging 2–3 km daily from day one, gradually increasing endurance to complete 4.8 km in 25 minutes."
         }
     ],
     contentHtml: `
@@ -3881,7 +3989,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Authoritative candidate handbook for Reserve Bank of India Grade B (General/DEPR/DSIM) & Assistant 2026: 60% degree rules, descriptive economic papers, and salary.",
     category: "Career Opportunity",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Academic Research Desk",
     authorRole: "Central Banking Advisory Desk",
     readTime: "9 min read",
@@ -3954,6 +4064,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the career progression for an RBI Grade B Officer?",
             "answer": "Career hierarchy proceeds: Assistant Manager (Grade A) → Manager (Grade B) → Assistant General Manager (Grade C) → Deputy General Manager (Grade D) → General Manager (Grade E) → Chief General Manager (Grade F) → Executive Director (ED) → Deputy Governor (DG)."
+        },
+        {
+            "question": "Can an average student clear RBI Grade B 2026 on the first attempt?",
+            "answer": "Yes. While RBI Grade B is prestigious and selective, success comes from structured preparation rather than genius. Clearing Phase-I requires qualifying sectional cutoffs (General Awareness carries 80 marks). For Phase-II, master Economic & Social Issues (ESI) and Finance & Management (FM), and practice typing structured 400–600 word answers on a computer keyboard daily."
         }
     ],
     contentHtml: `
@@ -4033,7 +4147,9 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     excerpt: "Everything candidates ask about BPSC 70th CCE & Teacher TRE 4.0: live photo webcam rules, Hindi & English signatures, 1/3rd negative marking, and Prelims syllabus.",
     category: "Guidelines & Tips",
     publishDate: "Sept 20, 2026",
+    publishTime: "09:00 AM IST",
     lastUpdated: "Sept 20, 2026",
+    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Bihar Public Service Commission Advisory Desk",
     readTime: "9 min read",
@@ -4106,6 +4222,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         {
             "question": "What is the monthly in-hand salary of an SDM or DSP appointed through BPSC?",
             "answer": "Sub-Divisional Officer (SDM) and DSP are placed under 7th CPC Pay Level 9 (Grade Pay ₹5,400, Basic Pay ₹53,100). Adding Dearness Allowance (~50%), HRA, and medical allowances, gross monthly pay is ~₹88,000–₹94,000, with net in-hand salary ~₹78,000–₹84,000."
+        },
+        {
+            "question": "Can I clear BPSC 70th CCE and Teacher TRE 4.0 through self-study?",
+            "answer": "Yes. For BPSC 70th CCE, 60% of Prelims marks come from 4 subjects: Bihar Special GK, Modern History of India, General Science, and Current Affairs. Mastering these four subjects through NCERTs, Imtiaz Ahmed, and standard current affairs ensures comfortably crossing the 90+ cutoff. For Teacher TRE 4.0, rigorous SCERT/NCERT textbook revision is sufficient."
         }
     ],
     contentHtml: `

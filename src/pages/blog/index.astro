@@ -7,13 +7,21 @@ import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 import { BLOG_POSTS } from '../../data/blogPostsData';
+import SocialShare from '../../components/SocialShare.astro';
 
 const pageTitle = "Exam Study Guides, Preparation Tips & Document Guidelines | SignResize Blog";
 const pageDescription = "In-depth exam preparation articles, step-by-step photo & signature upload guides, study strategies, and career tips for SSC, UPSC, IBPS, RRB, and State PSC aspirants.";
 const canonicalUrl = "https://signresize.in/blog/";
 
-const featuredPost = BLOG_POSTS.find(p => p.featured) || BLOG_POSTS[0];
-const regularPosts = BLOG_POSTS.filter(p => p.slug !== featuredPost.slug);
+// Arrange all blog posts by date in descending order (most recently published/deployed first)
+const sortedPosts = [...BLOG_POSTS].sort((a, b) => {
+  const timeA = new Date(a.publishDate).getTime();
+  const timeB = new Date(b.publishDate).getTime();
+  return timeB - timeA;
+});
+
+const featuredPost = sortedPosts.find(p => p.featured) || sortedPosts[0];
+const regularPosts = sortedPosts.filter(p => p.slug !== featuredPost.slug);
 
 // Categories
 const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Career Opportunity'];
@@ -143,12 +151,12 @@ const quickDeadlines = [
       <section class="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card via-card/90 to-primary/10 p-6 sm:p-8 shadow-md">
         <div class="flex flex-col lg:flex-row gap-6 items-start justify-between">
           <div class="space-y-3 flex-1">
-            <div class="flex items-center gap-2.5">
+            <div class="flex flex-wrap items-center gap-2.5">
               <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30">
                 Featured • {featuredPost.category}
               </span>
-              <span class="text-xs text-muted-foreground font-mono">
-                {featuredPost.publishDate} • {featuredPost.readTime}
+              <span class="text-xs text-muted-foreground font-mono flex items-center gap-1">
+                <span>📅</span> {featuredPost.publishDate} • {featuredPost.deployedAt || '09:00 AM IST'} • ⏱️ {featuredPost.readTime}
               </span>
             </div>
             <h2 class="text-2xl sm:text-3xl font-bold text-foreground hover:text-primary transition">
@@ -188,11 +196,16 @@ const quickDeadlines = [
         </div>
       </section>
 
-      <!-- Articles Grid -->
+      <!-- Articles Grid (Arranged by Date Descending) -->
       <section class="space-y-4">
-        <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
-          <span>📚</span> Latest Articles &amp; Daily Preparation
-        </h2>
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📚</span> Latest Articles &amp; Daily Preparation
+          </h2>
+          <span class="text-xs font-mono text-muted-foreground">
+            Arranged by Date (Newest First)
+          </span>
+        </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="posts-container">
           {regularPosts.map((post) => (
@@ -206,7 +219,7 @@ const quickDeadlines = [
                     {post.category}
                   </span>
                   <span class="text-muted-foreground font-mono text-[11px]">
-                    {post.readTime}
+                    ⏱️ {post.readTime}
                   </span>
                 </div>
                 <h3 class="font-bold text-base text-foreground hover:text-primary transition line-clamp-2">
@@ -220,14 +233,14 @@ const quickDeadlines = [
               </div>
 
               <div class="pt-3 border-t border-border flex items-center justify-between text-xs">
-                <span class="text-muted-foreground font-medium">
-                  {post.publishDate}
+                <span class="text-muted-foreground font-mono text-[11px] flex items-center gap-1">
+                  <span>📅</span> {post.publishDate}
                 </span>
                 <a
                   href={`/blog/${post.slug}/`}
                   class="text-primary font-bold hover:underline flex items-center gap-1"
                 >
-                  <span>Read Post</span>
+                  <span>Read Guide</span>
                   <span>&rarr;</span>
                 </a>
               </div>
@@ -235,6 +248,15 @@ const quickDeadlines = [
           ))}
         </div>
       </section>
+
+      <!-- Social Share Banner on Blog Index -->
+      <SocialShare
+        url={canonicalUrl}
+        title="SignResize Govt Exam Blog & Preparation Guides"
+        description="Read comprehensive guides, syllabus blueprints, and official photo/signature resize rules for all Indian recruitment exams."
+        variant="card"
+        badgeText="Share SignResize Study Room with Aspirants"
+      />
 
       <!-- Student Assistant CTA Box -->
       <section class="rounded-2xl border border-border bg-muted/40 p-6 sm:p-8 text-center space-y-3">

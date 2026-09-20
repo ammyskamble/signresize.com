@@ -6,6 +6,7 @@ import Footer from '../../components/Footer.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
+import SocialShare from '../../components/SocialShare.astro';
 import { BLOG_POSTS, type BlogPost } from '../../data/blogPostsData';
 import { EXAM_PRESETS } from '../../data/examPresets';
 import { EXAM_PAGES_DATA } from '../../data/examPagesData';
@@ -184,37 +185,48 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <span class="px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
             {post.category}
           </span>
-          <span class="text-xs text-muted-foreground font-mono">
-            {post.publishDate}
+          <span class="text-xs text-muted-foreground font-mono flex items-center gap-1">
+            <span>📅</span> Published: {post.publishDate} • {post.publishTime || "09:00 AM IST"}
           </span>
-          {post.lastUpdated && (
-            <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-              Verified: {post.lastUpdated}
-            </span>
-          )}
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 flex items-center gap-1.5 font-mono shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Verified &amp; Deployed: {post.deployedAt || `${post.lastUpdated || post.publishDate} • 09:00 AM IST`}</span>
+          </span>
           <span class="text-muted-foreground">•</span>
           <span class="text-xs text-muted-foreground font-mono">
             ⏱️ {post.readTime}
           </span>
         </div>
 
-        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.2]">
+        <!-- Highlighted Main Headline (H1) -->
+        <h1 class="text-2xl sm:text-4xl lg:text-[2.5rem] font-extrabold tracking-tight text-foreground leading-[1.25] p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-card border border-primary/25 shadow-xs">
           {post.title}
         </h1>
 
-        <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        <!-- Highlighted Subheadline Excerpt -->
+        <p class="text-base sm:text-lg text-foreground/90 font-medium leading-relaxed pl-4 border-l-4 border-primary bg-primary/5 py-2.5 rounded-r-xl">
           {post.excerpt}
         </p>
 
-        <!-- Author / Editorial Badge (E-E-A-T) -->
-        <div class="flex items-center gap-3 pt-2">
-          <div class="w-9 h-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center font-bold text-primary text-sm">
-            SR
+        <!-- Author / Editorial Badge & Social Share Bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-border/60">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center font-bold text-primary text-sm">
+              SR
+            </div>
+            <div class="text-xs">
+              <div class="font-bold text-foreground">{post.author}</div>
+              <div class="text-muted-foreground">{post.authorRole} • Official Exam Standards</div>
+            </div>
           </div>
-          <div class="text-xs">
-            <div class="font-bold text-foreground">{post.author}</div>
-            <div class="text-muted-foreground">{post.authorRole} • Official Exam Standards</div>
-          </div>
+
+          <!-- Inline Social Share Bar -->
+          <SocialShare
+            url={canonicalUrl}
+            title={post.title}
+            description={post.excerpt}
+            variant="inline"
+          />
         </div>
       </header>
 
@@ -264,16 +276,25 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           </a>
           {post.faqs && post.faqs.length > 0 && (
             <a href="#faqs" class="px-2.5 py-1 rounded-lg bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 transition font-bold">
-              5. Top 10 FAQs (Accordion)
+              5. FAQs ({post.faqs.length} Answers)
             </a>
           )}
         </div>
       </nav>
 
-      <!-- Main Article Prose Content -->
-      <article class="prose prose-slate dark:prose-invert max-w-none prose-headings:font-bold prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-3 prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
+      <!-- Main Article Prose Content (with Enhanced Headline & Subheadline Styling) -->
+      <article class="article-prose prose prose-slate dark:prose-invert max-w-none prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
         <Fragment set:html={post.contentHtml} />
       </article>
+
+      <!-- Prominent Social Share Card after Article -->
+      <SocialShare
+        url={canonicalUrl}
+        title={post.title}
+        description={post.excerpt}
+        variant="card"
+        badgeText="Share this Official Exam Guide with Aspirants & Study Groups"
+      />
 
       <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
       {post.faqs && post.faqs.length > 0 && (
@@ -283,7 +304,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
               <span>❓</span> Official Candidate FAQs
             </div>
             <h2 class="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
-              Frequently Asked Questions (Top 10 Clarified)
+              Frequently Asked Questions ({post.faqs.length} Clarified)
             </h2>
             <p class="text-sm text-muted-foreground">
               Direct, authoritative answers verified against official commission gazettes, application instructions, and scrutiny standards.
@@ -397,5 +418,61 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
     </main>
 
     <Footer />
+
+    <style>
+      :global(.article-prose h2) {
+        position: relative;
+        font-size: 1.35rem;
+        line-height: 1.35;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--color-foreground);
+        margin-top: 2.5rem;
+        margin-bottom: 1.25rem;
+        padding: 0.75rem 1rem 0.75rem 1.15rem;
+        border-left: 5px solid var(--color-primary);
+        border-radius: 0 0.85rem 0.85rem 0;
+        background: linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 12%, transparent), color-mix(in srgb, var(--color-primary) 3%, transparent) 80%, transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+      @media (min-width: 640px) {
+        :global(.article-prose h2) {
+          font-size: 1.6rem;
+          padding: 0.85rem 1.35rem 0.85rem 1.25rem;
+          border-left-width: 6px;
+        }
+      }
+      :global(.article-prose h3) {
+        font-size: 1.15rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--color-foreground);
+        margin-top: 2rem;
+        margin-bottom: 0.85rem;
+        padding: 0.45rem 0.85rem 0.45rem 0.85rem;
+        border-left: 3px solid color-mix(in srgb, var(--color-primary) 65%, transparent);
+        border-radius: 0 0.5rem 0.5rem 0;
+        background: color-mix(in srgb, var(--color-primary) 6%, transparent);
+      }
+      @media (min-width: 640px) {
+        :global(.article-prose h3) {
+          font-size: 1.3rem;
+        }
+      }
+      :global(.article-prose h4) {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--color-foreground);
+        margin-top: 1.5rem;
+        margin-bottom: 0.6rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.3rem 0.75rem;
+        border-radius: 0.5rem;
+        background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+        border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+      }
+    </style>
   </body>
 </html>
