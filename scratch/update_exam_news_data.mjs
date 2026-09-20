@@ -1,4 +1,7 @@
-// src/data/examNewsData.ts
+// scratch/update_exam_news_data.mjs
+import fs from 'node:fs';
+
+const examNewsDataContent = `// src/data/examNewsData.ts
 // Live & Upcoming Government Examination Updates with Authoritative Top-10 FAQ Blog Links
 
 export interface ExamDateMilestone {
@@ -610,7 +613,7 @@ export function getExamLiveStatus(item: ExamNewsItem): {
   if (daysRemaining <= 5) {
     return {
       status: 'closing-soon',
-      label: daysRemaining === 1 ? 'Last Day!' : `Ends in ${daysRemaining}d`,
+      label: daysRemaining === 1 ? 'Last Day!' : \`Ends in \${daysRemaining}d\`,
       badgeClass: 'bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30 animate-pulse font-bold',
       daysRemaining
     };
@@ -623,3 +626,7 @@ export function getExamLiveStatus(item: ExamNewsItem): {
     daysRemaining
   };
 }
+`;
+
+fs.writeFileSync('src/data/examNewsData.ts', examNewsDataContent, 'utf8');
+console.log('Successfully updated src/data/examNewsData.ts with all 14 ongoing exams and accurate blog links.');

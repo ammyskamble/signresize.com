@@ -5,7 +5,9 @@ export const livePostsBatch1 = [
   {
     slug: "ssc-cgl-2026-top-10-faq-aspirants-guide",
     title: "SSC CGL 2026: Top 10 FAQs Every Aspirant Must Know Before Applying — Eligibility, Live Photo & Tier-1 Strategy",
-    excerpt: "Authoritative candidate advisory for SSC CGL 2026 answering top 10 frequently asked questions: live camera requirements, 140×60 px signature bounds, Tier-1 qualifying vs Tier-2 merit rules, post preferences, and cutoffs.",
+    metaTitle: "SSC CGL 2026: Live Photo, 140x60 Sign & Eligibility FAQs",
+    metaDescription: "Official SSC CGL 2026 guide: live photo rules, 140x60 signature size, eligibility criteria and top FAQs. Resize your photo and signature online free!",
+    excerpt: "Authoritative candidate advisory for SSC CGL 2026: official live photo guidelines, exact 140×60 px signature bounds, educational eligibility, Tier-1 negative marking, and post preferences.",
     category: "Exam Alerts",
     publishDate: "Sept 20, 2026",
     lastUpdated: "Sept 20, 2026",
@@ -13,7 +15,7 @@ export const livePostsBatch1 = [
     authorRole: "Staff Selection Commission Analytics Team",
     readTime: "9 min read",
     featured: false,
-    tags: ["SSC CGL 2026", "FAQ", "Live Photo Guidelines", "Signature 10-20KB", "Tier-1 Strategy", "Syllabus Breakdown"],
+    tags: ["SSC CGL 2026", "SSC CGL Eligibility Criteria", "SSC CGL Live Photo Guidelines", "SSC CGL Signature Size 140x60", "Tier-1 Strategy", "Syllabus Breakdown"],
     relatedExamPreset: "ssc-general",
     quickFacts: [
       { label: "Conducting Body", value: "Staff Selection Commission (SSC)" },
@@ -25,9 +27,10 @@ export const livePostsBatch1 = [
     ],
     contentHtml: `
       <section id="overview" class="space-y-4">
-        <h2>SSC CGL 2026: Comprehensive Recruitment Overview &amp; Cadre Analysis</h2>
-        <p>The Staff Selection Commission has officially notified <strong>17,727 vacancies</strong> for the Combined Graduate Level Examination 2026. This mega-drive recruits officers into Group 'B' Gazetted (Assistant Audit Officer / Assistant Accounts Officer), Group 'B' Non-Gazetted (Assistant Section Officer in CSS, MEA, IB, AFHQ; Inspector of Income Tax; Central Excise &amp; Preventive Officer), and Group 'C' positions (Tax Assistant, Auditor, Accountant) across premier ministries.</p>
-        <p>Because the online application deadline closes on <strong>September 24, 2026 (23:00 Hrs)</strong>, aspirants must navigate both rigorous academic standards and strict digital document compliance. SSC's portal employs automated algorithmic validation for photographic quality and signature aspect ratios, rejecting thousands of applications annually without manual review.</p>
+        <h2>SSC CGL 2026: Comprehensive Recruitment Overview &amp; Key Dates</h2>
+        <p>Looking for the official <strong>SSC CGL 2026 eligibility criteria</strong>, <strong>SSC CGL live photo guidelines</strong>, and exact <strong>SSC CGL signature size 140x60</strong> specifications? With over <strong>17,727 vacancies</strong> announced by the Staff Selection Commission, this authoritative handbook provides everything you need to know to submit an error-free application on <a href="https://ssc.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">ssc.gov.in</a> and clear the Tier-1 computer-based examination.</p>
+        
+        <p>This massive recruitment drive fills coveted positions across India's premier central ministries, including Assistant Section Officer (ASO) in MEA, CSS, and IB, Inspector of Income Tax (ITI), Central Excise Inspector, and Sub-Inspector in the CBI. If you are also tracking other major recruitments, explore our comprehensive <a href="/government-jobs/" class="text-primary underline font-semibold">Live Government Jobs Directory</a> for active deadlines and application portals.</p>
 
         <div class="my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-2">
           <h4 class="font-bold text-primary text-base flex items-center gap-2">
@@ -42,9 +45,26 @@ export const livePostsBatch1 = [
         </div>
       </section>
 
+      <section id="eligibility" class="space-y-4 mt-8">
+        <h2>SSC CGL 2026 Eligibility Criteria &amp; Age Limits</h2>
+        <p>Before filling out the One-Time Registration (OTR) form, ensure you satisfy the official eligibility benchmarks:</p>
+
+        <h3>Educational Eligibility Criteria &amp; Final-Year Degree Rules</h3>
+        <p>Candidates must hold a <strong>Bachelor's Degree</strong> in any discipline from a recognized University or Institute established under Central or State legislation. Final-year graduation students are eligible to apply provided their final degree results are formally declared by their University on or before the cut-off date specified in the SSC notification.</p>
+
+        <h3>Category-Wise Age Limits &amp; Statutory Relaxations</h3>
+        <p>The general age limit spans <strong>18 to 32 years</strong> depending on the specific post group. Age relaxations follow Central Government statutory norms:</p>
+        <ul>
+          <li><strong>OBC (Non-Creamy Layer):</strong> +3 years upper-age relaxation</li>
+          <li><strong>SC / ST:</strong> +5 years upper-age relaxation</li>
+          <li><strong>PwBD (Persons with Benchmark Disabilities):</strong> +10 years (+13 for OBC, +15 for SC/ST)</li>
+          <li><strong>Ex-Servicemen (ESM):</strong> 3 years deduction after military service</li>
+        </ul>
+      </section>
+
       <section id="exam-pattern" class="space-y-4 mt-8">
-        <h2>Tier-1 Exam Blueprint &amp; Scoring Penalty Mechanics</h2>
-        <p>Tier-1 is a qualifying Computer Based Examination consisting of 100 multiple-choice questions for 200 marks, administered in a 60-minute window. Each incorrect answer incurs a penalty deduction of <strong>0.50 marks (25%)</strong>.</p>
+        <h2>SSC CGL 2026 Exam Pattern &amp; Tier-1 Scoring Scheme</h2>
+        <p>Tier-1 is an online Computer Based Examination comprising 100 multiple-choice questions for 200 marks in a 60-minute session. Each wrong attempt carries a penalty deduction of <strong>0.50 marks (25%)</strong>.</p>
 
         <div class="my-6 overflow-x-auto">
           <table class="w-full text-xs sm:text-sm text-left border border-border">
@@ -54,7 +74,7 @@ export const livePostsBatch1 = [
                 <th class="p-3 border-b">Questions</th>
                 <th class="p-3 border-b">Marks</th>
                 <th class="p-3 border-b">Target Time</th>
-                <th class="p-3 border-b">High-Weightage Chapters</th>
+                <th class="p-3 border-b">High-Yield Scoring Areas</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border">
@@ -92,7 +112,7 @@ export const livePostsBatch1 = [
 
         <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
           <div class="flex items-center justify-between text-slate-400 text-[11px]">
-            <span>⚡ Tier-1 Formula &amp; Cutoff Projection</span>
+            <span>⚡ Tier-1 Raw Score Formula &amp; Safe Cutoff Benchmarks</span>
             <span>SSC Standard Formula</span>
           </div>
           <pre class="overflow-x-auto text-emerald-400"><code>Net Raw Score = (Correct Attempts × 2.0) - (Incorrect Attempts × 0.50)
@@ -101,34 +121,52 @@ Target Safe Zone (UR/OBC): 76+ Attempts with 90% Accuracy → ~146–152 Net Raw
       </section>
 
       <section id="document-specs" class="space-y-4 mt-8">
-        <h2>Document Compliance: Live Photo &amp; 140×60 px Signature Standards</h2>
-        <p>The updated SSC application engine on <code>ssc.gov.in</code> rejects traditional scanned photo uploads in favor of interactive live camera capture, while enforcing rigid dimension limits for scanned signatures.</p>
+        <h2>SSC CGL Live Photo Guidelines &amp; Signature Specifications</h2>
+        <p>The updated application engine on <code>ssc.gov.in</code> rejects traditional scanned passport photos in favor of interactive live camera capture, while enforcing strict dimensions for scanned signatures.</p>
 
+        <h3>SSC CGL Live Photo Guidelines: Camera &amp; Lighting Rules</h3>
+        <ul>
+          <li><strong>Live Capture Only:</strong> SSC does NOT accept uploaded image files for candidate photographs. You must use a live laptop webcam or smartphone camera via the MySSC application.</li>
+          <li><strong>80% Face Frame Fill:</strong> The candidate's face (from forehead to chin and both ears) must occupy 80% of the live capture oval frame.</li>
+          <li><strong>Zero Spectacles / Glare:</strong> Spectacles, reading glasses, sunglasses, hats, caps, and scarves are strictly prohibited during photo capture.</li>
+          <li><strong>Light Background:</strong> Position yourself against a plain white or light-colored wall with bright frontal lighting to eliminate shadows behind the head.</li>
+        </ul>
+
+        <h3>SSC CGL Signature Size 140x60: Exact Dimensions &amp; KB Limits</h3>
         <div class="my-6 overflow-x-auto">
           <table class="w-full text-xs sm:text-sm text-left border border-border">
             <thead class="bg-muted text-foreground font-semibold">
               <tr>
-                <th class="p-3 border-b">Document</th>
-                <th class="p-3 border-b">Dimensions</th>
-                <th class="p-3 border-b">File Size</th>
-                <th class="p-3 border-b">Format / Ink</th>
-                <th class="p-3 border-b">Mandatory Verification Rule</th>
+                <th class="p-3 border-b">Parameter</th>
+                <th class="p-3 border-b">Official Specification</th>
+                <th class="p-3 border-b">Compliance Standard</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border">
               <tr>
-                <td class="p-3 font-semibold text-primary">Candidate Photograph</td>
-                <td class="p-3">Live Webcam Capture</td>
-                <td class="p-3">Auto-compressed</td>
-                <td class="p-3">JPEG (Portal Captured)</td>
-                <td class="p-3">80% face frame fill, white background, no spectacles/caps</td>
+                <td class="p-3 font-semibold text-primary">Pixel Dimensions</td>
+                <td class="p-3 font-mono font-bold">140 × 60 pixels</td>
+                <td class="p-3">Aspect ratio ~4.0 cm width × 2.0 cm height at 200 DPI</td>
               </tr>
               <tr>
-                <td class="p-3 font-semibold text-primary">Scanned Signature</td>
-                <td class="p-3 font-mono">140 × 60 px (4×2 cm)</td>
-                <td class="p-3 font-mono">10.0 KB to 20.0 KB</td>
-                <td class="p-3">JPG / JPEG (Black Ink)</td>
-                <td class="p-3">Continuous running script on plain white unruled paper</td>
+                <td class="p-3 font-semibold text-primary">File Size (KB)</td>
+                <td class="p-3 font-mono font-bold">10.0 KB to 20.0 KB</td>
+                <td class="p-3">Dual strict boundary (files &lt;10 KB or &gt;20 KB are auto-rejected)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">File Format</td>
+                <td class="p-3 font-mono font-bold">JPG / JPEG only</td>
+                <td class="p-3">PNG, PDF, or WebP files will not upload</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Ink &amp; Paper</td>
+                <td class="p-3 font-mono font-bold">Black Ballpoint Pen</td>
+                <td class="p-3">Unruled plain white paper (Blue ink/gel ink is rejected)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Handwriting Style</td>
+                <td class="p-3 font-mono font-bold">Running Cursive Script</td>
+                <td class="p-3 text-rose-600 dark:text-rose-400 font-bold">BLOCK / CAPITAL letters cause immediate disqualification</td>
               </tr>
             </tbody>
           </table>
@@ -146,10 +184,18 @@ Target Safe Zone (UR/OBC): 76+ Attempts with 90% Accuracy → ~146–152 Net Raw
           </ul>
         </div>
 
-        <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
-          <h4 class="text-base font-bold text-foreground">Format Your SSC Signature in Seconds</h4>
-          <p class="text-sm text-muted-foreground mt-1">SignResize crops to exact 140×60 px, removes grey smartphone paper shadows, and compresses strictly within 10.0–20.0 KB.</p>
-          <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">Open SSC Signature Resizer &rarr;</a>
+        <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 space-y-3">
+          <h4 class="text-base font-bold text-foreground">Resize Your SSC Signature in 10 Seconds</h4>
+          <p class="text-sm text-muted-foreground">Don't risk portal rejection. Use our dedicated <a href="/ssc-signature-resize/" class="text-primary font-bold underline">SSC Signature Resizer Tool</a> to automatically crop to 140×60 px, whiten smartphone paper shadows, and compress within exact 10.0–20.0 KB limits. You can also format certificates with our <a href="/document-resizer/" class="text-primary font-bold underline">Document Resizer</a> or <a href="/compress-image-to-kb/" class="text-primary font-bold underline">Compress Image to 10-20 KB</a>.</p>
+          <div class="pt-1 flex flex-wrap gap-3">
+            <a href="/ssc-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-95 transition shadow-xs flex items-center gap-1.5">
+              <span>Open SSC Signature Tool (140x60)</span>
+              <span>&rarr;</span>
+            </a>
+            <a href="/photo-resizer/" class="px-4 py-2.5 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:bg-muted transition">
+              Passport Photo Resizer
+            </a>
+          </div>
         </div>
       </section>
 

@@ -24,6 +24,8 @@ export interface FAQItem {
 export interface BlogPost {
   slug: string;
   title: string;
+  metaTitle?: string;
+  metaDescription?: string;
   excerpt: string;
   category: 'Exam Alerts' | 'Study Prep' | 'Guidelines & Tips' | 'Career Opportunity';
   publishDate: string;
@@ -64,6 +66,8 @@ function formatPost(p) {
   return `  {
     slug: ${JSON.stringify(p.slug)},
     title: ${JSON.stringify(p.title)},
+    ${p.metaTitle ? `metaTitle: ${JSON.stringify(p.metaTitle)},` : ''}
+    ${p.metaDescription ? `metaDescription: ${JSON.stringify(p.metaDescription)},` : ''}
     excerpt: ${JSON.stringify(p.excerpt)},
     category: ${JSON.stringify(p.category)},
     publishDate: ${JSON.stringify(p.publishDate)},

@@ -23,8 +23,8 @@ interface Props {
 
 const { post } = Astro.props;
 
-const pageTitle = `${post.title} | SignResize Blog`;
-const pageDescription = post.excerpt;
+const pageTitle = post.metaTitle || (post.title.length > 50 ? `${post.title.slice(0, 48)}... | SignResize` : `${post.title} | SignResize`);
+const pageDescription = post.metaDescription || post.excerpt;
 const canonicalUrl = `https://signresize.in/blog/${post.slug}/`;
 
 // Find related preset if specified
@@ -87,6 +87,7 @@ const articleSchema = {
   "@type": "BlogPosting",
   "headline": post.title,
   "description": post.excerpt,
+  "image": ["https://signresize.in/favicon-96x96.png"],
   "datePublished": publishedIso,
   "dateModified": modifiedIso,
   "mainEntityOfPage": {
