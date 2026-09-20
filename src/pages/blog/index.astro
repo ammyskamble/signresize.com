@@ -7,10 +7,9 @@ import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 import { BLOG_POSTS } from '../../data/blogPostsData';
-import { ONGOING_EXAMS_DATA, getExamLiveStatus } from '../../data/examNewsData';
 
-const pageTitle = "Govt Exam Alerts, Study Preparation & Career Opportunities | SignResize Blog";
-const pageDescription = "Daily government exam notifications, ongoing recruitment calendars, last dates to apply, study preparation strategies, and photo/signature guidelines for SSC, UPSC, Banking, and Railways.";
+const pageTitle = "Exam Study Guides, Preparation Tips & Document Guidelines | SignResize Blog";
+const pageDescription = "In-depth exam preparation articles, step-by-step photo & signature upload guides, study strategies, and career tips for SSC, UPSC, IBPS, RRB, and State PSC aspirants.";
 const canonicalUrl = "https://signresize.in/blog/";
 
 const featuredPost = BLOG_POSTS.find(p => p.featured) || BLOG_POSTS[0];
@@ -18,6 +17,13 @@ const regularPosts = BLOG_POSTS.filter(p => p.slug !== featuredPost.slug);
 
 // Categories
 const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Career Opportunity'];
+
+// Static deadline reminders (editorial summary — full directory is at /government-jobs/)
+const quickDeadlines = [
+  { label: 'SSC CGL 2026', date: 'Sept 24', urgent: true },
+  { label: 'RRB NTPC 2026', date: 'Oct 15', urgent: false },
+  { label: 'IBPS PO 2026', date: 'Oct 20', urgent: false },
+];
 ---
 
 <!doctype html>
@@ -81,82 +87,38 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
         </p>
       </div>
 
-      <!-- Live Ongoing Exams Dashboard Section -->
-      <section class="rounded-2xl border border-primary/25 bg-card/60 dark:bg-slate-900/60 p-5 shadow-xs backdrop-blur space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
-          <div class="flex items-center gap-2">
-            <span class="text-base">📢</span>
-            <h2 class="text-lg font-bold text-foreground">Currently Ongoing Government Recruitment Drives</h2>
+      <!-- Active Exam Deadlines Strip (editorial summary — full directory at /government-jobs/) -->
+      <section class="rounded-2xl border border-amber-500/25 bg-gradient-to-r from-amber-500/5 via-card to-primary/5 p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg shrink-0">📅</div>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-foreground">Upcoming Application Deadlines</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">Quick Reminder</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              {quickDeadlines.map((d) => (
+                <span class:list={[
+                  "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-semibold border",
+                  d.urgent
+                    ? "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30"
+                    : "bg-muted text-muted-foreground border-border"
+                ]}>
+                  {d.urgent && <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>}
+                  {d.label} — <span class="font-mono">{d.date}</span>
+                </span>
+              ))}
+            </div>
+            <p class="text-[11px] text-muted-foreground">For all vacancies, filters, official portals &amp; full details →</p>
           </div>
-          <span class="text-xs text-muted-foreground font-mono">
-            Click any exam to view published notification &amp; dates
-          </span>
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {ONGOING_EXAMS_DATA.map((exam) => {
-            const status = getExamLiveStatus(exam);
-            const toolUrl = `/${exam.toolSlug}/`;
-            return (
-              <div 
-                class="p-4 rounded-xl bg-background/90 dark:bg-slate-800/90 border border-border hover:border-primary/50 hover:shadow-md transition flex flex-col justify-between space-y-3 relative group cursor-pointer exam-card-trigger"
-                data-exam-id={exam.id}
-              >
-                <div class="space-y-2">
-                  <div class="flex items-center justify-between gap-1.5">
-                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-muted text-muted-foreground border border-border">
-                      {exam.category}
-                    </span>
-                    <span class:list={["text-[10px] font-semibold px-2 py-0.5 rounded-full border", status.badgeClass]}>
-                      {status.label}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 class="font-bold text-sm sm:text-base text-foreground group-hover:text-primary transition flex items-center justify-between">
-                      <span>{exam.examName}</span>
-                      <span class="text-xs text-primary opacity-0 group-hover:opacity-100 transition">&rarr;</span>
-                    </h3>
-                    <div class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">
-                      {exam.vacancies}
-                    </div>
-                  </div>
-
-                  <p class="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
-                    {exam.notificationTitle}
-                  </p>
-                </div>
-
-                <div class="pt-3 border-t border-border/70 space-y-2">
-                  <div class="flex items-center justify-between text-[11px] text-muted-foreground font-mono">
-                    <span>Deadline:</span>
-                    <span class="font-bold text-foreground">{exam.lastDate}</span>
-                  </div>
-
-                  <div class="flex items-center gap-2 pt-1">
-                    <!-- Button 1: View Published Notification Modal -->
-                    <button
-                      type="button"
-                      class="flex-1 py-1.5 px-2.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary text-xs font-semibold border border-primary/20 transition flex items-center justify-center gap-1 cursor-pointer view-notification-btn"
-                      data-exam-id={exam.id}
-                    >
-                      <span>📢 Published Notice</span>
-                    </button>
-
-                    <!-- Button 2: Direct Tool Resizer -->
-                    <a
-                      href={toolUrl}
-                      class="py-1.5 px-2.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90 transition flex items-center justify-center gap-1 shrink-0"
-                      title={`Open official ${exam.examName} signature & photo resizer`}
-                    >
-                      <span>⚡ Resize</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <a
+          href="/government-jobs/"
+          class="px-4 py-2.5 rounded-xl bg-primary hover:opacity-90 text-primary-foreground text-xs font-bold transition shadow-xs shrink-0 text-center flex items-center justify-center gap-1.5"
+        >
+          <span>Browse All Govt Jobs</span>
+          <span>→</span>
+        </a>
       </section>
 
       <!-- Category Filter Tabs -->
@@ -311,179 +273,11 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
 
     <Footer />
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- PUBLISHED NOTIFICATION DETAILS MODAL DIALOG                 -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <div
-      id="notification-modal"
-      class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-exam-name"
-    >
-      <div 
-        id="notification-modal-card"
-        class="bg-card text-card-foreground border-2 border-primary/30 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150"
-      >
-        <!-- Modal Top Header -->
-        <div class="p-4 sm:p-5 border-b border-border bg-gradient-to-r from-card via-card to-primary/5 flex items-start justify-between gap-3 shrink-0">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span id="modal-category" class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-muted text-muted-foreground border border-border">
-                SSC
-              </span>
-              <span id="modal-status-badge" class="px-2 py-0.5 rounded-full text-[10px] font-semibold border">
-                Active
-              </span>
-              <span id="modal-advt-badge" class="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-primary/10 text-primary border border-primary/20">
-                Notice No.
-              </span>
-            </div>
-            <h2 id="modal-exam-name" class="text-xl sm:text-2xl font-extrabold text-foreground">
-              Exam Name
-            </h2>
-            <div id="modal-authority" class="text-xs text-muted-foreground font-medium">
-              Authority Name
-            </div>
-          </div>
 
-          <button
-            type="button"
-            id="modal-close-btn"
-            class="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted transition cursor-pointer shrink-0"
-            aria-label="Close modal"
-          >
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
-        <!-- Modal Scrollable Body -->
-        <div class="p-4 sm:p-6 overflow-y-auto space-y-5 text-xs sm:text-sm">
-          
-          <!-- 1. Vacancies & Posts Overview -->
-          <div class="p-3.5 rounded-xl bg-primary/5 border border-primary/20 space-y-1.5">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-foreground uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                <span>📋</span> Vacancies &amp; Announced Posts
-              </span>
-              <span id="modal-vacancies" class="font-extrabold text-emerald-600 dark:text-emerald-400 font-mono text-xs">
-                --
-              </span>
-            </div>
-            <p id="modal-posts" class="text-muted-foreground text-xs leading-relaxed">
-              --
-            </p>
-          </div>
-
-          <!-- 2. Crucial Dates Timeline Table -->
-          <div class="space-y-2">
-            <h4 class="font-bold text-foreground uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-              <span>📅</span> Official Timeline &amp; Important Dates
-            </h4>
-            <div class="rounded-xl border border-border overflow-hidden">
-              <table class="w-full text-left text-xs">
-                <tbody id="modal-dates-table" class="divide-y divide-border">
-                  <!-- Dynamically populated -->
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- 3. Eligibility & Selection Criteria Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="p-3 rounded-xl bg-card border border-border space-y-1">
-              <div class="font-bold text-foreground text-[11px] uppercase tracking-wider flex items-center gap-1">
-                <span>🎓</span> Minimum Qualification
-              </div>
-              <div id="modal-qualification" class="text-xs text-muted-foreground leading-relaxed">
-                --
-              </div>
-            </div>
-
-            <div class="p-3 rounded-xl bg-card border border-border space-y-1">
-              <div class="font-bold text-foreground text-[11px] uppercase tracking-wider flex items-center gap-1">
-                <span>🎂</span> Age Limit &amp; Relaxation
-              </div>
-              <div id="modal-age" class="text-xs text-muted-foreground leading-relaxed">
-                --
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Mandatory Document / Signature Upload Specifications -->
-          <div class="p-4 rounded-xl border-2 border-amber-500/30 bg-amber-500/5 space-y-2.5">
-            <div class="flex items-center gap-1.5 font-bold text-amber-600 dark:text-amber-400 text-xs uppercase tracking-wider">
-              <span>⚠️</span> Mandatory Document &amp; Signature Standards
-            </div>
-            <div class="space-y-2 text-xs">
-              <div>
-                <strong class="text-foreground">✍️ Signature Upload Standard:</strong>
-                <p id="modal-sign-rule" class="text-muted-foreground mt-0.5">--</p>
-              </div>
-              <div>
-                <strong class="text-foreground">📷 Photograph Rule:</strong>
-                <p id="modal-photo-rule" class="text-muted-foreground mt-0.5">--</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5. Key Highlights / Bullet Points -->
-          <div class="space-y-2">
-            <h4 class="font-bold text-foreground uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-              <span>⚡</span> Key Published Notification Highlights
-            </h4>
-            <ul id="modal-highlights" class="space-y-1 text-xs text-muted-foreground list-disc pl-4 leading-relaxed">
-              <!-- Dynamically populated -->
-            </ul>
-          </div>
-
-        </div>
-
-        <!-- Modal Sticky Footer Actions -->
-        <div class="p-4 sm:p-5 border-t border-border bg-card/90 flex flex-wrap items-center justify-between gap-3 shrink-0">
-          <a
-            id="modal-official-link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
-          >
-            <span>🌐 Official Portal</span>
-            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-
-          <div class="flex items-center gap-2">
-            <a
-              id="modal-article-link"
-              href="#"
-              class="hidden px-3.5 py-2 rounded-xl bg-card border border-border text-foreground hover:bg-muted text-xs font-bold transition"
-            >
-              📖 Study Guide
-            </a>
-            <a
-              id="modal-tool-link"
-              href="#"
-              class="px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:opacity-95 text-xs sm:text-sm font-bold shadow-xs transition flex items-center gap-1.5"
-            >
-              <span>⚡ Launch Resizer Tool</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Pass Dataset safely for modal interactivity -->
-    <script id="ongoing-exams-json" type="application/json" set:html={JSON.stringify(ONGOING_EXAMS_DATA)} />
 
     <!-- Client-side Category Filter & Modal Script -->
     <script is:inline>
-      // 1. Category Filter logic
+      // Category Filter logic
       const buttons = document.querySelectorAll('.category-filter-btn');
       const cards = document.querySelectorAll('.post-card');
 
@@ -505,121 +299,6 @@ const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Ca
               card.style.display = 'none';
             }
           });
-        });
-      });
-
-      // 2. Exam Published Notification Modal Logic
-      const examsRaw = document.getElementById('ongoing-exams-json')?.textContent;
-      const examsList = examsRaw ? JSON.parse(examsRaw) : [];
-      const examMap = new Map(examsList.map(e => [e.id, e]));
-
-      const modal = document.getElementById('notification-modal');
-      const closeBtn = document.getElementById('modal-close-btn');
-
-      function openNotificationModal(examId) {
-        const exam = examMap.get(examId);
-        if (!exam) return;
-
-        document.getElementById('modal-exam-name').textContent = exam.examName;
-        document.getElementById('modal-authority').textContent = exam.authority;
-        document.getElementById('modal-category').textContent = exam.category;
-        
-        const badge = document.getElementById('modal-status-badge');
-        badge.textContent = exam.badgeText || 'Active Notification';
-        badge.className = 'px-2 py-0.5 rounded-full text-[10px] font-semibold border bg-primary/10 text-primary border-primary/20';
-
-        document.getElementById('modal-advt-badge').textContent = exam.notificationDetails?.advtNumber || 'Official Notification';
-        document.getElementById('modal-vacancies').textContent = exam.vacancies || 'As per commission';
-        document.getElementById('modal-posts').textContent = exam.notificationDetails?.posts || exam.notificationTitle;
-        document.getElementById('modal-qualification').textContent = exam.notificationDetails?.qualification || 'See official notification';
-        document.getElementById('modal-age').textContent = exam.notificationDetails?.ageLimit || 'As per recruitment rules';
-        document.getElementById('modal-sign-rule').textContent = exam.notificationDetails?.signRule || '10-20 KB black ink JPG';
-        document.getElementById('modal-photo-rule').textContent = exam.notificationDetails?.photoRule || 'Standard passport photo';
-
-        // Populate dates table
-        const datesTable = document.getElementById('modal-dates-table');
-        if (datesTable) {
-          datesTable.innerHTML = '';
-          (exam.notificationDetails?.importantDates || []).forEach(d => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-              <td class="p-2.5 font-medium text-foreground">${d.label}</td>
-              <td class="p-2.5 font-mono text-muted-foreground text-right font-semibold">${d.date}</td>
-            `;
-            datesTable.appendChild(tr);
-          });
-        }
-
-        // Populate highlights
-        const highlightsUl = document.getElementById('modal-highlights');
-        if (highlightsUl) {
-          highlightsUl.innerHTML = '';
-          (exam.notificationDetails?.keyHighlights || []).forEach(h => {
-            const li = document.createElement('li');
-            li.textContent = h;
-            highlightsUl.appendChild(li);
-          });
-        }
-
-        // Links
-        const toolLink = document.getElementById('modal-tool-link');
-        if (toolLink) {
-          toolLink.href = `/${exam.toolSlug}/`;
-        }
-
-        const officialLink = document.getElementById('modal-official-link');
-        if (officialLink) {
-          officialLink.href = exam.officialUrl;
-        }
-
-        const articleLink = document.getElementById('modal-article-link');
-        if (articleLink) {
-          if (exam.articleSlug) {
-            articleLink.href = `/blog/${exam.articleSlug}/`;
-            articleLink.classList.remove('hidden');
-          } else {
-            articleLink.classList.add('hidden');
-          }
-        }
-
-        modal?.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden');
-      }
-
-      function closeNotificationModal() {
-        modal?.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-      }
-
-      closeBtn?.addEventListener('click', closeNotificationModal);
-
-      modal?.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeNotificationModal();
-        }
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
-          closeNotificationModal();
-        }
-      });
-
-      // Attach click listeners to cards and buttons
-      document.querySelectorAll('.view-notification-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const examId = btn.getAttribute('data-exam-id');
-          if (examId) openNotificationModal(examId);
-        });
-      });
-
-      document.querySelectorAll('.exam-card-trigger').forEach(card => {
-        card.addEventListener('click', (e) => {
-          // If clicked a direct link inside card, allow link navigation
-          if (e.target.closest('a')) return;
-          const examId = card.getAttribute('data-exam-id');
-          if (examId) openNotificationModal(examId);
         });
       });
     </script>

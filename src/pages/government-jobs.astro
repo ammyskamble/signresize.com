@@ -1,0 +1,251 @@
+---
+// src/pages/government-jobs.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import GovernmentJobsDirectory from '../components/GovernmentJobsDirectory';
+import { PAN_INDIA_GOV_JOBS } from '../data/governmentJobsData';
+
+const pageTitle = "Pan-India Government Jobs 2026 | All States Govt Jobs, Vacancies & Official Portals";
+const pageDescription = "Explore all government jobs across Pan-India and all 28 states. Active recruitment notifications for SSC, RRB Railways, UPSC, State PSCs, Bank PO/Clerk, Police Bharti, and direct official application portals with photo/sign resizer.";
+const canonicalUrl = "https://signresize.in/government-jobs/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "government jobs 2026, pan india gov jobs, state govt jobs, sarkari naukri, ssc cgl recruitment, rrb ntpc vacancies, upsc civil services, state psc portals, police bharti, bank jobs 2026, 10th pass govt jobs, 12th pass govt jobs, graduate govt jobs";
+
+const jobFaqs = [
+  {
+    q: "Where can I find genuine, verified government job notifications across all Indian states?",
+    a: "All legitimate government recruitment notifications are issued exclusively by constitutional bodies like UPSC, SSC, Railway Recruitment Boards (RRB), Public Sector Banks (IBPS/SBI), and respective State Public Service Commissions (UPPSC, MPSC, BPSC, TNPSC, etc.). Our directory provides direct official links to official .gov.in and .nic.in portals with zero third-party intermediaries."
+  },
+  {
+    q: "What documents and specifications are strictly required for online government job applications?",
+    a: "Almost all online recruitment portals require: (1) A recent passport-size photograph (usually 20 KB to 50 KB, 3.5×4.5 cm with a plain white or light background), (2) A scanned signature in running handwriting (usually 10 KB to 20 KB in black ink), (3) Left thumb impression for banking and law exams, and (4) Educational marksheets/certificates in PDF format under 200 KB. SignResize provides instant 1-click presets for all these exact dimensions."
+  },
+  {
+    q: "Why do government job application forms reject photos or signatures?",
+    a: "Rejections typically happen due to: (1) File size exceeding or falling below the strict kilobyte bounds (e.g., uploading a 24 KB signature when the maximum limit is 20 KB), (2) Wrong aspect ratio causing distortion, (3) Signing in ALL CAPITAL / BLOCK letters which is strictly disqualified by SSC and RRB, (4) Dark or shadowy phone photos of signatures, and (5) Expired photos without the required Name and Date of Photo (DoP)."
+  },
+  {
+    q: "Can candidates from one state apply for state government jobs in another state?",
+    a: "Yes, in most state government recruitments, non-domicile candidates from other Indian states are eligible to apply under the Open / General (Unreserved) category, provided they meet the educational qualifications and any mandatory state language requirements (e.g., knowledge of Marathi for MPSC, Odia for OSSSC, or Bengali for WBPSC)."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- PWA & Fonts -->
+    <meta name="theme-color" content="#4f46e5" />
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- BreadcrumbList Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pan-India Government Jobs",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+
+    <!-- ItemList Schema.org (Listing Top Government Jobs) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "All India Government Jobs & State Vacancies 2026",
+      "description": "Consolidated list of ongoing Central and State Government recruitment notifications in India.",
+      "itemListElement": PAN_INDIA_GOV_JOBS.slice(0, 15).map((job, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": job.title,
+        "url": job.officialUrl
+      }))
+    })} />
+
+    <!-- FAQPage Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": jobFaqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-5 space-y-6">
+      
+      {/* Breadcrumb Bar */}
+      <nav class="flex items-center text-xs text-muted-foreground gap-2 pt-1" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">Government Jobs (Pan-India &amp; All States)</span>
+      </nav>
+
+      {/* Hero Banner */}
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div class="space-y-2 max-w-4xl">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Pan-India &amp; State Recruitment Directory
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                28 States + 8 UTs Official Portals
+              </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
+              All <span class="text-primary">Government Jobs</span> Across Pan-India &amp; All States
+            </h1>
+
+            <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              Find verified central and state recruitment notifications for <strong>SSC, Railways (RRB), UPSC, Banking (IBPS/SBI), State PSCs, Police Bharti, and Defence</strong>. Access direct official application portals and one-click photo &amp; signature compliance tools.
+            </p>
+          </div>
+
+          {/* Key Value Stat Counters */}
+          <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-2.5 shrink-0">
+            <div class="px-3.5 py-2.5 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[10px] uppercase font-bold text-muted-foreground">Active Vacancies</div>
+              <div class="text-base sm:text-lg font-bold text-primary font-mono">1.8 Lakh+</div>
+            </div>
+            <div class="px-3.5 py-2.5 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[10px] uppercase font-bold text-muted-foreground">State Boards</div>
+              <div class="text-base sm:text-lg font-bold text-foreground font-mono">36 Boards</div>
+            </div>
+            <div class="px-3.5 py-2.5 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[10px] uppercase font-bold text-muted-foreground">Official Portals</div>
+              <div class="text-base sm:text-lg font-bold text-emerald-600 dark:text-emerald-400 font-mono">100% Direct</div>
+            </div>
+            <div class="px-3.5 py-2.5 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[10px] uppercase font-bold text-muted-foreground">Photo &amp; Sign Tools</div>
+              <div class="text-base sm:text-lg font-bold text-foreground font-mono">1-Click Presets</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Interactive Directory Component */}
+      <section class="bg-card border border-border/80 rounded-2xl p-4 sm:p-6 shadow-sm">
+        <GovernmentJobsDirectory client:load />
+      </section>
+
+      {/* Guide Section: How to Apply & Prepare Documents */}
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-card border border-border rounded-2xl p-5 shadow-xs space-y-2">
+          <div class="text-2xl">📋</div>
+          <h3 class="font-bold text-foreground text-sm">1. Check Strict Eligibility &amp; OTR</h3>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Most government portals (UPSC, SSC, UPPSC, BPSC, Kerala Thulasi) now mandate a <strong>One-Time Registration (OTR)</strong> profile. Ensure your name, Aadhaar, and matriculation roll number match your certificates exactly.
+          </p>
+        </div>
+
+        <div class="bg-card border border-border rounded-2xl p-5 shadow-xs space-y-2">
+          <div class="text-2xl">⚡</div>
+          <h3 class="font-bold text-foreground text-sm">2. Standardize Photo &amp; Signature</h3>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Avoid rejection by converting your signature into crisp black ink on pure white background (140×60 px, 10–20 KB). Ensure your passport photo has proper dimensions (3.5×4.5 cm, 20–50 KB) without sunglasses or caps.
+          </p>
+          <a href="/#tool-workspace" class="text-xs text-primary font-semibold hover:underline inline-flex items-center gap-1">
+            <span>Open Signature Resizer Tool</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <div class="bg-card border border-border rounded-2xl p-5 shadow-xs space-y-2">
+          <div class="text-2xl">🛡️</div>
+          <h3 class="font-bold text-foreground text-sm">3. Apply Only on Official Domains</h3>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Always verify that the recruitment domain ends in <strong>.gov.in</strong> or <strong>.nic.in</strong>. Government commissions never charge recruitment fees via personal UPI IDs or informal telegram channels.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ Accordion Section */}
+      <section class="bg-card border border-border rounded-2xl p-5 sm:p-6 shadow-xs space-y-4">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+            <span>❓</span>
+            <span>Frequently Asked Questions About Pan-India &amp; State Govt Jobs</span>
+          </h2>
+          <p class="text-xs text-muted-foreground mt-0.5">
+            Essential guidelines for candidates applying across central ministries and various state recruitment commissions.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          {jobFaqs.map((faq, index) => (
+            <details class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition" open={index === 0}>
+              <summary class="font-semibold text-xs sm:text-sm text-foreground cursor-pointer flex items-center justify-between select-none">
+                <span>{faq.q}</span>
+                <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="pt-3 border-t border-border/50 mt-3 text-xs text-muted-foreground leading-relaxed">
+                {faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

@@ -11,6 +11,7 @@ const isDoc = currentPath.startsWith('/document-resizer');
 const isCompress = currentPath.startsWith('/compress-image-to-kb');
 const isCreator = currentPath.startsWith('/signature-creator');
 const isBlog = currentPath.startsWith('/blog');
+const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsWith('/jobs');
 
 // Compact JSON of all presets for instant client-side searching & dropdown display
 const searchablePresets = EXAM_PRESETS.map((p) => ({
@@ -228,7 +229,23 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
         </div>
       </div>
 
-      <!-- 7. Daily Exam Blog & Prep -->
+      <!-- 7. Pan-India & State Govt Jobs Directory -->
+      <a
+        href="/government-jobs/"
+        class:list={[
+          "px-2.5 lg:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 font-semibold",
+          isJobs
+            ? "bg-primary/10 text-primary border border-primary/25 shadow-2xs"
+            : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+        ]}
+      >
+        <span>Govt Jobs</span>
+        <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-500/40">
+          ALL STATES
+        </span>
+      </a>
+
+      <!-- 8. Daily Exam Blog & Prep -->
       <a
         href="/blog/"
         class:list={[
@@ -534,6 +551,30 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
       Resizers &amp; Tools
     </div>
     <div class="grid grid-cols-1 gap-2">
+      <!-- Pan-India Govt Jobs in Mobile -->
+      <a
+        href="/government-jobs/"
+        class:list={[
+          "flex items-center gap-3 p-3 min-h-[48px] rounded-xl text-xs font-semibold transition border border-emerald-500/20 bg-emerald-500/5",
+          isJobs
+            ? "bg-primary/10 text-primary border-primary/30 shadow-2xs"
+            : "hover:bg-emerald-500/10 text-slate-800 dark:text-slate-200"
+        ]}
+      >
+        <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-200 flex items-center justify-center text-sm font-bold shrink-0">
+          🏛️
+        </span>
+        <div>
+          <div class="font-bold flex items-center gap-1.5">
+            <span>Pan-India Govt Jobs (All States)</span>
+            <span class="px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-500/40">
+              HOT
+            </span>
+          </div>
+          <div class="text-[10px] text-muted-foreground font-normal">SSC, RRB, Bank, UPSC &amp; All 28 State PSCs</div>
+        </div>
+      </a>
+
       <!-- Daily Exam Alerts & Blog in Mobile -->
       <a
         href="/blog/"

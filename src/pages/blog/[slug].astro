@@ -39,6 +39,89 @@ const relatedExamSlug = relatedExamPage ? relatedExamPage.slug : 'ssc-signature-
 
 // Related posts (excluding current)
 const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
+
+// Date formatting helper for Schema
+function toIsoDate(dateStr?: string): string {
+  if (!dateStr) return "2026-09-20";
+  try {
+    const parsed = new Date(dateStr);
+    if (!isNaN(parsed.getTime())) {
+      return parsed.toISOString().split('T')[0];
+    }
+  } catch {}
+  return "2026-09-20";
+}
+
+const publishedIso = toIsoDate(post.publishDate);
+const modifiedIso = toIsoDate(post.lastUpdated || post.publishDate);
+
+// Dynamic Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://signresize.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://signresize.in/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": post.title,
+      "item": canonicalUrl
+    }
+  ]
+};
+
+// Dynamic BlogPosting Schema
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.title,
+  "description": post.excerpt,
+  "datePublished": publishedIso,
+  "dateModified": modifiedIso,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "author": {
+    "@type": "Organization",
+    "name": post.author,
+    "url": "https://signresize.in/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SignResize",
+    "url": "https://signresize.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://signresize.in/favicon-96x96.png"
+    }
+  }
+};
+
+// Dynamic FAQPage Schema
+const faqSchema = (post.faqs && post.faqs.length > 0) ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": post.faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.answer.replace(/<[^>]*>?/gm, '').trim()
+    }
+  }))
+} : null;
 ---
 
 <!doctype html>
@@ -67,29 +150,12 @@ const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="SignResize" />
 
-    <!-- Article Schema.org JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": post.title,
-      "description": post.excerpt,
-      "datePublished": "2026-09-08",
-      "dateModified": "2026-09-08",
-      "author": {
-        "@type": "Organization",
-        "name": post.author,
-        "url": "https://signresize.in/about"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "SignResize",
-        "url": "https://signresize.in"
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": canonicalUrl
-      }
-    })} />
+    <!-- Article & Breadcrumb Schemas -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    {faqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    )}
   </head>
 
   <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
@@ -120,6 +186,11 @@ const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
           <span class="text-xs text-muted-foreground font-mono">
             {post.publishDate}
           </span>
+          {post.lastUpdated && (
+            <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+              Verified: {post.lastUpdated}
+            </span>
+          )}
           <span class="text-muted-foreground">•</span>
           <span class="text-xs text-muted-foreground font-mono">
             ⏱️ {post.readTime}
@@ -146,10 +217,102 @@ const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
         </div>
       </header>
 
-      <!-- Article Content -->
+      <!-- Executive Summary / Quick Facts Banner (if available) -->
+      {post.quickFacts && post.quickFacts.length > 0 && (
+        <section class="rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-card via-primary/5 to-card p-5 sm:p-6 shadow-xs space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+              <span>⚡</span>
+              <span>Quick Facts &amp; Executive Summary</span>
+            </div>
+            <span class="text-[11px] text-muted-foreground font-mono">Official Benchmarks</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
+            {post.quickFacts.map((fact) => (
+              <div class="p-3 rounded-xl bg-card border border-border/70 space-y-1">
+                <div class="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">
+                  {fact.label}
+                </div>
+                <div class="text-xs sm:text-sm font-bold text-foreground">
+                  {fact.value}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Table of Contents / Quick Jump -->
+      <nav class="rounded-xl border border-border bg-muted/30 p-4 sm:p-5 space-y-2.5">
+        <div class="flex items-center gap-2 text-xs font-bold text-foreground uppercase tracking-wider">
+          <span>📑</span>
+          <span>Quick Navigation &amp; Key Sections</span>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <a href="#overview" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
+            1. Overview &amp; Key Dates
+          </a>
+          <a href="#exam-pattern" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
+            2. Exam Pattern &amp; Blueprint
+          </a>
+          <a href="#document-specs" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
+            3. Photo &amp; Signature Specs
+          </a>
+          <a href="#strategy" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
+            4. Preparation Strategy
+          </a>
+          {post.faqs && post.faqs.length > 0 && (
+            <a href="#faqs" class="px-2.5 py-1 rounded-lg bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 transition font-bold">
+              5. Top 10 FAQs (Accordion)
+            </a>
+          )}
+        </div>
+      </nav>
+
+      <!-- Main Article Prose Content -->
       <article class="prose prose-slate dark:prose-invert max-w-none prose-headings:font-bold prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-3 prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
         <Fragment set:html={post.contentHtml} />
       </article>
+
+      <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
+      {post.faqs && post.faqs.length > 0 && (
+        <section id="faqs" class="space-y-4 pt-6 border-t border-border">
+          <div class="space-y-1">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
+              <span>❓</span> Official Candidate FAQs
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+              Frequently Asked Questions (Top 10 Clarified)
+            </h2>
+            <p class="text-sm text-muted-foreground">
+              Direct, authoritative answers verified against official commission gazettes, application instructions, and scrutiny standards.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            {post.faqs.map((faq, idx) => (
+              <details class="group rounded-2xl border border-border bg-card p-4 sm:p-5 transition-all hover:border-primary/40 open:border-primary/50 open:bg-primary/5 open:shadow-xs cursor-pointer">
+                <summary class="flex items-start justify-between gap-4 font-bold text-foreground text-sm sm:text-base list-none select-none">
+                  <div class="flex items-start gap-3">
+                    <span class="px-2 py-0.5 rounded-md text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20 shrink-0 mt-0.5">
+                      Q{idx + 1}
+                    </span>
+                    <span class="group-open:text-primary transition">{faq.question}</span>
+                  </div>
+                  <span class="shrink-0 text-muted-foreground group-open:rotate-180 group-open:text-primary transition-transform duration-200 mt-1">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="mt-3.5 pl-9 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300 border-t border-border/50 pt-3 prose prose-slate dark:prose-invert max-w-none">
+                  <Fragment set:html={faq.answer} />
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <!-- Educational & Fair Use Disclaimer Box -->
       <section class="rounded-xl border border-border/80 bg-muted/40 p-4 text-xs text-muted-foreground space-y-1.5">

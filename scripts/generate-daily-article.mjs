@@ -315,12 +315,23 @@ Provide your output strictly in valid JSON format matching this schema:
   "excerpt": "2-3 informative sentences summarizing the article",
   "category": "Exam Alerts" | "Study Prep" | "Guidelines & Tips" | "Career Opportunity",
   "publishDate": "${todayFormatted}",
+  "lastUpdated": "${todayFormatted}",
   "author": "SignResize Examination Standards Desk" or "SignResize Academic Research Desk",
   "authorRole": "Official Document Compliance Team" or "Competitive Exam Methodology Team",
   "readTime": "8 min read",
   "tags": ["5-6", "relevant", "keywords"],
   "relatedExamPreset": "ssc-general" | "upsc-civil-services" | "rrb-railway" | "ibps-sbi",
-  "contentHtml": "<semantic HTML with <h2>, <h3>, <p>, <ul>, <ol>, SVG graphics, step-by-step navigation, code/rule snippets, comparison <table>, and SignResize tool callouts>"
+  "quickFacts": [
+    { "label": "Conducting Body", "value": "Name of Commission" },
+    { "label": "Total Vacancies", "value": "Number of vacancies" },
+    { "label": "Application Deadline", "value": "Key date" },
+    { "label": "Selection Stages", "value": "Stages summary" },
+    { "label": "Document Specs", "value": "Dimensions & KB bounds" }
+  ],
+  "contentHtml": "<semantic HTML with <h2>, <h3>, <p>, <ul>, <ol>, SVG graphics, step-by-step navigation, code/rule snippets, comparison <table>, and SignResize tool callouts>",
+  "faqs": [
+    { "question": "Clear candidate question?", "answer": "In-depth, 3-5 sentence authoritative answer with official rules, cutoffs, and advice." }
+  ]
 }
 Output ONLY raw JSON with no surrounding markdown backticks.`;
 
@@ -439,15 +450,18 @@ async function main() {
     excerpt: ${JSON.stringify(article.excerpt)},
     category: ${JSON.stringify(article.category)},
     publishDate: ${JSON.stringify(article.publishDate)},
+    lastUpdated: ${JSON.stringify(article.lastUpdated || article.publishDate)},
     author: ${JSON.stringify(article.author || 'SignResize Examination Standards Desk')},
     authorRole: ${JSON.stringify(article.authorRole || 'Official Document Compliance Team')},
     readTime: ${JSON.stringify(article.readTime || '5 min read')},
     featured: true,
     tags: ${JSON.stringify(article.tags || [])},
     relatedExamPreset: ${article.relatedExamPreset ? JSON.stringify(article.relatedExamPreset) : 'undefined'},
+    quickFacts: ${JSON.stringify(article.quickFacts || [], null, 4).replace(/^/gm, '    ').trim()},
     contentHtml: \`
 ${article.contentHtml.trim()}
-    \`
+    \`,
+    faqs: ${JSON.stringify(article.faqs || [], null, 4).replace(/^/gm, '    ').trim()}
   },
 `;
 

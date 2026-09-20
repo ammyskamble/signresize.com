@@ -10,6 +10,8 @@ export default defineConfig({
   trailingSlash: 'always',
 
   redirects: {
+    '/jobs': '/government-jobs/',
+    '/govt-jobs': '/government-jobs/',
     '/ssc-cgl': '/ssc-signature-resize/',
     '/ssc': '/ssc-signature-resize/',
     '/upsc': '/upsc-signature-resize/',
@@ -35,7 +37,7 @@ export default defineConfig({
         const url = item.url;
         item.lastmod = new Date().toISOString();
 
-        if (url === 'https://signresize.in/' || url.includes('/photo-resizer') || url.includes('/document-resizer') || url.includes('/compress-image-to-kb') || url.includes('/signature-creator')) {
+        if (url === 'https://signresize.in/' || url.includes('/photo-resizer') || url.includes('/document-resizer') || url.includes('/compress-image-to-kb') || url.includes('/signature-creator') || url.includes('/government-jobs')) {
           item.priority = 1.0;
           item.changefreq = 'daily';
         } else if (url.includes('-signature-resize') || url.includes('-photo-resize')) {
