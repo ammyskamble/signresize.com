@@ -7,6 +7,8 @@
 /ssc/ /ssc-signature-resize/ 301
 /upsc /upsc-signature-resize/ 301
 /upsc/ /upsc-signature-resize/ 301
+/upsc-civil-services /upsc-signature-resize/ 301
+/upsc-civil-services/ /upsc-signature-resize/ 301
 /rrb /rrb-signature-resize/ 301
 /rrb/ /rrb-signature-resize/ 301
 /ibps /ibps-signature-resize/ 301
@@ -16,8 +18,26 @@
 /neet /nta-neet-jee-signature-resize/ 301
 /jee /nta-neet-jee-signature-resize/ 301
 /gate /gate-signature-resize/ 301
+/thumb /thumb-impression-resize/ 301
+/thumb/ /thumb-impression-resize/ 301
 
-# 2. Non-Trailing Slash Canonical Redirects (Fixes GSC "Page with redirect" Warnings)
+# 2. Renamed & Historical Blog Articles (Fixes GSC 404 Error)
+/blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy/ /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/ssc-cgl-2026-notification-dates-signature-guidelines /blog/ssc-cgl-2026-master-application-preparation-guide/ 301
+/blog/ssc-cgl-2026-notification-dates-signature-guidelines/ /blog/ssc-cgl-2026-master-application-preparation-guide/ 301
+/blog/upsc-csat-paper-2-qualifying-speed-strategy-comprehension-hacks /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
+/blog/upsc-csat-paper-2-qualifying-speed-strategy-comprehension-hacks/ /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
+/blog/state-psc-one-time-registration-otr-document-standards /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/blog/state-psc-one-time-registration-otr-document-standards/ /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/blog/ssc-chsl-tier-1-speed-typing-photo-signature-guidelines /blog/ssc-chsl-2026-top-10-faq-aspirants-guide/ 301
+/blog/ssc-chsl-tier-1-speed-typing-photo-signature-guidelines/ /blog/ssc-chsl-2026-top-10-faq-aspirants-guide/ 301
+/blog/ssc-rrb-quantitative-aptitude-reasoning-speed-strategy /blog/ 301
+/blog/ssc-rrb-quantitative-aptitude-reasoning-speed-strategy/ /blog/ 301
+/blog/mega-railway-banking-recruitment-2026-opportunities /government-jobs/ 301
+/blog/mega-railway-banking-recruitment-2026-opportunities/ /government-jobs/ 301
+
+# 3. Non-Trailing Slash Canonical Redirects (Fixes GSC "Page with redirect" Warnings)
 /contact /contact/ 301
 /disclaimer /disclaimer/ 301
 /privacy /privacy/ 301

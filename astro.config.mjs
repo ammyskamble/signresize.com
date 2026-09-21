@@ -15,12 +15,21 @@ export default defineConfig({
     '/ssc-cgl': '/ssc-signature-resize/',
     '/ssc': '/ssc-signature-resize/',
     '/upsc': '/upsc-signature-resize/',
+    '/upsc-civil-services': '/upsc-signature-resize/',
     '/rrb': '/rrb-signature-resize/',
     '/ibps': '/ibps-signature-resize/',
     '/pan': '/pan-card-signature-resize/',
     '/neet': '/nta-neet-jee-signature-resize/',
     '/jee': '/nta-neet-jee-signature-resize/',
-    '/gate': '/gate-signature-resize/'
+    '/gate': '/gate-signature-resize/',
+    '/thumb': '/thumb-impression-resize/',
+    '/blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
+    '/blog/ssc-cgl-2026-notification-dates-signature-guidelines': '/blog/ssc-cgl-2026-master-application-preparation-guide/',
+    '/blog/upsc-csat-paper-2-qualifying-speed-strategy-comprehension-hacks': '/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/',
+    '/blog/state-psc-one-time-registration-otr-document-standards': '/blog/state-psc-otr-registration-photo-signature-guidelines/',
+    '/blog/ssc-chsl-tier-1-speed-typing-photo-signature-guidelines': '/blog/ssc-chsl-2026-top-10-faq-aspirants-guide/',
+    '/blog/ssc-rrb-quantitative-aptitude-reasoning-speed-strategy': '/blog/',
+    '/blog/mega-railway-banking-recruitment-2026-opportunities': '/government-jobs/'
   },
 
   build: {
