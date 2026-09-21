@@ -35,6 +35,120 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "rrb-ntpc-2026-master-document-rules-preparation-strategy-mub0xzde",
+    title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
+    excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, step-by-step navigation, and speed calculation methods.",
+    category: "Study Prep",
+    publishDate: "Sept 21, 2026",
+    lastUpdated: "Sept 21, 2026",
+    author: "SignResize Academic Research Desk",
+    authorRole: "Railway Recruitment Strategy Desk",
+    readTime: "8 min read",
+    featured: true,
+    tags: ["RRB NTPC","Railway Exams","CBT 1 Prep","Signature 10-20KB","Maths Shortcuts","Document Guidelines"],
+    relatedExamPreset: "rrb-railway",
+    quickFacts: [],
+    contentHtml: `
+<h2>RRB NTPC 2026: Master Examination Overview &amp; Selection Stages</h2>
+      <p>The Railway Recruitment Boards (RRB) have activated the recruitment calendar for <strong>Non-Technical Popular Categories (NTPC)</strong>. Covering graduate posts like Goods Guard, Senior Clerk-cum-Typist, and Commercial Apprentice, as well as undergraduate roles like Junior Clerk and Train Clerk, competition across all Indian railway zones is exceptionally high.</p>
+
+      <p>Succeeding in CBT-1 and CBT-2 requires a structured study routine paired with strict document compliance during the online registration process.</p>
+
+      <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+        <h4 class="font-bold text-primary mb-2">⚡ CBT-1 Exam Pattern &amp; Time Distribution</h4>
+        <ul class="space-y-1.5 text-sm text-foreground/90">
+          <li><strong>General Awareness:</strong> 40 Questions (Current Affairs, General Science, Indian History, Geography, Static GK)</li>
+          <li><strong>Mathematics:</strong> 30 Questions (Number Systems, Decimals, Fractions, LCM-HCF, Ratio, Percentages, Mensuration, Time &amp; Work)</li>
+          <li><strong>General Intelligence &amp; Reasoning:</strong> 30 Questions (Analogies, Coding, Syllogisms, Venn Diagrams, Mathematical Operations)</li>
+          <li><strong>Total Time:</strong> 90 Minutes (100 Questions with 1/3rd negative marking per incorrect response)</li>
+        </ul>
+      </div>
+
+      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
+        <div class="flex items-center justify-between text-slate-400 text-[11px]">
+          <span>⚡ Railway Exam Portal Rules &amp; Negative Marking Snippet</span>
+          <span>RRB Specification Standard</span>
+        </div>
+        <pre class="overflow-x-auto text-emerald-400"><code>CBT-1 Score = (Correct Attempts × 1.0) - (Incorrect Attempts × 0.333)
+Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</code></pre>
+      </div>
+
+      <h2>Document Upload Compliance for Railway Portals</h2>
+      <p>Railway recruitment notices explicitly enforce strict parameters for candidate photo and scanned signature uploads:</p>
+      <ul>
+        <li><strong>Scanned Passport Photo:</strong> Clear color photograph against a light white background taken within 3 months. File size must range between <strong>20 KB and 50 KB</strong> in JPG/JPEG format. Spectacles with tint or flash glare will be rejected.</li>
+        <li><strong>Candidate Signature:</strong> Must be signed in running handwriting on clean white unruled paper using a black ballpoint pen. File weight must be between <strong>10 KB and 20 KB</strong> (140 &times; 60 pixels). Capital letter signatures trigger immediate cancellation.</li>
+      </ul>
+
+      <div class="my-8 p-6 rounded-2xl bg-card border border-border shadow-sm">
+        <h3 class="text-base font-bold text-foreground mb-4 flex items-center gap-2">
+          <span>📐</span> RRB Document Formatting Workflow
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center">
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">1</div>
+            <span class="font-bold text-xs text-foreground">Sign on White Paper</span>
+            <span class="text-[11px] text-muted-foreground">Use dark black ballpoint pen</span>
+          </div>
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">2</div>
+            <span class="font-bold text-xs text-foreground">Crop 140x60 Ratio</span>
+            <span class="text-[11px] text-muted-foreground">Remove surrounding excess paper</span>
+          </div>
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">3</div>
+            <span class="font-bold text-xs text-foreground">Background White Filter</span>
+            <span class="text-[11px] text-muted-foreground">Clean phone shadows automatically</span>
+          </div>
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">4</div>
+            <span class="font-bold text-xs text-foreground">Target 10-20 KB</span>
+            <span class="text-[11px] text-muted-foreground">Compress for zero portal error</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+        <h4 class="text-base font-bold text-foreground">Need RRB Signature &amp; Photo Formatted?</h4>
+        <p class="text-sm text-muted-foreground mt-1">Use our dedicated RRB Railway preset to crop, clean dark shadows, and compress into the exact 10–20 KB bound in seconds.</p>
+        <div class="flex flex-wrap gap-3 mt-3">
+          <a href="/rrb-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Open RRB Resizer &rarr;
+          </a>
+          <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Resize Passport Photo &rarr;
+          </a>
+        </div>
+      </div>
+
+      <h2>Step-by-Step Railway Registration Workflow</h2>
+      <div class="my-8 space-y-4">
+        <div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-6">
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</div>
+            <h4 class="font-bold text-foreground text-sm">Select Zonal RRB Portal</h4>
+            <p class="text-xs text-muted-foreground mt-1">Visit your chosen zonal portal (e.g. RRB Mumbai, RRB Chennai, RRB Chandigarh) and initiate candidate registration.</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</div>
+            <h4 class="font-bold text-foreground text-sm">Upload Photo (20-50 KB) &amp; Signature (10-20 KB)</h4>
+            <p class="text-xs text-muted-foreground mt-1">Upload JPEG files formatted with SignResize. Verify that your signature image displays clearly without horizontal stretch.</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">3</div>
+            <h4 class="font-bold text-foreground text-sm">Confirm Community Certificate Upload (SC/ST)</h4>
+            <p class="text-xs text-muted-foreground mt-1">If applying for free rail travel authority, upload your scanned caste certificate in PDF format under 500 KB.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Recommended Daily Study Strategy</h2>
+      <p>Divide your daily preparation into 3 focused blocks: 2 hours for Arithmetic speed drills, 1.5 hours for Logical Reasoning puzzle practice, and 2 hours for General Science and Current Affairs revision.</p>
+    `,
+    faqs: []
+  },
+
+  {
     slug: "ssc-cgl-2026-master-application-preparation-guide",
     title: "SSC CGL 2026 Master Application & Preparation Guide: Tier-1 Strategy, Photo/Signature Rules & Step-by-Step Portal Navigation",
     metaTitle: "SSC CGL 2026 Master Guide: Tier-1, Photo & Sign Rules",
@@ -48,7 +162,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "SignResize Examination Standards Desk",
     authorRole: "Staff Selection Commission Analytics Team",
     readTime: "9 min read",
-    featured: true,
+    featured: false,
     tags: ["SSC CGL 2026","Tier 1 Preparation","Live Photo Rules","Signature 10-20KB","Govt Exam Strategy","Portal Guide"],
     relatedExamPreset: "ssc-general",
     quickFacts: [
