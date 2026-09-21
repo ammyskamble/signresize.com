@@ -303,11 +303,13 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
           </kbd>
         </button>
 
+        <!-- Backdrop for mobile overlay modal -->
+        <div id="header-search-backdrop" class="hidden fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 transition-opacity" aria-hidden="true"></div>
+
         <!-- Search Combobox Popover Dropdown Panel (Solid Opaque High-Contrast Background) -->
         <div
           id="header-search-popover"
-          class="hidden absolute right-0 mt-2.5 w-[94vw] sm:w-[600px] md:w-[660px] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-slate-300 dark:border-slate-700 p-4 sm:p-5 z-50 flex-col space-y-3.5 ring-1 ring-black/5 dark:ring-white/10"
-          style="max-height: calc(85vh - 4rem);"
+          class="hidden fixed inset-x-2.5 top-3 max-h-[92vh] sm:fixed-none sm:absolute sm:inset-auto sm:right-0 sm:top-full sm:mt-2.5 sm:w-[600px] md:w-[660px] sm:max-h-[calc(85vh-4rem)] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-slate-300 dark:border-slate-700 p-3.5 sm:p-5 z-50 flex-col space-y-3 sm:space-y-3.5 ring-1 ring-black/5 dark:ring-white/10"
         >
           <!-- Search Input Toolbar inside Popover -->
           <div class="relative flex items-center shrink-0">
@@ -318,26 +320,34 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
               type="text"
               id="header-exam-search"
               aria-label="Filter 40+ exams"
-              placeholder="Filter 40+ exams (e.g. UPSC, SSC, GATE, PAN, RRB, MPSC, CAT)..."
-              class="w-full pl-10 pr-16 py-2.5 text-xs rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 font-medium"
+              placeholder="Search 40+ exams (e.g. UPSC, SSC, GATE, PAN, RRB)..."
+              class="w-full pl-10 pr-20 sm:pr-24 py-2.5 text-base sm:text-xs rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 font-medium"
               autocomplete="off"
             />
-            <div class="absolute right-2.5 flex items-center gap-1.5">
+            <div class="absolute right-2 flex items-center gap-1.5">
               <button
                 type="button"
                 id="header-search-clear"
                 aria-label="Clear search query"
-                class="hidden text-[11px] px-2 py-1 min-w-[32px] min-h-[32px] flex items-center justify-center rounded text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-200 dark:bg-slate-700 cursor-pointer"
+                class="hidden text-xs px-2 py-1 min-w-[32px] min-h-[32px] flex items-center justify-center rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-200 dark:bg-slate-700 cursor-pointer"
                 title="Clear search"
               >
                 ✕
               </button>
               <kbd class="hidden sm:inline-block text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-600">ESC</kbd>
+              <button
+                type="button"
+                id="header-search-close"
+                aria-label="Close search"
+                class="sm:hidden text-xs px-2.5 py-1 min-h-[32px] rounded-lg font-bold bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-100 cursor-pointer flex items-center justify-center"
+              >
+                ✕
+              </button>
             </div>
           </div>
 
           <!-- Dynamic Real-Time Filter Results (shown when searching) -->
-          <div id="header-search-results" class="hidden overflow-y-auto max-h-[55vh] pr-1 space-y-1.5 text-xs">
+          <div id="header-search-results" class="hidden overflow-y-auto max-h-[60vh] sm:max-h-[55vh] pr-1 space-y-1.5 text-xs">
             <!-- Dynamically populated via JS -->
           </div>
 
@@ -512,11 +522,17 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
 
           <!-- Dropdown Footer -->
           <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-muted-foreground shrink-0">
-            <span class="text-[11px] font-medium">Need detailed specifications for all exams?</span>
             <a href="/#exam-specs" class="text-primary font-bold hover:underline flex items-center gap-1">
               <span>View Full 40+ Exam Table</span>
               <span>↓</span>
             </a>
+            <button
+              type="button"
+              id="header-search-footer-close"
+              class="sm:hidden px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition cursor-pointer"
+            >
+              Close ✕
+            </button>
           </div>
         </div>
       </div>
@@ -795,8 +811,11 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
   const searchContainer = document.getElementById('header-search-container');
   const searchTrigger = document.getElementById('header-search-trigger');
   const searchPopover = document.getElementById('header-search-popover');
+  const searchBackdrop = document.getElementById('header-search-backdrop');
   const searchInput = document.getElementById('header-exam-search');
   const searchClear = document.getElementById('header-search-clear');
+  const searchClose = document.getElementById('header-search-close');
+  const searchFooterClose = document.getElementById('header-search-footer-close');
   const searchResults = document.getElementById('header-search-results');
   const searchCategories = document.getElementById('header-search-categories');
 
@@ -809,14 +828,19 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
   }
 
   function openSearchPopover() {
+    searchBackdrop?.classList.remove('hidden');
     searchPopover?.classList.remove('hidden');
     searchPopover?.classList.add('flex');
     searchTrigger?.setAttribute('aria-expanded', 'true');
-    searchInput?.focus();
-    searchInput?.select();
+    // Delayed focus avoids stutter on mobile virtual keyboards
+    setTimeout(() => {
+      searchInput?.focus();
+      searchInput?.select();
+    }, 50);
   }
 
   function closeSearchPopover() {
+    searchBackdrop?.classList.add('hidden');
     searchPopover?.classList.add('hidden');
     searchPopover?.classList.remove('flex');
     searchTrigger?.setAttribute('aria-expanded', 'false');
@@ -835,9 +859,28 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
     toggleSearchPopover();
   });
 
+  searchBackdrop?.addEventListener('click', () => {
+    closeSearchPopover();
+  });
+
+  searchClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeSearchPopover();
+  });
+
+  searchFooterClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeSearchPopover();
+  });
+
   // Close when clicking outside
   document.addEventListener('click', (e) => {
-    if (searchContainer && !searchContainer.contains(e.target)) {
+    if (
+      searchPopover &&
+      !searchPopover.classList.contains('hidden') &&
+      !searchPopover.contains(e.target) &&
+      !searchTrigger?.contains(e.target)
+    ) {
       closeSearchPopover();
     }
   });

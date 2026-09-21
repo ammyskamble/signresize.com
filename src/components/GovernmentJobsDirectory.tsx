@@ -135,13 +135,14 @@ export default function GovernmentJobsDirectory() {
                   placeholder="Search exam, post, or board..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 rounded-xl bg-background border border-border text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground"
+                  className="w-full pl-9 pr-9 py-2.5 sm:py-2 min-h-[42px] rounded-xl bg-background border border-border text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground"
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery('')}
-                    className="absolute inset-y-0 right-2.5 flex items-center text-xs text-muted-foreground hover:text-foreground"
+                    aria-label="Clear job search"
+                    className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-xs text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted/60 cursor-pointer"
                   >
                     ✕
                   </button>
@@ -156,7 +157,7 @@ export default function GovernmentJobsDirectory() {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-background border border-border text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground cursor-pointer"
+                  className="w-full px-3 py-2 min-h-[42px] rounded-xl bg-background border border-border text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground cursor-pointer"
                 >
                   <option value="ALL">All Categories</option>
                   <option value="Central">Central Ministries &amp; SSC</option>
@@ -176,7 +177,7 @@ export default function GovernmentJobsDirectory() {
                 <select
                   value={selectedRegion}
                   onChange={(e) => setSelectedRegion(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-background border border-border text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground cursor-pointer"
+                  className="w-full px-3 py-2 min-h-[42px] rounded-xl bg-background border border-border text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground cursor-pointer"
                 >
                   <option value="ALL">All India &amp; All States</option>
                   <option value="Pan-India">Pan-India (Central)</option>
@@ -208,7 +209,7 @@ export default function GovernmentJobsDirectory() {
                 <select
                   value={selectedQualification}
                   onChange={(e) => setSelectedQualification(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-background border border-border text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground cursor-pointer"
+                  className="w-full px-3 py-2 min-h-[42px] rounded-xl bg-background border border-border text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground cursor-pointer"
                 >
                   <option value="ALL">All Qualifications</option>
                   <option value="10th Pass">10th Pass (Matriculation)</option>
@@ -422,13 +423,28 @@ export default function GovernmentJobsDirectory() {
           {/* Controls */}
           <div className="bg-card border border-border/80 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="relative w-full sm:w-80">
+              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-muted-foreground">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
               <input
                 type="text"
                 placeholder="Search state (e.g. Maharashtra, UP)..."
                 value={portalSearch}
                 onChange={(e) => setPortalSearch(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-background border border-border text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground"
+                className="w-full pl-9 pr-9 py-2.5 sm:py-2 min-h-[42px] rounded-xl bg-background border border-border text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground"
               />
+              {portalSearch && (
+                <button
+                  type="button"
+                  onClick={() => setPortalSearch('')}
+                  aria-label="Clear state search"
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-xs text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted/60 cursor-pointer"
+                >
+                  ✕
+                </button>
+              )}
             </div>
 
             <div className="flex items-center gap-1.5 flex-wrap text-xs">

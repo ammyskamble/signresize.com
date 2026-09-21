@@ -2126,80 +2126,81 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
           </span>
 
           {/* 4 Pinned Chips */}
-          {PINNED_TOP_EXAMS.map((item) => {
-            const isSelected = selectedPreset?.id === item.id;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => {
-                  const p = ALL_COMBINED_PRESETS.find((x) => x.id === item.id) || currentPresetList.find((x) => x.id === item.id);
-                  if (p) applyPreset(p);
-                  setIsExamDropdownOpen(false);
-                }}
-                className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs cursor-pointer ${
-                  isSelected
-                    ? 'bg-primary text-primary-foreground font-bold shadow-sm'
-                    : 'bg-muted/70 hover:bg-muted text-foreground border border-border/70 hover:border-primary/40'
-                }`}
-              >
-                <span>{item.short}</span>
-                <span className={`text-[10px] font-mono font-normal opacity-80 ${isSelected ? 'text-primary-foreground' : 'text-muted-foreground'}`}>
-                  {item.specs.split('•')[0]}
-                </span>
-              </button>
-            );
-          })}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full scrollbar-none sm:flex-wrap sm:overflow-visible sm:pb-0">
+            {PINNED_TOP_EXAMS.map((item) => {
+              const isSelected = selectedPreset?.id === item.id;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => {
+                    const p = ALL_COMBINED_PRESETS.find((x) => x.id === item.id) || currentPresetList.find((x) => x.id === item.id);
+                    if (p) applyPreset(p);
+                    setIsExamDropdownOpen(false);
+                  }}
+                  className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs shrink-0 cursor-pointer ${
+                    isSelected
+                      ? 'bg-primary text-primary-foreground font-bold shadow-sm'
+                      : 'bg-muted/70 hover:bg-muted text-foreground border border-border/70 hover:border-primary/40'
+                  }`}
+                >
+                  <span>{item.short}</span>
+                  <span className={`text-[10px] font-mono font-normal opacity-80 ${isSelected ? 'text-primary-foreground' : 'text-muted-foreground'}`}>
+                    {item.specs.split('•')[0]}
+                  </span>
+                </button>
+              );
+            })}
 
-          {/* Consolidated Dropdown Trigger Button */}
-          <button
-            type="button"
-            onClick={() => setIsExamDropdownOpen(!isExamDropdownOpen)}
-            className={`min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 border shadow-2xs cursor-pointer ${
-              isExamDropdownOpen || (!isPinnedActive && selectedPreset)
-                ? 'bg-primary/15 text-primary border-primary/40 shadow-xs'
-                : 'bg-card hover:bg-muted text-foreground border-border hover:border-primary/40'
-            }`}
-            aria-expanded={isExamDropdownOpen}
-            aria-haspopup="dialog"
-          >
-            <Search className="w-3.5 h-3.5 text-primary" />
-            <span>
-              {!isPinnedActive && selectedPreset ? `Format: ${selectedPreset.shortCode}` : modeConfig.morePresetsLabel}
-            </span>
-            {isExamDropdownOpen ? (
-              <ChevronUp className="w-3.5 h-3.5 text-primary" />
-            ) : (
-              <ChevronDown className="w-3.5 h-3.5 text-primary" />
-            )}
-          </button>
+            {/* Consolidated Dropdown Trigger Button */}
+            <button
+              type="button"
+              onClick={() => setIsExamDropdownOpen(!isExamDropdownOpen)}
+              className={`min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 border shadow-2xs shrink-0 cursor-pointer ${
+                isExamDropdownOpen || (!isPinnedActive && selectedPreset)
+                  ? 'bg-primary/15 text-primary border-primary/40 shadow-xs'
+                  : 'bg-card hover:bg-muted text-foreground border-border hover:border-primary/40'
+              }`}
+              aria-expanded={isExamDropdownOpen}
+              aria-haspopup="dialog"
+            >
+              <Search className="w-3.5 h-3.5 text-primary" />
+              <span>
+                {!isPinnedActive && selectedPreset ? `Format: ${selectedPreset.shortCode}` : modeConfig.morePresetsLabel}
+              </span>
+              {isExamDropdownOpen ? (
+                <ChevronUp className="w-3.5 h-3.5 text-primary" />
+              ) : (
+                <ChevronDown className="w-3.5 h-3.5 text-primary" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Consolidated Exam Selector Dropdown Combobox Popover */}
         {isExamDropdownOpen && (
-          <div className="mt-2 p-4 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] space-y-4 z-30 animate-in fade-in slide-in-from-top-2 duration-150 ring-1 ring-black/5 dark:ring-white/10">
+          <div className="mt-2 p-3 sm:p-4 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] space-y-3 sm:space-y-4 z-30 animate-in fade-in slide-in-from-top-2 duration-150 ring-1 ring-black/5 dark:ring-white/10">
             
             {/* Combobox Search Toolbar */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/80 pb-3">
               <div className="relative flex-1">
-                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                 <input
                   type="text"
                   placeholder={modeConfig.searchPlaceholder}
                   aria-label="Search presets by exam or authority"
                   value={comboboxSearch}
                   onChange={(e) => setComboboxSearch(e.target.value)}
-                  autoFocus
-                  className="w-full pl-9 pr-8 py-2 text-xs rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
+                  className="w-full pl-9 pr-10 py-2.5 sm:py-2 text-base sm:text-xs rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
                 />
                 {comboboxSearch && (
                   <button
                     type="button"
                     onClick={() => setComboboxSearch('')}
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1 cursor-pointer"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground w-8 h-8 flex items-center justify-center rounded-lg hover:bg-muted/60 cursor-pointer"
                     title="Clear search"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    <X className="w-4 h-4" />
                   </button>
                 )}
               </div>
@@ -2211,7 +2212,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                 <button
                   type="button"
                   onClick={() => setIsExamDropdownOpen(false)}
-                  className="px-2.5 py-1 rounded-lg border border-border hover:bg-muted text-xs font-semibold text-muted-foreground hover:text-foreground transition cursor-pointer"
+                  className="px-3 py-1.5 min-h-[38px] rounded-lg border border-border hover:bg-muted text-xs font-semibold text-muted-foreground hover:text-foreground transition cursor-pointer flex items-center gap-1"
                 >
                   Close ✕
                 </button>
@@ -2246,14 +2247,14 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                           <div>
                             <div className="flex items-center justify-between gap-1">
                               <span className="font-bold text-foreground truncate">{preset.shortCode}</span>
-                              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-muted text-muted-foreground">
+                              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-muted text-muted-foreground shrink-0">
                                 {preset.category}
                               </span>
                             </div>
                             <div className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">{preset.name}</div>
                           </div>
-                          <div className="pt-2 flex items-center justify-between text-[10px] font-mono border-t border-border/40 mt-2">
-                            <span>{preset.widthPx}×{preset.heightPx}px ({preset.widthCm}×{preset.heightCm}cm)</span>
+                          <div className="pt-2 flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono border-t border-border/40 mt-2">
+                            <span>{preset.widthPx}×{preset.heightPx}px</span>
                             <span className="text-primary font-bold">{preset.minKb}–{preset.maxKb}KB</span>
                           </div>
                         </button>
@@ -2332,10 +2333,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                                     </div>
                                     <div className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">{preset.name}</div>
                                   </div>
-                                  <div className="pt-2 flex items-center justify-between text-[10px] font-mono text-muted-foreground border-t border-border/40 mt-1.5">
-                                    <span>{preset.widthPx}×{preset.heightPx}px ({preset.widthCm}×{preset.heightCm}cm)</span>
-                                    <span className="text-[9px] text-muted-foreground">
-                                      {targetType === 'photo' ? 'Light/White BG' : targetType === 'document' ? 'Board Seal & Stamp' : preset.inkRequirement}
+                                  <div className="pt-2 flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-muted-foreground border-t border-border/40 mt-1.5">
+                                    <span>{preset.widthPx}×{preset.heightPx}px</span>
+                                    <span className="text-[9px] font-medium text-primary sm:text-muted-foreground">
+                                      {targetType === 'photo' ? 'Light/White BG' : targetType === 'document' ? 'Board Seal' : preset.inkRequirement}
                                     </span>
                                   </div>
                                 </button>
