@@ -27,7 +27,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
 }));
 ---
 
-<header class="sticky top-0 z-40 w-full max-w-full overflow-x-clip border-b border-border/80 bg-card/95 backdrop-blur-md transition-colors">
+<header class="sticky top-0 z-40 w-full max-w-full border-b border-border/80 bg-card/95 backdrop-blur-md transition-colors">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
     <!-- Brand Logo -->
     <a href="/" class="flex items-center gap-2.5 group shrink-0" aria-label="SignResize Home">
@@ -302,239 +302,6 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
             Ctrl K
           </kbd>
         </button>
-
-        <!-- Backdrop for mobile overlay modal -->
-        <div id="header-search-backdrop" class="hidden fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 transition-opacity" aria-hidden="true"></div>
-
-        <!-- Search Combobox Popover Dropdown Panel (Solid Opaque High-Contrast Background) -->
-        <div
-          id="header-search-popover"
-          class="hidden fixed inset-x-2.5 top-3 max-h-[92vh] sm:fixed-none sm:absolute sm:inset-auto sm:right-0 sm:top-full sm:mt-2.5 sm:w-[600px] md:w-[660px] sm:max-h-[calc(85vh-4rem)] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-slate-300 dark:border-slate-700 p-3.5 sm:p-5 z-50 flex-col space-y-3 sm:space-y-3.5 ring-1 ring-black/5 dark:ring-white/10"
-        >
-          <!-- Search Input Toolbar inside Popover -->
-          <div class="relative flex items-center shrink-0">
-            <svg class="w-4 h-4 text-primary absolute left-3.5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input
-              type="text"
-              id="header-exam-search"
-              aria-label="Filter 40+ exams"
-              placeholder="Search 40+ exams (e.g. UPSC, SSC, GATE, PAN, RRB)..."
-              class="w-full pl-10 pr-20 sm:pr-24 py-2.5 text-base sm:text-xs rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 font-medium"
-              autocomplete="off"
-            />
-            <div class="absolute right-2 flex items-center gap-1.5">
-              <button
-                type="button"
-                id="header-search-clear"
-                aria-label="Clear search query"
-                class="hidden text-xs px-2 py-1 min-w-[32px] min-h-[32px] flex items-center justify-center rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-200 dark:bg-slate-700 cursor-pointer"
-                title="Clear search"
-              >
-                ✕
-              </button>
-              <kbd class="hidden sm:inline-block text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-600">ESC</kbd>
-              <button
-                type="button"
-                id="header-search-close"
-                aria-label="Close search"
-                class="sm:hidden text-xs px-2.5 py-1 min-h-[32px] rounded-lg font-bold bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-100 cursor-pointer flex items-center justify-center"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-
-          <!-- Dynamic Real-Time Filter Results (shown when searching) -->
-          <div id="header-search-results" class="hidden overflow-y-auto max-h-[60vh] sm:max-h-[55vh] pr-1 space-y-1.5 text-xs">
-            <!-- Dynamically populated via JS -->
-          </div>
-
-          <!-- All Available Exams Dropdown View (Shown by default on click) -->
-          <div id="header-search-categories" class="overflow-y-auto max-h-[55vh] pr-1 space-y-4 text-xs">
-            
-            <!-- Category 1: Trending / Common -->
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="font-bold text-[11px] text-amber-600 dark:text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <span>🔥</span> Trending / Common
-                </span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Top Applied</span>
-              </div>
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ssc">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">SSC (CGL, CHSL)</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="upsc">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">UPSC (IAS, NDA)</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">350×350 • 20–300 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ibps">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">IBPS / SBI Bank</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="gate">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">GATE &amp; JAM</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">400×160 • 5–200 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="rrb">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">RRB Railway</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="neet">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">NEET / JEE</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">NTA • 4–30 KB</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Category 2: State PSCs -->
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="font-bold text-[11px] text-primary uppercase tracking-wider flex items-center gap-1.5">
-                  <span>🏛️</span> State PSCs
-                </span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Commissions</span>
-              </div>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="mpsc">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">MPSC</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Maharashtra</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="uppsc">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">UPPSC</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Uttar Pradesh</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="bpsc">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">BPSC</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Bihar</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="tnpsc">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">TNPSC</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Tamil Nadu</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="kpsc-karnataka">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">KPSC</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Karnataka</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="wbpsc-west-bengal">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">WBPSC</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">West Bengal</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="rpsc-ras">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">RPSC (RAS)</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Rajasthan</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="gpsc-ojas">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">GPSC (OJAS)</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Gujarat</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Category 3: Management & Law -->
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="font-bold text-[11px] text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <span>⚖️</span> Management &amp; Law
-                </span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Entrances</span>
-              </div>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="cat">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">CAT (IIMs)</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–80 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="clat">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">CLAT Law</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–50 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="xat-mba">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">XAT (XLRI)</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–50 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ailet-law">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">AILET</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Law NLU</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Category 4: Identity & Driving -->
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="font-bold text-[11px] text-indigo-600 dark:text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <span>🪪</span> Identity &amp; Driving
-                </span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Official</span>
-              </div>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="pan">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">PAN Card Sign</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">400×200 • 10–50KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="sarathi-dl">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Parivahan DL</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">200×230 • Sarathi</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="thumb">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Thumb Sign</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">1:1 • 10–50 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="passport-seva">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Passport Seva</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">4.5×3.5 cm</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Category 5: Defense & Armed Forces -->
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="font-bold text-[11px] text-red-600 dark:text-red-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <span>🎖️</span> Defense &amp; Forces
-                </span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Armed Forces</span>
-              </div>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="afcat">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">AFCAT (IAF)</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–50 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="agniveer">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Agniveer</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–20 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="coastguard">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Coast Guard</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–20 KB</span>
-                </button>
-                <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="capf-ac">
-                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">CAPF AC</span>
-                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">UPSC • 20–300 KB</span>
-                </button>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Dropdown Footer -->
-          <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-muted-foreground shrink-0">
-            <a href="/#exam-specs" class="text-primary font-bold hover:underline flex items-center gap-1">
-              <span>View Full 40+ Exam Table</span>
-              <span>↓</span>
-            </a>
-            <button
-              type="button"
-              id="header-search-footer-close"
-              class="sm:hidden px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition cursor-pointer"
-            >
-              Close ✕
-            </button>
-          </div>
-        </div>
       </div>
 
       <!-- Mobile Menu Hamburger Button -->
@@ -736,6 +503,239 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
   </div>
 </header>
 
+<!-- Full-viewport Backdrop for Header Search Dropdown -->
+<div id="header-search-backdrop" class="hidden fixed inset-0 bg-slate-950/70 backdrop-blur-xs z-50 transition-opacity" aria-hidden="true"></div>
+
+<!-- Search Combobox Popover Dropdown Panel (Positioned Cleanly Below Header) -->
+<div
+  id="header-search-popover"
+  class="hidden fixed inset-x-2.5 sm:inset-x-4 md:inset-x-auto top-18 sm:top-20 md:right-8 sm:w-[600px] md:w-[660px] max-h-[calc(100dvh-5.5rem)] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.35)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.9)] border-2 border-slate-300 dark:border-slate-700 p-3.5 sm:p-5 z-55 flex-col space-y-3 sm:space-y-3.5 ring-1 ring-black/5 dark:ring-white/10"
+>
+  <!-- Search Input Toolbar inside Popover -->
+  <div class="relative flex items-center shrink-0">
+    <svg class="w-4 h-4 text-primary absolute left-3.5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+    <input
+      type="text"
+      id="header-exam-search"
+      aria-label="Filter 40+ exams"
+      placeholder="Search 40+ exams (e.g. UPSC, SSC, GATE, PAN, RRB)..."
+      class="w-full pl-10 pr-20 sm:pr-24 py-2.5 text-base sm:text-xs rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 font-medium"
+      autocomplete="off"
+    />
+    <div class="absolute right-2 flex items-center gap-1.5">
+      <button
+        type="button"
+        id="header-search-clear"
+        aria-label="Clear search query"
+        class="hidden text-xs px-2 py-1 min-w-[32px] min-h-[32px] flex items-center justify-center rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-200 dark:bg-slate-700 cursor-pointer"
+        title="Clear search"
+      >
+        ✕
+      </button>
+      <kbd class="hidden sm:inline-block text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-600">ESC</kbd>
+      <button
+        type="button"
+        id="header-search-close"
+        aria-label="Close search"
+        class="sm:hidden text-xs px-2.5 py-1 min-h-[32px] rounded-lg font-bold bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-100 cursor-pointer flex items-center justify-center"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+
+  <!-- Dynamic Real-Time Filter Results (shown when searching) -->
+  <div id="header-search-results" class="hidden overflow-y-auto max-h-[60vh] sm:max-h-[55vh] pr-1 space-y-1.5 text-xs">
+    <!-- Dynamically populated via JS -->
+  </div>
+
+  <!-- All Available Exams Dropdown View (Shown by default on click) -->
+  <div id="header-search-categories" class="overflow-y-auto max-h-[55vh] pr-1 space-y-4 text-xs">
+    
+    <!-- Category 1: Trending / Common -->
+    <div>
+      <div class="flex items-center justify-between mb-2">
+        <span class="font-bold text-[11px] text-amber-600 dark:text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+          <span>🔥</span> Trending / Common
+        </span>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Top Applied</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ssc">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">SSC (CGL, CHSL)</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="upsc">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">UPSC (IAS, NDA)</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">350×350 • 20–300 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ibps">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">IBPS / SBI Bank</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="gate">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">GATE &amp; JAM</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">400×160 • 5–200 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="rrb">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">RRB Railway</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="neet">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">NEET / JEE</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">NTA • 4–30 KB</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category 2: State PSCs -->
+    <div>
+      <div class="flex items-center justify-between mb-2">
+        <span class="font-bold text-[11px] text-primary uppercase tracking-wider flex items-center gap-1.5">
+          <span>🏛️</span> State PSCs
+        </span>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Commissions</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="mpsc">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">MPSC</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Maharashtra</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="uppsc">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">UPPSC</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Uttar Pradesh</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="bpsc">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">BPSC</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Bihar</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="tnpsc">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">TNPSC</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Tamil Nadu</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="kpsc-karnataka">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">KPSC</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Karnataka</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="wbpsc-west-bengal">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">WBPSC</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">West Bengal</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="rpsc-ras">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">RPSC (RAS)</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Rajasthan</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="gpsc-ojas">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">GPSC (OJAS)</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Gujarat</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category 3: Management & Law -->
+    <div>
+      <div class="flex items-center justify-between mb-2">
+        <span class="font-bold text-[11px] text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+          <span>⚖️</span> Management &amp; Law
+        </span>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Entrances</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="cat">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">CAT (IIMs)</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–80 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="clat">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">CLAT Law</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–50 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="xat-mba">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">XAT (XLRI)</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–50 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ailet-law">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">AILET</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Law NLU</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category 4: Identity & Driving -->
+    <div>
+      <div class="flex items-center justify-between mb-2">
+        <span class="font-bold text-[11px] text-indigo-600 dark:text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+          <span>🪪</span> Identity &amp; Driving
+        </span>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Official</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="pan">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">PAN Card Sign</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">400×200 • 10–50KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="sarathi-dl">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Parivahan DL</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">200×230 • Sarathi</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="thumb">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Thumb Sign</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">1:1 • 10–50 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="passport-seva">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Passport Seva</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">4.5×3.5 cm</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category 5: Defense & Armed Forces -->
+    <div>
+      <div class="flex items-center justify-between mb-2">
+        <span class="font-bold text-[11px] text-red-600 dark:text-red-400 uppercase tracking-wider flex items-center gap-1.5">
+          <span>🎖️</span> Defense &amp; Forces
+        </span>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Armed Forces</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="afcat">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">AFCAT (IAF)</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–50 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="agniveer">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Agniveer</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–20 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="coastguard">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Coast Guard</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–20 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="capf-ac">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">CAPF AC</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">UPSC • 20–300 KB</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Dropdown Footer -->
+  <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-muted-foreground shrink-0">
+    <a href="/#exam-specs" id="header-search-view-all" class="text-primary font-bold hover:underline flex items-center gap-1">
+      <span>View Full 40+ Exam Table</span>
+      <span>↓</span>
+    </a>
+    <button
+      type="button"
+      id="header-search-footer-close"
+      class="sm:hidden px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition cursor-pointer"
+    >
+      Close ✕
+    </button>
+  </div>
+</div>
+
 <!-- Pass All Exam Presets safely to Script for Instant Filtering -->
 <script id="exam-presets-dataset" type="application/json" set:html={JSON.stringify(searchablePresets)} />
 
@@ -870,6 +870,10 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
 
   searchFooterClose?.addEventListener('click', (e) => {
     e.stopPropagation();
+    closeSearchPopover();
+  });
+
+  document.getElementById('header-search-view-all')?.addEventListener('click', () => {
     closeSearchPopover();
   });
 
