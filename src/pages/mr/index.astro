@@ -1,0 +1,188 @@
+---
+// src/pages/mr/index.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import GuideSection from '../../components/GuideSection.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import AuthorBioSection from '../../components/AuthorBioSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "स्वाक्षरी रिसाइझर ऑनलाइन (10 ते 20 KB) | MPSC, पोलीस भरती फोटो व सही रिसाइझ करा - SignResize";
+const pageDescription = "मोफत ऑनलाइन स्वाक्षरी रिसाइझर आणि कंप्रेसर टूल. MPSC, पोलीस भरती, तलाठी, जिल्हा परिषद आणि सर्व परीक्षांसाठी स्वाक्षरी व फोटो 10 ते 20 KB मध्ये रिसाइझ करा. 100% खाजगी व सुरक्षित.";
+const canonicalUrl = "https://signresize.in/mr/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "स्वाक्षरी रिसाइझर, सही रिसाइज करा, स्वाक्षरी 10 ते 20 kb, mpsc स्वाक्षरी रिसाइज, पोलीस भरती स्वाक्षरी फोटो रिसाइज, तलाठी भरती सही साईज, महापरीक्षा फोटो रिसाइझर, स्वाक्षरी कॉम्प्रेश";
+---
+
+<!doctype html>
+<html lang="mr-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Multilingual Alternate Language Tags for SEO (hreflang) -->
+    <link rel="alternate" hreflang="en" href="https://signresize.in/" />
+    <link rel="alternate" hreflang="en-IN" href="https://signresize.in/" />
+    <link rel="alternate" hreflang="hi" href="https://signresize.in/hi/" />
+    <link rel="alternate" hreflang="hi-IN" href="https://signresize.in/hi/" />
+    <link rel="alternate" hreflang="mr" href="https://signresize.in/mr/" />
+    <link rel="alternate" hreflang="mr-IN" href="https://signresize.in/mr/" />
+    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="mr_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts -->
+    <GoogleFonts />
+
+    <!-- Favicon & PWA Icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SignResize - स्वाक्षरी रिसाइझर ऑनलाइन",
+      "url": "https://signresize.in/mr/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "mr",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "description": "MPSC, महाराष्ट्र पोलीस भरती, तलाठी व सर्व सरकारी परीक्षांसाठी 10 ते 20 KB मध्ये स्वाक्षरी व फोटो रिसाइझ करण्याचे मोफत ऑनलाइन टूल."
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <!-- Header with Language Switcher -->
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Marathi Hero Section -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                नवीन २०२६ सरकारी नियम अपडेट
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                0 बाईट्स अपलोड • 100% खाजगी व सुरक्षित
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.2]">
+              ऑनलाइन <span class="text-primary">स्वाक्षरी रिसाइझर</span> आणि कंप्रेसर (10 ते 20 KB)
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              <strong>MPSC, महाराष्ट्र पोलीस भरती, तलाठी, जिल्हा परिषद आणि SSC</strong> साठी स्वाक्षरी त्वरित रिसाइझ करा. आकार (<span class="font-mono text-foreground font-medium">140×60 px</span>, <span class="font-mono text-foreground font-medium">4×2 सेमी</span>) सेट करा, कागदाची सावली काढा आणि अस्पष्ट न होता 10 ते 20 KB मध्ये सुरक्षित डाउनलोड करा.
+            </p>
+          </div>
+
+          <!-- Quick Badges -->
+          <div class="flex items-center gap-2 flex-wrap shrink-0">
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">मानक आकार</div>
+              <div class="text-xs font-bold text-foreground font-mono">140×60 PX</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">लक्ष्य साईज</div>
+              <div class="text-xs font-bold text-primary font-mono">10 KB – 20 KB</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">रिझोल्यूशन</div>
+              <div class="text-xs font-bold text-foreground font-mono">200 DPI</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Interactive Resizer Studio initialized in Marathi -->
+      <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
+        <SignatureTool client:load initialLang="mr" />
+      </section>
+
+      <!-- Maharashtra & Pan-India Govt Jobs Live Link -->
+      <section class="rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 via-card to-primary/5 p-4 sm:p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0 font-bold">
+            🏛️
+          </div>
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                १.८ लाख+ पदे
+              </span>
+              <span class="text-xs font-semibold text-foreground">महाराष्ट्र व सर्व २८ राज्यांच्या सरकारी नोकऱ्या</span>
+            </div>
+            <h2 class="text-base sm:text-lg font-extrabold text-foreground">
+              तुम्ही MPSC, पोलीस भरती किंवा इतर सरकारी भरतीसाठी अर्ज करत आहात का?
+            </h2>
+            <p class="text-xs text-muted-foreground max-w-2xl leading-relaxed">
+              महाराष्ट्रातील सर्व चालू भरती जाहिराती, अधिकृत अर्ज लिंक्स आणि फोटो-स्वाक्षरीचे नियम एकाच ठिकाणी पहा.
+            </p>
+          </div>
+        </div>
+        <a
+          href="/government-jobs/"
+          class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shadow-xs shrink-0 cursor-pointer"
+        >
+          <span>सरकारी नोकरी पोर्टल पहा</span>
+          <span>→</span>
+        </a>
+      </section>
+
+      <!-- 40+ Exam Specs Table -->
+      <ExamSpecsTable />
+
+      <!-- Step-by-Step Guide Section -->
+      <GuideSection />
+
+      <!-- FAQ Section -->
+      <FaqSection />
+
+      <!-- Author Bio Section -->
+      <AuthorBioSection />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+  </body>
+</html>

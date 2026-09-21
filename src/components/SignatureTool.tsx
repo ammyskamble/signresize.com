@@ -43,6 +43,7 @@ import {
   User,
   Calendar
 } from 'lucide-react';
+import { TRANSLATIONS, type SupportedLang } from '../data/i18n/translations';
 import {
   EXAM_PRESETS,
   SIGNATURE_PRESETS,
@@ -620,9 +621,36 @@ export const createSampleDataForMode = (
 export interface SignatureToolProps {
   initialPresetId?: string;
   initialMode?: ToolTargetMode;
+  initialLang?: SupportedLang;
 }
 
-export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, initialMode = 'signature' }) => {
+export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, initialMode = 'signature', initialLang }) => {
+  // Multilingual Support ('en' | 'hi' | 'mr')
+  const [lang, setLang] = useState<SupportedLang>(() => {
+    if (initialLang) return initialLang;
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      if (path.startsWith('/hi/') || path === '/hi') return 'hi';
+      if (path.startsWith('/mr/') || path === '/mr') return 'mr';
+      const saved = localStorage.getItem('signresize_lang');
+      if (saved === 'hi' || saved === 'mr' || saved === 'en') return saved as SupportedLang;
+    }
+    return 'en';
+  });
+
+  useEffect(() => {
+    const handleLangChange = (e: Event) => {
+      const customEvent = e as CustomEvent<{ lang: SupportedLang }>;
+      if (customEvent.detail && customEvent.detail.lang) {
+        setLang(customEvent.detail.lang);
+      }
+    };
+    window.addEventListener('signresize-lang-change', handleLangChange);
+    return () => window.removeEventListener('signresize-lang-change', handleLangChange);
+  }, []);
+
+  const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
+
   // Determine target tool mode: 'signature' | 'photo' | 'document'
   const [targetType, setTargetType] = useState<ToolTargetMode>(initialMode);
   const modeConfig = MODE_CONFIG[targetType];
@@ -2166,7 +2194,13 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
             >
               <Search className="w-3.5 h-3.5 text-primary" />
               <span>
-                {!isPinnedActive && selectedPreset ? `Format: ${selectedPreset.shortCode}` : modeConfig.morePresetsLabel}
+                {!isPinnedActive && selectedPreset
+                  ? `Format: ${selectedPreset.shortCode}`
+                  : (lang === 'hi'
+                      ? 'सभी 40+ परीक्षा प्रारूप'
+                      : lang === 'mr'
+                      ? 'सर्व 40+ परीक्षा फॉरमॅट'
+                      : modeConfig.morePresetsLabel)}
               </span>
               {isExamDropdownOpen ? (
                 <ChevronUp className="w-3.5 h-3.5 text-primary" />
@@ -2187,7 +2221,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                 <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                 <input
                   type="text"
-                  placeholder={modeConfig.searchPlaceholder}
+                  placeholder={lang === 'hi' ? '40+ परीक्षा प्रारूप खोजें (UPSC, SSC, UPPSC, BPSC, PAN)...' : lang === 'mr' ? '40+ परीक्षा फॉरमॅट शोधा (MPSC, पोलीस भरती, तलाठी, SSC)...' : modeConfig.searchPlaceholder}
                   aria-label="Search presets by exam or authority"
                   value={comboboxSearch}
                   onChange={(e) => setComboboxSearch(e.target.value)}
@@ -2207,14 +2241,14 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
               <div className="flex items-center justify-between sm:justify-end gap-3 text-xs">
                 <span className="text-muted-foreground font-mono text-[11px]">
-                  {comboboxFilteredPresets.length} presets found
+                  {comboboxFilteredPresets.length} {t.tool.presetsFound}
                 </span>
                 <button
                   type="button"
                   onClick={() => setIsExamDropdownOpen(false)}
                   className="px-3 py-1.5 min-h-[38px] rounded-lg border border-border hover:bg-muted text-xs font-semibold text-muted-foreground hover:text-foreground transition cursor-pointer flex items-center gap-1"
                 >
-                  Close ✕
+                  {t.tool.close}
                 </button>
               </div>
             </div>
@@ -2455,9 +2489,9 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                 <PenTool className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">Signature Resizer</div>
+                <div className="font-bold text-xs">{t.tool.signatureMode}</div>
                 <div className={`text-[10px] ${targetType === 'signature' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  140×60 px • 10–20 KB standard
+                  {t.tool.signatureSub}
                 </div>
               </div>
             </div>
@@ -2478,9 +2512,9 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                 <Camera className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">Passport Photo Resizer</div>
+                <div className="font-bold text-xs">{t.tool.photoMode}</div>
                 <div className={`text-[10px] ${targetType === 'photo' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  3.5×4.5 cm • 20–50 KB • Name & Date
+                  {t.tool.photoSub}
                 </div>
               </div>
             </div>
@@ -2501,9 +2535,9 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                 <FileText className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">Document Resizer</div>
+                <div className="font-bold text-xs">{t.tool.documentMode}</div>
                 <div className={`text-[10px] ${targetType === 'document' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  Marksheet, Caste, ID • 100–300 KB
+                  {t.tool.documentSub}
                 </div>
               </div>
             </div>
@@ -3442,10 +3476,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         <Upload className="w-7 h-7 animate-pulse" />
                       </div>
                       <p className="font-bold text-base text-foreground mb-1">
-                        {modeConfig.dropzoneTitle}
+                        {t.tool.uploadTitle}
                       </p>
                       <p className="text-xs text-muted-foreground mb-4 max-w-sm leading-relaxed">
-                        JPG, PNG, WebP up to 10MB • Auto-configured for <span className="font-semibold text-foreground">{targetWidthPx} × {targetHeightPx} px</span> ({minKb}–{maxKb} KB)
+                        {t.tool.supportedFormats} • <span className="font-semibold text-foreground">{targetWidthPx} × {targetHeightPx} px</span> ({minKb}–{maxKb} KB)
                       </p>
                       <div className="flex flex-wrap items-center justify-center gap-2">
                         <button
@@ -3453,14 +3487,14 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                           onClick={() => fileInputRef.current?.click()}
                           className="px-4 py-2 bg-primary text-primary-foreground font-semibold rounded-xl text-xs hover:opacity-95 shadow-xs transition cursor-pointer"
                         >
-                          {modeConfig.uploadBtn}
+                          {t.tool.uploadButton}
                         </button>
                         <button
                           type="button"
                           onClick={loadSingleSampleSignature}
                           className="px-3.5 py-2 bg-card border border-border text-foreground font-medium rounded-xl text-xs hover:bg-muted transition shadow-2xs cursor-pointer"
                         >
-                          {modeConfig.sampleBtn}
+                          {t.tool.sampleButton}
                         </button>
                         {targetType === 'signature' && (
                           <button
@@ -3468,7 +3502,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                             onClick={() => setIsDrawingPadOpen(true)}
                             className="px-3.5 py-2 bg-card border border-border text-foreground font-medium rounded-xl text-xs hover:bg-muted transition shadow-2xs cursor-pointer"
                           >
-                            Draw Sign
+                            {t.tool.drawButton}
                           </button>
                         )}
                       </div>
@@ -3932,8 +3966,16 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                     <Download className="w-4 h-4" />
                     <span>
                       {processedResult
-                        ? modeConfig.downloadReady(processedResult.sizeKb, targetFormat === 'image/jpeg' ? 'jpg' : targetFormat === 'image/png' ? 'png' : 'webp')
-                        : modeConfig.downloadEmpty}
+                        ? (lang === 'hi'
+                            ? `रिसाइज ${targetType === 'photo' ? 'फोटो' : targetType === 'document' ? 'दस्तावेज़' : 'हस्ताक्षर'} डाउनलोड करें (${processedResult.sizeKb} KB • ${targetFormat === 'image/jpeg' ? 'JPG' : targetFormat === 'image/png' ? 'PNG' : 'WEBP'})`
+                            : lang === 'mr'
+                            ? `रिसाइझ ${targetType === 'photo' ? 'फोटो' : targetType === 'document' ? 'दस्तऐवज' : 'स्वाक्षरी'} डाउनलोड करा (${processedResult.sizeKb} KB • ${targetFormat === 'image/jpeg' ? 'JPG' : targetFormat === 'image/png' ? 'PNG' : 'WEBP'})`
+                            : modeConfig.downloadReady(processedResult.sizeKb, targetFormat === 'image/jpeg' ? 'jpg' : targetFormat === 'image/png' ? 'png' : 'webp'))
+                        : (lang === 'hi'
+                            ? `डाउनलोड करने के लिए पहले फ़ाइल चुनें`
+                            : lang === 'mr'
+                            ? `डाउनलोड करण्यासाठी आधी फाईल निवडा`
+                            : modeConfig.downloadEmpty)}
                     </span>
                   </button>
 
