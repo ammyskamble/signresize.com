@@ -38,6 +38,7 @@ export const ImageCompressorTool: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const baseCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const sourceObjectUrlRef = useRef<string | null>(null);
 
   // Debounce slider updates for 60fps instant UI with zero drag lag
   const handleSliderChange = (val: number) => {
@@ -70,7 +71,10 @@ export const ImageCompressorTool: React.FC = () => {
     const objectUrl = URL.createObjectURL(file);
     const img = new Image();
     img.onload = () => {
-      URL.revokeObjectURL(objectUrl);
+      if (sourceObjectUrlRef.current) {
+        URL.revokeObjectURL(sourceObjectUrlRef.current);
+      }
+      sourceObjectUrlRef.current = objectUrl;
       setSourceImage(img);
       setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
 

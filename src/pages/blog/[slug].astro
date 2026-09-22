@@ -272,25 +272,31 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <span>Quick Navigation &amp; Key Sections</span>
         </div>
         <div class="flex flex-wrap gap-1.5 sm:gap-2 text-xs">
-          <a href="#overview" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
-            1. Overview &amp; Key Dates
-          </a>
-          <a href="#exam-pattern" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
-            2. Exam Pattern &amp; Blueprint
-          </a>
-          <a href="#document-specs" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
-            3. Photo &amp; Signature Specs
-          </a>
-          <a href="#strategy" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
-            4. Preparation Strategy
-          </a>
+          {/* Show exam-specific TOC anchors only for exam/study-prep posts */}
+          {(post.category === 'Study Prep' || post.category === 'Exam Alerts' || post.relatedExamPreset) && (
+            <>
+              <a href="#overview" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
+                1. Overview &amp; Key Dates
+              </a>
+              <a href="#exam-pattern" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
+                2. Exam Pattern &amp; Blueprint
+              </a>
+              <a href="#document-specs" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
+                3. Photo &amp; Signature Specs
+              </a>
+              <a href="#strategy" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
+                4. Preparation Strategy
+              </a>
+            </>
+          )}
           {post.faqs && post.faqs.length > 0 && (
             <a href="#faqs" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 transition font-bold">
-              5. FAQs ({post.faqs.length} Answers)
+              {(post.category === 'Study Prep' || post.category === 'Exam Alerts' || post.relatedExamPreset) ? '5.' : '→'} FAQs ({post.faqs.length} Answers)
             </a>
           )}
         </div>
       </nav>
+
 
       <!-- Main Article Prose Content (with Enhanced Headline, Code, Stepper & Table Responsiveness) -->
       <article class="article-prose prose prose-slate dark:prose-invert max-w-none w-full min-w-0 break-words prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">

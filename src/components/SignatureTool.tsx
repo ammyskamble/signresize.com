@@ -678,11 +678,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   const [toolMode, setToolMode] = useState<'single' | 'batch'>('single');
 
 
+  // Helper to reliably detect image files (including HEIC, JFIF, and cases where OS mime type is empty)
+  const isSupportedImageFile = useCallback((file: File): boolean => {
+    if (file.type && file.type.startsWith('image/')) return true;
+    const ext = file.name.toLowerCase().split('.').pop() || '';
+    return ['jpg', 'jpeg', 'png', 'webp', 'jfif', 'bmp', 'gif', 'svg', 'heic', 'heif', 'tiff', 'tif'].includes(ext);
+  }, []);
+
   // Single Image state
   const [sourceImage, setSourceImage] = useState<HTMLImageElement | null>(null);
   const [sourceFileName, setSourceFileName] = useState<string>('signature');
   const [sourceOriginalSize, setSourceOriginalSize] = useState<number>(0);
   const [sourceDimensions, setSourceDimensions] = useState<{ width: number; height: number }>({ width: 0, height: 0 });
+  const [isSampleImage, setIsSampleImage] = useState<boolean>(false);
 
   // Batch Mode state (Up to 10 signatures)
   const [batchItems, setBatchItems] = useState<BatchSignatureItem[]>([]);
@@ -728,9 +736,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
   // Global Filters & Paper Cleaning
   const [filters, setFilters] = useState<FilterOptions>({
-    cleanPaper: true,
+    cleanPaper: initialMode === 'signature',
     brightness: 0,
-    contrast: 15,
+    contrast: initialMode === 'document' ? 20 : initialMode === 'photo' ? 10 : 15,
     blackAndWhite: false,
     threshold: 160
   });
@@ -746,6 +754,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   const containerRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const dragRafRef = useRef<number | null>(null);
+  const sourceObjectUrlRef = useRef<string | null>(null);
 
   const [processedResult, setProcessedResult] = useState<ProcessedImageResult | null>(null);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -839,22 +848,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       setFilters(prev => ({ ...prev, cleanPaper: true, contrast: 15 }));
     }
 
-    // Automatically update active image if it was a sample or generic placeholder
-    const isSampleOrPlaceholder = !sourceFileName || 
-      sourceFileName.startsWith('sample_') || 
-      sourceFileName.includes('sample') || 
-      sourceFileName.includes('candidate') || 
-      sourceFileName.includes('thumb') || 
-      sourceFileName.includes('marksheet') || 
-      sourceFileName.includes('photo') ||
-      sourceFileName.includes('sign') ||
-      sourceFileName === 'signature' || 
-      sourceFileName === 'drawn_signature';
-
-    if (sourceImage && isSampleOrPlaceholder) {
+    // Automatically update active image if it was an artificial sample
+    if (sourceImage && isSampleImage) {
       const sample = createSampleDataForMode(newType);
       const img = new Image();
       img.onload = () => {
+        if (sourceObjectUrlRef.current) {
+          URL.revokeObjectURL(sourceObjectUrlRef.current);
+          sourceObjectUrlRef.current = null;
+        }
+        setIsSampleImage(true);
         setSourceImage(img);
         setSourceFileName(sample.filename);
         setSourceOriginalSize(sample.size);
@@ -862,8 +865,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
         initCropBox(img, defaultPreset.aspectRatio);
       };
       img.src = sample.dataUrl;
+    } else if (sourceImage && !isSampleImage) {
+      // Retain real user uploaded photo/signature, just adjust crop to the new mode preset ratio
+      initCropBox(sourceImage, defaultPreset.aspectRatio);
     }
-  }, [applyPreset, sourceFileName, sourceImage]);
+  }, [applyPreset, isSampleImage, sourceImage]);
 
 
 const PRESET_ALIASES: Record<string, string> = {
@@ -899,12 +905,24 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
   // Sync preset if prop or URL param ?preset= changes, or when select-exam-preset custom event fires
   useEffect(() => {
-    const urlPreset = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('preset') : null;
+    const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    const urlPreset = urlParams?.get('preset');
     const targetId = initialPresetId || urlPreset;
     if (targetId) {
       const matched = findPresetByKey(targetId);
       if (matched && matched.id !== selectedPreset?.id) {
         applyPreset(matched);
+      }
+    }
+
+    if (urlParams) {
+      const filterParam = urlParams.get('filter');
+      if (filterParam === 'clean' || filterParam === 'white') {
+        setFilters((prev) => ({ ...prev, cleanPaper: true }));
+      }
+      const formatParam = urlParams.get('format');
+      if (formatParam === 'jpg' || formatParam === 'jpeg') {
+        setTargetFormat('image/jpeg');
       }
     }
 
@@ -928,6 +946,45 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     const imgW = is90or270 ? img.naturalHeight : img.naturalWidth;
     const imgH = is90or270 ? img.naturalWidth : img.naturalHeight;
 
+    if (targetType === 'signature') {
+      const detected = detectSignatureBoundingBox(
+        img,
+        img.naturalWidth,
+        img.naturalHeight,
+        rotation,
+        flipH,
+        flipV,
+        0.2
+      );
+      let cropW = detected.width;
+      let cropH = lockAspect ? cropW / targetAspect : detected.height;
+
+      if (lockAspect && cropH < detected.height) {
+        cropH = detected.height;
+        cropW = cropH * targetAspect;
+      }
+
+      if (cropW > imgW) {
+        cropW = imgW;
+        if (lockAspect) cropH = cropW / targetAspect;
+      }
+      if (cropH > imgH) {
+        cropH = imgH;
+        if (lockAspect) cropW = cropH * targetAspect;
+      }
+
+      const centerX = detected.x + detected.width / 2;
+      const centerY = detected.y + detected.height / 2;
+
+      setCrop({
+        x: Math.round(Math.max(0, Math.min(imgW - cropW, centerX - cropW / 2))),
+        y: Math.round(Math.max(0, Math.min(imgH - cropH, centerY - cropH / 2))),
+        width: Math.round(Math.max(30, cropW)),
+        height: Math.round(Math.max(20, cropH))
+      });
+      return;
+    }
+
     let cropW = imgW * 0.9;
     let cropH = cropW / targetAspect;
 
@@ -949,18 +1006,22 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
   // Helper to load a single file instantly using zero-copy Object URL
   const loadSingleImageFile = (file: File) => {
-    if (!file.type.startsWith('image/')) {
-      alert('Please upload a valid image file (JPG, PNG, WebP, etc.)');
+    if (!isSupportedImageFile(file)) {
+      alert('Please upload a valid image file (JPG, PNG, WebP, HEIC, etc.)');
       return;
     }
 
+    setIsSampleImage(false);
     setSourceFileName(file.name.replace(/\.[^/.]+$/, ''));
     setSourceOriginalSize(file.size);
 
     const objectUrl = URL.createObjectURL(file);
     const img = new Image();
     img.onload = () => {
-      URL.revokeObjectURL(objectUrl);
+      if (sourceObjectUrlRef.current) {
+        URL.revokeObjectURL(sourceObjectUrlRef.current);
+      }
+      sourceObjectUrlRef.current = objectUrl;
       setSourceImage(img);
       setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
       const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
@@ -975,15 +1036,15 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
   // Process incoming files (Handles 1 up to 10 signatures)
   const handleMultipleFiles = (files: FileList | File[]) => {
-    const fileArray = Array.from(files).filter((f) => f.type.startsWith('image/'));
+    const fileArray = Array.from(files).filter(isSupportedImageFile);
 
     if (fileArray.length === 0) {
-      alert('Please select valid image files (JPG, PNG, WebP).');
+      alert('Please select valid image files (JPG, PNG, WebP, etc.).');
       return;
     }
 
-    // If single file uploaded in single mode with empty batch
-    if (fileArray.length === 1 && toolMode === 'single' && batchItems.length === 0) {
+    // If single file uploaded in single mode, always load directly into single editor
+    if (fileArray.length === 1 && toolMode === 'single') {
       loadSingleImageFile(fileArray[0]);
       return;
     }
@@ -1002,19 +1063,20 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
     // Switch to batch mode
     setToolMode('batch');
+    setIsSampleImage(false);
 
     // Read and load all images into batch state via zero-copy Object URLs
     filesToLoad.forEach((file) => {
       const objectUrl = URL.createObjectURL(file);
       const img = new Image();
       img.onload = () => {
-        URL.revokeObjectURL(objectUrl);
         const newItem: BatchSignatureItem = {
           id: `${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
           file,
           fileName: file.name,
           originalSize: file.size,
           image: img,
+          sourceUrl: objectUrl,
           status: 'pending',
           rotation: 0,
           flipH: false,
@@ -1028,6 +1090,11 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
         // Also set as active single image if none currently selected
         if (!sourceImage) {
+          if (sourceObjectUrlRef.current) {
+            URL.revokeObjectURL(sourceObjectUrlRef.current);
+          }
+          sourceObjectUrlRef.current = objectUrl;
+          setIsSampleImage(false);
           setSourceImage(img);
           setSourceFileName(file.name.replace(/\.[^/.]+$/, ''));
           setSourceOriginalSize(file.size);
@@ -1044,12 +1111,17 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
   // Load single sample image (Signature, Passport Photo, or Document)
   const loadSingleSampleSignature = () => {
+    setIsSampleImage(true);
     const sample = createSampleDataForMode(targetType);
     setSourceFileName(sample.filename);
     setSourceOriginalSize(sample.size);
 
     const img = new Image();
     img.onload = () => {
+      if (sourceObjectUrlRef.current) {
+        URL.revokeObjectURL(sourceObjectUrlRef.current);
+        sourceObjectUrlRef.current = null;
+      }
       setSourceImage(img);
       setSourceDimensions({ width: sample.width, height: sample.height });
       const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
@@ -1060,6 +1132,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
   // Load 3 sample images into Batch Mode for instant multi-edit test
   const loadSampleBatchSignatures = () => {
+    setIsSampleImage(true);
     setToolMode('batch');
     const samples = targetType === 'photo'
       ? [
@@ -1097,6 +1170,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
         loadedItems.push(item);
 
         if (loadedItems.length === samples.length) {
+          if (sourceObjectUrlRef.current) {
+            URL.revokeObjectURL(sourceObjectUrlRef.current);
+            sourceObjectUrlRef.current = null;
+          }
           setBatchItems(loadedItems);
           setSourceImage(loadedItems[0].image);
           setSourceFileName(loadedItems[0].fileName.replace(/\.[^/.]+$/, ''));
@@ -1621,6 +1698,11 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
   // Load a batch item into single mode for manual cropping
   const loadBatchItemToSingleEditor = (item: BatchSignatureItem) => {
+    setIsSampleImage(false);
+    if (sourceObjectUrlRef.current && sourceObjectUrlRef.current !== item.sourceUrl) {
+      URL.revokeObjectURL(sourceObjectUrlRef.current);
+    }
+    sourceObjectUrlRef.current = item.sourceUrl || null;
     setSourceImage(item.image);
     setSourceFileName(item.fileName.replace(/\.[^/.]+$/, ''));
     setSourceOriginalSize(item.originalSize);
@@ -1631,10 +1713,27 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
   // Remove single item from batch queue
   const removeBatchItem = (id: string) => {
-    setBatchItems((prev) => prev.filter((item) => item.id !== id));
-  };  // Clear ALL selected files (Batch and Single)
+    setBatchItems((prev) => {
+      const removed = prev.find((item) => item.id === id);
+      if (removed?.sourceUrl) {
+        URL.revokeObjectURL(removed.sourceUrl);
+      }
+      return prev.filter((item) => item.id !== id);
+    });
+  };
+  // Clear ALL selected files (Batch and Single)
   const clearAllSelectedFiles = () => {
+    setIsSampleImage(false);
+    batchItems.forEach((item) => {
+      if (item.sourceUrl) {
+        URL.revokeObjectURL(item.sourceUrl);
+      }
+    });
     setBatchItems([]);
+    if (sourceObjectUrlRef.current) {
+      URL.revokeObjectURL(sourceObjectUrlRef.current);
+      sourceObjectUrlRef.current = null;
+    }
     setSourceImage(null);
     setProcessedResult(null);
     setSourceFileName(modeConfig.filePrefix.replace('_', ''));
@@ -1880,6 +1979,20 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     setIsDraggingCrop(false);
     setActiveHandle(null);
   };
+
+  useEffect(() => {
+    if (!isDraggingCrop) return;
+
+    window.addEventListener('mouseup', handleContainerMouseUp);
+    window.addEventListener('touchend', handleContainerMouseUp);
+    window.addEventListener('touchcancel', handleContainerMouseUp);
+
+    return () => {
+      window.removeEventListener('mouseup', handleContainerMouseUp);
+      window.removeEventListener('touchend', handleContainerMouseUp);
+      window.removeEventListener('touchcancel', handleContainerMouseUp);
+    };
+  }, [isDraggingCrop]);
 
   // Smart Auto-Fit Signature Detection (One-click ink shrinkwrap)
   const handleAutoFitSignature = (padding: number = 0.12) => {
@@ -2437,12 +2550,16 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
         aria-label="Upload signature or photo files"
         type="file"
         multiple
-        accept="image/*,.heic,.heif"
+        accept="image/*,.heic,.heif,.jfif,.webp,.png,.jpg,.jpeg"
         className="hidden"
+        onClick={(e) => {
+          (e.target as HTMLInputElement).value = '';
+        }}
         onChange={(e) => {
           if (e.target.files && e.target.files.length > 0) {
             handleMultipleFiles(e.target.files);
           }
+          e.target.value = '';
         }}
       />
 
@@ -3269,8 +3386,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                     </div>
                   </div>
 
-                  {/* Margin Padding Chips */}
-                  <div className="flex items-center gap-1">
+                  {/* Margin Padding Chips — hidden on mobile to prevent overflow */}
+                  <div className="hidden sm:flex items-center gap-1">
                     <span className="text-[10px] uppercase font-bold text-muted-foreground">Margin:</span>
                     <button
                       type="button"
@@ -3315,7 +3432,22 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                       onMouseUp={handleContainerMouseUp}
                       onTouchEnd={handleContainerMouseUp}
                       className="w-full h-full flex items-center justify-center cursor-crosshair"
-                      style={{ touchAction: 'none' }}
+                      style={{
+                        touchAction: 'none',
+                        cursor: isDraggingCrop
+                          ? activeHandle === 'move'
+                            ? 'grabbing'
+                            : activeHandle === 'nw' || activeHandle === 'se'
+                            ? 'nwse-resize'
+                            : activeHandle === 'ne' || activeHandle === 'sw'
+                            ? 'nesw-resize'
+                            : activeHandle === 'n' || activeHandle === 's'
+                            ? 'ns-resize'
+                            : activeHandle === 'e' || activeHandle === 'w'
+                            ? 'ew-resize'
+                            : 'crosshair'
+                          : 'crosshair'
+                      }}
                     >
                       <div
                         className="relative inline-block max-w-full max-h-[460px]"
@@ -3459,16 +3591,24 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                       </div>
                     </div>
                   ) : (
-                    /* Dropzone Embedded inside Crop Studio Frame when no image */
                     <div
                       id="upload-dropzone"
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => fileInputRef.current?.click()}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          fileInputRef.current?.click();
+                        }
+                      }}
                       onDragOver={(e) => {
                         e.preventDefault();
                         setIsDragOver(true);
                       }}
                       onDragLeave={() => setIsDragOver(false)}
                       onDrop={handleDrop}
-                      className={`w-full h-full min-h-[340px] p-6 text-center flex flex-col items-center justify-center rounded-xl border-2 border-dashed transition-all ${
+                      className={`w-full h-full min-h-[340px] p-6 text-center flex flex-col items-center justify-center rounded-xl border-2 border-dashed transition-all cursor-pointer ${
                         isDragOver ? 'border-primary bg-primary/10' : 'border-border/80 bg-card/60 hover:border-primary/40'
                       }`}
                     >
@@ -3484,14 +3624,20 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                       <div className="flex flex-wrap items-center justify-center gap-2">
                         <button
                           type="button"
-                          onClick={() => fileInputRef.current?.click()}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            fileInputRef.current?.click();
+                          }}
                           className="px-4 py-2 bg-primary text-primary-foreground font-semibold rounded-xl text-xs hover:opacity-95 shadow-xs transition cursor-pointer"
                         >
                           {t.tool.uploadButton}
                         </button>
                         <button
                           type="button"
-                          onClick={loadSingleSampleSignature}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            loadSingleSampleSignature();
+                          }}
                           className="px-3.5 py-2 bg-card border border-border text-foreground font-medium rounded-xl text-xs hover:bg-muted transition shadow-2xs cursor-pointer"
                         >
                           {t.tool.sampleButton}
@@ -3499,7 +3645,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         {targetType === 'signature' && (
                           <button
                             type="button"
-                            onClick={() => setIsDrawingPadOpen(true)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setIsDrawingPadOpen(true);
+                            }}
                             className="px-3.5 py-2 bg-card border border-border text-foreground font-medium rounded-xl text-xs hover:bg-muted transition shadow-2xs cursor-pointer"
                           >
                             {t.tool.drawButton}

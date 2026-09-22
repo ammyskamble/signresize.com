@@ -22,19 +22,34 @@ const SIGNATURE_FONTS: FontOption[] = [
   { id: 'caveat', name: 'Natural Running', fontFamily: '"Caveat", cursive' },
   { id: 'dancing-script', name: 'Casual Script', fontFamily: '"Dancing Script", cursive' },
   { id: 'great-vibes', name: 'Elegant Calligraphy', fontFamily: '"Great Vibes", cursive' },
+  { id: 'allura', name: 'Executive Flourish', fontFamily: '"Allura", cursive' },
+  { id: 'homemade-apple', name: 'Organic Pen', fontFamily: '"Homemade Apple", cursive' },
   { id: 'sacramento', name: 'Classic Monoline', fontFamily: '"Sacramento", cursive' },
-  { id: 'pacifico', name: 'Bold Signature', fontFamily: '"Pacifico", cursive' },
-  { id: 'alex-brush', name: 'Formal Swash', fontFamily: '"Alex Brush", cursive' }
+  { id: 'marck-script', name: 'Smooth Flow', fontFamily: '"Marck Script", cursive' },
+  { id: 'pacifico', name: 'Bold Modern', fontFamily: '"Pacifico", cursive' },
+  { id: 'alex-brush', name: 'Formal Swash', fontFamily: '"Alex Brush", cursive' },
+  { id: 'cedarville', name: 'Authentic Quick Sign', fontFamily: '"Cedarville Cursive", cursive' }
 ];
 
 const INK_COLORS = [
-  { id: 'black', label: 'Black Ink (Govt)', value: '#000000' },
-  { id: 'navy', label: 'Dark Navy Blue', value: '#0f2444' },
-  { id: 'royal', label: 'Royal Blue', value: '#1d4ed8' }
+  { id: 'black', label: 'Classic Black', value: '#000000' },
+  { id: 'navy', label: 'Executive Navy', value: '#0f2444' },
+  { id: 'royal', label: 'Royal Blue', value: '#1d4ed8' },
+  { id: 'charcoal', label: 'Charcoal Slate', value: '#334155' }
 ];
 
-export const SignatureCreatorTool: React.FC = () => {
-  const [tab, setTab] = useState<'type' | 'draw'>('type');
+interface SignatureCreatorToolProps {
+  initialTab?: 'type' | 'draw';
+}
+
+export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ initialTab = 'type' }) => {
+  const [tab, setTab] = useState<'type' | 'draw'>(() => {
+    if (typeof window !== 'undefined') {
+      const modeParam = new URLSearchParams(window.location.search).get('mode');
+      if (modeParam === 'draw' || modeParam === 'type') return modeParam;
+    }
+    return initialTab;
+  });
 
   // Type Mode States
   const [text, setText] = useState<string>('Alex Morgan');
@@ -42,7 +57,7 @@ export const SignatureCreatorTool: React.FC = () => {
   const [inkColor, setInkColor] = useState<string>('#000000');
   const [fontSize, setFontSize] = useState<number>(48);
   const [isSlanted, setIsSlanted] = useState<boolean>(true);
-  const [transparentBg, setTransparentBg] = useState<boolean>(false);
+  const [transparentBg, setTransparentBg] = useState<boolean>(true);
 
   // Draw Mode States
   const [strokeWidth, setStrokeWidth] = useState<number>(3);
@@ -62,7 +77,7 @@ export const SignatureCreatorTool: React.FC = () => {
       link.id = linkId;
       link.rel = 'stylesheet';
       link.href =
-        'https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Pacifico&family=Sacramento&display=swap';
+        'https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Caveat:wght@600;700&family=Cedarville+Cursive&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Homemade+Apple&family=Marck+Script&family=Pacifico&family=Sacramento&display=swap';
       document.head.appendChild(link);
     }
   }, []);
@@ -293,7 +308,7 @@ export const SignatureCreatorTool: React.FC = () => {
             {/* Font Selector Cards */}
             <div class="space-y-1.5">
               <label class="text-xs font-semibold text-foreground">Select Handwriting Calligraphy Style:</label>
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
                 {SIGNATURE_FONTS.map((font) => (
                   <button
                     key={font.id}

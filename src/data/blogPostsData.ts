@@ -121,9 +121,204 @@ export const BLOG_POSTS: BlogPost[] = [
     `,
     faqs: []
   },
+  {
+    slug: "how-to-change-signature-in-outlook",
+    title: "How to Change Signature in Outlook: Complete 2025 Guide (Desktop, Web & Mobile)",
+    metaTitle: "How to Change Signature in Outlook (2025) — Desktop, Web & Mobile Guide",
+    metaDescription: "Learn how to change your email signature in Outlook in under 2 minutes. Step-by-step guide for Outlook 365, Outlook Web (OWA), Outlook on Mac, iOS & Android. Includes HTML signature tips and common fixes.",
+    excerpt: "Complete step-by-step guide to changing your email signature in Microsoft Outlook — covers Outlook 365 desktop, Outlook Web App, Mac, iPhone and Android with screenshots and expert tips for professional signatures.",
+    category: "Guidelines & Tips",
+    publishDate: "Sept 23, 2026",
+    lastUpdated: "Sept 23, 2026",
+    author: "SignResize Editorial Team",
+    authorRole: "Productivity & Digital Signature Expert",
+    readTime: "7 min read",
+    featured: true,
+    tags: [
+      "How to Change Signature in Outlook",
+      "Outlook Signature",
+      "Email Signature",
+      "Outlook 365 Signature",
+      "Outlook Web Signature",
+      "Change Email Signature",
+      "Microsoft Outlook",
+      "Professional Email Signature",
+      "Outlook Signature HTML",
+      "Outlook Signature Image"
+    ],
+    quickFacts: [
+      { label: "Applies To", value: "Outlook 365, 2021, 2019, OWA, Mac, iOS, Android" },
+      { label: "Time Required", value: "Under 2 minutes" },
+      { label: "Signature Path (Windows)", value: "File → Options → Mail → Signatures" },
+      { label: "Signature Path (Web)", value: "Settings ⚙ → View All Settings → Compose → Email Signature" },
+      { label: "Image Format", value: "JPEG / PNG (max 5 MB)" },
+      { label: "HTML Allowed", value: "Yes — full HTML formatting supported" }
+    ],
+    faqs: [
+      {
+        question: "How do I change my email signature in Outlook 365?",
+        answer: "Open Outlook 365 → click File → Options → Mail → click the 'Signatures…' button. In the Signatures and Stationery dialog, select the signature you want to edit from the list (or click 'New' to create one), make your changes in the editor, then click OK. Your new signature will apply to new emails and/or replies depending on your dropdown settings."
+      },
+      {
+        question: "How do I change my signature in Outlook Web App (OWA)?",
+        answer: "Log in to Outlook on the web → click the Settings gear ⚙ icon (top right) → click 'View All Outlook Settings' → select Mail → Compose and Reply. You will see the Email Signature section. Edit your signature text, then click Save. Enable the toggles to automatically include the signature in new messages and/or replies."
+      },
+      {
+        question: "Can I add an image or logo to my Outlook signature?",
+        answer: "Yes. In the Signatures editor (File → Options → Mail → Signatures), click the image icon in the toolbar and select your image file. For best results, use a JPEG or PNG under 5 MB. If the image doesn't display for recipients, use a publicly hosted image URL instead of embedding it directly. You can use SignResize.in to resize and compress your signature image to the ideal size."
+      },
+      {
+        question: "How do I change my signature in Outlook on Mac?",
+        answer: "Open Outlook for Mac → click Outlook in the menu bar → Preferences → Signatures. Click the + button to add a new signature or select an existing one to edit. Compose your signature in the editor on the right. In the 'Default Signatures' section, assign the signature to your email account."
+      },
+      {
+        question: "How do I change my Outlook signature on iPhone or Android?",
+        answer: "On the Outlook mobile app (iOS/Android), tap your profile picture → Settings ⚙ → scroll to your account → tap Signature. Edit or replace your signature text and tap the checkmark (✓) to save. Note: the mobile app supports plain text signatures only; HTML signatures are available only in desktop and web versions."
+      },
+      {
+        question: "Why is my Outlook signature not showing on replies?",
+        answer: "In Outlook desktop, go to File → Options → Mail → Signatures. In the 'Choose default signature' section, make sure you have selected your signature from the 'Replies/forwards' dropdown. If it is set to '(none)', your signature will not appear on replies. Also check that you are using the correct email account in the dropdown at the top."
+      },
+      {
+        question: "How do I add an HTML signature in Outlook?",
+        answer: "You cannot paste raw HTML directly into the Outlook signature editor. Instead: (1) Create your HTML signature in a text file and open it in a browser. (2) Select all and copy. (3) Paste into the Outlook signature editor — it will retain formatting. Alternatively, use a tool like SignResize.in's Signature Generator to design a professional signature, download it as an image, and insert that image into your Outlook signature."
+      },
+      {
+        question: "How do I set a different signature for different email accounts in Outlook?",
+        answer: "Go to File → Options → Mail → Signatures. In the 'Choose default signature' section at the top right, select the email account from the 'E-mail account' dropdown. Then assign the desired signature for 'New messages' and 'Replies/forwards' for that specific account. Repeat for each account."
+      }
+    ],
+    contentHtml: `
+<h2>How to Change Signature in Outlook — Quick Overview</h2>
+<p>Your email signature is the first impression you leave with every message. Whether you need to update your phone number, add your job title, or swap out an old logo, changing your Outlook signature takes less than 2 minutes once you know where to look.</p>
+<p>This guide covers every version of Microsoft Outlook: <strong>Outlook 365 (Windows)</strong>, <strong>Outlook Web App (OWA)</strong>, <strong>Outlook on Mac</strong>, and the <strong>Outlook mobile app</strong> (iOS &amp; Android).</p>
 
+<div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+  <h4 class="font-bold text-primary mb-2">⚡ Quick Answer: Change Signature in Outlook (Windows)</h4>
+  <ol class="space-y-1 text-sm text-foreground/90 list-decimal list-inside">
+    <li>Open Outlook → click <strong>File</strong></li>
+    <li>Click <strong>Options</strong> → <strong>Mail</strong></li>
+    <li>Click the <strong>Signatures…</strong> button</li>
+    <li>Select your signature from the list and edit it</li>
+    <li>Click <strong>OK</strong> to save</li>
+  </ol>
+</div>
+
+<h2>Method 1: Change Signature in Outlook Desktop (Windows — Outlook 365, 2021, 2019)</h2>
+<p>This method works for all modern Windows desktop versions of Outlook.</p>
+
+<h3>Step 1 — Open Outlook Settings</h3>
+<p>Launch Microsoft Outlook. In the top-left corner, click the <strong>File</strong> tab. This opens the Backstage view. Click <strong>Options</strong> at the bottom of the left panel.</p>
+
+<h3>Step 2 — Navigate to Mail → Signatures</h3>
+<p>In the <em>Outlook Options</em> window, click <strong>Mail</strong> in the left sidebar. Under the <em>Compose messages</em> section, click the <strong>Signatures…</strong> button.</p>
+
+<h3>Step 3 — Edit Your Signature</h3>
+<p>The <em>Signatures and Stationery</em> dialog opens. In the <strong>Select signature to edit</strong> list, click the name of the signature you want to change. The signature content appears in the editor below. Make your edits — you can change text, font, colour, add a logo image, or paste a new design entirely.</p>
+
+<div class="my-4 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/50 text-sm">
+  <strong>💡 Tip:</strong> To add an image (logo or photo), click the <strong>image icon</strong> 🖼️ in the editor toolbar and browse to your file. Use a JPEG or PNG image that is already correctly sized — you can use <a href="/signature-generator/" class="text-primary font-semibold hover:underline">SignResize.in's Signature Generator</a> to create a professional image signature first.
+</div>
+
+<h3>Step 4 — Set Default Assignment</h3>
+<p>In the <strong>Choose default signature</strong> panel (top-right of the dialog), select the correct email account from the <em>E-mail account</em> dropdown. Then choose your signature in <em>New messages</em> and <em>Replies/forwards</em> dropdowns. This determines whether Outlook auto-applies the signature.</p>
+
+<h3>Step 5 — Save</h3>
+<p>Click <strong>OK</strong> in the Signatures dialog, then click <strong>OK</strong> again in Outlook Options. Your new signature is active immediately.</p>
+
+<h2>Method 2: Change Signature in Outlook Web App (OWA / Office 365 Online)</h2>
+<p>If you use Outlook through a browser at <em>outlook.office.com</em> or <em>outlook.live.com</em>, follow these steps:</p>
+
+<ol class="space-y-2 text-sm list-decimal list-inside my-4">
+  <li>Click the <strong>Settings ⚙</strong> icon in the top-right corner of the page.</li>
+  <li>At the bottom of the Settings panel, click <strong>View all Outlook settings</strong>.</li>
+  <li>Go to <strong>Mail</strong> → <strong>Compose and reply</strong>.</li>
+  <li>Under <em>Email signature</em>, click inside the signature box and make your edits.</li>
+  <li>Toggle on <em>Automatically include my signature on new messages</em> and/or <em>replies</em> as needed.</li>
+  <li>Click <strong>Save</strong>.</li>
+</ol>
+
+<div class="my-4 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700/50 text-sm">
+  <strong>📝 Note:</strong> Outlook Web supports basic HTML formatting. You can paste formatted content directly from a browser page or use the formatting toolbar provided.
+</div>
+
+<h2>Method 3: Change Signature in Outlook on Mac</h2>
+<p>For Microsoft Outlook 2019 or Microsoft 365 on macOS:</p>
+<ol class="space-y-2 text-sm list-decimal list-inside my-4">
+  <li>In the menu bar, click <strong>Outlook</strong> → <strong>Preferences</strong>.</li>
+  <li>Click <strong>Signatures</strong>.</li>
+  <li>Select the signature to edit from the left panel, or click <strong>+</strong> to create a new one.</li>
+  <li>Edit the content in the right panel. You can drag-and-drop an image directly into the editor.</li>
+  <li>In the <em>Default Signatures</em> section, assign the signature to your account.</li>
+  <li>Close the Preferences window — changes save automatically.</li>
+</ol>
+
+<h2>Method 4: Change Signature in Outlook Mobile App (iOS &amp; Android)</h2>
+<p>The Outlook app for iPhone, iPad, and Android supports plain-text signatures:</p>
+<ol class="space-y-2 text-sm list-decimal list-inside my-4">
+  <li>Open the Outlook app and tap your <strong>profile picture</strong> or initials (top-left).</li>
+  <li>Tap the <strong>Settings gear ⚙</strong> icon (bottom-left).</li>
+  <li>Scroll down and tap your <strong>email account name</strong>.</li>
+  <li>Tap <strong>Signature</strong>.</li>
+  <li>Clear the existing text and type your new signature.</li>
+  <li>Tap the <strong>checkmark ✓</strong> (iOS) or back arrow (Android) to save.</li>
+</ol>
+
+<div class="my-4 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm">
+  <strong>⚠️ Limitation:</strong> The Outlook mobile app only supports plain text signatures. Images, links, and rich HTML are available in the desktop and web versions only.
+</div>
+
+<h2>How to Add a Professional Image Signature in Outlook</h2>
+<p>Adding your handwritten signature as an image in Outlook creates a more personal and professional email. Here's the recommended workflow:</p>
+
+<ol class="space-y-3 text-sm list-decimal list-inside my-4">
+  <li><strong>Create your signature image</strong> — use <a href="/signature-generator/" class="text-primary font-semibold hover:underline">SignResize.in's free Signature Generator</a> to type your name and export it as a beautiful cursive PNG with transparent background.</li>
+  <li><strong>Resize &amp; compress</strong> — your signature image should ideally be 300–500 px wide and under 100 KB for fast email loading.</li>
+  <li><strong>Insert in Outlook</strong> — in the Signatures editor (File → Options → Mail → Signatures), click the image icon, browse to your PNG/JPEG file, and insert it.</li>
+  <li><strong>Right-click the inserted image</strong> → <em>Format Picture</em> to resize it within the editor if needed.</li>
+  <li>Add your name, title, phone number as text below the image.</li>
+</ol>
+
+<h2>Common Problems &amp; Fixes</h2>
+
+<div class="my-4 space-y-4">
+  <div class="p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+    <strong>❌ Signature not showing on replies</strong>
+    <p class="mt-1 text-slate-600 dark:text-slate-400">Go to File → Options → Mail → Signatures and check the <em>Replies/forwards</em> dropdown. It must be set to your signature, not "(none)".</p>
+  </div>
+  <div class="p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+    <strong>❌ Image shows as broken/attachment for recipients</strong>
+    <p class="mt-1 text-slate-600 dark:text-slate-400">This happens when an embedded image isn't supported by the recipient's email client. Host the image on a public URL (e.g., your company website) and insert it as a linked image instead.</p>
+  </div>
+  <div class="p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+    <strong>❌ Signature disappeared after Outlook update</strong>
+    <p class="mt-1 text-slate-600 dark:text-slate-400">Outlook stores signatures in a local folder. After updates or profile migration, check: <code>C:\\Users\\[YourName]\\AppData\\Roaming\\Microsoft\\Signatures\\</code> — your .htm/.rtf/.txt files should be intact. Re-add them via the Signatures dialog.</p>
+  </div>
+  <div class="p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm">
+    <strong>❌ Cannot find Signatures option in New Outlook</strong>
+    <p class="mt-1 text-slate-600 dark:text-slate-400">Microsoft's "New Outlook" (2024+) moved the setting. Click Settings ⚙ → Accounts → select your account → Signatures. This is the same flow as Outlook Web.</p>
+  </div>
+</div>
+
+<h2>Outlook Signature Best Practices for 2025</h2>
+<ul class="space-y-2 text-sm list-disc list-inside my-4">
+  <li>Keep your signature to <strong>4–6 lines</strong> max — long signatures feel spammy.</li>
+  <li>Include: <strong>Name → Job Title → Company → Phone → Website/LinkedIn</strong>.</li>
+  <li>Use <strong>one accent colour</strong> that matches your brand — avoid rainbow text.</li>
+  <li>Include a <strong>handwritten signature image</strong> for a personal touch on client-facing emails.</li>
+  <li>Avoid including large images or social media icons that inflate email file size.</li>
+  <li>Test your signature by sending yourself a test email and viewing on mobile.</li>
+</ul>
+
+<div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20 text-sm">
+  <h4 class="font-bold text-primary mb-2">✨ Create a Professional Signature Image — Free</h4>
+  <p>Use <a href="/signature-generator/" class="text-primary font-semibold hover:underline">SignResize.in's Signature Generator</a> to type your name and instantly generate a beautiful handwritten-style signature in seconds. Download as transparent PNG — perfect for inserting into Outlook, Gmail, or any email client.</p>
+</div>
+`
+  },
   {
     slug: "rrb-ntpc-2026-master-document-rules-preparation-strategy-mub0xzde",
+
     title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
     excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, step-by-step navigation, and speed calculation methods.",
     category: "Study Prep",

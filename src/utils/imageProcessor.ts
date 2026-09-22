@@ -203,13 +203,18 @@ export function renderProcessedCanvas(
   outCtx.imageSmoothingEnabled = true;
   outCtx.imageSmoothingQuality = 'high';
 
-  // Draw cropped section stretched to target dimensions
+  // Draw cropped section stretched to target dimensions with clamped coordinates
+  const safeCropX = Math.max(0, Math.min(fullCanvas.width - 1, crop.x));
+  const safeCropY = Math.max(0, Math.min(fullCanvas.height - 1, crop.y));
+  const safeCropW = Math.max(1, Math.min(fullCanvas.width - safeCropX, crop.width));
+  const safeCropH = Math.max(1, Math.min(fullCanvas.height - safeCropY, crop.height));
+
   outCtx.drawImage(
     fullCanvas,
-    Math.max(0, crop.x),
-    Math.max(0, crop.y),
-    Math.max(1, crop.width),
-    Math.max(1, crop.height),
+    safeCropX,
+    safeCropY,
+    safeCropW,
+    safeCropH,
     0,
     0,
     targetWidth,
@@ -616,13 +621,25 @@ async function padJpegWithSafeExif(jpegBlob: Blob, extraBytes: number): Promise<
       padding[i] = text.charCodeAt(i % text.length);
     }
 
-    // Insert COM segment right after SOI (index 2)
+    // Insert COM segment safely AFTER any existing APP0 (JFIF) or APPn markers
+    // This preserves standard JFIF SOI+APP0 structure required by browser decoders
+    let insertPos = 2; // Default position right after SOI
+    while (insertPos + 4 < bytes.length && bytes[insertPos] === 0xff) {
+      const marker = bytes[insertPos + 1];
+      if ((marker >= 0xe0 && marker <= 0xef) || marker === 0xfe) {
+        const segLen = (bytes[insertPos + 2] << 8) | bytes[insertPos + 3];
+        insertPos += 2 + segLen;
+      } else {
+        break;
+      }
+    }
+
     const combined = new Uint8Array(bytes.length + 4 + payloadLen);
-    combined.set(bytes.slice(0, 2), 0);
-    combined.set(markerHeader, 2);
-    combined.set(lenBytes, 4);
-    combined.set(padding, 6);
-    combined.set(bytes.slice(2), 6 + payloadLen);
+    combined.set(bytes.slice(0, insertPos), 0);
+    combined.set(markerHeader, insertPos);
+    combined.set(lenBytes, insertPos + 2);
+    combined.set(padding, insertPos + 4);
+    combined.set(bytes.slice(insertPos), insertPos + 4 + payloadLen);
 
     return new Blob([combined], { type: 'image/jpeg' });
   } catch (e) {

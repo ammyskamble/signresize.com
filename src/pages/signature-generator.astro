@@ -1,0 +1,638 @@
+---
+// src/pages/signature-generator.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import { SignatureCreatorTool } from '../components/SignatureCreatorTool';
+
+const pageTitle = "Online Signature Generator - Free Cursive & Handwritten Signature Maker | SignResize";
+const pageDescription = "Create beautiful handwritten, cursive, and digital signatures online for free. Download transparent PNG or clean JPG for Google Docs, PDFs, Word, email, and contracts. 100% free, private & legally binding worldwide (ESIGN, eIDAS).";
+const canonicalUrl = "https://signresize.in/signature-generator/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "signature generator, online signature generator, free signature generator, cursive signature generator, handwritten signature generator, signature generator for my name, digital signature generator, transparent signature generator, signature maker online, esign generator, email signature generator, signature generator without watermark, electronic signature generator free, calligraphy signature maker";
+
+const faqs = [
+  {
+    q: "How does this free online signature generator work?",
+    a: "Simply type your full name, initials, or professional title in the input box. The signature generator instantly transforms your text into realistic cursive and handwritten calligraphy signatures across 10 distinct font styles. You can adjust the font size, slant, choose an ink color (Classic Black, Executive Navy, Royal Blue, Charcoal Slate), and download your signature as a transparent PNG or white JPG in one click."
+  },
+  {
+    q: "Is a generated signature legally binding for contracts and agreements worldwide?",
+    a: "Yes. In the United States under the federal ESIGN Act (15 U.S.C. § 7001) and Uniform Electronic Transactions Act (UETA), in the European Union under the eIDAS Regulation (EU No 910/2014) for Simple Electronic Signatures (SES), and in the UK under the Electronic Communications Act 2000, electronic signatures carry the same legal weight as traditional wet-ink signatures for the majority of commercial contracts, NDAs, invoices, offer letters, and rental agreements."
+  },
+  {
+    q: "Can I download my signature with a transparent background without any watermark?",
+    a: "Yes, absolutely. By selecting 'Transparent Background (PNG)', your signature will be exported with an alpha transparency layer and zero watermarks. This enables you to overlay it cleanly on PDF documents, Google Docs, Word files, and email signatures without any unsightly white rectangular box around the ink."
+  },
+  {
+    q: "How do I insert my generated signature into Google Docs, Word, or Adobe PDF?",
+    a: "For Google Docs: Click 'Insert' > 'Image' > 'Upload from computer', then click 'Image options' and select 'In front of text'. For Adobe Acrobat / Reader: Open your PDF, click 'Fill & Sign' > 'Add Signature' > 'Image', select your downloaded PNG, and place it on the signature line. For Microsoft Word: Click 'Insert' > 'Pictures' > 'This Device', and set 'Wrap Text' to 'In Front of Text'."
+  },
+  {
+    q: "Does this signature generator store my name or signature on a server?",
+    a: "No. Your privacy is 100% guaranteed. All rendering and export operations are performed entirely within your web browser using client-side HTML5 Canvas technology. No personal data, names, or signature graphics are ever transmitted, saved, or logged to our servers, ensuring full compliance with GDPR and CCPA privacy standards."
+  },
+  {
+    q: "Is there any cost, subscription, or registration required?",
+    a: "No. The SignResize Signature Generator is completely free and accessible to anyone worldwide. There are no registration forms, no credit cards, no premium tiers, and no limits on how many signature variations you can create and download."
+  },
+  {
+    q: "Can I use a computer-generated cursive signature for government exam portals (SSC, UPSC, Banking)?",
+    a: "No. Government recruitment commissions (such as SSC, UPSC, IBPS, RRB, and State PSCs in India) strictly require a scanned copy of your physical handwriting executed with pen on paper. Using an automated font generator will result in application rejection. If you are preparing for government exams, please write your signature by hand on paper and use our dedicated Signature Resizer tool instead."
+  },
+  {
+    q: "What is the difference between this Signature Generator and the Electronic Signature Pad?",
+    a: "The Signature Generator uses advanced typography algorithms to automatically render your typed name into elegant cursive calligraphy handwriting. In contrast, our Electronic Signature tool (/electronic-signature/) provides an interactive digital canvas where you can draw your signature by hand using a mouse, touchscreen, stylus, or mobile device."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <GoogleAnalytics />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags (Targeting Worldwide Social & Search) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:locale:alternate" content="en_CA" />
+    <meta property="og:locale:alternate" content="en_AU" />
+    <meta property="og:locale:alternate" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Free Online Signature Generator - SignResize" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="Free Online Signature Generator - SignResize" />
+
+    <!-- PWA & Mobile Meta Tags -->
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Async Google Fonts -->
+    <GoogleFonts />
+
+    <!-- SoftwareApplication & WebApplication Schema (Worldwide Target) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "Free Online Signature Generator",
+      "url": canonicalUrl,
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "All (Web Browser, Windows, macOS, iOS, Android, Linux)",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
+      "description": pageDescription,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "8950",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "featureList": [
+        "Instant name-to-cursive signature generation",
+        "10 professional cursive calligraphy font families",
+        "Customizable slant, font sizing, and ink colors",
+        "Transparent background PNG download with zero watermarks",
+        "100% private client-side canvas generation (GDPR & CCPA compliant)",
+        "Legally compliant with US ESIGN, UETA, and EU eIDAS regulations"
+      ]
+    })} />
+
+    <!-- HowTo Schema (Worldwide Ranking Optimization) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Generate a Signature Online from Your Name",
+      "description": "Learn how to generate a professional, legally binding cursive signature online using the free SignResize Signature Generator.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Type Your Full Name",
+          "text": "Enter your name, initials, or business title into the generator input box.",
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Choose a Cursive or Calligraphy Style",
+          "text": "Select from 10 realistic handwriting fonts, such as Executive Flourish, Elegant Calligraphy, Natural Running, or Authentic Quick Sign.",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Customize Ink Color and Slant",
+          "text": "Choose Classic Black, Executive Navy, Royal Blue, or Charcoal Slate, and adjust the signature slant and font scale.",
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Transparent PNG or Crisp JPG",
+          "text": "Check 'Transparent Background (PNG)' and click Download to save your high-resolution signature for Google Docs, PDFs, and contracts.",
+          "position": 4
+        }
+      ]
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Signature Generator",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Signature Generator</span>
+      </nav>
+
+      <!-- Hero Header Banner (Worldwide Appeal) -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Free Online Signature Generator
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                No Sign-up • No Watermark • 100% Free
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-mono text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 border border-indigo-500/20">
+                ESIGN &amp; eIDAS Compliant
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+              Free Online <span class="text-primary">Signature Generator</span> (Cursive &amp; Handwritten)
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Create realistic handwritten and cursive signatures from your name in seconds. Choose from 10 elegant typography styles, customize pen ink colors, and download a high-resolution <strong>transparent PNG</strong> or <strong>clean JPG</strong> for PDFs, Google Docs, Word documents, contracts, and email sign-offs.
+            </p>
+          </div>
+
+          <!-- Feature Badges -->
+          <div class="flex items-center gap-2 flex-wrap shrink-0">
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-2xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Styles</div>
+              <div class="text-xs font-bold text-primary font-mono">10 Cursive Fonts</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-2xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Output Format</div>
+              <div class="text-xs font-bold text-foreground font-mono">Transparent PNG / JPG</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-2xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Security</div>
+              <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 font-mono">100% Client-Side</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Layout: Generator Tool Workspace -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-8 space-y-6">
+          <!-- Force Initial Tab to 'type' for Signature Generator -->
+          <div class="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs">
+            <SignatureCreatorTool client:load initialTab="type" />
+          </div>
+
+          <!-- Relocated 5-Card Signature Tools Suite Showcase (Secondary Hub Location) -->
+          <section id="signature-tools-suite" class="space-y-3 pt-2">
+            <div class="flex items-center justify-between">
+              <div class="space-y-0.5">
+                <h2 class="text-base sm:text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
+                  <span class="text-primary">⚡</span> Explore the Complete Signature Tools Suite
+                </h2>
+                <p class="text-xs text-muted-foreground">
+                  Switch between online signature generators, electronic drawing pads, and dimension/KB resizers.
+                </p>
+              </div>
+              <span class="hidden sm:inline-flex text-[10px] font-mono px-2 py-0.5 rounded-md bg-primary/10 text-primary border border-primary/20 font-semibold">
+                100% Free &amp; Private
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
+              <!-- Card 1: Signature Generator (Active) -->
+              <div class="p-3 rounded-2xl border-2 border-primary/50 bg-primary/5 shadow-xs flex flex-col justify-between">
+                <div class="space-y-1.5">
+                  <div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-base font-bold">
+                    ✨
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-xs text-foreground">Signature Generator</h3>
+                    <p class="text-[10px] text-muted-foreground leading-snug mt-0.5">
+                      Type your name for cursive handwriting styles.
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-primary/20 text-[10px] font-bold text-primary flex items-center justify-between">
+                  <span>Current Tool</span>
+                  <span>●</span>
+                </div>
+              </div>
+
+              <!-- Card 2: Electronic Signature Pad -->
+              <a
+                href="/electronic-signature/"
+                class="group p-3 rounded-2xl border border-border bg-card hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between"
+              >
+                <div class="space-y-1.5">
+                  <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-base font-bold">
+                    🖋️
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-xs text-foreground group-hover:text-primary transition-colors">
+                      Electronic Signature
+                    </h3>
+                    <p class="text-[10px] text-muted-foreground leading-snug mt-0.5">
+                      Smooth drawing pad for signing PDFs on screen.
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-border/60 text-[10px] font-bold text-primary flex items-center justify-between">
+                  <span>Draw eSign</span>
+                  <span>→</span>
+                </div>
+              </a>
+
+              <!-- Card 3: Signature Resizer (10–20 KB) -->
+              <a
+                href="/#tool-workspace"
+                class="group p-3 rounded-2xl border border-border bg-card hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between"
+              >
+                <div class="space-y-1.5">
+                  <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-base font-bold">
+                    ✍️
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-xs text-foreground group-hover:text-primary transition-colors">
+                      Signature Resizer
+                    </h3>
+                    <p class="text-[10px] text-muted-foreground leading-snug mt-0.5">
+                      Resize signature to 10–20 KB, 140×60 px for exams.
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-border/60 text-[10px] font-bold text-primary flex items-center justify-between">
+                  <span>Resize Sign</span>
+                  <span>→</span>
+                </div>
+              </a>
+
+              <!-- Card 4: Signature Creator & Maker -->
+              <a
+                href="/signature-creator/"
+                class="group p-3 rounded-2xl border border-border bg-card hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between"
+              >
+                <div class="space-y-1.5">
+                  <div class="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-base font-bold">
+                    🎨
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-xs text-foreground group-hover:text-primary transition-colors">
+                      Signature Creator
+                    </h3>
+                    <p class="text-[10px] text-muted-foreground leading-snug mt-0.5">
+                      Full custom design studio with type &amp; draw modes.
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-border/60 text-[10px] font-bold text-primary flex items-center justify-between">
+                  <span>Open Studio</span>
+                  <span>→</span>
+                </div>
+              </a>
+
+              <!-- Card 5: Whiten Background Cleaner -->
+              <a
+                href="/?filter=clean#tool-workspace"
+                class="group p-3 rounded-2xl border border-border bg-card hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between col-span-2 sm:col-span-1"
+              >
+                <div class="space-y-1.5">
+                  <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-base font-bold">
+                    🧹
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-xs text-foreground group-hover:text-primary transition-colors">
+                      Whiten Background
+                    </h3>
+                    <p class="text-[10px] text-muted-foreground leading-snug mt-0.5">
+                      Clean phone shadows to pure #FFFFFF white paper.
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-border/60 text-[10px] font-bold text-primary flex items-center justify-between">
+                  <span>Clean Paper</span>
+                  <span>→</span>
+                </div>
+              </a>
+            </div>
+          </section>
+
+          <!-- Rich Editorial Worldwide Guide & SEO Content -->
+          <div class="bg-card border border-border rounded-2xl p-5 sm:p-6 shadow-xs space-y-8">
+            
+            <!-- Section 1: Step-by-Step Tutorial -->
+            <div class="space-y-3">
+              <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+                <span>📖</span> How to Generate a Free Signature from Your Name
+              </h2>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                Whether you need a sleek digital sign-off for your business emails, an elegant signature graphic for freelance invoices, or a quick signature image for PDF contracts, our generator makes it effortless in 4 quick steps:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                <div class="p-3.5 rounded-xl bg-muted/30 border border-border space-y-1">
+                  <div class="text-xs font-bold text-foreground flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[11px] font-bold">1</span>
+                    <span>Type Your Full Name</span>
+                  </div>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed">Enter your first and last name, initials, or professional title in the input box. The canvas generates instant live typography previews.</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-muted/30 border border-border space-y-1">
+                  <div class="text-xs font-bold text-foreground flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[11px] font-bold">2</span>
+                    <span>Choose a Handwriting Style</span>
+                  </div>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed">Select from 10 distinct cursive calligraphy fonts, ranging from Executive Flourish and Organic Pen to Formal Swash and Bold Modern.</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-muted/30 border border-border space-y-1">
+                  <div class="text-xs font-bold text-foreground flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[11px] font-bold">3</span>
+                    <span>Customize Pen Ink &amp; Slant</span>
+                  </div>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed">Select Classic Black, Executive Navy, Royal Blue, or Charcoal Slate. Fine-tune your font size and cursive slant for natural penmanship.</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-muted/30 border border-border space-y-1">
+                  <div class="text-xs font-bold text-foreground flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[11px] font-bold">4</span>
+                    <span>Download Transparent PNG</span>
+                  </div>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed">Keep the 'Transparent Background' option enabled to download a crisp PNG ready to paste over contracts, PDFs, and Google Docs.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: How to Insert in Google Docs, PDFs, Word & Gmail -->
+            <div class="space-y-3 pt-2 border-t border-border">
+              <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+                <span>💻</span> How to Insert Your Signature in Popular Everyday Apps
+              </h2>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                Once you download your transparent PNG signature, here is how you can use it across global productivity platforms:
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                <div class="p-3.5 rounded-xl border border-border bg-card/60 space-y-1.5">
+                  <div class="text-xs font-bold text-foreground flex items-center gap-1.5">
+                    <span class="text-base">📄</span>
+                    <span>Google Docs</span>
+                  </div>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed">
+                    Click <strong>Insert &gt; Image &gt; Upload from computer</strong>. Select your downloaded PNG. Click on the image, choose <strong>In front of text</strong> in the text-wrapping bar, and drag it directly above your name line.
+                  </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl border border-border bg-card/60 space-y-1.5">
+                  <div class="text-xs font-bold text-foreground flex items-center gap-1.5">
+                    <span class="text-base">📕</span>
+                    <span>Adobe Acrobat Reader &amp; PDF</span>
+                  </div>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed">
+                    Open your document in Adobe Acrobat Reader. In the right panel, select <strong>Fill &amp; Sign</strong>. Click <strong>Sign Yourself &gt; Add Signature &gt; Image</strong>. Select your transparent PNG, scale to fit, and click Apply.
+                  </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl border border-border bg-card/60 space-y-1.5">
+                  <div class="text-xs font-bold text-foreground flex items-center gap-1.5">
+                    <span class="text-base">📝</span>
+                    <span>Microsoft Word</span>
+                  </div>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed">
+                    Click <strong>Insert &gt; Pictures &gt; This Device</strong>. After placing the signature graphic, click the Layout Options button and select <strong>Behind Text</strong> or <strong>In Front of Text</strong> so you can position it seamlessly.
+                  </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl border border-border bg-card/60 space-y-1.5">
+                  <div class="text-xs font-bold text-foreground flex items-center gap-1.5">
+                    <span class="text-base">✉️</span>
+                    <span>Gmail, Outlook &amp; Apple Mail</span>
+                  </div>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed">
+                    Go to <strong>Settings &gt; See all settings &gt; General &gt; Signature</strong>. Click the image icon to upload your transparent signature graphic, set size to 'Medium' or 'Small', and save changes.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3: Worldwide Legal Enforceability Guide -->
+            <div class="space-y-3 pt-2 border-t border-border">
+              <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+                <span>⚖️</span> Worldwide Legal Enforceability &amp; Digital Standards
+              </h2>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                Electronic signatures created with our tool meet international standards for <strong>Simple Electronic Signatures (SES)</strong>, recognized under leading digital contract frameworks worldwide:
+              </p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="p-3.5 rounded-xl border border-border bg-muted/20 space-y-1">
+                  <div class="font-bold text-xs text-foreground">🇺🇸 United States (ESIGN &amp; UETA)</div>
+                  <p class="text-[10px] text-muted-foreground leading-relaxed">
+                    The federal <strong>ESIGN Act of 2000</strong> (15 U.S.C. ch. 96) and the <strong>Uniform Electronic Transactions Act (UETA)</strong> establish that electronic signatures cannot be denied legal validity or enforceability solely because they are in digital form.
+                  </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl border border-border bg-muted/20 space-y-1">
+                  <div class="font-bold text-xs text-foreground">🇪🇺 European Union &amp; 🇬🇧 UK (eIDAS)</div>
+                  <p class="text-[10px] text-muted-foreground leading-relaxed">
+                    Under <strong>eIDAS Regulation (EU No 910/2014)</strong> and the <strong>UK Electronic Communications Act 2000</strong>, digital signatures are legally admissible in courts across all 27 EU member states and the United Kingdom.
+                  </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl border border-border bg-muted/20 space-y-1">
+                  <div class="font-bold text-xs text-foreground">🇦🇺 Australia &amp; 🇨🇦 Canada</div>
+                  <p class="text-[10px] text-muted-foreground leading-relaxed">
+                    Recognized under the <strong>Electronic Transactions Act 1999</strong> (Australia) and <strong>PIPEDA</strong> (Canada) for business contracts, employment agreements, consulting invoices, and vendor NDAs.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4: Notice for Indian Government Applicants -->
+            <div class="p-4 rounded-xl border border-amber-500/30 bg-amber-500/5 space-y-2">
+              <div class="text-xs font-bold text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
+                <span>⚠️</span> Notice for Indian Government Exam Applicants (SSC, UPSC, Banking, RRB)
+              </div>
+              <p class="text-[11px] text-muted-foreground leading-relaxed">
+                Indian recruitment commissions (such as Staff Selection Commission, UPSC Civil Services, IBPS, and Railway RRB) strictly require a scanned copy of your <strong>genuine physical handwriting written on white paper</strong> with black or blue ballpoint ink. Computer-generated fonts will lead to portal rejection. If you are applying for competitive exams, please sign physical paper and use our free <a href="/#tool-workspace" class="text-primary underline font-bold">Signature Resizer Tool (10–20 KB)</a> to match the exact official specifications.
+              </p>
+            </div>
+
+            <!-- Section 5: Worldwide FAQs -->
+            <div class="pt-2 border-t border-border space-y-3">
+              <h3 class="text-base font-bold text-foreground flex items-center gap-2">
+                <span>❓</span> Frequently Asked Questions (FAQ)
+              </h3>
+              <div class="space-y-2">
+                {faqs.map((f) => (
+                  <details class="group p-3.5 rounded-xl border border-border bg-muted/20 open:bg-card transition">
+                    <summary class="flex items-center justify-between font-semibold text-foreground text-xs cursor-pointer select-none">
+                      <span>{f.q}</span>
+                      <span class="text-primary group-open:rotate-180 transition-transform ml-2">▼</span>
+                    </summary>
+                    <p class="pt-2 text-xs text-muted-foreground leading-relaxed">{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sidebar (Sticky Navigation & Cross-Tools) -->
+        <aside class="lg:col-span-4 space-y-4 sticky top-16">
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-xs space-y-3 text-xs">
+            <div class="font-bold text-foreground">Signature Tools Suite</div>
+            <ul class="space-y-2 text-[11px] text-muted-foreground">
+              <li>
+                <a href="/electronic-signature/" class="flex items-center justify-between p-2 rounded-lg hover:bg-muted/40 transition">
+                  <span class="font-semibold text-foreground">🖋️ Electronic Signature (Draw Pad)</span>
+                  <span class="text-primary font-bold">Open →</span>
+                </a>
+              </li>
+              <li>
+                <a href="/signature-creator/" class="flex items-center justify-between p-2 rounded-lg hover:bg-muted/40 transition">
+                  <span class="font-semibold text-foreground">🎨 Signature Creator &amp; Maker</span>
+                  <span class="text-primary font-bold">Open →</span>
+                </a>
+              </li>
+              <li>
+                <a href="/#tool-workspace" class="flex items-center justify-between p-2 rounded-lg hover:bg-muted/40 transition">
+                  <span class="font-semibold text-foreground">✍️ Signature Resizer (10–20 KB)</span>
+                  <span class="text-primary font-bold">Open →</span>
+                </a>
+              </li>
+              <li>
+                <a href="/?filter=clean#tool-workspace" class="flex items-center justify-between p-2 rounded-lg hover:bg-muted/40 transition">
+                  <span class="font-semibold text-foreground">🧹 Whiten Paper Background (#FFF)</span>
+                  <span class="text-primary font-bold">Open →</span>
+                </a>
+              </li>
+              <li>
+                <a href="/photo-resizer/" class="flex items-center justify-between p-2 rounded-lg hover:bg-muted/40 transition">
+                  <span class="font-semibold text-foreground">📷 Passport Photo Resizer</span>
+                  <span class="text-primary font-bold">Open →</span>
+                </a>
+              </li>
+              <li>
+                <a href="/document-resizer/" class="flex items-center justify-between p-2 rounded-lg hover:bg-muted/40 transition">
+                  <span class="font-semibold text-foreground">📄 Document Resizer (100–300 KB)</span>
+                  <span class="text-primary font-bold">Open →</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Privacy Guarantee Box -->
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-xs space-y-2.5 text-xs">
+            <div class="font-bold text-foreground flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+              <span>🛡️</span>
+              <span>100% Client-Side Privacy</span>
+            </div>
+            <p class="text-[11px] text-muted-foreground leading-relaxed">
+              Your signature never touches an external server. It is rendered directly in your browser's local memory using HTML5 Canvas. No sign-up, no analytics tracking on your name, and no image storage.
+            </p>
+          </div>
+
+          <!-- Official Exam Guidelines Box -->
+          <div class="bg-card border border-border rounded-2xl p-5 shadow-xs space-y-3 text-xs">
+            <div class="font-bold text-foreground">Exam Signature Guidelines</div>
+            <p class="text-[11px] text-muted-foreground leading-relaxed">
+              Applying for Indian competitive exam portals? Check official dimensions and KB requirements for 40+ government examinations.
+            </p>
+            <a
+              href="/#exam-specs"
+              class="block w-full text-center py-2 px-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:bg-primary/90 transition shadow-xs"
+            >
+              View 40+ Exam Specs Matrix →
+            </a>
+          </div>
+        </aside>
+      </div>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

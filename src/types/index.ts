@@ -13,6 +13,7 @@ export interface BatchSignatureItem {
   flipH: boolean;
   flipV: boolean;
   customCrop?: CropArea;
+  sourceUrl?: string;
   resultBlob?: Blob;
   resultDataUrl?: string;
   resultSizeKb?: number;
