@@ -64,10 +64,10 @@ const quickDeadlines = [
   <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
     <Header />
 
-    <main class="flex-1 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+    <main class="flex-1 max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 space-y-6 sm:space-y-8 w-full min-w-0 overflow-x-hidden">
       
       <!-- Breadcrumbs -->
-      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+      <nav class="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
         <a href="/" class="hover:text-primary transition flex items-center gap-1">
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -79,7 +79,7 @@ const quickDeadlines = [
       </nav>
 
       <!-- Hero Section -->
-      <div class="space-y-3">
+      <div class="space-y-2.5 sm:space-y-3">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -87,24 +87,24 @@ const quickDeadlines = [
           </span>
           Daily Exam Desk &amp; Aspirant Hub
         </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground break-words leading-tight">
           Exam Alerts, Study Strategy &amp; <span class="text-primary">Career Guidance</span>
         </h1>
-        <p class="text-base sm:text-lg text-muted-foreground max-w-3xl">
+        <p class="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-3xl leading-relaxed break-words">
           Real-time updates on ongoing government exam deadlines, syllabus analysis, expert preparation routines, and official document upload standards.
         </p>
       </div>
 
       <!-- Active Exam Deadlines Strip (editorial summary — full directory at /government-jobs/) -->
-      <section class="rounded-2xl border border-amber-500/25 bg-gradient-to-r from-amber-500/5 via-card to-primary/5 p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div class="flex items-start gap-3">
+      <section class="rounded-2xl border border-amber-500/25 bg-gradient-to-r from-amber-500/5 via-card to-primary/5 p-3.5 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start gap-3 min-w-0">
           <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg shrink-0">📅</div>
-          <div class="space-y-2">
-            <div class="flex items-center gap-2">
+          <div class="space-y-2 min-w-0 flex-1">
+            <div class="flex flex-wrap items-center gap-2">
               <span class="text-xs font-bold text-foreground">Upcoming Application Deadlines</span>
               <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">Quick Reminder</span>
             </div>
-            <div class="flex flex-wrap items-center gap-2">
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
               {quickDeadlines.map((d) => (
                 <span class:list={[
                   "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-semibold border",
@@ -122,7 +122,7 @@ const quickDeadlines = [
         </div>
         <a
           href="/government-jobs/"
-          class="px-4 py-2.5 rounded-xl bg-primary hover:opacity-90 text-primary-foreground text-xs font-bold transition shadow-xs shrink-0 text-center flex items-center justify-center gap-1.5"
+          class="w-full sm:w-auto px-4 py-2.5 min-h-[40px] rounded-xl bg-primary hover:opacity-90 text-primary-foreground text-xs font-bold transition shadow-xs shrink-0 text-center flex items-center justify-center gap-1.5"
         >
           <span>Browse All Govt Jobs</span>
           <span>→</span>
@@ -132,7 +132,7 @@ const quickDeadlines = [
       <!-- Search & Category Filters Toolbar -->
       <div class="space-y-3 pt-2 border-b border-border pb-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div class="relative flex-1 max-w-md">
+          <div class="relative flex-1 max-w-md w-full">
             <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-muted-foreground">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -143,7 +143,7 @@ const quickDeadlines = [
               type="text"
               placeholder="Search articles, exams, preparation guides..."
               aria-label="Search articles"
-              class="w-full pl-9 pr-9 py-2.5 sm:py-2 min-h-[42px] rounded-xl bg-background border border-border text-base sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+              class="w-full pl-9 pr-9 py-2.5 sm:py-2 min-h-[42px] rounded-xl bg-background border border-border text-sm sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
             />
             <button
               type="button"
@@ -161,13 +161,13 @@ const quickDeadlines = [
           </div>
         </div>
 
-        <!-- Category Filter Tabs (Swipeable on mobile) -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+        <!-- Category Filter Tabs (Swipeable on mobile with smooth touch scrolling) -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1.5 pt-0.5 scrollbar-none touch-pan-x overscroll-x-contain -mx-1 px-1">
           {categories.map((cat, idx) => (
             <button
               type="button"
               class:list={[
-                "category-filter-btn px-3 py-1.5 min-h-[38px] rounded-xl text-xs font-semibold transition cursor-pointer shrink-0 inline-flex items-center justify-center",
+                "category-filter-btn px-3.5 py-1.5 min-h-[38px] rounded-xl text-xs font-semibold transition cursor-pointer shrink-0 inline-flex items-center justify-center whitespace-nowrap active:scale-95",
                 idx === 0
                   ? "bg-primary text-primary-foreground shadow-xs"
                   : "bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground border border-border"
@@ -181,26 +181,26 @@ const quickDeadlines = [
       </div>
 
       <!-- Featured Article Banner -->
-      <section class="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card via-card/90 to-primary/10 p-6 sm:p-8 shadow-md">
-        <div class="flex flex-col lg:flex-row gap-6 items-start justify-between">
-          <div class="space-y-3 flex-1">
-            <div class="flex flex-wrap items-center gap-2.5">
-              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30">
+      <section class="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card via-card/90 to-primary/10 p-4 sm:p-6 lg:p-8 shadow-md">
+        <div class="flex flex-col lg:flex-row gap-5 lg:gap-6 items-start justify-between">
+          <div class="space-y-3 flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30 shrink-0">
                 Featured • {featuredPost.category}
               </span>
-              <span class="text-xs text-muted-foreground font-mono flex items-center gap-1">
-                <span>📅</span> {featuredPost.publishDate} • {featuredPost.deployedAt || '09:00 AM IST'} • ⏱️ {featuredPost.readTime}
+              <span class="text-xs text-muted-foreground font-mono flex flex-wrap items-center gap-1">
+                <span>📅</span> {featuredPost.publishDate} • ⏱️ {featuredPost.readTime}
               </span>
             </div>
-            <h2 class="text-2xl sm:text-3xl font-bold text-foreground hover:text-primary transition">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground hover:text-primary transition break-words leading-snug">
               <a href={`/blog/${featuredPost.slug}/`}>
                 {featuredPost.title}
               </a>
             </h2>
-            <p class="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            <p class="text-muted-foreground text-xs sm:text-sm lg:text-base leading-relaxed break-words">
               {featuredPost.excerpt}
             </p>
-            <div class="flex flex-wrap items-center gap-2 pt-2">
+            <div class="flex flex-wrap items-center gap-1.5 pt-1">
               {featuredPost.tags.map(tag => (
                 <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-muted text-muted-foreground border border-border">
                   #{tag}
@@ -209,10 +209,10 @@ const quickDeadlines = [
             </div>
           </div>
 
-          <div class="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0 w-full lg:w-56 pt-2">
+          <div class="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0 w-full lg:w-56 pt-1 sm:pt-2">
             <a
               href={`/blog/${featuredPost.slug}/`}
-              class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm text-center shadow-xs hover:opacity-90 transition flex items-center justify-center gap-1.5"
+              class="w-full px-4 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm text-center shadow-xs hover:opacity-90 transition flex items-center justify-center gap-1.5"
             >
               <span>Read Full Guide</span>
               <span>&rarr;</span>
@@ -220,7 +220,7 @@ const quickDeadlines = [
             {featuredPost.relatedExamPreset && (
               <a
                 href={`/${featuredPost.relatedExamPreset}/`}
-                class="px-4 py-2.5 rounded-xl bg-card border border-primary/30 text-primary font-semibold text-xs sm:text-sm text-center hover:bg-primary/5 transition flex items-center justify-center gap-1.5"
+                class="w-full px-4 py-2.5 min-h-[42px] rounded-xl bg-card border border-primary/30 text-primary font-semibold text-xs sm:text-sm text-center hover:bg-primary/5 transition flex items-center justify-center gap-1.5"
               >
                 <span>⚡ Open Resizer Tool</span>
               </a>
@@ -231,50 +231,50 @@ const quickDeadlines = [
 
       <!-- Articles Grid (Arranged by Date Descending) -->
       <section class="space-y-4">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
             <span>📚</span> Latest Articles &amp; Daily Preparation
           </h2>
-          <span class="text-xs font-mono text-muted-foreground">
+          <span class="text-[11px] sm:text-xs font-mono text-muted-foreground">
             Arranged by Date (Newest First)
           </span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="posts-container">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" id="posts-container">
           {regularPosts.map((post) => (
             <article 
-              class="post-card rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-md transition p-5 flex flex-col justify-between space-y-4"
+              class="post-card rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-md transition p-4 sm:p-5 flex flex-col justify-between space-y-3 sm:space-y-4"
               data-category={post.category}
               data-title={post.title.toLowerCase()}
               data-excerpt={post.excerpt.toLowerCase()}
               data-tags={post.tags.join(' ').toLowerCase()}
             >
-              <div class="space-y-2.5">
-                <div class="flex items-center justify-between text-xs">
-                  <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+              <div class="space-y-2 sm:space-y-2.5 min-w-0">
+                <div class="flex items-center justify-between text-xs gap-2">
+                  <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 shrink-0">
                     {post.category}
                   </span>
-                  <span class="text-muted-foreground font-mono text-[11px]">
+                  <span class="text-muted-foreground font-mono text-[11px] shrink-0">
                     ⏱️ {post.readTime}
                   </span>
                 </div>
-                <h3 class="font-bold text-base text-foreground hover:text-primary transition line-clamp-2">
+                <h3 class="font-bold text-sm sm:text-base text-foreground hover:text-primary transition line-clamp-2 break-words leading-snug">
                   <a href={`/blog/${post.slug}/`}>
                     {post.title}
                   </a>
                 </h3>
-                <p class="text-xs text-muted-foreground line-clamp-3 leading-relaxed">
+                <p class="text-xs text-muted-foreground line-clamp-3 leading-relaxed break-words">
                   {post.excerpt}
                 </p>
               </div>
 
-              <div class="pt-3 border-t border-border flex items-center justify-between text-xs">
-                <span class="text-muted-foreground font-mono text-[11px] flex items-center gap-1">
+              <div class="pt-3 border-t border-border flex items-center justify-between text-xs gap-2">
+                <span class="text-muted-foreground font-mono text-[11px] flex items-center gap-1 shrink-0">
                   <span>📅</span> {post.publishDate}
                 </span>
                 <a
                   href={`/blog/${post.slug}/`}
-                  class="text-primary font-bold hover:underline flex items-center gap-1"
+                  class="text-primary font-bold hover:underline inline-flex items-center gap-1 py-1 px-2 -mr-2 rounded-lg hover:bg-primary/5 active:bg-primary/10 transition"
                 >
                   <span>Read Guide</span>
                   <span>&rarr;</span>
@@ -284,7 +284,7 @@ const quickDeadlines = [
           ))}
 
           <!-- Empty State when no articles match filter or search -->
-          <div id="blog-no-results" class="hidden col-span-full py-12 text-center bg-muted/20 border border-border/80 rounded-2xl p-8 space-y-2">
+          <div id="blog-no-results" class="hidden col-span-full py-12 text-center bg-muted/20 border border-border/80 rounded-2xl p-6 sm:p-8 space-y-2">
             <div class="text-3xl">🔍</div>
             <div class="font-bold text-foreground text-sm">No articles found</div>
             <p class="text-xs text-muted-foreground max-w-sm mx-auto">
@@ -304,23 +304,23 @@ const quickDeadlines = [
       />
 
       <!-- Student Assistant CTA Box -->
-      <section class="rounded-2xl border border-border bg-muted/40 p-6 sm:p-8 text-center space-y-3">
-        <h3 class="text-xl font-bold text-foreground">Applying for Any Government Exam Today?</h3>
-        <p class="text-sm text-muted-foreground max-w-xl mx-auto">
+      <section class="rounded-2xl border border-border bg-muted/40 p-4 sm:p-8 text-center space-y-3">
+        <h3 class="text-lg sm:text-xl font-bold text-foreground break-words">Applying for Any Government Exam Today?</h3>
+        <p class="text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed break-words">
           SignResize provides officially calibrated 1-click presets for SSC, UPSC, IBPS, RRB, and State PSCs with 100% private, client-side processing.
         </p>
-        <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
           <a
             href="/#tool-workspace"
-            class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition shadow-xs"
+            class="w-full sm:w-auto px-5 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition shadow-xs flex items-center justify-center"
           >
             Launch Signature Resizer
           </a>
           <a
             href="/photo-resizer/"
-            class="px-5 py-2.5 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted transition"
+            class="w-full sm:w-auto px-5 py-2.5 min-h-[42px] rounded-xl bg-card border border-border text-foreground font-semibold text-xs sm:text-sm hover:bg-muted transition flex items-center justify-center"
           >
-            Passport Photo Resizer
+            Resize Passport Photo
           </a>
         </div>
       </section>
