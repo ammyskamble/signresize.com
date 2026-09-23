@@ -29,8 +29,7 @@ export default defineConfig({
     '/blog/state-psc-one-time-registration-otr-document-standards': '/blog/state-psc-otr-registration-photo-signature-guidelines/',
     '/blog/ssc-chsl-tier-1-speed-typing-photo-signature-guidelines': '/blog/ssc-chsl-2026-top-10-faq-aspirants-guide/',
     '/blog/ssc-rrb-quantitative-aptitude-reasoning-speed-strategy': '/blog/',
-    '/blog/mega-railway-banking-recruitment-2026-opportunities': '/government-jobs/',
-    '/blog/how-to-change-signature-in-outlook': '/blog/how-to-change-signature-in-outlook/',
+    '/blog/mega-railway-banking-recruitment-2026-opportunities': '/government-jobs/'
   },
 
 
