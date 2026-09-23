@@ -13,10 +13,17 @@ const pageTitle = "Exam Study Guides, Preparation Tips & Document Guidelines | S
 const pageDescription = "In-depth exam preparation articles, step-by-step photo & signature upload guides, study strategies, and career tips for SSC, UPSC, IBPS, RRB, and State PSC aspirants.";
 const canonicalUrl = "https://signresize.in/blog/";
 
+function parseBlogDate(dateStr: string): number {
+  if (!dateStr) return 0;
+  const normalized = dateStr.replace(/Sept\b/i, 'Sep');
+  const timestamp = new Date(normalized).getTime();
+  return isNaN(timestamp) ? 0 : timestamp;
+}
+
 // Arrange all blog posts by date in descending order (most recently published/deployed first)
 const sortedPosts = [...BLOG_POSTS].sort((a, b) => {
-  const timeA = new Date(a.publishDate).getTime();
-  const timeB = new Date(b.publishDate).getTime();
+  const timeA = parseBlogDate(a.publishDate);
+  const timeB = parseBlogDate(b.publishDate);
   return timeB - timeA;
 });
 
