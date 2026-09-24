@@ -121,11 +121,11 @@ export const EXAM_PAGES_DATA: ExamPageInfo[] = [
     presetId: 'rrb-railway',
     pageTitle: 'Railway RRB Signature Resize 10 to 20 KB (140x60 px) Online - SignResize',
     metaDescription: 'Resize signature for Railway RRB (NTPC, ALP, Group D, JE) online. Format to 140x60 px (4x2 cm), 10 KB to 20 KB JPG. Remove shadows and whiten background for instant upload acceptance.',
-    keywords: 'rrb signature resize, rrb signature 10 to 20 kb, railway signature resize, rrb ntpc signature size, rrb alp signature resizer, rrb group d signature format, railway recruitment board signature resize',
-    h1: 'Railway RRB Signature Resize & Compressor (10 KB – 20 KB)',
-    subheading: 'Standard 140×60 px (4.0×2.0 cm) format with strict 10 KB to 20 KB file bounds for Railway Recruitment Boards nationwide.',
+    keywords: 'rrb ntpc admit card 2026, rrb ntpc exam date 2026, rrb ntpc photo and signature size, rrb ntpc recruitment 2025, rrb ntpc apply online, rrb signature resize, rrb signature 10 to 20 kb, railway signature resize, rrb ntpc signature size, rrb alp signature resizer, rrb group d signature format, railway recruitment board signature resize',
+    h1: 'Railway RRB Signature & Photo Resize (10 KB – 20 KB)',
+    subheading: 'Standard 140×60 px (4.0×2.0 cm) format with strict 10 KB to 20 KB file bounds for Railway Recruitment Boards nationwide (NTPC, ALP, Group D).',
     authority: 'Railway Recruitment Boards (RRB / RRC)',
-    targetExams: 'RRB NTPC, RRB ALP (Assistant Loco Pilot), RRB Technician, RRB Group D (Level 1), RRB JE, RPF Sub-Inspector & Constable',
+    targetExams: 'RRB NTPC (Graduate & Undergraduate CEN 05/2024 & 06/2024), RRB ALP (Assistant Loco Pilot), RRB Technician, RRB Group D (Level 1), RRB JE, RPF Sub-Inspector & Constable',
     widthPx: 140,
     heightPx: 60,
     widthCm: 4.0,
@@ -151,6 +151,10 @@ export const EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'Can I use a blue pen for my Railway RRB signature?',
         a: 'RRB notifications state a strong preference for black ink on unruled white paper. Blue ink signatures with low contrast often lead to application rejection during scrutinization.'
+      },
+      {
+        q: 'What photo and signature must I carry on RRB NTPC exam day?',
+        a: 'On exam day, carry your printed RRB NTPC admit card, original photo ID (Aadhaar/PAN/Voter ID), and one color passport photograph (35x45 mm) identical to the one submitted during online application. You must sign the attendance sheet in running handwriting in front of the invigilator.'
       },
       {
         q: 'Why was my RRB signature rejected in previous exams?',

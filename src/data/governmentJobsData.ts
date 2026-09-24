@@ -176,7 +176,7 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
     lastDate: '2026-10-15',
     examDate: 'December 2026 – January 2027',
     status: 'Ongoing',
-    badge: 'Hot Railway Job',
+    badge: 'Exam Date & City Slip 2026',
     officialUrl: 'https://rrbapply.gov.in',
     applicationFee: '₹500 (₹400 refunded after CBT-1); ₹250 for SC/ST/Women (fully refunded)',
     notificationSummary: 'Station Master, Goods Train Manager, Chief Commercial cum Ticket Supervisor, Junior Clerk cum Typist, Accounts Clerk in Indian Railways zones.',

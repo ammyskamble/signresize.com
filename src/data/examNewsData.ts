@@ -88,10 +88,10 @@ export const ONGOING_EXAMS_DATA: ExamNewsItem[] = [
     lastDate: '2026-10-15',
     examDate: 'December 2026 – January 2027',
     notificationTitle: 'Non-Technical Popular Categories (Graduate & Under Graduate Level)',
-    badgeText: 'New Notification',
+    badgeText: 'Exam Date & City Slip',
     toolSlug: 'rrb-signature-resize',
-    articleSlug: 'rrb-ntpc-2026-top-10-faq-complete-guide',
-    officialUrl: 'https://rrbcdg.gov.in',
+    articleSlug: 'rrb-ntpc-exam-date-2026-city-intimation-slip-admit-card',
+    officialUrl: 'https://rrbapply.gov.in',
     isHot: true,
     notificationDetails: {
       advtNumber: 'CEN No. 05/2026',

@@ -33,7 +33,479 @@ export interface BlogPost {
   contentHtml: string;
 }
 
-export const BLOG_POSTS: BlogPost[] = [
+export const BLOG_POSTS: BlogPost[] = [  {
+    slug: "rrb-ntpc-exam-date-2026-city-intimation-slip-admit-card",
+    title: "RRB NTPC Exam Date 2026: City Intimation Slip, Admit Card Download & CBT-1 Schedule (Graduate & Undergraduate)",
+    metaTitle: "RRB NTPC Exam Date 2026: City Intimation Slip & Admit Card Link",
+    metaDescription: "Official RRB NTPC 2026 CBT-1 exam schedule, undergraduate & graduate dates, city intimation slip direct download links, admit card release timeline, and photo/sign rules.",
+    excerpt: "Everything you need to know about RRB NTPC 2026 CBT-1: Undergraduate (CEN 06/2024) and Graduate (CEN 05/2024) exam dates, city intimation slip login, admit card download steps, and exam-day document verification guidelines.",
+    category: "Exam Alerts",
+    publishDate: "Sep 25, 2026",
+    publishTime: "09:00 AM IST",
+    lastUpdated: "Sep 25, 2026",
+    deployedAt: "Sep 25, 2026 • 09:00 AM IST",
+    author: "SignResize Railway Examination Desk",
+    authorRole: "Senior Examination Analyst",
+    readTime: "8 min read",
+    featured: true,
+    relatedExamPreset: "rrb-railway",
+    tags: [
+      "RRB NTPC Exam Date 2026",
+      "RRB NTPC Admit Card 2026",
+      "RRB NTPC City Intimation Slip 2026",
+      "RRB NTPC Undergraduate Exam Date 2026",
+      "RRB NTPC Official Website",
+      "RRB NTPC Recruitment 2025",
+      "RRB NTPC Apply Online",
+      "RRB NTPC Answer Key",
+      "RRB NTPC Result 2025 Graduate",
+      "RRB NTPC UG Result 2025",
+      "Railway Exams"
+    ],
+    quickFacts: [
+      { label: "Exam Name", value: "RRB NTPC (Non-Technical Popular Categories)" },
+      { label: "Notifications", value: "CEN 05/2024 (Graduate) & CEN 06/2024 (Undergraduate)" },
+      { label: "Total Vacancies", value: "11,558 Posts (8,110 Graduate + 3,448 UG)" },
+      { label: "CBT-1 Mode", value: "Computer Based Test (90 Mins, 100 MCQs)" },
+      { label: "Negative Marking", value: "1/3rd Mark (0.33) Per Incorrect Answer" },
+      { label: "City Intimation Slip", value: "Live 10 Days Before Scheduled Exam Date" },
+      { label: "Admit Card Release", value: "Live 4 Days Prior to Individual Exam Date" },
+      { label: "Official Central Portal", value: "rrbapply.gov.in & 21 Regional RRB Portals" }
+    ],
+    faqs: [
+      {
+        question: "What is the RRB NTPC 2026 CBT-1 exam date for undergraduate and graduate posts?",
+        answer: "The Railway Recruitment Boards (RRB) conduct CBT-1 in multiple phases across early 2026. Graduate posts (CEN 05/2024: 8,110 vacancies) and Undergraduate posts (CEN 06/2024: 3,448 vacancies) are scheduled in dedicated shifts. Candidates can check their exact shift, date, and venue on their regional RRB portal through the City Intimation Slip."
+      },
+      {
+        question: "When will the RRB NTPC city intimation slip 2026 be released?",
+        answer: "The RRB NTPC City Intimation Slip is officially activated exactly 10 days before your scheduled CBT-1 exam date. It displays your allotted test city, state, shift timing, reporting time, and includes the free sleeper class travel pass for eligible SC/ST candidates."
+      },
+      {
+        question: "How can I download the RRB NTPC admit card 2026?",
+        answer: "RRB NTPC admit cards (e-call letters) are made available exactly 4 days prior to your exam date. Visit your regional RRB official website or rrbapply.gov.in, log in with your Registration Number and Date of Birth (DD-MM-YYYY), and download your hall ticket. Ensure the barcode and photograph are sharp and clearly printed."
+      },
+      {
+        question: "What are the official regional RRB websites to check exam dates and city slips?",
+        answer: "All 21 Railway Recruitment Boards host authentic notifications on their respective official portals, including RRB Chandigarh (rrbcdg.gov.in), RRB Mumbai (rrbmumbai.gov.in), RRB Allahabad/Prayagraj (rrbald.gov.in), RRB Kolkata (rrbkolkata.gov.in), RRB Chennai (rrbchennai.gov.in), RRB Secunderabad (rrbsecunderabad.gov.in), and the unified application portal at rrbapply.gov.in."
+      },
+      {
+        question: "What documents and photographs must candidates carry to the RRB NTPC exam center?",
+        answer: "Candidates must carry: 1) Printed RRB NTPC e-call letter (admit card) with self-declaration blank, 2) Original valid photo ID (Aadhaar Card with biometric verification is preferred, Voter ID, PAN card, or Passport), and 3) One recent color passport photograph (35 mm x 45 mm) identical to the one uploaded during online application."
+      },
+      {
+        question: "What are the photo and signature upload requirements for RRB NTPC recruitment?",
+        answer: "RRB mandates a clear color photograph (35x45 mm, 30-70 KB in JPG) taken against a plain white/light background without caps or dark glasses, and a running handwriting signature in black ink (140x60 px, 10-20 KB in JPG). Signatures in CAPITAL LETTERS are strictly disqualified."
+      },
+      {
+        question: "When will the RRB NTPC answer key and result 2025-2026 be published?",
+        answer: "The provisional RRB NTPC answer key and candidate response sheets are typically published within 2 to 3 weeks following the conclusion of all CBT-1 shifts. Candidates get 4 to 5 days to submit online objections with proof. The normalized results and CBT-2 shortlist cut-offs are declared within 45 to 60 days of answer key finalization."
+      }
+    ],
+    contentHtml: `
+<section id="overview" class="space-y-4">
+  <p class="lead text-lg font-medium text-foreground/90 leading-relaxed">
+    Looking for the official <strong>RRB NTPC exam date 2026</strong>, <strong>city intimation slip download link</strong>, and <strong>CBT-1 admit card release date</strong>? With over 1.2 crore applicants competing for <strong>11,558 vacancies</strong> under Centralised Employment Notice (CEN) No. 05/2024 (Graduate Posts) and CEN No. 06/2024 (Undergraduate Posts), the Railway Recruitment Boards (RRB) are rolling out examination schedules across all 21 regional zones.
+  </p>
+  <p class="text-muted-foreground leading-relaxed">
+    In this definitive guide, our examination desk breaks down the shift-wise CBT-1 schedule, city intimation release windows, step-by-step admit card access, regional portal links, and the non-negotiable <strong>photo and signature upload rules</strong> required during verification to prevent immediate candidature cancellation.
+  </p>
+</section>
+
+<section id="schedule-comparison" class="space-y-4 mt-8">
+  <h2 class="text-2xl font-bold text-foreground">RRB NTPC 2026: Graduate vs Undergraduate Key Milestones</h2>
+  <p class="text-muted-foreground">
+    Unlike previous editions, the Ministry of Railways bifurcated RRB NTPC into separate recruitments to streamline computer-based testing. Review the structural timeline below:
+  </p>
+
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-left text-sm border-collapse rounded-xl overflow-hidden shadow-xs border border-border">
+      <thead class="bg-muted text-foreground font-semibold">
+        <tr>
+          <th class="p-3.5 border-b border-border">Recruitment Feature</th>
+          <th class="p-3.5 border-b border-border">Graduate Posts (CEN 05/2024)</th>
+          <th class="p-3.5 border-b border-border">Undergraduate Posts (CEN 06/2024)</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border text-muted-foreground">
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">Total Vacancies</td>
+          <td class="p-3.5 font-bold text-primary">8,110 Posts</td>
+          <td class="p-3.5 font-bold text-primary">3,448 Posts</td>
+        </tr>
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">Pay Matrix Levels</td>
+          <td class="p-3.5">Level 5 &amp; Level 6 (₹29,200 – ₹35,400 Basic)</td>
+          <td class="p-3.5">Level 2 &amp; Level 3 (₹19,900 – ₹21,700 Basic)</td>
+        </tr>
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">Popular Designations</td>
+          <td class="p-3.5">Station Master, Goods Train Manager, Sr Commercial Clerk</td>
+          <td class="p-3.5">Commercial cum Ticket Clerk, Accounts Clerk, Jr Clerk Typist</td>
+        </tr>
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">CBT-1 Test Format</td>
+          <td class="p-3.5">Common 90-Minute CBT (100 Questions, 1/3rd Negative)</td>
+          <td class="p-3.5">Common 90-Minute CBT (100 Questions, 1/3rd Negative)</td>
+        </tr>
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">City Slip Window</td>
+          <td class="p-3.5">10 Days Prior to Exam Date</td>
+          <td class="p-3.5">10 Days Prior to Exam Date</td>
+        </tr>
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">Admit Card Window</td>
+          <td class="p-3.5">4 Days Prior to Exam Date</td>
+          <td class="p-3.5">4 Days Prior to Exam Date</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="city-intimation-slip" class="space-y-4 mt-8">
+  <h2 class="text-2xl font-bold text-foreground">RRB NTPC City Intimation Slip 2026: What It Is &amp; How to Check</h2>
+  <p class="text-muted-foreground leading-relaxed">
+    The <strong>City Intimation Slip</strong> is NOT the admit card. It is a preliminary informational docket activated <strong>10 days prior</strong> to CBT-1 to help outstation candidates arrange travel and lodging.
+  </p>
+  <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
+    <li><strong>Allotted Test City &amp; State:</strong> Confirms the city where your exam centre is situated.</li>
+    <li><strong>Exact Exam Shift &amp; Timings:</strong> Indicates whether you are assigned Shift 1 (Morning), Shift 2 (Afternoon), or Shift 3 (Evening).</li>
+    <li><strong>SC/ST Free Travel Authority:</strong> Candidates belonging to SC/ST categories who opted for the travel pass during online application can download their train travel authority pass alongside the city slip.</li>
+  </ul>
+
+  <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2">
+    <h4 class="font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2">
+      <span>⚠️</span> Note on Exam City Modification
+    </h4>
+    <p class="text-sm text-muted-foreground leading-relaxed">
+      Railway Recruitment Boards strictly do not entertain any requests for changes in the allotted exam date, shift, or test city under any circumstances. Examination centres are allocated via automated computerized algorithms based on zone preference and system capacity.
+    </p>
+  </div>
+</section>
+
+<section id="admit-card-download" class="space-y-4 mt-8">
+  <h2 class="text-2xl font-bold text-foreground">How to Download RRB NTPC Admit Card 2026 (Step-by-Step)</h2>
+  <p class="text-muted-foreground leading-relaxed">
+    Hall tickets (e-call letters) are made available exactly <strong>4 days prior to your scheduled exam date</strong>. Follow these verified steps to download:
+  </p>
+  <ol class="list-decimal pl-6 space-y-3 text-muted-foreground">
+    <li>Navigate to the unified railway portal at <a href="https://rrbapply.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">rrbapply.gov.in</a> or your respective regional RRB website.</li>
+    <li>Click on the prominent link labeled <em>"CEN 05/2024 &amp; 06/2024: Download CBT-1 E-Call Letter &amp; Travel Pass"</em>.</li>
+    <li>Enter your <strong>Registration Number</strong> and <strong>User Password (Date of Birth in DDMMYYYY format)</strong>.</li>
+    <li>Enter the visual Captcha code and click <strong>Login</strong>.</li>
+    <li>Review the displayed candidate details, roll number, test centre venue address, and reporting time.</li>
+    <li>Download the PDF and print at least <strong>two clear color copies</strong> on standard A4 paper.</li>
+  </ol>
+</section>
+
+<section id="official-websites-directory" class="space-y-4 mt-8">
+  <h2 class="text-2xl font-bold text-foreground">Official Regional RRB Websites Directory (21 Zones)</h2>
+  <p class="text-muted-foreground">
+    Always check notifications exclusively on authentic government portals. Below is the verified regional RRB portal directory:
+  </p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-6">
+    <a href="https://www.rrbahmedabad.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Ahmedabad</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbajmer.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Ajmer</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbald.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Allahabad (Prayagraj)</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbbnc.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Bangalore</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbbhopal.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Bhopal</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbbbs.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Bhubaneswar</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbbilaspur.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Bilaspur</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbcdg.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Chandigarh</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbchennai.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Chennai</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbgkp.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Gorakhpur</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbguwahati.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Guwahati</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbkolkata.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Kolkata</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbmumbai.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Mumbai</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbpatna.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Patna</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+    <a href="https://www.rrbsecunderabad.nic.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
+      <span class="font-medium text-foreground group-hover:text-primary">RRB Secunderabad</span>
+      <span class="text-xs text-muted-foreground">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<section id="exam-day-photo-specs" class="space-y-4 mt-8">
+  <h2 class="text-2xl font-bold text-foreground">Critical Biometric &amp; Photo Guidelines for RRB NTPC</h2>
+  <p class="text-muted-foreground leading-relaxed">
+    During CBT-1 entry, invigilators match candidate physical features against the photo printed on your admit card and the online database. Thousands of candidates get stalled at the gate due to mismatched or degraded photos.
+  </p>
+
+  <div class="my-6 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 space-y-4">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <h4 class="font-bold text-lg text-foreground">Prepare Your RRB NTPC Photo &amp; Signature Now</h4>
+        <p class="text-sm text-muted-foreground mt-1">
+          Resize your passport photograph to exact 35×45 mm (30–70 KB) and signature to 140×60 px (10–20 KB) in seconds.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-2 w-full sm:w-auto">
+        <a href="/rrb-signature-resize" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+          <span>✍️</span> RRB Signature Resizer
+        </a>
+        <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+          <span>📸</span> 35×45 mm Photo Resizer
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cbt1-exam-pattern" class="space-y-4 mt-8">
+  <h2 class="text-2xl font-bold text-foreground">RRB NTPC CBT-1 Examination Pattern &amp; Negative Marking</h2>
+  <p class="text-muted-foreground leading-relaxed">
+    CBT-1 is a common screening test for all posts. Scores are subjected to <strong>Percentile Score Normalization</strong> across shifts to ensure fair shortlisting at a <strong>1:15 ratio</strong> for CBT-2.
+  </p>
+
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-left text-sm border-collapse rounded-xl overflow-hidden shadow-xs border border-border">
+      <thead class="bg-muted text-foreground font-semibold">
+        <tr>
+          <th class="p-3.5 border-b border-border">Subject Section</th>
+          <th class="p-3.5 border-b border-border">Total Questions</th>
+          <th class="p-3.5 border-b border-border">Max Marks</th>
+          <th class="p-3.5 border-b border-border">Duration</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border text-muted-foreground">
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">General Awareness (GA &amp; NCERT Science)</td>
+          <td class="p-3.5">40 MCQs</td>
+          <td class="p-3.5">40 Marks</td>
+          <td class="p-3.5 rowspan-3" rowspan="3"><strong>90 Minutes</strong><br><span class="text-xs text-muted-foreground">(120 Mins for PwBD)</span></td>
+        </tr>
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">Mathematics (Quantitative Aptitude)</td>
+          <td class="p-3.5">30 MCQs</td>
+          <td class="p-3.5">30 Marks</td>
+        </tr>
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">General Intelligence &amp; Reasoning</td>
+          <td class="p-3.5">30 MCQs</td>
+          <td class="p-3.5">30 Marks</td>
+        </tr>
+        <tr class="bg-muted/30 font-bold text-foreground">
+          <td class="p-3.5">Total Cumulative Paper</td>
+          <td class="p-3.5 text-primary">100 Questions</td>
+          <td class="p-3.5 text-primary">100 Marks</td>
+          <td class="p-3.5">1/3rd Negative Marking</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="next-steps" class="space-y-4 mt-8">
+  <h2 class="text-2xl font-bold text-foreground">What Happens After CBT-1? Answer Key &amp; Result Timeline</h2>
+  <p class="text-muted-foreground leading-relaxed">
+    Following the last day of CBT-1 examinations:
+  </p>
+  <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
+    <li><strong>Provisional Answer Key:</strong> Released within 15–20 days with candidate question papers and recorded responses on regional RRB portals.</li>
+    <li><strong>Objection Tracker:</strong> Open for 5 days where candidates can challenge questions by depositing ₹50 per question (refunded if objection is upheld).</li>
+    <li><strong>Final Results &amp; Normalised Cut-Off:</strong> Published zone-wise and category-wise with roll numbers of candidates shortlisted for CBT-2.</li>
+  </ul>
+  <p class="text-muted-foreground mt-4">
+    Explore the full listing of ongoing central and state vacancies in our <a href="/government-jobs" class="text-primary font-bold underline">Live Government Jobs Directory</a> or test your document compliance now using our <a href="/signature-resizer" class="text-primary font-bold underline">Online Signature Resizer</a>.
+  </p>
+</section>
+`
+  },
+  {
+    slug: "rrb-ntpc-syllabus-exam-pattern-cbt-1-cbt-2",
+    title: "RRB NTPC Syllabus 2026: CBT-1 & CBT-2 Subject-Wise Marks, Negative Marking & Cut-Off Strategy",
+    metaTitle: "RRB NTPC Syllabus 2026: CBT 1 & 2 Exam Pattern & Marks",
+    metaDescription: "Detailed RRB NTPC 2026 syllabus: CBT-1 & CBT-2 subject-wise marks, negative marking, graduate vs undergraduate topics, and normalisation formula.",
+    excerpt: "Complete subject-wise syllabus and examination pattern blueprint for RRB NTPC 2026: General Awareness weightage, Mathematics shortcuts, Reasoning topics, and CBT-2 preparation strategy.",
+    category: "Study Prep",
+    publishDate: "Sep 25, 2026",
+    publishTime: "09:00 AM IST",
+    lastUpdated: "Sep 25, 2026",
+    deployedAt: "Sep 25, 2026 • 09:00 AM IST",
+    author: "SignResize Railway Examination Desk",
+    authorRole: "Senior Syllabus & Pedagogy Specialist",
+    readTime: "9 min read",
+    featured: false,
+    relatedExamPreset: "rrb-railway",
+    tags: [
+      "RRB NTPC Syllabus",
+      "RRB NTPC Exam Pattern",
+      "RRB NTPC CBT 1 Syllabus",
+      "RRB NTPC CBT 2 Syllabus",
+      "RRB NTPC Recruitment 2025",
+      "RRB NTPC Apply Online",
+      "Railway Exams",
+      "RRB NTPC Preparation"
+    ],
+    quickFacts: [
+      { label: "Exam Pattern", value: "CBT-1 (100 Qs / 90 Mins) & CBT-2 (120 Qs / 90 Mins)" },
+      { label: "Core Subjects", value: "General Awareness (40%), Mathematics (30%), Reasoning (30%)" },
+      { label: "Negative Marking", value: "1/3rd Mark Deducted For Each Incorrect MCQ" },
+      { label: "Normalisation", value: "Percentile Based Score Normalisation Across Shifts" },
+      { label: "CBAT / Typing", value: "Level 6 Station Master (CBAT) & Clerical Posts (Typing Test)" }
+    ],
+    faqs: [
+      {
+        question: "What is the subject-wise marks distribution for RRB NTPC CBT-1?",
+        answer: "CBT-1 consists of 100 objective questions for 100 marks: General Awareness (40 questions), Mathematics (30 questions), and General Intelligence & Reasoning (30 questions). Total duration is 90 minutes (120 minutes for PwBD candidates)."
+      },
+      {
+        question: "Is there any sectional timing in RRB NTPC examination?",
+        answer: "No. Unlike banking exams like IBPS or SBI, RRB NTPC has NO sectional time limits. You can freely switch between Mathematics, Reasoning, and General Awareness at any point during the 90-minute testing window."
+      },
+      {
+        question: "What is the difference between CBT-1 and CBT-2 syllabus in RRB NTPC?",
+        answer: "The topics and chapters remain identical between CBT-1 and CBT-2. However, CBT-2 increases the total question count from 100 to 120 questions within the same 90-minute limit (General Awareness 50 Qs, Mathematics 35 Qs, Reasoning 35 Qs), requiring significantly higher speed and deeper conceptual clarity."
+      },
+      {
+        question: "What are the high-scoring chapters in RRB NTPC Mathematics?",
+        answer: "High-yield Mathematics chapters include Number System, Simplification, Percentages, Ratio and Proportion, Time and Work, Simple & Compound Interest, Profit & Loss, Mensuration, and Elementary Statistics (Mean, Median, Mode)."
+      }
+    ],
+    contentHtml: `
+<section id="syllabus-overview" class="space-y-4">
+  <p class="lead text-lg font-medium text-foreground/90 leading-relaxed">
+    Looking to master the complete <strong>RRB NTPC syllabus 2026</strong> and crack CBT-1 and CBT-2 in your first attempt? While over one crore applicants appear for Railway Non-Technical Popular Categories examinations, only those who target high-yield topics with disciplined time management successfully cross the 75+ raw score threshold.
+  </p>
+  <p class="text-muted-foreground leading-relaxed">
+    In this guide, we analyze the official syllabus prescribed under CEN 05/2024 and CEN 06/2024, complete chapter-by-chapter weightage, negative marking defense, and score normalization mechanics.
+  </p>
+</section>
+
+<section id="cbt-comparison" class="space-y-4 mt-8">
+  <h2 class="text-2xl font-bold text-foreground">CBT-1 vs CBT-2 Examination Blueprint</h2>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-left text-sm border-collapse rounded-xl overflow-hidden shadow-xs border border-border">
+      <thead class="bg-muted text-foreground font-semibold">
+        <tr>
+          <th class="p-3.5 border-b border-border">Section</th>
+          <th class="p-3.5 border-b border-border">CBT-1 (Screening)</th>
+          <th class="p-3.5 border-b border-border">CBT-2 (Merit Score)</th>
+          <th class="p-3.5 border-b border-border">Difficulty Level</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border text-muted-foreground">
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">General Awareness</td>
+          <td class="p-3.5 font-bold">40 Questions</td>
+          <td class="p-3.5 font-bold text-primary">50 Questions</td>
+          <td class="p-3.5">NCERT 9th &amp; 10th + Current Events</td>
+        </tr>
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">Mathematics</td>
+          <td class="p-3.5 font-bold">30 Questions</td>
+          <td class="p-3.5 font-bold text-primary">35 Questions</td>
+          <td class="p-3.5">Matriculation Standard</td>
+        </tr>
+        <tr class="hover:bg-muted/40 transition">
+          <td class="p-3.5 font-medium text-foreground">Reasoning Ability</td>
+          <td class="p-3.5 font-bold">30 Questions</td>
+          <td class="p-3.5 font-bold text-primary">35 Questions</td>
+          <td class="p-3.5">Analytical &amp; Verbal Logic</td>
+        </tr>
+        <tr class="bg-muted/30 font-bold text-foreground">
+          <td class="p-3.5">Total &amp; Time Limit</td>
+          <td class="p-3.5 text-primary">100 Qs / 90 Mins</td>
+          <td class="p-3.5 text-primary">120 Qs / 90 Mins</td>
+          <td class="p-3.5">1/3rd Negative Mark per Wrong Answer</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="subject-syllabus" class="space-y-6 mt-8">
+  <h2 class="text-2xl font-bold text-foreground">Chapter-Wise Detailed Syllabus Breakdown</h2>
+
+  <div class="space-y-3">
+    <h3 class="text-xl font-semibold text-foreground">1. Mathematics (Quantitative Aptitude)</h3>
+    <p class="text-muted-foreground text-sm">
+      Number System, Decimals, Fractions, LCM &amp; HCF, Ratio and Proportions, Percentage, Mensuration, Time and Work, Time and Distance, Simple and Compound Interest, Profit and Loss, Elementary Algebra, Geometry and Trigonometry, Elementary Statistics (Mean, Median, Mode, Standard Deviation).
+    </p>
+  </div>
+
+  <div class="space-y-3">
+    <h3 class="text-xl font-semibold text-foreground">2. General Intelligence and Reasoning</h3>
+    <p class="text-muted-foreground text-sm">
+      Analogies, Completion of Number and Alphabetical Series, Coding and Decoding, Mathematical Operations, Similarities and Differences, Relationships, Analytical Reasoning, Syllogism, Jumbling, Venn Diagrams, Puzzle, Data Sufficiency, Statement- Conclusion, Statement- Courses of Action, Decision Making, Maps, Interpretation of Graphs.
+    </p>
+  </div>
+
+  <div class="space-y-3">
+    <h3 class="text-xl font-semibold text-foreground">3. General Awareness (High-Yield Science &amp; Trivia)</h3>
+    <p class="text-muted-foreground text-sm">
+      Current Events of National and International Importance (Games and Sports, Art and Culture of India, Indian Literature, Monuments and Places of India, General Science and Life Science up to 10th CBSE), History of India and Freedom Struggle, Physical, Social and Economic Geography of India and World, Indian Polity and Governance- constitution and political system, General Scientific and Technological Developments including Space and Nuclear Program of India, UN and Other important World Organizations, Environmental Issues Concerning India and World at Large, Basics of Computers and Computer Applications, Common Abbreviations, Transport Systems in India, Indian Economy, Famous Personalities of India and World, Flagship Government Programs, Flora and Fauna of India, Important Government and Public Sector Organizations of India.
+    </p>
+  </div>
+</section>
+
+<section id="tools-cta" class="space-y-4 mt-8">
+  <div class="my-6 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 space-y-4">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <h4 class="font-bold text-lg text-foreground">Get Your Exam Documents Ready for RRB NTPC</h4>
+        <p class="text-sm text-muted-foreground mt-1">
+          Resize your official RRB photo to 35×45 mm and signature to 10–20 KB online for free with instant compliance verification.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-2 w-full sm:w-auto">
+        <a href="/rrb-signature-resize" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+          <span>✍️</span> Resize RRB Signature
+        </a>
+        <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+          <span>📸</span> Resize RRB Photo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+`
+  },
+
   {
     slug: "state-psc-otr-registration-photo-signature-guidelines-mufa2ff3",
     title: "State PSC One-Time Registration (OTR): Mandatory Signature & Photo Guidelines for UPPSC, BPSC, MPSC & RPSC",
