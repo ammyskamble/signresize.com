@@ -4,6 +4,8 @@ import Logo from './Logo.astro';
 import ExamNewsTicker from './ExamNewsTicker.astro';
 import { EXAM_PRESETS } from '../data/examPresets';
 import { EXAM_PAGES_DATA } from '../data/examPagesData';
+import { BLOG_POSTS } from '../data/blogPostsData';
+import { PAN_INDIA_GOV_JOBS } from '../data/governmentJobsData';
 
 const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
 
@@ -19,19 +21,180 @@ const isSign = isHome || isCreator || isGenerator || isESign || currentPath.incl
 const isBlog = currentPath.startsWith('/blog');
 const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsWith('/jobs');
 
-// Compact JSON of all presets for instant client-side searching & dropdown display
-const searchablePresets = EXAM_PRESETS.map((p) => ({
-  id: p.id,
-  slug: presetSlugMap.get(p.id) || null,
-  name: p.name,
-  shortCode: p.shortCode,
-  category: p.category,
-  widthPx: p.widthPx,
-  heightPx: p.heightPx,
-  minKb: p.minKb,
-  maxKb: p.maxKb,
-  inkRequirement: p.inkRequirement
+// Core Resizer Tools & Utilities
+const CORE_TOOLS = [
+  {
+    type: 'tool',
+    id: 'tool-signature-resizer',
+    title: 'Signature Resizer (10–20 KB)',
+    shortCode: 'SIGN RESIZE',
+    desc: 'Crop, clean background and compress signature to 10–20 KB, 20–50 KB for all exams',
+    url: '/#tool-workspace',
+    category: 'Core Resizer',
+    badge: 'FREE TOOL',
+    keywords: 'signature resizer crop signature compress signature sign resize 10 to 20 kb 20 to 50 kb signresize'
+  },
+  {
+    type: 'tool',
+    id: 'tool-photo-resizer',
+    title: 'Passport Photo Resizer',
+    shortCode: 'PHOTO RESIZE',
+    desc: '3.5×4.5 cm (20–50 KB) with Name & Date of Photo stamp for UPSC, SSC, Police & State PSC',
+    url: '/photo-resizer/',
+    category: 'Core Resizer',
+    badge: '3.5×4.5 CM',
+    keywords: 'photo resizer passport photo name and date stamp dop stamp photo compressor 20 to 50 kb 35x45 cm'
+  },
+  {
+    type: 'tool',
+    id: 'tool-document-resizer',
+    title: 'Document Resizer',
+    shortCode: 'DOC RESIZE',
+    desc: 'Resize marksheets, caste, domicile, income certificates and PDF/JPG to 100–300 KB',
+    url: '/document-resizer/',
+    category: 'Core Resizer',
+    badge: '100–300 KB',
+    keywords: 'document resizer marksheet resize certificate resize pdf resizer 100 to 300 kb scan document'
+  },
+  {
+    type: 'tool',
+    id: 'tool-compress-kb',
+    title: 'Compress Image to KB',
+    shortCode: 'COMPRESS KB',
+    desc: 'Reduce any image (JPG/PNG/WebP) to exact KB target (20 KB, 50 KB, 100 KB, 200 KB)',
+    url: '/compress-image-to-kb/',
+    category: 'Core Resizer',
+    badge: 'CUSTOM KB',
+    keywords: 'compress image to kb reduce kb image compressor kb converter photo kb size shrink image'
+  },
+  {
+    type: 'tool',
+    id: 'tool-signature-generator',
+    title: 'Signature Generator',
+    shortCode: 'SIGN GENERATOR',
+    desc: 'Type your name to create instant cursive, stylish, calligraphy & handwritten signatures',
+    url: '/signature-generator/',
+    category: 'Signature Suite',
+    badge: 'CALLIGRAPHY',
+    keywords: 'signature generator cursive signature stylish signature font signature digital sign maker name signature'
+  },
+  {
+    type: 'tool',
+    id: 'tool-electronic-signature',
+    title: 'Electronic Signature (eSign Pad)',
+    shortCode: 'ESIGN PAD',
+    desc: 'Draw legal digital signature using finger, stylus or mouse for PDFs and contracts',
+    url: '/electronic-signature/',
+    category: 'Signature Suite',
+    badge: 'DRAW PAD',
+    keywords: 'electronic signature esign draw signature digital sign pad sign pdf online touchscreen sign'
+  },
+  {
+    type: 'tool',
+    id: 'tool-signature-creator',
+    title: 'Signature Creator & Maker',
+    shortCode: 'SIGN CREATOR',
+    desc: 'Design, draw and export transparent background PNG signatures with custom ink colors',
+    url: '/signature-creator/',
+    category: 'Signature Suite',
+    badge: 'TRANSPARENT PNG',
+    keywords: 'signature creator signature maker transparent signature png signature ink signature black blue'
+  },
+  {
+    type: 'tool',
+    id: 'tool-white-background',
+    title: 'Make Background 100% White (#FFFFFF)',
+    shortCode: 'WHITE BG',
+    desc: 'Clean paper shadow, mobile camera yellow tint & produce pure white #FFFFFF background',
+    url: '/?filter=clean#tool-workspace',
+    category: 'Image Enhancer',
+    badge: 'SHADOW CLEANER',
+    keywords: 'white background clean shadow remove yellow tint brighten signature enhance photo clear paper'
+  },
+  {
+    type: 'tool',
+    id: 'tool-govt-jobs-board',
+    title: 'Pan-India Govt Jobs Board (All States)',
+    shortCode: 'GOVT JOBS',
+    desc: 'Active government job notifications, vacancy count, eligibility & document requirements',
+    url: '/government-jobs/',
+    category: 'Job Alerts',
+    badge: '30+ PORTALS',
+    keywords: 'govt jobs government jobs sarkari naukri vacancies recruitment exam notifications civil services state psc'
+  },
+  {
+    type: 'tool',
+    id: 'tool-exam-specs-matrix',
+    title: '40+ Exam Specifications Matrix',
+    shortCode: 'EXAM SPECS',
+    desc: 'Comprehensive comparison matrix of official photo, signature and thumb impression specs',
+    url: '/#exam-specs',
+    category: 'Exam Reference',
+    badge: 'SPECS TABLE',
+    keywords: 'exam specs dimensions table exam table specifications matrix all exam sizes width height kb'
+  }
+];
+
+const examPageMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p]));
+
+const searchableExams = EXAM_PRESETS.map((p) => {
+  const page = examPageMap.get(p.id);
+  const slug = page?.slug || presetSlugMap.get(p.id) || null;
+  return {
+    type: 'exam',
+    id: p.id,
+    slug: slug,
+    url: slug ? `/${slug}/` : `/?preset=${encodeURIComponent(p.id)}#tool-workspace`,
+    title: p.name,
+    shortCode: p.shortCode,
+    category: p.category,
+    widthPx: p.widthPx,
+    heightPx: p.heightPx,
+    minKb: p.minKb,
+    maxKb: p.maxKb,
+    inkRequirement: p.inkRequirement,
+    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} ${page ? page.keywords + ' ' + page.targetExams + ' ' + page.authority : ''}`
+  };
+});
+
+const searchableBlogs = BLOG_POSTS.map((b) => ({
+  type: 'blog',
+  id: b.slug,
+  slug: b.slug,
+  url: `/blog/${b.slug}/`,
+  title: b.title,
+  shortCode: b.category,
+  category: b.category,
+  excerpt: b.excerpt.slice(0, 150) + (b.excerpt.length > 150 ? '...' : ''),
+  readTime: b.readTime,
+  publishDate: b.publishDate,
+  keywords: `${b.title} ${b.slug} ${b.category} ${(b.tags || []).join(' ')} ${b.excerpt.slice(0, 200)}`
 }));
+
+const searchableJobs = PAN_INDIA_GOV_JOBS.map((j) => ({
+  type: 'job',
+  id: j.id,
+  slug: j.toolPresetSlug || '',
+  url: j.toolPresetSlug ? `/${j.toolPresetSlug}/` : `/government-jobs/#${j.id}`,
+  title: j.title,
+  shortCode: j.shortCode,
+  organization: j.organization,
+  category: j.category,
+  vacancies: j.vacancies,
+  qualification: j.qualification,
+  lastDate: j.lastDate,
+  badge: j.badge || 'ACTIVE',
+  keywords: `${j.id} ${j.title} ${j.shortCode} ${j.organization} ${j.category} ${j.state} ${j.vacancies} ${j.qualification} ${j.keyPosts ? j.keyPosts.join(' ') : ''}`
+}));
+
+const websiteSearchIndex = [
+  ...CORE_TOOLS,
+  ...searchableExams,
+  ...searchableBlogs,
+  ...searchableJobs
+];
+
+const searchablePresets = searchableExams;
 ---
 
 <header class="sticky top-0 z-40 w-full max-w-full border-b border-border/80 bg-card/95 backdrop-blur-md transition-colors">
@@ -390,7 +553,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
           class="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 min-h-[44px] rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-primary/60 text-foreground transition text-xs shadow-2xs group focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer shrink-0"
           aria-expanded="false"
           aria-haspopup="dialog"
-          title="Search all exams (Press / or Ctrl+K)"
+          title="Search whole website (Press / or Ctrl+K)"
         >
           <svg class="w-3.5 h-3.5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -658,7 +821,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
         id="mobile-search-exam-btn"
         class="text-primary font-bold hover:underline cursor-pointer min-h-[44px] inline-flex items-center px-2 py-1"
       >
-        🔍 Search 40+ Exams
+        🔍 Search Whole Website
       </button>
     </div>
   </div>
@@ -680,8 +843,8 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
     <input
       type="text"
       id="header-exam-search"
-      aria-label="Filter 40+ exams"
-      placeholder="Search 40+ exams (e.g. UPSC, SSC, GATE, PAN, RRB)..."
+      aria-label="Search whole website"
+      placeholder="Search whole website (Exams, Syllabus, Tools, Jobs, Blogs)..."
       class="w-full pl-10 pr-20 sm:pr-24 py-2.5 text-base sm:text-xs rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 font-medium"
       autocomplete="off"
     />
@@ -707,6 +870,22 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
     </div>
   </div>
 
+  <!-- Top Filter Tabs: All Results, Exams & Tools, Syllabus & Blogs, Govt Jobs -->
+  <div id="header-search-tabs" class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs shrink-0 no-scrollbar">
+    <button type="button" class="search-tab-btn active px-2.5 py-1 rounded-lg font-bold bg-primary text-white text-[11px] transition shrink-0 cursor-pointer shadow-2xs" data-filter="all">
+      All Results <span id="tab-count-all" class="ml-1 opacity-80 font-mono text-[10px]"></span>
+    </button>
+    <button type="button" class="search-tab-btn px-2.5 py-1 rounded-lg font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] transition shrink-0 cursor-pointer" data-filter="exam">
+      Exams &amp; Tools <span id="tab-count-exam" class="ml-1 opacity-80 font-mono text-[10px]"></span>
+    </button>
+    <button type="button" class="search-tab-btn px-2.5 py-1 rounded-lg font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] transition shrink-0 cursor-pointer" data-filter="blog">
+      Syllabus &amp; Articles <span id="tab-count-blog" class="ml-1 opacity-80 font-mono text-[10px]"></span>
+    </button>
+    <button type="button" class="search-tab-btn px-2.5 py-1 rounded-lg font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] transition shrink-0 cursor-pointer" data-filter="job">
+      Govt Jobs <span id="tab-count-job" class="ml-1 opacity-80 font-mono text-[10px]"></span>
+    </button>
+  </div>
+
   <!-- Dynamic Real-Time Filter Results (shown when searching) -->
   <div id="header-search-results" class="hidden overflow-y-auto max-h-[60vh] sm:max-h-[55vh] pr-1 space-y-1.5 text-xs">
     <!-- Dynamically populated via JS -->
@@ -714,6 +893,23 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
 
   <!-- All Available Exams Dropdown View (Shown by default on click) -->
   <div id="header-search-categories" class="overflow-y-auto max-h-[55vh] pr-1 space-y-4 text-xs">
+    
+    <!-- Quick Search Suggestions -->
+    <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-1.5">
+      <div class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-1">
+        <span>⚡</span> Quick Popular Searches
+      </div>
+      <div class="flex flex-wrap gap-1.5">
+        <button type="button" class="quick-suggest-btn text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 hover:border-primary/50 hover:text-primary transition font-medium cursor-pointer shadow-2xs" data-query="UP Police">👮 UP Police</button>
+        <button type="button" class="quick-suggest-btn text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 hover:border-primary/50 hover:text-primary transition font-medium cursor-pointer shadow-2xs" data-query="UP Police Syllabus">📚 UP Police Syllabus</button>
+        <button type="button" class="quick-suggest-btn text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 hover:border-primary/50 hover:text-primary transition font-medium cursor-pointer shadow-2xs" data-query="Maharashtra Police">🚩 Maha Police Bharti</button>
+        <button type="button" class="quick-suggest-btn text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 hover:border-primary/50 hover:text-primary transition font-medium cursor-pointer shadow-2xs" data-query="Photo Resizer">📷 Photo Resizer</button>
+        <button type="button" class="quick-suggest-btn text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 hover:border-primary/50 hover:text-primary transition font-medium cursor-pointer shadow-2xs" data-query="SSC CGL">🏛️ SSC CGL</button>
+        <button type="button" class="quick-suggest-btn text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 hover:border-primary/50 hover:text-primary transition font-medium cursor-pointer shadow-2xs" data-query="RRB NTPC">🚆 RRB NTPC</button>
+        <button type="button" class="quick-suggest-btn text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 hover:border-primary/50 hover:text-primary transition font-medium cursor-pointer shadow-2xs" data-query="Outlook">📧 Outlook Sign</button>
+        <button type="button" class="quick-suggest-btn text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 hover:border-primary/50 hover:text-primary transition font-medium cursor-pointer shadow-2xs" data-query="Govt Jobs">💼 Govt Jobs</button>
+      </div>
+    </div>
     
     <!-- Category 1: Trending / Common -->
     <div>
@@ -905,8 +1101,9 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
   </div>
 </div>
 
-<!-- Pass All Exam Presets safely to Script for Instant Filtering -->
+<!-- Pass All Exam Presets and Whole Website Search Data safely to Script -->
 <script id="exam-presets-dataset" type="application/json" set:html={JSON.stringify(searchablePresets)} />
+<script id="website-search-dataset" type="application/json" set:html={JSON.stringify(websiteSearchIndex)} />
 
 <script is:inline>
 (() => {
@@ -1047,7 +1244,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
   attachPresetListeners(document);
 
   // -------------------------------------------------------------------------
-  // 🔍 Right-Corner Small Search Bar & All Available Exams Dropdown
+  // 🔍 Top Search Tab & Whole Website Search Engine
   // -------------------------------------------------------------------------
   const searchContainer = document.getElementById('header-search-container');
   const searchTrigger = document.getElementById('header-search-trigger');
@@ -1059,14 +1256,56 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
   const searchFooterClose = document.getElementById('header-search-footer-close');
   const searchResults = document.getElementById('header-search-results');
   const searchCategories = document.getElementById('header-search-categories');
+  const searchTabs = document.getElementById('header-search-tabs');
+  const tabButtons = searchTabs?.querySelectorAll('.search-tab-btn') || [];
+  const tabCountAll = document.getElementById('tab-count-all');
+  const tabCountExam = document.getElementById('tab-count-exam');
+  const tabCountBlog = document.getElementById('tab-count-blog');
+  const tabCountJob = document.getElementById('tab-count-job');
 
-  let allPresets = [];
+  let websiteSearchData = [];
   try {
-    const dataEl = document.getElementById('exam-presets-dataset');
-    if (dataEl) allPresets = JSON.parse(dataEl.textContent || '[]');
+    const siteDataEl = document.getElementById('website-search-dataset') || document.getElementById('exam-presets-dataset');
+    if (siteDataEl) websiteSearchData = JSON.parse(siteDataEl.textContent || '[]');
   } catch (err) {
-    console.error('Failed to parse exam presets dataset', err);
+    console.error('Failed to parse website search dataset', err);
   }
+
+  let activeFilterTab = 'all';
+
+  function setActiveTab(filter) {
+    activeFilterTab = filter;
+    tabButtons.forEach((btn) => {
+      const f = btn.getAttribute('data-filter');
+      if (f === filter) {
+        btn.classList.add('active', 'bg-primary', 'text-white', 'shadow-2xs');
+        btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+      } else {
+        btn.classList.remove('active', 'bg-primary', 'text-white', 'shadow-2xs');
+        btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+      }
+    });
+    renderFilteredResults(headerSearchInput?.value || '');
+  }
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const f = btn.getAttribute('data-filter') || 'all';
+      setActiveTab(f);
+    });
+  });
+
+  // Quick Popular Searches click listeners
+  document.querySelectorAll('.quick-suggest-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const query = btn.getAttribute('data-query') || '';
+      if (headerSearchInput) {
+        headerSearchInput.value = query;
+        headerSearchInput.focus();
+        renderFilteredResults(query);
+      }
+    });
+  });
 
   function openSearchPopover() {
     searchBackdrop?.classList.remove('hidden');
@@ -1160,13 +1399,44 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
     }
   });
 
-  // Fast Filter Search logic
+  function calculateRelevance(item, query, tokens) {
+    const title = (item.title || item.name || '').toLowerCase();
+    const shortCode = (item.shortCode || '').toLowerCase();
+    const keywords = (item.keywords || '').toLowerCase();
+    const category = (item.category || '').toLowerCase();
+
+    let score = 0;
+    if (shortCode === query) score += 100;
+    if (title === query) score += 90;
+
+    if (shortCode.startsWith(query)) score += 60;
+    if (title.startsWith(query)) score += 50;
+
+    if (title.includes(query)) score += 40;
+    if (shortCode.includes(query)) score += 35;
+    if (keywords.includes(query)) score += 20;
+    if (category.includes(query)) score += 15;
+
+    tokens.forEach((tok) => {
+      if (title.includes(tok)) score += 12;
+      if (shortCode.includes(tok)) score += 12;
+      if (keywords.includes(tok)) score += 8;
+    });
+
+    return score;
+  }
+
+  // Whole Website Fast Filter Search logic
   function renderFilteredResults(query) {
     const q = query.trim().toLowerCase();
     if (!q) {
       searchResults?.classList.add('hidden');
       searchCategories?.classList.remove('hidden');
       searchClear?.classList.add('hidden');
+      if (tabCountAll) tabCountAll.textContent = '';
+      if (tabCountExam) tabCountExam.textContent = '';
+      if (tabCountBlog) tabCountBlog.textContent = '';
+      if (tabCountJob) tabCountJob.textContent = '';
       return;
     }
 
@@ -1174,59 +1444,180 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
     searchCategories?.classList.add('hidden');
     searchResults?.classList.remove('hidden');
 
-    const filtered = allPresets.filter((p) => {
-      return (
-        p.name.toLowerCase().includes(q) ||
-        p.shortCode.toLowerCase().includes(q) ||
-        p.id.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q)
-      );
+    const tokens = q.split(/\s+/).filter(Boolean);
+
+    // Score and filter all items across whole website
+    const scoredItems = [];
+    let countExam = 0;
+    let countBlog = 0;
+    let countJob = 0;
+
+    websiteSearchData.forEach((item) => {
+      const score = calculateRelevance(item, q, tokens);
+      if (score > 0) {
+        scoredItems.push({ item, score });
+        if (item.type === 'exam' || item.type === 'tool') countExam++;
+        else if (item.type === 'blog') countBlog++;
+        else if (item.type === 'job') countJob++;
+      }
     });
 
-    if (filtered.length === 0) {
+    scoredItems.sort((a, b) => b.score - a.score);
+
+    // Update Tab Counters
+    if (tabCountAll) tabCountAll.textContent = scoredItems.length ? `(${scoredItems.length})` : '';
+    if (tabCountExam) tabCountExam.textContent = countExam ? `(${countExam})` : '';
+    if (tabCountBlog) tabCountBlog.textContent = countBlog ? `(${countBlog})` : '';
+    if (tabCountJob) tabCountJob.textContent = countJob ? `(${countJob})` : '';
+
+    // Apply Active Tab Filter
+    const activeItems = scoredItems.filter(({ item }) => {
+      if (activeFilterTab === 'all') return true;
+      if (activeFilterTab === 'exam') return item.type === 'exam' || item.type === 'tool';
+      if (activeFilterTab === 'blog') return item.type === 'blog';
+      if (activeFilterTab === 'job') return item.type === 'job';
+      return true;
+    });
+
+    if (activeItems.length === 0) {
       searchResults.innerHTML = `
-        <div class="p-6 text-center text-xs text-slate-500 dark:text-slate-400 space-y-2">
-          <p>No exams found for "<strong>${query.replace(/</g, '&lt;')}</strong>".</p>
-          <p class="text-[11px]">Try searching by portal name like <em>UPSC</em>, <em>SSC</em>, <em>GATE</em>, or <em>PAN</em>.</p>
+        <div class="p-6 text-center text-xs text-slate-500 dark:text-slate-400 space-y-3">
+          <p>No results found for "<strong>${query.replace(/</g, '&lt;')}</strong>" in <strong>${activeFilterTab === 'all' ? 'whole website' : activeFilterTab}</strong>.</p>
+          <div class="flex flex-wrap items-center justify-center gap-1.5 pt-1">
+            <span class="text-[11px] text-muted-foreground">Try searching:</span>
+            <button type="button" class="quick-suggest-btn text-xs px-2 py-0.5 rounded bg-primary/10 hover:bg-primary/20 text-primary font-medium" data-query="UP Police">UP Police</button>
+            <button type="button" class="quick-suggest-btn text-xs px-2 py-0.5 rounded bg-primary/10 hover:bg-primary/20 text-primary font-medium" data-query="UP Police Syllabus">UP Police Syllabus</button>
+            <button type="button" class="quick-suggest-btn text-xs px-2 py-0.5 rounded bg-primary/10 hover:bg-primary/20 text-primary font-medium" data-query="Photo">Photo</button>
+            <button type="button" class="quick-suggest-btn text-xs px-2 py-0.5 rounded bg-primary/10 hover:bg-primary/20 text-primary font-medium" data-query="SSC">SSC</button>
+          </div>
         </div>
       `;
+      searchResults.querySelectorAll('.quick-suggest-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const newQ = btn.getAttribute('data-query') || '';
+          if (headerSearchInput) {
+            headerSearchInput.value = newQ;
+            headerSearchInput.focus();
+            renderFilteredResults(newQ);
+          }
+        });
+      });
       return;
     }
 
-    const itemsHtml = filtered
-      .map(
-        (p) => `
-        <button
-          type="button"
-          class="preset-btn w-full text-left p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 hover:border-primary/50 dark:hover:border-primary/50 transition flex items-center justify-between gap-2 group cursor-pointer shadow-2xs"
-          data-exam="${p.id}"
-          data-slug="${p.slug || ''}"
-        >
-          <div class="min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">${p.shortCode}</span>
-              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">${p.category}</span>
-            </div>
-            <div class="text-[11px] text-slate-600 dark:text-slate-400 truncate mt-0.5">${p.name}</div>
-          </div>
-          <div class="text-right shrink-0">
-            <div class="font-mono text-primary font-bold text-xs">${p.widthPx}×${p.heightPx} px</div>
-            <div class="text-[10px] font-mono text-slate-500 dark:text-slate-400">${p.minKb}–${p.maxKb} KB</div>
-          </div>
-        </button>
-      `
-      )
+    const itemsHtml = activeItems
+      .map(({ item }) => {
+        // 1. Core Tool Result
+        if (item.type === 'tool') {
+          return `
+            <a
+              href="${item.url}"
+              class="search-nav-item w-full text-left p-2.5 rounded-xl border border-indigo-200/80 dark:border-indigo-900/60 bg-indigo-50/40 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 hover:border-indigo-500/50 transition flex items-center justify-between gap-3 group cursor-pointer shadow-2xs"
+            >
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold uppercase bg-indigo-100 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-800">${item.badge || 'TOOL'}</span>
+                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">${item.title}</span>
+                  <span class="text-[10px] text-muted-foreground">• ${item.category}</span>
+                </div>
+                <div class="text-[11px] text-slate-600 dark:text-slate-300 line-clamp-1 mt-0.5">${item.desc}</div>
+              </div>
+              <span class="text-xs text-indigo-600 dark:text-indigo-400 font-bold shrink-0">Open Tool →</span>
+            </a>
+          `;
+        }
+
+        // 2. Exam Preset / Tool Page Result
+        if (item.type === 'exam') {
+          return `
+            <button
+              type="button"
+              class="preset-btn w-full text-left p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 hover:border-primary/50 dark:hover:border-primary/50 transition flex items-center justify-between gap-3 group cursor-pointer shadow-2xs"
+              data-exam="${item.id}"
+              data-slug="${item.slug || ''}"
+            >
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold uppercase bg-blue-100 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 border border-blue-300 dark:border-blue-800">EXAM PRESET</span>
+                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">${item.shortCode}</span>
+                  <span class="text-[10px] text-muted-foreground">• ${item.category}</span>
+                </div>
+                <div class="text-[11px] text-slate-600 dark:text-slate-300 truncate mt-0.5">${item.title}</div>
+              </div>
+              <div class="text-right shrink-0">
+                <div class="font-mono text-primary font-bold text-xs">${item.widthPx}×${item.heightPx} px</div>
+                <div class="text-[10px] font-mono text-slate-500 dark:text-slate-400">${item.minKb}–${item.maxKb} KB</div>
+              </div>
+            </button>
+          `;
+        }
+
+        // 3. Blog Article & Syllabus Guide Result
+        if (item.type === 'blog') {
+          return `
+            <a
+              href="${item.url}"
+              class="search-nav-item w-full text-left p-2.5 rounded-xl border border-amber-200/80 dark:border-amber-900/60 bg-amber-50/40 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 hover:border-amber-500/50 transition flex items-center justify-between gap-3 group cursor-pointer shadow-2xs"
+            >
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold uppercase bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800">ARTICLE &amp; GUIDE</span>
+                  <span class="text-[10px] text-amber-700 dark:text-amber-400 font-medium">${item.category}</span>
+                  <span class="text-[10px] text-muted-foreground">• ${item.readTime}</span>
+                </div>
+                <div class="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary line-clamp-1 mt-0.5">${item.title}</div>
+                <div class="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1">${item.excerpt}</div>
+              </div>
+              <span class="text-xs text-amber-600 dark:text-amber-400 font-bold shrink-0">Read →</span>
+            </a>
+          `;
+        }
+
+        // 4. Government Job Notification Result
+        if (item.type === 'job') {
+          return `
+            <a
+              href="${item.url}"
+              class="search-nav-item w-full text-left p-2.5 rounded-xl border border-emerald-200/80 dark:border-emerald-900/60 bg-emerald-50/40 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 hover:border-emerald-500/50 transition flex items-center justify-between gap-3 group cursor-pointer shadow-2xs"
+            >
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold uppercase bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">GOVT JOB</span>
+                  <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">${item.shortCode || item.title}</span>
+                  <span class="text-[10px] text-muted-foreground">• ${item.organization}</span>
+                </div>
+                <div class="text-xs text-slate-800 dark:text-slate-200 line-clamp-1 mt-0.5">${item.title}</div>
+                <div class="flex items-center gap-2 text-[10px] text-emerald-700 dark:text-emerald-400 font-medium mt-0.5">
+                  <span>Vacancies: <strong>${item.vacancies}</strong></span>
+                  <span>•</span>
+                  <span>Qual: ${item.qualification}</span>
+                  <span>•</span>
+                  <span>Last Date: ${item.lastDate}</span>
+                </div>
+              </div>
+              <span class="text-xs text-emerald-600 dark:text-emerald-400 font-bold shrink-0">View Details →</span>
+            </a>
+          `;
+        }
+
+        return '';
+      })
       .join('');
 
     searchResults.innerHTML = `
       <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 px-1 pb-1 flex justify-between">
-        <span>Matching Exams</span>
-        <span class="font-mono">${filtered.length} found</span>
+        <span>Website Results (${activeFilterTab.toUpperCase()})</span>
+        <span class="font-mono">${activeItems.length} found</span>
       </div>
       <div class="space-y-1.5">${itemsHtml}</div>
     `;
 
     attachPresetListeners(searchResults);
+    searchResults.querySelectorAll('.search-nav-item').forEach((link) => {
+      link.addEventListener('click', () => {
+        closeSearchPopover();
+      });
+    });
   }
 
   headerSearchInput?.addEventListener('input', (e) => {
