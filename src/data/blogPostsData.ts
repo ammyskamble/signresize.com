@@ -5561,5 +5561,462 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
   </div>
 </div>
     `
+  },
+  {
+    slug: "up-police-constable-syllabus-exam-pattern-2026",
+    title: "UP Police Constable Syllabus 2026: Subject-wise Pattern, 300 Marks, Negative Marking & PET Standards",
+    metaTitle: "UP Police Constable Syllabus 2026 – 4 Subjects, 300 Marks, Exam Pattern",
+    metaDescription: "Complete UP Police Constable syllabus 2026: 4 subjects (GK, Hindi, Numerical, Reasoning), 300-mark OMR pattern, negative marking, PET running standards, salary & admit card guide for UPPRPB.",
+    excerpt: "Official UPPRPB syllabus breakdown: subject-wise topics for all 4 sections, marks distribution, 0.50 negative marking rule, physical PET standards, age limit, and salary — everything UP Police Constable 2026 aspirants need.",
+    category: "Exam Preparation",
+    publishDate: "Sept 25, 2026",
+    publishTime: "09:00 AM IST",
+    lastUpdated: "Sept 25, 2026",
+    deployedAt: "Sept 25, 2026 • 09:00 AM IST",
+    author: "SignResize Examination Standards Desk",
+    authorRole: "UP Police Recruitment Advisory Desk",
+    readTime: "10 min read",
+    featured: false,
+    tags: ["UP Police Syllabus 2026","UP Police Constable Exam Pattern","UPPRPB Written Exam","UP Police Constable 2026","UP Police PET Running","UP Police Salary"],
+    relatedExamPreset: "up-police",
+    quickFacts: [
+        { "label": "Conducting Body", "value": "UPPRPB (UP Police Recruitment & Promotion Board, Lucknow)" },
+        { "label": "Exam Mode", "value": "OMR-Based Offline Written Examination" },
+        { "label": "Total Questions", "value": "150 Questions (2 Marks Each = 300 Marks Total)" },
+        { "label": "Duration", "value": "2 Hours (120 Minutes)" },
+        { "label": "Negative Marking", "value": "–0.50 Marks Per Wrong Answer" },
+        { "label": "Physical Test (PET)", "value": "Male: 4.8 km in 25 min | Female: 2.4 km in 14 min" }
+    ],
+    faqs: [
+        {
+            "question": "What subjects are included in the UP Police Constable 2026 written exam?",
+            "answer": "The written exam covers 4 subjects: (1) General Knowledge & Current Affairs — 38 questions, 76 marks; (2) General Hindi — 37 questions, 74 marks; (3) Numerical & Mental Ability — 38 questions, 76 marks; (4) Mental Aptitude, IQ & Reasoning — 37 questions, 74 marks. Total: 150 questions, 300 marks, 2 hours."
+        },
+        {
+            "question": "What is the negative marking rule in UP Police Constable exam 2026?",
+            "answer": "Each correct answer awards 2 marks. Each wrong answer deducts 0.50 marks (25% of 2 marks). Unattempted or skipped questions carry zero marks — no negative for leaving a question blank. Strategically leaving low-confidence questions blank is therefore better than guessing."
+        },
+        {
+            "question": "What topics are included in the UP Police Constable General Knowledge syllabus?",
+            "answer": "The GK section (38 questions, 76 marks) covers: History of India & UP, Indian Constitution & Polity, Geography (India & World), Current Affairs (national & international), Science & Technology, Economy, Sports, Awards, Books & Authors, Important Dates, UP-specific GK (rivers, folk arts, districts, historical events)."
+        },
+        {
+            "question": "What is the UP Police Constable General Hindi syllabus?",
+            "answer": "General Hindi (37 questions, 74 marks) tests: Hindi Grammar (Sandhi, Samas, Vibhakti), Tatsam-Tadbhav words, Synonyms & Antonyms, Fill in the Blanks, Error Detection, Proverbs & Idioms (Muhavare), One-word substitution, Reading Comprehension passage, Letter writing formats, and vocabulary usage."
+        },
+        {
+            "question": "What is covered under Numerical & Mental Ability in UP Police syllabus?",
+            "answer": "Numerical & Mental Ability (38 questions, 76 marks) includes: Number System, HCF & LCM, Fractions & Decimals, Percentage, Profit & Loss, Simple & Compound Interest, Ratio & Proportion, Average, Age Problems, Time & Work, Time & Distance, Mensuration (area, perimeter, volume), Data Interpretation (tables, graphs, bar charts)."
+        },
+        {
+            "question": "What is the UP Police Constable exam date 2026?",
+            "answer": "The UP Police Constable written OMR exam for 60,244 posts is tentatively scheduled for November–December 2026. Online application closed on October 25, 2026. Admit card (pravesh patra) will be released on uppbpb.gov.in approximately 10–15 days before the exam date."
+        },
+        {
+            "question": "What is the UP Police Constable salary 2026?",
+            "answer": "UP Police Constable salary is fixed at Pay Matrix Level 3 with Basic Pay of ₹21,700 per month. Including Dearness Allowance (~50%), House Rent Allowance, and other allowances, the gross salary is approximately ₹35,000–₹41,000. Net in-hand salary is approximately ₹30,000–₹36,000 depending on posting location."
+        },
+        {
+            "question": "What is the physical eligibility for UP Police Constable 2026?",
+            "answer": "For Male candidates: Minimum height 168 cm (160 cm for ST/SC in some categories), chest unexpanded 79 cm with minimum 5 cm expansion. For Female candidates: Minimum height 152 cm (147 cm for SC/ST), minimum weight 40 kg. Eye vision must meet prescribed standards."
+        },
+        {
+            "question": "How to download UP Police admit card 2026?",
+            "answer": "UP Police admit card 2026 is available on uppbpb.gov.in. Candidates must log in using their Registration Number and Date of Birth. The admit card contains roll number, exam center name & address, exam date & shift timing, and reporting time. Carry a printed copy along with a valid photo ID to the exam center."
+        },
+        {
+            "question": "What is the UP Police answer key 2026 release process?",
+            "answer": "After the OMR exam, UPPRPB releases a provisional answer key on uppbpb.gov.in within 7–15 days. Candidates can challenge any answer key response within the specified objection window (typically 3–7 days) by paying a prescribed fee. The final answer key is published after reviewing all objections, and the merit list is prepared based on the final verified answer key."
+        }
+    ],
+    contentHtml: `
+<section id="overview" class="space-y-4">
+  <h2>UP Police Constable Syllabus 2026: Complete Official Guide</h2>
+  <p>Searching for the <strong>UP Police Constable syllabus 2026</strong> with subject-wise topics, marks breakdown, and the exact exam pattern? This is the definitive guide published by the <strong>SignResize Examination Standards Desk</strong> based on the official <a href="https://uppbpb.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">uppbpb.gov.in</a> notification for the 60,244 Constable & SI posts.</p>
+  <p>The <strong>UP Police written exam</strong> is an OMR-based objective test of 300 marks covering 4 subjects. Understanding the subject-wise syllabus, topic weightage, and negative marking rules is the difference between selection and elimination.</p>
+  <p>Before diving into the syllabus, ensure your application documents are portal-ready: <a href="/up-police-signature-resize/" class="text-primary underline font-semibold">resize your UP Police signature (140×60 px, 5–20 KB)</a> and photo (200×230 px, 20–50 KB) instantly.</p>
+</section>
+
+<section id="exam-pattern" class="space-y-4 mt-8">
+  <h2>UP Police Constable Exam Pattern 2026 — 300 Marks OMR Blueprint</h2>
+  <p>The written examination is conducted offline on OMR sheets. Candidates fill bubbles with a blue or black ballpoint pen. The exam is held in multiple shifts across districts of Uttar Pradesh.</p>
+
+  <div class="overflow-x-auto my-6 rounded-2xl border border-border shadow-sm">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="bg-primary text-primary-foreground">
+          <th class="px-4 py-3 text-left font-bold rounded-tl-xl">Subject</th>
+          <th class="px-4 py-3 text-center font-bold">Questions</th>
+          <th class="px-4 py-3 text-center font-bold">Marks</th>
+          <th class="px-4 py-3 text-center font-bold rounded-tr-xl">Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-card border-b border-border hover:bg-muted/40 transition">
+          <td class="px-4 py-3 font-semibold text-foreground">General Knowledge & Current Affairs</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-primary">38</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-green-600 dark:text-green-400">76</td>
+          <td class="px-4 py-3 text-center text-muted-foreground" rowspan="4">2 Hours (Combined)</td>
+        </tr>
+        <tr class="bg-card border-b border-border hover:bg-muted/40 transition">
+          <td class="px-4 py-3 font-semibold text-foreground">General Hindi</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-primary">37</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-green-600 dark:text-green-400">74</td>
+        </tr>
+        <tr class="bg-card border-b border-border hover:bg-muted/40 transition">
+          <td class="px-4 py-3 font-semibold text-foreground">Numerical & Mental Ability</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-primary">38</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-green-600 dark:text-green-400">76</td>
+        </tr>
+        <tr class="bg-card hover:bg-muted/40 transition">
+          <td class="px-4 py-3 font-semibold text-foreground">Mental Aptitude / IQ / Reasoning</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-primary">37</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-green-600 dark:text-green-400">74</td>
+        </tr>
+        <tr class="bg-primary/10 font-bold">
+          <td class="px-4 py-3 font-extrabold text-foreground rounded-bl-xl">Total</td>
+          <td class="px-4 py-3 text-center font-mono font-extrabold text-primary">150</td>
+          <td class="px-4 py-3 text-center font-mono font-extrabold text-green-700 dark:text-green-300">300</td>
+          <td class="px-4 py-3 text-center font-bold text-foreground rounded-br-xl">2 Hours</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="my-6 p-5 rounded-2xl bg-red-500/10 border border-red-500/30 space-y-2">
+    <h4 class="font-bold text-red-600 dark:text-red-400 text-base flex items-center gap-2">
+      <span>⚠️</span> Negative Marking Rule — Read Carefully
+    </h4>
+    <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
+      <li><strong>Correct answer:</strong> +2 marks</li>
+      <li><strong>Wrong answer:</strong> −0.50 marks (25% penalty)</li>
+      <li><strong>Unattempted / skipped:</strong> 0 marks (no penalty)</li>
+      <li><strong>Strategy:</strong> If you are unsure, skip the question. Attempting 4 wrong answers wipes out 1 correct answer's marks.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="gk-syllabus" class="space-y-4 mt-8">
+  <h2>Subject 1 — General Knowledge & Current Affairs (38 Questions, 76 Marks)</h2>
+  <p>This section is the broadest and most unpredictable. Focus on Uttar Pradesh-specific GK alongside national topics.</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+    <div class="p-4 rounded-xl bg-blue-500/8 border border-blue-500/20">
+      <h4 class="font-bold text-blue-700 dark:text-blue-400 mb-2">🇮🇳 Indian History & Polity</h4>
+      <ul class="text-sm text-muted-foreground space-y-1 list-disc pl-4">
+        <li>Ancient, Medieval & Modern Indian History</li>
+        <li>Indian Constitution — Preamble, Articles, Schedules</li>
+        <li>Fundamental Rights & Directive Principles</li>
+        <li>Parliament, President, Governor, Judiciary</li>
+        <li>Important Amendments & Acts</li>
+      </ul>
+    </div>
+    <div class="p-4 rounded-xl bg-green-500/8 border border-green-500/20">
+      <h4 class="font-bold text-green-700 dark:text-green-400 mb-2">🌍 Geography & Environment</h4>
+      <ul class="text-sm text-muted-foreground space-y-1 list-disc pl-4">
+        <li>Physical Geography of India & UP</li>
+        <li>Rivers, Mountains, Climate Zones</li>
+        <li>UP Districts, Divisions, Boundaries</li>
+        <li>National Parks & Wildlife Sanctuaries</li>
+        <li>Environmental Issues & Conservation</li>
+      </ul>
+    </div>
+    <div class="p-4 rounded-xl bg-purple-500/8 border border-purple-500/20">
+      <h4 class="font-bold text-purple-700 dark:text-purple-400 mb-2">📰 Current Affairs</h4>
+      <ul class="text-sm text-muted-foreground space-y-1 list-disc pl-4">
+        <li>National & International Events (6 months)</li>
+        <li>Government Schemes & Yojanas</li>
+        <li>Sports Events — Olympics, Asiad, Cricket</li>
+        <li>Awards — Padma, Bharat Ratna, Nobel</li>
+        <li>Books, Authors, Appointments</li>
+      </ul>
+    </div>
+    <div class="p-4 rounded-xl bg-amber-500/8 border border-amber-500/20">
+      <h4 class="font-bold text-amber-700 dark:text-amber-400 mb-2">🏛️ UP-Specific GK (High Weightage)</h4>
+      <ul class="text-sm text-muted-foreground space-y-1 list-disc pl-4">
+        <li>UP History, Freedom Movement</li>
+        <li>UP Folk Arts, Festivals, Culture</li>
+        <li>UP Economy, Agriculture</li>
+        <li>UP Government Schemes</li>
+        <li>Important UP Personalities</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="hindi-syllabus" class="space-y-4 mt-8">
+  <h2>Subject 2 — General Hindi (37 Questions, 74 Marks)</h2>
+  <p>Hindi is typically the highest-scoring section for UP-domicile candidates. This section tests grammar, comprehension, and vocabulary at Intermediate level.</p>
+
+  <div class="overflow-x-auto my-4 rounded-2xl border border-border">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="bg-muted">
+          <th class="px-4 py-2.5 text-left font-bold">Topic</th>
+          <th class="px-4 py-2.5 text-center font-bold">Expected Questions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">Sandhi & Samas (Compound Words)</td><td class="px-4 py-2.5 text-center font-mono">4–5</td></tr>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">Synonyms & Antonyms (Paryayvachi / Vilom)</td><td class="px-4 py-2.5 text-center font-mono">4–5</td></tr>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">Fill in the Blanks (Rikt Sthan)</td><td class="px-4 py-2.5 text-center font-mono">4–5</td></tr>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">Idioms & Proverbs (Muhavare & Lokoktiyan)</td><td class="px-4 py-2.5 text-center font-mono">3–4</td></tr>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">Error Detection / Sentence Correction</td><td class="px-4 py-2.5 text-center font-mono">4–5</td></tr>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">One-Word Substitution (Ek Shabdikaran)</td><td class="px-4 py-2.5 text-center font-mono">3–4</td></tr>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">Reading Comprehension Passage</td><td class="px-4 py-2.5 text-center font-mono">5–6</td></tr>
+        <tr class="hover:bg-muted/30"><td class="px-4 py-2.5">Tatsam-Tadbhav, Spelling, Grammar</td><td class="px-4 py-2.5 text-center font-mono">5–6</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-sm text-muted-foreground">💡 <strong>Tip:</strong> Hindi is the highest-scoring section. Scoring 60+ out of 74 here is realistic with 30 days of focused preparation on grammar rules and vocabulary.</p>
+</section>
+
+<section id="maths-syllabus" class="space-y-4 mt-8">
+  <h2>Subject 3 — Numerical & Mental Ability (38 Questions, 76 Marks)</h2>
+  <p>This section covers basic arithmetic, data interpretation, and mental calculation at Class 10 level. Most problems can be solved without complex formulas.</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+    <div class="p-4 rounded-xl bg-card border border-border">
+      <h5 class="font-bold text-foreground mb-1.5">Arithmetic (Core Topics)</h5>
+      <ul class="text-xs text-muted-foreground space-y-1 list-disc pl-3">
+        <li>Number System, LCM, HCF</li>
+        <li>Percentage, Profit & Loss</li>
+        <li>Simple & Compound Interest</li>
+        <li>Ratio, Proportion & Partnership</li>
+        <li>Average & Mixture Problems</li>
+        <li>Age & Time-Work Problems</li>
+      </ul>
+    </div>
+    <div class="p-4 rounded-xl bg-card border border-border">
+      <h5 class="font-bold text-foreground mb-1.5">Applied Maths</h5>
+      <ul class="text-xs text-muted-foreground space-y-1 list-disc pl-3">
+        <li>Speed, Distance & Time</li>
+        <li>Train & Boat Problems</li>
+        <li>Mensuration — Area, Perimeter, Volume</li>
+        <li>Data Interpretation (Bar, Pie, Table)</li>
+        <li>Simplification & Approximation</li>
+        <li>Square Roots & Cube Roots</li>
+      </ul>
+    </div>
+  </div>
+  <p class="text-sm text-muted-foreground">💡 <strong>Tip:</strong> Percentage, Ratio, and Profit & Loss together account for 12–15 questions. Master these 3 topics first.</p>
+</section>
+
+<section id="reasoning-syllabus" class="space-y-4 mt-8">
+  <h2>Subject 4 — Mental Aptitude / IQ / Reasoning (37 Questions, 74 Marks)</h2>
+  <p>This section tests logical thinking, pattern recognition, and situational judgment. Many questions from police recruitment papers test police-specific aptitude scenarios.</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
+    <div class="p-3 rounded-xl bg-card border border-border">
+      <h5 class="font-bold text-foreground mb-1 text-sm">Verbal Reasoning</h5>
+      <ul class="text-xs text-muted-foreground space-y-1 list-disc pl-3">
+        <li>Analogies & Classification</li>
+        <li>Series Completion</li>
+        <li>Coding-Decoding</li>
+        <li>Blood Relations</li>
+        <li>Direction Sense</li>
+      </ul>
+    </div>
+    <div class="p-3 rounded-xl bg-card border border-border">
+      <h5 class="font-bold text-foreground mb-1 text-sm">Non-Verbal Reasoning</h5>
+      <ul class="text-xs text-muted-foreground space-y-1 list-disc pl-3">
+        <li>Pattern & Figure Completion</li>
+        <li>Mirror & Water Image</li>
+        <li>Paper Folding & Cutting</li>
+        <li>Embedded Figures</li>
+        <li>Visual Puzzles</li>
+      </ul>
+    </div>
+    <div class="p-3 rounded-xl bg-card border border-border">
+      <h5 class="font-bold text-foreground mb-1 text-sm">Police Aptitude</h5>
+      <ul class="text-xs text-muted-foreground space-y-1 list-disc pl-3">
+        <li>Law & Order Scenarios</li>
+        <li>Public Interest Judgment</li>
+        <li>Communal Harmony Scenarios</li>
+        <li>Professional Ethics</li>
+        <li>Crime & Victim Situations</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="pet-standards" class="space-y-4 mt-8">
+  <h2>UP Police PET (Physical Efficiency Test) Standards 2026</h2>
+  <p>The Physical Efficiency Test is <strong>qualifying only</strong> — no marks are awarded. Failure to complete the run within the time limit means immediate disqualification regardless of written exam performance.</p>
+
+  <div class="overflow-x-auto my-4 rounded-2xl border border-border shadow-sm">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="bg-primary text-primary-foreground">
+          <th class="px-4 py-3 text-left font-bold rounded-tl-xl">Category</th>
+          <th class="px-4 py-3 text-center font-bold">Distance</th>
+          <th class="px-4 py-3 text-center font-bold">Time Limit</th>
+          <th class="px-4 py-3 text-center font-bold rounded-tr-xl">Nature</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-card border-b border-border hover:bg-muted/40 transition">
+          <td class="px-4 py-3 font-semibold">Male Constable</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-primary">4.8 km</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-green-600 dark:text-green-400">25 Minutes</td>
+          <td class="px-4 py-3 text-center text-xs text-muted-foreground">Qualifying Only</td>
+        </tr>
+        <tr class="bg-card hover:bg-muted/40 transition">
+          <td class="px-4 py-3 font-semibold">Female Constable</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-primary">2.4 km</td>
+          <td class="px-4 py-3 text-center font-mono font-bold text-green-600 dark:text-green-400">14 Minutes</td>
+          <td class="px-4 py-3 text-center text-xs text-muted-foreground">Qualifying Only</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="my-6 p-5 rounded-2xl bg-blue-500/8 border border-blue-500/20 space-y-2">
+    <h4 class="font-bold text-blue-700 dark:text-blue-400 text-sm flex items-center gap-2">🏃 PET Training Plan (60 Days)</h4>
+    <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
+      <li><strong>Days 1–15:</strong> Run 2 km daily at easy pace. Focus on building aerobic base, not speed.</li>
+      <li><strong>Days 16–30:</strong> Increase to 3.5 km with 400m intervals at target pace (4.8 km ÷ 25 min = 192m/min).</li>
+      <li><strong>Days 31–45:</strong> Run full 4.8 km distance at tempo. Time yourself every 3 days.</li>
+      <li><strong>Days 46–60:</strong> Practice race-day conditions — run on tracks or ground, wear race shoes, simulate test environment.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="admit-card" class="space-y-4 mt-8">
+  <h2>UP Police Admit Card 2026 — Download Guide</h2>
+  <p>The <strong>UP Police Constable admit card 2026</strong> (also called pravesh patra or hall ticket) is released on <a href="https://uppbpb.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">uppbpb.gov.in</a> approximately 10–15 days before the written examination.</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+    <div class="p-4 rounded-xl bg-card border border-border">
+      <h5 class="font-bold text-foreground mb-2">📥 How to Download Admit Card</h5>
+      <ol class="text-sm text-muted-foreground space-y-1 list-decimal pl-4">
+        <li>Visit uppbpb.gov.in</li>
+        <li>Click "Admit Card / Pravesh Patra"</li>
+        <li>Enter Registration Number</li>
+        <li>Enter Date of Birth</li>
+        <li>Download and print A4 size</li>
+      </ol>
+    </div>
+    <div class="p-4 rounded-xl bg-card border border-border">
+      <h5 class="font-bold text-foreground mb-2">📋 What the Admit Card Contains</h5>
+      <ul class="text-sm text-muted-foreground space-y-1 list-disc pl-4">
+        <li>Roll Number & Registration Number</li>
+        <li>Exam Center Name & Full Address</li>
+        <li>Exam Date, Day & Shift Timing</li>
+        <li>Reporting Time (30 min before)</li>
+        <li>Candidate's Photo & Signature</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2">
+    <h4 class="font-bold text-amber-600 dark:text-amber-400 text-sm flex items-center gap-2">⚠️ Exam Day Checklist</h4>
+    <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
+      <li>Printed admit card (2 copies recommended)</li>
+      <li>Original Aadhar Card / Voter ID / Passport as photo ID</li>
+      <li>Black or Blue ballpoint pen (not gel or sketch pen)</li>
+      <li>No electronic devices, smartwatches, or calculators allowed</li>
+      <li>Arrive at the exam center at least 30 minutes early</li>
+    </ul>
+  </div>
+</section>
+
+<section id="answer-key" class="space-y-4 mt-8">
+  <h2>UP Police Answer Key 2026 & Result Process</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-4 text-center">
+    <div class="p-4 rounded-xl bg-card border border-border">
+      <div class="text-2xl mb-2">📝</div>
+      <h5 class="font-bold text-sm text-foreground">Provisional Answer Key</h5>
+      <p class="text-xs text-muted-foreground mt-1">Released 7–15 days after exam on uppbpb.gov.in</p>
+    </div>
+    <div class="p-4 rounded-xl bg-card border border-border">
+      <div class="text-2xl mb-2">🗣️</div>
+      <h5 class="font-bold text-sm text-foreground">Objection Window</h5>
+      <p class="text-xs text-muted-foreground mt-1">3–7 days to challenge any answer with fee payment</p>
+    </div>
+    <div class="p-4 rounded-xl bg-card border border-border">
+      <div class="text-2xl mb-2">✅</div>
+      <h5 class="font-bold text-sm text-foreground">Final Answer Key & Result</h5>
+      <p class="text-xs text-muted-foreground mt-1">Merit list released 30–60 days post-exam</p>
+    </div>
+  </div>
+</section>
+
+<section id="salary" class="space-y-4 mt-8">
+  <h2>UP Police Constable Salary 2026 — Full Pay Breakdown</h2>
+
+  <div class="overflow-x-auto my-4 rounded-2xl border border-border shadow-sm">
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="bg-muted">
+          <th class="px-4 py-2.5 text-left font-bold">Pay Component</th>
+          <th class="px-4 py-2.5 text-center font-bold">Constable</th>
+          <th class="px-4 py-2.5 text-center font-bold">Sub-Inspector (SI)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">Pay Matrix Level</td><td class="px-4 py-2.5 text-center font-mono">Level 3</td><td class="px-4 py-2.5 text-center font-mono">Level 6</td></tr>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">Basic Pay</td><td class="px-4 py-2.5 text-center font-mono font-bold text-primary">₹21,700</td><td class="px-4 py-2.5 text-center font-mono font-bold text-primary">₹35,400</td></tr>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">Dearness Allowance (~50%)</td><td class="px-4 py-2.5 text-center font-mono">~₹10,850</td><td class="px-4 py-2.5 text-center font-mono">~₹17,700</td></tr>
+        <tr class="border-b border-border hover:bg-muted/30"><td class="px-4 py-2.5">House Rent Allowance</td><td class="px-4 py-2.5 text-center font-mono">₹2,000–₹4,500</td><td class="px-4 py-2.5 text-center font-mono">₹3,500–₹7,000</td></tr>
+        <tr class="border-b border-border font-bold bg-primary/5"><td class="px-4 py-2.5 font-extrabold">Gross Monthly Salary</td><td class="px-4 py-2.5 text-center font-mono font-extrabold text-green-700 dark:text-green-300">~₹35,000–₹41,000</td><td class="px-4 py-2.5 text-center font-mono font-extrabold text-green-700 dark:text-green-300">~₹58,000–₹65,000</td></tr>
+        <tr class="hover:bg-muted/30"><td class="px-4 py-2.5">Net In-Hand (approx.)</td><td class="px-4 py-2.5 text-center font-mono">~₹30,000–₹36,000</td><td class="px-4 py-2.5 text-center font-mono">~₹50,000–₹57,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="document-specs" class="space-y-4 mt-8">
+  <h2>UPPRPB Portal Document Specifications</h2>
+  <p>Before submitting your online application on uppbpb.gov.in, ensure your photo and signature meet the exact pixel and KB requirements. Wrong file sizes are the leading cause of application rejection.</p>
+
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 space-y-3">
+    <h4 class="text-base font-bold text-foreground">Prepare UP Police Documents Instantly — Free Online Tool</h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
+      <div class="p-3 rounded-xl bg-background border border-border">
+        <p class="font-bold text-foreground text-xs mb-1">📸 Photo Requirements</p>
+        <p>200 × 230 px (3.5 × 4.5 cm)</p>
+        <p class="font-mono text-xs">20 KB – 50 KB • JPG</p>
+        <p class="text-xs">White/light grey background, no caps or glasses</p>
+      </div>
+      <div class="p-3 rounded-xl bg-background border border-border">
+        <p class="font-bold text-foreground text-xs mb-1">✍️ Signature Requirements</p>
+        <p>140 × 60 px (3.5 × 1.5 cm)</p>
+        <p class="font-mono text-xs">5 KB – 20 KB • JPG</p>
+        <p class="text-xs">Black ink, plain white paper, cursive writing</p>
+      </div>
+    </div>
+    <div class="pt-1 flex flex-wrap gap-3">
+      <a href="/up-police-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-95 transition shadow-xs flex items-center gap-1.5">
+        <span>Open UP Police Resizer</span>
+        <span>&rarr;</span>
+      </a>
+      <a href="/compress-image-to-kb/" class="px-4 py-2.5 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:bg-muted transition">
+        Compress Photo to 20–50 KB
+      </a>
+    </div>
+  </div>
+</section>
+
+<h2 id="strategy">60-Day UP Police Constable 2026 Preparation Strategy</h2>
+<p>With 60,244 vacancies, the selection ratio is historically favorable. A focused 60-day plan covering high-weightage topics can secure selection.</p>
+<div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20">
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div>
+      <h4 class="font-bold text-lg text-foreground">Ready Your UP Police Application Documents</h4>
+      <p class="text-sm text-muted-foreground mt-1">Resize signature (140×60 px, 5–20 KB) and photo (200×230 px, 20–50 KB) to exact UPPRPB portal specs — free, instant, no sign-up needed.</p>
+    </div>
+    <div class="flex flex-wrap gap-2 w-full sm:w-auto">
+      <a href="/up-police-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+        <span>🚔</span> UP Police Resizer
+      </a>
+      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+        <span>📸</span> Resize Photo
+      </a>
+    </div>
+  </div>
+</div>
+    `
   }
 ];
