@@ -469,7 +469,7 @@ export const ONGOING_EXAMS_DATA: ExamNewsItem[] = [
     examDate: 'December 2026',
     notificationTitle: 'Direct Recruitment for Reserve Civil Police & Provincial Armed Constabulary (PAC)',
     badgeText: '60K+ Vacancies',
-    toolSlug: 'uppsc-signature-resize',
+    toolSlug: 'up-police-signature-resize',
     articleSlug: 'up-police-constable-si-2026-top-10-faq-guide',
     officialUrl: 'https://uppbpb.gov.in',
     isHot: true,

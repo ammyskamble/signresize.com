@@ -560,6 +560,81 @@ export const EXAM_PAGES_DATA: ExamPageInfo[] = [
       }
     ]
   },
+  // UP Police Constable (UPPRPB)
+  {
+    slug: 'up-police-signature-resize',
+    presetId: 'up-police',
+    pageTitle: 'UP Police Constable Signature & Photo Resize 5 to 20 KB – SignResize',
+    metaDescription: 'Resize signature (140×60 px, 5–20 KB) and photo (200×230 px, 20–50 KB) for UP Police Constable & SI 2025/2026. Free online tool for uppbpb.gov.in. Covers vacancy, syllabus, admit card, result & salary.',
+    keywords: 'up police vacancy 2026, up police constable, up police constable exam date 2026, up police vacancy 2025, up police constable syllabus, up police exam date 2026, up police constable vacancy 2025, up police constable result date 2026, up police admit card, up police syllabus, up police result 2026, up police constable admit card 2026, up police constable vacancy 2026, up police constable salary, up police constable result 2026, up police answer key 2026, up police vacancy 2025 online form date, up police exam city, up police logo',
+    h1: 'UP Police Constable Photo & Signature Resize (5 KB – 20 KB)',
+    subheading: 'Official 140×60 px signature (5–20 KB) and 200×230 px photo (20–50 KB) for UP Police Constable & SI 2025–2026 application at uppbpb.gov.in.',
+    authority: 'UP Police Recruitment & Promotion Board (UPPRPB)',
+    targetExams: 'UP Police Constable (Civil Police), PAC Constable, Fireman, Sub-Inspector (SI), Platoon Commander',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 3.5,
+    heightCm: 1.5,
+    minKb: 5,
+    maxKb: 20,
+    recommendedKb: 12,
+    dpi: 200,
+    ink: 'Black Ballpoint Pen Only',
+    aspectRatioLabel: '7:3 (140×60 px)',
+    strictNotice: 'Signature must be in running cursive handwriting in black ink on plain white paper. Block or capital letter signatures cause immediate rejection on the UPPRPB portal.',
+    tips: [
+      'Sign on clean unruled white paper with a dark black ballpoint pen.',
+      'Crop closely around the signature — it should fill 75–85% of the image frame.',
+      'Ensure the final JPG file size is between 5.0 KB and 19.9 KB before uploading.',
+      'Your photograph must have a plain white or light grey background — no dark backgrounds, sunglasses, or caps.'
+    ],
+    faqs: [
+      {
+        q: 'What are the photo and signature specifications for UP Police Constable & SI application?',
+        a: 'For UP Police Constable (UPPRPB), the signature must be 140 × 60 pixels (3.5 cm × 1.5 cm), in JPG format, between 5 KB and 20 KB, signed in black ink on plain white paper. The photograph must be 200 × 230 pixels (3.5 cm × 4.5 cm), in JPG format, between 20 KB and 50 KB, on a plain white or light grey background, without caps or sunglasses. Both are uploaded on uppbpb.gov.in during online application.'
+      },
+      {
+        q: 'What is the UP Police Constable vacancy 2026 and total posts?',
+        a: 'UP Police Constable & SI 2026 notifies a total of 60,244 posts for direct recruitment. Posts include Reserve Civil Police Constable, Provincial Armed Constabulary (PAC) Constable, Fireman, and Sub-Inspector (Civil Police). The recruitment is conducted by the UP Police Recruitment & Promotion Board (UPPRPB) through Advertisement No. PRPB:One-1(138)/2026.'
+      },
+      {
+        q: 'What is the UP Police Constable exam date 2026?',
+        a: 'The UP Police Constable OMR-based written examination for 2026 is tentatively scheduled for November–December 2026. The online application window runs from September 1, 2026 to October 25, 2026. Fee correction and edit window: October 26–28, 2026. Official date notifications are published on uppbpb.gov.in.'
+      },
+      {
+        q: 'What is the UP Police Constable syllabus and exam pattern 2026?',
+        a: 'The written examination consists of 150 objective-type questions carrying 300 marks (2 marks each) to be completed in 2 hours on OMR sheets. The 4 subjects are: (1) General Knowledge (GK) — 38 questions, 76 marks; (2) General Hindi — 37 questions, 74 marks; (3) Numerical & Mental Ability Test — 38 questions, 76 marks; (4) Mental Aptitude/IQ/Reasoning — 37 questions, 74 marks. Negative marking: 0.50 marks deducted per wrong answer.'
+      },
+      {
+        q: 'When is the UP Police admit card 2026 released and how to download?',
+        a: 'UP Police Constable admit card 2026 (also called UP Police hall ticket or pravesh patra) is released approximately 10–15 days before the written examination on the official portal uppbpb.gov.in. Candidates can download by entering their registration number and date of birth. The admit card contains the exam center details, roll number, shift timings, and exam city information.'
+      },
+      {
+        q: 'How to check UP Police result 2026 and what is the result date?',
+        a: 'UP Police Constable result 2026 is published on uppbpb.gov.in after the written examination. After the written exam, the qualifying candidates proceed to Document Verification (DV), Physical Standard Test (PST), and Physical Efficiency Test (PET). The final result is merit-based combining written exam scores. Results are typically announced within 30–60 days of the exam.'
+      },
+      {
+        q: 'When is the UP Police answer key 2026 released?',
+        a: 'The provisional UP Police answer key 2026 is released on uppbpb.gov.in within 7–15 days after the written examination. Candidates can raise objections to any answer within a specified objection window (usually 3–7 days). A final answer key is published after reviewing all objections, and the result is based on the final verified answer key.'
+      },
+      {
+        q: 'What are the physical running standards (PET) for UP Police Constable?',
+        a: 'UP Police Physical Efficiency Test (PET) is qualifying only. Male candidates must run 4.8 km within 25 minutes. Female candidates must run 2.4 km within 14 minutes. Failing to complete the run within the time limit results in instant elimination regardless of written exam marks. No grace time or second attempt is provided.'
+      },
+      {
+        q: 'What is the UP Police Constable salary (pay scale) 2026?',
+        a: 'UP Police Constable salary as per the 7th Pay Commission Pay Matrix is Level 3: Basic Pay ₹21,700 per month. With all allowances including Dearness Allowance (DA), House Rent Allowance (HRA), and other perks, the gross monthly salary ranges approximately from ₹28,000 to ₹35,000 depending on posting location. Sub-Inspector (SI) salary is Level 6: Basic Pay ₹35,400 per month.'
+      },
+      {
+        q: 'How to check UP Police exam city 2026?',
+        a: 'UP Police exam city intimation slip (also called city intimation letter) is released on uppbpb.gov.in approximately 7–10 days before the written examination. Candidates log in with their registration number to view the assigned exam city and district. The actual exam center hall ticket with the complete address is released separately closer to the exam date.'
+      },
+      {
+        q: 'What is the age limit for UP Police Constable 2025 and 2026?',
+        a: 'For UP Police Constable (Civil): Male General candidates — 18 to 25 years; Female General candidates — 18 to 28 years (3-year relaxation). OBC male — up to 28 years; OBC female — up to 31 years. SC/ST male — up to 30 years; SC/ST female — up to 33 years. For Sub-Inspector (SI): 21 to 28 years (General). Age is calculated as on July 1 of the recruitment year.'
+      }
+    ]
+  },
   // Sarathi Driving Licence
   {
     slug: 'sarathi-dl-signature-resize',

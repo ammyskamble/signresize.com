@@ -893,7 +893,10 @@ const PRESET_ALIASES: Record<string, string> = {
   rbi: 'rbi-grade-b',
   police: 'maharashtra-police',
   mahapolice: 'maharashtra-police',
-  'maharashtra-police': 'maharashtra-police'
+  'maharashtra-police': 'maharashtra-police',
+  'up-police': 'up-police',
+  uppolice: 'up-police',
+  uppbpb: 'up-police'
 };
 
 const findPresetByKey = (key: string): ExamPreset | undefined => {

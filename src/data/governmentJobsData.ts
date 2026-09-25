@@ -598,7 +598,7 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       format: 'JPG',
       note: 'Black ink signature.'
     },
-    toolPresetSlug: 'uppsc-signature-resize',
+    toolPresetSlug: 'up-police-signature-resize',
     toolLabel: 'Resize for UP Police'
   },
   {

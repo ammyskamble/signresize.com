@@ -5105,7 +5105,7 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     readTime: "9 min read",
     featured: false,
     tags: ["UP Police Constable 2026","UPPRPB Bharti","UP Police Running Test","UP Police OMR Exam","Digilocker Upload","Police Constable Jobs"],
-    relatedExamPreset: "uppsc-services",
+    relatedExamPreset: "up-police",
     quickFacts: [
         {
             "label": "Conducting Body",
