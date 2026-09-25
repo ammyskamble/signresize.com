@@ -386,80 +386,82 @@ const quickDeadlines = [
 
     <!-- Client-side Category Filter & Live Search Script -->
     <script is:inline>
-      const buttons = document.querySelectorAll('.category-filter-btn');
-      const cards = document.querySelectorAll('.post-card');
-      const searchInput = document.getElementById('blog-search-input');
-      const searchClear = document.getElementById('blog-search-clear');
-      const countEl = document.getElementById('blog-search-count');
-      const noResultsEl = document.getElementById('blog-no-results');
+      (() => {
+        const buttons = document.querySelectorAll('.category-filter-btn');
+        const cards = document.querySelectorAll('.post-card');
+        const blogSearchInput = document.getElementById('blog-search-input');
+        const searchClear = document.getElementById('blog-search-clear');
+        const countEl = document.getElementById('blog-search-count');
+        const noResultsEl = document.getElementById('blog-no-results');
 
-      let currentCategory = 'All';
+        let currentCategory = 'All';
 
-      function filterBlogPosts() {
-        const query = (searchInput?.value || '').toLowerCase().trim();
+        function filterBlogPosts() {
+          const query = (blogSearchInput?.value || '').toLowerCase().trim();
 
-        if (searchClear) {
-          if (query) {
-            searchClear.classList.remove('hidden');
-          } else {
-            searchClear.classList.add('hidden');
+          if (searchClear) {
+            if (query) {
+              searchClear.classList.remove('hidden');
+            } else {
+              searchClear.classList.add('hidden');
+            }
           }
-        }
 
-        let visibleCount = 0;
-        cards.forEach(card => {
-          const cardCat = card.getAttribute('data-category') || '';
-          const cardTitle = card.getAttribute('data-title') || '';
-          const cardExcerpt = card.getAttribute('data-excerpt') || '';
-          const cardTags = card.getAttribute('data-tags') || '';
+          let visibleCount = 0;
+          cards.forEach(card => {
+            const cardCat = card.getAttribute('data-category') || '';
+            const cardTitle = card.getAttribute('data-title') || '';
+            const cardExcerpt = card.getAttribute('data-excerpt') || '';
+            const cardTags = card.getAttribute('data-tags') || '';
 
-          const matchesCat = currentCategory === 'All' || cardCat === currentCategory;
-          const matchesQuery = !query || cardTitle.includes(query) || cardExcerpt.includes(query) || cardTags.includes(query);
+            const matchesCat = currentCategory === 'All' || cardCat === currentCategory;
+            const matchesQuery = !query || cardTitle.includes(query) || cardExcerpt.includes(query) || cardTags.includes(query);
 
-          if (matchesCat && matchesQuery) {
-            card.style.display = 'flex';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        if (countEl) {
-          countEl.textContent = String(visibleCount);
-        }
-
-        if (noResultsEl) {
-          if (visibleCount === 0) {
-            noResultsEl.classList.remove('hidden');
-          } else {
-            noResultsEl.classList.add('hidden');
-          }
-        }
-      }
-
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          buttons.forEach(b => {
-            b.classList.remove('bg-primary', 'text-primary-foreground', 'shadow-xs');
-            b.classList.add('bg-muted', 'text-muted-foreground');
+            if (matchesCat && matchesQuery) {
+              card.style.display = 'flex';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
           });
-          btn.classList.remove('bg-muted', 'text-muted-foreground');
-          btn.classList.add('bg-primary', 'text-primary-foreground', 'shadow-xs');
 
-          currentCategory = btn.getAttribute('data-category') || 'All';
-          filterBlogPosts();
-        });
-      });
+          if (countEl) {
+            countEl.textContent = String(visibleCount);
+          }
 
-      searchInput?.addEventListener('input', filterBlogPosts);
-
-      searchClear?.addEventListener('click', () => {
-        if (searchInput) {
-          searchInput.value = '';
-          searchInput.focus();
-          filterBlogPosts();
+          if (noResultsEl) {
+            if (visibleCount === 0) {
+              noResultsEl.classList.remove('hidden');
+            } else {
+              noResultsEl.classList.add('hidden');
+            }
+          }
         }
-      });
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            buttons.forEach(b => {
+              b.classList.remove('bg-primary', 'text-primary-foreground', 'shadow-xs');
+              b.classList.add('bg-muted', 'text-muted-foreground');
+            });
+            btn.classList.remove('bg-muted', 'text-muted-foreground');
+            btn.classList.add('bg-primary', 'text-primary-foreground', 'shadow-xs');
+
+            currentCategory = btn.getAttribute('data-category') || 'All';
+            filterBlogPosts();
+          });
+        });
+
+        blogSearchInput?.addEventListener('input', filterBlogPosts);
+
+        searchClear?.addEventListener('click', () => {
+          if (blogSearchInput) {
+            blogSearchInput.value = '';
+            blogSearchInput.focus();
+            filterBlogPosts();
+          }
+        });
+      })();
     </script>
   </body>
 </html>

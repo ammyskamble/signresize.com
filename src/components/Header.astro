@@ -3,6 +3,9 @@
 import Logo from './Logo.astro';
 import ExamNewsTicker from './ExamNewsTicker.astro';
 import { EXAM_PRESETS } from '../data/examPresets';
+import { EXAM_PAGES_DATA } from '../data/examPagesData';
+
+const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isHome = currentPath === '/';
@@ -19,6 +22,7 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
 // Compact JSON of all presets for instant client-side searching & dropdown display
 const searchablePresets = EXAM_PRESETS.map((p) => ({
   id: p.id,
+  slug: presetSlugMap.get(p.id) || null,
   name: p.name,
   shortCode: p.shortCode,
   category: p.category,
@@ -720,27 +724,27 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
         <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Top Applied</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ssc">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ssc" data-slug="ssc-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">SSC (CGL, CHSL)</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="upsc">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="upsc" data-slug="upsc-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">UPSC (IAS, NDA)</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">350×350 • 20–300 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ibps">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ibps" data-slug="ibps-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">IBPS / SBI Bank</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="gate">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="gate" data-slug="gate-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">GATE &amp; JAM</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">400×160 • 5–200 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="rrb">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="rrb" data-slug="rrb-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">RRB Railway</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="neet">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="neet" data-slug="nta-neet-jee-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">NEET / JEE</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">NTA • 4–30 KB</span>
         </button>
@@ -756,19 +760,19 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
         <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Commissions</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="mpsc">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="mpsc" data-slug="mpsc-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">MPSC</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Maharashtra</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="uppsc">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="uppsc" data-slug="uppsc-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">UPPSC</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Uttar Pradesh</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="bpsc">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="bpsc" data-slug="bpsc-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">BPSC</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Bihar</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="tnpsc">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="tnpsc" data-slug="tnpsc-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">TNPSC</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Tamil Nadu</span>
         </button>
@@ -800,19 +804,19 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
         <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Entrances</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="cat">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="cat" data-slug="cat-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">CAT (IIMs)</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–80 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="clat">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="clat" data-slug="clat-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">CLAT Law</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–50 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="xat-mba">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="xat-mba" data-slug="xat-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">XAT (XLRI)</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–50 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ailet-law">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ailet-law" data-slug="ailet-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">AILET</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Law NLU</span>
         </button>
@@ -828,19 +832,19 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
         <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Official</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="pan">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="pan" data-slug="pan-card-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">PAN Card Sign</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">400×200 • 10–50KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="sarathi-dl">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="sarathi-dl" data-slug="sarathi-dl-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Parivahan DL</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">200×230 • Sarathi</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="thumb">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="thumb" data-slug="thumb-impression-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Thumb Sign</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">1:1 • 10–50 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="passport-seva">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="passport-seva" data-slug="passport-seva-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Passport Seva</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">4.5×3.5 cm</span>
         </button>
@@ -855,20 +859,24 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
         </span>
         <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Armed Forces</span>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="afcat">
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="maharashtra-police" data-slug="maharashtra-police-signature-resize">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Maha Police</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">256×64 • 5–20 KB</span>
+        </button>
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="afcat" data-slug="afcat-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">AFCAT (IAF)</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–50 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="agniveer">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="agniveer" data-slug="agniveer-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Agniveer</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–20 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="coastguard">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="coastguard" data-slug="indian-coast-guard-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Coast Guard</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">10–20 KB</span>
         </button>
-        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="capf-ac">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="capf-ac" data-slug="capf-signature-resize">
           <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">CAPF AC</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">UPSC • 20–300 KB</span>
         </button>
@@ -897,6 +905,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
 <script id="exam-presets-dataset" type="application/json" set:html={JSON.stringify(searchablePresets)} />
 
 <script is:inline>
+(() => {
   // Theme Toggle logic
   const themeToggle = document.getElementById('theme-toggle');
   const sunIcon = document.getElementById('theme-icon-sun');
@@ -1004,7 +1013,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
   }
 
   // Preset Selection Core Handler
-  function handlePresetSelection(examKey) {
+  function handlePresetSelection(examKey, slug) {
     if (!examKey) return;
     const studio = document.getElementById('tool-workspace') || document.getElementById('studio-container');
     if (studio) {
@@ -1013,17 +1022,20 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
       url.searchParams.set('preset', examKey);
       window.history.replaceState({}, '', url.toString());
       studio.scrollIntoView({ behavior: 'smooth' });
+    } else if (slug) {
+      window.location.href = `/${slug}/`;
     } else {
       window.location.href = `/?preset=${encodeURIComponent(examKey)}#tool-workspace`;
     }
   }
 
-  // Attach Preset Handlers on all header preset-btn elements
+  // Attach Preset Handlers on all preset-btn elements inside or outside header
   function attachPresetListeners(container) {
-    (container || document).querySelectorAll('header .preset-btn').forEach((btn) => {
+    (container || document).querySelectorAll('.preset-btn').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const examKey = e.currentTarget.getAttribute('data-exam');
-        handlePresetSelection(examKey);
+        const slug = e.currentTarget.getAttribute('data-slug');
+        handlePresetSelection(examKey, slug);
         closeSearchPopover();
       });
     });
@@ -1037,7 +1049,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
   const searchTrigger = document.getElementById('header-search-trigger');
   const searchPopover = document.getElementById('header-search-popover');
   const searchBackdrop = document.getElementById('header-search-backdrop');
-  const searchInput = document.getElementById('header-exam-search');
+  const headerSearchInput = document.getElementById('header-exam-search');
   const searchClear = document.getElementById('header-search-clear');
   const searchClose = document.getElementById('header-search-close');
   const searchFooterClose = document.getElementById('header-search-footer-close');
@@ -1059,8 +1071,8 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
     searchTrigger?.setAttribute('aria-expanded', 'true');
     // Delayed focus avoids stutter on mobile virtual keyboards
     setTimeout(() => {
-      searchInput?.focus();
-      searchInput?.select();
+      headerSearchInput?.focus();
+      headerSearchInput?.select();
     }, 50);
   }
 
@@ -1184,6 +1196,7 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
           type="button"
           class="preset-btn w-full text-left p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 hover:border-primary/50 dark:hover:border-primary/50 transition flex items-center justify-between gap-2 group cursor-pointer shadow-2xs"
           data-exam="${p.id}"
+          data-slug="${p.slug || ''}"
         >
           <div class="min-w-0">
             <div class="flex items-center gap-2">
@@ -1212,14 +1225,14 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
     attachPresetListeners(searchResults);
   }
 
-  searchInput?.addEventListener('input', (e) => {
+  headerSearchInput?.addEventListener('input', (e) => {
     renderFilteredResults(e.target.value);
   });
 
   searchClear?.addEventListener('click', () => {
-    if (searchInput) {
-      searchInput.value = '';
-      searchInput.focus();
+    if (headerSearchInput) {
+      headerSearchInput.value = '';
+      headerSearchInput.focus();
       renderFilteredResults('');
     }
   });
@@ -1329,5 +1342,6 @@ const searchablePresets = EXAM_PRESETS.map((p) => ({
       closeMobileMenu();
     }
   });
+})();
 </script>
 

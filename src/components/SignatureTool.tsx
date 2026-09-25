@@ -890,7 +890,10 @@ const PRESET_ALIASES: Record<string, string> = {
   bpsc: 'bpsc',
   mpsc: 'mpsc',
   tnpsc: 'tnpsc',
-  rbi: 'rbi-grade-b'
+  rbi: 'rbi-grade-b',
+  police: 'maharashtra-police',
+  mahapolice: 'maharashtra-police',
+  'maharashtra-police': 'maharashtra-police'
 };
 
 const findPresetByKey = (key: string): ExamPreset | undefined => {
