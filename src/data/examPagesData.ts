@@ -471,6 +471,61 @@ export const EXAM_PAGES_DATA: ExamPageInfo[] = [
       }
     ]
   },
+  // Maharashtra Police Bharti
+  {
+    slug: 'maharashtra-police-signature-resize',
+    presetId: 'maharashtra-police',
+    pageTitle: 'Maharashtra Police Bharti Signature & Photo Resize 5 to 20 KB - SignResize',
+    metaDescription: 'Resize signature (256x64 px) and photo (160x212 px) for Maharashtra Police Bharti 2025/2026. File size 5 to 20 KB JPG for policerecruitment.mahait.org.',
+    keywords: 'maharashtra police bharti 2026, maharashtra police bharti 2025, maharashtra police Bharti, maharashtra police bharti online form, maharashtra police bharti hall ticket, maharashtra police bharti ground marks, maharashtra police bharti 1600 meter running time, maharashtra police bharti syllabus, maharashtra police bharti age limit, maharashtra police bharti question paper, maharashtra police bharti 2025 online form date, maharashtra police bharti hall ticket 2026, maharashtra police bharti 2026 date, maharashtra police bharti 2025 pdf download',
+    h1: 'Maharashtra Police Bharti Photo & Signature Resize (5 KB – 20 KB)',
+    subheading: 'Official 256×64 px signature and 160×212 px photo format with strict 5 KB to 20 KB compression for policerecruitment.mahait.org online application.',
+    authority: 'Maharashtra State Police Recruitment Board',
+    targetExams: 'Maharashtra Police Constable (Sipahi), Police Constable Driver, SRPF Armed Police Constable, Bandsman, Jail Constable (Karagruh)',
+    widthPx: 256,
+    heightPx: 64,
+    widthCm: 4.5,
+    heightCm: 1.5,
+    minKb: 5,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Pen Only',
+    aspectRatioLabel: '4:1 Banner (256×64 px)',
+    strictNotice: 'Signatures in CAPITAL or BLOCK LETTERS cause immediate disqualification on the MahaPolice recruitment portal. Use running cursive handwriting in black ink on clean white paper.',
+    tips: [
+      'Sign horizontally on clean unruled white paper using a dark black ballpoint pen.',
+      'Crop cleanly around the signature ensuring it fills 75–85% of the frame without touching the border.',
+      'Ensure the final file size is strictly between 5.0 KB and 20.0 KB in JPG format before portal upload.',
+      'Enable the Clean White Paper filter to eliminate phone shadow and paper yellowness.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required photo and signature size for Maharashtra Police Bharti online form?',
+        a: 'On policerecruitment.mahait.org, the applicant photo must be 160 × 212 pixels (5 KB to 20 KB, JPG format) with a clear light background. The signature must be 256 × 64 pixels (5 KB to 20 KB, JPG format) signed with black ink.'
+      },
+      {
+        q: 'What are the ground marks for Maharashtra Police Bharti (Physical Test)?',
+        a: 'The physical ground test carries 50 marks total. For Male candidates: 1600m running carries 20 marks, 100m sprint carries 15 marks, and Shot Put (7.26 kg) carries 15 marks. For Female candidates: 800m running carries 20 marks, 100m sprint carries 15 marks, and Shot Put (4 kg) carries 15 marks. Minimum qualifying mark is 25 out of 50 (50%).'
+      },
+      {
+        q: 'What is the 1600 meter running time and marks chart for Maharashtra Police Bharti?',
+        a: 'For male candidates: Completing 1600m in 5 minutes 10 seconds or less scores the full 20 marks. 5m 11s to 5m 30s scores 18 marks, 5m 31s to 5m 50s scores 15 marks, 5m 51s to 6m 10s scores 12 marks, 6m 11s to 6m 30s scores 10 marks, and over 6m 30s results in 0 marks.'
+      },
+      {
+        q: 'What is the age limit for Maharashtra Police Bharti 2025 and 2026?',
+        a: 'For Open/General category candidates: 18 to 28 years. For Backward classes (OBC, SC, ST, VJNT, SBC, EWS): 18 to 33 years (5 years relaxation). Special relaxations apply for Home Guards, Sportspersons, and Ex-Servicemen.'
+      },
+      {
+        q: 'What is the syllabus for the 100-mark Maharashtra Police written exam?',
+        a: 'The written exam consists of 100 multiple-choice questions (100 marks, 90 minutes, no negative marking) across four subjects: Marathi Grammar (25 marks), Mathematics (25 marks), Intellectual Test / Reasoning (25 marks), and General Knowledge & Current Affairs (25 marks).'
+      },
+      {
+        q: 'How to download Maharashtra Police Bharti Hall Ticket 2026?',
+        a: 'Log in to policerecruitment.mahait.org using your Application ID and Password/Date of Birth. Click on "Download Hall Ticket / Admit Card" for the Physical Ground Test or Written Examination, and print 2 colored copies.'
+      }
+    ]
+  },
   // TNPSC
   {
     slug: 'tnpsc-signature-resize',

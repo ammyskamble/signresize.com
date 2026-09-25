@@ -915,18 +915,18 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
     keyPosts: ['Police Constable', 'Police Driver Constable', 'SRPF Armed Police Constable', 'Jail Constable (Karagruh)'],
     selectionSteps: ['Physical Efficiency Test (PET - 50 Marks)', 'Written Examination (100 Marks)', 'Document Verification & Medical'],
     photoSpecs: {
-      dimensions: '160 × 200 pixels',
-      fileSize: '10 KB – 50 KB',
-      format: 'JPG',
-      note: 'Clear face.'
-    },
-    signatureSpecs: {
-      dimensions: '140 × 60 px',
+      dimensions: '160 × 212 pixels',
       fileSize: '5 KB – 20 KB',
       format: 'JPG',
-      note: 'Black ink signature.'
+      note: 'Clear face, light background.'
     },
-    toolPresetSlug: 'mpsc-signature-resize',
+    signatureSpecs: {
+      dimensions: '256 × 64 px',
+      fileSize: '5 KB – 20 KB',
+      format: 'JPG',
+      note: 'Black ink running handwriting.'
+    },
+    toolPresetSlug: 'maharashtra-police-signature-resize',
     toolLabel: 'Resize for Maha Police'
   },
   {

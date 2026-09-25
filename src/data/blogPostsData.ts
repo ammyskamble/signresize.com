@@ -4133,21 +4133,21 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
 
   {
     slug: "maharashtra-police-bharti-2026-top-10-faq-guide",
-    title: "Maharashtra Police Bharti 2026: Top 10 FAQs on Physical Test, Cutoffs, 12th Pass Rules & Documents",
-    metaTitle: "Maharashtra Police Bharti 2026: Physical Test, FAQ Guide",
-    metaDescription: "Maharashtra Police Bharti 2026 guide: 50-mark physical test standards, 100-mark written exam, eligibility & top FAQs. Resize police documents online free!",
-    excerpt: "Comprehensive candidate handbook for Maharashtra Police Bharti 2026: 17,400+ constable & driver vacancies, physical ground marks, written exam pattern, and photo/sign upload rules.",
+    title: "Maharashtra Police Bharti 2026: Ground Marks, 1600m Running Time, Syllabus, Online Form & Hall Ticket",
+    metaTitle: "Maharashtra Police Bharti 2026: Ground Marks, 1600m Time, Syllabus & Dates",
+    metaDescription: "Maharashtra Police Bharti 2025-2026 guide: 1600m running time vs marks table, 50-mark physical ground criteria, written exam syllabus, age limit & hall ticket link.",
+    excerpt: "Authoritative candidate handbook for Maharashtra Police Bharti 2025 & 2026: 17,400+ constable & driver vacancies, 1600m running time chart, 50 ground marks, written syllabus, and online form portal rules.",
     category: "Career Opportunity",
     publishDate: "Sept 20, 2026",
     publishTime: "09:00 AM IST",
-    lastUpdated: "Sept 20, 2026",
-    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
+    lastUpdated: "Sept 25, 2026",
+    deployedAt: "Sept 25, 2026 • 09:00 AM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Maharashtra State Police Recruitment Desk",
-    readTime: "9 min read",
-    featured: false,
-    tags: ["Maharashtra Police Bharti 2026","Police Constable Bharti","Physical Ground Test","MahaPolice Application","12th Pass Govt Jobs"],
-    relatedExamPreset: "mpsc-general",
+    readTime: "11 min read",
+    featured: true,
+    tags: ["Maharashtra Police Bharti 2026","Maharashtra Police Bharti 2025","maharashtra police Bharti","Maharashtra Police Bharti Ground Marks","1600 Meter Running Time","Police Bharti Syllabus","Online Form Date","Hall Ticket 2026","Police Question Paper"],
+    relatedExamPreset: "maharashtra-police",
     quickFacts: [
         {
             "label": "Conducting Authority",
@@ -4155,7 +4155,7 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         },
         {
             "label": "Total Vacancies",
-            "value": "17,471+ Posts (Constable, SRPF, Driver)"
+            "value": "17,471+ Posts (Constable, SRPF, Driver, Bandsman)"
         },
         {
             "label": "Educational Criteria",
@@ -4171,61 +4171,45 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         },
         {
             "label": "Document Specs",
-            "value": "Photo (20-50 KB) + Signature (140×60 px, 10-20 KB)"
+            "value": "Photo (160×212 px, 5-20 KB) + Signature (256×64 px, 5-20 KB)"
         }
     ],
     faqs: [
         {
-            "question": "What is the educational qualification required for Maharashtra Police Bharti 2026?",
-            "answer": "Candidates must have passed Higher Secondary School Certificate (10+2 / 12th Standard) Examination from the Maharashtra State Board of Secondary and Higher Secondary Education or an equivalent examination recognized by the Government. For candidates belonging to tribal areas recognized under ITDP, 10th standard pass is accepted. For Police Driver posts, candidates must also possess a valid driving license (LMV/TR) at the time of application."
+            "question": "What is the qualifying ground mark for Maharashtra Police Bharti 2026?",
+            "answer": "Candidates must secure a minimum of 50% marks in the Physical Efficiency Test (PET), which equals at least 25 marks out of 50. Only candidates scoring 25 or more marks qualify to appear for the 100-mark written examination at a 1:10 shortlisting ratio."
         },
         {
-            "question": "What are the height and chest physical standards for Male and Female candidates?",
-            "answer": "For Male candidates: Minimum height must be 165 cm. Chest measurement must be unexpanded minimum 79 cm, with a mandatory minimum expansion of 5 cm (expanded 84 cm). For Female candidates: Minimum height must be 158 cm (chest measurement is not applicable). Concessions in height and chest apply for candidates hailing from declared naxal/tribal zones and sportspersons."
+            "question": "What is the 1600 meter running time and marks chart for Maharashtra Police Bharti?",
+            "answer": "For male candidates, the 1600-meter run carries 20 marks: 5 minutes 10 seconds or less scores 20 marks; 5 min 11 sec to 5 min 30 sec scores 18 marks; 5 min 31 sec to 5 min 50 sec scores 15 marks; 5 min 51 sec to 6 min 10 sec scores 12 marks; 6 min 11 sec to 6 min 30 sec scores 10 marks; more than 6 minutes 30 seconds scores 0 marks (disqualified)."
         },
         {
-            "question": "How is the physical test (ground test) scored out of 50 marks?",
-            "answer": "The Physical Ground Test carries 50 marks. For Male candidates: 1600-meter run carries 20 marks, 100-meter sprint carries 15 marks, and Shot Put (Gola Phek, 7.26 kg) carries 15 marks. For Female candidates: 800-meter run carries 20 marks, 100-meter sprint carries 15 marks, and Shot Put (4.0 kg) carries 15 marks. Candidates must score at least 50% (25 marks) to qualify for the written exam."
+            "question": "What is the age limit and category relaxation for Maharashtra Police Bharti?",
+            "answer": "For Open/General category candidates, the age limit is 18 to 28 years. For reserved categories (OBC, SC, ST, VJNT, SBC, EWS), the upper age limit is relaxed up to 33 years (+5 years). Sportspersons receive up to 33 years, and Ex-Servicemen receive 3 years plus completed defense service duration."
         },
         {
-            "question": "Can a candidate apply for multiple police units or commissionerates in Maharashtra?",
-            "answer": "Candidates can apply for different posts (e.g. Police Constable in one unit and SRPF or Driver in another). However, applying for the same post (Police Constable) across multiple district commissionerates in violation of recruitment rules is invalid, as physical testing across units is conducted concurrently, leading to disqualification if dates conflict."
+            "question": "What is the syllabus and subject-wise mark distribution for the written exam?",
+            "answer": "The written exam is an OMR-based test comprising 100 multiple-choice questions carrying 100 marks with a duration of 90 minutes. It covers: 1. Mathematics (Ankganit - 25 Marks), 2. General Knowledge & Current Affairs (Samanya Gyan - 25 Marks), 3. Intellectual Test / Reasoning (Buddhimatecha Chachani - 25 Marks), and 4. Marathi Grammar (Marathi Vyakaran - 25 Marks). There is NO negative marking."
         },
         {
-            "question": "What is the pattern and syllabus for the 100-mark written examination?",
-            "answer": "The written exam is an OMR-based test comprising 100 multiple-choice questions carrying 100 marks with a duration of 90 minutes. Subjects include: 1. Mathematics (Ankganit - 25 Marks), 2. General Knowledge & Current Affairs (Samanya Gyan - 25 Marks), 3. Intellectual Test / Reasoning (Buddhimatecha Chachani - 25 Marks), and 4. Marathi Grammar (Marathi Vyakaran - 25 Marks). Questions are set strictly in the Marathi language."
+            "question": "How to download the Maharashtra Police Bharti Hall Ticket 2026?",
+            "answer": "Candidates can download their physical test or written exam hall ticket by visiting policerecruitment.mahait.org or mahapolice.gov.in, logging in with their Application ID and Date of Birth/Password, clicking on 'Download Admit Card', and printing 2 clear copies with recent photographs pasted."
         },
         {
-            "question": "Is there negative marking in the Maharashtra Police written exam?",
-            "answer": "No, under the official Maharashtra Police Constable recruitment rules, there is no negative marking penalty for incorrect answers in the written examination. Candidates are encouraged to attempt all 100 questions within the 90-minute limit."
+            "question": "How to fill the Maharashtra Police Bharti online form without rejection?",
+            "answer": "Visit policerecruitment.mahait.org during the active online form dates. Complete basic registration, upload your photo formatted strictly to 160 × 212 pixels (5 KB to 20 KB JPG) and signature to 256 × 64 pixels (5 KB to 20 KB JPG), fill educational credentials, pay the fee (₹450 Open / ₹350 Reserved), and save the confirmation PDF."
         },
         {
-            "question": "What is the age limit and relaxation criteria for Maharashtra Police Bharti 2026?",
-            "answer": "For Open/General category candidates: Age must be between 18 and 28 years on the crucial date. For reserved categories (SC, ST, VJ/DT, NT, OBC, SBC, EWS): Upper age limit is relaxed up to 33 years (+5 years). Sportspersons receive up to 33 years, and Ex-Servicemen receive 3 years plus completed military service duration."
-        },
-        {
-            "question": "What are the photo and signature specifications for the MahaPolice recruitment portal?",
-            "answer": "The photograph must be a clear recent color passport portrait measuring 160 × 200 pixels, with file size strictly between 20.0 KB and 50.0 KB in JPG/JPEG format on a light background without caps or dark glasses. The signature must measure 140 × 60 pixels, strictly between 10.0 KB and 20.0 KB in JPG/JPEG format, penned in black ballpoint ink on clean white paper."
-        },
-        {
-            "question": "What certificates are mandatory during document scrutiny for Maharashtra candidates?",
-            "answer": "Mandatory documents include: 10th and 12th Mark sheets/Board Certificates, Domicile Certificate of Maharashtra, Caste Certificate and valid Non-Creamy Layer (NCL) Certificate (valid for current financial year for OBC/NT/SBC), EWS Eligibility Certificate (if applicable), and MSCIT or recognized Computer Literacy Certificate."
-        },
-        {
-            "question": "What is the monthly salary of a Maharashtra Police Constable after joining?",
-            "answer": "A Police Constable is appointed under 7th Pay Commission Pay Matrix Level S-7 with Basic Pay of ₹21,700 (Pay Scale ₹21,700–₹69,100). Adding Dearness Allowance (~50%), House Rent Allowance (27% in Mumbai/Pune Class X cities, 18% in Class Y), Transport Allowance, and Police Special Allowance, gross pay is ~₹42,000–₹45,000. Net in-hand monthly salary ranges between ₹36,000 and ₹39,000."
-        },
-        {
-            "question": "Can an average candidate clear Maharashtra Police Bharti 2026 on the first attempt?",
-            "answer": "Yes, absolutely. Over 70% of selected Maharashtra Police constables start from average academic and physical fitness backgrounds. Clearing Bharti requires a balanced dual approach: (1) Ground Physical Endurance: Dedicate 2 hours every morning to 1600m/800m running drills and shot put technique to comfortably secure at least 35–42 out of 50 marks (minimum qualifying is 25). (2) Written Exam: Study 4–5 hours daily focusing on Marathi Grammar, Basic Mathematics, Reasoning, and Maharashtra GK/Current Affairs. Practicing previous 5 years' question papers under timer conditions ensures scoring 85+ marks in the 100-mark written exam."
+            "question": "Where can I download Maharashtra Police Bharti previous year question papers PDF?",
+            "answer": "Previous 5 years' solved question papers for district police, SRPF, and driver exams can be downloaded from the official MahaPolice portal archives or educational repositories to practice time-management and analyze high-frequency Marathi grammar and reasoning patterns."
         }
     ],
     contentHtml: `
 <section id="overview" class="space-y-4">
-        <h2>Maharashtra Police Constable Bharti 2026: Mega Recruitment Overview</h2>
-        <p>Looking for the official <strong>Maharashtra Police Bharti 2026 eligibility criteria</strong>, <strong>physical ground test rules</strong>, and exact <strong>MahaPolice document upload guidelines</strong>? With over <strong>17,471 vacancies</strong> announced across District Police, State Reserve Police Force (SRPF), Bandsman, and Police Driver cadres, this authoritative handbook provides everything you need to apply on <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">policerecruitment.mahait.org</a> and secure high marks in both ground physicals and written exams.</p>
+        <h2>Maharashtra Police Bharti 2026 &amp; 2025: Recruitment Overview</h2>
+        <p>Looking for the official <strong>Maharashtra Police Bharti 2026</strong> notification, <strong>physical ground marks</strong>, <strong>1600 meter running time</strong> chart, and exact <strong>online form</strong> dates? With over <strong>17,471 vacancies</strong> across District Police Constables (Sipahi), State Reserve Police Force (SRPF), Police Drivers, and Bandsman, this authoritative handbook details every aspect of the selection lifecycle on <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">policerecruitment.mahait.org</a>.</p>
         
-        <p>Police recruitment in Maharashtra is among the most competitive state drives. If you are also tracking central and defense vacancies, explore our comprehensive <a href="/government-jobs/" class="text-primary underline font-semibold">Live Government Jobs Directory</a>.</p>
+        <p>Whether you are tracking residual updates from <strong>Maharashtra Police Bharti 2025</strong> or preparing for the upcoming <strong>Maharashtra Police Bharti 2026</strong> cycle, having exact ground benchmarks and application specifications is vital to secure your rank. For Pan-India vacancies, check our <a href="/government-jobs/" class="text-primary underline font-semibold">Live Government Jobs Directory</a>.</p>
 
         <div class="my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-2">
           <h4 class="font-bold text-primary text-base flex items-center gap-2">
@@ -4235,96 +4219,342 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
             <li><strong>Police Constable (Sipahi):</strong> Pay Matrix S-7 (₹21,700–₹69,100)</li>
             <li><strong>SRPF Armed Police:</strong> State Reserve Police Force Battalions across Maharashtra</li>
             <li><strong>Police Constable Driver:</strong> Requires valid LMV / TR driving license</li>
-            <li><strong>Selection Order:</strong> Stage 1 Physical Test (50 Marks) → Stage 2 Written Test (100 Marks)</li>
+            <li><strong>Selection Order:</strong> Stage 1 Physical Test (50 Marks) &rarr; Stage 2 Written Test (100 Marks)</li>
           </ul>
         </div>
       </section>
 
-      <section id="exam-pattern" class="space-y-4 mt-8">
-        <h2>Physical Efficiency Test (Ground) &amp; Written Examination Blueprint</h2>
-        <p>Candidates must score a minimum of <strong>50% (25 marks out of 50)</strong> in the Physical Ground Test to qualify for the 100-mark Written Examination. Shortlisting ratio for the written test is 1:10 based on ground test merit.</p>
+      <section id="ground-marks" class="space-y-4 mt-8">
+        <h2>Maharashtra Police Bharti Ground Marks (50 Marks) Breakdown</h2>
+        <p>In Maharashtra Police Bharti, candidates must first clear the Physical Efficiency Test (PET / Ground Test) carrying <strong>50 marks</strong>. Candidates must secure at least <strong>50% (25 marks)</strong> to qualify for the 100-mark written exam. Candidates are shortlisted for the written exam at a strict <strong>1:10 ratio</strong> based on ground merit.</p>
 
         <div class="my-6 overflow-x-auto">
           <table class="w-full text-xs sm:text-sm text-left border border-border">
             <thead class="bg-muted text-foreground font-semibold">
               <tr>
                 <th class="p-3 border-b">Physical Event</th>
-                <th class="p-3 border-b">Male Standards</th>
-                <th class="p-3 border-b">Female Standards</th>
+                <th class="p-3 border-b">Male Candidates Standard</th>
+                <th class="p-3 border-b">Female Candidates Standard</th>
                 <th class="p-3 border-b">Maximum Marks</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border">
               <tr>
-                <td class="p-3 font-semibold text-primary">Distance Run</td>
-                <td class="p-3 font-mono">1,600 Meters (within 5m 10s for full marks)</td>
-                <td class="p-3 font-mono">800 Meters (within 2m 50s for full marks)</td>
-                <td class="p-3 font-mono font-bold">20 Marks</td>
+                <td class="p-3 font-semibold text-primary">Distance Endurance Run</td>
+                <td class="p-3 font-mono">1,600 Meters (Target: &le; 5 min 10 sec)</td>
+                <td class="p-3 font-mono">800 Meters (Target: &le; 2 min 50 sec)</td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 Marks</td>
               </tr>
               <tr>
                 <td class="p-3 font-semibold text-primary">Sprint Run</td>
-                <td class="p-3 font-mono">100 Meters (within 11.50s for full marks)</td>
-                <td class="p-3 font-mono">100 Meters (within 14.00s for full marks)</td>
-                <td class="p-3 font-mono font-bold">15 Marks</td>
+                <td class="p-3 font-mono">100 Meters (&le; 11.50 sec for full marks)</td>
+                <td class="p-3 font-mono">100 Meters (&le; 14.00 sec for full marks)</td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">15 Marks</td>
               </tr>
               <tr>
-                <td class="p-3 font-semibold text-primary">Shot Put (Gola Phek)</td>
-                <td class="p-3 font-mono">7.26 kg ball (Throw 8.50+ meters)</td>
-                <td class="p-3 font-mono">4.00 kg ball (Throw 6.00+ meters)</td>
-                <td class="p-3 font-mono font-bold">15 Marks</td>
+                <td class="p-3 font-semibold text-primary">Shot Put (गोळा फेक)</td>
+                <td class="p-3 font-mono">7.260 kg Ball (Throw 8.50+ meters)</td>
+                <td class="p-3 font-mono">4.000 kg Ball (Throw 6.00+ meters)</td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">15 Marks</td>
               </tr>
-              <tr class="bg-muted/30 font-bold">
+              <tr class="bg-muted/40 font-bold">
                 <td class="p-3">Total Ground Score</td>
-                <td class="p-3" colspan="2">Must score minimum 25 marks to qualify for written exam</td>
-                <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400">50 Marks</td>
+                <td class="p-3" colspan="2">Mandatory Minimum 25 Marks to Qualify for Written Test</td>
+                <td class="p-3 font-mono text-primary text-base">50 Marks</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
 
+      <section id="running-time-chart" class="space-y-4 mt-8">
+        <h2>Maharashtra Police Bharti 1600 Meter Running Time &amp; Marks Chart (Male)</h2>
+        <p>The 1600m event is the decisive scoring factor in the physical test. Review the official time-to-marks scale to plan your daily ground training drills:</p>
+
+        <div class="my-6 overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border border-border">
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th class="p-3 border-b">1600m Running Time (Male)</th>
+                <th class="p-3 border-b">Marks Awarded</th>
+                <th class="p-3 border-b">Performance Level</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="bg-emerald-500/10 font-semibold">
+                <td class="p-3 font-mono">5 Minutes 10 Seconds or Less</td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 Marks (Full Marks)</td>
+                <td class="p-3 text-emerald-700 dark:text-emerald-300">Outstanding</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono">5 min 11 sec to 5 min 30 sec</td>
+                <td class="p-3 font-mono font-bold">18 Marks</td>
+                <td class="p-3 text-foreground/80">Excellent</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono">5 min 31 sec to 5 min 50 sec</td>
+                <td class="p-3 font-mono font-bold">15 Marks</td>
+                <td class="p-3 text-foreground/80">Good</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono">5 min 51 sec to 6 min 10 sec</td>
+                <td class="p-3 font-mono font-bold">12 Marks</td>
+                <td class="p-3 text-foreground/80">Average</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono">6 min 11 sec to 6 min 30 sec</td>
+                <td class="p-3 font-mono font-bold">10 Marks</td>
+                <td class="p-3 text-amber-600 dark:text-amber-400">Borderline Pass</td>
+              </tr>
+              <tr class="bg-destructive/10 text-destructive">
+                <td class="p-3 font-mono">More than 6 Minutes 30 Seconds</td>
+                <td class="p-3 font-mono font-bold">0 Marks</td>
+                <td class="p-3">Disqualified in Run</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Female Candidates: 800 Meter Running Time Chart</h3>
+        <div class="my-4 overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border border-border">
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th class="p-3 border-b">800m Running Time (Female)</th>
+                <th class="p-3 border-b">Marks Awarded</th>
+                <th class="p-3 border-b">Remarks</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="bg-emerald-500/10 font-semibold">
+                <td class="p-3 font-mono">2 Minutes 50 Seconds or Less</td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 Marks</td>
+                <td class="p-3">Full Marks</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono">2 min 51 sec to 3 min 00 sec</td>
+                <td class="p-3 font-mono font-bold">18 Marks</td>
+                <td class="p-3">High Merit</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono">3 min 01 sec to 3 min 10 sec</td>
+                <td class="p-3 font-mono font-bold">15 Marks</td>
+                <td class="p-3">Standard Merit</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono">3 min 11 sec to 3 min 20 sec</td>
+                <td class="p-3 font-mono font-bold">12 Marks</td>
+                <td class="p-3">Passing</td>
+              </tr>
+              <tr class="bg-destructive/10 text-destructive">
+                <td class="p-3 font-mono">More than 4 Minutes 00 Seconds</td>
+                <td class="p-3 font-mono font-bold">0 Marks</td>
+                <td class="p-3">Disqualified</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="age-limit" class="space-y-4 mt-8">
+        <h2>Maharashtra Police Bharti Age Limit &amp; Category Relaxation</h2>
+        <p>Age calculations are evaluated as per the cut-off date specified in the official notification. Candidates must ensure they meet the minimum 18 years threshold:</p>
+
+        <div class="my-6 overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border border-border">
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th class="p-3 border-b">Candidate Category</th>
+                <th class="p-3 border-b">Minimum Age</th>
+                <th class="p-3 border-b">Maximum Age (Constable)</th>
+                <th class="p-3 border-b">Age Relaxation</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr>
+                <td class="p-3 font-semibold">Open / General (Unreserved)</td>
+                <td class="p-3 font-mono">18 Years</td>
+                <td class="p-3 font-mono">28 Years</td>
+                <td class="p-3 font-mono">No Relaxation</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">OBC, SC, ST, VJNT, SBC, EWS</td>
+                <td class="p-3 font-mono">18 Years</td>
+                <td class="p-3 font-mono">33 Years</td>
+                <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400">+5 Years</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Home Guards (with 3+ years service)</td>
+                <td class="p-3 font-mono">18 Years</td>
+                <td class="p-3 font-mono">33 Years</td>
+                <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400">+5 Years</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Project Affected / Earthquake Affected</td>
+                <td class="p-3 font-mono">18 Years</td>
+                <td class="p-3 font-mono">45 Years</td>
+                <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400">Up to 45 Years</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Ex-Servicemen</td>
+                <td class="p-3 font-mono">18 Years</td>
+                <td class="p-3 font-mono">Defense Service + 3 Years</td>
+                <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400">Service + 3 Yrs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="syllabus-papers" class="space-y-4 mt-8">
+        <h2>Maharashtra Police Bharti Syllabus &amp; 100-Mark Written Exam Pattern</h2>
+        <p>The written examination is administered on OMR sheets in Marathi language. It features <strong>100 questions</strong> for <strong>100 marks</strong> with a duration of <strong>90 minutes</strong>. There is <strong>no negative marking</strong>.</p>
+
+        <div class="my-6 overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border border-border">
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th class="p-3 border-b">Subject Name (विषय)</th>
+                <th class="p-3 border-b">Questions</th>
+                <th class="p-3 border-b">Marks</th>
+                <th class="p-3 border-b">Core High-Yield Topics</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr>
+                <td class="p-3 font-semibold text-primary">Marathi Grammar (मराठी व्याकरण)</td>
+                <td class="p-3 font-mono">25</td>
+                <td class="p-3 font-mono font-bold">25 Marks</td>
+                <td class="p-3 text-xs">संधी, समास, अलंकार, म्हणी, वाक्यप्रचार, प्रयोग, शब्दसिद्धी</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Mathematics (अंकगणित)</td>
+                <td class="p-3 font-mono">25</td>
+                <td class="p-3 font-mono font-bold">25 Marks</td>
+                <td class="p-3 text-xs">संख्याज्ञान, लसावि-मसावि, नफा-तोटा, शेकडेवारी, काळ-काम-वेग, सरासरी</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Reasoning (बुद्धिमत्ता चाचणी)</td>
+                <td class="p-3 font-mono">25</td>
+                <td class="p-3 font-mono font-bold">25 Marks</td>
+                <td class="p-3 text-xs">अक्षर मालिका, संख्या मालिका, वेन आकृत्या, दिशा, नातेसंबंध, घड्याळ व दिनदर्शिका</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">General Knowledge &amp; Current Affairs</td>
+                <td class="p-3 font-mono">25</td>
+                <td class="p-3 font-mono font-bold">25 Marks</td>
+                <td class="p-3 text-xs">महाराष्ट्र भूगोल व इतिहास, राज्यघटना, पंचायत राज, क्रीडा घडामोडी, विज्ञान</td>
+              </tr>
+              <tr class="bg-muted/40 font-bold">
+                <td class="p-3">Total Written Exam</td>
+                <td class="p-3 font-mono">100</td>
+                <td class="p-3 font-mono text-primary text-base">100 Marks</td>
+                <td class="p-3">Time: 90 Minutes | No Negative Marking</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Maharashtra Police Bharti Question Paper &amp; PDF Download Strategy</h3>
+        <p>Aspirants should download past 5 years' solved <strong>Maharashtra Police Bharti question paper PDFs</strong>. Practicing authentic past papers allows you to:</p>
+        <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
+          <li>Familiarize with frequent Marathi grammar vocabulary (समानार्थी/विरुद्धार्थी शब्द).</li>
+          <li>Solve 25 maths questions in under 22 minutes to reserve time for reasoning drills.</li>
+          <li>Review Maharashtra-specific GK questions (Sahyadri peaks, rivers, districts, and historical forts).</li>
+        </ul>
+      </section>
+
+      <section id="dates-hall-ticket" class="space-y-4 mt-8">
+        <h2>Maharashtra Police Bharti Online Form Date &amp; Hall Ticket 2026 Schedule</h2>
+        <p>Keep track of the official dates for application registration, ground hall tickets, and examination timelines:</p>
+
+        <div class="my-6 overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border border-border">
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th class="p-3 border-b">Recruitment Stage</th>
+                <th class="p-3 border-b">Bharti 2025 Timeline</th>
+                <th class="p-3 border-b">Bharti 2026 Estimated Schedule</th>
+                <th class="p-3 border-b">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr>
+                <td class="p-3 font-semibold">Official Notification Release</td>
+                <td class="p-3 font-mono">March 2024 / 2025</td>
+                <td class="p-3 font-mono">October / November 2026</td>
+                <td class="p-3 text-primary font-semibold">Upcoming Cycle</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Online Form Start Date</td>
+                <td class="p-3 font-mono">Official Window</td>
+                <td class="p-3 font-mono">To be notified on MahaPolice</td>
+                <td class="p-3 text-muted-foreground">Portal Link Active Soon</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Physical Test Hall Ticket Download</td>
+                <td class="p-3 font-mono">Issued 7 days prior to trials</td>
+                <td class="p-3 font-mono">December 2026</td>
+                <td class="p-3 text-muted-foreground">Online Download</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Written Exam &amp; Hall Ticket 2026</td>
+                <td class="p-3 font-mono">Post-Ground Merit List</td>
+                <td class="p-3 font-mono">January 2027</td>
+                <td class="p-3 text-muted-foreground">District Level Centres</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>How to Download Maharashtra Police Bharti Hall Ticket 2026</h3>
+        <ol class="list-decimal pl-5 text-sm space-y-1 text-muted-foreground">
+          <li>Visit the official MahaPolice recruitment portal: <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">policerecruitment.mahait.org</a>.</li>
+          <li>Enter your registered <strong>Application ID</strong> and <strong>Password / Date of Birth</strong>.</li>
+          <li>Click on <strong>"Hall Ticket / Admit Card"</strong> link for Physical PET or Written Test.</li>
+          <li>Verify your ground venue, trial date, batch reporting time, and print 2 copies on clean A4 paper.</li>
+        </ol>
+      </section>
+
       <section id="document-specs" class="space-y-4 mt-8">
-        
-<div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2">
-  <h4 class="font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2">
-    <span>⚠️</span> Critical Application Rejection Traps to Avoid
-  </h4>
-  <p class="text-sm text-muted-foreground leading-relaxed">
-    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:
-  </p>
-  <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
-    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>
-    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>
-    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>
-    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>
-  </ul>
-</div>
+        <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2">
+          <h4 class="font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2">
+            <span>⚠️</span> Why 15% of Maharashtra Police Online Forms are Rejected
+          </h4>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            The MahaPolice application portal automatically rejects files exceeding pixel borders or byte limits. Protect your candidature:
+          </p>
+          <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
+            <li><strong>Photo Bounds:</strong> Must be strictly <strong>160 &times; 212 pixels</strong> and <strong>5 KB to 20 KB</strong> in JPG format.</li>
+            <li><strong>Signature Bounds:</strong> Must be strictly <strong>256 &times; 64 pixels</strong> and <strong>5 KB to 20 KB</strong> in JPG format.</li>
+            <li><strong>Running Hand Only:</strong> Do not sign in ALL CAPITAL or BLOCK LETTERS.</li>
+            <li><strong>Spectacles &amp; Caps:</strong> Headgear or dark glasses invalidate passport biometric verification.</li>
+          </ul>
+        </div>
 
-<h2>Document Specifications: Photo, Signature &amp; Certificate Uploads</h2>
-        <p>The Maharashtra Police recruitment portal employs strict image dimension algorithms. Avoid portal errors using exact measurements:</p>
-
+        <h2>Document Specifications: Photo &amp; Signature Format for Online Form</h2>
         <div class="my-6 overflow-x-auto">
           <table class="w-full text-xs sm:text-sm text-left border border-border">
             <thead class="bg-muted text-foreground font-semibold">
               <tr>
                 <th class="p-3 border-b">Document</th>
                 <th class="p-3 border-b">Pixel Dimensions</th>
-                <th class="p-3 border-b">File Size</th>
-                <th class="p-3 border-b">Format / Ink</th>
+                <th class="p-3 border-b">Allowed File Size</th>
+                <th class="p-3 border-b">Format &amp; Quality</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border">
               <tr>
-                <td class="p-3 font-semibold text-primary">Passport Photo</td>
-                <td class="p-3 font-mono">160 × 200 px (3.5×4.5 cm)</td>
-                <td class="p-3 font-mono">20.0 KB to 50.0 KB</td>
-                <td class="p-3">Color JPG, light background, no caps/sunglasses</td>
+                <td class="p-3 font-semibold text-primary">Passport Photograph</td>
+                <td class="p-3 font-mono">160 &times; 212 px</td>
+                <td class="p-3 font-mono font-bold">5.0 KB to 20.0 KB</td>
+                <td class="p-3">Color JPG, plain light background, crisp focus</td>
               </tr>
               <tr>
-                <td class="p-3 font-semibold text-primary">Candidate Signature</td>
-                <td class="p-3 font-mono">140 × 60 px (5×2 cm)</td>
-                <td class="p-3 font-mono">10.0 KB to 20.0 KB</td>
-                <td class="p-3">Black ballpoint pen on plain white paper</td>
+                <td class="p-3 font-semibold text-primary">Applicant Signature</td>
+                <td class="p-3 font-mono">256 &times; 64 px</td>
+                <td class="p-3 font-mono font-bold">5.0 KB to 20.0 KB</td>
+                <td class="p-3">Black ballpoint ink, unruled white sheet</td>
               </tr>
             </tbody>
           </table>
@@ -4332,10 +4562,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
 
         <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 space-y-3">
           <h4 class="text-base font-bold text-foreground">Resize Maharashtra Police Documents in Seconds</h4>
-          <p class="text-sm text-muted-foreground">Format your photo and signature to exact MahaPolice pixel and KB boundaries with our <a href="/mpsc-signature-resize/" class="text-primary font-bold underline">Maharashtra Signature Resizer</a> or <a href="/compress-image-to-kb/" class="text-primary font-bold underline">Compress Image to 10-20 KB</a>.</p>
+          <p class="text-sm text-muted-foreground">Format your photo and signature to exact MahaPolice pixel and KB boundaries with our specialized <a href="/maharashtra-police-signature-resize/" class="text-primary font-bold underline">Maharashtra Police Resizer</a> or <a href="/compress-image-to-kb/" class="text-primary font-bold underline">Compress Image to 5-20 KB</a>.</p>
           <div class="pt-1 flex flex-wrap gap-3">
-            <a href="/mpsc-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-95 transition shadow-xs flex items-center gap-1.5">
-              <span>Open Maharashtra Resizer</span>
+            <a href="/maharashtra-police-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-95 transition shadow-xs flex items-center gap-1.5">
+              <span>Maha Police Resizer Tool</span>
               <span>&rarr;</span>
             </a>
             <a href="/photo-resizer/" class="px-4 py-2.5 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:bg-muted transition">
@@ -4344,25 +4574,33 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
           </div>
         </div>
       </section>
-    
-<h2 id="strategy">Maharashtra Police Bharti 2026: High-Yield Preparation Strategy &amp; Daily Routine</h2>
-<p>Focus on high-weightage topics, daily revision schedules, and solving previous year question papers under strict exam timer conditions.</p>
-<div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20">
-  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-    <div>
-      <h4 class="font-bold text-lg text-foreground">Prepare Your Maharashtra Police Bharti 2026 Documents in Seconds</h4>
-      <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
-    </div>
-    <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
-        <span>📸</span> Resize Photo
-      </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
-        <span>✍️</span> Resize Signature
-      </a>
-    </div>
-  </div>
-</div>
+
+      <section id="strategy" class="space-y-4 mt-8">
+        <h2>Maharashtra Police Bharti Preparation Strategy &amp; Daily Routine</h2>
+        <p>Clearing Maharashtra Police Bharti requires balanced daily preparation between ground endurance and written academic practice:</p>
+        <ul class="list-disc pl-5 text-sm space-y-2 text-muted-foreground">
+          <li><strong>Morning Ground Session (05:30 AM – 07:30 AM):</strong> Interval sprint workouts for 100m, progressive endurance laps to bring 1600m under 5:10, and shot put release mechanics.</li>
+          <li><strong>Daytime Academic Session (10:00 AM – 01:00 PM):</strong> Daily chapter practice in Marathi Grammar (प्रयोग, समास) and speed mathematics calculations.</li>
+          <li><strong>Evening Speed Mock Test (04:00 PM – 06:00 PM):</strong> Timed 90-minute full-length mock paper simulating previous year question papers.</li>
+        </ul>
+
+        <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <h4 class="font-bold text-lg text-foreground">Prepare Your Maharashtra Police Bharti 2026 Documents in Seconds</h4>
+              <p class="text-sm text-muted-foreground mt-1">Resize your photo and signature to exact 5 KB – 20 KB portal specifications 100% free.</p>
+            </div>
+            <div class="flex flex-wrap gap-2 w-full sm:w-auto">
+              <a href="/maharashtra-police-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+                <span>⚡</span> Maha Police Resizer
+              </a>
+              <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+                <span>📸</span> Resize Photo
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     `
   },
 
