@@ -10,6 +10,11 @@ export default defineConfig({
   trailingSlash: 'always',
 
   redirects: {
+    '/signature-resizer': '/',
+    '/rrb-railway': '/rrb-signature-resize/',
+    '/ssc-general': '/ssc-signature-resize/',
+    '/ibps-sbi': '/ibps-signature-resize/',
+    '/appsc-tspsc': '/appsc-tspsc-signature-resize/',
     '/jobs': '/government-jobs/',
     '/govt-jobs': '/government-jobs/',
     '/ssc-cgl': '/ssc-signature-resize/',
@@ -34,7 +39,7 @@ export default defineConfig({
 
 
   build: {
-    inlineStylesheets: 'always',
+    inlineStylesheets: 'auto',
   },
 
   vite: {

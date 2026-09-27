@@ -1,6 +1,14 @@
 # SignResize.in Edge Redirect Rules (301 Permanent Redirects)
 
 # 1. Missing Route & Shortcut Redirects (Fixes GSC 404 Error)
+/signature-resizer / 301
+/signature-resizer/ / 301
+/rrb-railway /rrb-signature-resize/ 301
+/rrb-railway/ /rrb-signature-resize/ 301
+/ssc-general /ssc-signature-resize/ 301
+/ssc-general/ /ssc-signature-resize/ 301
+/ibps-sbi /ibps-signature-resize/ 301
+/ibps-sbi/ /ibps-signature-resize/ 301
 /ssc-cgl /ssc-signature-resize/ 301
 /ssc-cgl/ /ssc-signature-resize/ 301
 /ssc /ssc-signature-resize/ 301
@@ -20,6 +28,8 @@
 /gate /gate-signature-resize/ 301
 /thumb /thumb-impression-resize/ 301
 /thumb/ /thumb-impression-resize/ 301
+/appsc-tspsc /appsc-tspsc-signature-resize/ 301
+/appsc-tspsc/ /appsc-tspsc-signature-resize/ 301
 
 # 2. Renamed & Historical Blog Articles (Fixes GSC 404 Error)
 /blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
@@ -48,3 +58,7 @@
 /document-resizer /document-resizer/ 301
 /compress-image-to-kb /compress-image-to-kb/ 301
 /signature-creator /signature-creator/ 301
+/signature-generator /signature-generator/ 301
+/electronic-signature /electronic-signature/ 301
+/government-jobs /government-jobs/ 301
+

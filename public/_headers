@@ -13,9 +13,14 @@
 /sw.js
   Cache-Control: no-cache, no-store, must-revalidate
 
-# HTML and root documents: always revalidate so clients never receive outdated HTML pointing to old chunks
+# Search index JSON: cache at Cloudflare edge and in browser
+/search-index.json
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Access-Control-Allow-Origin: *
+
+# HTML and root documents: enable Cloudflare edge caching (s-maxage) for ultra-fast TTFB for AI crawlers and search bots
 /*
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=604800
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
 

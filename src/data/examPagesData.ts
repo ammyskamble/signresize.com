@@ -1606,5 +1606,289 @@ export const EXAM_PAGES_DATA: ExamPageInfo[] = [
         a: 'NSDL requires a color passport photo scanned at 200 DPI, with dimensions of 3.5 cm × 2.5 cm (~213 × 213 pixels) and file size under 50 KB in JPG format.'
       }
     ]
+  },
+  // 1. APPSC Signature Resize
+  {
+    slug: 'appsc-signature-resize',
+    presetId: 'appsc-preset',
+    pageTitle: 'APPSC Signature Resize 10 to 30 KB (140x60 px, 3.5x1.5 cm) - SignResize',
+    metaDescription: 'Free APPSC signature resize tool. Resize signature to 10 to 30 KB, 140x60 px (3.5x1.5 cm) at 200 DPI for Andhra Pradesh Public Service Commission (APPSC Group 1, 2, OTPR) portal.',
+    keywords: 'appsc signature resize, appsc signature size 10 to 30 kb, appsc otpr signature upload, appsc group 1 2 signature, andhra psc signature compressor',
+    h1: 'APPSC Signature Resize & Cropper (10 KB – 30 KB)',
+    subheading: 'Exact 140×60 px (3.5×1.5 cm) dimensions with 10–30 KB compression strictly adhering to Andhra Pradesh Public Service Commission (APPSC OTPR) guidelines.',
+    authority: 'Andhra Pradesh Public Service Commission (APPSC)',
+    targetExams: 'APPSC Group 1, APPSC Group 2, Group 4, Panchayat Secretary, AEE, Forest Beat Officer, APPSC OTPR',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 3.5,
+    heightCm: 1.5,
+    minKb: 10,
+    maxKb: 30,
+    recommendedKb: 20,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'APPSC mandates signatures in natural running handwriting with black ballpoint pen on plain white paper. Block/capital letters will cause OTPR rejection.',
+    tips: [
+      'Sign in a 3.5 cm × 1.5 cm box on clean, unruled white paper with black ballpoint pen.',
+      'Crop closely to remove excess white margins and shadows.',
+      'Keep the file size strictly between 10.0 KB and 30.0 KB in JPG/JPEG format.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official APPSC signature size for 2026?',
+        a: 'The official APPSC signature dimensions are 140 × 60 pixels (3.5 cm × 1.5 cm) with file size strictly between 10 KB and 30 KB in JPG format.'
+      },
+      {
+        q: 'Which pen ink is required for APPSC OTPR signature upload?',
+        a: 'APPSC requires black ballpoint ink on clean white paper. Signatures written in capital letters will be disqualified.'
+      }
+    ]
+  },
+  // 2. TSPSC / TGPSC Signature Resize
+  {
+    slug: 'tspsc-signature-resize',
+    presetId: 'tspsc-preset',
+    pageTitle: 'TSPSC Signature Resize 10 to 30 KB (140x60 px, 3.5x1.5 cm) - SignResize',
+    metaDescription: 'Official TSPSC / TGPSC signature resize tool. Resize signature to 10 to 30 KB, 140x60 px (3.5x1.5 cm) for Telangana Public Service Commission (Group 1, 2, 3, 4, OTR).',
+    keywords: 'tspsc signature resize, tgpsc signature size 10 to 30 kb, telangana psc otr signature upload, tspsc group 1 2 signature resizer',
+    h1: 'TSPSC / TGPSC Signature Resize (10 KB – 30 KB)',
+    subheading: 'Official 140×60 px (3.5×1.5 cm) dimensions and 10–30 KB file size limits for Telangana Public Service Commission (TGPSC OTR).',
+    authority: 'Telangana Public Service Commission (TGPSC / TSPSC)',
+    targetExams: 'TGPSC Group 1, Group 2, Group 3, Group 4, Assistant Executive Engineer, VRO, TSPSC OTR Registration',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 3.5,
+    heightCm: 1.5,
+    minKb: 10,
+    maxKb: 30,
+    recommendedKb: 20,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'TGPSC/TSPSC requires running handwriting in black ink on plain white sheet. Signatures with shadows or ruled paper lines will be rejected.',
+    tips: [
+      'Ensure the background is spotless white with high contrast.',
+      'Do not write full name in capital letters; use running signature.',
+      'Check that file size displays between 10 KB and 30 KB before submitting.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required signature size for TSPSC / TGPSC OTR?',
+        a: 'TGPSC / TSPSC requires 140 × 60 px (3.5 cm × 1.5 cm) dimensions and 10 KB to 30 KB file size in JPG/JPEG format.'
+      }
+    ]
+  },
+  // 3. APSC Signature Resize
+  {
+    slug: 'apsc-signature-resize',
+    presetId: 'apsc-preset',
+    pageTitle: 'APSC Signature Resize 10 to 50 KB (140x60 px, 4x2 cm) - SignResize',
+    metaDescription: 'Free APSC Assam signature resizer & cropper. Format signature to 140x60 px (4x2 cm), 10 to 50 KB file size for Assam Public Service Commission (CCE, JE, Inspector).',
+    keywords: 'apsc signature resize, apsc cce signature size, apsc signature 10 to 50 kb, assam psc signature crop, apsc recruitment upload',
+    h1: 'APSC Assam Signature Resize (10 KB – 50 KB)',
+    subheading: 'Precise 140×60 px (4.0×2.0 cm) dimensions and 10–50 KB dual-boundary compression adhering to Assam Public Service Commission guidelines.',
+    authority: 'Assam Public Service Commission (APSC)',
+    targetExams: 'APSC CCE (Combined Competitive Exam), Junior Engineer, Forest Ranger, Inspector of Taxes, APSC Recruitment',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 50,
+    recommendedKb: 25,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'APSC portal requires black ink signature on white background, strictly between 10 KB and 50 KB.',
+    tips: [
+      'Use dark black ink on plain white paper.',
+      'Enable the Clean White Paper filter to eliminate shadows.',
+      'Verify the file size is under 50 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the signature file limit for APSC CCE Assam?',
+        a: 'The APSC application portal requires signature images between 10 KB and 50 KB in JPG or JPEG format.'
+      }
+    ]
+  },
+  // 4. DSSSB Signature Resize
+  {
+    slug: 'dsssb-signature-resize',
+    presetId: 'dsssb-preset',
+    pageTitle: 'DSSSB Signature Resize 10 to 40 KB (140x110 px, 3.5x2.75 cm) - SignResize',
+    metaDescription: 'Official DSSSB signature resize & crop tool. Resize signature to 140x110 px (3.5x2.75 cm), 10 to 40 KB for Delhi Subordinate Services Selection Board (OARS portal).',
+    keywords: 'dsssb signature resize, dsssb signature size 140x110, dsssb oars signature upload, delhi subordinate signature compressor 40 kb',
+    h1: 'DSSSB Signature Resize (140×110 px, 10 KB – 40 KB)',
+    subheading: 'Official 140×110 px dimensions and 10–40 KB file size limits for Delhi Subordinate Services Selection Board (DSSSB OARS).',
+    authority: 'Delhi Subordinate Services Selection Board (DSSSB)',
+    targetExams: 'DSSSB PRT, TGT, PGT, Junior Assistant, Nursing Officer, DASS Grade-IV, DSSSB OARS Portal',
+    widthPx: 140,
+    heightPx: 110,
+    widthCm: 3.5,
+    heightCm: 2.75,
+    minKb: 10,
+    maxKb: 40,
+    recommendedKb: 25,
+    dpi: 200,
+    ink: 'Dark Black Ink Only',
+    aspectRatioLabel: '14:11 (140×110 px)',
+    strictNotice: 'DSSSB OARS portal requires a specific 140×110 pixel resolution in dark black ink. File size must not exceed 40 KB.',
+    tips: [
+      'Draw a 3.5 cm × 2.75 cm box on plain white paper and sign inside with a black pen.',
+      'Crop neatly to the edges of the box.',
+      'Ensure the final file size is between 10 KB and 40 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official DSSSB signature resolution and size?',
+        a: 'DSSSB OARS specifies dimensions of 140 pixels width by 110 pixels height (approx 3.5 cm × 2.75 cm) and a file size between 10 KB and 40 KB in JPG format.'
+      }
+    ]
+  },
+  // 5. India Post GDS Photo Resize
+  {
+    slug: 'india-post-gds-photo-resize',
+    presetId: 'india-post-gds-photo',
+    pageTitle: 'India Post GDS Photo Resize 20 to 50 KB (200x230 px) - SignResize',
+    metaDescription: 'Official India Post GDS photo & signature resize tool. Resize passport photo to 200x230 px (20 to 50 KB) and signature to 10 to 20 KB for Gramin Dak Sevak online portal.',
+    keywords: 'india post gds photo resize, gds photo size 20 to 50 kb, india post gds signature resize, gramin dak sevak photo compressor 200x230',
+    h1: 'India Post GDS Photo & Signature Resize (200×230 px)',
+    subheading: 'Official 200×230 px dimensions and 20–50 KB dual-boundary compression for Department of Posts India Post GDS Online Engagement.',
+    authority: 'Department of Posts (India Post GDS Online)',
+    targetExams: 'India Post GDS (Branch Postmaster - BPM, Assistant Branch Postmaster - ABPM, Dak Sevak)',
+    widthPx: 200,
+    heightPx: 230,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Color Photograph',
+    aspectRatioLabel: '20:23 (200×230 px)',
+    strictNotice: 'India Post GDS portal requires a clear recent color passport photograph (200×230 px, 20–50 KB) with white background.',
+    tips: [
+      'Use a recent color photo with eyes open and face clearly visible.',
+      'Ensure the background is clean white or light grey.',
+      'Keep the file size between 20.0 KB and 50.0 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo dimension and file size for India Post GDS?',
+        a: 'India Post GDS requires photo dimensions of 200 × 230 pixels with file size strictly between 20 KB and 50 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'What is the signature requirement for India Post GDS?',
+        a: 'Signature must be 140 × 60 pixels, between 10 KB and 20 KB, in JPG format.'
+      }
+    ]
+  },
+  // 6. Kerala PSC Photo Resize
+  {
+    slug: 'kerala-psc-photo-resize',
+    presetId: 'kerala-psc-photo',
+    pageTitle: 'Kerala PSC Photo Resize 150x200 px (Name & Date, 20-30 KB) - SignResize',
+    metaDescription: 'Kerala PSC Thulasi OTR photo resize tool. Format photo to 150x200 px (3.5x4.5 cm) with candidate name and date printed at bottom, 20 to 30 KB JPG.',
+    keywords: 'kerala psc photo resize, kerala psc thulasi photo size 150x200, kerala psc name and date on photo, kerala psc photo compressor 20 to 30 kb',
+    h1: 'Kerala PSC Thulasi Photo Resize (150×200 px with Name & Date)',
+    subheading: 'Official 150×200 px (3.5×4.5 cm) photo formatting with candidate name & date text stamp, 20–30 KB for Kerala PSC Thulasi One Time Registration.',
+    authority: 'Kerala Public Service Commission (KPSC Thulasi OTR)',
+    targetExams: 'Kerala PSC LDC, KAS, Police Constable, Fireman, Village Extension Officer, Kerala PSC Thulasi Portal',
+    widthPx: 150,
+    heightPx: 200,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 30,
+    recommendedKb: 25,
+    dpi: 200,
+    ink: 'Color Photo with Name/Date',
+    aspectRatioLabel: '3:4 (150×200 px)',
+    strictNotice: 'Kerala PSC Thulasi strictly mandates candidate name and date of photo taken printed in black font on a white strip at the bottom of the photo.',
+    tips: [
+      'Enter your full name and recent photo date in the Name & Date on Photo section.',
+      'Ensure the background is light colored or white.',
+      'File size must strictly sit between 20.0 KB and 30.0 KB.'
+    ],
+    faqs: [
+      {
+        q: 'Is candidate name and date mandatory on Kerala PSC photo?',
+        a: 'Yes. Kerala PSC guidelines strictly require the candidate name and date of photograph taken printed in a white box at the bottom of the image.'
+      },
+      {
+        q: 'What is the exact photo resolution for Kerala PSC Thulasi OTR?',
+        a: 'Dimensions must be 150 pixels width by 200 pixels height (3.5 cm × 4.5 cm), with file size between 20 KB and 30 KB.'
+      }
+    ]
+  },
+  // 7. MPPSC Signature Resize
+  {
+    slug: 'mppsc-signature-resize',
+    presetId: 'mppsc-preset',
+    pageTitle: 'MPPSC Signature Resize 10 to 50 KB (200x100 px, 5x2.5 cm) - SignResize',
+    metaDescription: 'Official MPPSC signature resize & compressor tool. Resize signature to 200x100 px (5x2.5 cm), 10 to 50 KB for Madhya Pradesh Public Service Commission portal.',
+    keywords: 'mppsc signature resize, mppsc signature size 10 to 50 kb, mppsc state service exam signature, mp psc signature compressor',
+    h1: 'MPPSC Signature Resize & Cropper (10 KB – 50 KB)',
+    subheading: 'Official 200×100 px (5.0×2.5 cm) dimensions and 10–50 KB file size limits for Madhya Pradesh Public Service Commission (mppsc.mp.gov.in).',
+    authority: 'Madhya Pradesh Public Service Commission (MPPSC)',
+    targetExams: 'MPPSC State Service Exam (SSE), State Forest Service (SFS), Assistant Professor, MPPSC Recruitment',
+    widthPx: 200,
+    heightPx: 100,
+    widthCm: 5.0,
+    heightCm: 2.5,
+    minKb: 10,
+    maxKb: 50,
+    recommendedKb: 25,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '2:1 (200×100 px)',
+    strictNotice: 'MPPSC requires clear black ink running signature on clean white paper. No blur or heavy shadows allowed.',
+    tips: [
+      'Sign with black pen inside a 5.0 cm × 2.5 cm rectangle.',
+      'Crop tight to maintain 2:1 aspect ratio.',
+      'Check file size is under 50 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the signature dimension for MPPSC online application?',
+        a: 'MPPSC specifies signature dimensions of 200 × 100 pixels (5.0 cm × 2.5 cm) and file size between 10 KB and 50 KB in JPG/JPEG format.'
+      }
+    ]
+  },
+  // 8. OSSSC Signature Resize
+  {
+    slug: 'osssc-signature-resize',
+    presetId: 'osssc-preset',
+    pageTitle: 'OSSSC Signature Resize 10 to 20 KB (140x60 px, 3.5x1.5 cm) - SignResize',
+    metaDescription: 'Free OSSSC signature resize tool. Resize signature to 10 to 20 KB, 140x60 px for Odisha Sub-ordinate Staff Selection Commission (CRE, RI, ARI, Amin).',
+    keywords: 'osssc signature resize, osssc signature size 10 to 20 kb, osssc cre signature upload, odisha subordinate signature compressor',
+    h1: 'OSSSC Signature Resize & Compressor (10 KB – 20 KB)',
+    subheading: 'Official 140×60 px dimensions and 10–20 KB dual-boundary compression for Odisha Sub-ordinate Staff Selection Commission (osssc.gov.in).',
+    authority: 'Odisha Sub-ordinate Staff Selection Commission (OSSSC)',
+    targetExams: 'OSSSC Combined Recruitment Exam (CRE), RI, ARI, Amin, ICDS Supervisor, Junior Assistant, Panchayat Executive Officer (PEO)',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 3.5,
+    heightCm: 1.5,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'OSSSC mandates signature between 10 KB and 20 KB. Signatures in capital letters will be summarily rejected.',
+    tips: [
+      'Sign in running handwriting with black ballpoint ink on plain white paper.',
+      'Use the Clean White Paper filter to remove paper texture and darkness.',
+      'Confirm the file size is between 10.0 KB and 19.9 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the signature file size limit for OSSSC applications?',
+        a: 'The OSSSC portal requires signature files strictly between 10 KB and 20 KB in JPG or JPEG format.'
+      }
+    ]
   }
 ];

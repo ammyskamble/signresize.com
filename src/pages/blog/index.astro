@@ -7,6 +7,7 @@ import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 import { BLOG_POSTS } from '../../data/blogPostsData';
+import { EXAM_PAGES_DATA } from '../../data/examPagesData';
 import SocialShare from '../../components/SocialShare.astro';
 
 const pageTitle = "Exam Study Guides, Preparation Tips & Document Guidelines | SignResize Blog";
@@ -28,6 +29,11 @@ const sortedPosts = [...BLOG_POSTS].sort((a, b) => {
 });
 
 const featuredPost = sortedPosts.find(p => p.featured) || sortedPosts[0];
+const featuredExamPage = featuredPost.relatedExamPreset
+  ? EXAM_PAGES_DATA.find(p => p.presetId === featuredPost.relatedExamPreset || p.slug === featuredPost.relatedExamPreset)
+  : null;
+const featuredToolUrl = featuredExamPage ? `/${featuredExamPage.slug}/` : '/#tool-workspace';
+
 const regularPosts = sortedPosts.filter(p => p.slug !== featuredPost.slug);
 
 // Categories
@@ -259,14 +265,12 @@ const quickDeadlines = [
               <span>Read Full Guide</span>
               <span>&rarr;</span>
             </a>
-            {featuredPost.relatedExamPreset && (
-              <a
-                href={`/${featuredPost.relatedExamPreset}/`}
-                class="w-full px-4 py-2.5 min-h-[42px] rounded-xl bg-card border border-primary/30 text-primary font-semibold text-xs sm:text-sm text-center hover:bg-primary/5 transition flex items-center justify-center gap-1.5"
-              >
-                <span>⚡ Open Resizer Tool</span>
-              </a>
-            )}
+            <a
+              href={featuredToolUrl}
+              class="w-full px-4 py-2.5 min-h-[42px] rounded-xl bg-card border border-primary/30 text-primary font-semibold text-xs sm:text-sm text-center hover:bg-primary/5 transition flex items-center justify-center gap-1.5"
+            >
+              <span>⚡ Open Resizer Tool</span>
+            </a>
           </div>
         </div>
       </section>

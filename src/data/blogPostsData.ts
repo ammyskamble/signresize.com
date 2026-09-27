@@ -363,10 +363,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
         </p>
       </div>
       <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-        <a href="/rrb-signature-resize" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+        <a href="/rrb-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
           <span>✍️</span> RRB Signature Resizer
         </a>
-        <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+        <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
           <span>📸</span> 35×45 mm Photo Resizer
         </a>
       </div>
@@ -429,7 +429,7 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
     <li><strong>Final Results &amp; Normalised Cut-Off:</strong> Published zone-wise and category-wise with roll numbers of candidates shortlisted for CBT-2.</li>
   </ul>
   <p class="text-muted-foreground mt-4">
-    Explore the full listing of ongoing central and state vacancies in our <a href="/government-jobs" class="text-primary font-bold underline">Live Government Jobs Directory</a> or test your document compliance now using our <a href="/signature-resizer" class="text-primary font-bold underline">Online Signature Resizer</a>.
+    Explore the full listing of ongoing central and state vacancies in our <a href="/government-jobs/" class="text-primary font-bold underline">Live Government Jobs Directory</a> or test your document compliance now using our <a href="/" class="text-primary font-bold underline">Online Signature Resizer</a>.
   </p>
 </section>
 `
@@ -572,10 +572,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
         </p>
       </div>
       <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-        <a href="/rrb-signature-resize" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+        <a href="/rrb-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
           <span>✍️</span> Resize RRB Signature
         </a>
-        <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+        <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
           <span>📸</span> Resize RRB Photo
         </a>
       </div>
@@ -1449,10 +1449,10 @@ Target Safe Zone: 75+ Correct Attempts with >= 88% Accuracy -> ~150 Net Score</c
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -1670,10 +1670,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -1854,10 +1854,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -2051,10 +2051,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -2242,10 +2242,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -2398,10 +2398,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -2567,10 +2567,10 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -2875,10 +2875,10 @@ Target Safe Zone (UR/OBC): 76+ Attempts with 90% Accuracy → ~146–152 Net Raw
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -3115,10 +3115,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -3352,10 +3352,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -3557,10 +3557,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -3780,10 +3780,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -3981,10 +3981,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -4198,10 +4198,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -4840,10 +4840,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -4998,10 +4998,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -5156,10 +5156,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -5314,10 +5314,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -5472,10 +5472,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -5630,10 +5630,10 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>📸</span> Resize Photo
       </a>
-      <a href="/signature-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>✍️</span> Resize Signature
       </a>
     </div>
@@ -6090,7 +6090,7 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
       <a href="/up-police-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
         <span>🚔</span> UP Police Resizer
       </a>
-      <a href="/photo-resizer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
         <span>📸</span> Resize Photo
       </a>
     </div>
