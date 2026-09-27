@@ -14,12 +14,16 @@ import Footer from '../components/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
 import ThemeScript from '../components/ThemeScript.astro';
+import { BLOG_POSTS } from '../data/blogPostsData';
 
 const pageTitle = "Signature Resize | Resize Signature to 10 to 20 KB Online, Generator & Maker";
 const pageDescription = "Free online signature resize & compressor tool. Resize signature to 10 to 20 kb, create electronic signatures, generate cursive signatures from name, whiten backgrounds & convert to JPG for SSC, PAN, RRB & UPSC.";
 const canonicalUrl = "https://signresize.in/";
 const ogImageUrl = "https://signresize.in/og-image.png";
 const keywordsContent = "signature resize, signature resize 10 to 20 kb, signature generator, electronic signature, signature creator, signature maker, online signature generator, free electronic signature, make signature background white, crop signature online, ssc signature resize, pan card signature resize, rrb signature resize, signature compressor, digital signature maker";
+
+// Top High-Yield Examination Guides for Sitewide PageRank Flow
+const topGuides = BLOG_POSTS.slice(0, 6);
 ---
 
 <!doctype html>
@@ -587,6 +591,61 @@ const keywordsContent = "signature resize, signature resize 10 to 20 kb, signatu
 
         </aside>
       </div>
+
+      <!-- 2026 Examination Master Guides & Document Guidelines (SEO & Authority Hub) -->
+      <section class="bg-card border border-border rounded-2xl p-5 sm:p-6 shadow-sm space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border pb-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/10 text-primary border border-primary/20">
+                2026 RECRUITMENT CALENDAR
+              </span>
+              <span class="text-xs text-muted-foreground font-medium">Free Candidate Handbooks</span>
+            </div>
+            <h2 class="text-lg sm:text-2xl font-extrabold text-foreground">
+              Official Examination Master Guides &amp; Study Strategies
+            </h2>
+            <p class="text-xs text-muted-foreground max-w-2xl leading-relaxed">
+              Step-by-step scoring blueprints, photo/signature guidelines, and timetable strategies for upcoming Central &amp; State government examinations.
+            </p>
+          </div>
+          <a
+            href="/blog/"
+            class="px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground border border-border text-xs font-semibold transition shrink-0 self-start sm:self-center flex items-center gap-1.5"
+          >
+            <span>View All Guides</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {topGuides.map((guide) => (
+            <a
+              href={`/blog/${guide.slug}/`}
+              class="p-4 rounded-xl border border-border bg-muted/15 hover:bg-card hover:border-primary/40 hover:shadow-md transition group flex flex-col justify-between space-y-3"
+            >
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">
+                    {guide.category}
+                  </span>
+                  <span class="text-[10px] text-muted-foreground font-mono">{guide.readTime}</span>
+                </div>
+                <h3 class="font-bold text-xs sm:text-sm text-foreground group-hover:text-primary transition line-clamp-2 leading-snug">
+                  {guide.title}
+                </h3>
+                <p class="text-[11px] text-muted-foreground line-clamp-2 leading-relaxed">
+                  {guide.excerpt}
+                </p>
+              </div>
+              <div class="text-xs text-primary font-bold flex items-center justify-between pt-2 border-t border-border/50">
+                <span>Read Master Guide</span>
+                <span class="group-hover:translate-x-1 transition">&rarr;</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
 
       <!-- Technical E-E-A-T & Author Identity Profile -->
       <AuthorBioSection />

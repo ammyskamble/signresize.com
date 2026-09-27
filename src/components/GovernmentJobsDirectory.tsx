@@ -390,18 +390,28 @@ export default function GovernmentJobsDirectory() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="pt-4 mt-3 border-t border-border/80 flex items-center gap-2">
+                  <div className="pt-3 mt-3 border-t border-border/80 flex items-center gap-1.5 flex-wrap">
                     <button
                       type="button"
                       onClick={() => setSelectedJob(job)}
-                      className="flex-1 px-3 py-2 rounded-xl text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground border border-border transition text-center cursor-pointer"
+                      className="px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground border border-border transition text-center cursor-pointer shrink-0"
                     >
-                      Full Details
+                      Details
                     </button>
+
+                    {job.guideSlug && (
+                      <a
+                        href={`/blog/${job.guideSlug}/`}
+                        className="px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 transition text-center shrink-0 flex items-center gap-1"
+                        title="Read comprehensive preparation guide and FAQs"
+                      >
+                        <span>📘 Guide</span>
+                      </a>
+                    )}
 
                     <a
                       href={`/${job.toolPresetSlug}/`}
-                      className="flex-1 px-3 py-2 rounded-xl text-xs font-semibold bg-primary hover:bg-primary/90 text-primary-foreground transition text-center shadow-xs cursor-pointer flex items-center justify-center gap-1"
+                      className="flex-1 min-w-[95px] px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-primary hover:bg-primary/90 text-primary-foreground transition text-center shadow-xs cursor-pointer flex items-center justify-center gap-1 ml-auto"
                       title={job.toolLabel}
                     >
                       <span>Resize Sign</span>
@@ -854,20 +864,30 @@ export default function GovernmentJobsDirectory() {
             </div>
 
             {/* Modal Actions */}
-            <div className="flex items-center gap-3 pt-2 border-t border-border">
+            <div className="flex items-center gap-2 pt-2 border-t border-border flex-wrap">
               <a
                 href={selectedJob.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-xs transition text-center border border-border inline-flex items-center justify-center gap-1"
+                className="flex-1 min-w-[110px] py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-xs transition text-center border border-border inline-flex items-center justify-center gap-1"
               >
                 <span>Official Portal</span>
                 <span className="text-[10px]">↗</span>
               </a>
 
+              {selectedJob.guideSlug && (
+                <a
+                  href={`/blog/${selectedJob.guideSlug}/`}
+                  className="flex-1 min-w-[120px] py-2.5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-semibold text-xs transition text-center inline-flex items-center justify-center gap-1"
+                >
+                  <span>📘 2026 Guide</span>
+                  <span>&rarr;</span>
+                </a>
+              )}
+
               <a
                 href={`/${selectedJob.toolPresetSlug}/`}
-                className="flex-1 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs transition text-center shadow-md shadow-primary/20 inline-flex items-center justify-center gap-1"
+                className="flex-1 min-w-[120px] py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs transition text-center shadow-md shadow-primary/20 inline-flex items-center justify-center gap-1"
               >
                 <span>{selectedJob.toolLabel}</span>
                 <span>→</span>

@@ -32,6 +32,7 @@ export interface GovernmentJob {
     note: string;
   };
   toolPresetSlug: string; // matches [exam].astro or tool route
+  guideSlug?: string; // Optional related blog guide slug
   toolLabel: string;
 }
 
@@ -85,7 +86,8 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       note: 'Strictly black ink ballpoint pen on white paper. Capital / BLOCK letters lead to disqualification.'
     },
     toolPresetSlug: 'ssc-signature-resize',
-    toolLabel: 'Resize Photo & Sign for SSC CGL'
+    toolLabel: 'Resize Photo & Sign for SSC CGL',
+    guideSlug: 'ssc-cgl-2026-master-application-preparation-guide'
   },
   {
     id: 'ssc-chsl-2026',
@@ -121,7 +123,8 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       note: 'Running handwriting in black ink on clean white background.'
     },
     toolPresetSlug: 'ssc-signature-resize',
-    toolLabel: 'Resize Sign for SSC CHSL'
+    toolLabel: 'Resize Sign for SSC CHSL',
+    guideSlug: 'ssc-chsl-2026-top-10-faq-aspirants-guide'
   },
   {
     id: 'ssc-gd-constable-2026',
@@ -195,7 +198,8 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       note: 'Running handwriting in black ink on white paper. Capital letters disqualified.'
     },
     toolPresetSlug: 'rrb-signature-resize',
-    toolLabel: 'Resize Photo & Sign for RRB NTPC'
+    toolLabel: 'Resize Photo & Sign for RRB NTPC',
+    guideSlug: 'rrb-ntpc-2026-master-document-rules-preparation-strategy'
   },
   {
     id: 'rrb-alp-tech-2026',
@@ -269,7 +273,8 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       note: 'Signature in black ballpoint pen on plain white paper.'
     },
     toolPresetSlug: 'upsc-signature-resize',
-    toolLabel: 'Resize Photo & Sign for UPSC OTR'
+    toolLabel: 'Resize Photo & Sign for UPSC OTR',
+    guideSlug: 'upsc-cse-2026-preparation-roadmap-daily-study-plan'
   },
   {
     id: 'upsc-cds-nda-2026',
@@ -453,7 +458,8 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       note: 'Clear signature on white background.'
     },
     toolPresetSlug: 'india-post-gds-photo-resize',
-    toolLabel: 'Resize for India Post GDS'
+    toolLabel: 'Resize for India Post GDS',
+    guideSlug: 'india-post-gds-2026-top-10-faq-complete-guide'
   },
   {
     id: 'iaf-afcat-agniveer-2026',
@@ -635,7 +641,8 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       note: 'Sign in blue/black ink inside prescribed box.'
     },
     toolPresetSlug: 'rpsc-signature-resize',
-    toolLabel: 'Resize for RPSC RAS'
+    toolLabel: 'Resize for RPSC RAS',
+    guideSlug: 'state-psc-otr-registration-photo-signature-guidelines'
   },
   {
     id: 'dsssb-delhi-2026',

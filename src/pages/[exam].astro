@@ -8,6 +8,7 @@ import GoogleFonts from '../components/GoogleFonts.astro';
 import ThemeScript from '../components/ThemeScript.astro';
 import { SignatureTool } from '../components/SignatureTool';
 import { EXAM_PAGES_DATA, type ExamPageInfo } from '../data/examPagesData';
+import { BLOG_POSTS } from '../data/blogPostsData';
 
 export async function getStaticPaths() {
   return EXAM_PAGES_DATA.map((page) => ({
@@ -22,6 +23,35 @@ const canonicalUrl = `https://signresize.in/${examData.slug}/`;
 const ogImageUrl = 'https://signresize.in/og-image.png';
 const currentYear = 2026;
 const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
+
+// Find relevant blog posts for this specific exam tool
+const relevantBlogPosts = BLOG_POSTS.map(post => {
+  let score = 0;
+  const examSlugLower = examData.slug.toLowerCase();
+  const examKey = examSlugLower.split('-')[0]; // 'ssc', 'rrb', 'upsc', 'bpsc', etc.
+  
+  if (post.relatedExamPreset && (post.relatedExamPreset === examData.presetId || examData.slug.includes(post.relatedExamPreset))) {
+    score += 10;
+  }
+  if (post.slug.includes(examKey) || post.title.toLowerCase().includes(examKey)) {
+    score += 8;
+  }
+  if (post.tags && post.tags.some(t => examData.keywords.toLowerCase().includes(t.toLowerCase()) || examData.targetExams.toLowerCase().includes(t.toLowerCase()))) {
+    score += 4;
+  }
+  if (examData.slug.includes('psc') && (post.slug.includes('psc') || post.slug.includes('otr'))) {
+    score += 5;
+  }
+  if (examData.slug.includes('police') && post.slug.includes('police')) {
+    score += 6;
+  }
+  if (post.slug === 'top-5-mistakes-photo-signature-rejection-govt-exams') {
+    score += 2;
+  }
+  return { post, score };
+}).sort((a, b) => b.score - a.score)
+  .slice(0, 2)
+  .map(s => s.post);
 ---
 
 <!doctype html>
@@ -325,13 +355,82 @@ const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
               </div>
             </div>
 
+            <!-- Relevant Official Master Guides & Preparation Strategy -->
+            {relevantBlogPosts.length > 0 && (
+              <div class="space-y-3 pt-4 border-t border-border">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
+                    <span>📘</span> Official {examData.authority} Preparation &amp; Upload Guides
+                  </h3>
+                  <a href="/blog/" class="text-xs text-primary font-semibold hover:underline">
+                    All Guides &rarr;
+                  </a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {relevantBlogPosts.map(bp => (
+                    <a
+                      href={`/blog/${bp.slug}/`}
+                      class="p-3.5 rounded-xl border border-primary/20 bg-primary/5 hover:bg-primary/10 hover:border-primary/40 transition group flex flex-col justify-between space-y-2"
+                    >
+                      <div class="space-y-1">
+                        <span class="text-[9px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-1.5 py-0.5 rounded">
+                          {bp.category}
+                        </span>
+                        <h4 class="font-bold text-xs text-foreground group-hover:text-primary transition line-clamp-2">
+                          {bp.title}
+                        </h4>
+                        <p class="text-[11px] text-muted-foreground line-clamp-2 leading-relaxed">
+                          {bp.excerpt}
+                        </p>
+                      </div>
+                      <div class="text-[11px] text-primary font-bold flex items-center justify-between pt-1">
+                        <span>Read Master Guide</span>
+                        <span class="group-hover:translate-x-0.5 transition">&rarr;</span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
 
         <!-- Right Side: Sticky Assistant & Portal Shortcuts -->
         <aside class="lg:col-span-4 space-y-4 sticky top-16">
           
-          <!-- Card 1: Checklist -->
+          <!-- Card 1: Recommended Master Guide -->
+          {relevantBlogPosts.length > 0 && (
+            <div class="bg-card border border-primary/25 rounded-2xl p-4 shadow-sm space-y-2.5 bg-gradient-to-br from-primary/5 via-card to-card">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-1.5">
+                  <span>📘</span>
+                  Official 2026 Guide
+                </span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">{relevantBlogPosts[0].readTime}</span>
+              </div>
+              <div>
+                <a
+                  href={`/blog/${relevantBlogPosts[0].slug}/`}
+                  class="font-bold text-xs sm:text-sm text-foreground hover:text-primary transition line-clamp-2 block leading-snug"
+                >
+                  {relevantBlogPosts[0].title}
+                </a>
+                <p class="text-[11px] text-muted-foreground line-clamp-2 mt-1 leading-relaxed">
+                  {relevantBlogPosts[0].excerpt}
+                </p>
+              </div>
+              <a
+                href={`/blog/${relevantBlogPosts[0].slug}/`}
+                class="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline pt-0.5"
+              >
+                <span>Read Full Article &amp; Timetable</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          )}
+
+          <!-- Card 2: Checklist -->
           <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-3">
             <div class="flex items-center justify-between">
               <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">

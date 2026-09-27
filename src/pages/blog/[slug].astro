@@ -38,8 +38,23 @@ const relatedExamPage = post.relatedExamPreset
   : null;
 const relatedExamSlug = relatedExamPage ? relatedExamPage.slug : 'ssc-signature-resize';
 
-// Related posts (excluding current)
-const relatedPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
+// Intelligent Related Posts selection:
+// Calculate relevance score for all other posts based on category, tags, and cluster overlap
+const scoredPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).map(other => {
+  let score = 0;
+  if (other.category === post.category) score += 3;
+  if (other.relatedExamPreset && post.relatedExamPreset && other.relatedExamPreset === post.relatedExamPreset) score += 5;
+  if (other.tags && post.tags) {
+    const sharedTags = other.tags.filter(t => post.tags.includes(t));
+    score += sharedTags.length * 2;
+  }
+  // High-value cross-relevance bonuses (e.g. general mistake guide relevant to all)
+  if (other.slug === 'top-5-mistakes-photo-signature-rejection-govt-exams') score += 1;
+  return { post: other, score };
+});
+
+scoredPosts.sort((a, b) => b.score - a.score);
+const relatedPosts = scoredPosts.slice(0, 3).map(s => s.post);
 
 // Date formatting helper for Schema
 function toIsoDate(dateStr?: string): string {
@@ -406,24 +421,38 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
       <!-- Related Posts Section -->
       {relatedPosts.length > 0 && (
         <section class="border-t border-border pt-6 sm:pt-8 space-y-4">
-          <h3 class="text-base sm:text-lg font-bold text-foreground">More from SignResize Blog</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+              <span>📚</span>
+              <span>Related High-Yield Preparation Guides</span>
+            </h3>
+            <a href="/blog/" class="text-xs text-primary font-semibold hover:underline">
+              View All Guides &rarr;
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
             {relatedPosts.map(p => (
               <a
                 href={`/blog/${p.slug}/`}
-                class="p-3.5 sm:p-4 rounded-xl border border-border bg-card hover:border-primary/40 transition group flex flex-col justify-between space-y-2 min-w-0"
+                class="p-4 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-sm transition group flex flex-col justify-between space-y-3 min-w-0"
               >
-                <div>
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-primary">
-                    {p.category}
-                  </span>
-                  <h4 class="font-bold text-xs sm:text-sm text-foreground group-hover:text-primary transition mt-1 line-clamp-2 break-words">
+                <div class="space-y-1.5">
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">
+                      {p.category}
+                    </span>
+                    <span class="text-[10px] text-muted-foreground font-mono">{p.readTime}</span>
+                  </div>
+                  <h4 class="font-bold text-xs sm:text-sm text-foreground group-hover:text-primary transition line-clamp-2 break-words">
                     {p.title}
                   </h4>
+                  <p class="text-[11px] text-muted-foreground line-clamp-2 leading-relaxed">
+                    {p.excerpt}
+                  </p>
                 </div>
-                <div class="text-xs text-muted-foreground font-mono flex items-center justify-between pt-1">
-                  <span>{p.readTime}</span>
-                  <span class="text-primary font-bold group-hover:translate-x-0.5 transition">&rarr;</span>
+                <div class="text-xs text-primary font-bold flex items-center gap-1 pt-1 group-hover:translate-x-0.5 transition">
+                  <span>Read Guide</span>
+                  <span>&rarr;</span>
                 </div>
               </a>
             ))}
