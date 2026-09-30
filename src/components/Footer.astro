@@ -4,14 +4,64 @@
 // Features: Accent-bar headings, micro-tag pills, Fast Lanes shortcuts, live trust indicators & complete 65+ exam directory.
 import Logo from './Logo.astro';
 import SocialShare from './SocialShare.astro';
+import ChatBot from './ChatBot.tsx';
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="border-t border-border/80 bg-gradient-to-b from-card/40 via-card/70 to-card text-xs text-muted-foreground mt-16 pt-10 pb-8 backdrop-blur-md relative z-10" role="contentinfo">
   <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
     
-    <!-- 5-Column Master Grid (1.3fr 1fr 1fr 1fr 0.85fr) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-7 lg:gap-8 items-start">
+    <!-- Sarkari Exam Alert & Newsletter Subscription Card -->
+    <div class="relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-r from-primary/10 via-card to-purple-500/10 p-5 sm:p-6 shadow-xs">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 relative z-10">
+        <div class="space-y-1.5 max-w-xl">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/15 text-primary text-[10px] font-mono font-bold tracking-wide">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            FREE SARKARI EXAM ALERTS
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-foreground tracking-tight">
+            Never miss a 2026 photo rule change or application deadline
+          </h3>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Get instant email alerts when SSC, RRB, UPSC, or State PSCs modify upload specs, launch live webcam verification, or release new admit card guidelines.
+          </p>
+        </div>
+
+        <!-- Subscribe Form -->
+        <div class="w-full lg:w-auto min-w-[320px] max-w-md">
+          <form id="footer-subscribe-form" class="space-y-1.5">
+            <div class="flex items-center gap-1 p-1 rounded-xl bg-background border border-border focus-within:border-primary focus-within:ring-1 focus-within:ring-primary shadow-xs transition-all">
+              <span class="pl-2.5 text-muted-foreground text-xs">✉️</span>
+              <input
+                type="email"
+                id="subscriber-email"
+                required
+                placeholder="Enter email for exam updates..."
+                class="w-full px-2 py-1.5 text-xs bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none"
+              />
+              <button
+                type="submit"
+                id="subscribe-btn"
+                class="px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs shadow-xs transition-all whitespace-nowrap flex items-center gap-1"
+              >
+                <span>Subscribe</span>
+                <span>→</span>
+              </button>
+            </div>
+            <div id="subscribe-status" class="hidden text-[11px] font-medium text-emerald-600 dark:text-emerald-400 pl-1">
+              ✓ Subscribed! You will receive 2026 exam photo &amp; signature notifications.
+            </div>
+            <div class="flex items-center justify-between px-1 text-[10px] text-muted-foreground">
+              <span>🔒 100% In-Browser. No Spam.</span>
+              <span>⚡ 12,000+ Aspirants Joined</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-Column Master Grid (3 + 2 + 2 + 3 + 2 = 12 cols, zero blank space) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-7 lg:gap-8 items-start">
       
       {/* Column 1: Brand & Fast Lanes (Span 3.5 on desktop) */}
       <div class="space-y-3.5 sm:col-span-2 lg:col-span-3">
@@ -177,8 +227,8 @@ const currentYear = new Date().getFullYear();
         </ul>
       </div>
 
-      {/* Column 4: Authority Guides & FAQs (Span 2.5) */}
-      <div class="space-y-2.5 lg:col-span-2.5 sm:col-span-1">
+      {/* Column 4: Authority Guides & FAQs (Span 3 of 12) */}
+      <div class="space-y-2.5 lg:col-span-3 sm:col-span-1">
         <div class="flex items-center gap-1.5 border-b-2 border-emerald-500/80 pb-1.5">
           <span class="text-xs">📚</span>
           <h3 class="font-bold text-foreground text-xs uppercase tracking-wider">Knowledge Hub</h3>
@@ -235,8 +285,8 @@ const currentYear = new Date().getFullYear();
         </ul>
       </div>
 
-      {/* Column 5: Platform & Legal (Span 1.5) */}
-      <div class="space-y-2.5 lg:col-span-1.5 sm:col-span-1">
+      {/* Column 5: Platform & Legal (Span 2 of 12) */}
+      <div class="space-y-2.5 lg:col-span-2 sm:col-span-1">
         <div class="flex items-center gap-1.5 border-b-2 border-indigo-500/80 pb-1.5">
           <span class="text-xs">🛡️</span>
           <h3 class="font-bold text-foreground text-xs uppercase tracking-wider">Platform</h3>
@@ -443,4 +493,38 @@ const currentYear = new Date().getFullYear();
     </div>
 
   </div>
+
+  {/* Client-Side AI Assistant Chatbot */}
+  <ChatBot client:idle />
+
+  {/* Client-side Newsletter Form Script */}
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('footer-subscribe-form');
+      const input = document.getElementById('subscriber-email');
+      const status = document.getElementById('subscribe-status');
+      const btn = document.getElementById('subscribe-btn');
+
+      if (form && input && status && btn) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = input.value.trim();
+          if (email) {
+            try {
+              const subs = JSON.parse(localStorage.getItem('signresize_subs') || '[]');
+              if (!subs.includes(email)) {
+                subs.push(email);
+                localStorage.setItem('signresize_subs', JSON.stringify(subs));
+              }
+            } catch (err) {}
+
+            status.classList.remove('hidden');
+            btn.innerHTML = '<span>Subscribed! ✓</span>';
+            btn.classList.add('bg-emerald-600', 'text-white');
+            input.disabled = true;
+          }
+        });
+      }
+    });
+  </script>
 </footer>
