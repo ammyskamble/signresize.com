@@ -22,10 +22,14 @@ const QUICK_QUESTIONS = [
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
   const [hasUnread, setHasUnread] = useState(true);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const launcherRef = useRef<HTMLDivElement>(null);
 
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -46,6 +50,34 @@ export default function ChatBot() {
       setHasUnread(false);
     }
   }, [isOpen, messages, isTyping]);
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  // Handle click outside to close modal
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        isOpen &&
+        modalRef.current &&
+        !modalRef.current.contains(e.target as Node) &&
+        launcherRef.current &&
+        !launcherRef.current.contains(e.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
 
   const generateAnswer = (userQuery: string): { text: string; action?: { label: string; url: string } } => {
     const q = userQuery.toLowerCase().trim();
@@ -190,43 +222,78 @@ export default function ChatBot() {
 
   return (
     <>
-      {/* Floating Chatbot Launcher Button */}
-      <div className="fixed bottom-5 right-5 z-50 flex items-center gap-2 group">
-        {!isOpen && (
-          <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/95 border border-border shadow-lg text-[11px] font-semibold text-foreground backdrop-blur-md pointer-events-none group-hover:scale-105 transition-transform">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Ask Exam AI Copilot</span>
-          </div>
+      {/* Floating Chatbot Launcher Container */}
+      <div ref={launcherRef} className="fixed bottom-5 right-5 z-[9999] flex items-center gap-2 group">
+        
+        {/* If user dismissed the floating bar, show a mini discreet restore icon */}
+        {isDismissed ? (
+          <button
+            onClick={() => setIsDismissed(false)}
+            title="Open Exam AI Assistant"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/95 border border-primary/40 shadow-xl text-xs font-semibold text-primary backdrop-blur-md hover:scale-105 transition-all"
+          >
+            <span>🤖</span>
+            <span className="hidden sm:inline">AI Help</span>
+          </button>
+        ) : (
+          <>
+            {/* Expanded Label Pill with Dismiss '✕' Button */}
+            {!isOpen && (
+              <div className="flex items-center gap-1.5 pl-3 pr-1.5 py-1.5 rounded-full bg-card/95 border border-border shadow-xl text-[11px] font-semibold text-foreground backdrop-blur-md transition-all">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span onClick={() => setIsOpen(true)} className="cursor-pointer hover:text-primary">
+                  Ask Exam AI Copilot
+                </span>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsDismissed(true);
+                  }}
+                  title="Dismiss floating badge"
+                  className="w-4 h-4 ml-1 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-[10px] transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
+
+            {/* Main Launcher Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close Sarkari Exam Assistant' : 'Open Sarkari Exam Assistant'}
+              className={`relative w-13 h-13 rounded-full text-white shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center p-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                isOpen
+                  ? 'bg-rose-600 hover:bg-rose-700 shadow-rose-500/30'
+                  : 'bg-gradient-to-tr from-primary to-indigo-600 hover:shadow-primary/30'
+              }`}
+            >
+              {hasUnread && !isOpen && (
+                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-background animate-ping"></span>
+              )}
+              {hasUnread && !isOpen && (
+                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-background"></span>
+              )}
+
+              {isOpen ? (
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+              )}
+            </button>
+          </>
         )}
-
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close Sarkari Exam Assistant' : 'Open Sarkari Exam Assistant'}
-          className="relative w-13 h-13 rounded-full bg-gradient-to-tr from-primary to-indigo-600 text-white shadow-xl hover:shadow-primary/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center p-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-        >
-          {hasUnread && !isOpen && (
-            <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-background animate-ping"></span>
-          )}
-          {hasUnread && !isOpen && (
-            <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-background"></span>
-          )}
-
-          {isOpen ? (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-            </svg>
-          )}
-        </button>
       </div>
 
       {/* Floating Chat Modal Window */}
       {isOpen && (
-        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[390px] h-[540px] max-h-[82vh] rounded-2xl border border-border/80 bg-card/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
-          
+        <div
+          ref={modalRef}
+          className="fixed bottom-20 right-4 sm:right-6 z-[9999] w-[calc(100vw-2rem)] sm:w-[390px] h-[540px] max-h-[82vh] rounded-2xl border border-border/80 bg-card/98 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200"
+        >
           {/* Header */}
           <div className="p-3.5 bg-gradient-to-r from-primary/15 via-background to-indigo-500/10 border-b border-border flex items-center justify-between">
             <div className="flex items-center gap-2.5">
@@ -242,7 +309,7 @@ export default function ChatBot() {
               </div>
             </div>
 
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               <button
                 onClick={() => setMessages([messages[0]])}
                 title="Reset conversation"
@@ -252,12 +319,11 @@ export default function ChatBot() {
               </button>
               <button
                 onClick={() => setIsOpen(false)}
-                title="Close Assistant"
-                className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                title="Minimize / Close Assistant (Esc)"
+                className="flex items-center gap-1 px-2 py-1 rounded-md bg-muted/60 text-muted-foreground hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-500/15 transition-all text-xs font-semibold"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <span>✕</span>
+                <span className="text-[10px]">Close</span>
               </button>
             </div>
           </div>

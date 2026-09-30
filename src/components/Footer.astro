@@ -8,7 +8,7 @@ import ChatBot from './ChatBot.tsx';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-border/80 bg-gradient-to-b from-card/40 via-card/70 to-card text-xs text-muted-foreground mt-16 pt-10 pb-8 backdrop-blur-md relative z-10" role="contentinfo">
+<footer class="border-t border-border/80 bg-gradient-to-b from-card/80 via-card/90 to-card text-xs text-muted-foreground mt-16 pt-10 pb-8 relative z-10" role="contentinfo">
   <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
     
     <!-- Sarkari Exam Alert & Newsletter Subscription Card -->
@@ -494,9 +494,6 @@ const currentYear = new Date().getFullYear();
 
   </div>
 
-  {/* Client-Side AI Assistant Chatbot */}
-  <ChatBot client:idle />
-
   {/* Client-side Newsletter Form Script */}
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
@@ -528,3 +525,6 @@ const currentYear = new Date().getFullYear();
     });
   </script>
 </footer>
+
+{/* Client-Side AI Assistant Chatbot (Rendered outside footer so position:fixed binds to viewport window) */}
+<ChatBot client:idle />
