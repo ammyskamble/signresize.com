@@ -6378,5 +6378,488 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
   </div>
 </div>
     `
+  },
+  {
+    slug: "rrb-ntpc-cen-06-2026-photo-signature-guidelines",
+    title: "RRB NTPC CEN 06/2026 — Official Photo & Signature Upload Guidelines for October 2026 Applications",
+    metaTitle: "RRB NTPC CEN 06/2026 Photo & Signature Size — Complete Upload Guide",
+    metaDescription: "Complete guide to RRB NTPC CEN 06/2026 photo and signature upload specifications. Official size: 140x60 px, 10-20 KB JPG for signature; 240x320 px, 30-70 KB for photo. Apply from Oct 8, 2026.",
+    excerpt: "RRB NTPC CEN 06/2026 Graduate Level applications open October 8, 2026. Get the complete official photo (240x320 px, 30-70 KB) and signature (140x60 px, 10-20 KB) upload guide to ensure your application is accepted the first time.",
+    category: "Exam Alerts",
+    publishDate: "Oct 01, 2026",
+    publishTime: "09:00 AM IST",
+    lastUpdated: "Oct 01, 2026",
+    deployedAt: "Oct 01, 2026 • 09:00 AM IST",
+    author: "SignResize Examination Standards Desk",
+    authorRole: "Railway Recruitment Document Compliance Team",
+    readTime: "8 min read",
+    featured: true,
+    tags: ["RRB NTPC 2026", "RRB NTPC CEN 06/2026", "RRB NTPC Apply Online", "Railway Signature Resize", "RRB NTPC Photo Size"],
+    relatedExamPreset: "rrb-railway",
+    contentHtml: `
+<div class="prose-content">
+
+<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 to-orange-500/10 border-2 border-amber-500/40">
+  <div class="flex items-start gap-3">
+    <span class="text-2xl">🚨</span>
+    <div>
+      <h4 class="text-base font-bold text-foreground">Breaking: RRB NTPC CEN 06/2026 Applications Open October 8</h4>
+      <p class="text-sm text-muted-foreground mt-1">Railway Recruitment Board releases <strong>CEN 06/2026</strong> (Graduate Level) detailed notification on <strong>October 7, 2026</strong>. Online applications open <strong>October 8, 2026</strong> at <a href="https://rrbapply.gov.in" target="_blank" rel="noopener" class="text-primary underline">rrbapply.gov.in</a>. Undergraduate Level (CEN 07/2026) notification follows on October 14.</p>
+    </div>
+  </div>
+</div>
+
+<h2>RRB NTPC CEN 06/2026: Key Dates & Vacancy Overview</h2>
+
+<p>The Railway Recruitment Board (RRB) has officially announced a fresh Non-Technical Popular Category (NTPC) recruitment cycle for <strong>2026–27</strong>. This cycle, designated <strong>CEN 06/2026</strong> for Graduate Level posts and <strong>CEN 07/2026</strong> for Undergraduate Level posts, marks the beginning of one of the largest railway hiring drives in recent years.</p>
+
+<table class="w-full text-xs sm:text-sm border border-border my-6">
+  <thead>
+    <tr class="bg-muted">
+      <th class="p-3 text-left font-semibold border-b border-border">Event</th>
+      <th class="p-3 text-left font-semibold border-b border-border">Graduate Level (CEN 06/2026)</th>
+      <th class="p-3 text-left font-semibold border-b border-border">UG Level (CEN 07/2026)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="border-b border-border/50">
+      <td class="p-3">Detailed Notification</td>
+      <td class="p-3 font-medium text-primary">October 7, 2026</td>
+      <td class="p-3 font-medium text-primary">October 14, 2026</td>
+    </tr>
+    <tr class="border-b border-border/50 bg-muted/30">
+      <td class="p-3">Application Opens</td>
+      <td class="p-3 font-medium text-green-600 dark:text-green-400">October 8, 2026</td>
+      <td class="p-3 font-medium text-green-600 dark:text-green-400">October 15, 2026</td>
+    </tr>
+    <tr class="border-b border-border/50">
+      <td class="p-3">Total Vacancies</td>
+      <td class="p-3">3,477 (Graduate)</td>
+      <td class="p-3">1,688 (Undergraduate)</td>
+    </tr>
+    <tr class="bg-muted/30">
+      <td class="p-3">Apply At</td>
+      <td class="p-3" colspan="2"><a href="https://rrbapply.gov.in" target="_blank" rel="noopener" class="text-primary underline">rrbapply.gov.in</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Official Photo & Signature Specifications for RRB NTPC CEN 06/2026</h2>
+
+<p>The RRB NTPC online application form requires candidates to upload two critical documents: a <strong>passport-size photograph</strong> and a <strong>handwritten signature</strong>. Both must meet exact technical specifications or the portal will reject the upload. Based on previous RRB NTPC cycles (CEN 05/2024 and CEN 07/2025), the specifications for CEN 06/2026 are expected to follow the same Railway Recruitment Board standard.</p>
+
+<div class="my-8 p-6 rounded-2xl bg-card border border-border">
+  <h3 class="text-base font-bold text-foreground mb-4">📋 Official RRB NTPC Document Upload Specifications</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="p-4 rounded-xl bg-blue-500/10 border border-blue-500/30">
+      <h4 class="font-bold text-sm text-blue-600 dark:text-blue-400 mb-3">📸 Passport Photograph</h4>
+      <ul class="text-xs space-y-1.5 text-muted-foreground">
+        <li><span class="font-medium text-foreground">Dimensions:</span> 3.5 cm × 4.5 cm</li>
+        <li><span class="font-medium text-foreground">Pixels:</span> ~240 × 320 px (at 200 DPI)</li>
+        <li><span class="font-medium text-foreground">File Size:</span> 30 KB to 70 KB</li>
+        <li><span class="font-medium text-foreground">Format:</span> JPG / JPEG only</li>
+        <li><span class="font-medium text-foreground">Background:</span> White or light plain</li>
+        <li><span class="font-medium text-foreground">Recency:</span> Taken within last 3 months</li>
+        <li><span class="font-medium text-foreground">No:</span> Caps, dark glasses, coloured background</li>
+      </ul>
+    </div>
+    <div class="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/30">
+      <h4 class="font-bold text-sm text-indigo-600 dark:text-indigo-400 mb-3">✍️ Handwritten Signature</h4>
+      <ul class="text-xs space-y-1.5 text-muted-foreground">
+        <li><span class="font-medium text-foreground">Dimensions:</span> 4.0 cm × 2.0 cm</li>
+        <li><span class="font-medium text-foreground">Pixels:</span> 140 × 60 px</li>
+        <li><span class="font-medium text-foreground">File Size:</span> 10 KB to 20 KB</li>
+        <li><span class="font-medium text-foreground">Format:</span> JPG / JPEG only</li>
+        <li><span class="font-medium text-foreground">Ink:</span> Black ballpoint pen only</li>
+        <li><span class="font-medium text-foreground">Background:</span> Spotless white unruled paper</li>
+        <li><span class="font-medium text-foreground">No:</span> Capital letters, block letters, stencils</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800">
+  <p class="text-slate-400 mb-1">// RRB NTPC CEN 06/2026 — Exact Portal Upload Rules</p>
+  <p class="text-green-400">Signature: 140px × 60px | JPG | 10 KB ≤ size ≤ 20 KB | Black ink | Running hand | NO CAPS</p>
+  <p class="text-blue-400 mt-1">Photo:     240px × 320px | JPG | 30 KB ≤ size ≤ 70 KB | White bg | Recent | No headgear</p>
+  <p class="text-yellow-400 mt-1">Portal:    rrbapply.gov.in | Opens: Oct 8, 2026</p>
+</div>
+
+<h2>Step-by-Step: How to Prepare Your RRB NTPC Signature</h2>
+
+<div class="my-8 space-y-4">
+  <div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-6">
+
+    <div class="relative">
+      <div class="absolute -left-8 top-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold">1</div>
+      <h4 class="font-bold text-sm text-foreground">Sign on Plain White Paper</h4>
+      <p class="text-sm text-muted-foreground mt-1">Use a black ballpoint pen (not gel, not felt-tip). Sign in your natural running handwriting on spotless unruled A4 paper. Do not use ruled notebook sheets — the lines show up in the scan and cause rejection.</p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute -left-8 top-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold">2</div>
+      <h4 class="font-bold text-sm text-foreground">Photograph the Signature Clearly</h4>
+      <p class="text-sm text-muted-foreground mt-1">Place the paper on a flat surface in good, even light. Take a photo with your phone camera from directly above — no angle, no shadows. Use at least 12 MP camera for sharpness.</p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute -left-8 top-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold">3</div>
+      <h4 class="font-bold text-sm text-foreground">Upload to SignResize</h4>
+      <p class="text-sm text-muted-foreground mt-1">Open the <a href="/rrb-signature-resize/" class="text-primary underline">RRB Signature Resize tool</a>. Upload your photo. The tool auto-selects the Railway RRB preset (140×60 px, 10–20 KB). Crop tightly around your signature so it fills 75–85% of the frame.</p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute -left-8 top-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold">4</div>
+      <h4 class="font-bold text-sm text-foreground">Enable Clean White Paper Filter</h4>
+      <p class="text-sm text-muted-foreground mt-1">Toggle the <strong>Clean White Paper</strong> option to remove any yellowish paper tint and phone camera shadows. This ensures the background appears pure white as required by the RRB portal.</p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute -left-8 top-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold">5</div>
+      <h4 class="font-bold text-sm text-foreground">Verify Size & Download</h4>
+      <p class="text-sm text-muted-foreground mt-1">The tool displays the final file size in KB. Confirm it reads between <strong>10.0 KB and 19.9 KB</strong> before downloading. Upload the downloaded JPG directly to the rrbapply.gov.in portal.</p>
+    </div>
+  </div>
+</div>
+
+<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+  <h4 class="text-base font-bold text-foreground">Prepare Your RRB NTPC Documents Now</h4>
+  <p class="text-sm text-muted-foreground mt-1">Resize and compress your Railway signature and passport photo to exact RRB portal specifications in seconds — 100% free, works entirely in your browser.</p>
+  <div class="flex flex-wrap gap-2 mt-3">
+    <a href="/rrb-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+      ✍️ RRB Signature Resize &rarr;
+    </a>
+    <a href="/rrb-alp-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      🚂 RRB ALP Signature
+    </a>
+    <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      📸 Photo Resizer
+    </a>
+  </div>
+</div>
+
+<h2>Common RRB NTPC Signature Rejection Reasons (and How to Avoid Them)</h2>
+
+<div class="my-8 p-6 rounded-2xl bg-card border border-border">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <h4 class="font-bold text-sm text-red-500 mb-3">❌ Instant Rejection Triggers</h4>
+      <ul class="text-xs space-y-2 text-muted-foreground">
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-0.5">✗</span> Signature in CAPITAL or BLOCK LETTERS</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-0.5">✗</span> File size over 20 KB — portal blocks upload</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-0.5">✗</span> File size under 10 KB — insufficient resolution</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-0.5">✗</span> Blue ink instead of black ink</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-0.5">✗</span> Signed on ruled paper (lines visible)</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-0.5">✗</span> Blurry or low-contrast scan</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-0.5">✗</span> Dark or yellowish paper background</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold text-sm text-green-500 mb-3">✅ Guaranteed Acceptance Checklist</h4>
+      <ul class="text-xs space-y-2 text-muted-foreground">
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> Natural running cursive handwriting</li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> File size: 10.0 KB to 19.9 KB</li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> Dimensions: exactly 140 × 60 pixels</li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> Pure white background</li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> Black ballpoint pen on unruled white paper</li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> JPG/JPEG format only</li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> Signature fills 75–85% of frame</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h2>RRB NTPC CEN 06/2026 Graduate Level Posts & Eligibility</h2>
+
+<p>The Graduate Level NTPC notification (CEN 06/2026) covers a range of Group B and Group C clerical and supervisory posts across Indian Railways. Below are the key highlights:</p>
+
+<table class="w-full text-xs sm:text-sm border border-border my-6">
+  <thead>
+    <tr class="bg-muted">
+      <th class="p-3 text-left font-semibold border-b border-border">Post Category</th>
+      <th class="p-3 text-left font-semibold border-b border-border">Example Posts</th>
+      <th class="p-3 text-left font-semibold border-b border-border">Qualification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="border-b border-border/50">
+      <td class="p-3">Clerical & Commercial</td>
+      <td class="p-3">Junior Clerk cum Typist, Accounts Clerk cum Typist, Junior Time Keeper</td>
+      <td class="p-3">Any Graduate</td>
+    </tr>
+    <tr class="border-b border-border/50 bg-muted/30">
+      <td class="p-3">Supervisory (Group C)</td>
+      <td class="p-3">Station Master, Goods Guard, Senior Commercial cum Ticket Clerk</td>
+      <td class="p-3">Any Graduate</td>
+    </tr>
+    <tr>
+      <td class="p-3">Traffic & Operations</td>
+      <td class="p-3">Senior Time Keeper, Commercial Apprentice, Traffic Apprentice</td>
+      <td class="p-3">Any Graduate</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Age Limit:</strong> Generally 18–33 years for most posts, with relaxations for SC/ST (5 years), OBC-NCL (3 years), PwBD (10–15 years), and Ex-Servicemen as per Central Government norms.</p>
+
+<h2>Important Links for RRB NTPC CEN 06/2026</h2>
+
+<ul class="my-4 space-y-2 text-sm">
+  <li>📋 <strong>Official Application Portal:</strong> <a href="https://rrbapply.gov.in" target="_blank" rel="noopener" class="text-primary underline">rrbapply.gov.in</a></li>
+  <li>📄 <strong>CEN 06/2026 Notification PDF:</strong> Available from October 7, 2026 on your regional RRB website</li>
+  <li>🔗 <strong>Zonal RRB Websites:</strong> rrbahmedabad.gov.in, rrbbhopal.gov.in, rrbchennai.gov.in, rrbbilaspur.gov.in, etc.</li>
+</ul>
+
+<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+  <h4 class="text-base font-bold text-foreground">Get Your RRB Documents Portal-Ready in 60 Seconds</h4>
+  <p class="text-sm text-muted-foreground mt-1">Don't let a wrong file size block your application. Use our free Railway RRB signature and photo resizers built specifically for CEN 06/2026 specifications.</p>
+  <div class="flex flex-wrap gap-2 mt-3">
+    <a href="/rrb-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+      ✍️ Resize RRB Signature &rarr;
+    </a>
+    <a href="/rrb-group-d-photo-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      📸 Group D Photo
+    </a>
+    <a href="/rrb-alp-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      🚂 ALP Signature
+    </a>
+  </div>
+</div>
+
+</div>
+    `
+  },
+  {
+    slug: 'ssc-live-photo-webcam-guidelines-troubleshooting-2026',
+    title: 'SSC Live Photo & Webcam Capture Guidelines 2026: Mobile Setup, Camera Permissions & Avoiding Rejections',
+    metaTitle: 'SSC Live Photo Webcam Capture Guidelines 2026: Camera Setup & Fixes - SignResize',
+    metaDescription: 'Complete troubleshooting guide for SSC live photo capture on ssc.gov.in. How to fix browser camera errors on Android/Chrome, plain background rules, lighting, and avoiding rejection.',
+    excerpt: 'Struggling with camera errors on the new ssc.gov.in portal? Learn how to configure your smartphone or laptop webcam, ensure compliant lighting, and capture a 100% accepted live photo for SSC CGL, CHSL, MTS & GD.',
+    category: 'SSC',
+    publishDate: '2026-09-30',
+    publishTime: '09:30 AM IST',
+    lastUpdated: 'September 30, 2026',
+    deployedAt: '2026-09-30T09:30:00.000Z',
+    author: 'Editorial Team',
+    authorRole: 'Exam Document Scrutiny Specialist',
+    readTime: '6 min read',
+    featured: true,
+    tags: ['SSC', 'Live Photo', 'Webcam', 'CGL', 'CHSL', 'MTS', 'GD Constable', 'ssc.gov.in'],
+    relatedExamPreset: 'ssc-general',
+    contentHtml: `
+<div class="space-y-6 text-foreground leading-relaxed">
+
+<p class="text-lg font-medium text-foreground/90">
+  With the launch of Staff Selection Commission's modernized portal (<a href="https://ssc.gov.in" target="_blank" rel="noopener" class="text-primary underline">ssc.gov.in</a>), the traditional method of uploading a pre-clicked passport photo file has been officially replaced by a <strong>mandatory real-time live webcam photograph capture</strong>. While this prevents photo impersonation, thousands of candidates encounter browser permission crashes, dim lighting warnings, and facial detection errors.
+</p>
+
+<div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+  <h3 class="text-base font-bold text-amber-900 dark:text-amber-200 mb-2">⚠️ Why Live Photo Matters for SSC 2026</h3>
+  <p class="text-sm text-foreground/80">
+    Under SSC guidelines for CGL, CHSL, MTS, and GD Constable, an automated AI facial recognition filter matches your live webcam capture against your examination hall biometric scan. If your capture is blurry, backlit, or contains headwear, your application will be flagged during scrutiny.
+  </p>
+</div>
+
+<h2>Top 4 SSC Live Photo Capture Rules</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+  <div class="p-4 rounded-xl bg-card border border-border">
+    <h4 class="font-bold text-sm text-primary mb-1">1. Plain, Light-Coloured Background</h4>
+    <p class="text-xs text-muted-foreground">Sit directly in front of a plain white, off-white, or light grey wall. Curtains with folds, door frames, or outdoor scenes trigger background rejection errors.</p>
+  </div>
+  <div class="p-4 rounded-xl bg-card border border-border">
+    <h4 class="font-bold text-sm text-primary mb-1">2. Frontal Face Position &amp; Eye Level</h4>
+    <p class="text-xs text-muted-foreground">Look straight into the camera lens with a neutral expression and mouth closed. Both ears must be fully visible. Do not tilt your head sideways or downwards.</p>
+  </div>
+  <div class="p-4 rounded-xl bg-card border border-border">
+    <h4 class="font-bold text-sm text-primary mb-1">3. Strict Prohibition on Caps &amp; Spectacles</h4>
+    <p class="text-xs text-muted-foreground">Even if you wear prescription glasses daily, SSC guidelines mandate removing spectacles, sunglasses, caps, mufflers, and face coverings during live capture.</p>
+  </div>
+  <div class="p-4 rounded-xl bg-card border border-border">
+    <h4 class="font-bold text-sm text-primary mb-1">4. Front-Facing Diffused Lighting</h4>
+    <p class="text-xs text-muted-foreground">Light source (window or lamp) must illuminate your face directly from the front. Avoid having a bulb or window behind you, which causes dark silhouette underexposure.</p>
+  </div>
+</div>
+
+<h2>How to Fix "Camera Not Allowed / Permission Denied" Error</h2>
+
+<p>The most frequent technical barrier is a blocked browser permission. Here is the step-by-step fix across devices:</p>
+
+<div class="space-y-4 my-4">
+  <div class="p-4 rounded-xl bg-muted/40 border border-border text-sm">
+    <h4 class="font-bold text-foreground mb-1">📱 On Android Smartphones (Google Chrome)</h4>
+    <ol class="list-decimal pl-5 space-y-1 text-xs text-muted-foreground">
+      <li>Tap the <strong>Padlock or Tune icon</strong> on the left side of the address bar at <code>ssc.gov.in</code>.</li>
+      <li>Select <strong>Permissions</strong> &rarr; Toggle <strong>Camera</strong> to <em>Allowed</em>.</li>
+      <li>If still blocked: Open Chrome Settings &rarr; <em>Site Settings</em> &rarr; <em>Camera</em> &rarr; Ensure <code>ssc.gov.in</code> is not under the "Blocked" list.</li>
+      <li>Refresh the webpage and click "Allow" when the browser prompt asks for camera access.</li>
+    </ol>
+  </div>
+
+  <div class="p-4 rounded-xl bg-muted/40 border border-border text-sm">
+    <h4 class="font-bold text-foreground mb-1">💻 On Windows Laptop / PC</h4>
+    <ol class="list-decimal pl-5 space-y-1 text-xs text-muted-foreground">
+      <li>Open Windows <strong>Settings</strong> (Win + I) &rarr; <strong>Privacy &amp; Security</strong> &rarr; <strong>Camera</strong>.</li>
+      <li>Ensure <em>"Camera access"</em> is ON and <em>"Let desktop apps access your camera"</em> is enabled for your browser.</li>
+      <li>In Chrome, click the small video camera icon inside the address bar (far right) and choose <em>"Always allow https://ssc.gov.in to access your camera"</em>.</li>
+    </ol>
+  </div>
+</div>
+
+<h2>What About the SSC Scanned Signature?</h2>
+
+<p>
+  Unlike the photograph, <strong>SSC still requires uploading a scanned signature image file</strong>. The technical parameters remain strictly enforced:
+</p>
+
+<ul class="my-4 space-y-2 text-sm">
+  <li>✍️ <strong>File Size:</strong> Strictly between <strong>10.0 KB and 20.0 KB</strong>.</li>
+  <li>📐 <strong>Dimensions:</strong> <strong>140 pixels width × 60 pixels height</strong> (4.0 cm × 2.0 cm).</li>
+  <li>🖋️ <strong>Ink Color:</strong> Black ink ballpoint pen on plain white paper.</li>
+  <li>🚫 <strong>Disqualification:</strong> Signatures in CAPITAL LETTERS will be summarily rejected.</li>
+</ul>
+
+<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+  <h4 class="text-base font-bold text-foreground">Prepare Your SSC Signature in 10 Seconds</h4>
+  <p class="text-sm text-muted-foreground mt-1">
+    Resize your signature to exact 140×60 px and 10–20 KB bounds with automatic white background cleaning.
+  </p>
+  <div class="flex flex-wrap gap-2 mt-3">
+    <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+      ✍️ Resize SSC Signature (10–20 KB) &rarr;
+    </a>
+    <a href="/ssc-gd-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      🛡️ SSC GD Resizer
+    </a>
+    <a href="/ssc-chsl-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      📑 SSC CHSL Resizer
+    </a>
+  </div>
+</div>
+
+</div>
+    `
+  },
+  {
+    slug: 'blue-ink-vs-black-ink-signature-guidelines-govt-exams',
+    title: 'Blue Ink vs Black Ink for Government Exam Signatures: Official SSC, UPSC, Banking & Railway Rules',
+    metaTitle: 'Blue Ink vs Black Ink for Govt Exam Signatures: Official 2026 Rules - SignResize',
+    metaDescription: 'Which pen should you use for government exams? Detailed breakdown of blue vs black ink signature rules for SSC, UPSC, IBPS, SBI, Railway RRB, and State PSCs with OCR scanner requirements.',
+    excerpt: 'Using the wrong pen color can get your application disqualified during automated OCR scrutiny. Here is the definitive guide to official blue ink vs black ink requirements across every major Indian exam portal.',
+    category: 'Document Guidelines',
+    publishDate: '2026-09-30',
+    publishTime: '09:35 AM IST',
+    lastUpdated: 'September 30, 2026',
+    deployedAt: '2026-09-30T09:35:00.000Z',
+    author: 'Editorial Team',
+    authorRole: 'Recruitment Portal Compliance Analyst',
+    readTime: '5 min read',
+    featured: true,
+    tags: ['Signature Guidelines', 'Black Ink', 'Blue Ink', 'SSC', 'UPSC', 'IBPS', 'RRB', 'State PSC'],
+    relatedExamPreset: 'ssc-general',
+    contentHtml: `
+<div class="space-y-6 text-foreground leading-relaxed">
+
+<p class="text-lg font-medium text-foreground/90">
+  One of the most persistent anxieties among government exam aspirants is: <em>"Can I sign with a blue pen, or will my form be rejected if I don't use black ink?"</em> With different recruitment commissions enforcing different standards, understanding which authority mandates which pen color is critical before you upload your scanned signature.
+</p>
+
+<h2>Authority-Wise Pen Color Comparison Matrix (2026)</h2>
+
+<div class="my-5 overflow-x-auto">
+  <table class="w-full text-sm text-left border border-border">
+    <thead class="bg-muted text-foreground font-semibold">
+      <tr>
+        <th class="p-3 border-b border-border">Exam Commission / Portal</th>
+        <th class="p-3 border-b border-border">Mandatory Signature Ink</th>
+        <th class="p-3 border-b border-border">Thumb Impression Ink</th>
+        <th class="p-3 border-b border-border">Rejection Risk</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-border/60">
+      <tr>
+        <td class="p-3 font-medium">SSC (Staff Selection Commission)</td>
+        <td class="p-3"><span class="px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 font-bold text-xs">Black Ink Only</span></td>
+        <td class="p-3 text-muted-foreground">Not applicable online</td>
+        <td class="p-3 text-xs text-rose-600 font-semibold">High if faint blue</td>
+      </tr>
+      <tr class="bg-muted/30">
+        <td class="p-3 font-medium">UPSC (Civil Services, NDA, CDS)</td>
+        <td class="p-3"><span class="px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 font-bold text-xs">Black Ink Only</span></td>
+        <td class="p-3 text-muted-foreground">Not applicable online</td>
+        <td class="p-3 text-xs text-rose-600 font-semibold">Strictly enforced</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-medium">Banking (IBPS PO/Clerk, SBI PO/Clerk)</td>
+        <td class="p-3"><span class="px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 font-bold text-xs">Black Ink Only</span></td>
+        <td class="p-3 text-xs">Blue or Black Ink</td>
+        <td class="p-3 text-xs text-rose-600 font-semibold">High (Black mandatory)</td>
+      </tr>
+      <tr class="bg-muted/30">
+        <td class="p-3 font-medium">Railway RRB (NTPC, ALP, Group D)</td>
+        <td class="p-3"><span class="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold text-xs">Dark Blue or Black</span></td>
+        <td class="p-3 text-muted-foreground">At document verification</td>
+        <td class="p-3 text-xs text-emerald-600">Low (Both accepted)</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-medium">NTA (NEET, JEE Main, CUET)</td>
+        <td class="p-3"><span class="px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 font-bold text-xs">Black Ballpoint Only</span></td>
+        <td class="p-3 text-xs">Left Hand Thumb (Blue/Black)</td>
+        <td class="p-3 text-xs text-rose-600 font-semibold">High</td>
+      </tr>
+      <tr class="bg-muted/30">
+        <td class="p-3 font-medium">State PSCs (UPPSC, BPSC, MPSC, RPSC)</td>
+        <td class="p-3"><span class="px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold text-xs">Black Strongly Preferred</span></td>
+        <td class="p-3 text-muted-foreground">Varies by state</td>
+        <td class="p-3 text-xs text-amber-600">Moderate</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Why Do Recruitment Portals Insist on Black Ink?</h2>
+
+<p>
+  The preference for black ink is not an arbitrary bureaucratic rule; it is driven by automated document processing pipelines:
+</p>
+
+<ol class="list-decimal pl-5 space-y-2 text-sm my-3">
+  <li><strong>Monochrome OCR Scanners:</strong> High-speed industrial document scanners used at examination centres convert colored forms to high-contrast binary (black &amp; white) bitmaps. Light blue, turquoise, or gel inks often fall below the scanner's threshold and vanish entirely, resulting in a blank signature slot.</li>
+  <li><strong>Hall Ticket Printing:</strong> Admit cards are printed in high volumes using monochrome thermal or laser printers. Black signatures reproduce with sharp, dark edges, whereas blue signatures appear washed out or pixelated.</li>
+  <li><strong>Digital Compression Artifacts:</strong> When an image is compressed down to 10 KB–20 KB, blue color chrominance is heavily downsampled by the JPEG compression algorithm, causing ink blur along pen strokes.</li>
+</ol>
+
+<h2>What If You Already Signed in Blue Ink?</h2>
+
+<p>
+  If you have already signed your document in blue ink and need to upload it to an exam portal:
+</p>
+
+<ul class="my-4 space-y-2 text-sm">
+  <li>💡 <strong>Best Solution:</strong> Take 30 seconds to sign fresh with a dark black ballpoint pen on spotless white paper. It is always safest to comply with the exact letter of the notification.</li>
+  <li>🛠️ <strong>Tool Fix:</strong> If you cannot access pen and paper right now, upload your blue signature to <a href="/signature-resizer/" class="text-primary underline">SignResize</a> and toggle on the <strong>Pure Black &amp; White Mode</strong> or <strong>Clean White Paper</strong> filter. The tool boosts the stroke luminance contrast, converting blue ink into solid black lines before compressing to your portal's target KB.</li>
+</ul>
+
+<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+  <h4 class="text-base font-bold text-foreground">Ensure Your Signature Is 100% Portal-Ready</h4>
+  <p class="text-sm text-muted-foreground mt-1">
+    Crop, enhance stroke contrast, and compress to official 10–20 KB limits with zero quality loss.
+  </p>
+  <div class="flex flex-wrap gap-2 mt-3">
+    <a href="/signature-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+      ✍️ Universal Signature Resizer &rarr;
+    </a>
+    <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      🏛️ UPSC Resizer
+    </a>
+    <a href="/ibps-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      🏦 Banking Resizer
+    </a>
+  </div>
+</div>
+
+</div>
+    `
   }
 ];
+

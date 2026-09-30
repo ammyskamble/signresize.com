@@ -1,7 +1,10 @@
 ---
 // src/components/GoogleFonts.astro
-// Preload primary Inter Variable web font directly in <head> to eliminate FOYT / FOUT layout shift (0 CLS)
+// Self-hosted Inter: preloaded for instant LCP text render (no render-block, font-display:optional in CSS).
+// Noto Devanagari: non-blocking async via media="print" onload trick — eliminates 750ms render-block penalty.
 ---
+
+<!-- Self-hosted Inter Variable: preloaded, render-non-blocking (font-display:optional in global.css) -->
 <link
   rel="preload"
   href="/fonts/inter-latin-wght-normal.woff2"
@@ -9,11 +12,33 @@
   type="font/woff2"
   crossorigin="anonymous"
 />
-<!-- Google Fonts Preconnect & Devanagari Web Font for Hindi & Marathi -->
+
+<!-- Preconnect to Google Fonts (DNS + TLS warm-up, zero render cost) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!--
+  Noto Sans Devanagari — NON-BLOCKING async load.
+  1. rel="preload" as="style" — hints to the browser preload scanner early (no render-block).
+  2. media="print" prevents treating the stylesheet as render-critical.
+  3. onload swaps media to "all" once the CSS is fully downloaded.
+  4. <noscript> fallback for JS-disabled crawlers/environments.
+  5. display=swap in URL shows system fallback text immediately (no invisible-text FOIT).
+-->
+<link
+  rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+  as="style"
+/>
 <link
   href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
   rel="stylesheet"
+  media="print"
+  onload="this.media='all'"
 />
-
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</noscript>

@@ -1890,5 +1890,712 @@ export const EXAM_PAGES_DATA: ExamPageInfo[] = [
         a: 'The OSSSC portal requires signature files strictly between 10 KB and 20 KB in JPG or JPEG format.'
       }
     ]
+  },
+  // ─── NEW HIGH-PRIORITY PAGES — October 2026 Surge ───────────────────────────
+  // 1. RRB ALP & Technician Signature
+  {
+    slug: 'rrb-alp-signature-resize',
+    presetId: 'rrb-alp-technician',
+    pageTitle: 'RRB ALP Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
+    metaDescription: 'Resize signature for RRB ALP & Technician Grade 3 recruitment 2026 online. Format to 140x60 px (4x2 cm), 10 KB to 20 KB JPG for Railway Recruitment Board ALP/Technician portal. Free & private.',
+    keywords: 'rrb alp signature resize, rrb alp signature size 10 to 20 kb, rrb alp signature 140x60, rrb technician signature resize, railway alp signature resizer, rrb alp technician 2026 apply online, rrb alp signature format',
+    h1: 'RRB ALP & Technician Signature Resize (10 KB – 20 KB)',
+    subheading: 'Official 140×60 px (4.0×2.0 cm) dimensions with strict 10 KB to 20 KB bounds for Railway Recruitment Board ALP & Technician Grade 3 portals (CEN 05/2024 & 06/2026).',
+    authority: 'Railway Recruitment Board (RRB)',
+    targetExams: 'RRB ALP (Assistant Loco Pilot) CEN 05/2024, RRB Technician Grade 3, RRB ALP 2026 CEN 06/2026',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'Railway Recruitment Boards strictly reject signatures in CAPITAL LETTERS or any unnatural handwriting. Sign in running cursive script.',
+    tips: [
+      'Sign with a dense black ballpoint pen on clean, spotless unruled white paper.',
+      'Crop tightly so the signature fills 75–85% of the frame without clipping edges.',
+      'Use the Clean White Paper filter to remove mobile camera shadows and yellow tint.',
+      'Verify the downloaded file is strictly between 10.0 KB and 19.9 KB before portal upload.'
+    ],
+    faqs: [
+      {
+        q: 'What is the RRB ALP signature size for 2026 recruitment?',
+        a: 'The official RRB ALP & Technician signature size is 140 pixels wide by 60 pixels tall (approximately 4.0 cm × 2.0 cm) with a file size strictly between 10 KB and 20 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'Is the RRB ALP signature size the same as RRB NTPC?',
+        a: 'Yes. RRB ALP, RRB NTPC, RRB Group D, and RRB JE all follow the same Railway Recruitment Board standard: 140×60 px, 10 KB to 20 KB, JPG format, black ink on white paper.'
+      },
+      {
+        q: 'Can I use blue ink for RRB ALP signature?',
+        a: 'RRB notifications strongly prefer black ink on plain white paper for all recruitment including ALP. Blue ink signatures with low contrast often face scrutiny and may be rejected during document verification.'
+      },
+      {
+        q: 'What happens if my RRB ALP signature is over 20 KB?',
+        a: 'The RRB online application portal will block the upload if the file exceeds 20 KB. Use SignResize to compress your signature precisely to 14–19 KB for a safe upload margin.'
+      }
+    ]
+  },
+  // 2. SSC GD Constable Signature
+  {
+    slug: 'ssc-gd-signature-resize',
+    presetId: 'ssc-gd-constable',
+    pageTitle: 'SSC GD Constable Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
+    metaDescription: 'Resize signature for SSC GD Constable 2026 recruitment online. Format to 140x60 px, 10 to 20 KB JPG for BSF, CISF, CRPF, SSB, ITBP, AR, and SSF portals. Free, instant, 100% private.',
+    keywords: 'ssc gd signature resize, ssc gd constable signature size, ssc gd signature 10 to 20 kb, ssc gd signature 140x60, ssc gd constable 2026 apply online, ssc gd signature format 2026, bsf cisf signature resize',
+    h1: 'SSC GD Constable Signature Resize (10 KB – 20 KB)',
+    subheading: 'Official 140×60 px (4.0×2.0 cm) dimensions with strict 10–20 KB SSC portal compliance for GD Constable recruitment in BSF, CISF, CRPF, SSB, ITBP, AR, and SSF.',
+    authority: 'Staff Selection Commission (SSC)',
+    targetExams: 'SSC GD Constable (BSF, CISF, CRPF, SSB, ITBP, AR, SSF, NCB), SSC GD 2026 Recruitment',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'SSC strictly rejects signatures written in CAPITAL LETTERS or BLOCK LETTERS for GD Constable applications. Signature must be in natural running cursive handwriting.',
+    tips: [
+      'Use a black ballpoint pen on clean, unruled white paper — not a gel or ink pen that smudges.',
+      'Keep the signature consistent with your Class 10 admit card or school records.',
+      'Apply the Clean White Paper filter to remove any shadow or phone camera light artifact.',
+      'Ensure file size is between 10.0 KB and 19.9 KB — the SSC portal validates on upload.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official SSC GD Constable signature size for 2026?',
+        a: 'The official SSC GD Constable signature requirements are: 140 pixels wide × 60 pixels tall (4.0 cm × 2.0 cm), file size strictly between 10 KB and 20 KB, in JPG/JPEG format with a white background.'
+      },
+      {
+        q: 'Is the SSC GD signature size different from SSC CGL?',
+        a: 'No. SSC GD Constable and SSC CGL both use the same Staff Selection Commission portal standard: 140×60 px, 10 KB to 20 KB, JPG, black ink, no capital letters. The SSC uses one unified document upload module.'
+      },
+      {
+        q: 'Which forces are covered under SSC GD Constable recruitment?',
+        a: 'SSC GD Constable recruitment covers Border Security Force (BSF), Central Industrial Security Force (CISF), Central Reserve Police Force (CRPF), Sashastra Seema Bal (SSB), Indo-Tibetan Border Police (ITBP), Assam Rifles (AR), Secretariat Security Force (SSF), and Narcotics Control Bureau (NCB).'
+      },
+      {
+        q: 'What if I accidentally upload a capital letters signature for SSC GD?',
+        a: 'SSC\'s automated system flags capital-letter signatures during document verification. Candidates may be disqualified at the scrutiny stage, even after clearing the CBE and PET. Always sign in natural running handwriting.'
+      }
+    ]
+  },
+  // 3. SSC CHSL Signature
+  {
+    slug: 'ssc-chsl-signature-resize',
+    presetId: 'ssc-chsl',
+    pageTitle: 'SSC CHSL Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
+    metaDescription: 'Resize signature for SSC CHSL (Combined Higher Secondary Level) 2026 online. Format to 140x60 px, 10 to 20 KB JPG for SSC CHSL Tier 1 and Tier 2 portals. Free, instant, private.',
+    keywords: 'ssc chsl signature resize, ssc chsl signature size 2026, ssc chsl signature 10 to 20 kb, ssc chsl signature 140x60, ssc chsl tier 1 signature size, ssc chsl apply online 2026, chsl signature format',
+    h1: 'SSC CHSL Signature Resize & Compressor (10 KB – 20 KB)',
+    subheading: 'Exact 140×60 px (4.0×2.0 cm) dimensions with dual-boundary 10–20 KB compression for SSC CHSL Tier 1 CBE and Tier 2 (Skill Test) portals.',
+    authority: 'Staff Selection Commission (SSC)',
+    targetExams: 'SSC CHSL Tier 1 (CBE), SSC CHSL Tier 2 (Descriptive Paper & Skill Test), SSC CHSL 2026 Notification',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'SSC CHSL uses the same portal standard as SSC CGL. Signatures in CAPITAL / BLOCK LETTERS are categorically rejected during document verification.',
+    tips: [
+      'Sign with a fresh black ballpoint pen on white unruled paper. Avoid gel pens that bleed through.',
+      'Keep your signature consistent across all SSC exams — a mismatch can raise identity concerns.',
+      'Compress to exactly 14–19 KB for a comfortable margin within the 10–20 KB portal limit.',
+      'Use Clean White Paper mode to eliminate mobile phone camera shadows before download.'
+    ],
+    faqs: [
+      {
+        q: 'What is the SSC CHSL signature size and dimensions for 2026?',
+        a: 'The SSC CHSL portal requires a signature of 140 × 60 pixels (4.0 cm × 2.0 cm) in JPG/JPEG format with a file size strictly between 10 KB and 20 KB.'
+      },
+      {
+        q: 'Is SSC CHSL signature size the same as SSC CGL and SSC MTS?',
+        a: 'Yes. SSC CGL, SSC CHSL, SSC MTS, SSC CPO, and SSC GD all use the same Staff Selection Commission OTR portal document upload standards: 140×60 px, 10–20 KB, JPG, black ink on white paper.'
+      },
+      {
+        q: 'What posts are covered under SSC CHSL 2026 recruitment?',
+        a: 'SSC CHSL (Combined Higher Secondary Level) recruits for Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), Postal Assistant (PA), Sorting Assistant (SA), and Data Entry Operator (DEO) in various Central Government Ministries and Departments.'
+      },
+      {
+        q: 'Do I need to upload signature again at SSC CHSL Tier 2 skill test?',
+        a: 'Candidates shortlisted for Tier 2 may need to upload fresh documents if notification so specifies. Your original portal-uploaded signature from Tier 1 application is generally used for the entire recruitment cycle unless the SSC issues a separate instruction.'
+      }
+    ]
+  },
+  // 4. NEET UG Photo Resize
+  {
+    slug: 'neet-photo-resize',
+    presetId: 'neet-ug-photo',
+    pageTitle: 'NEET Photo Resize 10 to 200 KB (3.5x4.5 cm) Online 2026 - SignResize',
+    metaDescription: 'Resize NEET UG & PG photo for NTA portal online. Format passport photo to 3.5x4.5 cm (400x500 px), 10 KB to 200 KB JPG with white background, name & date printed. Free & instant.',
+    keywords: 'neet photo resize, neet ug photo size 10 to 200 kb, neet 2026 photo resize, nta neet photo dimensions, neet photo resizer online, neet ug photo 3.5x4.5 cm, neet photo with name and date, neet photo compressor',
+    h1: 'NEET Photo Resize & Compressor (10 KB – 200 KB)',
+    subheading: 'Official 3.5×4.5 cm passport-style photo with white background, 10 KB to 200 KB bounds, and name+date printing — fully compliant with the NTA NEET UG & PG portal.',
+    authority: 'National Testing Agency (NTA)',
+    targetExams: 'NEET UG 2026, NEET PG 2026, NEET SS, NTA CUET, JEE Main (Photo), JEE Advanced',
+    widthPx: 400,
+    heightPx: 500,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 10,
+    maxKb: 200,
+    recommendedKb: 50,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '4:5 (3.5×4.5 cm)',
+    strictNotice: 'NTA NEET requires the candidate\'s name and photo-taken date to be clearly printed below the photograph. Photo must have 80% face coverage with both ears visible and a pure white background.',
+    tips: [
+      'Use a plain white background; avoid studio backgrounds, patterns, or coloured backdrops.',
+      'Ensure both ears are visible and the face covers at least 80% of the photo frame.',
+      'Print candidate name and date of photo in English below the image before scanning or clicking.',
+      'Compress to 40–80 KB for optimal clarity well within the 200 KB ceiling.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official NEET photo size for 2026 NTA portal?',
+        a: 'The NTA NEET portal requires a passport-style photograph of 3.5 cm × 4.5 cm (approximately 400 × 500 pixels at 200 DPI), with a file size between 10 KB and 200 KB in JPG/JPEG format and a white background.'
+      },
+      {
+        q: 'Is candidate name and date required on NEET photo?',
+        a: 'Yes. NTA NEET guidelines require the candidate\'s name and the date the photo was taken to be clearly written/printed in English at the bottom of the passport photograph before uploading. Absence of this information can lead to form rejection.'
+      },
+      {
+        q: 'Can I upload a coloured-background photo for NEET?',
+        a: 'No. The NTA NEET portal mandates a pure white background for the passport photograph. Photos with studio gradients, coloured walls, or patterned backdrops will be rejected during scrutiny.'
+      },
+      {
+        q: 'What is the NEET photo size in KB and pixels?',
+        a: 'NEET photo must be 10 KB to 200 KB (JPG format) and ideally 400 × 500 pixels or a similar 4:5 ratio crop matching the 3.5 × 4.5 cm physical size at 200 DPI.'
+      }
+    ]
+  },
+  // 5. RRB Group D Photo Resize
+  {
+    slug: 'rrb-group-d-photo-resize',
+    presetId: 'rrb-group-d-photo',
+    pageTitle: 'RRB Group D Photo Resize 30 to 70 KB (3.5x4.5 cm) Online 2026 - SignResize',
+    metaDescription: 'Resize passport photo for RRB Group D (Level 1) recruitment 2026. Format to 3.5x4.5 cm (240x320 px), 30 KB to 70 KB JPG with white background for Railway Recruitment Board portal. Free & instant.',
+    keywords: 'rrb group d photo resize, rrb group d photo size 30 to 70 kb, rrb group d photo 3.5x4.5 cm, rrb group d photo dimensions 2026, railway group d photo resizer, rrc group d photo format, rrb group d photo compressor',
+    h1: 'RRB Group D Photo Resize & Compressor (30 KB – 70 KB)',
+    subheading: 'Official 3.5×4.5 cm (240×320 px) colour passport photo with white background and 30–70 KB size range — fully compliant with Railway Recruitment Board (RRC) Level 1 Group D portal.',
+    authority: 'Railway Recruitment Board / Railway Recruitment Cell (RRB / RRC)',
+    targetExams: 'RRB Group D (Level 1 Posts) — Track Maintainer Grade IV, Helper, Assistant Pointsman, Gateman, Porter, Hospital Attendant',
+    widthPx: 240,
+    heightPx: 320,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 30,
+    maxKb: 70,
+    recommendedKb: 50,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '3:4 (3.5×4.5 cm)',
+    strictNotice: 'RRB Group D portal rejects photographs with tinted spectacles, headgear (except for religious reasons), or dark/patterned backgrounds. Photograph must have a white or light grey background.',
+    tips: [
+      'Take the photo in bright, even indoor or outdoor daylight — avoid flash as it creates shadows.',
+      'Wear formal or semi-formal attire; avoid caps, hats, or heavy jewellery.',
+      'Keep the photo background white or very light grey — patterned walls and studio backdrops are rejected.',
+      'Compress to 45–65 KB for comfortable clearance within the 30–70 KB portal limit.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo size for RRB Group D 2026 application?',
+        a: 'The RRB Group D (Level 1) portal requires a colour passport photograph of 3.5 cm × 4.5 cm (approximately 240 × 320 pixels), with a file size between 30 KB and 70 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'Can I use a selfie as my RRB Group D application photo?',
+        a: 'RRB guidelines require a clear passport-style photograph with a white or light background taken in good lighting conditions. While professional studio photos are preferred, a good-quality selfie with a plain white background and proper framing can be acceptable if it meets all technical specs.'
+      },
+      {
+        q: 'Should I wear spectacles in the RRB Group D photo?',
+        a: 'RRB strongly advises candidates not to wear spectacles (especially tinted/sunglasses) in the passport photograph. If you wear prescription glasses for vision, check the specific notification, but the standard guidance is to photograph without glasses for consistency with biometric verification.'
+      },
+      {
+        q: 'Is the RRB Group D photo size same as RRB NTPC and ALP?',
+        a: 'The photo size is the same: 3.5 × 4.5 cm, 30–70 KB, JPG. However, Group D applications are handled through RRC (Railway Recruitment Cell) rather than RRB, though the document upload portal follows the same technical specifications.'
+      }
+    ]
+  },
+  // ─── BATCH 2: Week 2 October 2026 Pages ──────────────────────────────────────
+  // 1. CTET Photo Resize
+  {
+    slug: 'ctet-photo-resize',
+    presetId: 'ctet-photo',
+    pageTitle: 'CTET Photo Resize 10 to 100 KB (3.5x4.5 cm) December 2026 - SignResize',
+    metaDescription: 'Resize CTET photo for December 2026 exam online. Format passport photo to 3.5x4.5 cm, 10 KB to 100 KB JPG with white background for CBSE CTET portal (ctet.nic.in). Free & instant.',
+    keywords: 'ctet photo resize, ctet photo size 10 to 100 kb, ctet 2026 photo resize, cbse ctet photo dimensions, ctet photo resizer online, ctet december 2026 photo size, ctet photo 3.5x4.5 cm, ctet photo and signature resize',
+    h1: 'CTET Photo Resize & Compressor (10 KB – 100 KB)',
+    subheading: 'Official 3.5×4.5 cm passport-style photo with white background and 10–100 KB bounds — fully compliant with the CBSE CTET portal for December 2026 exam.',
+    authority: 'Central Board of Secondary Education (CBSE)',
+    targetExams: 'CTET December 2026 (Paper I & Paper II), CTET July/September 2026',
+    widthPx: 280,
+    heightPx: 360,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 10,
+    maxKb: 100,
+    recommendedKb: 40,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '7:9 (3.5×4.5 cm)',
+    strictNotice: 'CTET requires a recent passport-size photograph (taken within the last 6 months) with a white or light-coloured background. The photograph must be without dark glasses and in formal attire.',
+    tips: [
+      'Use a plain white or off-white background — no patterns, colours, or studio gradients.',
+      'The photograph must have been taken within the last 6 months from the application date.',
+      'Ensure the face is clearly visible, front-facing, with no headgear (except for religious reasons).',
+      'Compress to 30–80 KB for optimal portal acceptance within the 10–100 KB range.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official CTET photo size for December 2026 exam?',
+        a: 'CBSE CTET requires a passport-size photograph of 3.5 cm × 4.5 cm, with a file size between 10 KB and 100 KB in JPG/JPEG format. The photo must have a white or light-coloured background.'
+      },
+      {
+        q: 'What are the CTET photo and signature specifications together?',
+        a: 'CTET photo: 3.5 × 4.5 cm, 10–100 KB JPG. CTET signature: 3.5 × 1.5 cm (140 × 60 px), 3–30 KB JPG in black ink running handwriting. Use our CTET Signature Resize tool for the signature.'
+      },
+      {
+        q: 'Is CTET photo the same as NTA NEET photo size?',
+        a: 'Both are passport size (3.5×4.5 cm), but the file size ranges differ slightly: CTET allows 10–100 KB while NEET allows 10–200 KB. The CTET portal is managed by CBSE (ctet.nic.in) while NEET is managed by NTA (neet.nta.nic.in).'
+      },
+      {
+        q: 'Can I use an old photograph for CTET 2026 December application?',
+        a: 'No. CBSE CTET guidelines require the photograph to have been taken within the last 6 months from the date of application. Using an old photograph can lead to identity mismatch issues at the examination centre.'
+      }
+    ]
+  },
+  // 2. IBPS Clerk Signature
+  {
+    slug: 'ibps-clerk-signature-resize',
+    presetId: 'ibps-clerk',
+    pageTitle: 'IBPS Clerk Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
+    metaDescription: 'Resize signature for IBPS Clerk (Junior Associate & Office Assistant) recruitment 2026 online. Format to 140x60 px, 10 to 20 KB JPG for IBPS clerk portal. Free, instant, private.',
+    keywords: 'ibps clerk signature resize, ibps clerk signature size 10 to 20 kb, ibps clerk signature 140x60, ibps clerk 2026 apply online, ibps clerk signature format, ibps rrb office assistant signature size, ibps clerk photo and signature',
+    h1: 'IBPS Clerk Signature Resize & Compressor (10 KB – 20 KB)',
+    subheading: 'Official 140×60 px (4.0×2.0 cm) signature with strict 10–20 KB bounds for IBPS Clerk (Junior Associate) and IBPS RRB Office Assistant recruitment portals.',
+    authority: 'Institute of Banking Personnel Selection (IBPS)',
+    targetExams: 'IBPS Clerk (CRP Clerks-XVI), IBPS RRB Office Assistant (Multipurpose), IBPS RRB Junior Associate 2026',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'IBPS Clerk portal strictly rejects signatures in CAPITAL / BLOCK LETTERS. Candidates must use their usual natural running cursive handwriting identical to their identity proofs.',
+    tips: [
+      'Sign with a black ballpoint pen on white, unruled paper — maintain your natural signature style.',
+      'Keep file size between 10.0 KB and 19.9 KB for guaranteed portal acceptance.',
+      'Use the Clean White Paper filter to remove any shadow from mobile camera capture.',
+      'Ensure your IBPS Clerk signature matches the one on your Aadhaar/PAN for biometric consistency.'
+    ],
+    faqs: [
+      {
+        q: 'What is the IBPS Clerk signature size and dimension for 2026?',
+        a: 'The official IBPS Clerk signature specifications are: 140 × 60 pixels (4.0 cm × 2.0 cm), file size strictly between 10 KB and 20 KB, in JPG/JPEG format with a white background and black ink.'
+      },
+      {
+        q: 'Is the IBPS Clerk signature size the same as IBPS PO?',
+        a: 'Yes. IBPS PO and IBPS Clerk both use the same document upload portal (ibps.in) with identical specifications: 140×60 px, 10–20 KB JPG. The entire IBPS recruitment infrastructure shares one standard.'
+      },
+      {
+        q: 'What is the IBPS Clerk photo size for 2026?',
+        a: 'IBPS Clerk requires a passport-size photograph of 3.5 × 4.5 cm (approximately 240 × 320 px), between 20 KB and 50 KB in JPG format. The photo must have a white or light background taken within the past 3 months.'
+      },
+      {
+        q: 'What posts are covered under IBPS Clerk CRP Clerks-XVI?',
+        a: 'IBPS Clerk (CRP Clerks-XVI) recruits Junior Associates (Customer Support & Sales) across participating public sector banks including Bank of Baroda, Canara Bank, Punjab National Bank, Union Bank of India, and others.'
+      }
+    ]
+  },
+  // 3. SBI PO Signature
+  {
+    slug: 'sbi-po-signature-resize',
+    presetId: 'sbi-po',
+    pageTitle: 'SBI PO Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
+    metaDescription: 'Resize signature for SBI PO (Probationary Officer) recruitment 2026 online. Format to 140x60 px, 10 to 20 KB JPG for SBI PO portal (sbi.co.in/careers). Free, instant, 100% private.',
+    keywords: 'sbi po signature resize, sbi po signature size 10 to 20 kb, sbi po signature 140x60, sbi po 2026 apply online, sbi probationary officer signature format, sbi po signature resize online, state bank signature resize',
+    h1: 'SBI PO Signature Resize & Compressor (10 KB – 20 KB)',
+    subheading: 'Exact 140×60 px (4.0×2.0 cm) dimensions with 10–20 KB dual-boundary compression for State Bank of India Probationary Officer recruitment portal.',
+    authority: 'State Bank of India (SBI)',
+    targetExams: 'SBI PO (Probationary Officer) 2026, SBI Management Executive 2026',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'SBI PO portal mandates running cursive handwriting. Signatures in CAPITAL LETTERS or unnatural styles are rejected during document verification stage.',
+    tips: [
+      'Sign using a fresh black ballpoint pen on unruled white paper — avoid using a gel or ink pen.',
+      'Keep the signature consistent with your bank account signature and identity proofs.',
+      'Crop tightly to 140×60 px so the signature fills 75–85% of the image area.',
+      'Target 13–18 KB file size for comfortable margin within the 10–20 KB portal limit.'
+    ],
+    faqs: [
+      {
+        q: 'What is the SBI PO signature size for 2026 recruitment?',
+        a: 'The SBI PO portal requires a handwritten signature of 140 × 60 pixels (4.0 cm × 2.0 cm) in JPG/JPEG format, with a file size strictly between 10 KB and 20 KB and a white background.'
+      },
+      {
+        q: 'Is SBI PO signature size different from SBI Clerk?',
+        a: 'No. SBI PO and SBI Clerk both use the same State Bank recruitment portal with identical document upload standards: 140×60 px, 10–20 KB JPG, black ink on white paper.'
+      },
+      {
+        q: 'What is the SBI PO photo size for application?',
+        a: 'SBI PO requires a passport-size photo of 3.5 × 4.5 cm (240 × 320 px), between 20 KB and 50 KB in JPG format, with a white or light background taken within the past 3 months.'
+      },
+      {
+        q: 'How many stages are there in the SBI PO 2026 selection process?',
+        a: 'SBI PO selection involves 3 stages: Phase I (Preliminary Exam - 100 marks, 1 hour), Phase II (Main Exam - 250 marks + 50 marks Descriptive), and Phase III (Group Exercise + Personal Interview). Document upload is required at the application stage.'
+      }
+    ]
+  },
+  // 4. SBI Clerk Signature
+  {
+    slug: 'sbi-clerk-signature-resize',
+    presetId: 'sbi-clerk',
+    pageTitle: 'SBI Clerk Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
+    metaDescription: 'Resize signature for SBI Clerk (Junior Associate) recruitment 2026 online. Format to 140x60 px, 10 to 20 KB JPG for SBI Clerk application portal. Free, instant, private.',
+    keywords: 'sbi clerk signature resize, sbi clerk signature size 10 to 20 kb, sbi clerk signature format 2026, sbi junior associate signature resize, sbi clerk 2026 apply online, sbi clerk signature 140x60, state bank clerk signature',
+    h1: 'SBI Clerk Signature Resize & Compressor (10 KB – 20 KB)',
+    subheading: 'Official 140×60 px (4.0×2.0 cm) signature with strict 10–20 KB bounds for State Bank of India Junior Associate (Clerk) recruitment 2026.',
+    authority: 'State Bank of India (SBI)',
+    targetExams: 'SBI Clerk (Junior Associate, Customer Support & Sales) 2026',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'SBI Clerk portal rejects signatures in CAPITAL / BLOCK LETTERS. Natural running handwriting is mandatory. Signature must match your bank account records.',
+    tips: [
+      'Sign with a black ballpoint pen — the same style as your bank passbook/Aadhaar signature.',
+      'Photograph on spotless white unruled paper in good lighting with no shadows.',
+      'Compress to exactly 13–18 KB for safe margin within the 10–20 KB portal bound.',
+      'Ensure the file downloads as JPG (not PNG or WEBP) — the SBI portal only accepts JPG.'
+    ],
+    faqs: [
+      {
+        q: 'What is the SBI Clerk signature size for 2026?',
+        a: 'SBI Clerk signature must be 140 × 60 pixels (4.0 cm × 2.0 cm), file size between 10 KB and 20 KB, in JPG/JPEG format with black ink on a white background.'
+      },
+      {
+        q: 'Can SBI Clerk candidates upload a digital signature?',
+        a: 'No. SBI requires a handwritten (physical) signature on white paper, photographed/scanned, and uploaded as a JPG. Digital signatures created on screens are not accepted for government bank recruitment portals.'
+      },
+      {
+        q: 'What is the last date to apply for SBI Clerk 2026?',
+        a: 'SBI Clerk 2026 notification and application dates are released by SBI at sbi.co.in/careers. Based on previous cycles, notifications typically appear between July and September, with examinations in November/December. Check the official SBI website for the current cycle dates.'
+      },
+      {
+        q: 'Is there a negative marking in SBI Clerk Prelims 2026?',
+        a: 'Yes. SBI Clerk Preliminary Exam has a negative marking of 0.25 marks for each wrong answer. The exam consists of 100 questions for 100 marks: English Language (30 Q), Numerical Ability (35 Q), and Reasoning Ability (35 Q).'
+      }
+    ]
+  },
+  // 5. Rajasthan Police Signature
+  {
+    slug: 'rajasthan-police-signature-resize',
+    presetId: 'rajasthan-police-sig',
+    pageTitle: 'Rajasthan Police Constable Signature Resize 10 to 20 KB Online 2026 - SignResize',
+    metaDescription: 'Resize signature for Rajasthan Police Constable & SI recruitment 2026 online. Format to 140x60 px, 10 to 20 KB JPG for RPRB police portal. Free, instant, 100% private.',
+    keywords: 'rajasthan police signature resize, rajasthan police constable signature size, rajasthan police bharti signature 10 to 20 kb, rprb signature resize 2026, rajasthan police si signature format, raj police signature resize online',
+    h1: 'Rajasthan Police Signature Resize & Compressor (10 KB – 20 KB)',
+    subheading: 'Official 140×60 px (4.0×2.0 cm) signature format with 10–20 KB file size bounds for Rajasthan Police Recruitment Board (RPRB) Constable and SI recruitment portal.',
+    authority: 'Rajasthan Police Recruitment Board (RPRB)',
+    targetExams: 'Rajasthan Police Constable 2026, Rajasthan Police Sub-Inspector (SI) 2026, Rajasthan Police Driver Constable',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'Rajasthan Police portal requires a running handwriting signature in black ink. Capital letter signatures are rejected during document verification.',
+    tips: [
+      'Sign in running cursive handwriting with a black ballpoint pen on white unruled paper.',
+      'Ensure file size is between 10.0 KB and 19.9 KB for the RPRB portal.',
+      'Use Clean White Paper filter to remove mobile camera yellowish tint from the background.',
+      'Keep the signature consistent with your Class 10 board certificate and Aadhaar records.'
+    ],
+    faqs: [
+      {
+        q: 'What is the Rajasthan Police signature size for 2026 recruitment?',
+        a: 'The Rajasthan Police Recruitment Board (RPRB) requires a handwritten signature of 140 × 60 pixels (4.0 cm × 2.0 cm), file size between 10 KB and 20 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'What is the Rajasthan Police Constable 2026 photo size?',
+        a: 'Rajasthan Police Constable photo must be a recent passport-size photograph of 3.5 × 4.5 cm (approximately 240 × 320 px), between 20 KB and 50 KB in JPG format, with a white background.'
+      },
+      {
+        q: 'How many vacancies are there in Rajasthan Police 2026?',
+        a: 'Rajasthan Police recruitment cycles are announced by the RPRB (Rajasthan Police Recruitment Board). Check the official website policerecruit.rajasthan.gov.in for the latest vacancy notifications and application schedules.'
+      },
+      {
+        q: 'Is Rajasthan Police signature upload different from RPSC?',
+        a: 'Yes. Rajasthan Police uses the RPRB portal while RPSC uses rpsc.rajasthan.gov.in — both have different document upload interfaces, though the signature size standard (140×60 px, 10–20 KB) is similar across most Rajasthan state portals.'
+      }
+    ]
+  },
+  // 6. Rajasthan Police Photo
+  {
+    slug: 'rajasthan-police-photo-resize',
+    presetId: 'rajasthan-police-photo',
+    pageTitle: 'Rajasthan Police Photo Resize 20 to 50 KB (3.5x4.5 cm) Online 2026 - SignResize',
+    metaDescription: 'Resize passport photo for Rajasthan Police Constable & SI recruitment 2026. Format to 3.5x4.5 cm, 20 to 50 KB JPG with white background for RPRB police portal. Free & instant.',
+    keywords: 'rajasthan police photo resize, rajasthan police constable photo size, rajasthan police bharti photo 20 to 50 kb, rprb photo resize 2026, rajasthan police photo dimensions, raj police photo resizer online',
+    h1: 'Rajasthan Police Photo Resize & Compressor (20 KB – 50 KB)',
+    subheading: 'Official 3.5×4.5 cm (240×320 px) passport photo with white background and 20–50 KB size range for Rajasthan Police Recruitment Board (RPRB) Constable and SI portal.',
+    authority: 'Rajasthan Police Recruitment Board (RPRB)',
+    targetExams: 'Rajasthan Police Constable 2026, Rajasthan Police Sub-Inspector (SI), Rajasthan Police Driver Constable',
+    widthPx: 240,
+    heightPx: 320,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '3:4 (3.5×4.5 cm)',
+    strictNotice: 'Rajasthan Police portal rejects photographs with dark backgrounds, tinted glasses, or headgear. The photograph must be recent (within 6 months) with a white or plain light background.',
+    tips: [
+      'Take the photo in bright, even natural light — avoid flash as it creates harsh shadows.',
+      'Wear neat formal or semi-formal clothing; no caps or hats (except religious headgear).',
+      'Background must be plain white or very light — no patterned walls or studio backdrops.',
+      'Compress to 28–45 KB for safe clearance within the 20–50 KB portal limit.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo size for Rajasthan Police Constable 2026 application?',
+        a: 'Rajasthan Police requires a recent passport-size photograph of 3.5 cm × 4.5 cm (approximately 240 × 320 pixels), with a file size between 20 KB and 50 KB in JPG/JPEG format and a white background.'
+      },
+      {
+        q: 'Can I use a selfie photo for Rajasthan Police application?',
+        a: 'RPRB requires a clear passport-style photograph meeting technical specifications. A well-lit selfie against a white background that meets the 3.5×4.5 cm dimensions and 20–50 KB file size may be acceptable, but a professional or controlled-environment photo is recommended.'
+      },
+      {
+        q: 'What documents are required for Rajasthan Police physical test?',
+        a: 'For the Rajasthan Police Physical Test (PST/PAT), candidates typically need: printed admit card, original + photocopy of 10th marksheet, Aadhaar card, domicile certificate, caste certificate (if applicable), and 4–6 passport photos matching the application photo.'
+      },
+      {
+        q: 'Is Rajasthan Police photo size the same as RPSC?',
+        a: 'The standard passport photo size (3.5×4.5 cm) is used by both RPRB and RPSC, but specific KB limits and exact portal requirements may vary. Always check the official notification for the exact specifications of each recruitment cycle.'
+      }
+    ]
+  },
+  // 7. Bihar Police Signature
+  {
+    slug: 'bihar-police-signature-resize',
+    presetId: 'bihar-police-sig',
+    pageTitle: 'Bihar Police Constable Signature Resize 10 to 20 KB Online 2026 - SignResize',
+    metaDescription: 'Resize signature for Bihar Police Constable recruitment 2026 online. Format to 140x60 px, 10 to 20 KB JPG for BPSSC Bihar Police portal. Free, instant, 100% private.',
+    keywords: 'bihar police signature resize, bihar police constable signature size, bpssc signature resize 2026, bihar police signature 10 to 20 kb, bihar police bharti signature format, bihar police si signature resize',
+    h1: 'Bihar Police Signature Resize & Compressor (10 KB – 20 KB)',
+    subheading: 'Official 140×60 px (4.0×2.0 cm) signature format with 10–20 KB file bounds for Bihar Police Subordinate Services Commission (BPSSC) Constable recruitment portal.',
+    authority: 'Bihar Police Subordinate Services Commission (BPSSC)',
+    targetExams: 'Bihar Police Constable 2026, Bihar Police SI 2026, BPSSC Recruitment',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black or Blue Ink',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'BPSSC Bihar Police portal rejects signatures in capital letters. Candidates must sign in natural running handwriting with black or blue ink on white paper.',
+    tips: [
+      'Sign with a black or blue ballpoint pen on white unruled paper in your natural handwriting.',
+      'Keep file size between 10.0 KB and 19.9 KB for BPSSC portal compatibility.',
+      'Enable Clean White Paper filter to remove paper background yellow tint from the photo.',
+      'Ensure the signature matches your identity proofs (Aadhaar, 10th certificate).'
+    ],
+    faqs: [
+      {
+        q: 'What is the Bihar Police signature size for 2026 recruitment?',
+        a: 'The BPSSC Bihar Police portal requires a handwritten signature of 140 × 60 pixels (4.0 cm × 2.0 cm), file size between 10 KB and 20 KB in JPG/JPEG format, using black or blue ink on white paper.'
+      },
+      {
+        q: 'What is the Bihar Police Constable 2026 photo size?',
+        a: 'Bihar Police Constable requires a passport-size photograph of 3.5 × 4.5 cm, between 20 KB and 100 KB in JPG format, with a white or light background taken within the past 6 months.'
+      },
+      {
+        q: 'Is there any BPSSC Bihar Police recruitment open in 2026?',
+        a: 'Bihar Police recruitment is managed by the Bihar Police Subordinate Services Commission (BPSSC) at bpssc.bih.nic.in. Check their official website for the latest notifications as Bihar frequently holds large constable and SI recruitment drives.'
+      },
+      {
+        q: 'Can I use blue ink for Bihar Police signature?',
+        a: 'Yes. BPSSC Bihar Police accepts both black and blue ink for handwritten signatures, unlike SSC and IBPS which mandate black ink only. However, ensure the ink contrast is high and the signature is clearly legible.'
+      }
+    ]
+  },
+  // 8. Bihar Police Photo
+  {
+    slug: 'bihar-police-photo-resize',
+    presetId: 'bihar-police-photo',
+    pageTitle: 'Bihar Police Photo Resize 20 to 100 KB (3.5x4.5 cm) Online 2026 - SignResize',
+    metaDescription: 'Resize passport photo for Bihar Police Constable & SI recruitment 2026. Format to 3.5x4.5 cm, 20 KB to 100 KB JPG with white background for BPSSC portal. Free & instant.',
+    keywords: 'bihar police photo resize, bihar police constable photo size 2026, bpssc photo resize, bihar police photo 20 to 100 kb, bihar police photo dimensions 3.5x4.5, bihar police photo resizer online',
+    h1: 'Bihar Police Photo Resize & Compressor (20 KB – 100 KB)',
+    subheading: 'Official 3.5×4.5 cm (240×320 px) passport photo with white background and 20–100 KB bounds for Bihar Police Subordinate Services Commission (BPSSC) portal.',
+    authority: 'Bihar Police Subordinate Services Commission (BPSSC)',
+    targetExams: 'Bihar Police Constable 2026, Bihar Police SI 2026, BPSSC Driver Constable',
+    widthPx: 240,
+    heightPx: 320,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 100,
+    recommendedKb: 50,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '3:4 (3.5×4.5 cm)',
+    strictNotice: 'BPSSC requires a recent passport photograph (within 6 months) with a white or light background. No tinted glasses, heavy makeup, or headgear (except for religious reasons).',
+    tips: [
+      'Take the photo in good natural lighting — avoid harsh flash or dim indoor lighting.',
+      'Ensure the face is clearly visible and occupies at least 70% of the photo frame.',
+      'White or very light grey background is required — avoid patterned or coloured backdrops.',
+      'Keep file size between 30–90 KB for safe clearance within the 20–100 KB range.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo size for Bihar Police Constable 2026?',
+        a: 'BPSSC requires a passport-size photograph of 3.5 cm × 4.5 cm (approximately 240 × 320 pixels), file size between 20 KB and 100 KB in JPG/JPEG format, with a white or light background.'
+      },
+      {
+        q: 'Can I submit the same photo for Bihar Police and BPSC exams?',
+        a: 'You can use the same physical photo specifications (3.5×4.5 cm, white background, recent), but ensure the digital file meets each portal\'s specific KB limits: BPSSC allows up to 100 KB while BPSC may have different limits. Always check the specific recruitment notification.'
+      },
+      {
+        q: 'What is the age limit for Bihar Police Constable 2026?',
+        a: 'Bihar Police Constable age limit is typically 18–25 years for unreserved male candidates, with relaxations for SC/ST (5 years), OBC (3 years), women candidates, and Ex-servicemen as per Bihar state reservation norms.'
+      },
+      {
+        q: 'Does Bihar Police require a photo with or without spectacles?',
+        a: 'BPSSC requires candidates to submit photos without spectacles (especially dark/tinted glasses) for biometric verification accuracy. If you wear prescription glasses, it is advisable to photograph without them as per the standard recruitment portal guidelines.'
+      }
+    ]
+  },
+  // 9. MP Police Signature
+  {
+    slug: 'mp-police-signature-resize',
+    presetId: 'mp-police-sig',
+    pageTitle: 'MP Police Constable Signature Resize 10 to 20 KB Online 2026 - SignResize',
+    metaDescription: 'Resize signature for MP Police Constable (MPPEB / Vyapam) recruitment 2026 online. Format to 140x60 px, 10 to 20 KB JPG for Madhya Pradesh police portal. Free & instant.',
+    keywords: 'mp police signature resize, mp police constable signature size, mppeb signature resize 2026, mp police signature 10 to 20 kb, madhya pradesh police signature format, vyapam police signature resize, mp police bharti signature',
+    h1: 'MP Police Signature Resize & Compressor (10 KB – 20 KB)',
+    subheading: 'Official 140×60 px (4.0×2.0 cm) signature format with 10–20 KB file bounds for MP Police Constable recruitment via MPPEB (peb.mp.gov.in).',
+    authority: 'Madhya Pradesh Professional Examination Board (MPPEB / Vyapam)',
+    targetExams: 'MP Police Constable 2026, MP Police SI 2026, MPPEB Recruitment, MP Police GD, MP Police ASI',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'MPPEB MP Police portal requires a running handwriting signature in black ink. Capital letters or printed signatures are rejected during document verification.',
+    tips: [
+      'Sign in natural running handwriting with black ballpoint ink on white unruled paper.',
+      'Ensure file is between 10.0 KB and 19.9 KB before uploading to the MPPEB portal.',
+      'Apply Clean White Paper filter to ensure the background is pure white for biometric clarity.',
+      'Keep your signature consistent with your school records and Aadhaar documents.'
+    ],
+    faqs: [
+      {
+        q: 'What is the MP Police signature size for 2026 recruitment?',
+        a: 'The MPPEB MP Police portal requires a handwritten signature of 140 × 60 pixels (4.0 cm × 2.0 cm), file size between 10 KB and 20 KB in JPG/JPEG format, using black ink on white paper.'
+      },
+      {
+        q: 'Is MP Police recruitment done through MPPEB or Vyapam?',
+        a: 'MP Police recruitment is conducted by the Madhya Pradesh Professional Examination Board (MPPEB), previously known as Vyapam (Vyavsayik Pareeksha Mandal). The official portal is peb.mp.gov.in. The brand name "Vyapam" is still widely used informally.'
+      },
+      {
+        q: 'What is the MP Police Constable 2026 photo size?',
+        a: 'MP Police Constable photo must be a passport-size photograph of 3.5 × 4.5 cm (approximately 240 × 320 px), between 20 KB and 50 KB in JPG format, with a white or light background.'
+      },
+      {
+        q: 'How many stages are there in MP Police Constable selection?',
+        a: 'MP Police Constable selection typically has 3 stages: (1) Written CBT Exam, (2) Physical Standard Test (PST) & Physical Efficiency Test (PET), and (3) Medical Examination followed by Document Verification.'
+      }
+    ]
+  },
+  // 10. MP Police Photo
+  {
+    slug: 'mp-police-photo-resize',
+    presetId: 'mp-police-photo',
+    pageTitle: 'MP Police Photo Resize 20 to 50 KB (3.5x4.5 cm) Online 2026 - SignResize',
+    metaDescription: 'Resize passport photo for MP Police Constable (MPPEB) recruitment 2026. Format to 3.5x4.5 cm, 20 KB to 50 KB JPG with white background for MP Police portal. Free & instant.',
+    keywords: 'mp police photo resize, mp police constable photo size 2026, mppeb photo resize, mp police photo 20 to 50 kb, madhya pradesh police photo dimensions, mp police photo resizer online, vyapam police photo size',
+    h1: 'MP Police Photo Resize & Compressor (20 KB – 50 KB)',
+    subheading: 'Official 3.5×4.5 cm (240×320 px) passport photo with white background and 20–50 KB bounds for MP Police Constable recruitment via MPPEB (peb.mp.gov.in).',
+    authority: 'Madhya Pradesh Professional Examination Board (MPPEB / Vyapam)',
+    targetExams: 'MP Police Constable 2026, MP Police Sub-Inspector (SI) 2026, MPPEB GD Constable',
+    widthPx: 240,
+    heightPx: 320,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '3:4 (3.5×4.5 cm)',
+    strictNotice: 'MPPEB rejects photographs with dark or patterned backgrounds, tinted glasses, or headgear. The photograph must show a clear front-facing view with a white or light plain background.',
+    tips: [
+      'Take the photo in bright even lighting — a well-lit room or outdoor shade works best.',
+      'No sunglasses, caps, or hats; front-facing position with both ears visible.',
+      'White or very light grey background only — avoid any studio patterned backdrops.',
+      'Compress to 25–45 KB for safe clearance within the 20–50 KB MPPEB portal limit.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo size for MP Police Constable 2026?',
+        a: 'MPPEB requires a passport-size photograph of 3.5 cm × 4.5 cm (approximately 240 × 320 pixels), file size between 20 KB and 50 KB in JPG/JPEG format, with a white or plain light background.'
+      },
+      {
+        q: 'Can I use the same photo for MP Police and MPSC/MPPSC exams?',
+        a: 'The standard passport photo specifications (3.5×4.5 cm, white background, recent) apply to most MP state recruitment portals. However, verify the exact KB limits per exam: MPPEB typically allows 20–50 KB while MPPSC may have different limits.'
+      },
+      {
+        q: 'What is the physical fitness test for MP Police 2026?',
+        a: 'MP Police Physical Efficiency Test (PET) typically includes a running test (1600m for men, 800m for women), long jump, shot put, and for SI category, high jump. Exact standards are published in the official notification on peb.mp.gov.in.'
+      },
+      {
+        q: 'When will MP Police Constable 2026 notification be released?',
+        a: 'MP Police Constable recruitment notifications are published by MPPEB on peb.mp.gov.in. Madhya Pradesh typically conducts large-scale police recruitment drives annually; check the official portal for the latest notification and application schedule.'
+      }
+    ]
   }
 ];

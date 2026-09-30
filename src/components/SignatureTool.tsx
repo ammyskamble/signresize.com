@@ -71,6 +71,7 @@ import {
   applyNameAndDateStamp,
   applyDocumentFilters
 } from '../utils/imageProcessor';
+import { createPdfFromJpegBlob } from '../utils/pdfGenerator';
 import { SignaturePadModal } from './SignaturePadModal';
 import { ToastNotification, type ToastItem } from './tool/ToastNotification';
 import { StepIndicator } from './tool/StepIndicator';
@@ -651,17 +652,20 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
   const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
 
+  // Determine initial preset from prop if provided, else mode default
+  const resolvedPreset = (initialPresetId && ALL_COMBINED_PRESETS.find(p => p.id === initialPresetId)) || null;
+  const effectiveInitialMode = resolvedPreset?.targetType || initialMode;
+
   // Determine target tool mode: 'signature' | 'photo' | 'document'
-  const [targetType, setTargetType] = useState<ToolTargetMode>(initialMode);
+  const [targetType, setTargetType] = useState<ToolTargetMode>(effectiveInitialMode);
   const modeConfig = MODE_CONFIG[targetType];
 
-  // Determine initial preset from prop if provided, else mode default
-  const defaultList = initialMode === 'photo' ? PHOTO_PRESETS : initialMode === 'document' ? DOCUMENT_PRESETS : SIGNATURE_PRESETS;
-  const initialPreset = (initialPresetId && ALL_COMBINED_PRESETS.find(p => p.id === initialPresetId)) || defaultList[0];
+  const defaultList = effectiveInitialMode === 'photo' ? PHOTO_PRESETS : effectiveInitialMode === 'document' ? DOCUMENT_PRESETS : SIGNATURE_PRESETS;
+  const initialPreset = resolvedPreset || defaultList[0];
 
   // Photo-specific configuration
   const [showFaceGuide, setShowFaceGuide] = useState<boolean>(true);
-  const [addNameDateStamp, setAddNameDateStamp] = useState<boolean>(false);
+  const [addNameDateStamp, setAddNameDateStamp] = useState<boolean>(() => Boolean(initialPreset?.requiresNameDate));
   const [candidateName, setCandidateName] = useState<string>('');
   const [dateOfPhoto, setDateOfPhoto] = useState<string>(() => {
     const d = new Date();
@@ -728,6 +732,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   const [minKbInput, setMinKbInput] = useState<string>(String(initialPreset.minKb));
   const [maxKbInput, setMaxKbInput] = useState<string>(String(initialPreset.maxKb));
   const [targetFormat, setTargetFormat] = useState<OutputFormat>('image/jpeg');
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState<boolean>(false);
 
   // Global Transformation settings (Applies in Batch & Single mode)
   const [rotation, setRotation] = useState<number>(0);
@@ -819,6 +824,21 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     setMaxKbInput(String(preset.maxKb));
     setLockAspect(true);
     setTargetFormat('image/jpeg');
+
+    if (preset.targetType) {
+      setTargetType(preset.targetType);
+      if (preset.targetType === 'photo') {
+        setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 10 }));
+      } else if (preset.targetType === 'document') {
+        setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 20 }));
+      } else {
+        setFilters(prev => ({ ...prev, cleanPaper: true, contrast: 15 }));
+      }
+    }
+
+    if (preset.requiresNameDate) {
+      setAddNameDateStamp(true);
+    }
 
     if (sourceImage) {
       initCropBox(sourceImage, preset.aspectRatio);
@@ -1791,6 +1811,53 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     document.body.removeChild(link);
 
     addToast(`Downloaded ${filename} (${Math.round(processedResult.sizeKb)} KB)`, modeConfig.downloadToast, 'success');
+  };
+
+  // Handle Single PDF Export (< 300 KB for UPSC OTR, GATE, State PSCs)
+  const handleDownloadPdf = async () => {
+    if (!processedResult) return;
+    setIsGeneratingPdf(true);
+    try {
+      let jpegBlob = processedResult.blob;
+      if (processedResult.blob.type !== 'image/jpeg') {
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = targetWidthPx;
+        tempCanvas.height = targetHeightPx;
+        const tempCtx = tempCanvas.getContext('2d');
+        const img = new Image();
+        await new Promise((resolve) => {
+          img.onload = resolve;
+          img.src = processedResult.dataUrl;
+        });
+        tempCtx?.drawImage(img, 0, 0);
+        jpegBlob = await new Promise<Blob>((resolve) => {
+          tempCanvas.toBlob((b) => resolve(b || processedResult.blob), 'image/jpeg', 0.90);
+        });
+      }
+
+      const pdfBlob = await createPdfFromJpegBlob(jpegBlob, targetWidthPx, targetHeightPx, {
+        pageSize: targetType === 'document' ? 'A4' : 'fit'
+      });
+
+      const cleanExamTag = selectedPreset ? `${selectedPreset.shortCode.toLowerCase()}_` : '';
+      const filename = `${cleanExamTag}${modeConfig.filePrefix}${targetWidthPx}x${targetHeightPx}_${Math.round(pdfBlob.size / 1024)}kb.pdf`;
+
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(pdfUrl), 10000);
+
+      addToast(`Downloaded ${filename} (${Math.round(pdfBlob.size / 1024)} KB PDF)`, 'PDF Downloaded', 'success');
+    } catch (err) {
+      console.error('Failed to generate PDF', err);
+      addToast('Failed to generate PDF document', 'PDF Error', 'warning');
+    } finally {
+      setIsGeneratingPdf(false);
+    }
   };
 
   // Handle Copy to Clipboard
@@ -4135,25 +4202,47 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                   </button>
 
                   {processedResult && (
-                    <div className="grid grid-cols-2 gap-2">
-                      <button
-                        type="button"
-                        onClick={handleCopy}
-                        className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-card border border-border text-foreground hover:bg-muted text-xs font-semibold transition cursor-pointer"
-                      >
-                        {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                        <span>{copied ? 'Copied!' : 'Copy to Clipboard'}</span>
-                      </button>
+                    <>
+                      <div className="grid grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          onClick={handleCopy}
+                          className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-card border border-border text-foreground hover:bg-muted text-xs font-semibold transition cursor-pointer"
+                        >
+                          {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                          <span>{copied ? 'Copied!' : 'Copy to Clipboard'}</span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => setIsInspectModalOpen(true)}
+                          className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-card border border-border text-foreground hover:bg-muted text-xs font-semibold transition cursor-pointer"
+                        >
+                          <Maximize2 className="w-3.5 h-3.5 text-primary" />
+                          <span>Inspect Detail</span>
+                        </button>
+                      </div>
 
                       <button
+                        id="download-pdf-btn"
                         type="button"
-                        onClick={() => setIsInspectModalOpen(true)}
-                        className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-card border border-border text-foreground hover:bg-muted text-xs font-semibold transition cursor-pointer"
+                        onClick={handleDownloadPdf}
+                        disabled={isGeneratingPdf}
+                        className={`w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border text-xs font-bold transition cursor-pointer ${
+                          targetType === 'document'
+                            ? 'bg-amber-500/15 hover:bg-amber-500/25 text-amber-800 dark:text-amber-200 border-amber-500/30 shadow-xs'
+                            : 'bg-card hover:bg-muted/70 text-foreground border-border'
+                        }`}
+                        title="Download compliant single-page PDF (< 300 KB) for UPSC OTR, GATE & State PSC portals"
                       >
-                        <Maximize2 className="w-3.5 h-3.5 text-primary" />
-                        <span>Inspect Detail</span>
+                        <FileText className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                        <span>
+                          {isGeneratingPdf
+                            ? 'Generating PDF Document...'
+                            : `Download as PDF (${targetType === 'document' ? 'UPSC / GATE / PSC < 300 KB' : 'PDF Format'})`}
+                        </span>
                       </button>
-                    </div>
+                    </>
                   )}
                 </div>
 
@@ -4513,8 +4602,18 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                 </button>
                 <button
                   type="button"
+                  onClick={handleDownloadPdf}
+                  disabled={isGeneratingPdf}
+                  className="px-4 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                  title="Download as single-page PDF document"
+                >
+                  <FileText className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                  <span>{isGeneratingPdf ? 'Generating PDF...' : 'Download PDF'}</span>
+                </button>
+                <button
+                  type="button"
                   onClick={handleDownload}
-                  className="px-5 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-md shadow-primary/25 hover:opacity-95 transition flex items-center gap-1.5"
+                  className="px-5 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-md shadow-primary/25 hover:opacity-95 transition flex items-center gap-1.5 cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download File</span>
