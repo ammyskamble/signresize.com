@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DIST_DIR = path.resolve(__dirname, '../dist');
-const PORT = 4321;
+const PORT = 4330;
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
