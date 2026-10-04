@@ -60,7 +60,7 @@ const CORE_TOOLS = [
     title: 'Online Signature Creator (Touch & Pen Canvas)',
     shortCode: 'Sign Creator',
     desc: 'Draw smooth, pressure-sensitive digital signatures directly on your screen or mobile phone',
-    url: '/signature-creator/',
+    url: '/signature-generator/',
     category: 'Signature Suite',
     badge: 'CREATIVE',
     keywords: 'signature creator online signature maker draw signature digital signature pad smooth sign maker'

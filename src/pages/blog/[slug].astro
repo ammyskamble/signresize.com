@@ -33,8 +33,9 @@ const relatedPreset = post.relatedExamPreset
   ? EXAM_PRESETS.find(p => p.id === post.relatedExamPreset)
   : null;
 
-const relatedExamPage = post.relatedExamPreset
-  ? EXAM_PAGES_DATA.find(p => p.presetId === post.relatedExamPreset || p.slug === post.relatedExamPreset)
+const focusedPreset = /sbi/i.test(post.slug) ? 'sbi-signature' : /iit-jam/i.test(post.slug) ? 'iit-jam' : post.relatedExamPreset;
+const relatedExamPage = focusedPreset
+  ? EXAM_PAGES_DATA.find(p => p.presetId === focusedPreset || p.slug === focusedPreset)
   : null;
 const relatedExamSlug = relatedExamPage ? relatedExamPage.slug : 'ssc-signature-resize';
 

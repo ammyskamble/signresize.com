@@ -1,0 +1,368 @@
+---
+// src/pages/resize-signature-to-10kb-20kb.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import { SignatureTool } from '../components/SignatureTool';
+
+const pageTitle = "Resize Signature to 10 to 20 KB Online - Free Compressor Tool";
+const pageDescription = "Instantly resize signature to 10 to 20 KB online for SSC, RRB, IBPS & UPSC. Auto-crop to 140x60 px, whiten paper shadows & compress strictly between 10 KB and 20 KB. 100% private.";
+const canonicalUrl = "https://signresize.in/resize-signature-to-10kb-20kb/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "resize signature to 10 to 20 kb, signature resize 10 to 20 kb online, signature resize 10 to 20 kb, signature compressor 10 to 20 kb, ssc signature resize 10 to 20 kb, rrb signature resize 10 to 20 kb, resize signature online 10 to 20 kb, signature resize 20kb, compress signature to 20kb";
+
+const faqs = [
+  {
+    q: "Why do Indian government exam portals mandate a 10 to 20 KB signature file size?",
+    a: "Recruitment commissions like the Staff Selection Commission (SSC), Railway Recruitment Boards (RRB), and banking institutes (IBPS/SBI) process millions of applications. Their automated intake servers enforce strict server storage validation: files under 10 KB lack necessary ink detail, while files above 20 KB are blocked to prevent server overload. SignResize uses dual-boundary binary search quantization to ensure your signature lands strictly between 10.0 KB and 20.0 KB."
+  },
+  {
+    q: "How do I resize my signature photo to 10 to 20 KB without making it blurry?",
+    a: "Follow these 4 simple steps on SignResize: (1) Upload your signature photo, (2) Keep the target file size slider set between 10 KB and 20 KB (default target: 15 KB), (3) Toggle 'Clean White Paper' to eliminate phone camera shadows and increase ink contrast, and (4) Click 'Download Portal-Ready JPG'. The browser engine optimizes compression curves without sacrificing stroke clarity."
+  },
+  {
+    q: "What are the standard pixel dimensions for a 10 to 20 KB signature?",
+    a: "For almost all major Indian recruitments (SSC CGL, CHSL, MTS, GD Constable, RRB NTPC, Group D, ALP), the standard dimensions are 140 pixels width by 60 pixels height (4.0 cm × 2.0 cm at 200 DPI resolution) with a 7:3 aspect ratio."
+  },
+  {
+    q: "What if my signature file is rejected for being under 10 KB?",
+    a: "Standard photo compression tools often over-compress cropped signatures down to 6 KB or 8 KB, triggering an automated portal rejection: 'File size must be greater than 10 KB'. SignResize features floor-protection: the dual-boundary engine guarantees the output file never drops below 10.0 KB."
+  },
+  {
+    q: "Is it safe to resize my signature on SignResize?",
+    a: "Yes, 100% private. All image processing, auto-cropping, shadow removal, and JPEG compression happen client-side in your device's browser memory (HTML5 Canvas). Zero bytes are transmitted to external servers or cloud storage."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <GoogleFonts />
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "Signature Resize 10 to 20 KB Online Tool",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "applicationSubCategory": "Document Compression Utility",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "featureList": [
+        "Strict 10 KB to 20 KB dual-boundary compression",
+        "Auto-crop to 140x60 px (4x2 cm) standard",
+        "Clean White Paper 3.0 shadow remover",
+        "100% in-browser client-side privacy",
+        "Instant portal-ready JPG download"
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Signature to 10 to 20 KB Online",
+      "description": "Step-by-step instructions to resize, crop, and compress a signature image to exact 10 KB to 20 KB file bounds for government exam portal uploads.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Sign on Plain White Paper",
+          "text": "Sign using a black or dark blue ballpoint pen on plain, unruled white paper.",
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload to Resizer",
+          "text": "Upload your photo or scan to the online tool workspace.",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Lock 10-20 KB Target Range",
+          "text": "The resizer automatically locks the 10 KB to 20 KB boundary (recommended 15 KB target).",
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Clean Background & Download JPG",
+          "text": "Enable Clean White Paper to eliminate room shadows and download your portal-compliant JPG.",
+          "position": 4
+        }
+      ]
+    })} />
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Resize Signature 10 to 20 KB",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-5 space-y-6">
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center text-xs text-muted-foreground gap-2 pt-1" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Resize Signature 10 to 20 KB</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Official 10–20 KB Limiter
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Guaranteed File Size Bounds
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+              Resize Signature to <span class="text-primary">10 to 20 KB</span> Online
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Precision dual-boundary compressor engineered for <strong>SSC (CGL, CHSL, MTS), RRB (NTPC, ALP, Group D), UPSC &amp; IBPS</strong>. Crops to exact <strong>140×60 px (4×2 cm)</strong>, bleaches yellow camera shadows to pure white paper, and guarantees your file never falls below 10 KB or exceeds 20 KB.
+            </p>
+          </div>
+
+          <!-- Target Spec Badges -->
+          <div class="flex items-center gap-2 flex-wrap shrink-0">
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Minimum Size</div>
+              <div class="text-xs font-bold text-foreground font-mono">10.0 KB</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-primary/30 text-center shadow-xs bg-primary/5">
+              <div class="text-[9px] uppercase font-bold text-primary font-semibold">Recommended</div>
+              <div class="text-xs font-bold text-primary font-mono">14–16 KB</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Maximum Size</div>
+              <div class="text-xs font-bold text-foreground font-mono">20.0 KB</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Interactive Tool Workspace -->
+      <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]" id="tool-workspace">
+        <SignatureTool client:load defaultPresetId="ssc-general" />
+      </section>
+
+      <!-- Educational Guide: Why 10 to 20 KB is Critical -->
+      <section class="bg-card border border-border rounded-2xl p-5 sm:p-8 space-y-6">
+        <div class="max-w-3xl space-y-2">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+            Official Guidelines &amp; Tech Specs
+          </div>
+          <h2 class="text-xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+            How Dual-Boundary Compression Protects Your Government Exam Application
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Most basic image compressors on the web use single quality sliders. When compressing a small signature photo, they frequently overshoot and reduce the file to <strong>7 KB or 8 KB</strong>. When you upload that file to the SSC or RRB portal, an automated error immediately appears:
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-red-500/20 bg-red-500/5 text-xs text-red-700 dark:text-red-300 font-mono flex items-center gap-3">
+          <span class="text-base font-bold shrink-0">⚠️</span>
+          <span>"Error: Signature file size must be between 10 KB and 20 KB. Current file size: 8.4 KB."</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-foreground flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs">1</span>
+              Floor &amp; Ceiling Protection
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              SignResize runs iterative binary search quantization on HTML5 canvas. It adjusts JPEG matrix tables until the output is strictly within the 10.0 KB to 20.0 KB bracket.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-foreground flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs">2</span>
+              7:3 Aspect Ratio (140×60)
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Locks official 140 pixels width by 60 pixels height (4.0 cm × 2.0 cm) to ensure your signature is never stretched or distorted on admit cards.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-foreground flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs">3</span>
+              Clean White Paper Bleach
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Adaptive luminance curves bleach yellowish paper and smartphone shadows to pure #FFFFFF while keeping black ink lines sharp and distinct.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exam Reference Matrix Table -->
+      <section class="bg-card border border-border rounded-2xl p-5 sm:p-8 space-y-4">
+        <h2 class="text-lg sm:text-2xl font-extrabold text-foreground">
+          Indian Examinations Requiring Exact 10 to 20 KB Signature Uploads
+        </h2>
+        <div class="overflow-x-auto rounded-xl border border-border">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-muted/80 text-foreground font-semibold border-b border-border">
+              <tr>
+                <th class="py-3 px-4">Exam / Commission</th>
+                <th class="py-3 px-4">Allowed Size</th>
+                <th class="py-3 px-4">Pixel Dimensions</th>
+                <th class="py-3 px-4">Centimeters</th>
+                <th class="py-3 px-4">Dedicated Tool</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border/60">
+              <tr>
+                <td class="py-3 px-4 font-semibold text-foreground">SSC CGL / CHSL / MTS / GD</td>
+                <td class="py-3 px-4 font-mono font-bold text-primary">10 KB – 20 KB</td>
+                <td class="py-3 px-4 font-mono">140 × 60 px</td>
+                <td class="py-3 px-4 font-mono">4.0 × 2.0 cm</td>
+                <td class="py-3 px-4"><a href="/ssc-signature-resize/" class="text-primary hover:underline font-medium">SSC Tool →</a></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-foreground">RRB Railway (NTPC, ALP, Group D)</td>
+                <td class="py-3 px-4 font-mono font-bold text-primary">10 KB – 20 KB</td>
+                <td class="py-3 px-4 font-mono">140 × 60 px</td>
+                <td class="py-3 px-4 font-mono">4.0 × 2.0 cm</td>
+                <td class="py-3 px-4"><a href="/rrb-signature-resize/" class="text-primary hover:underline font-medium">RRB Tool →</a></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-foreground">IBPS PO / Clerk / RRB</td>
+                <td class="py-3 px-4 font-mono font-bold text-primary">10 KB – 20 KB</td>
+                <td class="py-3 px-4 font-mono">140 × 60 px</td>
+                <td class="py-3 px-4 font-mono">4.0 × 2.0 cm</td>
+                <td class="py-3 px-4"><a href="/ibps-signature-resize/" class="text-primary hover:underline font-medium">IBPS Tool →</a></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-foreground">PAN Card (NSDL / UTIITSL)</td>
+                <td class="py-3 px-4 font-mono font-bold text-primary">10 KB – 50 KB</td>
+                <td class="py-3 px-4 font-mono">400 × 200 px</td>
+                <td class="py-3 px-4 font-mono">4.5 × 2.0 cm</td>
+                <td class="py-3 px-4"><a href="/pan-card-signature-resize/" class="text-primary hover:underline font-medium">PAN Tool →</a></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-foreground">Left Thumb Impression</td>
+                <td class="py-3 px-4 font-mono font-bold text-primary">10 KB – 20 KB</td>
+                <td class="py-3 px-4 font-mono">240 × 240 px</td>
+                <td class="py-3 px-4 font-mono">3.0 × 3.0 cm</td>
+                <td class="py-3 px-4"><a href="/thumb-impression-resize/" class="text-primary hover:underline font-medium">Thumb Tool →</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="bg-card border border-border rounded-2xl p-5 sm:p-8 space-y-4">
+        <div class="space-y-1">
+          <h2 class="text-xl sm:text-2xl font-extrabold text-foreground">
+            Frequently Asked Questions: Resizing Signature to 10 to 20 KB
+          </h2>
+          <p class="text-xs text-muted-foreground">
+            Common questions regarding government exam portal upload errors and compression bounds.
+          </p>
+        </div>
+
+        <div class="space-y-3 pt-2">
+          {faqs.map((faq) => (
+            <details class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
+              <summary class="font-bold text-xs sm:text-sm text-foreground cursor-pointer flex items-center justify-between select-none">
+                <span>{faq.q}</span>
+                <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="text-xs text-muted-foreground leading-relaxed pt-3 border-t border-border/50 mt-3">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

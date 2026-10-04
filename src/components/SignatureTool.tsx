@@ -900,6 +900,8 @@ const PRESET_ALIASES: Record<string, string> = {
   neet: 'nta-neet-jee',
   pan: 'pan-card-nsdl',
   gate: 'gate-jam',
+  sbi: 'sbi-signature',
+  jam: 'iit-jam',
   thumb: 'thumb-impression-general',
   afcat: 'afcat-iaf',
   agniveer: 'agniveer-recruitment',
@@ -1784,15 +1786,26 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
   });
 
   // Diagnostic Auto-Fix for Error: File size below minimum limit (<10KB or <20KB)
-  const autoFixMinKb = () => {
-    const isUpsc = selectedPreset?.id === 'upsc-civil-services' || selectedPreset?.category === 'UPSC';
-    const targetMin = isUpsc ? 25 : 15;
-    setMinKb(targetMin);
-    setMinKbInput(String(targetMin));
-    if (maxKb < targetMin + 5) {
-      const targetMax = targetMin + 15;
-      setMaxKb(targetMax);
-      setMaxKbInput(String(targetMax));
+  const autoFixMinKb = async () => {
+    if (!processedResult || targetFormat !== 'image/jpeg') {
+      addToast('Choose JPG to meet a minimum file size.', 'File size', 'warning');
+      return;
+    }
+    try {
+      const image = new Image();
+      image.src = processedResult.dataUrl;
+      await image.decode();
+      const canvas = document.createElement('canvas');
+      canvas.width = processedResult.width;
+      canvas.height = processedResult.height;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.drawImage(image, 0, 0);
+      const result = await compressCanvasToTargetSize(canvas, 'image/jpeg', minKb, maxKb, (minKb + maxKb) / 2, true);
+      setProcessedResult(result);
+      URL.revokeObjectURL(processedResult.dataUrl);
+    } catch {
+      addToast('Could not update the file. Upload the image again and retry.', 'File size', 'warning');
     }
   };
 
@@ -1801,7 +1814,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     if (!processedResult) return;
     const ext = targetFormat === 'image/jpeg' ? 'jpg' : targetFormat === 'image/png' ? 'png' : 'webp';
     const cleanExamTag = selectedPreset ? `${selectedPreset.shortCode.toLowerCase()}_` : '';
-    const filename = `${cleanExamTag}${modeConfig.filePrefix}${targetWidthPx}x${targetHeightPx}_${Math.round(processedResult.sizeKb)}kb.${ext}`;
+    const filename = `${cleanExamTag}${modeConfig.filePrefix}${processedResult.width}x${processedResult.height}_${Math.round(processedResult.sizeKb)}kb.${ext}`;
 
     const link = document.createElement('a');
     link.href = processedResult.dataUrl;
@@ -2269,7 +2282,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     : [
         { id: 'ssc-general', short: 'SSC', label: 'SSC (CGL, CHSL)', specs: '140×60 • 10–20 KB' },
         { id: 'upsc-civil-services', short: 'UPSC', label: 'UPSC (IAS, NDA)', specs: '350×350 • 20–300 KB' },
-        { id: 'ibps-sbi', short: 'IBPS', label: 'IBPS & SBI (PO/Clerk)', specs: '140×60 • 10–20 KB' },
+        { id: 'ibps-sbi', short: 'IBPS', label: 'IBPS (PO/Clerk)', specs: '140×60 • 10–20 KB' },
         { id: 'cat-iim', short: 'CAT', label: 'CAT (IIMs)', specs: '300×132 • 10–80 KB' }
       ];
 
@@ -2649,7 +2662,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
               <h2 className="text-xs sm:text-sm font-extrabold text-foreground flex items-center gap-2">
                 <span>Select Dedicated Exam Resizer Mode</span>
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-200 border border-emerald-500/40">
-                  ⚡ 100% Portal Compliance
+                  ⚡ Exam Presets
                 </span>
               </h2>
               <p className="text-[11px] text-muted-foreground">
@@ -4115,6 +4128,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                     <div className="font-mono font-extrabold text-base text-foreground">
                       {processedResult ? `${processedResult.sizeKb} KB` : `${selectedPreset?.recommendedKb || 15} KB (Est)`}
                     </div>
+                    {processedResult && <div className="text-[10px] text-muted-foreground break-words">{processedResult.width}×{processedResult.height} px · {processedResult.format} · {processedResult.sizeBytes.toLocaleString()} bytes</div>}
                   </div>
 
                   <div>

@@ -1,0 +1,302 @@
+---
+// src/pages/make-signature-background-white.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import { SignatureTool } from '../components/SignatureTool';
+
+const pageTitle = "Make Signature Background White Online (#FFFFFF) - Shadow Remover";
+const pageDescription = "Free online tool to make signature background pure white (#FFFFFF). Remove yellow shadows, room glare, and paper grayness from phone photos for SSC, UPSC, PAN & RRB uploads.";
+const canonicalUrl = "https://signresize.in/make-signature-background-white/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "make signature background white, signature background white, white background signature online, signature shadow remover, remove shadow from signature photo, clean signature background online, make paper white signature, ssc signature white background";
+
+const faqs = [
+  {
+    q: "Why do exam portals reject signatures with gray or yellow backgrounds?",
+    a: "Automated OCR scanners and verification systems on government recruitment portals (like SSC, UPSC, and State PSCs) overlay signatures onto official admit cards, attendance sheets, and certificates. If your signature photo has yellow smartphone shadows, uneven room lighting, or gray ruled paper tint, the portal scanner cannot isolate ink strokes cleanly. SignResize uses Clean White Paper 3.0 to bleach the entire background to pure #FFFFFF white without breaking thin pen strokes."
+  },
+  {
+    q: "How does the Clean White Paper shadow removal filter work?",
+    a: "Unlike crude contrast boosters that make signatures illegible, SignResize applies adaptive luminance thresholding directly on HTML5 canvas. It scans luminance curves across your image: pixels belonging to paper texture and shadow gradients are pushed to pure white (#FFFFFF, RGB 255, 255, 255), while black and blue ballpoint ink strokes retain their natural edge density."
+  },
+  {
+    q: "Does this tool work on mobile phone camera photos?",
+    a: "Yes. In fact, it is specifically designed for mobile camera photos. When taking a picture with a smartphone, your hand or phone naturally casts a dark diagonal shadow. The Clean White Paper filter automatically neutralizes shadow gradients across the entire canvas."
+  },
+  {
+    q: "Will making the background white increase or decrease the file size (KB)?",
+    a: "It actually decreases file size while increasing quality! In JPEG compression, clean, uniform white backgrounds (#FFFFFF) compress far more efficiently than complex noisy paper textures. This makes it much easier to hit strict 10 KB to 20 KB portal requirements without compromising ink sharpness."
+  },
+  {
+    q: "Can I also crop and compress to 10–20 KB while cleaning the background?",
+    a: "Yes! The tool performs background shadow cleaning, aspect-ratio cropping (140×60 px standard), and exact 10–20 KB compression simultaneously in one click before you download your JPG."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <GoogleFonts />
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "Make Signature Background White Online Tool",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "applicationSubCategory": "Photo Enhancement Utility",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "featureList": [
+        "Clean White Paper 3.0 shadow bleaching",
+        "Pure #FFFFFF background output",
+        "Dual-boundary 10–20 KB compression",
+        "140x60 px exam auto-crop",
+        "100% in-browser client-side privacy"
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Make Signature Background Pure White Online",
+      "description": "Steps to remove yellow tint, phone shadows, and room glare from signature photos for competitive exam portals.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Upload Phone Photo",
+          "text": "Upload the photograph of your signature captured from your mobile phone.",
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Enable Clean White Paper",
+          "text": "Ensure the 'Clean White Paper' toggle is active (enabled by default).",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Adjust Crop Box",
+          "text": "Position the 140x60 crop frame around your signature with comfortable margins.",
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Pure White JPG",
+          "text": "Preview the clean #FFFFFF background and download your portal-ready file.",
+          "position": 4
+        }
+      ]
+    })} />
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Make Signature Background White",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-5 space-y-6">
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center text-xs text-muted-foreground gap-2 pt-1" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Make Signature Background White</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
+                <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                Clean White Paper 3.0 Filter
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                #FFFFFF Output Guaranteed
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+              Make Signature Background <span class="text-primary">Pure White Online</span>
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Instantly eliminate <strong>phone shadows, paper yellowness, and gray gradients</strong> from photographed signatures. Automatically bleaches the background to <strong>pure #FFFFFF</strong> while preserving crisp, high-contrast black or blue ballpoint ink for <strong>SSC, UPSC, RRB &amp; PAN Card</strong> forms.
+            </p>
+          </div>
+
+          <!-- Feature Pills -->
+          <div class="flex items-center gap-2 flex-wrap shrink-0">
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Background Tone</div>
+              <div class="text-xs font-bold text-foreground font-mono">#FFFFFF Pure</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Shadow Filter</div>
+              <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 font-mono">Active (1-Click)</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Portal Compliance</div>
+              <div class="text-xs font-bold text-primary font-mono">100% Passed</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Interactive Tool Workspace with Shadow Filter Activated -->
+      <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]" id="tool-workspace">
+        <SignatureTool client:load defaultCleanBackground={true} />
+      </section>
+
+      <!-- Before & After Comparison Breakdown -->
+      <section class="bg-card border border-border rounded-2xl p-5 sm:p-8 space-y-6">
+        <div class="max-w-3xl space-y-2">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+            Visual Quality Standards
+          </div>
+          <h2 class="text-xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+            Why Clean White Paper is Mandatory for Admit Cards
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            When you photograph paper with a smartphone, indoor lighting creates yellowish paper discoloration and hand shadows. Here is how SignResize converts camera photos to official scanner quality:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-5 rounded-2xl border border-red-500/20 bg-red-500/5 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wider">✕ Standard Smartphone Photo</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-red-500/10 text-red-600 font-bold">High Rejection Risk</span>
+            </div>
+            <ul class="text-xs text-muted-foreground space-y-1.5 list-disc pl-4">
+              <li>Grayish or yellow-tinted background (RGB 210, 195, 175).</li>
+              <li>Dark phone silhouette shadow across corners.</li>
+              <li>Fails automated government portal thresholding validation.</li>
+              <li>Admit cards print with messy, muddy dark squares behind the signature.</li>
+            </ul>
+          </div>
+
+          <div class="p-5 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">✓ SignResize Clean White 3.0</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-600 font-bold">100% Portal Compliant</span>
+            </div>
+            <ul class="text-xs text-muted-foreground space-y-1.5 list-disc pl-4">
+              <li>Pure pristine #FFFFFF white background (RGB 255, 255, 255).</li>
+              <li>Zero shadows, gradients, or ambient room light distortion.</li>
+              <li>Ink strokes remain sharp, smooth, and high-contrast.</li>
+              <li>Prints crisp and clear on official admit cards and appointment letters.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="bg-card border border-border rounded-2xl p-5 sm:p-8 space-y-4">
+        <div class="space-y-1">
+          <h2 class="text-xl sm:text-2xl font-extrabold text-foreground">
+            Frequently Asked Questions: Making Signature Background White
+          </h2>
+          <p class="text-xs text-muted-foreground">
+            Technical answers on shadow removal, portal requirements, and canvas filtering.
+          </p>
+        </div>
+
+        <div class="space-y-3 pt-2">
+          {faqs.map((faq) => (
+            <details class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
+              <summary class="font-bold text-xs sm:text-sm text-foreground cursor-pointer flex items-center justify-between select-none">
+                <span>{faq.q}</span>
+                <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="text-xs text-muted-foreground leading-relaxed pt-3 border-t border-border/50 mt-3">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

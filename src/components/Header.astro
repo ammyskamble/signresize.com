@@ -106,7 +106,7 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
             <div class="space-y-1">
               <!-- 1. Signature Resizer -->
               <a
-                href="/#tool-workspace"
+                href="/resize-signature-to-10kb-20kb/"
                 class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
               >
                 <span class="text-base p-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shrink-0">✍️</span>
@@ -142,19 +142,19 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
 
               <!-- 4. Signature Creator & Maker -->
               <a
-                href="/signature-creator/"
+                href="/ssc-signature-resize/"
                 class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
               >
                 <span class="text-base p-1 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0">🎨</span>
                 <div>
-                  <div class="font-bold text-xs group-hover/item:text-primary">Signature Creator &amp; Maker</div>
-                  <div class="text-[10px] text-muted-foreground leading-tight">Design, draw &amp; export transparent signature PNG</div>
+                  <div class="font-bold text-xs group-hover/item:text-primary">SSC Signature Resizer (140×60)</div>
+                  <div class="text-[10px] text-muted-foreground leading-tight">Official 10–20 KB preset for SSC CGL, CHSL, MTS</div>
                 </div>
               </a>
 
               <!-- 5. Background Shadow Cleaner -->
               <a
-                href="/?filter=clean#tool-workspace"
+                href="/make-signature-background-white/"
                 class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
               >
                 <span class="text-base p-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 shrink-0">🧹</span>
@@ -217,9 +217,15 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
                 </li>
                 <li>
                   <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="ibps">
-                    <span class="truncate font-medium">IBPS / SBI PO &amp; Clerk</span>
+                    <span class="truncate font-medium">IBPS PO &amp; Clerk</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
                   </button>
+                </li>
+                <li>
+                  <a href="/sbi-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 text-[11px]">
+                    <span class="truncate font-medium">SBI Signature Resizer</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10?20 KB</span>
+                  </a>
                 </li>
                 <li>
                   <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="upsc">
@@ -283,9 +289,15 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
                 </li>
                 <li>
                   <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="gate">
-                    <span class="truncate font-medium">GATE &amp; IIT JAM</span>
+                    <span class="truncate font-medium">GATE 2027</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">5–200K</span>
                   </button>
+                </li>
+                <li>
+                  <a href="/iit-jam-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 text-[11px]">
+                    <span class="truncate font-medium">IIT JAM 2027</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">50?150 KB</span>
+                  </a>
                 </li>
                 <li>
                   <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="cat">
@@ -530,7 +542,7 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
       </div>
       <div class="grid grid-cols-1 gap-1.5">
         <a
-          href="/#tool-workspace"
+          href="/resize-signature-to-10kb-20kb/"
           class="flex items-center gap-3 p-2.5 rounded-xl text-xs font-semibold bg-primary/5 border border-primary/20 text-slate-800 dark:text-slate-100 hover:bg-primary/10 transition"
         >
           <span class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold shrink-0">✍️</span>
@@ -563,18 +575,18 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
         </a>
 
         <a
-          href="/signature-creator/"
+          href="/ssc-signature-resize/"
           class="flex items-center gap-3 p-2.5 rounded-xl text-xs font-semibold bg-slate-100/70 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition"
         >
           <span class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm font-bold shrink-0">🎨</span>
           <div>
-            <div class="font-bold">Signature Creator &amp; Maker</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Type, draw &amp; download transparent signature</div>
+            <div class="font-bold">SSC Signature Resizer (140×60)</div>
+            <div class="text-[10px] text-muted-foreground font-normal">Official 10–20 KB preset for SSC CGL, CHSL, MTS</div>
           </div>
         </a>
 
         <a
-          href="/?filter=clean#tool-workspace"
+          href="/make-signature-background-white/"
           class="flex items-center gap-3 p-2.5 rounded-xl text-xs font-semibold bg-slate-100/70 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition"
         >
           <span class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-sm font-bold shrink-0">🧹</span>
@@ -654,6 +666,15 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
     </div>
 
     <!-- 3. Portals, Alerts & Govt Jobs -->
+    <div class="space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-800">
+      <div class="text-[11px] font-bold text-muted-foreground uppercase tracking-wider px-1">Exam Signature Resizers</div>
+      <div class="grid grid-cols-1 gap-1.5">
+        <a href="/sbi-signature-resize/" class="p-2.5 rounded-xl text-xs font-semibold hover:bg-muted text-foreground">SBI Signature Resizer · 10–20 KB</a>
+        <a href="/iit-jam-signature-resize/" class="p-2.5 rounded-xl text-xs font-semibold hover:bg-muted text-foreground">IIT JAM 2027 Signature · 50–150 KB</a>
+        <a href="/gate-signature-resize/" class="p-2.5 rounded-xl text-xs font-semibold hover:bg-muted text-foreground">GATE 2027 Signature · 3–300 KB</a>
+      </div>
+    </div>
+
     <div class="space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-800">
       <div class="text-[11px] font-bold text-muted-foreground uppercase tracking-wider px-1">
         Govt Jobs &amp; Exams
@@ -829,11 +850,11 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">350×350 • 20–300 KB</span>
         </button>
         <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ibps" data-slug="ibps-signature-resize">
-          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">IBPS / SBI Bank</span>
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">IBPS Bank</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
         </button>
         <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="gate" data-slug="gate-signature-resize">
-          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">GATE &amp; JAM</span>
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">GATE 2027</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">400×160 • 5–200 KB</span>
         </button>
         <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="rrb" data-slug="rrb-signature-resize">

@@ -203,7 +203,7 @@ export const ONGOING_EXAMS_DATA: ExamNewsItem[] = [
     examDate: 'November 2026',
     notificationTitle: 'Recruitment of Junior Associates (Customer Support & Sales)',
     badgeText: 'Upcoming',
-    toolSlug: 'ibps-signature-resize',
+    toolSlug: 'sbi-clerk-signature-resize',
     articleSlug: 'sbi-clerk-2026-top-10-faq-junior-associates',
     officialUrl: 'https://sbi.co.in/careers',
     isHot: true,

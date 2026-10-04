@@ -11,6 +11,7 @@ export default defineConfig({
 
   redirects: {
     '/signature-resizer': '/',
+    '/signature-creator': '/signature-generator/',
     '/rrb-railway': '/rrb-signature-resize/',
     '/ssc-general': '/ssc-signature-resize/',
     '/ibps-sbi': '/ibps-signature-resize/',
@@ -44,6 +45,12 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      dedupe: ['react', 'react-dom']
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-dom/client']
+    },
     build: {
       cssMinify: true,
       minify: 'esbuild',
@@ -57,7 +64,7 @@ export default defineConfig({
         const url = item.url;
         item.lastmod = new Date().toISOString();
 
-        if (url === 'https://signresize.in/' || url.includes('/photo-resizer') || url.includes('/document-resizer') || url.includes('/compress-image-to-kb') || url.includes('/signature-creator') || url.includes('/government-jobs')) {
+        if (url === 'https://signresize.in/' || url.includes('/photo-resizer') || url.includes('/document-resizer') || url.includes('/compress-image-to-kb') || url.includes('/signature-generator') || url.includes('/government-jobs') || url.includes('/resize-signature-to-10kb-20kb') || url.includes('/make-signature-background-white')) {
           item.priority = 1.0;
           item.changefreq = 'daily';
         } else if (url.includes('-signature-resize') || url.includes('-photo-resize')) {

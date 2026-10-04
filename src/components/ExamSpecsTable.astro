@@ -9,7 +9,7 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
 <section id="exam-specs" class="space-y-6 pt-6">
   <div class="space-y-2 text-center max-w-2xl mx-auto">
     <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
-      Official Guidelines 2026
+      Exam Upload Guidance
     </div>
     <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
       Official Signature Dimensions &amp; Size Guidelines
@@ -83,7 +83,7 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
           <tr class="hover:bg-muted/40 transition">
             <td class="py-3 px-3.5">
               <a href="/ibps-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>IBPS / SBI (PO &amp; Clerk)</span>
+                <span>IBPS (PO &amp; Clerk)</span>
                 <span class="text-[10px] text-primary">→</span>
               </a>
               <div class="text-[10px] text-muted-foreground">Banking Personnel Selection</div>
@@ -93,8 +93,26 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
             <td class="py-3 px-3.5 font-mono font-bold text-primary">10 KB – 20 KB</td>
             <td class="py-3 px-3.5 text-xs text-muted-foreground">Black ink strictly; unruled white paper</td>
             <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="ibps-sbi" aria-label="Resize signature for IBPS / SBI (PO & Clerk)" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
+              <a href="#tool-workspace" data-preset-id="ibps-sbi" aria-label="Resize signature for IBPS (PO & Clerk)" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
                 Apply IBPS
+              </a>
+            </td>
+          </tr>
+          <tr class="hover:bg-muted/40 transition">
+            <td class="py-3 px-3.5">
+              <a href="/sbi-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                <span>SBI Signature Resizer</span>
+                <span class="text-[10px] text-primary">→</span>
+              </a>
+              <div class="text-[10px] text-muted-foreground">State Bank of India</div>
+            </td>
+            <td class="py-3 px-3.5 font-mono text-foreground font-bold">140 × 60 px</td>
+            <td class="py-3 px-3.5 font-mono text-muted-foreground">4.0 × 2.0 cm</td>
+            <td class="py-3 px-3.5 font-mono font-bold text-primary">10 KB – 20 KB</td>
+            <td class="py-3 px-3.5 text-xs text-muted-foreground">Black ink strictly; unruled white paper</td>
+            <td class="py-3 px-3.5 text-right">
+              <a href="#tool-workspace" data-preset-id="sbi-signature" aria-label="Resize signature for SBI PO & Clerk" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
+                Apply SBI
               </a>
             </td>
           </tr>
@@ -119,7 +137,7 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
           <tr class="hover:bg-muted/40 transition">
             <td class="py-3 px-3.5">
               <a href="/gate-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>GATE / IIT JAM</span>
+                <span>GATE 2027</span>
                 <span class="text-[10px] text-primary">→</span>
               </a>
               <div class="text-[10px] text-muted-foreground">IITs / IISc Engineering Entrances</div>
@@ -129,8 +147,26 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
             <td class="py-3 px-3.5 font-mono font-bold text-primary">5 KB – 200 KB</td>
             <td class="py-3 px-3.5 text-xs text-muted-foreground">Dark blue or black ink; clean background</td>
             <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="gate-jam" aria-label="Resize signature for GATE / IIT JAM" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
+              <a href="#tool-workspace" data-preset-id="gate-jam" aria-label="Resize signature for GATE 2027" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
                 Apply GATE
+              </a>
+            </td>
+          </tr>
+          <tr class="hover:bg-muted/40 transition">
+            <td class="py-3 px-3.5">
+              <a href="/iit-jam-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                <span>IIT JAM 2027</span>
+                <span class="text-[10px] text-primary">→</span>
+              </a>
+              <div class="text-[10px] text-muted-foreground">IIT Kharagpur ? JAM 2027</div>
+            </td>
+            <td class="py-3 px-3.5 font-mono text-foreground font-bold">~400 × 160 px</td>
+            <td class="py-3 px-3.5 font-mono text-muted-foreground">5.0 × 2.0 cm</td>
+            <td class="py-3 px-3.5 font-mono font-bold text-primary">5 KB – 200 KB</td>
+            <td class="py-3 px-3.5 text-xs text-muted-foreground">Dark blue or black ink; clean background</td>
+            <td class="py-3 px-3.5 text-right">
+              <a href="#tool-workspace" data-preset-id="iit-jam" aria-label="Resize signature for IIT JAM 2027" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
+                Apply JAM
               </a>
             </td>
           </tr>

@@ -445,7 +445,8 @@ export async function compressCanvasToTargetSize(
   format: OutputFormat,
   minKb: number,
   maxKb: number,
-  targetKb?: number
+  targetKb?: number,
+  preserveDimensions = false
 ): Promise<ProcessedImageResult> {
   const desiredKb = targetKb || (minKb + maxKb) / 2;
   const mimeType = format;
@@ -465,7 +466,7 @@ export async function compressCanvasToTargetSize(
       sizeBytes,
       sizeKb,
       format: 'PNG',
-      withinTargetBounds: sizeKb >= minKb && sizeKb <= maxKb,
+      withinTargetBounds: sizeBytes >= minKb * 1024 && sizeBytes <= maxKb * 1024,
     };
   }
 
@@ -479,7 +480,7 @@ export async function compressCanvasToTargetSize(
 
   let workCanvas = canvas;
   const curMaxDim = Math.max(canvas.width, canvas.height);
-  if (curMaxDim > maxAllowedDim) {
+  if (!preserveDimensions && curMaxDim > maxAllowedDim) {
     const scale = maxAllowedDim / curMaxDim;
     const scaledCanvas = document.createElement('canvas');
     scaledCanvas.width = Math.max(20, Math.round(canvas.width * scale));
@@ -536,7 +537,7 @@ let lastSuccessfulQuality: number = 0.75;
   }
 
   // 4. Fallback if lowest quality still exceeds maxKb
-  if (bestBlob && bestBlob.size / 1024 > maxKb * 1.05 && workCanvas.width > 60 && workCanvas.height > 60) {
+  if (!preserveDimensions && bestBlob && bestBlob.size / 1024 > maxKb * 1.05 && workCanvas.width > 60 && workCanvas.height > 60) {
     const currentKb = bestBlob.size / 1024;
     const resizeScale = Math.max(0.25, Math.min(0.92, Math.sqrt(desiredKb / currentKb) * 0.96));
     const downCanvas = document.createElement('canvas');
@@ -588,7 +589,7 @@ let lastSuccessfulQuality: number = 0.75;
     sizeBytes: finalSizeBytes,
     sizeKb: roundedKb,
     format: mimeType === 'image/jpeg' ? 'JPG' : 'WebP',
-    withinTargetBounds: roundedKb >= minKb && roundedKb <= maxKb,
+    withinTargetBounds: finalSizeBytes >= minKb * 1024 && finalSizeBytes <= maxKb * 1024,
   };
 }
 

@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
 import ThemeScript from '../components/ThemeScript.astro';
+import SignatureCropExamples from '../components/SignatureCropExamples.astro';
 import { SignatureTool } from '../components/SignatureTool';
 import { EXAM_PAGES_DATA, type ExamPageInfo } from '../data/examPagesData';
 import { BLOG_POSTS } from '../data/blogPostsData';
@@ -23,6 +24,9 @@ const canonicalUrl = `https://signresize.in/${examData.slug}/`;
 const ogImageUrl = 'https://signresize.in/og-image.png';
 const currentYear = 2026;
 const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
+const relatedTools = (examData.relatedTools || []).map(slug => ({
+  slug, label: EXAM_PAGES_DATA.find(page => page.slug === slug)?.h1 || 'Photo Resizer',
+}));
 
 // Find relevant blog posts for this specific exam tool
 const relevantBlogPosts = BLOG_POSTS.map(post => {
@@ -49,7 +53,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
     score += 2;
   }
   return { post, score };
-}).sort((a, b) => b.score - a.score)
+}).filter(item => !examData.sources || item.score >= 2).sort((a, b) => b.score - a.score)
   .slice(0, 2)
   .map(s => s.post);
 ---
@@ -215,7 +219,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
             <div class="flex items-center gap-2 flex-wrap">
               <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
                 <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                Official {currentYear} Guidelines
+                {examData.guidanceLabel || `Official ${currentYear} Guidelines`}
               </span>
               <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
@@ -244,10 +248,10 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               <div class="text-[9px] uppercase font-bold text-muted-foreground">Size Range</div>
               <div class="text-xs font-bold text-primary font-mono">{examData.minKb} – {examData.maxKb} KB</div>
             </div>
-            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
+            {!examData.hidePhysicalSize && <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
               <div class="text-[9px] uppercase font-bold text-muted-foreground">Centimeters</div>
               <div class="text-xs font-bold text-foreground font-mono">{examData.widthCm} × {examData.heightCm} CM</div>
-            </div>
+            </div>}
           </div>
         </div>
 
@@ -259,6 +263,17 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
           </div>
         </div>
       </section>
+
+      {examData.sources && <section class="bg-card border border-border rounded-2xl p-4 sm:p-5 text-xs sm:text-sm space-y-2" aria-label="Sources and upload guidance">
+        <p class="font-semibold">Source references · checked {examData.verifiedOn}</p>
+        <ul class="space-y-1 break-words">
+          {examData.sources.map(source => <li><a href={source.url} target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2">{source.label} ↗</a></li>)}
+        </ul>
+        <p class="text-muted-foreground">SignResize is an independent tool. Follow the instructions for your exact exam cycle and inspect the downloaded image and application preview. For exam applications, upload a scan or photograph of your physical handwritten signature; typing and drawing tools serve other uses.</p>
+      </section>}
+      {relatedTools.length > 0 && <nav class="flex flex-wrap gap-2 text-xs" aria-label="Related signature tools">
+        {relatedTools.map(tool => <a href={`/${tool.slug}/`} class="px-3 py-2 rounded-xl bg-card border border-border text-primary hover:bg-primary/10 transition">{tool.label} →</a>)}
+      </nav>}
 
       <!-- Main Interactive Resizer Tool Workspace -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -287,7 +302,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                   <thead class="bg-muted/60 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border">
                     <tr>
                       <th class="px-4 py-2.5">Specification Parameter</th>
-                      <th class="px-4 py-2.5">Mandatory Portal Value</th>
+                      <th class="px-4 py-2.5">{examData.pixelNote ? 'Preset / Upload Value' : 'Mandatory Portal Value'}</th>
                       <th class="px-4 py-2.5">Verification Rule</th>
                     </tr>
                   </thead>
@@ -295,13 +310,13 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                     <tr>
                       <td class="px-4 py-2 font-medium text-foreground">Pixel Width &amp; Height</td>
                       <td class="px-4 py-2 font-mono text-primary font-bold">{examData.widthPx} × {examData.heightPx} px</td>
-                      <td class="px-4 py-2 text-muted-foreground">Standard aspect ratio {examData.aspectRatioLabel}</td>
+                      <td class="px-4 py-2 text-muted-foreground">{examData.pixelNote || `Standard aspect ratio ${examData.aspectRatioLabel}`}</td>
                     </tr>
-                    <tr>
+                    {!examData.hidePhysicalSize && <tr>
                       <td class="px-4 py-2 font-medium text-foreground">Centimeter Physical Size</td>
                       <td class="px-4 py-2 font-mono text-foreground">{examData.widthCm} cm × {examData.heightCm} cm</td>
-                      <td class="px-4 py-2 text-muted-foreground">Based on {examData.dpi} DPI scanning resolution</td>
-                    </tr>
+                      <td class="px-4 py-2 text-muted-foreground">{examData.physicalSizeNote || `Based on ${examData.dpi} DPI scanning resolution`}</td>
+                    </tr>}
                     <tr>
                       <td class="px-4 py-2 font-medium text-foreground">File Size Bounds</td>
                       <td class="px-4 py-2 font-mono text-emerald-600 dark:text-emerald-400 font-bold">{examData.minKb} KB to {examData.maxKb} KB</td>
@@ -323,6 +338,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
             </div>
 
             <!-- Tailored Pro Tips for Rejection-Proof Uploads -->
+            {examData.sources && <SignatureCropExamples />}
             <div class="space-y-3 pt-4 border-t border-border">
               <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
                 <span>🛡️</span> 4 Rules to Avoid Signature Rejection for {examData.authority}
@@ -364,7 +380,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               <div class="space-y-3 pt-4 border-t border-border">
                 <div class="flex items-center justify-between">
                   <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
-                    <span>📘</span> Official {examData.authority} Preparation &amp; Upload Guides
+                <span>📘</span> {examData.authority} Preparation &amp; Upload Guides
                   </h3>
                   <a href="/blog/" class="text-xs text-primary font-semibold hover:underline">
                     All Guides &rarr;
@@ -409,7 +425,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-1.5">
                   <span>📘</span>
-                  Official 2026 Guide
+                  Preparation Guide
                 </span>
                 <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">{relevantBlogPosts[0].readTime}</span>
               </div>
@@ -441,7 +457,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
                 {examData.authority} Checklist
               </span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 font-bold">2026 Ready</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 font-bold">{examData.guidanceLabel ? 'Upload checklist' : '2026 Ready'}</span>
             </div>
 
             <div class="space-y-2 text-xs">
@@ -449,14 +465,14 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                 <span class="text-emerald-500 font-bold">✓</span>
                 <div>
                   <div class="font-medium text-foreground">Target Size: {examData.minKb}–{examData.maxKb} KB</div>
-                  <div class="text-[11px] text-muted-foreground">Guaranteed by dual-boundary canvas compression.</div>
+                  <div class="text-[11px] text-muted-foreground">Check the actual downloaded file size.</div>
                 </div>
               </div>
               <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
                 <span class="text-emerald-500 font-bold">✓</span>
                 <div>
                   <div class="font-medium text-foreground">Dimensions: {examData.widthPx} × {examData.heightPx} px</div>
-                  <div class="text-[11px] text-muted-foreground">Matches portal upload validation checks.</div>
+                  <div class="text-[11px] text-muted-foreground">Inspect the final image and application preview.</div>
                 </div>
               </div>
               <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
@@ -507,10 +523,10 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                 <div class="text-[10px] text-muted-foreground">Compress certificates, marksheets &amp; photos to 20 KB, 50 KB, 100 KB.</div>
               </a>
               <a
-                href="/signature-creator/"
+                href="/signature-generator/"
                 class="block p-2.5 rounded-xl bg-muted/50 hover:bg-muted border border-border transition"
               >
-                <div class="font-semibold text-foreground">Online Signature Creator</div>
+                <div class="font-semibold text-foreground">Online Signature Generator</div>
                 <div class="text-[10px] text-muted-foreground">Generate digital signatures with cursive calligraphy fonts or draw pad.</div>
               </a>
             </div>

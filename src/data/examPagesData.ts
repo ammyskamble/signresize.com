@@ -1,4 +1,13 @@
+import { EXAM_PAGE_UPDATES, FOCUSED_EXAM_PAGES } from './focusedExamPages';
+
 export interface ExamPageInfo {
+  guidanceLabel?: string;
+  verifiedOn?: string;
+  sources?: Array<{ label: string; url: string }>;
+  pixelNote?: string;
+  hidePhysicalSize?: boolean;
+  physicalSizeNote?: string;
+  relatedTools?: string[];
   slug: string; // e.g. 'ssc-signature-resize'
   presetId: string; // matches id in EXAM_PRESETS
   pageTitle: string;
@@ -23,7 +32,7 @@ export interface ExamPageInfo {
   tips: string[];
 }
 
-export const EXAM_PAGES_DATA: ExamPageInfo[] = [
+const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'ssc-signature-resize',
     presetId: 'ssc-general',
@@ -2598,4 +2607,10 @@ export const EXAM_PAGES_DATA: ExamPageInfo[] = [
       }
     ]
   }
+];
+
+// Focused, source-backed guidance overrides the historical shared exam entries.
+export const EXAM_PAGES_DATA: ExamPageInfo[] = [
+  ...BASE_EXAM_PAGES_DATA.map(page => ({ ...page, ...EXAM_PAGE_UPDATES[page.slug] })),
+  ...FOCUSED_EXAM_PAGES,
 ];

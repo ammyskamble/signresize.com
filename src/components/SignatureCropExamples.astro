@@ -1,0 +1,21 @@
+---
+const examples = [
+  { title: 'Complete, clear crop', note: 'Keep every stroke visible on clean white paper.', kind: 'complete' },
+  { title: 'Clipped crop', note: 'Widen or reposition the crop when strokes are cut off.', kind: 'clipped' },
+  { title: 'Blurred image', note: 'Rescan the original; compression cannot restore missing detail.', kind: 'blurred' },
+];
+---
+<section class="space-y-3 pt-4 border-t border-border" aria-label="Signature crop examples">
+  <h3 class="text-sm font-bold">Check your signature crop before uploading</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+    {examples.map(example => <figure class="rounded-xl border border-border p-3 space-y-2">
+      <svg viewBox="0 0 280 100" role="img" aria-label={example.title} class="w-full h-auto rounded-lg bg-white border border-border">
+        <svg x="12" y="10" width="256" height="80" viewBox={example.kind === 'clipped' ? '60 0 180 100' : '0 0 280 100'} preserveAspectRatio="none" style="overflow:hidden">
+          <path d="M25 68 C50 10 80 8 60 68 C45 97 85 79 106 45 C116 30 115 66 135 53 C152 42 152 63 174 47 C187 38 190 56 214 43 L251 33 M46 80 Q144 94 244 65" fill="none" stroke="#111827" stroke-width={example.kind === 'blurred' ? 8 : 3} stroke-linecap="round" stroke-linejoin="round" opacity={example.kind === 'blurred' ? 0.4 : 1} />
+        </svg>
+      </svg>
+      <figcaption class="text-xs space-y-1"><p class="font-semibold">{example.title}</p><p class="text-muted-foreground">{example.note}</p></figcaption>
+    </figure>)}
+  </div>
+  <p class="text-xs text-muted-foreground">Illustrations show crop quality only. Submit a scan or photograph of your own physical handwritten signature, following the official exam instructions.</p>
+</section>
