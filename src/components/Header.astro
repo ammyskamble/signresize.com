@@ -503,183 +503,144 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
   <!-- Mobile Navigation Dropdown Backdrop Overlay -->
   <div
     id="mobile-menu-backdrop"
-    class="hidden lg:hidden fixed inset-0 top-[104px] bg-slate-950/40 backdrop-blur-xs z-30 transition-opacity"
+    class="hidden lg:hidden fixed inset-0 top-[104px] bg-slate-950/20 backdrop-blur-2xs z-30 transition-opacity"
     aria-hidden="true"
   ></div>
 
-  <!-- Mobile Navigation Compact Dropdown Menu -->
+  <!-- Mobile Navigation Ultra-Compact Squeezed Dropdown Menu -->
   <div
     id="mobile-menu-drawer"
-    class="hidden lg:hidden border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-3.5 py-3 shadow-2xl max-h-[75vh] overflow-y-auto rounded-b-2xl transition-all"
+    class="hidden lg:hidden border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-3 py-2.5 shadow-xl rounded-b-2xl transition-all"
   >
-    <!-- Top Bar: Home Link + Language Switcher -->
-    <div class="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-slate-800/80">
+    <!-- Top Row: Home Link + Language Switcher + Search Button -->
+    <div class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800/80">
       <a
         href="/"
         class:list={[
-          "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition",
+          "inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs font-bold transition",
           isHome
             ? "bg-primary/10 text-primary border border-primary/20 shadow-2xs"
             : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
         ]}
       >
         <span>🏠</span>
-        <span>Home Workspace</span>
+        <span>Home</span>
       </a>
 
       <!-- Compact Language Selector Pills -->
-      <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800/80 p-0.5 rounded-lg text-xs border border-slate-200/80 dark:border-slate-700/80">
+      <div class="flex items-center gap-0.5 bg-slate-100 dark:bg-slate-800/80 p-0.5 rounded-lg text-[11px] border border-slate-200/80 dark:border-slate-700/80">
         <a href="/" data-lang="en" class="mobile-lang-pill px-2 py-0.5 rounded-md font-bold text-[11px] transition bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs">EN</a>
         <a href="/hi/" data-lang="hi" class="mobile-lang-pill px-2 py-0.5 rounded-md font-medium text-[11px] text-muted-foreground hover:text-foreground transition">हिंदी</a>
         <a href="/mr/" data-lang="mr" class="mobile-lang-pill px-2 py-0.5 rounded-md font-medium text-[11px] text-muted-foreground hover:text-foreground transition">मराठी</a>
       </div>
-    </div>
 
-    <!-- Quick Tools: 2-Column Compact Grid -->
-    <div class="py-2.5">
-      <div class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-2 flex items-center justify-between px-0.5">
-        <span>Essential Tools</span>
-        <span class="text-[9px] font-mono text-primary font-bold">INSTANT RESIZE</span>
-      </div>
-      <div class="grid grid-cols-2 gap-1.5 text-xs">
-        <a
-          href="/resize-signature-to-10kb-20kb/"
-          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
-        >
-          <span class="text-base shrink-0">✍️</span>
-          <div class="min-w-0">
-            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Sign Resizer</div>
-            <div class="text-[10px] text-muted-foreground truncate">10–20 KB</div>
-          </div>
-        </a>
-
-        <a
-          href="/photo-resizer/"
-          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
-        >
-          <span class="text-base shrink-0">📷</span>
-          <div class="min-w-0">
-            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Photo Resizer</div>
-            <div class="text-[10px] text-muted-foreground truncate">20–50 KB</div>
-          </div>
-        </a>
-
-        <a
-          href="/document-resizer/"
-          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
-        >
-          <span class="text-base shrink-0">📄</span>
-          <div class="min-w-0">
-            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Doc Resizer</div>
-            <div class="text-[10px] text-muted-foreground truncate">100–300 KB</div>
-          </div>
-        </a>
-
-        <a
-          href="/compress-image-to-kb/"
-          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
-        >
-          <span class="text-base shrink-0">⚡</span>
-          <div class="min-w-0">
-            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Compress KB</div>
-            <div class="text-[10px] text-muted-foreground truncate">Custom limit</div>
-          </div>
-        </a>
-
-        <a
-          href="/signature-generator/"
-          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
-        >
-          <span class="text-base shrink-0">✨</span>
-          <div class="min-w-0">
-            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Sign Generator</div>
-            <div class="text-[10px] text-muted-foreground truncate">Cursive styles</div>
-          </div>
-        </a>
-
-        <a
-          href="/electronic-signature/"
-          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
-        >
-          <span class="text-base shrink-0">🖋️</span>
-          <div class="min-w-0">
-            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">eSign Pad</div>
-            <div class="text-[10px] text-muted-foreground truncate">Draw digital</div>
-          </div>
-        </a>
-
-        <a
-          href="/ssc-signature-resize/"
-          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
-        >
-          <span class="text-base shrink-0">🎨</span>
-          <div class="min-w-0">
-            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">SSC Resizer</div>
-            <div class="text-[10px] text-muted-foreground truncate">140×60 px</div>
-          </div>
-        </a>
-
-        <a
-          href="/make-signature-background-white/"
-          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
-        >
-          <span class="text-base shrink-0">🧹</span>
-          <div class="min-w-0">
-            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">White BG</div>
-            <div class="text-[10px] text-muted-foreground truncate">Clean shadows</div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Exam Portals & Alerts (Compact Horizontal / Stacked List) -->
-    <div class="py-2 border-t border-slate-100 dark:border-slate-800/80 space-y-1 text-xs">
-      <a
-        href="/government-jobs/"
-        class="flex items-center justify-between p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition"
-      >
-        <div class="flex items-center gap-2">
-          <span>🏛️</span>
-          <span class="font-bold">Govt Jobs Calendar 2026</span>
-        </div>
-        <span class="text-[9px] font-bold uppercase px-1.5 py-0.2 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400">LIVE</span>
-      </a>
-
-      <a
-        href="/blog/"
-        class="flex items-center justify-between p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition"
-      >
-        <div class="flex items-center gap-2">
-          <span>📢</span>
-          <span class="font-bold">Daily Exam Alerts &amp; Guides</span>
-        </div>
-        <span class="text-[9px] font-mono font-bold uppercase px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400">UPDATED</span>
-      </a>
-
-      <a
-        href="/#exam-specs"
-        class="flex items-center justify-between p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition"
-      >
-        <div class="flex items-center gap-2">
-          <span>📋</span>
-          <span class="font-bold">65+ Exam Specifications Matrix</span>
-        </div>
-        <span class="text-xs text-muted-foreground">→</span>
-      </a>
-    </div>
-
-    <!-- Bottom Search Action -->
-    <div class="pt-2 border-t border-slate-100 dark:border-slate-800/80">
+      <!-- Quick Search Action -->
       <button
         type="button"
         id="mobile-search-exam-btn"
-        class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-primary/10 hover:bg-primary/15 text-primary text-xs font-bold transition cursor-pointer"
+        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/15 text-primary text-xs font-bold transition cursor-pointer"
+        aria-label="Search all tools and exams"
       >
         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
-        <span>Search All Exams, Jobs &amp; Tools</span>
+        <span>Search</span>
       </button>
+    </div>
+
+    <!-- Quick Tools: Squeezed 2-Column Compact Matrix -->
+    <div class="grid grid-cols-2 gap-1.5 py-2 text-xs">
+      <a
+        href="/resize-signature-to-10kb-20kb/"
+        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
+      >
+        <span class="text-sm shrink-0">✍️</span>
+        <span class="group-hover:text-primary truncate">Sign (10–20 KB)</span>
+      </a>
+
+      <a
+        href="/photo-resizer/"
+        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
+      >
+        <span class="text-sm shrink-0">📷</span>
+        <span class="group-hover:text-primary truncate">Photo (20–50 KB)</span>
+      </a>
+
+      <a
+        href="/document-resizer/"
+        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
+      >
+        <span class="text-sm shrink-0">📄</span>
+        <span class="group-hover:text-primary truncate">Doc Resizer</span>
+      </a>
+
+      <a
+        href="/compress-image-to-kb/"
+        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
+      >
+        <span class="text-sm shrink-0">⚡</span>
+        <span class="group-hover:text-primary truncate">Compress KB</span>
+      </a>
+
+      <a
+        href="/signature-generator/"
+        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
+      >
+        <span class="text-sm shrink-0">✨</span>
+        <span class="group-hover:text-primary truncate">Sign Maker</span>
+      </a>
+
+      <a
+        href="/electronic-signature/"
+        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
+      >
+        <span class="text-sm shrink-0">🖋️</span>
+        <span class="group-hover:text-primary truncate">eSign Pad</span>
+      </a>
+
+      <a
+        href="/ssc-signature-resize/"
+        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
+      >
+        <span class="text-sm shrink-0">🎨</span>
+        <span class="group-hover:text-primary truncate">SSC Resizer</span>
+      </a>
+
+      <a
+        href="/make-signature-background-white/"
+        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
+      >
+        <span class="text-sm shrink-0">🧹</span>
+        <span class="group-hover:text-primary truncate">White BG</span>
+      </a>
+    </div>
+
+    <!-- Bottom Portals Row: Compact 3-Column Strip -->
+    <div class="flex items-center justify-between gap-1.5 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-[11px] font-semibold">
+      <a
+        href="/government-jobs/"
+        class="flex-1 flex items-center justify-center gap-1 py-1.5 px-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 transition"
+      >
+        <span>🏛️</span>
+        <span class="truncate">Govt Jobs</span>
+        <span class="text-[8px] px-1 py-0.5 rounded bg-rose-600 text-white font-bold uppercase leading-none">Live</span>
+      </a>
+
+      <a
+        href="/blog/"
+        class="flex-1 flex items-center justify-center gap-1 py-1.5 px-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 transition"
+      >
+        <span>📢</span>
+        <span class="truncate">Alerts</span>
+      </a>
+
+      <a
+        href="/#exam-specs"
+        class="flex-1 flex items-center justify-center gap-1 py-1.5 px-1 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 transition"
+      >
+        <span>📋</span>
+        <span class="truncate">65+ Specs</span>
+      </a>
     </div>
   </div>
 </header>
@@ -1529,7 +1490,6 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
     mobileToggle?.setAttribute('aria-expanded', 'true');
     hamburgerIcon?.classList.add('hidden');
     closeIcon?.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
   }
 
   function closeMobileMenu() {
@@ -1538,7 +1498,6 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
     mobileToggle?.setAttribute('aria-expanded', 'false');
     hamburgerIcon?.classList.remove('hidden');
     closeIcon?.classList.add('hidden');
-    document.body.style.overflow = '';
   }
 
   function toggleMobileMenu() {
