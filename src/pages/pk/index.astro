@@ -1,0 +1,107 @@
+---
+// src/pages/pk/index.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "Pakistan Photo & Signature Resizer (PPSC, FPSC, NTS 25 KB) - SignResize";
+const pageDescription = "Free online photo and signature resizer for Pakistan recruitment portals. Format photo to 200x230 px (under 25-30 KB) and signature for PPSC Punjab Public Service Commission, FPSC CSS Exam, NTS, and NADRA.";
+const canonicalUrl = "https://signresize.in/pk/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "ppsc photo resizer 25kb, ppsc signature resizer 25kb, fpsc photo resizer 30kb, fpsc signature resizer, nts photo size editor 200x230, pakistan passport photo resizer, cnic signature size pakistan";
+---
+
+<!doctype html>
+<html lang="en-PK" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="en-PK" href="https://signresize.in/pk/" />
+    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_PK" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SignResize Pakistan - PPSC & FPSC Resizer",
+      "url": "https://signresize.in/pk/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "en-PK",
+      "description": "Free online photograph and signature resizer for PPSC Punjab Public Service Commission, FPSC CSS, and NTS portals in Pakistan."
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Pakistan Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span>🇵🇰 Official Pakistan Recruitment Presets (PPSC, FPSC, NTS)</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              Pakistan Photo &amp; Signature Resizer <span class="text-primary">(PPSC &amp; FPSC ≤ 25–30 KB)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Calibrated 200×230 px photograph and 140×60 px signature presets for PPSC Punjab Public Service Commission, FPSC CSS Competitive Exam, NTS, and NADRA CNIC applications.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Tool loaded with PPSC Preset -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="ppsc-pk" />
+      </section>
+
+      <!-- Specifications Table & FAQs -->
+      <section class="space-y-6">
+        <ExamSpecsTable />
+        <FaqSection />
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

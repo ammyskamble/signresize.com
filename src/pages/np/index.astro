@@ -1,0 +1,105 @@
+---
+// src/pages/np/index.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "Lok Sewa Aayog Nepal Photo Resizer (50 KB) Online - SignResize";
+const pageDescription = "Free Lok Sewa Aayog photo & signature resizer for Nepal. Format passport photo to 35x45 mm (50 KB max) and signature for Public Service Commission Nepal (Lok Sewa Aayog), TSC Teacher Exam, and e-Passport.";
+const canonicalUrl = "https://signresize.in/np/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "lok sewa aayog photo resizer nepal, nepal passport photo size resizer 50kb, tsc nepal signature resizer, public service commission nepal photo size, e-passport nepal photo editor";
+---
+
+<!doctype html>
+<html lang="en-NP" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="en-NP" href="https://signresize.in/np/" />
+    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_NP" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SignResize Nepal - Lok Sewa Aayog Photo Resizer",
+      "url": "https://signresize.in/np/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "en-NP",
+      "description": "Free passport photo and signature resizer for Lok Sewa Aayog Public Service Commission Nepal, TSC Teacher Exam, and e-Passport online portal."
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Nepal Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
+              <span>🇳🇵 Official Nepal Presets (Lok Sewa Aayog, TSC, e-Passport)</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              Nepal Lok Sewa Aayog Photo &amp; Signature Resizer <span class="text-primary">(≤ 50 KB)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Calibrated passport photo (35×45 mm) and scanned signature presets for Lok Sewa Aayog (Public Service Commission Nepal `psc.gov.np`), TSC Teacher Exam, and Nepal e-Passport pre-enrollment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Tool loaded with Lok Sewa Nepal Preset -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="loksewa-np" />
+      </section>
+
+      <!-- Specifications Table & FAQs -->
+      <section class="space-y-6">
+        <ExamSpecsTable />
+        <FaqSection />
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

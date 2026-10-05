@@ -1,0 +1,105 @@
+---
+// src/pages/ph/index.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "Philippines 2x2 Photo Resizer Online (PRC LERIS & CSC) - SignResize";
+const pageDescription = "Free PRC LERIS 2x2 photo resizer for Philippines board exams. Resize photo to 2x2 inches (600x600 px, 100 KB max) and signature for PRC Online Services, CSC Civil Service Exam, and DFA Passport.";
+const canonicalUrl = "https://signresize.in/ph/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "prc 2x2 photo resizer online, prc leris photo size, civil service exam photo size philippines, dfa passport photo resizer 4.5x3.5, prc online application photo resizer philippines";
+---
+
+<!doctype html>
+<html lang="en-PH" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="en-PH" href="https://signresize.in/ph/" />
+    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_PH" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SignResize Philippines - PRC 2x2 Photo Resizer",
+      "url": "https://signresize.in/ph/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "en-PH",
+      "description": "Free 2x2 photo and signature resizer for PRC LERIS board exams, CSC Civil Service Exam, and DFA Passport in the Philippines."
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Philippines Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+              <span>🇵🇭 Official Philippines Presets (PRC LERIS, CSC, DFA Passport)</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              Philippines 2×2 Photo &amp; Signature Resizer <span class="text-primary">(PRC LERIS 100 KB)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Format 2×2 inch (600×600 px, ≤ 100 KB) passport photo and scanned signature for PRC LERIS online board exams (Nursing, LET, Engineering), CSC Civil Service Exam, and DFA E-Passport appointments.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Tool loaded with PRC Philippines Preset -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="prc-ph" />
+      </section>
+
+      <!-- Specifications Table & FAQs -->
+      <section class="space-y-6">
+        <ExamSpecsTable />
+        <FaqSection />
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
