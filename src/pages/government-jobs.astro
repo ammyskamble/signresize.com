@@ -231,7 +231,7 @@ const jobFaqs = [
 
         <div class="space-y-3">
           {jobFaqs.map((faq, index) => (
-            <details class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition" open={index === 0}>
+            <details class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
               <summary class="font-semibold text-xs sm:text-sm text-foreground cursor-pointer flex items-center justify-between select-none">
                 <span>{faq.q}</span>
                 <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
