@@ -5,6 +5,7 @@ import Header from '../../components/Header.astro';
 import { SignatureTool } from '../../components/SignatureTool';
 import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
 import FaqSection from '../../components/FaqSection.astro';
+import CountryBlogSection from '../../components/CountryBlogSection.astro';
 import Footer from '../../components/Footer.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
@@ -93,9 +94,10 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
         <SignatureTool client:load initialPresetId="teletalk-bd" />
       </section>
 
-      <!-- Specifications Table & FAQs -->
+      <!-- Specifications Table, Country Blog Section & FAQs -->
       <section class="space-y-6">
         <ExamSpecsTable country="BD" />
+        <CountryBlogSection country="BD" />
         <FaqSection country="BD" />
       </section>
     </main>

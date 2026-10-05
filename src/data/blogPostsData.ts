@@ -18,6 +18,7 @@ export interface BlogPost {
   metaDescription?: string;
   excerpt: string;
   category: 'Exam Alerts' | 'Study Prep' | 'Guidelines & Tips' | 'Career Opportunity';
+  country?: 'PK' | 'PH' | 'BD' | 'NP' | 'IN';
   publishDate: string;
   publishTime?: string;
   lastUpdated?: string;
@@ -34,6 +35,112 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "ppsc-fpsc-pakistan-photo-signature-resizer-guide-2026",
+    title: "Pakistan PPSC & FPSC Photo and Signature Upload Guide 2026: 25 KB & 30 KB Rules",
+    metaTitle: "PPSC & FPSC Pakistan Photo Signature Resizer 2026 (25-30 KB)",
+    metaDescription: "Step-by-step guide to formatting photo (200x230 px, 25-30 KB) and signature for PPSC Punjab, FPSC CSS Exam, NTS, and NADRA CNIC portal.",
+    excerpt: "Complete step-by-step handbook on formatting photographs to 200x230 px (under 25-30 KB) and signatures for PPSC Punjab Public Service Commission, FPSC CSS Exam, NTS, and NADRA CNIC online applications.",
+    category: "Guidelines & Tips",
+    country: "PK",
+    publishDate: "Oct 05, 2026",
+    lastUpdated: "Oct 05, 2026",
+    author: "SignResize Pakistan Desk",
+    authorRole: "Pakistan Recruitment Portal Verification Specialist",
+    readTime: "8 min read",
+    featured: true,
+    tags: ["PPSC Pakistan", "FPSC CSS", "NTS Photo Size", "NADRA CNIC Signature", "25 KB Resizer"],
+    relatedExamPreset: "ppsc-pk",
+    quickFacts: [
+      { label: "PPSC Limit", value: "Photo ≤ 25 KB, Signature ≤ 25 KB (200x230 px)" },
+      { label: "FPSC CSS Limit", value: "Passport photo ≤ 30 KB (200x230 px)" },
+      { label: "NTS Portal", value: "Photo ≤ 30 KB, clean light background" },
+      { label: "NADRA CNIC", value: "Black ink signature on white paper ≤ 25 KB" }
+    ],
+    faqs: [
+      { question: "What is the PPSC photo size requirement?", answer: "PPSC Punjab Public Service Commission requires a 200x230 px photo strictly under 25 KB in JPG format." },
+      { question: "How to resize photo for FPSC CSS exam?", answer: "Upload your photo to SignResize, select FPSC Pakistan preset (200x230 px, ≤ 30 KB), and download." }
+    ],
+    contentHtml: `<p>Applying for PPSC Punjab Public Service Commission, FPSC CSS, or NTS job tests requires strict adherence to photo and signature upload rules in Pakistan...</p>`
+  },
+  {
+    slug: "prc-leris-2x2-photo-resizer-philippines-csc-dfa-guide-2026",
+    title: "PRC LERIS 2x2 Photo & Signature Resizer Philippines Guide 2026: 100 KB Rules",
+    metaTitle: "PRC LERIS 2x2 Photo Resizer Philippines (CSC & DFA 100 KB)",
+    metaDescription: "Comprehensive guide to cropping 2x2 inch (600x600 px) passport photo and scanned signature for PRC LERIS Online Board Exams, Civil Service Commission CSE, and DFA Passport Appointment.",
+    excerpt: "Comprehensive guide to cropping 2x2 inch (600x600 px) passport photo and scanned signature for PRC LERIS Online Board Exams, Civil Service Commission CSE, and DFA Passport Appointment.",
+    category: "Guidelines & Tips",
+    country: "PH",
+    publishDate: "Oct 05, 2026",
+    lastUpdated: "Oct 05, 2026",
+    author: "SignResize Philippines Desk",
+    authorRole: "PRC LERIS & CSC Application Specialist",
+    readTime: "7 min read",
+    featured: true,
+    tags: ["PRC 2x2 Photo", "PRC LERIS Philippines", "CSC Civil Service Exam", "DFA Passport Photo"],
+    relatedExamPreset: "prc-ph",
+    quickFacts: [
+      { label: "PRC LERIS 2x2", value: "2x2 inches (600x600 px), ≤ 100 KB, white background" },
+      { label: "CSC Exam", value: "1.5x2.0 inches (450x600 px), ≤ 100 KB" },
+      { label: "DFA Passport", value: "4.5x3.5 cm (413x531 px), ≤ 100 KB" }
+    ],
+    faqs: [
+      { question: "What is the official PRC 2x2 photo size?", answer: "PRC requires 2x2 inches (600x600 px) on a plain white background under 100 KB." }
+    ],
+    contentHtml: `<p>The Professional Regulation Commission (PRC LERIS) enforces strict 2x2 photo standards for Philippine board exam applicants...</p>`
+  },
+  {
+    slug: "teletalk-bangladesh-photo-signature-300x300-300x80-guide-2026",
+    title: "Teletalk Bangladesh Photo (300x300) & Signature (300x80) Resizer Guide 2026",
+    metaTitle: "Teletalk Bangladesh Photo (300x300) & Signature (300x80) Resizer",
+    metaDescription: "Official guide to resizing 300x300 px photo (under 100 KB) and 300x80 px signature (under 60 KB) for Teletalk All Jobs (alljobs.teletalk.com.bd), BPSC BCS Exam, and NTRCA portals.",
+    excerpt: "Official guide to resizing 300x300 px photo (under 100 KB) and 300x80 px signature (under 60 KB) for Teletalk All Jobs (alljobs.teletalk.com.bd), BPSC BCS Exam, and NTRCA portals.",
+    category: "Guidelines & Tips",
+    country: "BD",
+    publishDate: "Oct 05, 2026",
+    lastUpdated: "Oct 05, 2026",
+    author: "SignResize Bangladesh Desk",
+    authorRole: "Teletalk All Jobs Technical Desk",
+    readTime: "8 min read",
+    featured: true,
+    tags: ["Teletalk Photo 300x300", "Teletalk Signature 300x80", "BCS Photo Resizer", "alljobs teletalk"],
+    relatedExamPreset: "teletalk-bd",
+    quickFacts: [
+      { label: "Photo Dimensions", value: "300 × 300 px (3.5 × 3.5 cm), ≤ 100 KB" },
+      { label: "Signature Dimensions", value: "300 × 80 px (3.5 × 1.0 cm), ≤ 60 KB" },
+      { label: "Target Portals", value: "alljobs.teletalk.com.bd, BPSC BCS, NTRCA" }
+    ],
+    faqs: [
+      { question: "What is the exact Teletalk photo dimension?", answer: "Teletalk requires exactly 300x300 pixels and file size under 100 KB in JPG format." }
+    ],
+    contentHtml: `<p>All government job recruitments in Bangladesh managed via Teletalk require exact 300x300 px photos and 300x80 px signatures...</p>`
+  },
+  {
+    slug: "lok-sewa-aayog-nepal-photo-signature-resizer-guide-2026",
+    title: "Lok Sewa Aayog Nepal Photo & Signature Resizer Guide 2026: 50 KB Limit",
+    metaTitle: "Lok Sewa Aayog Nepal Photo & Signature Resizer (50 KB)",
+    metaDescription: "Step-by-step instructions on formatting passport photo (3.5x4.5 cm / 350x450 px) and signature under 50 KB for Nepal Lok Sewa Aayog (psc.gov.np), TSC Teacher Exam, and e-Passport pre-enrollment.",
+    excerpt: "Step-by-step instructions on formatting passport photo (3.5x4.5 cm / 350x450 px) and signature under 50 KB for Nepal Lok Sewa Aayog (psc.gov.np), TSC Teacher Exam, and e-Passport pre-enrollment.",
+    category: "Guidelines & Tips",
+    country: "NP",
+    publishDate: "Oct 05, 2026",
+    lastUpdated: "Oct 05, 2026",
+    author: "SignResize Nepal Desk",
+    authorRole: "Lok Sewa Aayog Portal Verification Desk",
+    readTime: "7 min read",
+    featured: true,
+    tags: ["Lok Sewa Photo Nepal", "Lok Sewa 50KB Limit", "TSC Nepal Signature", "e-Passport Nepal"],
+    relatedExamPreset: "loksewa-np",
+    quickFacts: [
+      { label: "Photo Size Limit", value: "3.5 × 4.5 cm (350 × 450 px), ≤ 50 KB" },
+      { label: "Signature Limit", value: "350 × 150 px, ≤ 50 KB" },
+      { label: "Portal", value: "psc.gov.np (Public Service Commission Nepal)" }
+    ],
+    faqs: [
+      { question: "What is the photo size for Lok Sewa Aayog Nepal?", answer: "Lok Sewa Aayog enforces a strict 50 KB maximum limit for passport photos in JPG format." }
+    ],
+    contentHtml: `<p>Applying online for Lok Sewa Aayog Nepal (Kharidar, NaSu, Officer) requires uploading a photo under 50 KB...</p>`
+  },
   {
     slug: "ctet-photo-signature-upload-error-solution-discrepancy",
     title: "CTET 2026 Master Guide: Syllabus, Eligibility, Document Upload & Preparation",
