@@ -231,7 +231,7 @@ export const ONGOING_EXAMS_DATA: ExamNewsItem[] = [
   },
   {
     id: 'uppsc-ro-aro',
-    examName: 'UPPSC Review Officer (RO / ARO) 2026',
+    examName: 'UPPSC RO / ARO (Samiksha Adhikari) 2026',
     shortCode: 'UPPSC RO/ARO',
     authority: 'Uttar Pradesh Public Service Commission',
     category: 'State PSC',

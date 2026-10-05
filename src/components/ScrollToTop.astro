@@ -1,0 +1,58 @@
+---
+// src/components/ScrollToTop.astro
+// Floating Scroll-to-Top ("Upside") Button with smooth animation and smart viewport detection
+---
+
+<!-- Floating Scroll to Top ("Upside") Button -->
+<button
+  id="scroll-to-top-btn"
+  type="button"
+  aria-label="Scroll to top of page"
+  title="Scroll to top (Upside)"
+  class="fixed bottom-22 right-5 sm:bottom-24 sm:right-6 z-40 p-2.5 sm:p-3 rounded-full bg-card/95 dark:bg-slate-800/95 text-foreground border border-border/80 shadow-lg backdrop-blur-md opacity-0 translate-y-3 pointer-events-none transition-all duration-300 hover:text-primary hover:border-primary/50 hover:bg-card hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary/50 group cursor-pointer"
+>
+  <svg
+    class="w-5 h-5 transition-transform duration-200 group-hover:-translate-y-0.5"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2.5"
+    aria-hidden="true"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
+<script is:inline>
+  (() => {
+    const btn = document.getElementById('scroll-to-top-btn');
+    if (!btn) return;
+
+    let isVisible = false;
+
+    function handleScroll() {
+      const scrolled = window.scrollY > 280;
+      if (scrolled !== isVisible) {
+        isVisible = scrolled;
+        if (scrolled) {
+          btn.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+          btn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        } else {
+          btn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          btn.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+        }
+      }
+    }
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Check initial scroll position
+    handleScroll();
+  })();
+</script>

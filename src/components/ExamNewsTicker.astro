@@ -48,10 +48,10 @@ const marqueeList = [...itemsWithStatus, ...itemsWithStatus];
               <!-- Exam Name & Brief -->
               <a 
                 href={targetUrl} 
-                class="font-semibold text-foreground hover:text-primary transition flex items-center gap-1.5"
+                class="font-semibold text-foreground hover:text-primary transition flex items-center gap-1.5 whitespace-nowrap"
                 title={`Open ${item.examName} signature resize tool`}
               >
-                <span>{item.examName}</span>
+                <span class="inline-block max-w-[280px] sm:max-w-none truncate sm:overflow-visible">{item.examName}</span>
                 {item.vacancies && (
                   <span class="text-muted-foreground font-normal text-[11px] hidden md:inline">
                     ({item.vacancies})

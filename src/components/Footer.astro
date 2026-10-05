@@ -5,6 +5,7 @@
 import Logo from './Logo.astro';
 import SocialShare from './SocialShare.astro';
 import ChatBot from './ChatBot.tsx';
+import ScrollToTop from './ScrollToTop.astro';
 const currentYear = new Date().getFullYear();
 ---
 
@@ -533,6 +534,9 @@ const currentYear = new Date().getFullYear();
     });
   </script>
 </footer>
+
+{/* Floating Upside / Scroll to Top Button */}
+<ScrollToTop />
 
 {/* Client-Side AI Assistant Chatbot (Rendered outside footer so position:fixed binds to viewport window) */}
 <ChatBot client:idle />
