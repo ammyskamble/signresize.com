@@ -35,6 +35,426 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "ctet-photo-signature-upload-error-solution-discrepancy",
+    title: "CTET 2026 Master Guide: Syllabus, Eligibility, Document Upload & Preparation",
+    metaTitle: "CTET 2026 Master Guide: Syllabus, Eligibility & Form",
+    metaDescription: "Complete CTET 2026 handbook covering syllabus, eligibility, photo and signature resizer, image discrepancy removal, previous papers, and DigiLocker download.",
+    excerpt: "Complete CTET 2026 handbook covering syllabus, eligibility, photo and signature resizer, image discrepancy removal, previous papers, and DigiLocker download.",
+    category: "Study Prep",
+    publishDate: "Oct 05, 2026",
+    lastUpdated: "Oct 05, 2026",
+    author: "SignResize Teacher Recruitment Desk",
+    authorRole: "Central Teacher Eligibility Test Scrutiny Team",
+    readTime: "12 min read",
+    featured: true,
+    tags: [
+      "CTET 2026",
+      "CTET Syllabus",
+      "CTET Eligibility",
+      "CTET Photo Resize",
+      "CTET Signature 4-30KB",
+      "Image Discrepancy",
+      "DigiLocker Certificate"
+    ],
+    relatedExamPreset: "ctet-exam",
+    quickFacts: [
+      {
+        label: "Conducting Body",
+        value: "Central Board of Secondary Education (CBSE, New Delhi)"
+      },
+      {
+        label: "Official Portal",
+        value: "ctet.nic.in (National Informatics Centre NIC)"
+      },
+      {
+        label: "Exam Frequency",
+        value: "Conducted twice annually (July and December cycles)"
+      },
+      {
+        label: "Photo Upload Range",
+        value: "3.5 cm × 4.5 cm (10 KB to 100 KB, JPG only)"
+      },
+      {
+        label: "Signature Upload Range",
+        value: "3.5 cm × 1.5 cm (4 KB to 30 KB, Running cursive script)"
+      },
+      {
+        label: "Discrepancy Approval Cycle",
+        value: "48 to 72 hours for Admin Verification status"
+      },
+      {
+        label: "Paper 1 Supreme Court Rule",
+        value: "D.El.Ed / BTC mandatory; B.Ed valid for Paper 2 only"
+      },
+      {
+        label: "Certificate Validity",
+        value: "Lifetime validity across all states and central boards"
+      }
+    ],
+    faqs: [
+      {
+        question: "What is CTET exam?",
+        answer: "The ==Central Teacher Eligibility Test (CTET)== is a national-level benchmark qualifying examination administered by the Central Board of Secondary Education (CBSE). It establishes minimum eligibility standards for appointment as teachers in Classes 1 to 8 across Kendriya Vidyalayas (KVS), Navodaya Vidyalayas (NVS), Central Tibetan Schools, UT administrative schools, and CBSE-affiliated private institutions."
+      },
+      {
+        question: "Who is eligible for CTET?",
+        answer: "Eligibility depends on the targeted paper. For ==Paper 1 (Primary: Classes 1 to 5)==, candidates must hold Senior Secondary with at least 50% marks plus a 2-year Diploma in Elementary Education (D.El.Ed/BTC). For ==Paper 2 (Elementary: Classes 6 to 8)==, candidates must hold Graduation with at least 50% marks and a Bachelor of Education (B.Ed) or 2-year D.El.Ed."
+      },
+      {
+        question: "What are the passing marks for CTET?",
+        answer: "A person who scores ==60% or more (90 marks out of 150)== is declared CTET qualified for the General (UR) category. Candidates belonging to SC, ST, and OBC categories receive a 5% concession, requiring ==55% (82.5 marks rounded to 82)== to qualify."
+      },
+      {
+        question: "Can B.Ed candidate apply for CTET Paper 1?",
+        answer: "No. Pursuant to the Supreme Court of India verdict dated August 11, 2023, ==B.Ed degree holders are debarred from teaching Primary classes (Classes 1 to 5)==. B.Ed candidates can apply only for Paper 2 (Classes 6 to 8). Paper 1 is strictly reserved for D.El.Ed, JBT, and BTC holders."
+      },
+      {
+        question: "What is the validity of CTET certificate?",
+        answer: "The CTET qualifying certificate possesses ==lifetime validity for all categories==. Candidates who have qualified CTET may appear again in subsequent cycles to improve their aggregate score without any ceiling on attempts."
+      },
+      {
+        question: "How to download CTET certificate from DigiLocker?",
+        answer: "CBSE does not issue physical printed certificates. Digital marksheets and eligibility certificates are published on ==DigiLocker (digilocker.gov.in)==. Log in using your registered mobile number linked to Aadhaar, navigate to Central Board of Secondary Education, select Teachers Eligibility Test Certificate, enter your Roll Number and passing year, and download the digitally signed PDF."
+      },
+      {
+        question: "How to remove image discrepancy in CTET?",
+        answer: "Log in to ==ctet.nic.in== using your Registration Number and Password during the active correction window. Click on ==Remove Image Discrepancy==, upload a re-cropped 3.5×4.5 cm photo (10–100 KB) or 3.5×1.5 cm signature (4–30 KB) in clean JPG format, and submit. The portal status updates to ==Admin Approved within 48 to 72 hours==."
+      },
+      {
+        question: "What is qualifying marks for CTET OBC?",
+        answer: "Candidates belonging to Other Backward Classes (OBC, Non-Creamy Layer) must obtain ==55% marks (82 out of 150)== to pass the CTET examination. The qualifying certificate states qualified with category concessions applicable to recruitment bodies."
+      },
+      {
+        question: "What is negative marking in CTET?",
+        answer: "There is ==zero negative marking in the CTET examination==. Each correct answer earns 1 mark, while unattempted or incorrect responses incur 0 penalty. Aspirants should attempt all 150 questions without fear of mark deductions."
+      },
+      {
+        question: "How many times CTET is conducted in a year?",
+        answer: "CBSE conducts CTET ==twice a year==, typically in the July and December/January cycles. Both cycles follow identical syllabus, eligibility criteria, and examination formats across offline OMR pen-paper sessions."
+      },
+      {
+        question: "What is the difference between CTET Paper 1 and Paper 2?",
+        answer: "==Paper 1 certifies teachers for Primary Classes 1 to 5== and comprises Child Development, Mathematics, Environmental Studies (EVS), Language 1, and Language 2. ==Paper 2 certifies teachers for Elementary Classes 6 to 8== and features specialized subject domains (Mathematics & Science for science educators, Social Studies/Social Science for arts educators)."
+      },
+      {
+        question: "Is CTET mandatory for government teacher?",
+        answer: "Yes, under Section 23(1) of the Right to Education (RTE) Act, CTET or an equivalent State TET is ==statutorily mandatory for appointment as PRT (Primary Teacher) and TGT (Trained Graduate Teacher)== in all Central Government schools, including KVS, NVS, Army Public Schools, and Delhi government schools under DSSSB."
+      },
+      {
+        question: "Can final year students apply for CTET?",
+        answer: "Yes. In accordance with Supreme Court directives, any candidate ==pursuing a teacher training course (D.El.Ed, B.Ed, B.El.Ed) in any semester or year== is legally eligible to register and appear for CTET. The certificate remains fully valid upon course completion."
+      },
+      {
+        question: "How to resize photo and signature for CTET?",
+        answer: "Use our dedicated client-side tools. Upload your photograph to the ==CTET Photo Resizer (10 to 100 KB, 3.5×4.5 cm)== and your signature to the ==CTET Signature Resizer (4 to 30 KB, 3.5×1.5 cm)==. Both tools auto-crop, eliminate background shadows, and enforce compliant JPEG byte limits instantly."
+      },
+      {
+        question: "How to change photo in CTET application form?",
+        answer: "Candidates can replace a flawed photograph only during the official ==CBSE Correction Window== or through the ==Remove Image Discrepancy== portal link. Log in at ctet.nic.in, click on Edit Application Details, choose the photograph upload dialog, upload the compliant 3.5×4.5 cm white background file, authenticate with OTP, and save changes."
+      },
+      {
+        question: "What is Language 1 and Language 2 in CTET?",
+        answer: "Candidates must select two distinct languages from 20 available options. ==Language 1 tests higher-level linguistic proficiency and includes literary poetry comprehension== with prose. ==Language 2 tests basic communication through two prose reading passages==. Choosing your strongest mother tongue as Language 1 and secondary language as Language 2 maximizes aggregate scores."
+      },
+      {
+        question: "How to clear CTET in first attempt?",
+        answer: "Master the Child Development and Pedagogy (CDP) syllabus since pedagogy forms 50% of every subject section. Study ==NCERT textbooks from Class 3 to 8 for EVS, Maths, Science, and Social Science==, and solve the last 5 years of CTET previous year question papers to internalize recurring question patterns."
+      },
+      {
+        question: "What is the salary of CTET qualified teacher?",
+        answer: "CTET qualification enables entry into Central Government Pay Level 6 (PRT) and Level 7 (TGT). ==Primary Teachers (PRT) draw an approximate gross salary of ₹45,000 to ₹55,000 per month==, while ==Trained Graduate Teachers (TGT) draw ₹58,000 to ₹70,000 per month==, plus Dearness Allowance (DA) and House Rent Allowance (HRA)."
+      },
+      {
+        question: "Is CTET valid for private schools?",
+        answer: "Yes. CBSE bylaws mandate that ==all CBSE-affiliated private schools must give preference to or mandate CTET-qualified candidates== for permanent teaching recruitments to maintain national teaching standards."
+      },
+      {
+        question: "Why CTET signature is rejected?",
+        answer: "The portal and scrutiny desk reject signatures due to three infractions: ==signing in CAPITAL or BLOCK letters==, signing on notebook lined paper with background shadows, or using faint blue ink. Signatures must be in running natural cursive flow penned in black ballpoint ink on clean white unruled paper."
+      }
+    ],
+    contentHtml: `
+<section id="overview" class="space-y-4">
+  <div class="p-4 sm:p-5 rounded-2xl bg-primary/10 border border-primary/20 text-foreground">
+    <p class="text-sm sm:text-base font-semibold leading-relaxed">
+      <strong>Complete CTET 2026 Examination Master Overview:</strong> The Central Teacher Eligibility Test (CTET), conducted nationwide by the Central Board of Secondary Education (CBSE) via <a href="https://ctet.nic.in" target="_blank" rel="noopener noreferrer" class="text-primary underline">ctet nic in (ctet.nic.in)</a>, is the mandatory benchmark qualification for teaching appointments across India. Whether you are preparing for <strong>Paper 1 (Classes 1 to 5)</strong> or <strong>Paper 2 (Classes 6 to 8)</strong>, achieving success requires mastering the NCERT pedagogy syllabus, understanding the Supreme Court B.Ed eligibility rulings, and avoiding online application rejection through strict compliance with official <strong>10–100 KB photo</strong> and <strong>4–30 KB signature</strong> upload standards.
+    </p>
+  </div>
+
+  <p>
+    Annually, over 2.5 million teaching aspirants register for the <strong>ctet online form</strong> following the official <strong>ctet notification</strong> release. However, thousands of candidates face withheld <strong>ctet admit card</strong> issuances, examination center delays, or outright disqualification due to administrative traps. Common setbacks include selecting the wrong educational qualification code, misinterpreting the Language 1 versus Language 2 scoring mechanism, or failing the automated scanning filter with an <em>"Image Discrepancy"</em> error.
+  </p>
+
+  <p>
+    This exhaustive master guide decodes all 40 critical dimensions of the <strong>ctet 2026</strong> examination cycle: from official notification tracking, OMR blueprint breakdowns, and previous year question paper (PYQ) strategy to instant file preparation using our free client-side utilities: the <a href="/ctet-signature-resize/" class="text-primary font-semibold underline">CTET Signature Resize Tool (4 to 30 KB)</a> and the <a href="/ctet-photo-resize/" class="text-primary font-semibold underline">CTET Photo Resize Tool (10 to 100 KB)</a>.
+  </p>
+</section>
+
+<!-- Direct Search Queries & AI Snippet Matrix (Google Indexing Optimized) -->
+<div class="my-6 p-4 sm:p-5 rounded-2xl bg-card border border-primary/20 shadow-xs space-y-3">
+  <div class="flex items-center gap-2">
+    <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-primary/10 text-primary border border-primary/20">Google Search Indexing &amp; AI Snippets</span>
+    <h3 class="text-sm sm:text-base font-bold text-foreground">💡 Direct Answers to Top CTET Queries</h3>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+      <p class="font-bold text-foreground">What are the passing marks for CTET?</p>
+      <p class="text-muted-foreground">General (UR) candidates require ==60% (90 marks out of 150)==, while OBC, SC, and ST candidates require ==55% (82 marks out of 150)==.</p>
+    </div>
+    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+      <p class="font-bold text-foreground">Can B.Ed candidates apply for CTET Paper 1?</p>
+      <p class="text-muted-foreground">==No, B.Ed candidates are debarred from Paper 1== under Supreme Court orders. B.Ed is valid solely for Paper 2 (Classes 6 to 8).</p>
+    </div>
+    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+      <p class="font-bold text-foreground">What is the official CTET signature size?</p>
+      <p class="text-muted-foreground">Must be between ==4 KB and 30 KB (3.5 cm × 1.5 cm)== penned in black ballpoint ink on clean white unruled paper in running cursive.</p>
+    </div>
+    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+      <p class="font-bold text-foreground">What is the official CTET photo size?</p>
+      <p class="text-muted-foreground">Must be between ==10 KB and 100 KB (3.5 cm × 4.5 cm)== in JPG format with a white background and sharp face focus.</p>
+    </div>
+    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+      <p class="font-bold text-foreground">How to remove image discrepancy in CTET?</p>
+      <p class="text-muted-foreground">==Log in at ctet.nic.in during the official correction window==, re-upload compliant photo/signature, and verify admin approval in 48 to 72 hours.</p>
+    </div>
+    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+      <p class="font-bold text-foreground">Where to download CTET certificate?</p>
+      <p class="text-muted-foreground">CBSE publishes certificates ==exclusively on DigiLocker (digilocker.gov.in)== with lifetime validity. No paper certificates are issued.</p>
+    </div>
+  </div>
+</div>
+
+<section id="exam-pattern" class="space-y-4 pt-6">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📐 1.</span> CTET Exam Pattern, Syllabus &amp; Blueprint: Paper 1 vs Paper 2
+  </h2>
+
+  <p>
+    The CTET examination comprises two separate objective multiple-choice question (MCQ) papers conducted in pen-and-paper OMR mode. Thorough preparation requires adhering to the official <strong>ctet syllabus</strong>, which tests both core subject matter and pedagogical methodology. Both papers carry 150 questions for 150 marks with a duration of 150 minutes (2.5 hours). There is <strong>no negative marking</strong>. The qualifying <strong>ctet passing marks</strong> are benchmarked at 60% (90 marks) for General category and 55% (82 marks) for SC, ST, and OBC candidates.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Paper 1 Box -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <h3 class="font-bold text-base text-foreground">📘 Paper 1 (Classes 1 to 5 Primary)</h3>
+        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">150 Marks</span>
+      </div>
+      <ul class="space-y-2 text-xs sm:text-sm text-muted-foreground">
+        <li class="flex justify-between"><span>Child Development &amp; Pedagogy (CDP)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
+        <li class="flex justify-between"><span>Mathematics (Content + Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
+        <li class="flex justify-between"><span>Environmental Studies (EVS)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
+        <li class="flex justify-between"><span>Language 1 (Proficiency &amp; Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
+        <li class="flex justify-between"><span>Language 2 (Comprehension &amp; Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
+      </ul>
+      <div class="p-2.5 rounded-xl bg-muted/40 text-[11px] text-muted-foreground">
+        <strong>CTET Eligibility:</strong> 12th with 50% + 2-year D.El.Ed / BTC / B.El.Ed. B.Ed candidates are strictly excluded.
+      </div>
+    </div>
+
+    <!-- Paper 2 Box -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <h3 class="font-bold text-base text-foreground">📙 Paper 2 (Classes 6 to 8 Elementary)</h3>
+        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">150 Marks</span>
+      </div>
+      <ul class="space-y-2 text-xs sm:text-sm text-muted-foreground">
+        <li class="flex justify-between"><span>Child Development &amp; Pedagogy (CDP)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
+        <li class="flex justify-between"><span>Maths &amp; Science <em>OR</em> Social Science</span><strong class="text-foreground">60 MCQs (60 Marks)</strong></li>
+        <li class="flex justify-between"><span>Language 1 (Proficiency &amp; Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
+        <li class="flex justify-between"><span>Language 2 (Comprehension &amp; Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
+      </ul>
+      <div class="p-2.5 rounded-xl bg-muted/40 text-[11px] text-muted-foreground">
+        <strong>CTET Eligibility:</strong> Graduation + B.Ed or Graduation + 2-year D.El.Ed. Science stream takes Maths/Science; Arts/Commerce takes Social Science.
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+    <h4 class="font-bold text-sm sm:text-base text-foreground">🎯 The Language 1 vs Language 2 Selection Dilemma</h4>
+    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+      A common mistake among CTET aspirants is selecting English as Language 1 and Hindi as Language 2. <strong>Language 1 features complex unseen poetry and challenging literary analysis</strong>, whereas Language 2 features two simpler prose narrative passages. If you are not a literature graduate in English, select your native primary tongue (e.g., Hindi) as Language 1 and English as Language 2 to score 10 to 15 marks higher.
+    </p>
+  </div>
+</section>
+
+<section id="document-specs" class="space-y-4 pt-6">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>⚡ 2.</span> Official CBSE Document Specifications: Eliminating Upload Errors
+  </h2>
+
+  <p>
+    When submitting the <strong>ctet application form</strong>, the portal runs automated client-side and server-side validation scripts. In particular, conforming to the exact <strong>ctet signature size</strong> (4 KB to 30 KB) and <strong>ctet photo resize</strong> standards (10 KB to 100 KB) prevents instant rejection. Any deviation in byte bounds or pixel ratios triggers upload failures:
+  </p>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Parameter</th>
+          <th class="px-4 py-3">Passport Photograph</th>
+          <th class="px-4 py-3">Scanned Signature</th>
+          <th class="px-4 py-3">Verification Rule</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Dimensions (Centimeters)</td>
+          <td class="px-4 py-3 font-mono">3.5 cm (W) × 4.5 cm (H)</td>
+          <td class="px-4 py-3 font-mono">3.5 cm (W) × 1.5 cm (H)</td>
+          <td class="px-4 py-3 text-muted-foreground">Standard aspect ratio (7:9 photo, 7:3 signature)</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Pixel Resolution (200 DPI)</td>
+          <td class="px-4 py-3 font-mono text-primary font-bold">280 × 360 pixels</td>
+          <td class="px-4 py-3 font-mono text-primary font-bold">140 × 60 pixels</td>
+          <td class="px-4 py-3 text-muted-foreground">Sharp text without pixelation</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">File Size Bounds</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">10.0 KB to 100.0 KB</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">4.0 KB to 30.0 KB</td>
+          <td class="px-4 py-3 text-muted-foreground">Target sweet spot: ~40 KB photo, ~15 KB signature</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Format &amp; Encoding</td>
+          <td class="px-4 py-3 font-mono">JPG / JPEG Only</td>
+          <td class="px-4 py-3 font-mono">JPG / JPEG Only</td>
+          <td class="px-4 py-3 text-muted-foreground">No PNG, WebP, or iPhone HEIC files accepted</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Color &amp; Medium</td>
+          <td class="px-4 py-3">Pure white / light background</td>
+          <td class="px-4 py-3">Black ballpoint pen on white paper</td>
+          <td class="px-4 py-3 text-muted-foreground">Running handwriting only. No block capitals</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm text-amber-900 dark:text-amber-200 space-y-1">
+    <div class="font-bold flex items-center gap-1.5">
+      <span>⚠️</span> Rejection Alert: Block / Capital Letters Signatures
+    </div>
+    <p>
+      CBSE regulations state that signatures penned in CAPITAL / BLOCK LETTERS will be cancelled. If your name is PRIYA SHARMA, a signature reading "PRIYA SHARMA" leads to form rejection. It must be written in natural running cursive script.
+    </p>
+  </div>
+</section>
+
+<section class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>🛡️ 3.</span> Resolving CTET Image Discrepancy &amp; The Correction Window
+  </h2>
+
+  <p>
+    If you received an alert notifying you of an <strong>ctet image discrepancy</strong>, your admit card generation is paused. CBSE activates the official <strong>ctet correction window</strong> for candidates to rectify mismatched photographs or blurry signatures. Follow this protocol to resolve the flag:
+  </p>
+
+  <ol class="space-y-3 text-xs sm:text-sm text-foreground/90">
+    <li class="flex items-start gap-3 p-3.5 rounded-xl bg-card border border-border">
+      <span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+      <div>
+        <strong class="text-foreground">Log In Through Official Gateway:</strong>
+        <p class="text-muted-foreground mt-0.5">Access candidate credentials via <strong>ctet login</strong> at <code>ctet.nic.in</code> and click on <strong>"Remove Image Discrepancy"</strong>. Enter your Application Number and Password to access your marked document dashboard.</p>
+      </div>
+    </li>
+
+    <li class="flex items-start gap-3 p-3.5 rounded-xl bg-card border border-border">
+      <span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+      <div>
+        <strong class="text-foreground">Process Clean Replacement Images:</strong>
+        <p class="text-muted-foreground mt-0.5">Do not re-upload the same file. Use our client-side tools: run your signature through <a href="/make-signature-background-white/" class="text-primary underline">Make Signature Background White</a> to wipe away paper grain and crop to 3.5×1.5 cm with the <a href="/ctet-signature-resize/" class="text-primary underline">CTET Signature Tool</a>.</p>
+      </div>
+    </li>
+
+    <li class="flex items-start gap-3 p-3.5 rounded-xl bg-card border border-border">
+      <span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+      <div>
+        <strong class="text-foreground">Authenticate OTP &amp; Monitor Scrutiny:</strong>
+        <p class="text-muted-foreground mt-0.5">Confirm upload via OTP sent to your registered mobile phone. CBSE scrutiny desk reviews replacements in batches, typically updating status to <strong>"Admin Approved"</strong> within <strong>48 to 72 hours</strong>.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="strategy" class="space-y-4 pt-6">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>💡 4.</span> High-Yield Preparation Roadmap: Cracking CTET in 45 Days
+  </h2>
+
+  <div class="space-y-3">
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h3 class="font-bold text-sm sm:text-base text-foreground">1. Master Core Pedagogy Concepts</h3>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        Child Development and Pedagogy (CDP) constitutes 30 direct marks in both papers, plus 15 pedagogy marks within each subject section (totaling 90 marks out of 150). Focus heavily on the foundational theories of <strong>Jean Piaget</strong> (Cognitive Development stages), <strong>Lev Vygotsky</strong> (Zone of Proximal Development &amp; Scaffolding), and <strong>Lawrence Kohlberg</strong> (Moral Development levels).
+      </p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h3 class="font-bold text-sm sm:text-base text-foreground">2. Study NCERT Textbooks (Classes 3 to 8)</h3>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        For Paper 1, read NCERT Environmental Studies (EVS) textbooks for Classes 3, 4, and 5 thoroughly. Questions on animals (sloth, elephant herds, tiger senses), traditional crafts (Pochampally sarees), and regional food are taken directly from textbook pages. For Paper 2, study NCERT Science and History/Polity/Geography textbooks for Classes 6, 7, and 8.
+      </p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h3 class="font-bold text-sm sm:text-base text-foreground">3. Practice CTET Previous Year Question Papers (PYQs)</h3>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        Solve the official <strong>ctet previous year question paper</strong> sets from the past 5 years. CTET questions frequently repeat core conceptual paradigms. Practicing with a physical OMR sheet trains your pacing to complete 150 questions within the 150-minute exam window.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📜 5.</span> Post-Exam Roadmap: Answer Key, Cut-Off &amp; DigiLocker Download
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h3 class="font-bold text-sm sm:text-base text-foreground">Provisional CTET Answer Key &amp; OMR Challenge</h3>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        CBSE releases the provisional <strong>ctet answer key</strong> and scanned OMR sheets approximately 15 to 20 days after the examination. Candidates can challenge any answer key question online through <code>ctet.nic.in</code> by paying a non-refundable fee of ₹1,000 per challenged question.
+      </p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h3 class="font-bold text-sm sm:text-base text-foreground">CTET Result Declaration &amp; DigiLocker Download</h3>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        Following verification of challenged keys, CBSE declares the official <strong>ctet result</strong> and qualifying <strong>ctet cut off</strong> thresholds online. Because physical marksheets are discontinued, candidates must complete their official <strong>ctet certificate download</strong> via <strong>DigiLocker</strong> using their Aadhaar-linked mobile credentials.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+    <div class="p-4 rounded-2xl bg-card border border-border flex flex-col justify-between space-y-3">
+      <div class="space-y-1">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">Signature Resizer</span>
+        <h3 class="font-bold text-base text-foreground">CTET Signature Tool (4–30 KB)</h3>
+        <p class="text-xs text-muted-foreground leading-relaxed">Auto-crops to 3.5×1.5 cm (140×60 px), enforces black ink contrast, and compresses safely between 4 KB and 30 KB.</p>
+      </div>
+      <a href="/ctet-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:opacity-95 transition">
+        Open CTET Signature Resizer &rarr;
+      </a>
+    </div>
+
+    <div class="p-4 rounded-2xl bg-card border border-border flex flex-col justify-between space-y-3">
+      <div class="space-y-1">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Passport Photo Resizer</span>
+        <h3 class="font-bold text-base text-foreground">CTET Photo Tool (10–100 KB)</h3>
+        <p class="text-xs text-muted-foreground leading-relaxed">Locks to 3.5×4.5 cm (280×360 px), overlays face alignment guides, and compresses to official 10–100 KB limits.</p>
+      </div>
+      <a href="/ctet-photo-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-card border border-border text-foreground hover:bg-muted font-semibold text-xs transition">
+        Open CTET Photo Resizer &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+`
+  },
+  {
     slug: "rrb-ntpc-2026-master-document-rules-preparation-strategy-mutne4bd",
     title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
     excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, step-by-step navigation, and speed calculation methods.",
