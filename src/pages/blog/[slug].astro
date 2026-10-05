@@ -322,6 +322,11 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
               {(post.category === 'Study Prep' || post.category === 'Exam Alerts' || post.relatedExamPreset) ? '5.' : '→'} FAQs ({post.faqs.length} Answers)
             </a>
           )}
+          {post.contentHtml && post.contentHtml.includes('id="keyword-directory"') && (
+            <a href="#keyword-directory" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
+              6. 20-Keyword 5W1H Matrix
+            </a>
+          )}
         </div>
       </nav>
 
