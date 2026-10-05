@@ -500,290 +500,185 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
   <!-- Live Scrolling Exam News Headline Ticker -->
   <ExamNewsTicker />
 
-  <!-- Mobile Navigation Drawer Backdrop Overlay -->
+  <!-- Mobile Navigation Dropdown Backdrop Overlay -->
   <div
     id="mobile-menu-backdrop"
-    class="hidden lg:hidden fixed inset-0 top-16 bg-slate-950/70 backdrop-blur-xs z-30 transition-opacity"
+    class="hidden lg:hidden fixed inset-0 top-[104px] bg-slate-950/40 backdrop-blur-xs z-30 transition-opacity"
     aria-hidden="true"
   ></div>
 
-  <!-- Mobile Navigation Drawer -->
+  <!-- Mobile Navigation Compact Dropdown Menu -->
   <div
     id="mobile-menu-drawer"
-    class="hidden lg:hidden border-t border-border/80 bg-card/98 dark:bg-slate-900/98 backdrop-blur-2xl px-3.5 sm:px-4 py-3.5 space-y-3 shadow-2xl max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain transition-all"
+    class="hidden lg:hidden border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-3.5 py-3 shadow-2xl max-h-[75vh] overflow-y-auto rounded-b-2xl transition-all"
   >
-    <!-- Mobile Language Selector Pills -->
-    <div class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-between gap-1 text-xs">
-      <span class="text-[11px] font-bold text-muted-foreground flex items-center gap-1 pl-1">
-        <span>🌐</span> Language:
-      </span>
-      <div class="flex items-center gap-1">
-        <a href="/" data-lang="en" class="mobile-lang-pill px-2.5 py-1 rounded-lg font-bold text-xs transition bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs">EN</a>
-        <a href="/hi/" data-lang="hi" class="mobile-lang-pill px-2.5 py-1 rounded-lg font-medium text-xs text-muted-foreground hover:text-foreground transition">हिंदी</a>
-        <a href="/mr/" data-lang="mr" class="mobile-lang-pill px-2.5 py-1 rounded-lg font-medium text-xs text-muted-foreground hover:text-foreground transition">मराठी</a>
+    <!-- Top Bar: Home Link + Language Switcher -->
+    <div class="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-slate-800/80">
+      <a
+        href="/"
+        class:list={[
+          "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition",
+          isHome
+            ? "bg-primary/10 text-primary border border-primary/20 shadow-2xs"
+            : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+        ]}
+      >
+        <span>🏠</span>
+        <span>Home Workspace</span>
+      </a>
+
+      <!-- Compact Language Selector Pills -->
+      <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800/80 p-0.5 rounded-lg text-xs border border-slate-200/80 dark:border-slate-700/80">
+        <a href="/" data-lang="en" class="mobile-lang-pill px-2 py-0.5 rounded-md font-bold text-[11px] transition bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs">EN</a>
+        <a href="/hi/" data-lang="hi" class="mobile-lang-pill px-2 py-0.5 rounded-md font-medium text-[11px] text-muted-foreground hover:text-foreground transition">हिंदी</a>
+        <a href="/mr/" data-lang="mr" class="mobile-lang-pill px-2 py-0.5 rounded-md font-medium text-[11px] text-muted-foreground hover:text-foreground transition">मराठी</a>
       </div>
     </div>
 
-    <!-- Mobile Home Button -->
-    <a
-      href="/"
-      class:list={[
-        "flex items-center gap-3 p-2.5 rounded-xl text-xs font-bold transition border",
-        isHome
-          ? "bg-primary/10 text-primary border-primary/25 shadow-2xs"
-          : "bg-slate-100/80 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700"
-      ]}
-    >
-      <span class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold shrink-0">🏠</span>
-      <div>
-        <div class="font-bold text-foreground">Home Page</div>
-        <div class="text-[10px] text-muted-foreground font-normal">Photo &amp; Signature Resizer Workspace</div>
+    <!-- Quick Tools: 2-Column Compact Grid -->
+    <div class="py-2.5">
+      <div class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-2 flex items-center justify-between px-0.5">
+        <span>Essential Tools</span>
+        <span class="text-[9px] font-mono text-primary font-bold">INSTANT RESIZE</span>
       </div>
-    </a>
-
-    <!-- 1. Dedicated Signature Tools Suite (Accordion Dropdown) -->
-    <div class="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 overflow-hidden shadow-2xs">
-      <button
-        type="button"
-        id="mobile-acc-signature-btn"
-        class="w-full flex items-center justify-between p-3 text-left font-bold text-xs text-foreground cursor-pointer transition select-none hover:bg-slate-100/60 dark:hover:bg-slate-800/60"
-        aria-expanded="true"
-      >
-        <div class="flex items-center gap-2.5">
-          <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold shrink-0">✍️</span>
-          <div>
-            <div class="text-xs font-bold text-foreground">Signature Tools Suite</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Compress 10–20 KB, generator &amp; eSign</div>
-          </div>
-        </div>
-        <div class="flex items-center gap-1.5 shrink-0">
-          <span class="text-[9px] font-mono font-bold bg-primary/10 text-primary px-1.5 py-0.5 rounded">6 TOOLS</span>
-          <svg id="mobile-acc-signature-icon" class="w-4 h-4 text-muted-foreground transition-transform duration-200 rotate-180" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </div>
-      </button>
-
-      <div id="mobile-acc-signature-content" class="p-2 pt-0 space-y-1.5">
+      <div class="grid grid-cols-2 gap-1.5 text-xs">
         <a
           href="/resize-signature-to-10kb-20kb/"
-          class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold bg-primary/5 border border-primary/20 text-slate-800 dark:text-slate-100 hover:bg-primary/10 transition"
+          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
         >
-          <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">✍️</span>
-          <div>
-            <div class="font-bold text-foreground">Signature Resizer (10–20 KB)</div>
-            <div class="text-[10px] text-muted-foreground font-normal">140×60 px • 4×2 cm • Dual-boundary clamp</div>
+          <span class="text-base shrink-0">✍️</span>
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Sign Resizer</div>
+            <div class="text-[10px] text-muted-foreground truncate">10–20 KB</div>
           </div>
         </a>
 
-        <a
-          href="/signature-generator/"
-          class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 transition"
-        >
-          <span class="w-7 h-7 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xs font-bold shrink-0">✨</span>
-          <div>
-            <div class="font-bold">Signature Generator</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Type name for cursive &amp; calligraphy signatures</div>
-          </div>
-        </a>
-
-        <a
-          href="/electronic-signature/"
-          class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 transition"
-        >
-          <span class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold shrink-0">🖋️</span>
-          <div>
-            <div class="font-bold">Electronic Signature (eSign Pad)</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Draw digital signature for PDFs &amp; forms</div>
-          </div>
-        </a>
-
-        <a
-          href="/ssc-signature-resize/"
-          class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 transition"
-        >
-          <span class="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold shrink-0">🎨</span>
-          <div>
-            <div class="font-bold">SSC Signature Resizer (140×60)</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Official preset for SSC CGL, CHSL, MTS</div>
-          </div>
-        </a>
-
-        <a
-          href="/make-signature-background-white/"
-          class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 transition"
-        >
-          <span class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold shrink-0">🧹</span>
-          <div>
-            <div class="font-bold">Make Background White (#FFFFFF)</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Remove paper shadows &amp; yellow tint</div>
-          </div>
-        </a>
-
-        <a
-          href="/blog/how-to-change-signature-in-outlook/"
-          class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/20 text-slate-800 dark:text-slate-100 hover:bg-primary/15 transition"
-        >
-          <span class="w-7 h-7 rounded-lg bg-primary/20 text-primary flex items-center justify-center text-xs font-bold shrink-0">📧</span>
-          <div>
-            <div class="font-bold text-primary">How to Change Signature in Outlook</div>
-            <div class="text-[10px] text-muted-foreground font-normal">2025 Desktop, OWA &amp; Mobile Guide</div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- 2. Photo & Document Resizers (Accordion Dropdown) -->
-    <div class="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 overflow-hidden shadow-2xs">
-      <button
-        type="button"
-        id="mobile-acc-resizers-btn"
-        class="w-full flex items-center justify-between p-3 text-left font-bold text-xs text-foreground cursor-pointer transition select-none hover:bg-slate-100/60 dark:hover:bg-slate-800/60"
-        aria-expanded="false"
-      >
-        <div class="flex items-center gap-2.5">
-          <span class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-sm font-bold shrink-0">📷</span>
-          <div>
-            <div class="text-xs font-bold text-foreground">Photo &amp; Document Resizers</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Passports, marksheets, KB compressor</div>
-          </div>
-        </div>
-        <div class="flex items-center gap-1.5 shrink-0">
-          <span class="text-[9px] font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded">3 TOOLS</span>
-          <svg id="mobile-acc-resizers-icon" class="w-4 h-4 text-muted-foreground transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </div>
-      </button>
-
-      <div id="mobile-acc-resizers-content" class="hidden p-2 pt-0 space-y-1.5">
         <a
           href="/photo-resizer/"
-          class:list={[
-            "flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 transition",
-            isPhoto ? "bg-primary/10! text-primary! border-primary/20!" : ""
-          ]}
+          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
         >
-          <span class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold shrink-0">📷</span>
-          <div>
-            <div class="font-bold">Passport Photo Resizer</div>
-            <div class="text-[10px] text-muted-foreground font-normal">3.5×4.5 cm • 20–50 KB • Name &amp; Date stamp</div>
+          <span class="text-base shrink-0">📷</span>
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Photo Resizer</div>
+            <div class="text-[10px] text-muted-foreground truncate">20–50 KB</div>
           </div>
         </a>
 
         <a
           href="/document-resizer/"
-          class:list={[
-            "flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 transition",
-            isDoc ? "bg-primary/10! text-primary! border-primary/20!" : ""
-          ]}
+          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
         >
-          <span class="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold shrink-0">📄</span>
-          <div>
-            <div class="font-bold">Document Resizer</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Marksheets, Caste, ID • 100–300 KB</div>
+          <span class="text-base shrink-0">📄</span>
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Doc Resizer</div>
+            <div class="text-[10px] text-muted-foreground truncate">100–300 KB</div>
           </div>
         </a>
 
         <a
           href="/compress-image-to-kb/"
-          class:list={[
-            "flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 transition",
-            isCompress ? "bg-primary/10! text-primary! border-primary/20!" : ""
-          ]}
+          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
         >
-          <span class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold shrink-0">⚡</span>
-          <div>
-            <div class="font-bold">Compress Image to KB</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Reduce file to exact KB target</div>
+          <span class="text-base shrink-0">⚡</span>
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Compress KB</div>
+            <div class="text-[10px] text-muted-foreground truncate">Custom limit</div>
+          </div>
+        </a>
+
+        <a
+          href="/signature-generator/"
+          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
+        >
+          <span class="text-base shrink-0">✨</span>
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">Sign Generator</div>
+            <div class="text-[10px] text-muted-foreground truncate">Cursive styles</div>
+          </div>
+        </a>
+
+        <a
+          href="/electronic-signature/"
+          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
+        >
+          <span class="text-base shrink-0">🖋️</span>
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">eSign Pad</div>
+            <div class="text-[10px] text-muted-foreground truncate">Draw digital</div>
+          </div>
+        </a>
+
+        <a
+          href="/ssc-signature-resize/"
+          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
+        >
+          <span class="text-base shrink-0">🎨</span>
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">SSC Resizer</div>
+            <div class="text-[10px] text-muted-foreground truncate">140×60 px</div>
+          </div>
+        </a>
+
+        <a
+          href="/make-signature-background-white/"
+          class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/80 dark:border-slate-700/80 transition group"
+        >
+          <span class="text-base shrink-0">🧹</span>
+          <div class="min-w-0">
+            <div class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary truncate">White BG</div>
+            <div class="text-[10px] text-muted-foreground truncate">Clean shadows</div>
           </div>
         </a>
       </div>
     </div>
 
-    <!-- 3. Govt Jobs & Exam Specifications (Accordion Dropdown) -->
-    <div class="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 overflow-hidden shadow-2xs">
-      <button
-        type="button"
-        id="mobile-acc-jobs-btn"
-        class="w-full flex items-center justify-between p-3 text-left font-bold text-xs text-foreground cursor-pointer transition select-none hover:bg-slate-100/60 dark:hover:bg-slate-800/60"
-        aria-expanded="false"
+    <!-- Exam Portals & Alerts (Compact Horizontal / Stacked List) -->
+    <div class="py-2 border-t border-slate-100 dark:border-slate-800/80 space-y-1 text-xs">
+      <a
+        href="/government-jobs/"
+        class="flex items-center justify-between p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition"
       >
-        <div class="flex items-center gap-2.5">
-          <span class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-sm font-bold shrink-0">🏛️</span>
-          <div>
-            <div class="text-xs font-bold text-foreground">Govt Jobs &amp; Exam Matrix</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Pan-India calendar, alerts &amp; 65+ specs</div>
-          </div>
+        <div class="flex items-center gap-2">
+          <span>🏛️</span>
+          <span class="font-bold">Govt Jobs Calendar 2026</span>
         </div>
-        <div class="flex items-center gap-1.5 shrink-0">
-          <span class="text-[9px] font-mono font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 px-1.5 py-0.5 rounded">UPDATED</span>
-          <svg id="mobile-acc-jobs-icon" class="w-4 h-4 text-muted-foreground transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
+        <span class="text-[9px] font-bold uppercase px-1.5 py-0.2 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400">LIVE</span>
+      </a>
+
+      <a
+        href="/blog/"
+        class="flex items-center justify-between p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition"
+      >
+        <div class="flex items-center gap-2">
+          <span>📢</span>
+          <span class="font-bold">Daily Exam Alerts &amp; Guides</span>
         </div>
-      </button>
+        <span class="text-[9px] font-mono font-bold uppercase px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400">UPDATED</span>
+      </a>
 
-      <div id="mobile-acc-jobs-content" class="hidden p-2 pt-0 space-y-1.5">
-        <a
-          href="/government-jobs/"
-          class:list={[
-            "flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold transition border border-emerald-500/20 bg-emerald-500/5",
-            isJobs ? "bg-primary/10! text-primary! border-primary/30!" : "hover:bg-emerald-500/10 text-slate-800 dark:text-slate-200"
-          ]}
-        >
-          <span class="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-200 flex items-center justify-center text-xs font-bold shrink-0">🏛️</span>
-          <div>
-            <div class="font-bold flex items-center gap-1.5">
-              <span>Pan-India Govt Jobs (All States)</span>
-              <span class="px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-500/40">HOT</span>
-            </div>
-            <div class="text-[10px] text-muted-foreground font-normal">SSC, RRB, Bank, UPSC &amp; All 28 State PSCs</div>
-          </div>
-        </a>
-
-        <a
-          href="/blog/"
-          class:list={[
-            "flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold transition border border-amber-500/20 bg-amber-500/5",
-            isBlog ? "bg-primary/10! text-primary! border-primary/30!" : "hover:bg-amber-500/10 text-slate-800 dark:text-slate-200"
-          ]}
-        >
-          <span class="w-7 h-7 rounded-lg bg-amber-100 dark:bg-amber-950/70 text-amber-900 dark:text-amber-200 flex items-center justify-center text-xs font-bold shrink-0">📢</span>
-          <div>
-            <div class="font-bold flex items-center gap-1.5">
-              <span>Daily Exam Alerts &amp; Blog</span>
-              <span class="px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-amber-100 dark:bg-amber-950/70 text-amber-900 dark:text-amber-200 border border-amber-500/40">NEW</span>
-            </div>
-            <div class="text-[10px] text-muted-foreground font-normal">Active government exams, prep tips &amp; deadlines</div>
-          </div>
-        </a>
-
-        <a
-          href="/#exam-specs"
-          class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 transition"
-        >
-          <span class="w-7 h-7 rounded-lg bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-bold shrink-0">📋</span>
-          <div>
-            <div class="font-bold">40+ Exam Specs Matrix</div>
-            <div class="text-[10px] text-muted-foreground font-normal">Official requirements comparison table</div>
-          </div>
-        </a>
-      </div>
+      <a
+        href="/#exam-specs"
+        class="flex items-center justify-between p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition"
+      >
+        <div class="flex items-center gap-2">
+          <span>📋</span>
+          <span class="font-bold">65+ Exam Specifications Matrix</span>
+        </div>
+        <span class="text-xs text-muted-foreground">→</span>
+      </a>
     </div>
 
-    <!-- Mobile Footer Badges -->
-    <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
-      <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold text-[11px]">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>100% In-Browser Private</span>
-      </div>
+    <!-- Bottom Search Action -->
+    <div class="pt-2 border-t border-slate-100 dark:border-slate-800/80">
       <button
         type="button"
         id="mobile-search-exam-btn"
-        class="text-primary font-bold hover:underline cursor-pointer min-h-[38px] inline-flex items-center px-2 py-1 text-xs"
+        class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-primary/10 hover:bg-primary/15 text-primary text-xs font-bold transition cursor-pointer"
       >
-        🔍 Search Whole Website
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <span>Search All Exams, Jobs &amp; Tools</span>
       </button>
     </div>
   </div>
@@ -1662,32 +1557,6 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
   mobileBackdrop?.addEventListener('click', () => {
     closeMobileMenu();
   });
-
-  // Mobile Accordion toggles
-  function initMobileAccordion(btnId, contentId, iconId) {
-    const btn = document.getElementById(btnId);
-    const content = document.getElementById(contentId);
-    const icon = document.getElementById(iconId);
-    if (!btn || !content || !icon) return;
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-      if (isExpanded) {
-        content.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-        icon.classList.remove('rotate-180');
-      } else {
-        content.classList.remove('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-        icon.classList.add('rotate-180');
-      }
-    });
-  }
-
-  initMobileAccordion('mobile-acc-signature-btn', 'mobile-acc-signature-content', 'mobile-acc-signature-icon');
-  initMobileAccordion('mobile-acc-resizers-btn', 'mobile-acc-resizers-content', 'mobile-acc-resizers-icon');
-  initMobileAccordion('mobile-acc-jobs-btn', 'mobile-acc-jobs-content', 'mobile-acc-jobs-icon');
 
   // Close mobile drawer when clicking any navigation link inside it
   mobileDrawer?.querySelectorAll('a').forEach((link) => {
