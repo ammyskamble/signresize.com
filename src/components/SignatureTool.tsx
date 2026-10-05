@@ -923,7 +923,12 @@ const PRESET_ALIASES: Record<string, string> = {
   'maharashtra-police': 'maharashtra-police',
   'up-police': 'up-police',
   uppolice: 'up-police',
-  uppbpb: 'up-police'
+  uppbpb: 'up-police',
+  teletalk: 'teletalk-bd',
+  ppsc: 'ppsc-pk',
+  fpsc: 'fpsc-pk',
+  prc: 'prc-ph',
+  loksewa: 'loksewa-np'
 };
 
 const findPresetByKey = (key: string): ExamPreset | undefined => {

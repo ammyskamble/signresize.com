@@ -177,7 +177,12 @@ const presetSlugMap = new Map([
   ['isro-drdo', 'isro-drdo-signature-resize'],
   ['pan-card-photo-nsdl', 'pan-card-photo-resize'],
   ['india-post-gds-photo', 'india-post-gds-photo-resize'],
-  ['kerala-psc-photo', 'kerala-psc-photo-resize']
+  ['kerala-psc-photo', 'kerala-psc-photo-resize'],
+  ['teletalk-bd', 'teletalk-photo-signature-resize'],
+  ['ppsc-pk', 'ppsc-signature-resize'],
+  ['fpsc-pk', 'fpsc-photo-resize'],
+  ['prc-ph', 'prc-photo-signature-resize-philippines'],
+  ['loksewa-np', 'lok-sewa-photo-resize-nepal']
 ]);
 
 const examPageMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p]));

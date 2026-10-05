@@ -2606,6 +2606,181 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
         a: 'MP Police Constable recruitment notifications are published by MPPEB on peb.mp.gov.in. Madhya Pradesh typically conducts large-scale police recruitment drives annually; check the official portal for the latest notification and application schedule.'
       }
     ]
+  },
+  {
+    slug: 'teletalk-photo-signature-resize',
+    presetId: 'teletalk-bd',
+    pageTitle: 'Teletalk Photo & Signature Resizer 300x300 (100 KB) Online - SignResize',
+    metaDescription: 'Free Teletalk Bangladesh photo and signature resizer tool. Resize photo to 300x300 px (100 KB) and signature to 300x80 px (60 KB) for Teletalk All Jobs (alljobs.teletalk.com.bd), BCS (BPSC), and NTRCA recruitment portals.',
+    keywords: 'teletalk photo resizer 300x300, teletalk signature resizer 300x80, teletalk photo resizer 100kb, bpsc photo resizer bangladesh, ntrca photo resizer, alljobs teletalk photo size editor',
+    h1: 'Teletalk Bangladesh Photo & Signature Resizer (300×300 / 300×80)',
+    subheading: 'Official 300×300 px (100 KB max) photo and 300×80 px (60 KB max) signature presets compliant with Teletalk All Jobs, BPSC (BCS), and NTRCA recruitment portals in Bangladesh.',
+    authority: 'Teletalk Bangladesh & BPSC (alljobs.teletalk.com.bd)',
+    targetExams: 'Teletalk All Jobs Portal, BCS (Bangladesh Public Service Commission), NTRCA, Primary School Assistant Teacher, Railway Bangladesh',
+    widthPx: 300,
+    heightPx: 300,
+    widthCm: 3.5,
+    heightCm: 3.5,
+    minKb: 10,
+    maxKb: 100,
+    recommendedKb: 60,
+    dpi: 200,
+    ink: 'Black / Dark Blue Ink',
+    aspectRatioLabel: '1:1 (300×300 px)',
+    strictNotice: 'Teletalk portals strictly reject photos not matching 300×300 pixels (100 KB max) or signatures not matching 300×80 pixels (60 KB max). Color photos only.',
+    tips: [
+      'Ensure photograph resolution is exactly 300×300 pixels and file size is under 100 KB.',
+      'Signature must be exactly 300×80 pixels with maximum file size of 60 KB.',
+      'Use a clean white background for both photograph and signature scans.',
+      'Save as JPG/JPEG format before uploading to alljobs.teletalk.com.bd.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official Teletalk Bangladesh photo size for 2026?',
+        a: 'Teletalk Bangladesh mandates a photograph dimension of 300 × 300 pixels with a file size not exceeding 100 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'What is the official Teletalk signature size limit?',
+        a: 'The signature must be strictly 300 × 80 pixels in width by height, with a file size not exceeding 60 KB.'
+      },
+      {
+        q: 'Which Bangladesh government job portals use Teletalk photo standards?',
+        a: 'Almost 90%+ of Bangladesh government job application portals, including Teletalk All Jobs (alljobs.teletalk.com.bd), BPSC (BCS Exam), NTRCA, and Directorate of Primary Education use these exact specifications.'
+      }
+    ]
+  },
+  {
+    slug: 'ppsc-signature-resize',
+    presetId: 'ppsc-pk',
+    pageTitle: 'PPSC Photo & Signature Resize 25 KB (200x230 px) Online - SignResize',
+    metaDescription: 'Official PPSC Pakistan signature & photo resize tool. Format photo & signature to 200x230 px (140x60 px) and max 25 KB for Punjab Public Service Commission (PPSC), FPSC, and NTS portals.',
+    keywords: 'ppsc photo resizer 25kb, ppsc signature resizer 25kb, ppsc image resizer 200x230, ppsc pakistan photo size, fpsc signature resizer online',
+    h1: 'PPSC Pakistan Photo & Signature Resizer (≤ 25 KB)',
+    subheading: 'Official 200×230 px photograph and 140×60 px signature presets calibrated for PPSC Punjab Public Service Commission, FPSC, and NTS online recruitment portals.',
+    authority: 'Punjab Public Service Commission (PPSC Pakistan)',
+    targetExams: 'PPSC Lecturer, PPSC Educator, FPSC CSS Exam, NTS Punjab, SPSC, BPSC Pakistan Job Portals',
+    widthPx: 200,
+    heightPx: 230,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 5,
+    maxKb: 25,
+    recommendedKb: 18,
+    dpi: 200,
+    ink: 'Black / Blue Ink',
+    aspectRatioLabel: '200×230 px (≤ 25 KB)',
+    strictNotice: 'PPSC Pakistan online application system automatically rejects any photo or signature file exceeding 25 KB.',
+    tips: [
+      'Ensure the resulting JPG file is 24.9 KB or less before uploading to ppsc.gop.pk.',
+      'Photograph must feature a light blue or plain white background.',
+      'Sign with a black or blue ballpoint pen on unruled white paper.'
+    ],
+    faqs: [
+      {
+        q: 'What is the maximum file size for PPSC Pakistan photo upload?',
+        a: 'PPSC Pakistan strictly enforces a maximum file size of 25 KB for both photograph and signature uploads.'
+      },
+      {
+        q: 'What are the required dimensions for PPSC photo?',
+        a: 'The recommended dimensions for PPSC photograph are 200 pixels width by 230 pixels height.'
+      }
+    ]
+  },
+  {
+    slug: 'fpsc-photo-resize',
+    presetId: 'fpsc-pk',
+    pageTitle: 'FPSC Photo & Signature Resize 30 KB (200x230 px) Online - SignResize',
+    metaDescription: 'FPSC Pakistan photo & signature resizer tool. Compress photo to 30 KB (200x230 px) and signature to 25 KB for Federal Public Service Commission (FPSC) CSS and General Recruitment portals.',
+    keywords: 'fpsc photo resizer 30kb, fpsc signature resizer 25kb, fpsc css photo size editor, fpsc online application photo resizer, federal public service commission photo size',
+    h1: 'FPSC Pakistan Photo & Signature Resizer (≤ 30 KB)',
+    subheading: 'Exact 200×230 px passport photo preset with 30 KB file size limit for FPSC CSS Competitive Exam and Federal General Recruitment portals.',
+    authority: 'Federal Public Service Commission (FPSC Pakistan)',
+    targetExams: 'FPSC CSS Competitive Exam, FPSC General Recruitment, Federal Ministry Jobs, NTS Federal',
+    widthPx: 200,
+    heightPx: 230,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 5,
+    maxKb: 30,
+    recommendedKb: 22,
+    dpi: 200,
+    ink: 'Black / Blue Ink',
+    aspectRatioLabel: '200×230 px (≤ 30 KB)',
+    strictNotice: 'FPSC online portal requires photos under 30 KB and signatures under 25 KB in JPG format.',
+    tips: [
+      'Crop tight around head and shoulders for CSS application.',
+      'Ensure background is plain light blue or white.'
+    ],
+    faqs: [
+      {
+        q: 'What is the FPSC photo size requirement for CSS exam?',
+        a: 'FPSC requires a photograph under 30 KB with approximate dimensions of 200 × 230 pixels.'
+      }
+    ]
+  },
+  {
+    slug: 'prc-photo-signature-resize-philippines',
+    presetId: 'prc-ph',
+    pageTitle: 'PRC 2x2 Photo Resizer Online (100 KB) Philippines - SignResize',
+    metaDescription: 'Free PRC LERIS 2x2 photo resizer for Philippines board exams. Resize 2x2 photo (600x600 px, 100 KB) and signature for PRC Online Services, CSC Civil Service Exam, and DFA Passport.',
+    keywords: 'prc 2x2 photo resizer online, prc leris photo size, civil service exam photo size philippines, dfa passport photo resizer 4.5x3.5, prc online application photo resizer philippines',
+    h1: 'PRC Philippines 2×2 Photo & Signature Resizer (LERIS Portal)',
+    subheading: 'Official 2×2 inch (600×600 px) photo preset with 100 KB file limit compliant with PRC LERIS online board exam applications, Civil Service Commission (CSC), and DFA Passport.',
+    authority: 'Professional Regulation Commission (PRC LERIS Philippines)',
+    targetExams: 'PRC Board Exams (Nursing, LET, Engineering, Accounting), CSC Civil Service Exam, DFA Passport Appointment',
+    widthPx: 600,
+    heightPx: 600,
+    widthCm: 5.08,
+    heightCm: 5.08,
+    minKb: 10,
+    maxKb: 100,
+    recommendedKb: 50,
+    dpi: 300,
+    ink: 'Black Ink Only',
+    aspectRatioLabel: '1:1 (2×2 inches / 600×600 px)',
+    strictNotice: 'PRC LERIS requires a recent 2x2 passport-style photo with plain white background, bare face, neutral expression, and high clarity under 100 KB.',
+    tips: [
+      'Use plain white background with no facial shadows or eyewear.',
+      'Format to 2×2 inches (600×600 px) under 100 KB for PRC LERIS upload.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official PRC online photo size for Philippines board exams?',
+        a: 'The Professional Regulation Commission (PRC LERIS) requires a 2x2 inch square photograph (600 × 600 pixels) on a plain white background with a maximum file size of 100 KB.'
+      }
+    ]
+  },
+  {
+    slug: 'lok-sewa-photo-resize-nepal',
+    presetId: 'loksewa-np',
+    pageTitle: 'Lok Sewa Aayog Photo Resizer Nepal (50 KB) Online - SignResize',
+    metaDescription: 'Free Lok Sewa Aayog photo & signature resizer Nepal. Resize passport photo to 35x45 mm (50 KB) and signature for Public Service Commission Nepal and e-Passport portals.',
+    keywords: 'lok sewa aayog photo resizer nepal, nepal passport photo size resizer 50kb, tsc nepal signature resizer, public service commission nepal photo size, e-passport nepal photo editor',
+    h1: 'Lok Sewa Aayog Nepal Photo & Signature Resizer (≤ 50 KB)',
+    subheading: 'Calibrated passport photo (35×45 mm) and signature presets for Public Service Commission Nepal (Lok Sewa Aayog), TSC Teacher Exam, and e-Passport online portal.',
+    authority: 'Lok Sewa Aayog (Public Service Commission Nepal)',
+    targetExams: 'Lok Sewa Kharidar, NaSu, Section Officer, TSC Teacher Service Commission, Nepal e-Passport Pre-Enrollment',
+    widthPx: 350,
+    heightPx: 450,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 10,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Black Ink',
+    aspectRatioLabel: '3.5×4.5 cm (≤ 50 KB)',
+    strictNotice: 'Lok Sewa Aayog Nepal online portal enforces a 50 KB maximum limit for photograph and signature files.',
+    tips: [
+      'Ensure photo file size is under 50 KB before uploading to psc.gov.np.',
+      'Plain light background required.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo size limit for Lok Sewa Aayog Nepal?',
+        a: 'Lok Sewa Aayog requires a passport-sized photograph with a file size strictly under 50 KB in JPG format.'
+      }
+    ]
   }
 ];
 

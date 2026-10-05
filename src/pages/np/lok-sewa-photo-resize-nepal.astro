@@ -1,0 +1,8 @@
+---
+// src/pages/np/lok-sewa-photo-resize-nepal.astro
+import { EXAM_PAGES_DATA } from '../../data/examPagesData';
+import ExamPage from '../[exam].astro';
+
+const examData = EXAM_PAGES_DATA.find(p => p.slug === 'lok-sewa-photo-resize-nepal')!;
+---
+<ExamPage examData={examData} />

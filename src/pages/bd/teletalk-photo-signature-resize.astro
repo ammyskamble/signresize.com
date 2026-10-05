@@ -1,0 +1,8 @@
+---
+// src/pages/bd/teletalk-photo-signature-resize.astro
+import { EXAM_PAGES_DATA } from '../../data/examPagesData';
+import ExamPage from '../[exam].astro';
+
+const examData = EXAM_PAGES_DATA.find(p => p.slug === 'teletalk-photo-signature-resize')!;
+---
+<ExamPage examData={examData} />
