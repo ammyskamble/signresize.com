@@ -503,14 +503,14 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
   <!-- Mobile Navigation Dropdown Backdrop Overlay -->
   <div
     id="mobile-menu-backdrop"
-    class="hidden lg:hidden fixed inset-0 top-[104px] bg-slate-950/20 backdrop-blur-2xs z-30 transition-opacity"
+    class="hidden lg:hidden fixed inset-0 bg-slate-950/40 backdrop-blur-xs z-40 transition-opacity"
     aria-hidden="true"
   ></div>
 
   <!-- Mobile Navigation Ultra-Compact Squeezed Dropdown Menu -->
   <div
     id="mobile-menu-drawer"
-    class="hidden lg:hidden border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-2.5 py-2 shadow-xl rounded-b-2xl transition-all"
+    class="hidden lg:hidden relative z-50 border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-2.5 py-2 shadow-xl rounded-b-2xl transition-all"
   >
     <!-- Top Row: Home + Lang Pills + Search (all tiny) -->
     <div class="flex items-center gap-1.5 pb-1.5 border-b border-slate-100 dark:border-slate-800/80">
@@ -1504,12 +1504,10 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
     closeMobileMenu();
   });
 
-  // Only close mobile drawer for in-page anchor links after smooth scroll
-  mobileDrawer?.querySelectorAll('a[href*="#"]').forEach((link) => {
+  // Close mobile drawer when tapping any link inside it
+  mobileDrawer?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      setTimeout(() => {
-        closeMobileMenu();
-      }, 200);
+      closeMobileMenu();
     });
   });
 
