@@ -174,886 +174,575 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     contentHtml: `
-<section id="overview" class="space-y-4">
-  <div class="p-4 sm:p-5 rounded-2xl bg-primary/10 border border-primary/20 text-foreground">
-    <p class="text-sm sm:text-base font-semibold leading-relaxed">
-      <strong>Complete CTET 2026 Examination Master Overview:</strong> The Central Teacher Eligibility Test (CTET), conducted nationwide by the Central Board of Secondary Education (CBSE) via <a href="https://ctet.nic.in" target="_blank" rel="noopener noreferrer" class="text-primary underline">ctet nic in (ctet.nic.in)</a>, is the mandatory benchmark qualification for teaching appointments across India. Whether you are preparing for <strong>Paper 1 (Classes 1 to 5)</strong> or <strong>Paper 2 (Classes 6 to 8)</strong>, achieving success requires mastering the NCERT pedagogy syllabus, understanding the Supreme Court B.Ed eligibility rulings, and avoiding online application rejection through strict compliance with official <strong>10–100 KB photo</strong> and <strong>4–30 KB signature</strong> upload standards.
-    </p>
+<!-- Sticky / Collapsible Quick Problem Finder (Anchor Jump Bar) -->
+<div class="my-6 p-4 sm:p-5 rounded-2xl bg-card border-2 border-primary/30 shadow-md space-y-3 sticky top-4 z-20 backdrop-blur-md bg-card/95">
+  <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-2.5">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+      <h3 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground">🚨 Instant Diagnostic Failure Finder</h3>
+    </div>
+    <span class="text-[10px] font-mono text-muted-foreground">Jump directly to your specific failure state</span>
   </div>
 
-  <p>
-    Annually, over 2.5 million teaching aspirants register for the <strong>ctet online form</strong> following the official <strong>ctet notification</strong> release. However, thousands of candidates face withheld <strong>ctet admit card</strong> issuances, examination center delays, or outright disqualification due to administrative traps. Common setbacks include selecting the wrong educational qualification code, misinterpreting the Language 1 versus Language 2 scoring mechanism, or failing the automated scanning filter with an <em>"Image Discrepancy"</em> error.
-  </p>
-
-  <p>
-    This exhaustive master guide decodes all 40 critical dimensions of the <strong>ctet 2026</strong> examination cycle: from official notification tracking, OMR blueprint breakdowns, and previous year question paper (PYQ) strategy to instant file preparation using our free client-side utilities: the <a href="/ctet-signature-resize/" class="text-primary font-semibold underline">CTET Signature Resize Tool (4 to 30 KB)</a> and the <a href="/ctet-photo-resize/" class="text-primary font-semibold underline">CTET Photo Resize Tool (10 to 100 KB)</a>.
-  </p>
-</section>
-
-<!-- Direct Search Queries & AI Snippet Matrix (Google Indexing Optimized) -->
-<div class="my-6 p-4 sm:p-5 rounded-2xl bg-card border border-primary/20 shadow-xs space-y-3">
-  <div class="flex items-center gap-2">
-    <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-primary/10 text-primary border border-primary/20">Google Search Indexing &amp; AI Snippets</span>
-    <h3 class="text-sm sm:text-base font-bold text-foreground">💡 Direct Answers to Top CTET Queries</h3>
-  </div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
-      <p class="font-bold text-foreground">What are the passing marks for CTET?</p>
-      <p class="text-muted-foreground">General (UR) candidates require ==60% (90 marks out of 150)==, while OBC, SC, and ST candidates require ==55% (82 marks out of 150)==.</p>
-    </div>
-    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
-      <p class="font-bold text-foreground">Can B.Ed candidates apply for CTET Paper 1?</p>
-      <p class="text-muted-foreground">==No, B.Ed candidates are debarred from Paper 1== under Supreme Court orders. B.Ed is valid solely for Paper 2 (Classes 6 to 8).</p>
-    </div>
-    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
-      <p class="font-bold text-foreground">What is the official CTET signature size?</p>
-      <p class="text-muted-foreground">Must be between ==4 KB and 30 KB (3.5 cm × 1.5 cm)== penned in black ballpoint ink on clean white unruled paper in running cursive.</p>
-    </div>
-    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
-      <p class="font-bold text-foreground">What is the official CTET photo size?</p>
-      <p class="text-muted-foreground">Must be between ==10 KB and 100 KB (3.5 cm × 4.5 cm)== in JPG format with a white background and sharp face focus.</p>
-    </div>
-    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
-      <p class="font-bold text-foreground">How to remove image discrepancy in CTET?</p>
-      <p class="text-muted-foreground">==Log in at ctet.nic.in during the official correction window==, re-upload compliant photo/signature, and verify admin approval in 48 to 72 hours.</p>
-    </div>
-    <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
-      <p class="font-bold text-foreground">Where to download CTET certificate?</p>
-      <p class="text-muted-foreground">CBSE publishes certificates ==exclusively on DigiLocker (digilocker.gov.in)== with lifetime validity. No paper certificates are issued.</p>
-    </div>
+  <!-- Jump Action Chips -->
+  <div class="flex flex-wrap gap-2 text-xs">
+    <a href="#failure-upload" class="px-3 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📸</span>
+      <span>Photo / Signature Upload Error</span>
+    </a>
+    <a href="#failure-payment" class="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-200 border border-amber-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>💳</span>
+      <span>Double Debit &amp; Fee Pending</span>
+    </a>
+    <a href="#failure-correction" class="px-3 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-800 dark:text-indigo-200 border border-indigo-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>✏️</span>
+      <span>Locked Fields &amp; Correction</span>
+    </a>
+    <a href="#failure-discrepancy" class="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-800 dark:text-rose-200 border border-rose-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>🚩</span>
+      <span>Remove Image Discrepancy (48-72h)</span>
+    </a>
+    <a href="#failure-digilocker" class="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📱</span>
+      <span>DigiLocker Certificate Mismatch</span>
+    </a>
   </div>
 </div>
 
-<section id="exam-pattern" class="space-y-4 pt-6">
-  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
-    <span>📐 1.</span> CTET Exam Pattern, Syllabus &amp; Blueprint: Paper 1 vs Paper 2
-  </h2>
-
-  <p>
-    The CTET examination comprises two separate objective multiple-choice question (MCQ) papers conducted in pen-and-paper OMR mode. Thorough preparation requires adhering to the official <strong>ctet syllabus</strong>, which tests both core subject matter and pedagogical methodology. Both papers carry 150 questions for 150 marks with a duration of 150 minutes (2.5 hours). There is <strong>no negative marking</strong>. The qualifying <strong>ctet passing marks</strong> are benchmarked at 60% (90 marks) for General category and 55% (82 marks) for SC, ST, and OBC candidates.
-  </p>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <!-- Paper 1 Box -->
-    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border pb-2">
-        <h3 class="font-bold text-base text-foreground">📘 Paper 1 (Classes 1 to 5 Primary)</h3>
-        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">150 Marks</span>
-      </div>
-      <ul class="space-y-2 text-xs sm:text-sm text-muted-foreground">
-        <li class="flex justify-between"><span>Child Development &amp; Pedagogy (CDP)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
-        <li class="flex justify-between"><span>Mathematics (Content + Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
-        <li class="flex justify-between"><span>Environmental Studies (EVS)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
-        <li class="flex justify-between"><span>Language 1 (Proficiency &amp; Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
-        <li class="flex justify-between"><span>Language 2 (Comprehension &amp; Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
-      </ul>
-      <div class="p-2.5 rounded-xl bg-muted/40 text-[11px] text-muted-foreground">
-        <strong>CTET Eligibility:</strong> 12th with 50% + 2-year D.El.Ed / BTC / B.El.Ed. B.Ed candidates are strictly excluded.
-      </div>
-    </div>
-
-    <!-- Paper 2 Box -->
-    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border pb-2">
-        <h3 class="font-bold text-base text-foreground">📙 Paper 2 (Classes 6 to 8 Elementary)</h3>
-        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">150 Marks</span>
-      </div>
-      <ul class="space-y-2 text-xs sm:text-sm text-muted-foreground">
-        <li class="flex justify-between"><span>Child Development &amp; Pedagogy (CDP)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
-        <li class="flex justify-between"><span>Maths &amp; Science <em>OR</em> Social Science</span><strong class="text-foreground">60 MCQs (60 Marks)</strong></li>
-        <li class="flex justify-between"><span>Language 1 (Proficiency &amp; Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
-        <li class="flex justify-between"><span>Language 2 (Comprehension &amp; Pedagogy)</span><strong class="text-foreground">30 MCQs (30 Marks)</strong></li>
-      </ul>
-      <div class="p-2.5 rounded-xl bg-muted/40 text-[11px] text-muted-foreground">
-        <strong>CTET Eligibility:</strong> Graduation + B.Ed or Graduation + 2-year D.El.Ed. Science stream takes Maths/Science; Arts/Commerce takes Social Science.
-      </div>
-    </div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-    <h4 class="font-bold text-sm sm:text-base text-foreground">🎯 The Language 1 vs Language 2 Selection Dilemma</h4>
-    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-      A common mistake among CTET aspirants is selecting English as Language 1 and Hindi as Language 2. <strong>Language 1 features complex unseen poetry and challenging literary analysis</strong>, whereas Language 2 features two simpler prose narrative passages. If you are not a literature graduate in English, select your native primary tongue (e.g., Hindi) as Language 1 and English as Language 2 to score 10 to 15 marks higher.
+<section id="overview" class="space-y-4">
+  <div class="p-4 sm:p-5 rounded-2xl bg-primary/10 border border-primary/20 text-foreground">
+    <p class="text-sm sm:text-base font-semibold leading-relaxed">
+      <strong>Complete CTET 2026 Examination Master Overview:</strong> The Central Teacher Eligibility Test (CTET), administered nationwide by the Central Board of Secondary Education (CBSE) via <a href="https://ctet.nic.in" target="_blank" rel="noopener noreferrer" class="text-primary underline">ctet.nic.in</a>, is the mandatory national benchmark qualification for teaching appointments across India. Whether you are appearing for <strong>Paper 1 (Classes 1 to 5)</strong> or <strong>Paper 2 (Classes 6 to 8)</strong>, achieving qualifying eligibility requires mastering NCERT pedagogy, understanding the Supreme Court B.Ed exclusion rulings, and preventing administrative form cancellation through exact compliance with official <strong>10–100 KB photo</strong> and <strong>4–30 KB running cursive signature</strong> upload bounds.
     </p>
   </div>
-</section>
-
-<section id="document-specs" class="space-y-4 pt-6">
-  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
-    <span>⚡ 2.</span> Official CBSE Document Specifications: Eliminating Upload Errors
-  </h2>
 
   <p>
-    When submitting the <strong>ctet application form</strong>, the portal runs automated client-side and server-side validation scripts. In particular, conforming to the exact <strong>ctet signature size</strong> (4 KB to 30 KB) and <strong>ctet photo resize</strong> standards (10 KB to 100 KB) prevents instant rejection. Any deviation in byte bounds or pixel ratios triggers upload failures:
+    Annually, over 2.5 million candidates register for the CTET online examination. However, thousands of aspirants encounter withheld admit cards, examination center delays, or outright disqualification due to administrative pitfalls. Common triggers include selecting the wrong educational eligibility code, encountering unconfirmed gateway payments, and triggering automated scanning filters with an <em>"Image Discrepancy"</em> alert.
+  </p>
+
+  <p>
+    This diagnostic handbook replaces repetitive directories with an <strong>actionable troubleshooting framework</strong>: resolving upload errors, clearing gateway debit drops, executing post-declaration DigiLocker fetches, and formatting files instantly using our free client-side utilities: the <a href="/ctet-signature-resize/" class="text-primary font-semibold underline">CTET Signature Resize Tool (4 to 30 KB)</a> and the <a href="/ctet-photo-resize/" class="text-primary font-semibold underline">CTET Photo Resize Tool (10 to 100 KB)</a>.
+  </p>
+</section>
+
+<!-- Authoritative Master Specifications & Policy Bounds -->
+<section id="master-specs" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📐 1.</span> Master CTET Regulatory &amp; Technical Benchmark Specifications
+  </h2>
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    Authoritative structural parameters governing the CTET examination cycle. Reference this consolidated table for qualifying marks, test timing, and exact document limits without redundant repetition across multiple sections.
   </p>
 
   <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
     <table class="w-full text-xs sm:text-sm text-left border-collapse">
       <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
         <tr>
-          <th class="px-4 py-3">Parameter</th>
-          <th class="px-4 py-3">Passport Photograph</th>
-          <th class="px-4 py-3">Scanned Signature</th>
-          <th class="px-4 py-3">Verification Rule</th>
+          <th class="px-4 py-3">Regulatory Parameter</th>
+          <th class="px-4 py-3">Official Board Standard</th>
+          <th class="px-4 py-3">Statutory Rule / Authority</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-border/60">
         <tr class="hover:bg-muted/20">
-          <td class="px-4 py-3 font-bold text-foreground">Dimensions (Centimeters)</td>
-          <td class="px-4 py-3 font-mono">3.5 cm (W) × 4.5 cm (H)</td>
-          <td class="px-4 py-3 font-mono">3.5 cm (W) × 1.5 cm (H)</td>
-          <td class="px-4 py-3 text-muted-foreground">Standard aspect ratio (7:9 photo, 7:3 signature)</td>
+          <td class="px-4 py-3 font-bold text-foreground">General (UR) Qualifying Marks</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">60% (90 Marks out of 150)</td>
+          <td class="px-4 py-3 text-muted-foreground">CBSE Notification Para 9(1)</td>
         </tr>
         <tr class="hover:bg-muted/20">
-          <td class="px-4 py-3 font-bold text-foreground">Pixel Resolution (200 DPI)</td>
-          <td class="px-4 py-3 font-mono text-primary font-bold">280 × 360 pixels</td>
-          <td class="px-4 py-3 font-mono text-primary font-bold">140 × 60 pixels</td>
-          <td class="px-4 py-3 text-muted-foreground">Sharp text without pixelation</td>
+          <td class="px-4 py-3 font-bold text-foreground">Reserved (SC / ST / OBC / PwD) Marks</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">55% (82 Marks out of 150)</td>
+          <td class="px-4 py-3 text-muted-foreground">5% relaxation per NCTE Gazette mandate</td>
         </tr>
         <tr class="hover:bg-muted/20">
-          <td class="px-4 py-3 font-bold text-foreground">File Size Bounds</td>
-          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">10.0 KB to 100.0 KB</td>
-          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">4.0 KB to 30.0 KB</td>
-          <td class="px-4 py-3 text-muted-foreground">Target sweet spot: ~40 KB photo, ~15 KB signature</td>
+          <td class="px-4 py-3 font-bold text-foreground">Paper 1 Supreme Court Eligibility</td>
+          <td class="px-4 py-3 font-bold text-rose-600 dark:text-rose-400">D.El.Ed / BTC / JBT / B.El.Ed Only</td>
+          <td class="px-4 py-3 text-muted-foreground">Supreme Court verdict (Devesh Sharma vs UOI, Aug 11, 2023) excluding B.Ed</td>
         </tr>
         <tr class="hover:bg-muted/20">
-          <td class="px-4 py-3 font-bold text-foreground">Format &amp; Encoding</td>
-          <td class="px-4 py-3 font-mono">JPG / JPEG Only</td>
-          <td class="px-4 py-3 font-mono">JPG / JPEG Only</td>
-          <td class="px-4 py-3 text-muted-foreground">No PNG, WebP, or iPhone HEIC files accepted</td>
+          <td class="px-4 py-3 font-bold text-foreground">Paper 2 Elementary Eligibility</td>
+          <td class="px-4 py-3 font-mono">Graduation + B.Ed or 2-Yr D.El.Ed</td>
+          <td class="px-4 py-3 text-muted-foreground">Valid for appointment to Classes 6 through 8</td>
         </tr>
         <tr class="hover:bg-muted/20">
-          <td class="px-4 py-3 font-bold text-foreground">Color &amp; Medium</td>
-          <td class="px-4 py-3">Pure white / light background</td>
-          <td class="px-4 py-3">Black ballpoint pen on white paper</td>
-          <td class="px-4 py-3 text-muted-foreground">Running handwriting only. No block capitals</td>
+          <td class="px-4 py-3 font-bold text-foreground">Passport Photo File Bounds</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">3.5 × 4.5 cm (10 KB to 100 KB)</td>
+          <td class="px-4 py-3 text-muted-foreground">280×360 px at 200 DPI, JPG/JPEG format, white background</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Signature File Bounds</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">3.5 × 1.5 cm (4 KB to 30 KB)</td>
+          <td class="px-4 py-3 text-muted-foreground">140×60 px at 200 DPI, Black ink ballpoint on white paper, running cursive</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Exam Duration &amp; Marking</td>
+          <td class="px-4 py-3 font-mono">150 Minutes • 150 MCQs • No Negative Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">OMR Pen-and-paper mode across 136 nationwide cities</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Certificate Validity Period</td>
+          <td class="px-4 py-3 font-bold text-emerald-600 dark:text-emerald-400">Lifetime Validity</td>
+          <td class="px-4 py-3 text-muted-foreground">NCTE 50th General Body Meeting order dated June 9, 2021</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm text-amber-900 dark:text-amber-200 space-y-1">
-    <div class="font-bold flex items-center gap-1.5">
-      <span>⚠️</span> Rejection Alert: Block / Capital Letters Signatures
-    </div>
-    <p>
-      CBSE regulations state that signatures penned in CAPITAL / BLOCK LETTERS will be cancelled. If your name is PRIYA SHARMA, a signature reading "PRIYA SHARMA" leads to form rejection. It must be written in natural running cursive script.
-    </p>
-  </div>
-</section>
-
-<section class="space-y-4 pt-6 border-t border-border">
-  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
-    <span>🛡️ 3.</span> Resolving CTET Image Discrepancy &amp; The Correction Window
-  </h2>
-
-  <p>
-    If you received an alert notifying you of an <strong>ctet image discrepancy</strong>, your admit card generation is paused. CBSE activates the official <strong>ctet correction window</strong> for candidates to rectify mismatched photographs or blurry signatures. Follow this protocol to resolve the flag:
-  </p>
-
-  <ol class="space-y-3 text-xs sm:text-sm text-foreground/90">
-    <li class="flex items-start gap-3 p-3.5 rounded-xl bg-card border border-border">
-      <span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
-      <div>
-        <strong class="text-foreground">Log In Through Official Gateway:</strong>
-        <p class="text-muted-foreground mt-0.5">Access candidate credentials via <strong>ctet login</strong> at <code>ctet.nic.in</code> and click on <strong>"Remove Image Discrepancy"</strong>. Enter your Application Number and Password to access your marked document dashboard.</p>
-      </div>
-    </li>
-
-    <li class="flex items-start gap-3 p-3.5 rounded-xl bg-card border border-border">
-      <span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
-      <div>
-        <strong class="text-foreground">Process Clean Replacement Images:</strong>
-        <p class="text-muted-foreground mt-0.5">Do not re-upload the same file. Use our client-side tools: run your signature through <a href="/make-signature-background-white/" class="text-primary underline">Make Signature Background White</a> to wipe away paper grain and crop to 3.5×1.5 cm with the <a href="/ctet-signature-resize/" class="text-primary underline">CTET Signature Tool</a>.</p>
-      </div>
-    </li>
-
-    <li class="flex items-start gap-3 p-3.5 rounded-xl bg-card border border-border">
-      <span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
-      <div>
-        <strong class="text-foreground">Authenticate OTP &amp; Monitor Scrutiny:</strong>
-        <p class="text-muted-foreground mt-0.5">Confirm upload via OTP sent to your registered mobile phone. CBSE scrutiny desk reviews replacements in batches, typically updating status to <strong>"Admin Approved"</strong> within <strong>48 to 72 hours</strong>.</p>
-      </div>
-    </li>
-  </ol>
-</section>
-
-<section id="strategy" class="space-y-4 pt-6">
-  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
-    <span>💡 4.</span> High-Yield Preparation Roadmap: Cracking CTET in 45 Days
-  </h2>
-
-  <div class="space-y-3">
-    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-      <h3 class="font-bold text-sm sm:text-base text-foreground">1. Master Core Pedagogy Concepts</h3>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        Child Development and Pedagogy (CDP) constitutes 30 direct marks in both papers, plus 15 pedagogy marks within each subject section (totaling 90 marks out of 150). Focus heavily on the foundational theories of <strong>Jean Piaget</strong> (Cognitive Development stages), <strong>Lev Vygotsky</strong> (Zone of Proximal Development &amp; Scaffolding), and <strong>Lawrence Kohlberg</strong> (Moral Development levels).
-      </p>
-    </div>
-
-    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-      <h3 class="font-bold text-sm sm:text-base text-foreground">2. Study NCERT Textbooks (Classes 3 to 8)</h3>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        For Paper 1, read NCERT Environmental Studies (EVS) textbooks for Classes 3, 4, and 5 thoroughly. Questions on animals (sloth, elephant herds, tiger senses), traditional crafts (Pochampally sarees), and regional food are taken directly from textbook pages. For Paper 2, study NCERT Science and History/Polity/Geography textbooks for Classes 6, 7, and 8.
-      </p>
-    </div>
-
-    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-      <h3 class="font-bold text-sm sm:text-base text-foreground">3. Practice CTET Previous Year Question Papers (PYQs)</h3>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        Solve the official <strong>ctet previous year question paper</strong> sets from the past 5 years. CTET questions frequently repeat core conceptual paradigms. Practicing with a physical OMR sheet trains your pacing to complete 150 questions within the 150-minute exam window.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="space-y-4 pt-6 border-t border-border">
-  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
-    <span>📜 5.</span> Post-Exam Roadmap: Answer Key, Cut-Off &amp; DigiLocker Download
-  </h2>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-      <h3 class="font-bold text-sm sm:text-base text-foreground">Provisional CTET Answer Key &amp; OMR Challenge</h3>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        CBSE releases the provisional <strong>ctet answer key</strong> and scanned OMR sheets approximately 15 to 20 days after the examination. Candidates can challenge any answer key question online through <code>ctet.nic.in</code> by paying a non-refundable fee of ₹1,000 per challenged question.
-      </p>
-    </div>
-
-    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-      <h3 class="font-bold text-sm sm:text-base text-foreground">CTET Result Declaration &amp; DigiLocker Download</h3>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        Following verification of challenged keys, CBSE declares the official <strong>ctet result</strong> and qualifying <strong>ctet cut off</strong> thresholds online. Because physical marksheets are discontinued, candidates must complete their official <strong>ctet certificate download</strong> via <strong>DigiLocker</strong> using their Aadhaar-linked mobile credentials.
-      </p>
-    </div>
-  </div>
-
-<section id="keyword-directory" class="space-y-6 pt-6 border-t border-border">
-  <div class="space-y-1">
-    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
-      <span>📚</span> 5W1H Master Candidate Knowledge Directory
-    </div>
-    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
-      <span>🔍 6.</span> Comprehensive Search Query Directory: What, Why, When &amp; How for All 20 CTET Keywords
-    </h2>
-    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-      Every high-volume CTET keyword decoded across 4 practical search dimensions. Directly resolve questions regarding portal access, application scrutiny, eligibility rules, document bounds, and official digital certification.
-    </p>
-  </div>
-
-  <div class="space-y-4">
-    <!-- PILLAR 1: Official Portal, Notification & Online Registration -->
-    <div class="p-3 rounded-xl bg-primary/5 border border-primary/20">
-      <h3 class="font-extrabold text-sm sm:text-base text-primary uppercase tracking-wide">
-        🏛️ Pillar 1: Portal, Examination Cycles &amp; Online Registration
-      </h3>
-    </div>
-
-    <!-- Keyword 1: ctet -->
+  <!-- Visual Dimension Blueprints & Side-by-Side Comparison -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
+    <!-- Photo Blueprint -->
     <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>1.</span> <strong>ctet</strong> (Central Teacher Eligibility Test)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">National Benchmark</span>
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <h3 class="font-bold text-sm sm:text-base text-foreground flex items-center gap-2">
+          <span>📐</span> Passport Photo Blueprint (3.5 × 4.5 cm)
+        </h3>
+        <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-primary/10 text-primary">Sweetspot ~40 KB</span>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is CTET?</strong>
-          <p class="text-muted-foreground">The ==Central Teacher Eligibility Test (CTET) is a national qualifying examination== administered by CBSE under Section 23(1) of the Right to Education Act. It certifies minimum eligibility for teaching appointments in Classes 1 to 8 across Indian central and state institutions.</p>
+      <div class="flex items-center gap-4 text-xs text-muted-foreground">
+        <div class="w-24 h-32 rounded-xl border-2 border-dashed border-primary/50 bg-primary/5 flex flex-col items-center justify-center text-center p-2 shrink-0">
+          <span class="font-bold text-primary text-[10px]">80% Face</span>
+          <span class="text-[9px] text-muted-foreground">280×360 px</span>
+          <span class="text-[8px] text-emerald-600 dark:text-emerald-400 font-mono mt-1">White BG</span>
         </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY is CTET Mandatory?</strong>
-          <p class="text-muted-foreground">Without a CTET qualifying certificate, candidates are ==statutorily disqualified from applying for regular PRT and TGT posts== in Kendriya Vidyalaya Sangathan (KVS), Navodaya Vidyalaya Samiti (NVS), DSSSB Delhi schools, and Army Public Schools.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN is CTET Conducted?</strong>
-          <p class="text-muted-foreground">CBSE administers the examination ==twice annually in July and December cycles==. The qualifying certificate holds ==lifetime validity== from the date of result declaration.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Qualify CTET?</strong>
-          <p class="text-muted-foreground">Score ==60% or higher (90 out of 150 marks)== for General candidates, or ==55% (82 out of 150 marks)== for SC, ST, and OBC candidates across 150 multiple choice questions with zero negative marking.</p>
+        <div class="space-y-1.5">
+          <p><strong class="text-foreground">Aspect Ratio:</strong> 7:9 vertical portrait.</p>
+          <p><strong class="text-foreground">Face Coverage:</strong> Full frontal view, neutral expression, ears visible, no headgear except religious.</p>
+          <p><strong class="text-foreground">Recency Rule:</strong> Photograph must have been taken within the preceding 6 months.</p>
         </div>
       </div>
     </div>
 
-    <!-- Keyword 2: ctet nic in -->
+    <!-- Signature Blueprint & Script Scrutiny -->
     <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>2.</span> <strong>ctet nic in</strong> (Official Gateway)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Official Portal</span>
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <h3 class="font-bold text-sm sm:text-base text-foreground flex items-center gap-2">
+          <span>✍️</span> Signature Blueprint &amp; Script Scrutiny
+        </h3>
+        <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-primary/10 text-primary">Sweetspot ~15 KB</span>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is ctet nic in?</strong>
-          <p class="text-muted-foreground">The ==sole official online gateway hosted by National Informatics Centre (NIC)== for all CTET operations: online registration, information bulletins, image discrepancy resolution, admit cards, and provisional answer keys.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY do Portal Errors Occur?</strong>
-          <p class="text-muted-foreground">Server traffic surges during the closing days of the application window cause ==session timeouts and payment gateway gateway verification delays==. Beware of fraudulent duplicate domains mimicking the official portal.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN to Access the Portal?</strong>
-          <p class="text-muted-foreground">Access the portal ==during non-peak hours (early morning before 8:00 AM or after 10:00 PM)== to complete fee payments or resolve image discrepancy flags without gateway drops.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Safely Use ctet nic in?</strong>
-          <p class="text-muted-foreground">Always confirm the browser address bar shows ==https://ctet.nic.in== with an authentic SSL security certificate. Never enter registration credentials on third-party recruitment blogs.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 3: ctet 2026 -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>3.</span> <strong>ctet 2026</strong> (Current Recruitment Blueprint)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Active Cycle</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is ctet 2026?</strong>
-          <p class="text-muted-foreground">The ==current national examination series administered by CBSE== covering offline pen-paper OMR tests across more than 135 designated examination cities in India.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY are 2026 Guidelines Crucial?</strong>
-          <p class="text-muted-foreground">The 2026 cycle strictly incorporates the ==Supreme Court B.Ed restriction ruling== and enhanced machine-learning image discrepancy scanning during form submission.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN are ctet 2026 Key Dates?</strong>
-          <p class="text-muted-foreground">Online registrations remain active for ==approximately 25 to 30 calendar days==, followed by a 4-day correction window, with offline examination scheduled on Sundays.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Register for ctet 2026?</strong>
-          <p class="text-muted-foreground">Navigate to the active application link on ctet.nic.in, complete 4-step registration, upload compliant photo/signature, and download the Confirmation Page.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 4: ctet notification -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>4.</span> <strong>ctet notification</strong> (Official Bulletin)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Legal Bulletin</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet notification?</strong>
-          <p class="text-muted-foreground">The ==comprehensive Information Bulletin released in PDF format by CBSE== outlining legal eligibility, language codes, fee schedules, exam shifts, and document specifications.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY must Candidates Read the Notification?</strong>
-          <p class="text-muted-foreground">Selecting an improper minimum qualification code or mismatched language medium during registration leads to ==invalidation of examination results during physical scrutiny==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN is the Notification Released?</strong>
-          <p class="text-muted-foreground">Published ==roughly 60 to 75 days before the scheduled exam date== on the public notices dashboard of ctet.nic.in.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Track Notification Updates?</strong>
-          <p class="text-muted-foreground">Download the official PDF bulletin from ctet.nic.in, check Annexures for examination city code lists, and review Section 5 for document byte size restrictions.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 5: ctet online form -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>5.</span> <strong>ctet online form</strong> (Registration Portal)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Web Module</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet online form?</strong>
-          <p class="text-muted-foreground">The ==digital registration application form== where aspirants enter personal identification, academic credentials, paper selection, language combinations, and test city preferences.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY do Submissions Fail?</strong>
-          <p class="text-muted-foreground">Forms fail due to ==oversized image files exceeding 100 KB==, special characters in address fields, or payment gateway debits failing to reconcile with CBSE servers.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN is the Submission Deadline?</strong>
-          <p class="text-muted-foreground">The online form window ==closes strictly at 11:59 PM on the final specified date==; late submissions or physical postal applications are not accepted.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Fill the Form Without Errors?</strong>
-          <p class="text-muted-foreground">Pre-compress your photo to 10–100 KB and signature to 4–30 KB before logging in. Keep Class 10 certificate handy to enter name and parentage with identical spelling.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 6: ctet application form -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>6.</span> <strong>ctet application form</strong> (Candidate Dossier)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Candidature Record</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet application form?</strong>
-          <p class="text-muted-foreground">The ==legal record of candidature== containing candidate photograph, scanned signature, qualification codes, reservation claims, and fee transaction identifiers.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY is Verification Critical?</strong>
-          <p class="text-muted-foreground">CBSE checks the application form against candidate identity at exam centers. ==Discrepancies in name, date of birth, or photo mismatch cause center barring==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN can Details be Edited?</strong>
-          <p class="text-muted-foreground">Corrections can be made ==only during the official 3 to 5 day CBSE Correction Window==; no modifications are permitted once the window expires.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Preserve Application Records?</strong>
-          <p class="text-muted-foreground">Download and print at least ==two copies of the official Confirmation Page== immediately after successful payment; this is mandatory during recruitment document verification.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 7: ctet login -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>7.</span> <strong>ctet login</strong> (Dashboard Authentication)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Security Portal</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is ctet login?</strong>
-          <p class="text-muted-foreground">The ==secure authentication portal requiring Application Number and Password== that gives candidates access to their personalized dashboard on ctet.nic.in.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY do Login Locked Errors Occur?</strong>
-          <p class="text-muted-foreground">Entering an incorrect password 3 consecutive times or typing case-sensitive security PIN captchas incorrectly causes ==temporary session lockout==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN is Login Required?</strong>
-          <p class="text-muted-foreground">Login is required ==at 5 lifecycle stages==: initial form completion, correction window editing, city slip download, admit card download, and result scorecard access.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Recover Forgotten Credentials?</strong>
-          <p class="text-muted-foreground">Click "Forgot Password" or "Forgot Application No." on the login portal. Verify identity using the ==registered mobile OTP or security question option== to reset credentials.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- PILLAR 2: Eligibility, Pedagogy, Question Papers & Qualifying Marks -->
-    <div class="p-3 rounded-xl bg-primary/5 border border-primary/20 mt-6">
-      <h3 class="font-extrabold text-sm sm:text-base text-primary uppercase tracking-wide">
-        🧠 Pillar 2: Eligibility Criteria, Syllabus, PYQs &amp; Passing Scores
-      </h3>
-    </div>
-
-    <!-- Keyword 8: ctet eligibility -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>8.</span> <strong>ctet eligibility</strong> (Statutory Qualifications)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">NCTE Standards</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is ctet eligibility?</strong>
-          <p class="text-muted-foreground">The academic criteria set by NCTE: ==Paper 1 requires Senior Secondary (50%) + 2-year D.El.Ed / BTC==; ==Paper 2 requires Graduation (50%) + B.Ed or 2-year D.El.Ed==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY are B.Ed Candidates Barred from Paper 1?</strong>
-          <p class="text-muted-foreground">By judgment of the Supreme Court of India dated August 11, 2023, ==B.Ed qualifications do not meet primary pedagogical standards==; B.Ed holders can only apply for Paper 2 (Classes 6 to 8).</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN can Appearing Students Apply?</strong>
-          <p class="text-muted-foreground">Candidates ==pursuing any teacher training course in any semester or year== are legally eligible to register under Supreme Court directives.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Confirm Eligibility Code?</strong>
-          <p class="text-muted-foreground">Check Section 3 of the Information Bulletin. Select Education Qualification Code matching your degree and passing/appearing status accurately.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 9: ctet syllabus -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>9.</span> <strong>ctet syllabus</strong> (Curriculum Blueprint)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Pedagogy Matrix</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet syllabus?</strong>
-          <p class="text-muted-foreground">The official 150-mark curriculum: ==Child Development &amp; Pedagogy (30 marks)==, Language 1 (30), Language 2 (30), and Domain Subjects (60 marks: EVS/Maths for Paper 1; Maths &amp; Science or Social Studies for Paper 2).</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY do Candidates Fail Pedagogy?</strong>
-          <p class="text-muted-foreground">Pedagogy constitutes ==90 out of 150 total marks across all sections==. Memorizing static facts without understanding constructivist child-centered teaching causes score failure.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN does the Syllabus Change?</strong>
-          <p class="text-muted-foreground">The core syllabus adheres to ==NCERT curriculum guidelines and NEP 2020 frameworks==; major structural revisions are announced months in advance via gazette notices.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Complete the Syllabus Efficiently?</strong>
-          <p class="text-muted-foreground">Master theories of ==Piaget, Vygotsky, and Kohlberg== first. Read NCERT textbooks (Classes 3–5 for EVS; Classes 6–8 for Maths/Science/Social Studies) line-by-line.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 10: ctet passing marks -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>10.</span> <strong>ctet passing marks</strong> (Qualifying Thresholds)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Score Benchmarks</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT are ctet passing marks?</strong>
-          <p class="text-muted-foreground">The prescribed benchmark: ==60% (90 out of 150 marks)== for General (UR) category, and ==55% (82 out of 150 marks)== for SC, ST, OBC (NCL), and PwD candidates.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY is 82 Marks Accepted for 55%?</strong>
-          <p class="text-muted-foreground">55% of 150 equals 82.5 marks. CBSE and recruiting bodies legally recognize ==82 marks as qualifying for reserved categories== after fractional rounding benefits.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN are Passing Marks Applicable?</strong>
-          <p class="text-muted-foreground">Qualifying status is applied ==permanently upon result generation==; there is no expiration date or normalization deduction after scoring.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Guarantee Reaching Passing Marks?</strong>
-          <p class="text-muted-foreground">Because CTET has ==zero negative marking==, answer every single question on the OMR sheet. Aim for 25+ in CDP and 20+ in each language to safely cross 100+ aggregate marks.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 11: ctet cut off -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>11.</span> <strong>ctet cut off</strong> (Eligibility vs Hiring)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Benchmark Standard</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet cut off?</strong>
-          <p class="text-muted-foreground">CTET does not operate on a percentile or variable cut-off. It enforces a ==static qualifying threshold: 90 marks for General and 82 marks for Reserved categories==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY do Recruitment Cut-Offs Differ?</strong>
-          <p class="text-muted-foreground">CTET confirms eligibility; employer bodies like ==KVS, NVS, and DSSSB conduct subsequent competitive hiring exams== with separate competitive cut-off merits.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN does a Higher Score Help?</strong>
-          <p class="text-muted-foreground">State recruitment commissions (e.g. Super TET in UP or BPSC TRE in Bihar) may ==allocate weightage points based on CTET percentage== during academic merit compilation.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Improve Your CTET Score?</strong>
-          <p class="text-muted-foreground">There is ==no ceiling on attempt limits==. Candidates who have already qualified can re-register in subsequent cycles to improve their marks without forfeiting previous certificates.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 12: ctet previous year question paper -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>12.</span> <strong>ctet previous year question paper</strong> (Practice Papers)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Revision Asset</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT are CTET PYQs?</strong>
-          <p class="text-muted-foreground">The ==authentic examination question papers with official final answer keys== released by CBSE after each offline session from 2011 to 2026.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY are PYQs Essential?</strong>
-          <p class="text-muted-foreground">Over ==40% of pedagogy scenarios and EVS environmental questions repeat== conceptually. Solving PYQs trains candidates to eliminate common distractor options.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN to Start Solving PYQs?</strong>
-          <p class="text-muted-foreground">Begin solving subject-wise PYQs after reading NCERT theory, and ==dedicate the final 20 days exclusively to full-length timed mock tests==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Practice PYQs for Maximum Speed?</strong>
-          <p class="text-muted-foreground">Print out official CBSE OMR sheets. Practice bubbling answers in a strict ==150-minute timed environment== to master time management and avoid misaligned bubbling.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- PILLAR 3: Photo, Signature, Discrepancy & Correction Window -->
-    <div class="p-3 rounded-xl bg-primary/5 border border-primary/20 mt-6">
-      <h3 class="font-extrabold text-sm sm:text-base text-primary uppercase tracking-wide">
-        📸 Pillar 3: Photo, Signature Specifications &amp; Image Discrepancy Removal
-      </h3>
-    </div>
-
-    <!-- Keyword 13: ctet photo resize -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>13.</span> <strong>ctet photo resize</strong> (Passport Image Tool)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Biometric Standard</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT are CTET Photo Dimensions?</strong>
-          <p class="text-muted-foreground">The mandatory specification: ==3.5 cm width × 4.5 cm height (280×360 px at 200 DPI)== with a file weight strictly bounded between ==10.0 KB and 100.0 KB in JPG format==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY do Upload Portals Reject Photos?</strong>
-          <p class="text-muted-foreground">Uploading files below 10 KB triggers blur warnings; files above 100 KB fail server uploads. ==Selfies, caps, tinted spectacles, or patterned backgrounds trigger automatic disqualification==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN must Photos be Re-uploaded?</strong>
-          <p class="text-muted-foreground">Re-upload is required ==within 48 to 72 hours of receiving an SMS alert== notifying you of an image discrepancy during the application window.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Resize Photo for CTET?</strong>
-          <p class="text-muted-foreground">Use the client-side <a href="/ctet-photo-resize/" class="text-primary font-semibold underline">CTET Photo Resizer</a>. It locks 3.5×4.5 cm bounds, ensures 80% face focus against white background, and compresses to compliant JPG size in seconds.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 14: ctet signature size -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>14.</span> <strong>ctet signature size</strong> (Signature Image Tool)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Script Bounds</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet signature size?</strong>
-          <p class="text-muted-foreground">Official bounds: ==3.5 cm width × 1.5 cm height (140×60 px at 200 DPI)== with a file weight strictly between ==4.0 KB and 30.0 KB in JPG format==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY are Signatures Disqualified?</strong>
-          <p class="text-muted-foreground">Writing your name in ==CAPITAL / BLOCK LETTERS triggers automated cancellation== under CBSE rules. Lined notebook paper or faint blue ink also trigger scrutiny rejections.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN to Prepare Scanned Signatures?</strong>
-          <p class="text-muted-foreground">Sign and scan on unruled white paper with black ballpoint ink ==prior to initiating online form registration== to avoid portal session expirations.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Convert Signature to 4–30 KB?</strong>
-          <p class="text-muted-foreground">Remove notebook shadows with <a href="/make-signature-background-white/" class="text-primary font-semibold underline">Make Background White</a>, then use the <a href="/ctet-signature-resize/" class="text-primary font-semibold underline">CTET Signature Tool</a> to crop to 3.5×1.5 cm and lock file size under 30 KB.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 15: ctet image discrepancy -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>15.</span> <strong>ctet image discrepancy</strong> (Upload Error Resolution)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Error Clearance</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is a ctet image discrepancy?</strong>
-          <p class="text-muted-foreground">An ==automated scrutiny flag placed on your candidature== indicating that your uploaded photograph or signature does not comply with CBSE clarity, contrast, or dimension criteria.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY must Discrepancies be Cleared?</strong>
-          <p class="text-muted-foreground">Unresolved image discrepancy flags ==automatically withhold admit card generation==. You will not be permitted to enter the examination center.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN is Status Updated?</strong>
-          <p class="text-muted-foreground">Once a compliant image is re-submitted, the CBSE administrative scrutiny desk reviews the file and updates the portal status to ==Admin Approved within 48 to 72 hours==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Remove Image Discrepancy?</strong>
-          <p class="text-muted-foreground">Log in to ctet.nic.in -> click ==Remove Image Discrepancy== -> upload fresh 10–100 KB photo or 4–30 KB signature -> authenticate OTP -> verify Admin Approved status.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 16: ctet correction window -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>16.</span> <strong>ctet correction window</strong> (Modification Protocol)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Editing Facility</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet correction window?</strong>
-          <p class="text-muted-foreground">The ==official 3 to 5 day modification window== opened on ctet.nic.in allowing candidates to edit permitted fields in their submitted application form without forfeiting application fees.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY are Some Fields Locked?</strong>
-          <p class="text-muted-foreground">Registered email address and mobile numbers cannot be altered for security reasons. Permitted edits include ==Name spelling, Father/Mother name, Category, Paper opted, and Exam City==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN does the Correction Window Open?</strong>
-          <p class="text-muted-foreground">Typically opens ==5 to 7 days after the final date of online form submission==; dates are announced via a dedicated public notice on ctet.nic.in.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Edit Details During Correction Window?</strong>
-          <p class="text-muted-foreground">Log in with Application Number and Password -> click ==Edit Application Details== -> make modifications -> authenticate via mobile OTP -> download revised Confirmation Page.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- PILLAR 4: Admit Card, Answer Key, Results & Digital Certification -->
-    <div class="p-3 rounded-xl bg-primary/5 border border-primary/20 mt-6">
-      <h3 class="font-extrabold text-sm sm:text-base text-primary uppercase tracking-wide">
-        📜 Pillar 4: Hall Tickets, Answer Keys, Results &amp; DigiLocker Issuance
-      </h3>
-    </div>
-
-    <!-- Keyword 17: ctet admit card -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>17.</span> <strong>ctet admit card</strong> (Hall Ticket)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Examination Entry Pass</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet admit card?</strong>
-          <p class="text-muted-foreground">The mandatory hall ticket specifying ==exact center address, roll number, shift timing, reporting hours, and candidate photograph and signature==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY are Admit Cards Withheld?</strong>
-          <p class="text-muted-foreground">Admit cards are withheld for candidates with ==unresolved image discrepancies, fee payment reconciliation failures, or duplicate registrations==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN is the Admit Card Released?</strong>
-          <p class="text-muted-foreground">CBSE releases an advance ==City Intimation Slip 10 days before the exam==, and the ==Final Admit Card strictly 2 days prior to the exam date==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Download and Print?</strong>
-          <p class="text-muted-foreground">Log in at ctet.nic.in with Application Number and DOB -> download PDF -> print on clean A4 paper -> carry along with original government photo ID and ballpoint pen.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 18: ctet answer key -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>18.</span> <strong>ctet answer key</strong> (Provisional &amp; Final Keys)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">OMR Evaluation</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet answer key?</strong>
-          <p class="text-muted-foreground">The master key containing official correct options alongside the ==scanned copy of candidate OMR answer sheets== for all paper codes.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY do Key Challenges Matter?</strong>
-          <p class="text-muted-foreground">Challenges allow subject experts to rectify erroneous question formulations or answer choices. ==Accepted challenges result in bonus marks awarded to all candidates==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN is the Key Published?</strong>
-          <p class="text-muted-foreground">Provisional keys are uploaded ==15 to 20 days after the offline exam session==; the online challenge window stays active for 3 to 4 days.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Challenge an Answer Key Question?</strong>
-          <p class="text-muted-foreground">Log in to ctet.nic.in -> select question number and paper code -> upload NCERT documentary proof -> pay ==₹1,000 per question challenge fee (refundable if accepted)==.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 19: ctet result -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>19.</span> <strong>ctet result</strong> (Scorecard Declaration)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Official Outcome</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the ctet result?</strong>
-          <p class="text-muted-foreground">The official declaration of marks obtained out of 150 along with ==explicit qualification status for Paper 1 and Paper 2==.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY is Result Verification Needed?</strong>
-          <p class="text-muted-foreground">Recruitment boards like KVS and State PSCs verify CTET score validity directly against CBSE databases to prevent fake qualification claims.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN is the Result Announced?</strong>
-          <p class="text-muted-foreground">CBSE declares results within ==25 to 35 days of the examination date== on both ctet.nic.in and cbseresults.nic.in.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Check Your Score?</strong>
-          <p class="text-muted-foreground">Access the direct result link on ctet.nic.in -> enter Roll Number -> view subject marks -> print scorecard for immediate record.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Keyword 20: ctet certificate download -->
-    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
-      <div class="flex items-center justify-between border-b border-border/80 pb-2">
-        <h4 class="font-bold text-base text-foreground flex items-center gap-2">
-          <span>20.</span> <strong>ctet certificate download</strong> (DigiLocker Digital Credential)
-        </h4>
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Digital Credential</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>❓</span> WHAT is the CTET Certificate?</strong>
-          <p class="text-muted-foreground">The ==digitally signed, QR-code encrypted eligibility certificate and marksheet== issued exclusively via DigiLocker under the Information Technology Act 2000.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⚠️</span> WHY are Physical Certificates Not Mailed?</strong>
-          <p class="text-muted-foreground">CBSE discontinued paper certificate printing to eliminate postal losses, reduce paper waste, and allow instant cryptographic verification by hiring commissions.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>⏰</span> WHEN is the Certificate Available?</strong>
-          <p class="text-muted-foreground">Uploaded to DigiLocker ==approximately 20 to 30 days after the result declaration date== and remains valid for a lifetime.</p>
-        </div>
-        <div class="p-3 rounded-xl bg-muted/30 border border-border/50 space-y-1">
-          <strong class="text-foreground flex items-center gap-1.5"><span>🛠️</span> HOW to Download from DigiLocker?</strong>
-          <p class="text-muted-foreground">Download the DigiLocker app or visit digilocker.gov.in -> log in with Aadhaar-linked phone -> search ==Central Board of Secondary Education== -> select ==Teacher Eligibility Test Certificate== -> input Roll Number and passing year -> download digitally signed PDF.</p>
+      <div class="grid grid-cols-2 gap-2 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-1">
+          <span class="text-emerald-700 dark:text-emerald-300 font-bold flex items-center justify-center gap-1">
+            <span>✅</span> Valid Signature
+          </span>
+          <div class="font-serif italic text-base text-foreground py-1">Priya Sharma</div>
+          <p class="text-[10px] text-muted-foreground leading-tight">Running cursive handwriting on spotless white unruled paper.</p>
+        </div>
+        <div class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 space-y-1">
+          <span class="text-rose-700 dark:text-rose-300 font-bold flex items-center justify-center gap-1">
+            <span>❌</span> Auto-Rejected
+          </span>
+          <div class="font-mono font-bold tracking-widest text-sm text-rose-600 dark:text-rose-400 py-1">PRIYA SHARMA</div>
+          <p class="text-[10px] text-muted-foreground leading-tight">Disconnected block or capital letters face mandatory cancellation.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ========================================================================= -->
+<!-- 🛠️ INTERACTIVE DIAGNOSTIC FAILURE MATRIX (5W1H TROUBLESHOOTING)          -->
+<!-- ========================================================================= -->
 
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-    <div class="p-4 rounded-2xl bg-card border border-border flex flex-col justify-between space-y-3">
-      <div class="space-y-1">
-        <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">Signature Resizer</span>
-        <h3 class="font-bold text-base text-foreground">CTET Signature Tool (4–30 KB)</h3>
-        <p class="text-xs text-muted-foreground leading-relaxed">Auto-crops to 3.5×1.5 cm (140×60 px), enforces black ink contrast, and compresses safely between 4 KB and 30 KB.</p>
-      </div>
-      <a href="/ctet-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:opacity-95 transition">
-        Open CTET Signature Resizer &rarr;
+<!-- FAILURE STATE 1: Upload & File Errors -->
+<section id="failure-upload" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="flex flex-wrap items-center justify-between gap-2">
+    <div class="space-y-1">
+      <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20">
+        Stage 1 Failure State
+      </span>
+      <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+        📸 Failure State 1: Upload, Format &amp; Dimension Rejection Errors
+      </h2>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="/ctet-photo-resize/" class="px-3 py-1.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition">
+        Photo Tool (10-100KB)
+      </a>
+      <a href="/ctet-signature-resize/" class="px-3 py-1.5 rounded-xl bg-card border border-border text-foreground text-xs font-bold hover:bg-muted transition">
+        Sign Tool (4-30KB)
       </a>
     </div>
+  </div>
 
-    <div class="p-4 rounded-2xl bg-card border border-border flex flex-col justify-between space-y-3">
-      <div class="space-y-1">
-        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Passport Photo Resizer</span>
-        <h3 class="font-bold text-base text-foreground">CTET Photo Tool (10–100 KB)</h3>
-        <p class="text-xs text-muted-foreground leading-relaxed">Locks to 3.5×4.5 cm (280×360 px), overlays face alignment guides, and compresses to official 10–100 KB limits.</p>
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    During Step 3 of the CTET registration portal, client-side JavaScript checks and server-side MIME decoders inspect binary stream headers. When a file fails byte, aspect, or color-space criteria, the form refuses to proceed.
+  </p>
+
+  <!-- 5W1H Diagnostic Card -->
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-primary">● WHAT:</span> Exact Error String
+        </strong>
+        <p class="text-muted-foreground font-mono text-xs">
+          "File format invalid. Only JPG/JPEG allowed" OR "Photograph size must be between 10 KB to 100 KB and dimensions 3.5cm x 4.5cm".
+        </p>
       </div>
-      <a href="/ctet-photo-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-card border border-border text-foreground hover:bg-muted font-semibold text-xs transition">
-        Open CTET Photo Resizer &rarr;
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-amber-600 dark:text-amber-400">● WHY:</span> Technical Root Cause
+        </strong>
+        <p class="text-muted-foreground">
+          Modern smartphones save files as <strong>CMYK, progressive JPEGs, or iPhone HEIC/HEIF containers</strong> renamed to .jpg. The NIC portal decoders only parse baseline sequential sRGB JPEGs. Additionally, files under 10.0 KB (or 4.0 KB for sign) trigger automated truncation exceptions.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-rose-600 dark:text-rose-400">● WHEN:</span> Failure Window &amp; Deadlines
+        </strong>
+        <p class="text-muted-foreground">
+          Immediate block during registration before fee gateway release. If bypassed with corrupted headers, CBSE scrutiny issues an SMS discrepancy notice within 7 days of form closure.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-indigo-600 dark:text-indigo-400">● WHERE:</span> Exact Portal Endpoint
+        </strong>
+        <p class="text-muted-foreground">
+          Direct candidate registration URL: <code>ctet.nic.in -> Candidate Activity -> Apply for CTET -> Upload Scanned Images</code>.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-emerald-600 dark:text-emerald-400">● WHO:</span> Affected Candidates
+        </strong>
+        <p class="text-muted-foreground">
+          Any applicant capturing raw mobile phone snapshots, using WhatsApp-compressed images with stripped EXIF headers, or uploading scans of notebook lined paper.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-cyan-600 dark:text-cyan-400">● HOW:</span> Step-by-Step Technical Fix
+        </strong>
+        <p class="text-muted-foreground">
+          1. Use our client-side <a href="/make-signature-background-white/" class="text-primary underline">Make Signature Background White</a> to strip shadow/yellow paper tint.<br/>
+          2. Drop your image into the <a href="/ctet-photo-resize/" class="text-primary underline">CTET Photo Resizer</a> or <a href="/ctet-signature-resize/" class="text-primary underline">Signature Resizer</a>.<br/>
+          3. The tool forces baseline sRGB re-encoding, clamps to ~40 KB (photo) and ~15 KB (sign), and outputs strict compliant JPG.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAILURE STATE 2: Submission & Payment Gateway Debits -->
+<section id="failure-payment" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
+      Stage 2 Failure State
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      💳 Failure State 2: Gateway Drop, Double Debit &amp; Fee Pending Protocol
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    The most anxiety-inducing stage of CTET registration occurs when money is deducted from your bank account or UPI app, but the CTET portal status remains <em>"Payment Incomplete"</em> and no Confirmation Page is generated.
+  </p>
+
+  <!-- 5W1H Diagnostic Card -->
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-primary">● WHAT:</span> Exact Error String
+        </strong>
+        <p class="text-muted-foreground font-mono text-xs">
+          "Payment Pending" / "Transaction Failed but fee deducted" / "Confirmation Page not generated".
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-amber-600 dark:text-amber-400">● WHY:</span> Technical Root Cause
+        </strong>
+        <p class="text-muted-foreground">
+          Server webhook drop between the intermediary payment aggregator (Canara Bank, HDFC, or Syndicate Bank PG) and the NIC database server. If the return redirect token is dropped due to browser auto-refresh or mobile network switch, the transaction remains in a un-reconciled settlement pool.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-rose-600 dark:text-rose-400">● WHEN:</span> The 24–48 Hour Settlement Cycle
+        </strong>
+        <p class="text-muted-foreground">
+          Do <strong>NOT</strong> make an immediate second payment. The banking clearing house runs scheduled batch reconciliation every 24 to 48 hours. If the last date of registration is more than 48 hours away, wait for auto-settlement.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-indigo-600 dark:text-indigo-400">● WHERE:</span> Verification Link
+        </strong>
+        <p class="text-muted-foreground">
+          Log in at <code>ctet.nic.in</code> -> click on <strong>"Verify Payment Status"</strong> or check the <strong>"E-Challan / Payment Receipt"</strong> tab inside the registered candidate portal.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-emerald-600 dark:text-emerald-400">● WHO:</span> Action Mandate
+        </strong>
+        <p class="text-muted-foreground">
+          Candidates who made payment via UPI, net banking, or debit card where the amount was deducted from the bank balance without instant generation of the four-page CTET Confirmation PDF.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-cyan-600 dark:text-cyan-400">● HOW:</span> Resolution Protocol
+        </strong>
+        <p class="text-muted-foreground">
+          1. Record the bank UTR / Transaction Reference Number from your SMS.<br/>
+          2. Wait 24 to 48 hours and click "Verify Payment Status" on ctet.nic.in.<br/>
+          3. If the payment fails to update on the final day, pay once more to secure your registration. The duplicate transaction will be refunded automatically to your source account within 7 to 10 working days.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAILURE STATE 3: Correction Window & Locked Fields -->
+<section id="failure-correction" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20">
+      Stage 3 Failure State
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      ✏️ Failure State 3: Non-Editable Fields vs Correction Window Parameters
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    A common trap for candidates is assuming that the official <strong>ctet correction window</strong> allows changing every submitted parameter. In reality, CBSE locks key identity identifiers to prevent impersonation and fraud.
+  </p>
+
+  <!-- Editable vs Non-Editable Parameters Table -->
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Parameter Category</th>
+          <th class="px-4 py-3">Correction Status</th>
+          <th class="px-4 py-3">Fallback Action / Administrative Remedy</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Candidate's Full Name &amp; DOB</td>
+          <td class="px-4 py-3 font-bold text-rose-600 dark:text-rose-400">Strictly Non-Editable</td>
+          <td class="px-4 py-3 text-muted-foreground">Locked to Aadhaar/10th certificate. Minor spelling differences require a sworn notary affidavit during final document verification (DV).</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Father’s / Mother’s Name</td>
+          <td class="px-4 py-3 font-bold text-rose-600 dark:text-rose-400">Locked / Verification Required</td>
+          <td class="px-4 py-3 text-muted-foreground">Cannot be altered online. Submit an official representation letter to the Director (CTET), CBSE Patparganj, Delhi.</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Examination Center City Choice</td>
+          <td class="px-4 py-3 font-bold text-amber-600 dark:text-amber-400">Conditional Editability</td>
+          <td class="px-4 py-3 text-muted-foreground">City change is permitted <em>only if vacant slots exist</em> in the requested center under the "First-Come-First-Served" rule.</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Paper Applied (Paper 1 / Paper 2 / Both)</td>
+          <td class="px-4 py-3 font-bold text-emerald-600 dark:text-emerald-400">Fully Editable (With Fee)</td>
+          <td class="px-4 py-3 text-muted-foreground">You can change paper or opt for both papers by paying the differential fee (₹200 for General/OBC; ₹100 for SC/ST).</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Language 1 &amp; Language 2 Options</td>
+          <td class="px-4 py-3 font-bold text-emerald-600 dark:text-emerald-400">Fully Editable</td>
+          <td class="px-4 py-3 text-muted-foreground">Permitted online without penalty during the correction window. Crucial for switching to high-scoring Language 1 mother tongue.</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Qualifying Degree / College Name</td>
+          <td class="px-4 py-3 font-bold text-emerald-600 dark:text-emerald-400">Fully Editable</td>
+          <td class="px-4 py-3 text-muted-foreground">Editable online. Update graduation marks percentage, passing year, or institute pin code freely.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FAILURE STATE 4: Admit Card Discrepancy & 48-72h Window -->
+<section id="failure-discrepancy" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20">
+      Stage 4 Failure State
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      🚩 Failure State 4: "Remove Image Discrepancy" Red Banner &amp; Admit Card Holds
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    Approximately 2 to 3 weeks before the exam date, CBSE runs an optical scrutiny filter on all submitted applications. Candidates whose photographs or signatures fail visual clarity standards receive a red warning banner on the login dashboard.
+  </p>
+
+  <!-- 5W1H Diagnostic Card -->
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-primary">● WHAT:</span> The Discrepancy Alert
+        </strong>
+        <p class="text-muted-foreground">
+          A high-priority notification: <em>"Image Discrepancy found in your uploaded photograph/signature. Admit Card will NOT be issued until resolved."</em>
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-amber-600 dark:text-amber-400">● WHY:</span> Scrutiny Flags
+        </strong>
+        <p class="text-muted-foreground">
+          1. Signature penned in capital/block letters.<br/>
+          2. Blurry selfie photo instead of white background studio shot.<br/>
+          3. Glare/reflection covering eyes on spectacles.<br/>
+          4. Signature uploaded upside down or sideways.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-rose-600 dark:text-rose-400">● WHEN:</span> The Strict 48–72 Hour Window
+        </strong>
+        <p class="text-muted-foreground">
+          CBSE allows strictly <strong>48 to 72 hours</strong> from the alert generation date to upload replacement images. Failure to re-upload locks admit card generation permanently.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-indigo-600 dark:text-indigo-400">● WHERE:</span> Resolution Gateway
+        </strong>
+        <p class="text-muted-foreground">
+          Login at <code>ctet.nic.in -> Candidate Login -> Remove Image Discrepancy</code>.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-emerald-600 dark:text-emerald-400">● WHO:</span> Targeted Applicants
+        </strong>
+        <p class="text-muted-foreground">
+          Only candidates whose registered portal displays the red banner or who received an official SMS from sender <code>CBSE-CTET</code>.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-cyan-600 dark:text-cyan-400">● HOW:</span> The Scrutiny Clearance Flow
+        </strong>
+        <p class="text-muted-foreground">
+          1. Re-shoot your passport photo against a plain white wall.<br/>
+          2. Re-sign in dark black ballpoint ink in running handwriting on plain white paper.<br/>
+          3. Process through our <a href="/ctet-photo-resize/" class="text-primary underline">CTET Photo Tool</a> &amp; <a href="/ctet-signature-resize/" class="text-primary underline">Signature Tool</a>.<br/>
+          4. Upload replacement files, authenticate via mobile OTP, and monitor approval status.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAILURE STATE 5: DigiLocker Certificate Fetch Errors -->
+<section id="failure-digilocker" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+      Stage 5 Failure State
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      📱 Failure State 5: DigiLocker "Document Not Found" &amp; Name/Aadhaar Mismatch
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    Since physical paper certificates have been discontinued, qualifying candidates must retrieve their digitally signed CTET Marksheet and Eligibility Certificate through DigiLocker. Thousands of candidates encounter the frustrating error: <em>"No document found for provided details"</em>.
+  </p>
+
+  <!-- 5W1H Diagnostic Card -->
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-primary">● WHAT:</span> Exact Error String
+        </strong>
+        <p class="text-muted-foreground font-mono text-xs">
+          "No record found in CBSE database" OR "Name in Aadhaar does not match document name".
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-amber-600 dark:text-amber-400">● WHY:</span> Cryptographic API Lock
+        </strong>
+        <p class="text-muted-foreground">
+          DigiLocker requires an exact character-for-character match between the candidate's Aadhaar Name and the Name on the CBSE CTET Marksheet. Even an extra space, missing surname, or inverted initial causes API query rejection.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-rose-600 dark:text-rose-400">● WHEN:</span> Release Timeline
+        </strong>
+        <p class="text-muted-foreground">
+          CBSE uploads encrypted certificate bundles to DigiLocker approximately <strong>20 to 30 days after the official result declaration</strong>. Attempting to fetch documents immediately on result day will always return "No record found".
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-indigo-600 dark:text-indigo-400">● WHERE:</span> Official Fetch Path
+        </strong>
+        <p class="text-muted-foreground">
+          <code>digilocker.gov.in -> Search Documents -> Central Board of Secondary Education -> Teacher Eligibility Test Certificate / Marksheet</code>.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-emerald-600 dark:text-emerald-400">● WHO:</span> Affected Candidates
+        </strong>
+        <p class="text-muted-foreground">
+          Candidates who qualified (scored ≥90 UR / ≥82 Reserved) whose DigiLocker account is registered under a family member's phone or whose Aadhaar name spelling differs from their CTET Admit Card.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-cyan-600 dark:text-cyan-400">● HOW:</span> The Aadhaar Alignment Fix
+        </strong>
+        <p class="text-muted-foreground">
+          1. Verify that your DigiLocker account is created with YOUR OWN Aadhaar number.<br/>
+          2. Ensure the mobile number entered during CTET application is linked to Aadhaar.<br/>
+          3. If your Aadhaar name was updated recently, visit an Aadhaar Seva Kendra or update CTET profile via board representation with supporting matriculation certificate proof.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Direct Utility Action Hooks -->
+<section class="space-y-4 pt-6 border-t border-border">
+  <div class="p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="space-y-1">
+      <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">Free Client-Side Preparation</span>
+      <h3 class="text-base sm:text-lg font-bold text-foreground">Prepare CTET Photo &amp; Signature with Zero Upload Errors</h3>
+      <p class="text-xs text-muted-foreground max-w-xl">
+        Our browser-based algorithms run 100% locally on your device. Crop strictly to 3.5×4.5 cm (photo) and 3.5×1.5 cm (signature), remove paper background tint, and clamp byte sizes to exact official specifications.
+      </p>
+    </div>
+    <div class="flex items-center gap-2 shrink-0">
+      <a href="/ctet-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:opacity-95 transition shadow-xs">
+        Signature Resizer &rarr;
+      </a>
+      <a href="/ctet-photo-resize/" class="px-4 py-2.5 rounded-xl bg-card border border-border text-foreground hover:bg-muted font-semibold text-xs transition">
+        Photo Resizer &rarr;
       </a>
     </div>
   </div>
