@@ -1517,10 +1517,12 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
     closeMobileMenu();
   });
 
-  // Close mobile drawer when clicking any navigation link inside it
-  mobileDrawer?.querySelectorAll('a').forEach((link) => {
+  // Only close mobile drawer for in-page anchor links after smooth scroll
+  mobileDrawer?.querySelectorAll('a[href*="#"]').forEach((link) => {
     link.addEventListener('click', () => {
-      closeMobileMenu();
+      setTimeout(() => {
+        closeMobileMenu();
+      }, 200);
     });
   });
 
@@ -1550,13 +1552,6 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
     e.stopPropagation();
     const isCurrentlyOpen = signPanel?.classList.contains('!visible');
     toggleSignDropdown(!isCurrentlyOpen);
-  });
-
-  // Close signature menu when clicking any link inside it
-  signPanel?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      toggleSignDropdown(false);
-    });
   });
 
   // Close mobile menu or signature dropdown if clicked outside
