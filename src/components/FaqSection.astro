@@ -1,6 +1,89 @@
 ---
 // FaqSection.astro
-const faqs = [
+interface Props {
+  country?: 'PK' | 'PH' | 'BD' | 'NP' | 'IN' | 'ALL';
+}
+
+const { country = 'IN' } = Astro.props;
+
+const pkFaqs = [
+  {
+    q: "How to resize photo and signature for PPSC Pakistan?",
+    summary: "Select the PPSC Pakistan preset on SignResize to format photo and signature to 200×230 pixels under 25 KB.",
+    details: "Punjab Public Service Commission (PPSC) online portal strictly limits uploads to 25 KB in JPG format."
+  },
+  {
+    q: "What is the FPSC CSS exam photo size requirement?",
+    summary: "FPSC requires a photograph under 30 KB and signature under 25 KB with 200×230 px dimensions.",
+    details: "Federal Public Service Commission (FPSC) CSS Competitive Examination online portal validates file sizes upon upload."
+  },
+  {
+    q: "How to format photo for NTS Pakistan recruitment?",
+    summary: "Upload your photo, select NTS Pakistan preset, and crop to 200×230 px under 30 KB.",
+    details: "NTS job tests require crisp facial photos on plain light backgrounds."
+  },
+  {
+    q: "What are the signature rules for NADRA CNIC and Pak-Identity portal?",
+    summary: "Sign with black ink on white paper, scan or take a photo, and resize under 25 KB using SignResize.",
+    details: "Ensure no shadows or paper yellowing; toggle the Clean White Paper filter before exporting."
+  }
+];
+
+const phFaqs = [
+  {
+    q: "How to resize 2x2 photo for PRC LERIS Philippines?",
+    summary: "Select the PRC Philippines preset to format your photo to 2×2 inches (600×600 pixels) under 100 KB.",
+    details: "Professional Regulation Commission (PRC LERIS) board exam applications mandate a 2x2 inch photo with plain white background."
+  },
+  {
+    q: "What is the photo size requirement for Civil Service Commission (CSC) CSE?",
+    summary: "CSC requires a 1.5×2.0 inch passport-style photo (450×600 px) under 100 KB on a white background.",
+    details: "Civil Service Exam applications require neutral expression, bare face, and high sharpness."
+  },
+  {
+    q: "How to format photo for DFA Passport appointment?",
+    summary: "Format your photo to 4.5×3.5 cm (413×531 px) under 100 KB using the DFA Philippines preset.",
+    details: "Department of Foreign Affairs (DFA) online appointment system accepts standard passport photos in JPG format."
+  }
+];
+
+const bdFaqs = [
+  {
+    q: "What is the Teletalk Bangladesh photo and signature size?",
+    summary: "Teletalk requires a 300×300 pixel photo (≤ 100 KB) and a 300×80 pixel signature (≤ 60 KB) in JPG format.",
+    details: "This standard specification applies across all Teletalk All Jobs portals, BPSC, NTRCA, and Primary Assistant Teacher recruitments."
+  },
+  {
+    q: "How to resize photo for Bangladesh Civil Service (BCS) exam?",
+    summary: "Select the BCS / Teletalk Bangladesh preset to automatically set 300×300 px dimensions and under 100 KB file size.",
+    details: "BPSC online application forms strictly check pixel dimensions (300x300) and 100 KB max size limit."
+  },
+  {
+    q: "How to crop 300x80 signature for Teletalk All Jobs?",
+    summary: "Upload your signature, select the Teletalk Signature preset (300×80 px), and adjust the crop handles.",
+    details: "Sign with black or dark blue ink on clean unruled paper and toggle the Clean White Paper filter."
+  }
+];
+
+const npFaqs = [
+  {
+    q: "What is the photo size limit for Lok Sewa Aayog Nepal?",
+    summary: "Lok Sewa Aayog requires a passport-size photo (3.5×4.5 cm / 350×450 px) strictly under 50 KB in JPG format.",
+    details: "Public Service Commission Nepal (psc.gov.np) rejects files over 50 KB automatically during form upload."
+  },
+  {
+    q: "How to resize signature for Nepal Lok Sewa portal?",
+    summary: "Select the Lok Sewa Nepal Signature preset to set 350×150 px dimensions and compress under 50 KB.",
+    details: "Ensure signature is clear in dark black ink on spotless white paper."
+  },
+  {
+    q: "What is the photo requirement for Nepal e-Passport pre-enrollment?",
+    summary: "Upload 35×45 mm biometric photo under 300 KB with plain white background.",
+    details: "Department of Passports Nepal requires clear facial features without headwear or eyeglasses."
+  }
+];
+
+const generalFaqs = [
   {
     q: "How to resize signature?",
     summary: "To resize a signature, upload your photo to SignResize, select your target dimensions or exam preset, toggle the Clean White Paper filter, and download your compliant JPG in seconds.",
@@ -14,12 +97,7 @@ const faqs = [
   {
     q: "How to resize photo and signature?",
     summary: "Resize photos to 3.5 × 4.5 cm (20–50 KB) and signatures to 4.0 × 2.0 cm (10–20 KB) using the one-click exam presets on SignResize.",
-    details: "For Indian government portals like SSC, UPSC, PAN card, and RRB, photographs and signatures use distinct aspect ratios and file constraints. SignResize provides dedicated presets for both documents to ensure first-attempt acceptance."
-  },
-  {
-    q: "How to resize signature for SSC?",
-    summary: "To resize signature for SSC, select the 'SSC' preset on SignResize to instantly lock dimensions to 140 × 60 pixels and the file size between 10 KB and 20 KB.",
-    details: "This preset meets all 2026 Staff Selection Commission guidelines for CGL, CHSL, MTS, GD, CPO, and Stenographer online application portals."
+    details: "For government portals, photographs and signatures use distinct aspect ratios and file constraints. SignResize provides dedicated presets for both documents to ensure first-attempt acceptance."
   },
   {
     q: "How to resize signature in 20 KB?",
@@ -32,24 +110,9 @@ const faqs = [
     details: "This eliminates rejection from strict recruitment servers that enforce both a 10 KB floor (to prevent unreadable blur) and a 20 KB ceiling (to conserve gateway bandwidth)."
   },
   {
-    q: "Signature resize 10 to 20 KB JPG format: How to convert?",
-    summary: "Upload any PNG, WebP, HEIC, or scanned photo to SignResize, select the 10–20 KB boundary, and click Download to get an official baseline JPG file.",
-    details: "The exported file is a standard baseline JPEG fully compatible with all Indian state and central government recruitment upload gateways."
-  },
-  {
-    q: "SSC signature resize 10 to 20 KB: What are the strict rules?",
-    summary: "The official SSC rules mandate 140 × 60 px (4×2 cm), file size between 10 KB and 20 KB, JPG format, black ink on clean white paper, and running cursive handwriting.",
-    details: "Signatures must not contain shadows, dark yellow background tints, or typed block letters, all of which trigger automated gate rejection."
-  },
-  {
     q: "How do I change the width and height of my signature?",
     summary: "To change width and height, choose your preferred unit (px, cm, mm, or inches) under Custom Dimensions in SignResize and type your target measurements.",
     details: "You can toggle 'Lock Aspect Ratio' or drag the interactive crop box handles directly on the canvas workspace to frame your signature with precision."
-  },
-  {
-    q: "What is the required size for an SSC GD signature in CM format?",
-    summary: "The required size for an SSC GD signature in CM format is 4.0 cm width × 2.0 cm height, which corresponds to 140 × 60 pixels at standard 200 DPI scanning resolution.",
-    details: "The file size must strictly remain between 10 KB and 20 KB in JPG format on plain white paper with black ink."
   },
   {
     q: "How can I resize my signature online?",
@@ -57,41 +120,23 @@ const faqs = [
     details: "The entire process takes under 10 seconds and processes 100% inside your browser memory with zero files sent to external servers."
   },
   {
-    q: "How can I resize my signature to 300x80 pixels?",
-    summary: "In SignResize, set the unit selector to 'px', enter 300 Width and 80 Height, adjust your crop box, and click Download to export an exact 300 × 80 pixel JPG.",
-    details: "Our tool locks pixel aspect ratio while simultaneously compressing the file into your chosen kilobyte target range."
-  },
-  {
-    q: "Can I resize and compress a thumb impression for IBPS, SSC, or NEET?",
-    summary: "Yes, SignResize includes a dedicated 1:1 square Thumb Impression preset (3 × 3 cm or 240 × 240 px) compressed to 10–20 KB or 20–50 KB.",
-    details: "Candidate thumb impressions should be made using blue or black ink on unruled white paper; our high-contrast filter sharpens biometric whorls and ridges for machine scanning."
-  },
-  {
-    q: "Why do SSC, IBPS, and RRB reject signatures in capital letters?",
-    summary: "Signatures in capital letters are rejected because recruitment bodies legally require customary running cursive handwriting to verify candidate authenticity.",
-    details: "Writing your name in ALL CAPS / BLOCK LETTERS is treated as printed typography rather than a legally valid signature, causing automatic disqualification."
-  },
-  {
-    q: "What is an online signature generator and how does it create cursive signatures?",
-    summary: "An online signature generator automatically converts typed names into authentic handwritten cursive and calligraphy signature graphics.",
-    details: "On SignResize, our Signature Generator allows you to choose from 6 stylish font families, customize ink colors (Black, Navy, Royal Blue), and download a transparent PNG or white JPG file with zero software installations."
-  },
-  {
-    q: "How to create a free electronic signature to sign PDF documents?",
-    summary: "Use the Electronic Signature (eSign Pad) on SignResize to draw your signature directly on screen using your finger, stylus, or mouse.",
-    details: "Enable 'Transparent Background (PNG)' and click Download. You can then insert the resulting transparent PNG into Adobe Acrobat, Microsoft Word, or PDF sign tools seamlessly."
-  },
-  {
-    q: "What is the difference between a signature creator, signature maker, and signature resizer?",
-    summary: "A signature creator or maker helps you generate new digital signatures from scratch (by typing or drawing), while a signature resizer takes your existing signature photo and compresses it to official portal dimensions (e.g., 10–20 KB, 140×60 px).",
-    details: "SignResize brings both together: you can create a digital signature for business or use our dual-boundary resizer for official competitive exam portals."
-  },
-  {
     q: "How to make a signature background pure white online without Photoshop?",
     summary: "Toggle the 'Clean White Paper' filter on SignResize to instantly turn yellowed paper, phone photo shadows, and dark room lighting into pure #FFFFFF white paper.",
     details: "Our adaptive brightness algorithm bleaches the paper background while keeping your original black or blue ink lines dark, sharp, and high-contrast."
   }
 ];
+
+const countryFaqMap = {
+  PK: pkFaqs,
+  PH: phFaqs,
+  BD: bdFaqs,
+  NP: npFaqs,
+  IN: generalFaqs,
+  ALL: generalFaqs,
+};
+
+const faqs = countryFaqMap[country] || generalFaqs;
+---
 ---
 
 <section id="faq" class="space-y-6 pt-12 border-t border-border">

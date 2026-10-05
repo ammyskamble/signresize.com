@@ -41,7 +41,9 @@ export interface ExamPreset {
     | 'Defense'
     | 'Teaching'
     | 'PSU & Regulators'
+    | 'International'
     | 'General';
+  country?: 'IN' | 'PK' | 'PH' | 'BD' | 'NP' | 'GLOBAL';
   widthPx: number;
   heightPx: number;
   widthCm?: number;

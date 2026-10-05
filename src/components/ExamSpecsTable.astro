@@ -3,7 +3,45 @@
 import { EXAM_PRESETS, CATEGORIES } from '../data/examPresets';
 import { EXAM_PAGES_DATA } from '../data/examPagesData';
 
+interface Props {
+  country?: 'PK' | 'PH' | 'BD' | 'NP' | 'IN' | 'ALL';
+}
+
+const { country = 'IN' } = Astro.props;
+
 const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
+
+const countryPresetsMap = {
+  PK: EXAM_PRESETS.filter((p) => p.country === 'PK'),
+  PH: EXAM_PRESETS.filter((p) => p.country === 'PH'),
+  BD: EXAM_PRESETS.filter((p) => p.country === 'BD'),
+  NP: EXAM_PRESETS.filter((p) => p.country === 'NP'),
+  IN: EXAM_PRESETS.filter((p) => !p.country || p.country === 'IN'),
+  ALL: EXAM_PRESETS,
+};
+
+const displayPresets = countryPresetsMap[country] || countryPresetsMap['IN'];
+
+const countryTitles = {
+  PK: "Official Pakistan Recruitment Photo & Signature Guidelines",
+  PH: "Official Philippines Board Exam & Civil Service Guidelines",
+  BD: "Official Bangladesh Teletalk & BPSC Upload Guidelines",
+  NP: "Official Nepal Lok Sewa Aayog Upload Guidelines",
+  IN: "Official Signature Dimensions & Size Guidelines",
+  ALL: "Official Global Exam Upload Guidelines",
+};
+
+const countrySubtitles = {
+  PK: "Verified technical requirements for PPSC Punjab Public Service Commission, FPSC CSS, NTS, and NADRA portals.",
+  PH: "Verified technical requirements for PRC LERIS 2x2 photos, CSC Civil Service Exam, and DFA Passport.",
+  BD: "Verified technical requirements for Teletalk 300x300 photos and 300x80 signatures across all Bangladesh portals.",
+  NP: "Verified technical requirements for Lok Sewa Aayog PSC and e-Passport applications in Nepal.",
+  IN: "Verified technical requirements across all major Indian competitive exams and government application portals.",
+  ALL: "Verified technical requirements across all competitive exams and government recruitment portals.",
+};
+
+const titleText = countryTitles[country] || countryTitles['IN'];
+const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
 ---
 
 <section id="exam-specs" class="space-y-6 pt-6">
@@ -12,10 +50,10 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
       Exam Upload Guidance
     </div>
     <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-      Official Signature Dimensions &amp; Size Guidelines
+      {titleText}
     </h2>
     <p class="text-sm text-muted-foreground">
-      Verified technical requirements across all major Indian competitive exams and government application portals.
+      {subtitleText}
     </p>
   </div>
 
@@ -25,187 +63,52 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
       <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
         <h3 class="font-bold text-sm sm:text-base text-foreground">
-          Quick Specification Matrix Across Major Entrance Exams
+          Quick Specification Matrix
         </h3>
       </div>
-      <span class="text-xs text-muted-foreground font-mono">Standard Portal Parameters 2026</span>
+      <span class="text-xs text-muted-foreground font-mono">Verified Portal Parameters 2026</span>
     </div>
 
     <div class="overflow-x-auto rounded-xl border border-border/80">
       <table class="w-full text-left text-xs sm:text-sm">
         <thead class="bg-muted/70 text-muted-foreground font-bold uppercase text-[11px] tracking-wider border-b border-border">
           <tr>
-            <th class="py-3 px-3.5">Exam / Category</th>
+            <th class="py-3 px-3.5">Exam / Authority</th>
             <th class="py-3 px-3.5">Pixel Dimensions</th>
             <th class="py-3 px-3.5">Physical Dimensions</th>
             <th class="py-3 px-3.5">File Size Range</th>
-            <th class="py-3 px-3.5">Ink &amp; Paper Rules</th>
+            <th class="py-3 px-3.5">Ink &amp; Rules</th>
             <th class="py-3 px-3.5 text-right">Instant Preset</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-border/60 font-medium">
-          <tr class="hover:bg-muted/40 transition">
-            <td class="py-3 px-3.5">
-              <a href="/cat-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>CAT (IIMs)</span>
-                <span class="text-[10px] text-primary">→</span>
-              </a>
-              <div class="text-[10px] text-muted-foreground">Management Entrances</div>
-            </td>
-            <td class="py-3 px-3.5 font-mono text-foreground font-bold">300 × 132 px</td>
-            <td class="py-3 px-3.5 font-mono text-muted-foreground">8.0 × 3.5 cm</td>
-            <td class="py-3 px-3.5 font-mono font-bold text-primary">10 KB – 80 KB</td>
-            <td class="py-3 px-3.5 text-xs text-muted-foreground">Black or Blue ink; clean white paper</td>
-            <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="cat-iim" aria-label="Resize signature for CAT (IIMs)" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                Apply CAT
-              </a>
-            </td>
-          </tr>
-          <tr class="hover:bg-muted/40 transition">
-            <td class="py-3 px-3.5">
-              <a href="/ssc-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>SSC (CGL, CHSL, MTS)</span>
-                <span class="text-[10px] text-primary">→</span>
-              </a>
-              <div class="text-[10px] text-muted-foreground">Staff Selection Commission</div>
-            </td>
-            <td class="py-3 px-3.5 font-mono text-foreground font-bold">140 × 60 px</td>
-            <td class="py-3 px-3.5 font-mono text-muted-foreground">4.0 × 2.0 cm</td>
-            <td class="py-3 px-3.5 font-mono font-bold text-primary">10 KB – 20 KB</td>
-            <td class="py-3 px-3.5 text-xs text-muted-foreground">Black ink strictly; running cursive only</td>
-            <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="ssc-general" aria-label="Resize signature for SSC (CGL, CHSL, MTS)" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                Apply SSC
-              </a>
-            </td>
-          </tr>
-          <tr class="hover:bg-muted/40 transition">
-            <td class="py-3 px-3.5">
-              <a href="/ibps-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>IBPS (PO &amp; Clerk)</span>
-                <span class="text-[10px] text-primary">→</span>
-              </a>
-              <div class="text-[10px] text-muted-foreground">Banking Personnel Selection</div>
-            </td>
-            <td class="py-3 px-3.5 font-mono text-foreground font-bold">140 × 60 px</td>
-            <td class="py-3 px-3.5 font-mono text-muted-foreground">4.0 × 2.0 cm</td>
-            <td class="py-3 px-3.5 font-mono font-bold text-primary">10 KB – 20 KB</td>
-            <td class="py-3 px-3.5 text-xs text-muted-foreground">Black ink strictly; unruled white paper</td>
-            <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="ibps-sbi" aria-label="Resize signature for IBPS (PO & Clerk)" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                Apply IBPS
-              </a>
-            </td>
-          </tr>
-          <tr class="hover:bg-muted/40 transition">
-            <td class="py-3 px-3.5">
-              <a href="/sbi-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>SBI Signature Resizer</span>
-                <span class="text-[10px] text-primary">→</span>
-              </a>
-              <div class="text-[10px] text-muted-foreground">State Bank of India</div>
-            </td>
-            <td class="py-3 px-3.5 font-mono text-foreground font-bold">140 × 60 px</td>
-            <td class="py-3 px-3.5 font-mono text-muted-foreground">4.0 × 2.0 cm</td>
-            <td class="py-3 px-3.5 font-mono font-bold text-primary">10 KB – 20 KB</td>
-            <td class="py-3 px-3.5 text-xs text-muted-foreground">Black ink strictly; unruled white paper</td>
-            <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="sbi-signature" aria-label="Resize signature for SBI PO & Clerk" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                Apply SBI
-              </a>
-            </td>
-          </tr>
-          <tr class="hover:bg-muted/40 transition">
-            <td class="py-3 px-3.5">
-              <a href="/upsc-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>UPSC (Civil Services, NDA)</span>
-                <span class="text-[10px] text-primary">→</span>
-              </a>
-              <div class="text-[10px] text-muted-foreground">Union Public Service Commission</div>
-            </td>
-            <td class="py-3 px-3.5 font-mono text-foreground font-bold">350 × 350 px</td>
-            <td class="py-3 px-3.5 font-mono text-muted-foreground">Square (3:3 ratio)</td>
-            <td class="py-3 px-3.5 font-mono font-bold text-primary">20 KB – 300 KB</td>
-            <td class="py-3 px-3.5 text-xs text-muted-foreground">Black ink preferred; min 20 KB floor</td>
-            <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="upsc-civil-services" aria-label="Resize signature for UPSC (Civil Services, NDA)" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                Apply UPSC
-              </a>
-            </td>
-          </tr>
-          <tr class="hover:bg-muted/40 transition">
-            <td class="py-3 px-3.5">
-              <a href="/gate-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>GATE 2027</span>
-                <span class="text-[10px] text-primary">→</span>
-              </a>
-              <div class="text-[10px] text-muted-foreground">IITs / IISc Engineering Entrances</div>
-            </td>
-            <td class="py-3 px-3.5 font-mono text-foreground font-bold">~400 × 160 px</td>
-            <td class="py-3 px-3.5 font-mono text-muted-foreground">5.0 × 2.0 cm</td>
-            <td class="py-3 px-3.5 font-mono font-bold text-primary">5 KB – 200 KB</td>
-            <td class="py-3 px-3.5 text-xs text-muted-foreground">Dark blue or black ink; clean background</td>
-            <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="gate-jam" aria-label="Resize signature for GATE 2027" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                Apply GATE
-              </a>
-            </td>
-          </tr>
-          <tr class="hover:bg-muted/40 transition">
-            <td class="py-3 px-3.5">
-              <a href="/iit-jam-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>IIT JAM 2027</span>
-                <span class="text-[10px] text-primary">→</span>
-              </a>
-              <div class="text-[10px] text-muted-foreground">IIT Kharagpur ? JAM 2027</div>
-            </td>
-            <td class="py-3 px-3.5 font-mono text-foreground font-bold">~400 × 160 px</td>
-            <td class="py-3 px-3.5 font-mono text-muted-foreground">5.0 × 2.0 cm</td>
-            <td class="py-3 px-3.5 font-mono font-bold text-primary">5 KB – 200 KB</td>
-            <td class="py-3 px-3.5 text-xs text-muted-foreground">Dark blue or black ink; clean background</td>
-            <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="iit-jam" aria-label="Resize signature for IIT JAM 2027" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                Apply JAM
-              </a>
-            </td>
-          </tr>
-          <tr class="hover:bg-muted/40 transition">
-            <td class="py-3 px-3.5">
-              <a href="/nta-neet-jee-signature-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>NEET / JEE (NTA)</span>
-                <span class="text-[10px] text-primary">→</span>
-              </a>
-              <div class="text-[10px] text-muted-foreground">National Testing Agency</div>
-            </td>
-            <td class="py-3 px-3.5 font-mono text-foreground font-bold">140 × 60 px</td>
-            <td class="py-3 px-3.5 font-mono text-muted-foreground">3.5 × 1.5 cm</td>
-            <td class="py-3 px-3.5 font-mono font-bold text-primary">4 KB – 30 KB</td>
-            <td class="py-3 px-3.5 text-xs text-muted-foreground">Black ballpoint pen; high contrast</td>
-            <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="nta-neet-jee" aria-label="Resize signature for NEET / JEE (NTA)" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                Apply NEET
-              </a>
-            </td>
-          </tr>
-          <tr class="hover:bg-muted/40 transition">
-            <td class="py-3 px-3.5">
-              <a href="/thumb-impression-resize/" class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                <span>Left Thumb Impressions</span>
-                <span class="text-[10px] text-primary">→</span>
-              </a>
-              <div class="text-[10px] text-muted-foreground">IBPS, SSC, RRB &amp; NTA Portals</div>
-            </td>
-            <td class="py-3 px-3.5 font-mono text-foreground font-bold">240 × 240 px</td>
-            <td class="py-3 px-3.5 font-mono text-muted-foreground">3.0 × 3.0 cm</td>
-            <td class="py-3 px-3.5 font-mono font-bold text-primary">10 KB – 50 KB</td>
-            <td class="py-3 px-3.5 text-xs text-muted-foreground">Blue/Black stamp pad ink; clear ridges</td>
-            <td class="py-3 px-3.5 text-right">
-              <a href="#tool-workspace" data-preset-id="thumb-impression-general" aria-label="Resize left thumb impression for portals" class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                Apply Thumb
-              </a>
-            </td>
-          </tr>
+          {displayPresets.map((preset) => {
+            const dedicatedSlug = presetSlugMap.get(preset.id);
+            return (
+              <tr class="hover:bg-muted/40 transition">
+                <td class="py-3 px-3.5">
+                  {dedicatedSlug ? (
+                    <a href={`/${dedicatedSlug}/`} class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                      <span>{preset.name}</span>
+                      <span class="text-[10px] text-primary">→</span>
+                    </a>
+                  ) : (
+                    <span class="font-bold text-foreground">{preset.name}</span>
+                  )}
+                  <div class="text-[10px] text-muted-foreground">{preset.authority}</div>
+                </td>
+                <td class="py-3 px-3.5 font-mono text-foreground font-bold">{preset.widthPx} × {preset.heightPx} px</td>
+                <td class="py-3 px-3.5 font-mono text-muted-foreground">{preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : 'Ratio locked'}</td>
+                <td class="py-3 px-3.5 font-mono font-bold text-primary">{preset.minKb} KB – {preset.maxKb} KB</td>
+                <td class="py-3 px-3.5 text-xs text-muted-foreground">{preset.inkRequirement}; {preset.notes}</td>
+                <td class="py-3 px-3.5 text-right">
+                  <a href="#tool-workspace" data-preset-id={preset.id} aria-label={`Resize for ${preset.name}`} class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
+                    Apply Preset
+                  </a>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
@@ -216,7 +119,7 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
       <div class="text-xs font-bold text-foreground flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>Filter {EXAM_PRESETS.length} Official Exam Guidelines:</span>
+        <span>Filter {displayPresets.length} Official Exam Guidelines:</span>
       </div>
       <div class="relative w-full sm:w-80">
         <svg class="w-4 h-4 text-muted-foreground absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -225,7 +128,7 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
         <input
           id="exam-specs-search"
           type="text"
-          placeholder="Search 40+ exam guidelines..."
+          placeholder="Search exam guidelines..."
           aria-label="Search by exam name or authority"
           class="w-full pl-9 pr-9 py-2.5 text-base sm:text-xs rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
         />
@@ -239,26 +142,6 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
         </button>
       </div>
     </div>
-
-    <!-- Category Pills -->
-    <div class="flex items-center gap-2 overflow-x-auto pb-1.5 scrollbar-none text-xs" id="exam-specs-category-bar">
-      <button
-        type="button"
-        data-category="All"
-        class="exam-cat-filter-btn px-3.5 py-2.5 min-h-[44px] rounded-xl text-xs font-bold bg-primary text-primary-foreground shadow-xs transition shrink-0 inline-flex items-center justify-center cursor-pointer"
-      >
-        All Exams
-      </button>
-      {CATEGORIES.filter((c) => c !== 'All' && c !== 'Popular').map((cat) => (
-        <button
-          type="button"
-          data-category={cat}
-          class="exam-cat-filter-btn px-3.5 py-2.5 min-h-[44px] rounded-xl text-xs font-medium bg-muted/60 text-muted-foreground hover:text-foreground hover:bg-muted transition shrink-0 inline-flex items-center justify-center cursor-pointer"
-        >
-          {cat}
-        </button>
-      ))}
-    </div>
   </div>
 
   <div class="overflow-x-auto rounded-xl border border-border bg-card shadow-sm">
@@ -267,14 +150,14 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
         <tr>
           <th class="py-3.5 px-4">Exam / Portal</th>
           <th class="py-3.5 px-4">Required Dimensions</th>
-          <th class="py-3.5 px-4">Print Size (cm)</th>
+          <th class="py-3.5 px-4">Print Size</th>
           <th class="py-3.5 px-4">Allowed File Size</th>
           <th class="py-3.5 px-4">Ink &amp; Paper Rules</th>
           <th class="py-3.5 px-4 text-right">Action</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-border/60">
-        {EXAM_PRESETS.map((preset) => {
+        {displayPresets.map((preset) => {
           const dedicatedSlug = presetSlugMap.get(preset.id);
           return (
             <tr
@@ -288,7 +171,7 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
                 {dedicatedSlug ? (
                   <a
                     href={`/${dedicatedSlug}/`}
-                    aria-label={`View dedicated page for ${preset.name} signature specifications`}
+                    aria-label={`View dedicated page for ${preset.name} specifications`}
                     class="font-semibold text-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 group"
                   >
                     <span>{preset.name}</span>
@@ -299,16 +182,13 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
                 )}
                 <div class="text-[11px] text-muted-foreground flex items-center gap-1.5 pt-0.5">
                   <span>{preset.authority}</span>
-                  <span class="inline-block px-1.5 py-0.2 rounded text-[10px] bg-muted border border-border font-medium">
-                    {preset.category}
-                  </span>
                 </div>
               </td>
               <td class="py-3 px-4 font-mono font-medium text-foreground">
                 {preset.widthPx} × {preset.heightPx} px
               </td>
               <td class="py-3 px-4 font-mono text-muted-foreground">
-                {preset.widthCm} × {preset.heightCm} cm
+                {preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : '-'}
               </td>
               <td class="py-3 px-4">
                 <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20">
@@ -320,15 +200,6 @@ const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
               </td>
               <td class="py-3 px-4 text-right">
                 <div class="flex items-center justify-end gap-2">
-                  {dedicatedSlug && (
-                    <a
-                      href={`/${dedicatedSlug}/`}
-                      aria-label={`Read guide for ${preset.name} signature resize`}
-                      class="hidden sm:inline-flex items-center justify-center min-h-[44px] px-2.5 py-2 rounded-lg text-xs font-medium text-muted-foreground hover:text-primary transition"
-                    >
-                      Guide →
-                    </a>
-                  )}
                   <a
                     href="#tool-workspace"
                     data-preset-id={preset.id}
