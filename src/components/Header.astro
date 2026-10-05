@@ -510,136 +510,123 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
   <!-- Mobile Navigation Ultra-Compact Squeezed Dropdown Menu -->
   <div
     id="mobile-menu-drawer"
-    class="hidden lg:hidden border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-3 py-2.5 shadow-xl rounded-b-2xl transition-all"
+    class="hidden lg:hidden border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-2.5 py-2 shadow-xl rounded-b-2xl transition-all"
   >
-    <!-- Top Row: Home Link + Language Switcher + Search Button -->
-    <div class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800/80">
+    <!-- Top Row: Home + Lang Pills + Search (all tiny) -->
+    <div class="flex items-center gap-1.5 pb-1.5 border-b border-slate-100 dark:border-slate-800/80">
       <a
         href="/"
         class:list={[
-          "inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs font-bold transition",
+          "inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[11px] font-bold transition shrink-0",
           isHome
-            ? "bg-primary/10 text-primary border border-primary/20 shadow-2xs"
-            : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+            ? "bg-primary/10 text-primary border border-primary/20"
+            : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
         ]}
       >
-        <span>🏠</span>
+        <span class="text-[10px]">🏠</span>
         <span>Home</span>
       </a>
 
-      <!-- Compact Language Selector Pills -->
-      <div class="flex items-center gap-0.5 bg-slate-100 dark:bg-slate-800/80 p-0.5 rounded-lg text-[11px] border border-slate-200/80 dark:border-slate-700/80">
-        <a href="/" data-lang="en" class="mobile-lang-pill px-2 py-0.5 rounded-md font-bold text-[11px] transition bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs">EN</a>
-        <a href="/hi/" data-lang="hi" class="mobile-lang-pill px-2 py-0.5 rounded-md font-medium text-[11px] text-muted-foreground hover:text-foreground transition">हिंदी</a>
-        <a href="/mr/" data-lang="mr" class="mobile-lang-pill px-2 py-0.5 rounded-md font-medium text-[11px] text-muted-foreground hover:text-foreground transition">मराठी</a>
+      <!-- Mini Language Pills -->
+      <div class="flex items-center gap-px bg-slate-100 dark:bg-slate-800/80 p-px rounded-md border border-slate-200/80 dark:border-slate-700/80 shrink-0">
+        <a href="/" data-lang="en" class="mobile-lang-pill px-1.5 py-px rounded font-bold text-[10px] transition bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs leading-none">EN</a>
+        <a href="/hi/" data-lang="hi" class="mobile-lang-pill px-1.5 py-px rounded font-medium text-[10px] text-muted-foreground hover:text-foreground transition leading-none">हि</a>
+        <a href="/mr/" data-lang="mr" class="mobile-lang-pill px-1.5 py-px rounded font-medium text-[10px] text-muted-foreground hover:text-foreground transition leading-none">मर</a>
       </div>
 
-      <!-- Quick Search Action -->
+      <!-- Blog Quick Link -->
+      <a
+        href="/blog/"
+        class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md text-[10px] font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-400 hover:bg-amber-500/20 transition shrink-0"
+      >
+        <span>📢</span>
+        <span>Blog</span>
+      </a>
+
+      <!-- Govt Jobs Quick Link -->
+      <a
+        href="/government-jobs/"
+        class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md text-[10px] font-semibold bg-rose-500/10 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition shrink-0"
+      >
+        <span>🏛️</span>
+        <span>Jobs</span>
+        <span class="text-[7px] px-0.5 rounded bg-rose-600 text-white font-bold uppercase leading-none">Live</span>
+      </a>
+
+      <!-- Search Button pushed to far right -->
       <button
         type="button"
         id="mobile-search-exam-btn"
-        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/15 text-primary text-xs font-bold transition cursor-pointer"
+        class="ml-auto inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-primary/10 hover:bg-primary/15 text-primary text-[10px] font-bold transition cursor-pointer shrink-0"
         aria-label="Search all tools and exams"
       >
-        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
         <span>Search</span>
       </button>
     </div>
 
-    <!-- Quick Tools: Squeezed 2-Column Compact Matrix -->
-    <div class="grid grid-cols-2 gap-1.5 py-2 text-xs">
-      <a
-        href="/resize-signature-to-10kb-20kb/"
-        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
-      >
-        <span class="text-sm shrink-0">✍️</span>
-        <span class="group-hover:text-primary truncate">Sign (10–20 KB)</span>
+    <!-- Quick Tools: 4-Column Micro Chip Grid -->
+    <div class="grid grid-cols-4 gap-1 py-1.5">
+      <a href="/resize-signature-to-10kb-20kb/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+        <span class="text-base leading-none">✍️</span>
+        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Sign</span>
+        <span class="text-[8px] text-muted-foreground leading-none">10–20 KB</span>
       </a>
 
-      <a
-        href="/photo-resizer/"
-        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
-      >
-        <span class="text-sm shrink-0">📷</span>
-        <span class="group-hover:text-primary truncate">Photo (20–50 KB)</span>
+      <a href="/photo-resizer/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+        <span class="text-base leading-none">📷</span>
+        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Photo</span>
+        <span class="text-[8px] text-muted-foreground leading-none">20–50 KB</span>
       </a>
 
-      <a
-        href="/document-resizer/"
-        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
-      >
-        <span class="text-sm shrink-0">📄</span>
-        <span class="group-hover:text-primary truncate">Doc Resizer</span>
+      <a href="/document-resizer/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+        <span class="text-base leading-none">📄</span>
+        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Doc</span>
+        <span class="text-[8px] text-muted-foreground leading-none">100–300 KB</span>
       </a>
 
-      <a
-        href="/compress-image-to-kb/"
-        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
-      >
-        <span class="text-sm shrink-0">⚡</span>
-        <span class="group-hover:text-primary truncate">Compress KB</span>
+      <a href="/compress-image-to-kb/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+        <span class="text-base leading-none">⚡</span>
+        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Compress</span>
+        <span class="text-[8px] text-muted-foreground leading-none">Custom KB</span>
       </a>
 
-      <a
-        href="/signature-generator/"
-        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
-      >
-        <span class="text-sm shrink-0">✨</span>
-        <span class="group-hover:text-primary truncate">Sign Maker</span>
+      <a href="/signature-generator/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+        <span class="text-base leading-none">✨</span>
+        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Generator</span>
+        <span class="text-[8px] text-muted-foreground leading-none">Cursive</span>
       </a>
 
-      <a
-        href="/electronic-signature/"
-        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
-      >
-        <span class="text-sm shrink-0">🖋️</span>
-        <span class="group-hover:text-primary truncate">eSign Pad</span>
+      <a href="/electronic-signature/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+        <span class="text-base leading-none">🖋️</span>
+        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">eSign</span>
+        <span class="text-[8px] text-muted-foreground leading-none">Draw pad</span>
       </a>
 
-      <a
-        href="/ssc-signature-resize/"
-        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
-      >
-        <span class="text-sm shrink-0">🎨</span>
-        <span class="group-hover:text-primary truncate">SSC Resizer</span>
+      <a href="/ssc-signature-resize/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+        <span class="text-base leading-none">🎨</span>
+        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">SSC</span>
+        <span class="text-[8px] text-muted-foreground leading-none">140×60 px</span>
       </a>
 
-      <a
-        href="/make-signature-background-white/"
-        class="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition font-semibold text-slate-800 dark:text-slate-200 group"
-      >
-        <span class="text-sm shrink-0">🧹</span>
-        <span class="group-hover:text-primary truncate">White BG</span>
+      <a href="/make-signature-background-white/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+        <span class="text-base leading-none">🧹</span>
+        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">White BG</span>
+        <span class="text-[8px] text-muted-foreground leading-none">Clean bg</span>
       </a>
     </div>
 
-    <!-- Bottom Portals Row: Compact 3-Column Strip -->
-    <div class="flex items-center justify-between gap-1.5 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-[11px] font-semibold">
-      <a
-        href="/government-jobs/"
-        class="flex-1 flex items-center justify-center gap-1 py-1.5 px-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 transition"
-      >
-        <span>🏛️</span>
-        <span class="truncate">Govt Jobs</span>
-        <span class="text-[8px] px-1 py-0.5 rounded bg-rose-600 text-white font-bold uppercase leading-none">Live</span>
-      </a>
-
-      <a
-        href="/blog/"
-        class="flex-1 flex items-center justify-center gap-1 py-1.5 px-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 transition"
-      >
-        <span>📢</span>
-        <span class="truncate">Alerts</span>
-      </a>
-
+    <!-- Exam Specs footer link -->
+    <div class="pt-1 border-t border-slate-100 dark:border-slate-800/80">
       <a
         href="/#exam-specs"
-        class="flex-1 flex items-center justify-center gap-1 py-1.5 px-1 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 transition"
+        class="flex items-center justify-center gap-1 py-1 px-2 rounded-md bg-blue-500/8 hover:bg-blue-500/15 text-blue-600 dark:text-blue-400 text-[10px] font-semibold transition w-full"
       >
         <span>📋</span>
-        <span class="truncate">65+ Specs</span>
+        <span>65+ Exam Specifications Matrix</span>
+        <span class="text-muted-foreground">→</span>
       </a>
     </div>
   </div>
