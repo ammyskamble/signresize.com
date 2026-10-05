@@ -2006,6 +2006,7 @@ export const ALL_COMBINED_PRESETS: ExamPreset[] = [
 export const CATEGORIES = [
   'All',
   'Popular',
+  'International',
   'SSC',
   'Banking',
   'UPSC',
