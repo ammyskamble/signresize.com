@@ -1,0 +1,165 @@
+---
+// src/pages/pk/fpsc-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "FPSC Photo & Signature Resizer (200x230 px / Under 30 KB) - SignResize";
+const pageDescription = "Free online FPSC photo and signature resizer for Federal Public Service Commission online recruitment. Crop and compress photos to 200x230 pixels, under 30 KB JPG.";
+const canonicalUrl = "https://signresize.in/pk/fpsc-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "fpsc photo resizer 30kb, fpsc photo size 200x230, fpsc signature resizer online, federal public service commission photo crop, compress fpsc photo 30kb";
+
+const fpscFaqs = [
+  {
+    q: "What is the official photograph dimension and size for FPSC online applications?",
+    a: "The Federal Public Service Commission (FPSC) Pakistan requires passport photographs to be exactly 200x230 pixels with a file weight strictly under 30 KB in JPG format."
+  },
+  {
+    q: "What background color is accepted for FPSC job applications?",
+    a: "FPSC accepts clear passport photographs with a plain light blue or white background."
+  },
+  {
+    q: "What happens if my photograph exceeds 30 KB on the FPSC portal?",
+    a: "The FPSC online application system will reject file uploads exceeding 30 KB with an automated file size validation error."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-PK" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_PK" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#059669" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "FPSC Photo & Signature Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "200x230 px FPSC Photo Crop",
+        "Under 30 KB File Compression",
+        "100% In-Browser Privacy Protection"
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Tool Page Header with Selector Dropdown -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span>🇵🇰 Federal Public Service Commission (FPSC) Preset</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              FPSC Photo &amp; Signature Resizer
+            </h1>
+            <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
+              Crop and compress photographs and signatures to 200x230 pixels (under 30 KB) for Federal Public Service Commission job applications in Pakistan.
+            </p>
+          </div>
+
+          <!-- Quick Dropdown Hub Selector -->
+          <div class="w-full md:w-auto min-w-[280px] bg-card p-3 rounded-xl border border-border shadow-sm">
+            <label for="tool-select" class="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+              Select Pakistan Portal Tool:
+            </label>
+            <select
+              id="tool-select"
+              class="w-full bg-background border border-input text-foreground rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer"
+              onchange="if(this.value) window.location.href=this.value;"
+            >
+              <option value="/pk/">🇵🇰 Pakistan Main Hub</option>
+              <option value="/pk/fpsc-photo-resizer/" selected>FPSC Federal Exams (200x230 px / ≤30 KB)</option>
+              <option value="/pk/css-exam-photo-resizer/">CSS Competitive Exam (200x230 px / ≤30 KB)</option>
+              <option value="/pk/ppsc-kppsc-spsc-bpsc-photo-resizer/">Provincial PSCs (PPSC, KPPSC, SPSC, BPSC)</option>
+              <option value="/pk/nadra-passport-cnic-photo-resizer/">NADRA CNIC & Passport Renewals</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature Tool Canvas Widget -->
+      <section class="bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-sm">
+        <SignatureTool client:load initialPresetId="fpsc-pk" />
+      </section>
+
+      <!-- SEO Educational Guide Section -->
+      <section class="space-y-6 pt-6 border-t border-border">
+        <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
+          <h2 class="text-2xl font-bold text-foreground">
+            Complete FPSC Pakistan Photo &amp; Signature Format Guidelines
+          </h2>
+          <p class="text-muted-foreground leading-relaxed">
+            The <strong>Federal Public Service Commission (FPSC)</strong> enforces strict document validation routines for all general recruitment advertisements and competitive exams. When uploading photographs through the official <em>fpsc.gov.pk</em> portal, files exceeding 30 KB or incorrectly scaled aspect ratios will cause immediate upload failure.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">Dimensions</h3>
+              <p class="text-xs text-muted-foreground">200 × 230 pixels (Aspect Ratio ~0.87).</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">File Size Bounds</h3>
+              <p class="text-xs text-muted-foreground">Minimum 5 KB, Maximum strictly under 30 KB.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">Format &amp; Background</h3>
+              <p class="text-xs text-muted-foreground">JPG/JPEG format with light blue or white background.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <FaqSection faqs={fpscFaqs} />
+    </main>
+
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,165 @@
+---
+// src/pages/pk/nadra-passport-cnic-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "NADRA CNIC & Passport Photo Resizer (3.5x4.5 cm / 350x450 px) - SignResize";
+const pageDescription = "Free online NADRA CNIC and Pakistan Passport photo resizer. Crop and compress photos to 3.5x4.5 cm (350x450 px), white background, 10 KB to 1 MB JPG for Pak-Identity & DGIP.";
+const canonicalUrl = "https://signresize.in/pk/nadra-passport-cnic-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "nadra cnic photo resizer, pak identity passport photo resizer, pakistan passport photo 3.5x4.5 cm, compress nadra photo 10kb 1000kb, edit cnic photo white background";
+
+const nadraFaqs = [
+  {
+    q: "What photo size and background are required for Pak-Identity NADRA CNIC applications?",
+    a: "NADRA requires a clear photograph with a plain white background, measuring 3.5x4.5 cm (350x450 pixels) and file size between 10 KB and 1 MB (1000 KB) in JPG/JPEG format."
+  },
+  {
+    q: "What are the rules for Directorate General of Immigration & Passports (DGIP) renewal photos?",
+    a: "DGIP Pakistan requires biometric passport photos with a white background, sharp facial details, neutral expression, and visible ears/eyebrows."
+  },
+  {
+    q: "Are glasses permitted in NADRA CNIC and Pakistan Passport photographs?",
+    a: "No. Heavy-rimmed glasses or tinted lenses must be removed to avoid reflection and pupil obstruction during automated facial recognition checks."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-PK" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_PK" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#059669" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "NADRA CNIC & Passport Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "350x450 px Photo Crop (3.5x4.5 cm)",
+        "10 KB - 1000 KB Compression",
+        "Pak-Identity & Passport Ready"
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Tool Page Header with Selector Dropdown -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span>🇵🇰 NADRA CNIC &amp; Passport Renewal Tool</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              NADRA CNIC &amp; Passport Photo Resizer
+            </h1>
+            <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
+              Ubah ukuran dan kompres foto 3.5x4.5 cm (350x450 px, 10 KB – 1000 KB) untuk portal Pak-Identity NADRA dan renewal Paspor Pakistan (DGIP).
+            </p>
+          </div>
+
+          <!-- Quick Dropdown Hub Selector -->
+          <div class="w-full md:w-auto min-w-[280px] bg-card p-3 rounded-xl border border-border shadow-sm">
+            <label for="tool-select" class="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+              Select Pakistan Portal Tool:
+            </label>
+            <select
+              id="tool-select"
+              class="w-full bg-background border border-input text-foreground rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer"
+              onchange="if(this.value) window.location.href=this.value;"
+            >
+              <option value="/pk/">🇵🇰 Pakistan Main Hub</option>
+              <option value="/pk/fpsc-photo-resizer/">FPSC Federal Exams (200x230 px / ≤30 KB)</option>
+              <option value="/pk/css-exam-photo-resizer/">CSS Competitive Exam (200x230 px / ≤30 KB)</option>
+              <option value="/pk/ppsc-kppsc-spsc-bpsc-photo-resizer/">Provincial PSCs (PPSC, KPPSC, SPSC, BPSC)</option>
+              <option value="/pk/nadra-passport-cnic-photo-resizer/" selected>NADRA CNIC & Passport Renewals</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature Tool Canvas Widget -->
+      <section class="bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-sm">
+        <SignatureTool client:load initialPresetId="nadra-pk" />
+      </section>
+
+      <!-- SEO Educational Guide Section -->
+      <section class="space-y-6 pt-6 border-t border-border">
+        <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
+          <h2 class="text-2xl font-bold text-foreground">
+            Complete NADRA Pak-Identity &amp; Pakistan Passport Specifications
+          </h2>
+          <p class="text-muted-foreground leading-relaxed">
+            The <strong>National Database and Registration Authority (NADRA)</strong> and the <strong>Directorate General of Immigration &amp; Passports (DGIP)</strong> use automated ICAO-standard facial validation algorithms. Photos uploaded for Smart National Identity Cards (SNIC/NICOP) or online passport renewals must meet strict lighting, ratio, and resolution criteria.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">Dimensions</h3>
+              <p class="text-xs text-muted-foreground">3.5 × 4.5 cm (350 × 450 pixels, 7:9 ratio).</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">File Weight Bounds</h3>
+              <p class="text-xs text-muted-foreground">10 KB to 1 MB (1000 KB) JPEG file size.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">Background</h3>
+              <p class="text-xs text-muted-foreground">Pure White Background without shadows.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <FaqSection faqs={nadraFaqs} />
+    </main>
+
+    <Footer />
+  </body>
+</html>

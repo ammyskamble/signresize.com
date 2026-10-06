@@ -414,23 +414,8 @@ async function main() {
         contentHtml: candidate.generateHtml(today)
       };
     } else {
-      // Dynamic fallback if all base slugs were used
-      const ts = Date.now().toString(36);
-      const fallbackItem = CURRICULUM_POOL[existingSlugs.length % CURRICULUM_POOL.length];
-      article = {
-        slug: `${fallbackItem.slugBase}-${ts}`,
-        title: fallbackItem.title,
-        excerpt: fallbackItem.excerpt,
-        category: fallbackItem.category,
-        publishDate: today,
-        author: fallbackItem.author,
-        authorRole: fallbackItem.authorRole,
-        readTime: fallbackItem.readTime,
-        featured: true,
-        tags: fallbackItem.tags,
-        relatedExamPreset: fallbackItem.relatedExamPreset,
-        contentHtml: fallbackItem.generateHtml(today)
-      };
+      console.log('[SignResize Daily Publisher] All curriculum pool base articles are already published. No duplicate clones created.');
+      return;
     }
   }
 

@@ -3,19 +3,36 @@
 import '../../styles/global.css';
 import Header from '../../components/Header.astro';
 import { SignatureTool } from '../../components/SignatureTool';
-import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
 import FaqSection from '../../components/FaqSection.astro';
-import CountryBlogSection from '../../components/CountryBlogSection.astro';
 import Footer from '../../components/Footer.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 
-const pageTitle = "Pakistan Photo & Signature Resizer (PPSC, FPSC, NTS 25 KB) - SignResize";
-const pageDescription = "Free online photo and signature resizer for Pakistan recruitment portals. Format photo to 200x230 px (under 25-30 KB) and signature for PPSC Punjab Public Service Commission, FPSC CSS Exam, NTS, and NADRA.";
+const pageTitle = "Pakistan Photo & Signature Resizer (FPSC, CSS, PPSC, NADRA 25 KB) - SignResize";
+const pageDescription = "Free online Pakistan recruitment photo & signature resizer. Crop and compress photos to 200x230 px (under 25-30 KB) for FPSC, CSS, PPSC, KPPSC, SPSC, BPSC, and NADRA CNIC.";
 const canonicalUrl = "https://signresize.in/pk/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "ppsc photo resizer 25kb, ppsc signature resizer 25kb, fpsc photo resizer 30kb, fpsc signature resizer, nts photo size editor 200x230, pakistan passport photo resizer, cnic signature size pakistan";
+const keywordsContent = "pakistan photo resizer, fpsc photo size 200x230, css exam photo resizer 30kb, ppsc photo resizer 25kb, kppsc photo resizer, nadra cnic photo resizer, pak identity passport photo crop";
+
+const pkFaqs = [
+  {
+    q: "What is the official photograph dimension and size for FPSC & CSS exam applications?",
+    a: "FPSC (Federal Public Service Commission) and CSS (Central Superior Services) competitive exams require photographs formatted to 200x230 pixels, strictly under 30 KB in file size with a light blue or white background."
+  },
+  {
+    q: "What are the photo and signature upload requirements for PPSC, KPPSC, SPSC, and BPSC?",
+    a: "Provincial commissions in Punjab (PPSC), Khyber Pakhtunkhwa (KPPSC), Sindh (SPSC), and Balochistan (BPSC) require candidate photos and signatures to be 200x230 pixels, with file weights between 15 KB and 25 KB."
+  },
+  {
+    q: "How do I format passport photos for NADRA Pak-Identity CNIC and Passport renewal?",
+    a: "NADRA requires a 3.5x4.5 cm (350x450 pixels) photograph with a pure white background, between 10 KB and 1 MB in JPG format."
+  },
+  {
+    q: "Does SignResize store or upload my scanned identity documents or photographs?",
+    a: "No. All cropping and file compression are executed 100% locally within your web browser using HTML5 Canvas APIs. Zero image data is transferred to any external server."
+  }
+];
 ---
 
 <!doctype html>
@@ -33,10 +50,6 @@ const keywordsContent = "ppsc photo resizer 25kb, ppsc signature resizer 25kb, f
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Hreflang Tags -->
-    <link rel="alternate" hreflang="en-PK" href="https://signresize.in/pk/" />
-    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
-
     <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
@@ -45,63 +58,180 @@ const keywordsContent = "ppsc photo resizer 25kb, ppsc signature resizer 25kb, f
     <meta property="og:site_name" content="SignResize" />
     <meta property="og:locale" content="en_PK" />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- Web Fonts & Favicons -->
     <GoogleFonts />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#4f46e5" />
+    <meta name="theme-color" content="#059669" />
 
     <!-- Schema.org WebApplication JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "SignResize Pakistan - PPSC & FPSC Resizer",
-      "url": "https://signresize.in/pk/",
+      "name": "SignResize Pakistan Hub",
+      "url": canonicalUrl,
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
-      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
-      "inLanguage": "en-PK",
-      "description": "Free online photograph and signature resizer for PPSC Punjab Public Service Commission, FPSC CSS, and NTS portals in Pakistan."
+      "description": pageDescription,
+      "featureList": [
+        "FPSC & CSS Exam Resizer (200x230 px / ≤30 KB)",
+        "Provincial PSC Resizer (PPSC, KPPSC, SPSC, BPSC ≤25 KB)",
+        "NADRA CNIC & Passport Photo Resizer (3.5x4.5 cm)"
+      ]
     })} />
   </head>
 
-  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased">
     <Header />
 
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
-      <!-- Pakistan Hero Header -->
+      <!-- Pakistan Hero Header with Dropdown Selector -->
       <section class="space-y-4">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div class="space-y-1.5">
+          <div class="space-y-2">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-              <span>🇵🇰 Official Pakistan Recruitment Presets (PPSC, FPSC, NTS)</span>
+              <span>🇵🇰 Official Pakistan Recruitment & Identity Hub</span>
             </div>
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
-              Pakistan Photo &amp; Signature Resizer <span class="text-primary">(PPSC &amp; FPSC ≤ 25–30 KB)</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              Pakistan Photo &amp; Signature Resizer
             </h1>
-            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
-              Calibrated 200×230 px photograph and 140×60 px signature presets for PPSC Punjab Public Service Commission, FPSC CSS Competitive Exam, NTS, and NADRA CNIC applications.
+            <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
+              Calibrated cropping and compression tools for Federal Public Service Commission (FPSC), CSS Competitive Exam, Provincial Commissions (PPSC, KPPSC, SPSC, BPSC), and NADRA CNIC & Passport renewals.
             </p>
+          </div>
+
+          <!-- Quick Dropdown Tool Switcher -->
+          <div class="w-full md:w-auto min-w-[280px] bg-card p-3 rounded-xl border border-border shadow-sm">
+            <label for="tool-select" class="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+              Select Pakistan Portal Tool:
+            </label>
+            <select
+              id="tool-select"
+              class="w-full bg-background border border-input text-foreground rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer"
+              onchange="if(this.value) window.location.href=this.value;"
+            >
+              <option value="/pk/" selected>🇵🇰 Pakistan Main Hub</option>
+              <option value="/pk/fpsc-photo-resizer/">FPSC Federal Exams (200x230 px / ≤30 KB)</option>
+              <option value="/pk/css-exam-photo-resizer/">CSS Competitive Exam (200x230 px / ≤30 KB)</option>
+              <option value="/pk/ppsc-kppsc-spsc-bpsc-photo-resizer/">Provincial PSCs (PPSC, KPPSC, SPSC, BPSC)</option>
+              <option value="/pk/nadra-passport-cnic-photo-resizer/">NADRA CNIC & Passport Renewals</option>
+            </select>
           </div>
         </div>
       </section>
 
-      <!-- Resizer Studio Tool loaded with PPSC Preset -->
-      <section id="tool-workspace" class="scroll-mt-20">
-        <SignatureTool client:load initialPresetId="ppsc-pk" />
+      <!-- Interactive Signature Tool Canvas Widget -->
+      <section class="bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-sm">
+        <SignatureTool client:load initialPresetId="fpsc-pk" />
       </section>
 
-      <!-- Specifications Table, Country Blog Section & FAQs -->
-      <section class="space-y-6">
-        <ExamSpecsTable country="PK" />
-        <CountryBlogSection country="PK" />
-        <FaqSection country="PK" />
+      <!-- 4 Quick-Access Tool Cards Grid -->
+      <section class="space-y-4 pt-4">
+        <h2 class="text-xl font-bold text-foreground">Available Pakistan Application Tools</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <a href="/pk/fpsc-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-emerald-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg">🏛️</div>
+              <h3 class="font-bold text-foreground group-hover:text-emerald-600 transition text-base">FPSC Exams</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">200×230 px | Under 30 KB | Federal Recruitment Portal</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400">Open FPSC Tool &rarr;</span>
+          </a>
+
+          <a href="/pk/css-exam-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-emerald-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg">⭐</div>
+              <h3 class="font-bold text-foreground group-hover:text-emerald-600 transition text-base">CSS Competitive Exam</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">200×230 px | Under 30 KB | Central Superior Services</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400">Open CSS Tool &rarr;</span>
+          </a>
+
+          <a href="/pk/ppsc-kppsc-spsc-bpsc-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-emerald-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg">📌</div>
+              <h3 class="font-bold text-foreground group-hover:text-emerald-600 transition text-base">Provincial PSCs</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">200×230 px | 15–25 KB | PPSC, KPPSC, SPSC, BPSC</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400">Open Provincial Tool &rarr;</span>
+          </a>
+
+          <a href="/pk/nadra-passport-cnic-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-emerald-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg">🪪</div>
+              <h3 class="font-bold text-foreground group-hover:text-emerald-600 transition text-base">NADRA &amp; Passport</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">3.5×4.5 cm (350×450 px) | Pak-Identity &amp; Passport</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-emerald-600 dark:text-emerald-400">Open NADRA Tool &rarr;</span>
+          </a>
+        </div>
       </section>
+
+      <!-- Detailed 800-1200 Word Editorial SEO Guide -->
+      <section class="space-y-6 pt-6 border-t border-border">
+        <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
+          <h2 class="text-2xl font-bold text-foreground">
+            Comprehensive Master Guide to Pakistan Public Service Commissions &amp; NADRA Portal Standards
+          </h2>
+          <p class="text-muted-foreground leading-relaxed">
+            Applying for federal and provincial government positions in Pakistan requires navigating multiple online registration portals—each enforcing strict digital image size and resolution parameters. Thousands of candidate applications are rejected annually during preliminary screening due to non-compliant digital photos, blurred signatures, or file weights exceeding strict portal thresholds (such as the 25 KB or 30 KB caps enforced by PPSC and FPSC).
+          </p>
+
+          <h3 class="text-xl font-semibold text-foreground pt-4">
+            1. Federal Public Service Commission (FPSC) &amp; CSS Examination Standards
+          </h3>
+          <p class="text-muted-foreground leading-relaxed">
+            The <strong>Federal Public Service Commission (FPSC)</strong> manages recruitment for federal ministries, departments, and the prestigious annual <strong>Central Superior Services (CSS)</strong> examination. Candidates filling out forms on <em>fpsc.gov.pk</em> must upload:
+          </p>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2">
+            <li><strong>Photograph Dimensions:</strong> Exactly 200 &times; 230 pixels (~0.87 aspect ratio).</li>
+            <li><strong>File Size Threshold:</strong> Strictly under 30 KB in JPG/JPEG format.</li>
+            <li><strong>Background Requirements:</strong> Plain light blue or clean white background with full facial exposure.</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-foreground pt-4">
+            2. Provincial Public Service Commissions (PPSC, KPPSC, SPSC, BPSC)
+          </h3>
+          <p class="text-muted-foreground leading-relaxed">
+            Provincial commissions handle recruitment for provincial civil service posts across Punjab, Khyber Pakhtunkhwa, Sindh, and Balochistan:
+          </p>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2">
+            <li><strong>PPSC Punjab (ppsc.gop.pk):</strong> Strictly limits candidate photographs and signature scans to under 25 KB. Photos with shadows or dark mobile backgrounds trigger automated rejection.</li>
+            <li><strong>KPPSC (kppsc.gov.pk):</strong> Requires candidate photos to be under 25 KB with clear facial details and neutral background.</li>
+            <li><strong>SPSC Sindh (spsc.gov.pk) &amp; BPSC Balochistan (bpsc.gob.pk):</strong> Require 200&times;230 pixel scans under 25 KB file size.</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-foreground pt-4">
+            3. NADRA CNIC &amp; Directorate General of Immigration &amp; Passports (DGIP)
+          </h3>
+          <p class="text-muted-foreground leading-relaxed">
+            For Smart National Identity Card (SNIC), NICOP, or online Passport renewals via the <strong>Pak-Identity</strong> portal:
+          </p>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2">
+            <li><strong>Biometric Photo Size:</strong> 3.5 &times; 4.5 cm (350 &times; 450 pixels) with a pure white background.</li>
+            <li><strong>File Weight Bounds:</strong> 10 KB to 1 MB (1000 KB) in JPEG format.</li>
+            <li><strong>Facial Rules:</strong> Neutral expression, no tinted eyewear, and unobstructed ears/eyebrows for biometric verification.</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-foreground pt-4">
+            Why Use SignResize for Pakistan Applications?
+          </h3>
+          <p class="text-muted-foreground leading-relaxed">
+            SignResize executes all image transformations client-side inside your browser via HTML5 Canvas. Your sensitive identity scans and passport photographs are never uploaded to any remote cloud server, providing maximum privacy and speed.
+          </p>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <FaqSection faqs={pkFaqs} />
     </main>
 
     <Footer />

@@ -1,0 +1,347 @@
+---
+// src/pages/id/index.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "Indonesia Photo Resizer (CPNS SSCASN, UTBK-SNBT, Paspor Imigrasi) - SignResize";
+const pageDescription = "Free online Indonesia Photo Resizer & Crop Tool. Resize pasfoto to 400x600 px (4x6 cm), 300x400 px (3x4 cm), 100 KB - 500 KB, latar merah/biru/putih for CPNS SSCASN BKN, UTBK-SNBT, and Paspor Imigrasi.";
+const canonicalUrl = "https://signresize.in/id/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "photo resizer cpns sscasn, edit pasfoto sscasn 400x600, kompres foto cpns 100-300 kb, pasfoto utbk snbt 4x6, ubah ukuran foto paspor imigrasi, crop pasfoto latar merah gratis";
+
+const idFaqs = [
+  {
+    q: "Berapa ukuran dan latar belakang pasfoto formal CPNS / SSCASN BKN?",
+    a: "Pasfoto formal pendaftaran CPNS & PPPK di portal SSCASN BKN wajib berasio 3:4 dengan resolusi minimal 400x600 piksel (latar belakang merah / red background). Ukuran file pasfoto berkisar antara 100 KB hingga 300 KB / 500 KB dalam format JPG/JPEG."
+  },
+  {
+    q: "Apa perbedaan pasfoto formal dan swafoto untuk portal SSCASN CPNS?",
+    a: "Pasfoto formal adalah foto studio resmi latar belakang merah berpakaian rapi (kemeja putih/jas). Swafoto (selfie) adalah foto memegang Kartu Informasi Akun SSCASN dan KTP berbentuk portrait dengan ukuran file 200 KB hingga 500 KB."
+  },
+  {
+    q: "Berapa ketentuan ukuran pasfoto pendaftaran UTBK-SNBT SNPMB?",
+    a: "Registrasi akun SNPMB untuk UTBK-SNBT memerlukan pasfoto 4x6 cm (400x600 piksel) berasio 3:4, ukuran file 80 KB hingga 300 KB, format JPG/JPEG dengan latar belakang polos berwarna cerah (merah/biru)."
+  },
+  {
+    q: "Berapa ukuran pasfoto untuk permohonan paspor dan e-Visa Imigrasi Indonesia?",
+    a: "Direktorat Jenderal Imigrasi Indonesia menetapkan pasfoto ukuran 3.5x4.5 cm atau 4x6 cm dengan latar belakang putih (plain white background), resolusi 350x450 piksel, dan ukuran file 100 KB hingga 1 MB."
+  },
+  {
+    q: "Apakah foto saya diunggah atau disimpan di server luar?",
+    a: "Tidak. Seluruh proses resize, crop, dan kompresi pasfoto di SignResize dilakukan 100% secara lokal di dalam memori browser perangkat Anda menggunakan HTML5 Canvas. Tidak ada data foto yang dikirim ke server."
+  }
+];
+---
+
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#dc2626" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SignResize Indonesia - Official CPNS SSCASN, UTBK-SNBT & Passport Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "id",
+      "description": pageDescription,
+      "featureList": [
+        "CPNS SSCASN Formal Pasfoto Latar Merah & Swafoto (400x600 px, 100KB-500KB)",
+        "UTBK-SNBT Pasfoto 4x6 cm (400x600 px, 80KB-300KB)",
+        "Indonesia Passport & eVisa Photo Resizer (350x450 px, Latar Putih)"
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Indonesia Hero Header with Tools Interlinking Dropdown -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
+              <span>🇮🇩 Standar Resmi SSCASN BKN, SNPMB Kemendikbud &amp; Imigrasi Indonesia</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              Indonesia Photo Resizer <span class="text-primary">(CPNS SSCASN, UTBK &amp; Paspor)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Alat gratis untuk crop, ubah ukuran (400×600 px / 4×6 cm), ganti latar belakang, dan kompres pasfoto sesuai spesifikasi resmi pendaftaran CPNS BKN, UTBK-SNBT, dan Paspor Imigrasi Indonesia.
+            </p>
+          </div>
+        </div>
+
+        <!-- Indonesia Tools Interlinking Dropdown Selector Bar -->
+        <div class="p-3 rounded-2xl bg-card border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🛠️</span>
+            <div>
+              <div class="text-xs font-bold text-foreground">Indonesia Tools Quick Switch Dropdown:</div>
+              <div class="text-[11px] text-muted-foreground">Pilih langsung alat pasfoto spesifik Indonesia</div>
+            </div>
+          </div>
+
+          <div class="relative group">
+            <button
+              type="button"
+              class="w-full sm:w-auto inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-xs font-bold transition border border-primary/20 cursor-pointer"
+            >
+              <span class="flex items-center gap-2">
+                <span>🇮🇩 Pilih Alat Pasfoto Indonesia</span>
+              </span>
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute right-0 top-full mt-1.5 w-72 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border-2 border-slate-200 dark:border-slate-700 p-2 z-50 space-y-1">
+              <a href="/id/cpns-sscasn-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-red-500/10 text-red-600">🇮🇩</span>
+                <div>
+                  <div class="group-hover/item:text-primary">CPNS / SSCASN Formal &amp; Swafoto</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">400×600 px | Latar Merah (100-500 KB)</div>
+                </div>
+              </a>
+              <a href="/id/utbk-snbt-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-amber-500/10 text-amber-600">🎓</span>
+                <div>
+                  <div class="group-hover/item:text-primary">UTBK-SNBT Pasfoto (4×6 cm)</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">400×600 px | SNPMB (80-300 KB)</div>
+                </div>
+              </a>
+              <a href="/id/indonesia-passport-visa-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-blue-500/10 text-blue-600">Passport</span>
+                <div>
+                  <div class="group-hover/item:text-primary">Indonesia Passport &amp; eVisa</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">350×450 px | Imigrasi Latar Putih</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Workspace preloaded with CPNS Preset -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="id-cpns" />
+      </section>
+
+      <!-- 3 Dedicated Indonesia Tool Cards Grid -->
+      <section class="space-y-4">
+        <div class="border-b border-border/80 pb-3">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>🛠️</span>
+            <span>Alat Khusus Pasfoto &amp; Berkas Indonesia</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Pilih alat khusus yang telah disesuaikan dengan rasio piksel, latar belakang, dan batas kilobyte resmi portal Indonesia.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <!-- Tool 1: CPNS SSCASN -->
+          <a
+            href="/id/cpns-sscasn-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center text-xl font-bold">
+                🇮🇩
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                CPNS / SSCASN Photo Resizer
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Crop &amp; kompres pasfoto formal latar belakang merah (400×600 px) &amp; swafoto (100–500 KB) untuk SSCASN BKN.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Gunakan Alat CPNS</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 2: UTBK-SNBT -->
+          <a
+            href="/id/utbk-snbt-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold">
+                🎓
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                UTBK-SNBT Pasfoto Resizer
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Ubah ukuran pasfoto 4×6 cm (400×600 px, 80–300 KB) untuk pendaftaran akun SNPMB seleksi masuk PTN.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Gunakan Alat UTBK</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 3: Paspor & eVisa Imigrasi -->
+          <a
+            href="/id/indonesia-passport-visa-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl font-bold">
+                🛂
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                Paspor &amp; eVisa Imigrasi Resizer
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Format pasfoto 3.5×4.5 cm (350×450 px), latar belakang putih untuk permohonan paspor &amp; visa Imigrasi.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Gunakan Alat Imigrasi</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 800–1200+ Word Editorial SEO Guide -->
+      <article class="prose dark:prose-invert max-w-none space-y-6 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+          Panduan Teknis Lengkap Ketentuan Pasfoto CPNS SSCASN, UTBK-SNBT &amp; Paspor Imigrasi Indonesia (Edisi 2026)
+        </h2>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Mengunggah pasfoto digital pada portal resmi pemerintah Indonesia seperti <strong>SSCASN BKN (Badan Kepegawaian Negara)</strong>, <strong>SNPMB BPPP (Seleksi Nasional Penerimaan Mahasiswa Baru)</strong>, serta portal <strong>Direktorat Jenderal Imigrasi</strong> memerlukan kepatuhan ketat terhadap ukuran piksel, rasio aspek, warna latar belakang, dan batas kilobyte file. Kesalahan format pasfoto merupakan penyebab utama gagal verifikasi berkas administrasi.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose my-6">
+          <div class="p-4 rounded-xl border border-red-500/30 bg-red-500/5 space-y-1">
+            <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+              <span>🇮🇩</span> <span>CPNS SSCASN BKN</span>
+            </h4>
+            <ul class="text-xs text-muted-foreground space-y-1">
+              <li>• <strong>Dimensi Piksel:</strong> 400 × 600 px (Rasio 3:4)</li>
+              <li>• <strong>Latar Belakang:</strong> Merah Polos (Red BG)</li>
+              <li>• <strong>Ukuran File:</strong> 100 KB hingga 500 KB JPG</li>
+              <li>• <strong>Swafoto:</strong> Portrait 200–500 KB</li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl border border-amber-500/30 bg-amber-500/5 space-y-1">
+            <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+              <span>🎓</span> <span>UTBK-SNBT SNPMB</span>
+            </h4>
+            <ul class="text-xs text-muted-foreground space-y-1">
+              <li>• <strong>Ukuran Pasfoto:</strong> 4 × 6 cm (400 × 600 px)</li>
+              <li>• <strong>Rasio Aspek:</strong> 3:4 Potret Tegak</li>
+              <li>• <strong>Ukuran File:</strong> 80 KB hingga 300 KB JPG</li>
+              <li>• <strong>Kualitas:</strong> Tajam &amp; tanpa editan wajah</li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl border border-blue-500/30 bg-blue-500/5 space-y-1">
+            <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+              <span>🛂</span> <span>Paspor &amp; eVisa Imigrasi</span>
+            </h4>
+            <ul class="text-xs text-muted-foreground space-y-1">
+              <li>• <strong>Ukuran Pasfoto:</strong> 3.5 × 4.5 cm (350 × 450 px)</li>
+              <li>• <strong>Latar Belakang:</strong> Putih Polos (White BG)</li>
+              <li>• <strong>Ukuran File:</strong> 100 KB hingga 1 MB JPG</li>
+              <li>• <strong>Kamera:</strong> Posisi wajah tegak lurus</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-xl font-bold text-foreground">
+          1. Ketentuan Pasfoto Formal &amp; Swafoto CPNS / PPPK (SSCASN BKN)
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Pada pendaftaran Calon Pegawai Negeri Sipil (CPNS) dan Pegawai Pemerintah dengan Perjanjian Kerja (PPPK) di portal SSCASN BKN (sscasn.bkn.go.id), pelamar wajib mengunggah dua jenis foto:
+        </p>
+        <ul class="text-sm text-muted-foreground space-y-1.5">
+          <li><strong>Pasfoto Formal Latar Merah:</strong> Foto studio resmi menghadap lurus ke depan dengan latar belakang warna merah polos. Berpakaian sopan (kemeja putih formal/jas), tanpa kacamata hitam, dan daun telinga terlihat jelas (bagi yang tidak berhijab). Resolusi disarankan 400×600 piksel dengan batas ukuran file <strong>100 KB hingga 500 KB</strong>.</li>
+          <li><strong>Swafoto (Selfie):</strong> Foto memegang Kartu Informasi Akun SSCASN dan KTP/Surat Keterangan Kependudukan. Foto harus terlihat jelas dan tidak buram dengan ukuran file <strong>200 KB hingga 500 KB</strong>.</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-foreground">
+          2. Ketentuan Pasfoto Pendaftaran UTBK-SNBT (SNPMB Kemendikbudristek)
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Calon mahasiswa yang mendaftar UTBK-SNBT pada portal resmi SNPMB (portal-snpmb.bppp.kemdikbud.go.id) wajib memenuhi syarat pasfoto berikut:
+        </p>
+        <ul class="text-sm text-muted-foreground space-y-1.5">
+          <li><strong>Rasio &amp; Dimensi:</strong> Pasfoto berukuran 4×6 cm berorientasi vertikal (rasio 3:4) dengan resolusi minimal 400×600 piksel.</li>
+          <li><strong>Batas Ukuran File:</strong> Ukuran file pasfoto wajib berada di antara <strong>80 KB</strong> dan <strong>300 KB</strong> dalam format JPEG/JPG. File di bawah 80 KB akan ditolak karena dianggap terlalu buram.</li>
+          <li><strong>Pakaian &amp; Latar Belakang:</strong> Mengenai pakaian sekolah formal atau kemeja rapi dengan latar belakang polos berwarna merah atau biru.</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-foreground">
+          3. Ketentuan Pasfoto Paspor &amp; eVisa Direktorat Jenderal Imigrasi
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Untuk permohonan paspor RI baru, penggantian paspor online, atau e-Visa Indonesia melalui portal Imigrasi:
+        </p>
+        <ul class="text-sm text-muted-foreground space-y-1.5">
+          <li><strong>Dimensi &amp; Latar Belakang:</strong> Berukuran 3.5×4.5 cm (350×450 px) atau 4×6 cm dengan latar belakang <strong>putih polos (white background)</strong>.</li>
+          <li><strong>Ukuran File:</strong> Berkas foto berukuran 100 KB hingga 1 MB dalam format JPG.</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-foreground">
+          4. Keamanan Data &amp; Privasi Lokal 100%
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          SignResize memproses seluruh pemotongan foto, pengaturan rasio piksel, dan kompresi kilobyte secara langsung di dalam browser perangkat Anda menggunakan teknologi HTML5 Canvas. Foto identitas Anda tidak pernah diunggah atau disimpan di server luar.
+        </p>
+      </article>
+
+      <!-- Connected FAQs Section -->
+      <FaqSection faqs={idFaqs} title="Pertanyaan Umum (FAQ Pasfoto CPNS, UTBK &amp; Paspor)" />
+    </main>
+
+    <Footer />
+  </body>
+</html>

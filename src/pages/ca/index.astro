@@ -1,0 +1,350 @@
+---
+// src/pages/ca/index.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "Canada IRCC Visa & Passport Photo Resizer (Express Entry, PR, Study Permit) - SignResize";
+const pageDescription = "Free online Canada Photo Resizer & Crop Tool. Resize images to 420x540 pixels (35x45 mm ratio) for IRCC PR, Express Entry, Study Permits, and 50x70 mm for Canadian Passport Program.";
+const canonicalUrl = "https://signresize.in/ca/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "canada visa photo resizer, ircc express entry photo size 420x540, canadian pr photo crop online, study permit photo resizer canada, canadian passport photo size 50x70 mm, ircc digital photo converter free";
+
+const caFaqs = [
+  {
+    q: "What are the exact digital photo dimensions required for IRCC Express Entry and PR applications?",
+    a: "Your digital photo for IRCC Permanent Residency (PR) and Express Entry must have a minimum pixel dimension of 420 pixels wide by 540 pixels tall (35mm x 45mm aspect ratio). The file size must be between 240 KB and 4 MB in JPEG format."
+  },
+  {
+    q: "What is the photo requirement for Canadian Study Permits and Work Permits?",
+    a: "IRCC online portals mandate digital photographs measuring at least 420x540 pixels (35x45 mm ratio), file weight between 240 KB and 4 MB, taken against a plain white or off-white background with a neutral expression."
+  },
+  {
+    q: "What are the standard dimensions for a Canadian Passport photo?",
+    a: "Canadian passport photos measure 50 mm wide by 70 mm high (2 in x 2-3/4 in). The head height from chin to crown must measure between 31 mm and 36 mm. Digital scans or online photos require 600x840 pixels (or 1200x1680 at 600 DPI) under 5 MB."
+  },
+  {
+    q: "Are eyeglasses allowed in Canadian IRCC or Passport photographs?",
+    a: "Glasses may be worn only if eyes are clearly visible and there is no glare on the lenses. However, IRCC and Passport Canada strongly recommend removing glasses to avoid automated portal rejection."
+  },
+  {
+    q: "Are photos uploaded or stored on any server?",
+    a: "No. SignResize processes 100% of your crop, canvas resize, and JPEG compression operations locally in your browser memory using Web APIs. No personal photo or identity data is transmitted to external servers."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-CA" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#dc2626" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SignResize Canada - Official IRCC, PR & Passport Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "en-CA",
+      "description": pageDescription,
+      "featureList": [
+        "IRCC Express Entry & PR Photo Resizer (420x540 px, 240KB-4MB)",
+        "Study & Work Permit Digital Photo Resizer (420x540 px)",
+        "Canadian Passport Photo Resizer (50x70 mm / 600x840 px)"
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Canada Hero Header with Tools Interlinking Dropdown -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
+              <span>🇨🇦 Official Government of Canada &amp; IRCC Standards</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              Canada IRCC Visa &amp; Passport Photo Resizer <span class="text-primary">(420×540 px / 50×70 mm)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Free online tool to crop, format, and compress photographs to exact IRCC &amp; Passport Canada guidelines. Pre-configured for Express Entry, Permanent Residency (PR), Study Permits, Work Permits, and Canadian Passport renewals.
+            </p>
+          </div>
+        </div>
+
+        <!-- Canada Tools Interlinking Dropdown Selector Bar -->
+        <div class="p-3 rounded-2xl bg-card border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🛠️</span>
+            <div>
+              <div class="text-xs font-bold text-foreground">Canada Tools Quick Switch Dropdown:</div>
+              <div class="text-[11px] text-muted-foreground">Jump directly to dedicated Canadian tool pages</div>
+            </div>
+          </div>
+
+          <div class="relative group">
+            <button
+              type="button"
+              class="w-full sm:w-auto inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-xs font-bold transition border border-primary/20 cursor-pointer"
+            >
+              <span class="flex items-center gap-2">
+                <span>🇨🇦 Select Canada Dedicated Tool</span>
+              </span>
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute right-0 top-full mt-1.5 w-72 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border-2 border-slate-200 dark:border-slate-700 p-2 z-50 space-y-1">
+              <a href="/ca/ircc-pr-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-red-500/10 text-red-600">🍁</span>
+                <div>
+                  <div class="group-hover/item:text-primary">IRCC Express Entry &amp; PR Photo</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">420×540 px | 240 KB – 4 MB</div>
+                </div>
+              </a>
+              <a href="/ca/study-work-permit-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-amber-500/10 text-amber-600">🎓</span>
+                <div>
+                  <div class="group-hover/item:text-primary">Study &amp; Work Permit Photo</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">420×540 px | Student/Work Visa</div>
+                </div>
+              </a>
+              <a href="/ca/canadian-passport-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-blue-500/10 text-blue-600">🛂</span>
+                <div>
+                  <div class="group-hover/item:text-primary">Canadian Passport Photo</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">50×70 mm | 600×840 px</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Workspace preloaded with IRCC PR Preset -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="ca-ircc-pr" />
+      </section>
+
+      <!-- 3 Dedicated Canada Tool Cards Grid -->
+      <section class="space-y-4">
+        <div class="border-b border-border/80 pb-3">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>🛠️</span>
+            <span>Dedicated Canadian Photo &amp; Document Tools</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Select a specialized tool tailored with precise IRCC aspect ratios, pixel targets, and KB limits.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <!-- Tool 1: IRCC PR -->
+          <a
+            href="/ca/ircc-pr-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center text-xl font-bold">
+                🍁
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                IRCC Express Entry &amp; PR Resizer
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Crop &amp; format digital photo for Permanent Residency (PR) to 420×540 px (35×45 mm ratio), 240 KB–4 MB.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Use IRCC PR Tool</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 2: Study & Work Permit -->
+          <a
+            href="/ca/study-work-permit-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold">
+                🎓
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                Study &amp; Work Permit Resizer
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Format digital photo to 420×540 px, plain white background, for Canadian student visas and work permit portals.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Use Study/Work Permit Tool</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 3: Canadian Passport -->
+          <a
+            href="/ca/canadian-passport-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl font-bold">
+                🛂
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                Canadian Passport Photo Resizer
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Resize photo to 50×70 mm (600×840 px), head height 31-36 mm, for Passport Program Canada.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Use Passport Tool</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 800–1200+ Word Editorial SEO Guide -->
+      <article class="prose dark:prose-invert max-w-none space-y-6 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+          Complete Technical Guide to Canadian IRCC &amp; Passport Digital Photo Specifications (2026 Edition)
+        </h2>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Submitting digital applications to <strong>Immigration, Refugees and Citizenship Canada (IRCC)</strong> or <strong>Passport Program Canada</strong> requires strict adherence to official biometric standards. Whether you are filing an <em>Express Entry profile</em>, a <em>Permanent Residency (PR) confirmation portal upload</em>, a <em>Study Permit</em>, a <em>Post-Graduation Work Permit (PGWP)</em>, or renewing a Canadian Passport, image formatting errors are among the top causes of application delays and portal upload failures.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose my-6">
+          <div class="p-4 rounded-xl border border-red-500/30 bg-red-500/5 space-y-1">
+            <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+              <span>🍁</span> <span>IRCC PR &amp; Express Entry</span>
+            </h4>
+            <ul class="text-xs text-muted-foreground space-y-1">
+              <li>• <strong>Pixel Dimensions:</strong> Min 420 × 540 pixels</li>
+              <li>• <strong>Aspect Ratio:</strong> 35 × 45 mm (7:9 ratio)</li>
+              <li>• <strong>File Size:</strong> 240 KB to 4 MB JPEG</li>
+              <li>• <strong>Background:</strong> Plain white or off-white</li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl border border-amber-500/30 bg-amber-500/5 space-y-1">
+            <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+              <span>🎓</span> <span>Study &amp; Work Permits</span>
+            </h4>
+            <ul class="text-xs text-muted-foreground space-y-1">
+              <li>• <strong>Pixel Dimensions:</strong> Min 420 × 540 pixels</li>
+              <li>• <strong>Aspect Ratio:</strong> 35 × 45 mm (7:9 ratio)</li>
+              <li>• <strong>File Size:</strong> 240 KB to 4 MB JPEG</li>
+              <li>• <strong>Facial Fit:</strong> Head 31 mm – 36 mm</li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl border border-blue-500/30 bg-blue-500/5 space-y-1">
+            <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+              <span>🛂</span> <span>Canadian Passport</span>
+            </h4>
+            <ul class="text-xs text-muted-foreground space-y-1">
+              <li>• <strong>Dimensions:</strong> 50 × 70 mm (600 × 840 px)</li>
+              <li>• <strong>Aspect Ratio:</strong> 5:7 vertical orientation</li>
+              <li>• <strong>File Size:</strong> 100 KB to 5 MB JPEG</li>
+              <li>• <strong>Head Size:</strong> 31 mm to 36 mm chin-to-crown</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-xl font-bold text-foreground">
+          1. IRCC Express Entry &amp; Permanent Residency (PR) Photo Requirements
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          For online Permanent Residency confirmation portals and Express Entry e-CoPR issuance, IRCC enforces a strict digital image requirement:
+        </p>
+        <ul class="text-sm text-muted-foreground space-y-1.5">
+          <li><strong>Minimum Pixel Size:</strong> The image must be at least 420 pixels wide by 540 pixels tall. Higher resolutions (such as 840 × 1080 px or 1200 × 1542 px) are fully supported as long as the 35:45 aspect ratio is maintained.</li>
+          <li><strong>File Weight Boundary:</strong> The resulting file size must measure strictly between <strong>240 KB</strong> (minimum) and <strong>4.0 MB</strong> (maximum). Files under 240 KB are flagged for low resolution, while files exceeding 4 MB trigger server upload timeouts.</li>
+          <li><strong>Color &amp; Quality:</strong> Photographs must be in full 24-bit sRGB color with no filters, smoothing, or AI face alteration.</li>
+          <li><strong>Background &amp; Lighting:</strong> Must be shot against a uniform, plain white or off-white background with no shadows across the face or background wall.</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-foreground">
+          2. Study Permit, Work Permit &amp; Visitor Visa Applications
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Applicants applying for a Canadian Study Permit, Co-op Work Permit, Post-Graduation Work Permit (PGWP), or Temporary Resident Visa (TRV) through the IRCC Secure Account portal must upload a digital photograph meeting identical 420×540 pixel specifications.
+        </p>
+        <ul class="text-sm text-muted-foreground space-y-1.5">
+          <li><strong>Facial Framing:</strong> The face must be centred, looking straight at the camera with a neutral facial expression (mouth closed, no smiling, no frowning).</li>
+          <li><strong>Headwear &amp; Glasses:</strong> Eyeglasses are allowed only if there is zero reflection on lenses and eyes are completely visible. Non-tinted lenses are required. Head coverings for religious purposes are permitted provided facial features from chin to forehead remain uncovered.</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-foreground">
+          3. Canadian Passport Photo Dimensions (50 × 70 mm)
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Passport Program Canada specifies a unique physical measurement for Canadian Passports: <strong>50 mm wide by 70 mm high</strong> (2 inches by 2-3/4 inches). When scanning physical photos or submitting photos online:
+        </p>
+        <ul class="text-sm text-muted-foreground space-y-1.5">
+          <li><strong>Digital Dimensions:</strong> Formatted to 600 × 840 pixels (at 300 DPI) or 1200 × 1680 pixels (at 600 DPI) maintaining a 5:7 vertical aspect ratio.</li>
+          <li><strong>Head Size Ratio:</strong> The length from chin to crown (top of head) must be between 31 mm (1-1/4 inches) and 36 mm (1-7/16 inches).</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-foreground">
+          4. How SignResize Ensures 100% In-Browser Privacy
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Unlike online photo generators that upload your sensitive identification photos to third-party cloud servers, SignResize uses client-side HTML5 Canvas and WebGL APIs. Your photograph is loaded into your device's browser memory, cropped, formatted, and compressed locally, and exported directly to your downloads folder with <strong>zero server transmissions</strong>.
+        </p>
+      </article>
+
+      <!-- Connected FAQs Section -->
+      <FaqSection faqs={caFaqs} title="Frequently Asked Questions (Canadian IRCC &amp; Passport Specs)" />
+    </main>
+
+    <Footer />
+  </body>
+</html>

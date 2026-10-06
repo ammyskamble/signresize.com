@@ -545,6 +545,57 @@
             US University application portals (via Common App, Coalition, or direct portal uploads) require clear student headshots and passport identification scans optimized under 200 KB or 500 KB limits.
           </p>
         </div>
+        <!-- UKVI & UK Section -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/uk/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>UK Visas (UKVI) &amp; HM Passport Office (600×750 px)</span>
+              <span class="text-xs text-primary font-mono">45×35 mm →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>UK Visas and Immigration (UKVI)</strong> and <strong>HM Passport Office digital renewals</strong>, GOV.UK requires a 4:5 vertical aspect ratio (minimum 600×750 pixels), 50 KB to 6 MB file weight, and plain light gray background without eyeglasses.
+          </p>
+        </div>
+
+        <!-- Canada IRCC & Passport Section -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/ca/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>Canada IRCC PR, Study Permit &amp; Passport (420×540 px / 50×70 mm)</span>
+              <span class="text-xs text-primary font-mono">35×45 mm →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>IRCC Express Entry, PR Applications, Study &amp; Work Permits</strong>, Canada requires minimum 420×540 pixels (35×45 mm aspect ratio), 240 KB to 4 MB JPEG format. <strong>Canadian Passport photos</strong> use a 50×70 mm frame (600×840 px) on a plain white background.
+          </p>
+        </div>
+
+        <!-- Australia ImmiAccount & Passport Section -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/au/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>Australia ImmiAccount Visa &amp; Passport (600×750 px / 35×45 mm)</span>
+              <span class="text-xs text-primary font-mono">45×35 mm →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>ImmiAccount Visa Applications (Subclass 500 Student, 189/190 Skilled, 600 Visitor, 482/485 Work)</strong> and <strong>Australian Passport Office</strong> (passports.gov.au), Australia requires 600×750 pixels (35×45 mm aspect ratio), 50 KB to 5 MB JPEG format on a plain light gray or white background with head height 32 to 36 mm.
+          </p>
+        </div>
+
+        <!-- Pakistan FPSC, CSS, PPSC & NADRA Section -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/pk/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>Pakistan FPSC, CSS, Provincial PSCs (PPSC/KPPSC/SPSC/BPSC) &amp; NADRA</span>
+              <span class="text-xs text-primary font-mono">200×230 px / ≤25–30 KB →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>Federal Public Service Commission (FPSC)</strong>, <strong>CSS Competitive Exams</strong>, and <strong>Provincial Commissions (PPSC, KPPSC, SPSC, BPSC)</strong>, Pakistan requires 200×230 pixel scans under 25–30 KB. For <strong>NADRA Pak-Identity CNIC and Passport Renewals</strong>, 3.5×4.5 cm (350×450 px) photos with pure white backgrounds are required.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -552,31 +603,55 @@
     <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
       <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
-        Global International Standards: BD, NP, PH, &amp; PK
+        Global International Standards: AU, CA, UK, US, BD, NP, PH, &amp; PK
       </h3>
       <p>
         SignResize provides pre-configured international presets across multiple countries:
       </p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+        <a href="/au/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇦🇺</span> <span>Australia</span>
+          </div>
+          <div class="text-muted-foreground">600×750 px (ImmiAccount Visas &amp; Passport Office)</div>
+        </a>
+        <a href="/ca/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇨🇦</span> <span>Canada</span>
+          </div>
+          <div class="text-muted-foreground">420×540 px &amp; 50×70 mm (IRCC PR, Study Permit, Passport)</div>
+        </a>
+        <a href="/uk/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇬🇧</span> <span>United Kingdom</span>
+          </div>
+          <div class="text-muted-foreground">600×750 px (UKVI, HM Passport, UCAS)</div>
+        </a>
+        <a href="/us/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇺🇸</span> <span>United States</span>
+          </div>
+          <div class="text-muted-foreground">600×600 px (DS-160, Passport, USCIS, Common App)</div>
+        </a>
         <a href="/bd/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
           <div class="font-bold text-foreground flex items-center gap-1.5">
             <span>🇧🇩</span> <span>Teletalk Bangladesh</span>
           </div>
-          <div class="text-muted-foreground">300×300 px Photo (≤100 KB) &amp; 300×80 px Signature (≤60 KB)</div>
+          <div class="text-muted-foreground">300×300 px Photo &amp; 300×80 px Signature</div>
         </a>
         <a href="/np/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
           <div class="font-bold text-foreground flex items-center gap-1.5">
             <span>🇳🇵</span> <span>Loksewa Nepal</span>
           </div>
-          <div class="text-muted-foreground">350×300 px Photo &amp; Signature for Lok Sewa Aayog</div>
+          <div class="text-muted-foreground">350×300 px Photo for Lok Sewa Aayog</div>
         </a>
         <a href="/ph/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
           <div class="font-bold text-foreground flex items-center gap-1.5">
             <span>🇵🇭</span> <span>PRC Philippines</span>
           </div>
-          <div class="text-muted-foreground">2×2 Inch Passport Photo for LERIS &amp; Civil Service</div>
+          <div class="text-muted-foreground">2×2 Inch Passport Photo for LERIS</div>
         </a>
-        <a href="/pk/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+        <a href="/pk/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1 font-sans">
           <div class="font-bold text-foreground flex items-center gap-1.5">
             <span>🇵🇰</span> <span>FPSC &amp; PPSC Pakistan</span>
           </div>

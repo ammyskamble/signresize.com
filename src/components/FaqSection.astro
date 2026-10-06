@@ -1,12 +1,68 @@
 ---
 // FaqSection.astro
-interface Props {
-  country?: 'PK' | 'PH' | 'BD' | 'NP' | 'IN' | 'ALL';
+export interface FaqItem {
+  q: string;
+  a?: string;
+  summary?: string;
+  details?: string;
 }
 
-const { country = 'IN' } = Astro.props;
+interface Props {
+  country?: 'PK' | 'PH' | 'BD' | 'NP' | 'IN' | 'UK' | 'US' | 'ALL';
+  faqs?: FaqItem[];
+  title?: string;
+  description?: string;
+}
 
-const pkFaqs = [
+const { country = 'IN', faqs: customFaqs, title, description } = Astro.props;
+
+const ukFaqs: FaqItem[] = [
+  {
+    q: "What are the exact digital photo dimensions required for UKVI visa applications?",
+    summary: "Your digital photo for UK Visas and Immigration (UKVI) must be a vertical orientation with minimum dimensions of 600×750 pixels (45×35 mm aspect ratio).",
+    details: "The file size must be strictly between 50 KB and 6 MB in JPEG (.jpg) format on a plain light gray or cream background."
+  },
+  {
+    q: "What is the standard digital photo size for HM Passport Office online renewals?",
+    summary: "HM Passport Office digital passport renewals require a minimum pixel size of 600×750 pixels (45×35 mm aspect ratio) and file size between 50 KB and 10 MB.",
+    details: "Must be taken against a plain light-colored background with a neutral expression and no eyeglasses."
+  },
+  {
+    q: "What are the UCAS student profile photo and document scan requirements?",
+    summary: "UCAS university applications require a passport-style headshot (600×750 px) and legibly compressed document scans under 2 MB.",
+    details: "Transcripts, passports, and English test certificates should be clear and compressed to prevent portal upload timeout errors."
+  },
+  {
+    q: "Can I wear eyeglasses or head coverings in UK visa photos?",
+    summary: "Eyeglasses are strictly prohibited unless required for documented medical reasons. Head coverings are permitted solely for religious or medical purposes.",
+    details: "The face must remain completely visible from hairline to bottom of chin without shadows."
+  }
+];
+
+const usFaqs: FaqItem[] = [
+  {
+    q: "What are the digital photo requirements for US Form DS-160 visa applications?",
+    summary: "Form DS-160 requires a square 1:1 aspect ratio, minimum 600×600 pixels (up to 1200×1200 px), JPEG format, and max file size of 240 KB.",
+    details: "Head height must occupy 50% to 69% of the frame. Eyeglasses are strictly not allowed."
+  },
+  {
+    q: "What is the US Passport photo size in pixels?",
+    summary: "Digital US passport renewals require a square 600×600 pixel image (2×2 inches at 300 DPI) under 240 KB in JPEG format.",
+    details: "The photo must be taken in color against a plain white or off-white background within the last 6 months."
+  },
+  {
+    q: "What are the photo rules for USCIS Green Card and DV Lottery entries?",
+    summary: "USCIS uploads and Diversity Visa Lottery require 24-bit sRGB color space, 600×600 pixels, and file weight ≤ 240 KB with max compression 20:1.",
+    details: "Shadows on the face or background will cause automated disqualification by DOS photo validation tools."
+  },
+  {
+    q: "What is the Common App student profile photo size?",
+    summary: "Common App and US college admission portals require clear student headshots and passport scans compressed under 200 KB or 500 KB.",
+    details: "Images should be crisp JPEG format with facial features clearly recognizable."
+  }
+];
+
+const pkFaqs: FaqItem[] = [
   {
     q: "How to resize photo and signature for PPSC Pakistan?",
     summary: "Select the PPSC Pakistan preset on SignResize to format photo and signature to 200×230 pixels under 25 KB.",
@@ -29,7 +85,7 @@ const pkFaqs = [
   }
 ];
 
-const phFaqs = [
+const phFaqs: FaqItem[] = [
   {
     q: "How to resize 2x2 photo for PRC LERIS Philippines?",
     summary: "Select the PRC Philippines preset to format your photo to 2×2 inches (600×600 pixels) under 100 KB.",
@@ -47,7 +103,7 @@ const phFaqs = [
   }
 ];
 
-const bdFaqs = [
+const bdFaqs: FaqItem[] = [
   {
     q: "What is the Teletalk Bangladesh photo and signature size?",
     summary: "Teletalk requires a 300×300 pixel photo (≤ 100 KB) and a 300×80 pixel signature (≤ 60 KB) in JPG format.",
@@ -65,7 +121,7 @@ const bdFaqs = [
   }
 ];
 
-const npFaqs = [
+const npFaqs: FaqItem[] = [
   {
     q: "What is the photo size limit for Lok Sewa Aayog Nepal?",
     summary: "Lok Sewa Aayog requires a passport-size photo (3.5×4.5 cm / 350×450 px) strictly under 50 KB in JPG format.",
@@ -83,7 +139,7 @@ const npFaqs = [
   }
 ];
 
-const generalFaqs = [
+const generalFaqs: FaqItem[] = [
   {
     q: "How to resize signature?",
     summary: "To resize a signature, upload your photo to SignResize, select your target dimensions or exam preset, toggle the Clean White Paper filter, and download your compliant JPG in seconds.",
@@ -126,17 +182,24 @@ const generalFaqs = [
   }
 ];
 
-const countryFaqMap = {
+const countryFaqMap: Record<string, FaqItem[]> = {
   PK: pkFaqs,
   PH: phFaqs,
   BD: bdFaqs,
   NP: npFaqs,
+  UK: ukFaqs,
+  US: usFaqs,
   IN: generalFaqs,
   ALL: generalFaqs,
 };
 
-const faqs = countryFaqMap[country] || generalFaqs;
----
+const rawFaqs = customFaqs && customFaqs.length > 0 ? customFaqs : (countryFaqMap[country] || generalFaqs);
+
+const faqs = rawFaqs.map((item) => ({
+  q: item.q,
+  summary: item.summary || item.a || '',
+  details: item.details || '',
+}));
 ---
 
 <section id="faq" class="space-y-6 pt-12 border-t border-border">
@@ -145,10 +208,10 @@ const faqs = countryFaqMap[country] || generalFaqs;
       Got Questions?
     </div>
     <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-      Frequently Asked Questions (FAQ)
+      {title || "Frequently Asked Questions (FAQ)"}
     </h2>
     <p class="text-sm text-muted-foreground">
-      Authoritative answers regarding signature resize, 10–20 KB rules, centimeter dimensions, and portal compliance.
+      {description || "Authoritative answers regarding photo & signature specifications, file size rules, and official portal compliance."}
     </p>
   </div>
 
@@ -164,8 +227,8 @@ const faqs = countryFaqMap[country] || generalFaqs;
           </span>
         </summary>
         <p class="pt-3 text-xs sm:text-sm leading-relaxed">
-          <strong class="text-foreground font-semibold block sm:inline">{faq.summary}</strong>{" "}
-          <span class="text-muted-foreground">{faq.details}</span>
+          {faq.summary && <strong class="text-foreground font-semibold block sm:inline">{faq.summary}</strong>}{" "}
+          {faq.details && <span class="text-muted-foreground">{faq.details}</span>}
         </p>
       </details>
     ))}
@@ -180,8 +243,9 @@ const faqs = countryFaqMap[country] || generalFaqs;
       "name": f.q,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": `${f.summary} ${f.details}`
+        "text": `${f.summary} ${f.details}`.trim()
       }
     }))
   })} />
 </section>
+

@@ -1,0 +1,205 @@
+---
+// src/pages/id/cpns-sscasn-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "CPNS SSCASN Photo Resizer (Pasfoto Latar Merah & Swafoto) - SignResize";
+const pageDescription = "Free online CPNS SSCASN BKN photo resizer. Crop and compress pasfoto formal latar belakang merah (400x600 px) & swafoto to 100 KB - 500 KB for CPNS/PPPK registration.";
+const canonicalUrl = "https://signresize.in/id/cpns-sscasn-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "cpns sscasn photo resizer, kompres foto cpns 100 300 kb, edit pasfoto sscasn latar merah, ubah ukuran swafoto cpns 200 500 kb, pasfoto 400x600 px sscasn bkn";
+
+const cpnsFaqs = [
+  {
+    q: "Berapa piksel dan ukuran kilobyte pasfoto formal CPNS SSCASN?",
+    a: "Pasfoto formal SSCASN BKN harus berukuran 400x600 piksel (rasio 3:4) berlatar merah polos dengan ukuran file antara 100 KB hingga 300 KB / 500 KB dalam format JPG."
+  },
+  {
+    q: "Berapa ketentuan ukuran file untuk swafoto (selfie) CPNS?",
+    a: "Swafoto memegang KTP dan Kartu Informasi Akun disyaratkan berukuran file 200 KB hingga 500 KB berorientasi portrait."
+  },
+  {
+    q: "Apa warna latar belakang resmi pasfoto formal CPNS BKN?",
+    a: "Latar belakang resmi pasfoto formal CPNS adalah warna merah polos (red background)."
+  },
+  {
+    q: "Bagaimana cara mengubah ukuran foto CPNS tanpa Photoshop?",
+    a: "Unggah foto Anda ke SignResize, pilih preset CPNS / SSCASN, atur area crop, dan unduh hasil gambar kompresi yang siap diunggah ke sscasn.bkn.go.id."
+  }
+];
+---
+
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#dc2626" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CPNS SSCASN Photo & Swafoto Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "400x600 px Pasfoto Latar Merah Crop",
+        "100 KB - 500 KB File Compression",
+        "100% In-Browser Privacy Protection"
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Tool Page Header with Selector Dropdown -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
+              <span>🇮🇩 SSCASN BKN CPNS &amp; PPPK Standard</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              CPNS / SSCASN Photo &amp; Swafoto Resizer <span class="text-primary">(400×600 px)</span>
+            </h1>
+            <p class="text-sm text-muted-foreground max-w-3xl">
+              Ubah ukuran dan kompres pasfoto formal latar belakang merah (400×600 piksel, 100–500 KB) serta swafoto sesuai ketentuan resmi pendaftaran CPNS &amp; PPPK di sscasn.bkn.go.id.
+            </p>
+          </div>
+
+          <!-- Dropdown Switcher to Other ID Tools -->
+          <div class="relative group shrink-0">
+            <button
+              type="button"
+              class="w-full sm:w-auto inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-card hover:bg-muted text-foreground text-xs font-bold transition border border-border cursor-pointer"
+            >
+              <span class="flex items-center gap-2">
+                <span>🇮🇩 Pilih Alat Indonesia</span>
+              </span>
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute right-0 top-full mt-1.5 w-72 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border-2 border-slate-200 dark:border-slate-700 p-2 z-50 space-y-1">
+              <a href="/id/utbk-snbt-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-amber-500/10 text-amber-600">🎓</span>
+                <div>
+                  <div class="group-hover/item:text-primary">UTBK-SNBT Pasfoto (4×6 cm)</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">400×600 px | SNPMB (80-300 KB)</div>
+                </div>
+              </a>
+              <a href="/id/indonesia-passport-visa-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-blue-500/10 text-blue-600">Passport</span>
+                <div>
+                  <div class="group-hover/item:text-primary">Indonesia Passport &amp; eVisa</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">350×450 px | Imigrasi Latar Putih</div>
+                </div>
+              </a>
+              <a href="/id/" class="flex items-center justify-between p-2 rounded-xl bg-primary/10 text-primary font-bold text-xs hover:bg-primary/20 transition">
+                <span>🇮🇩 Hub Alat Indonesia</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Tool Workspace initialized with CPNS Preset -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="id-cpns" />
+      </section>
+
+      <!-- Technical Guidelines & Interlinking Section -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 space-y-4 bg-card border border-border p-6 rounded-2xl">
+          <h2 class="text-xl font-bold text-foreground">
+            Spesifikasi Pasfoto Formal SSCASN CPNS BKN
+          </h2>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-muted-foreground">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Resolusi Piksel:</strong> Minimal 400 × 600 piksel (rasio aspek 3:4 tegak).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Ukuran File:</strong> Berada di antara 100 KB hingga 300 KB / 500 KB dalam format JPG/JPEG.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Latar Belakang:</strong> Warna merah polos tanpa bayangan atau bercak.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Posisi Wajah:</strong> Menghadap lurus ke depan, mata terbuka, dan wajah terlihat jelas.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Cross Interlinking Box -->
+        <div class="space-y-4 bg-primary/5 border border-primary/20 p-6 rounded-2xl">
+          <h3 class="text-base font-bold text-foreground">Alat Terkait Indonesia</h3>
+          <div class="space-y-2 text-xs">
+            <a href="/id/utbk-snbt-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
+              🎓 UTBK-SNBT Pasfoto Resizer (4×6 cm) →
+            </a>
+            <a href="/id/indonesia-passport-visa-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
+              🛂 Indonesia Passport &amp; eVisa Photo Resizer →
+            </a>
+            <a href="/id/" class="block p-2.5 rounded-xl bg-primary text-primary-foreground text-center font-bold hover:opacity-90 transition mt-2">
+              Kembali ke Hub Indonesia →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="space-y-6">
+        <FaqSection faqs={cpnsFaqs} title="Pertanyaan Umum CPNS / SSCASN Photo Resizer" />
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

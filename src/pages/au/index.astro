@@ -1,0 +1,300 @@
+---
+// src/pages/au/index.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "Australia Visa & Passport Photo Resizer (ImmiAccount & Passport Office) - SignResize";
+const pageDescription = "Free online Australia Photo Resizer & Crop Tool. Resize images to 600x750 pixels (35x45 mm ratio), 50 KB to 5 MB JPEG for ImmiAccount visas (Student, Skilled, Tourist) and Australian Passport Office.";
+const canonicalUrl = "https://signresize.in/au/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "australia visa photo resizer, immiaccount photo upload size 600x750, australian passport photo size 35x45 mm, student visa 500 photo crop australia, skilled migration 189 190 photo resizer, homeaffairs photo converter free";
+
+const auFaqs = [
+  {
+    q: "What are the exact digital photo dimensions required for ImmiAccount visa applications?",
+    a: "Digital visa photos for Australian ImmiAccount (Department of Home Affairs) must be in vertical orientation, measuring at least 600 pixels wide by 750 pixels tall (35mm x 45mm aspect ratio). File size must be between 50 KB and 5 MB in JPEG format."
+  },
+  {
+    q: "What is the standard photo requirement for Australian Passport Office applications?",
+    a: "Australian Passport Office (passports.gov.au) photos measure 35 mm wide by 45 mm high (600x750 pixels for digital uploads). The facial height from chin to crown must measure strictly between 32 mm and 36 mm on a plain light gray or white background."
+  },
+  {
+    q: "Do Student Visa (Subclass 500) and Skilled Migration (Subclass 189/190) follow the same photo rules?",
+    a: "Yes. All online visa applications lodged through ImmiAccount—including Student Visa (Subclass 500), Skilled Independent/Nominated (189/190), Temporary Skill Shortage (482), Temporary Graduate (485), and Visitor (600)—follow standard 35x45 mm / 600x750 px photo guidelines."
+  },
+  {
+    q: "Are eyeglasses permitted in Australian visa or passport photos?",
+    a: "Eyeglasses are strictly prohibited in Australian passport photos unless required for documented medical reasons. For ImmiAccount visas, removing glasses is strongly recommended to eliminate lens glare and automated AI rejection."
+  },
+  {
+    q: "Are my photos stored or uploaded to remote servers?",
+    a: "No. SignResize processes 100% of your crop, canvas resize, and JPEG compression tasks locally inside your web browser using HTML5 Canvas APIs. Zero images or personal data are ever uploaded to external cloud servers."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-AU" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_AU" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#d97706" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SignResize Australia - Official ImmiAccount & Passport Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "en-AU",
+      "description": pageDescription,
+      "featureList": [
+        "ImmiAccount Australia Visa Photo Resizer (600x750 px, 50KB-5MB)",
+        "Australian Passport Office Digital Photo Resizer (600x750 px, 35x45 mm)"
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Australia Hero Header with Tools Interlinking Dropdown -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+              <span>🇦🇺 Official Australian Home Affairs &amp; Passport Office Standards</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              Australia Visa &amp; Passport Photo Resizer <span class="text-primary">(600×750 px / 35×45 mm)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Free online tool to crop, format, and compress photographs to exact Department of Home Affairs (ImmiAccount) &amp; Australian Passport Office guidelines. Pre-configured for Student (Subclass 500), Skilled Migration, Tourist, Work visas, and Australian Passport renewals.
+            </p>
+          </div>
+        </div>
+
+        <!-- Australia Tools Interlinking Dropdown Selector Bar -->
+        <div class="p-3 rounded-2xl bg-card border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🛠️</span>
+            <div>
+              <div class="text-xs font-bold text-foreground">Australia Tools Quick Switch Dropdown:</div>
+              <div class="text-[11px] text-muted-foreground">Jump directly to dedicated Australian tool pages</div>
+            </div>
+          </div>
+
+          <div class="relative group">
+            <button
+              type="button"
+              class="w-full sm:w-auto inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-xs font-bold transition border border-primary/20 cursor-pointer"
+            >
+              <span class="flex items-center gap-2">
+                <span>🇦🇺 Select Australia Dedicated Tool</span>
+              </span>
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute right-0 top-full mt-1.5 w-72 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border-2 border-slate-200 dark:border-slate-700 p-2 z-50 space-y-1">
+              <a href="/au/immiaccount-visa-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-amber-500/10 text-amber-600">🦘</span>
+                <div>
+                  <div class="group-hover/item:text-primary">ImmiAccount Visa Photo</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">600×750 px | 50 KB – 5 MB</div>
+                </div>
+              </a>
+              <a href="/au/australian-passport-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-blue-500/10 text-blue-600">🛂</span>
+                <div>
+                  <div class="group-hover/item:text-primary">Australian Passport Photo</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">35×45 mm | 600×750 px</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Workspace preloaded with ImmiAccount Preset -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="au-immi" />
+      </section>
+
+      <!-- 2 Dedicated Australia Tool Cards Grid -->
+      <section class="space-y-4">
+        <div class="border-b border-border/80 pb-3">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>🛠️</span>
+            <span>Dedicated Australian Photo Tools</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Select a specialized tool tailored with precise Home Affairs and Passport Office aspect ratios, pixel targets, and KB limits.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Tool 1: ImmiAccount Visa -->
+          <a
+            href="/au/immiaccount-visa-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold">
+                🦘
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                ImmiAccount Visa Photo Resizer
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Crop &amp; format digital photo for Australian ImmiAccount visas (Subclass 500 Student, 189/190 Skilled, 600 Tourist, 482/485 Work) to 600×750 px (35×45 mm ratio), 50 KB–5 MB.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Use ImmiAccount Tool</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 2: Australian Passport -->
+          <a
+            href="/au/australian-passport-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl font-bold">
+                🛂
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                Australian Passport Photo Resizer
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Format passport photo to 35×45 mm (600×750 px), head height 32-36 mm, plain light gray/white background for passports.gov.au.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Use Passport Tool</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 800–1200+ Word Editorial SEO Guide -->
+      <article class="prose dark:prose-invert max-w-none space-y-6 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+          Complete Technical Guide to Australian ImmiAccount &amp; Passport Digital Photo Specifications (2026 Edition)
+        </h2>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Lodging online visa applications via the <strong>Department of Home Affairs (ImmiAccount)</strong> or applying for an Australian passport through the <strong>Australian Passport Office (DFAT)</strong> requires exact biometric formatting. Whether you are applying for an <em>Australian Student Visa (Subclass 500)</em>, <em>Skilled Independent / Nominated Visa (Subclass 189 &amp; 190)</em>, <em>Temporary Graduate Visa (Subclass 485)</em>, <em>Visitor Visa (Subclass 600)</em>, or renewing your Australian Passport, incorrect photo dimensions or file sizes will cause instant portal validation errors.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose my-6">
+          <div class="p-4 rounded-xl border border-amber-500/30 bg-amber-500/5 space-y-1">
+            <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+              <span>🦘</span> <span>ImmiAccount Visa Applications</span>
+            </h4>
+            <ul class="text-xs text-muted-foreground space-y-1">
+              <li>• <strong>Pixel Dimensions:</strong> Min 600 × 750 pixels</li>
+              <li>• <strong>Aspect Ratio:</strong> 35 × 45 mm (4:5 vertical ratio)</li>
+              <li>• <strong>File Size:</strong> 50 KB to 5 MB JPEG</li>
+              <li>• <strong>Background:</strong> Plain light gray or off-white</li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl border border-blue-500/30 bg-blue-500/5 space-y-1">
+            <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+              <span>🛂</span> <span>Australian Passport Office</span>
+            </h4>
+            <ul class="text-xs text-muted-foreground space-y-1">
+              <li>• <strong>Physical Dimensions:</strong> 35 mm wide × 45 mm high</li>
+              <li>• <strong>Digital Resolution:</strong> 600 × 750 px (300 DPI)</li>
+              <li>• <strong>Head Size:</strong> 32 mm to 36 mm chin-to-crown</li>
+              <li>• <strong>File Size:</strong> 50 KB to 5 MB JPEG</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-xl font-bold text-foreground">
+          1. ImmiAccount Visa Digital Photo Standards (Department of Home Affairs)
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          When attaching identity documents to an online visa application inside ImmiAccount (online.homeaffairs.gov.au), your photograph must comply with strict Department of Home Affairs guidelines:
+        </p>
+        <ul class="text-sm text-muted-foreground space-y-1.5">
+          <li><strong>Pixel Dimensions &amp; Orientation:</strong> Minimum 600 pixels wide by 750 pixels tall, formatted in portrait orientation (4:5 aspect ratio representing 35mm x 45mm).</li>
+          <li><strong>File Size Range:</strong> File size must measure strictly between <strong>50 KB</strong> (minimum) and <strong>5 MB</strong> (maximum) in JPEG format.</li>
+          <li><strong>Visa Categories Covered:</strong> Applies to Student Visas (Subclass 500), General Skilled Migration (Subclass 189, 190, 491), Employer Sponsored (Subclass 482, 186), Temporary Graduate (Subclass 485), and Tourist / Visitor (Subclass 600).</li>
+          <li><strong>Lighting &amp; Expression:</strong> Uniform lighting with no shadows on face or background. Neutral expression with mouth closed and eyes looking directly into the camera lens.</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-foreground">
+          2. Australian Passport Office Biometric Photo Specs (passports.gov.au)
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          The Australian Passport Office (APO), operated by the Department of Foreign Affairs and Trade (DFAT), enforces precise facial proportion measurements:
+        </p>
+        <ul class="text-sm text-muted-foreground space-y-1.5">
+          <li><strong>Physical Dimensions:</strong> 35 mm wide by 45 mm high.</li>
+          <li><strong>Head Size Ratio:</strong> The distance from the bottom of the chin to the top of the head (crown) must be between <strong>32 mm</strong> (minimum) and <strong>36 mm</strong> (maximum).</li>
+          <li><strong>Glasses Policy:</strong> Australian Passport guidelines strictly forbid eyeglasses in passport photos unless an official medical certificate signed by a registered medical practitioner is submitted.</li>
+          <li><strong>Background Color:</strong> Plain, uniform light gray or white background with clear contrast against hair and clothing.</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-foreground">
+          3. How SignResize Guarantees In-Browser Privacy
+        </h3>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          SignResize processes all image cropping, aspect ratio scaling, and JPEG compression 100% locally in your web browser memory. No photographs or personal identity documents are uploaded to cloud servers or stored externally, ensuring full data protection for international visa and passport applicants.
+        </p>
+      </article>
+
+      <!-- Connected FAQs Section -->
+      <FaqSection faqs={auFaqs} title="Frequently Asked Questions (Australian ImmiAccount &amp; Passport Specs)" />
+    </main>
+
+    <Footer />
+  </body>
+</html>

@@ -67,7 +67,7 @@ export default defineConfig({
         if (url === 'https://signresize.in/' || url.includes('/photo-resizer') || url.includes('/document-resizer') || url.includes('/compress-image-to-kb') || url.includes('/signature-generator') || url.includes('/government-jobs') || url.includes('/resize-signature-to-10kb-20kb') || url.includes('/make-signature-background-white')) {
           item.priority = 1.0;
           item.changefreq = 'daily';
-        } else if (url.includes('-signature-resize') || url.includes('-photo-resize')) {
+        } else if (url.includes('-signature-resize') || url.includes('-photo-resize') || url.includes('-photo-resizer') || url.match(/https:\/\/signresize\.in\/[a-z]{2}\/$/)) {
           item.priority = 0.9;
           item.changefreq = 'daily';
         } else if (url.includes('/blog/')) {
