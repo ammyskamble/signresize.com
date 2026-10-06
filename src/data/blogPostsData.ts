@@ -14,10 +14,20 @@ export interface FAQItem {
 export interface BlogPost {
   slug: string;
   title: string;
+  title_hi?: string;
+  title_mr?: string;
   metaTitle?: string;
+  metaTitle_hi?: string;
+  metaTitle_mr?: string;
   metaDescription?: string;
+  metaDescription_hi?: string;
+  metaDescription_mr?: string;
   excerpt: string;
+  excerpt_hi?: string;
+  excerpt_mr?: string;
   category: 'Exam Alerts' | 'Study Prep' | 'Guidelines & Tips' | 'Career Opportunity';
+  category_hi?: string;
+  category_mr?: string;
   country?: 'PK' | 'PH' | 'BD' | 'NP' | 'IN';
   publishDate: string;
   publishTime?: string;
@@ -25,13 +35,41 @@ export interface BlogPost {
   deployedAt?: string;
   author: string;
   authorRole: string;
+  authorRole_hi?: string;
+  authorRole_mr?: string;
   readTime: string;
+  readTime_hi?: string;
+  readTime_mr?: string;
   tags: string[];
   featured?: boolean;
   relatedExamPreset?: string;
   quickFacts?: QuickFact[];
+  quickFacts_hi?: QuickFact[];
+  quickFacts_mr?: QuickFact[];
   faqs?: FAQItem[];
+  faqs_hi?: FAQItem[];
+  faqs_mr?: FAQItem[];
   contentHtml: string;
+  contentHtml_hi?: string;
+  contentHtml_mr?: string;
+}
+
+export function getBlogPostTitle(post: BlogPost, lang?: string): string {
+  if (lang === 'hi' && post.title_hi) return post.title_hi;
+  if (lang === 'mr' && post.title_mr) return post.title_mr;
+  return post.title;
+}
+
+export function getBlogPostExcerpt(post: BlogPost, lang?: string): string {
+  if (lang === 'hi' && post.excerpt_hi) return post.excerpt_hi;
+  if (lang === 'mr' && post.excerpt_mr) return post.excerpt_mr;
+  return post.excerpt;
+}
+
+export function getBlogPostContent(post: BlogPost, lang?: string): string {
+  if (lang === 'hi' && post.contentHtml_hi) return post.contentHtml_hi;
+  if (lang === 'mr' && post.contentHtml_mr) return post.contentHtml_mr;
+  return post.contentHtml;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -203,7 +241,7 @@ export const BLOG_POSTS: BlogPost[] = [
   </p>
 
   <p>
-    This diagnostic master guide provides an <strong>actionable troubleshooting framework</strong> covering PPSC online application steps, JazzCash/EasyPaisa fee payment, roll no slip downloads, past paper preparation, and instant image formatting using our free client-side utility: the <a href="/pk/" class="text-primary font-semibold underline">SignResize Pakistan PPSC &amp; FPSC Photo Resizer</a>.
+    This diagnostic master guide provides an <strong>actionable troubleshooting framework</strong> covering PPSC online application steps, JazzCash/EasyPaisa fee payment, roll no slip downloads, past paper preparation, and instant image formatting using our free client-side utility: the <a href="/ppsc-signature-resize/" class="text-primary font-semibold underline">SignResize Pakistan PPSC &amp; FPSC Photo Resizer</a>.
   </p>
 </section>
 
@@ -333,7 +371,7 @@ export const BLOG_POSTS: BlogPost[] = [
       </h2>
     </div>
     <div class="flex items-center gap-2">
-      <a href="/pk/" class="px-3 py-1.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition">
+      <a href="/ppsc-signature-resize/" class="px-3 py-1.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition">
         PPSC 25KB Tool
       </a>
     </div>
@@ -396,7 +434,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <span class="text-cyan-600 dark:text-cyan-400">● HOW:</span> Step-by-Step Technical Fix
         </strong>
         <p class="text-muted-foreground">
-          1. Upload your photo to <a href="/pk/" class="text-primary underline">SignResize Pakistan PPSC Tool</a>.<br/>
+          1. Upload your photo to <a href="/ppsc-signature-resize/" class="text-primary underline">SignResize Pakistan PPSC Tool</a>.<br/>
           2. Select <strong>PPSC Passport (200x230 px, ≤25 KB)</strong> or <strong>Signature (≤25 KB)</strong>.<br/>
           3. Download the clamped JPG file (~18 KB) and upload cleanly to ppsc.gop.pk.
         </p>
@@ -516,7 +554,7 @@ export const BLOG_POSTS: BlogPost[] = [
   <h4 class="text-base sm:text-lg font-extrabold text-foreground">Resize Photo &amp; Signature for PPSC Pakistan Instantly</h4>
   <p class="text-xs sm:text-sm text-muted-foreground">Crop your photo to 200x230 px and compress photo, signature, and CNIC copy strictly under 25 KB with 100% privacy and zero quality loss.</p>
   <div class="flex flex-wrap gap-3 pt-1">
-    <a href="/pk/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
+    <a href="/ppsc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
       Open PPSC Pakistan Resizer Tool &rarr;
     </a>
     <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted transition">
@@ -686,7 +724,7 @@ export const BLOG_POSTS: BlogPost[] = [
   </p>
 
   <p>
-    This diagnostic master guide provides an <strong>actionable troubleshooting framework</strong> covering exam eligibility, career recruitment paths, regional office contacts, and instant image formatting using our free client-side utility: the <a href="/ph/" class="text-primary font-semibold underline">SignResize Philippines CSC &amp; PRC Photo Resizer</a>.
+    This diagnostic master guide provides an <strong>actionable troubleshooting framework</strong> covering exam eligibility, career recruitment paths, regional office contacts, and instant image formatting using our free client-side utility: the <a href="/prc-photo-signature-resize-philippines/" class="text-primary font-semibold underline">SignResize Philippines CSC &amp; PRC Photo Resizer</a>.
   </p>
 </section>
 
@@ -879,7 +917,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <span class="text-cyan-600 dark:text-cyan-400">● HOW:</span> Step-by-Step Technical Fix
         </strong>
         <p class="text-muted-foreground">
-          1. Upload your original photo to <a href="/ph/" class="text-primary underline">SignResize Philippines Resizer</a>.<br/>
+          1. Upload your original photo to <a href="/prc-photo-signature-resize-philippines/" class="text-primary underline">SignResize Philippines Resizer</a>.<br/>
           2. Select <strong>CSC Passport (1.5x2 in, 450x600 px)</strong> or <strong>PRC 2x2 in (600x600 px)</strong>.<br/>
           3. Download the baseline sRGB compressed JPEG file (clamped under 100 KB) and upload seamlessly.
         </p>
@@ -1041,7 +1079,7 @@ export const BLOG_POSTS: BlogPost[] = [
   <h4 class="text-base sm:text-lg font-extrabold text-foreground">Resize Photo &amp; Signature for CSC Philippines Instantly</h4>
   <p class="text-xs sm:text-sm text-muted-foreground">Crop your 1.5x2 inch passport photo or 2x2 PRC photo and compress signature under 50 KB with 100% privacy and zero quality loss.</p>
   <div class="flex flex-wrap gap-3 pt-1">
-    <a href="/ph/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
+    <a href="/prc-photo-signature-resize-philippines/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
       Open Philippines Resizer Tool &rarr;
     </a>
     <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted transition">
@@ -7142,9 +7180,13 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
   {
     slug: "maharashtra-police-bharti-2026-top-10-faq-guide",
     title: "Maharashtra Police Bharti 2026: Ground Marks, 1600m Running Time, Syllabus, Online Form & Hall Ticket",
+    title_hi: "महाराष्ट्र पुलिस भर्ती 2026: मैदानी परीक्षा अंक, 1600m दौड़ समय तालिका, पाठ्यक्रम एवं हॉल टिकट",
+    title_mr: "महाराष्ट्र पोलीस भरती २०२६: मैदानी चाचणी गुण, १६०० मीटर रनिंग टाइम तक्ता, अभ्यासक्रम व प्रवेशपत्र",
     metaTitle: "Maharashtra Police Bharti 2026: Ground Marks, 1600m Time, Syllabus & Dates",
     metaDescription: "Maharashtra Police Bharti 2025-2026 guide: 1600m running time vs marks table, 50-mark physical ground criteria, written exam syllabus, age limit & hall ticket link.",
     excerpt: "Authoritative candidate handbook for Maharashtra Police Bharti 2025 & 2026: 17,400+ constable & driver vacancies, 1600m running time chart, 50 ground marks, written syllabus, and online form portal rules.",
+    excerpt_hi: "महाराष्ट्र पुलिस भर्ती 2025-2026 संपूर्ण गाइड: 17,400+ कांस्टेबल एवं चालक पद, 50 अंकों का फिजिकल टेस्ट, 1600m दौड़ समय तालिका, 100 अंकों की लिखित परीक्षा एवं हॉल टिकट नियम।",
+    excerpt_mr: "महाराष्ट्र पोलीस भरती २०२५-२०२६ संपूर्ण मार्गदर्शक: १७,४००+ पोलीस शिपाई व चालक पदे, ५० गुणांची मैदानी चाचणी, १६००m धावणे वेळ तक्ता, १०० गुणांची लेखी परीक्षा व ऑनलाइन अर्ज नियम।",
     category: "Career Opportunity",
     publishDate: "Sept 20, 2026",
     publishTime: "09:00 AM IST",
@@ -7213,403 +7255,1177 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
         }
     ],
     contentHtml: `
+<!-- Sticky Quick Problem Finder (Anchor Jump Bar) -->
+<div class="my-6 p-4 sm:p-5 rounded-2xl bg-card border-2 border-primary/30 shadow-md space-y-3 sticky top-4 z-20 backdrop-blur-md bg-card/95">
+  <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-2.5">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+      <h3 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground">🚨 Instant Diagnostic Failure Finder</h3>
+    </div>
+    <span class="text-[10px] font-mono text-muted-foreground font-semibold">Jump directly to your specific failure state</span>
+  </div>
+
+  <!-- Jump Action Chips -->
+  <div class="flex flex-wrap gap-2 text-xs">
+    <a href="#mp-failure-upload" class="px-3 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📸</span>
+      <span>Photo (160×200) / Signature (256×64) 5-20KB Error</span>
+    </a>
+    <a href="#mp-failure-ground" class="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-200 border border-amber-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>🏃</span>
+      <span>Ground Marks &amp; 1600m / 800m Time Chart</span>
+    </a>
+    <a href="#mp-failure-shotput" class="px-3 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-800 dark:text-indigo-200 border border-indigo-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>⚽</span>
+      <span>Shot Put Distance Marks</span>
+    </a>
+    <a href="#mp-failure-written" class="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-800 dark:text-rose-200 border border-rose-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📚</span>
+      <span>100-Mark Written Exam &amp; Marathi Syllabus</span>
+    </a>
+    <a href="#mp-failure-hallticket" class="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>🎟️</span>
+      <span>Hall Ticket &amp; MahaIT Online Portal</span>
+    </a>
+  </div>
+</div>
+
 <section id="overview" class="space-y-4">
-        <h2>Maharashtra Police Bharti 2026 &amp; 2025: Recruitment Overview</h2>
-        <p>Looking for the official <strong>Maharashtra Police Bharti 2026</strong> notification, <strong>physical ground marks</strong>, <strong>1600 meter running time</strong> chart, and exact <strong>online form</strong> dates? With over <strong>17,471 vacancies</strong> across District Police Constables (Sipahi), State Reserve Police Force (SRPF), Police Drivers, and Bandsman, this authoritative handbook details every aspect of the selection lifecycle on <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">policerecruitment.mahait.org</a>.</p>
-        
-        <p>Whether you are tracking residual updates from <strong>Maharashtra Police Bharti 2025</strong> or preparing for the upcoming <strong>Maharashtra Police Bharti 2026</strong> cycle, having exact ground benchmarks and application specifications is vital to secure your rank. For Pan-India vacancies, check our <a href="/government-jobs/" class="text-primary underline font-semibold">Live Government Jobs Directory</a>.</p>
+  <div class="p-4 sm:p-5 rounded-2xl bg-primary/10 border border-primary/20 text-foreground">
+    <p class="text-sm sm:text-base font-semibold leading-relaxed">
+      <strong>Complete Maharashtra Police Bharti 2026 Master Overview:</strong> The Maharashtra State Police Department (MahaPolice), recruiting across <strong>17,471+ vacancies</strong> for District Police Constables, State Reserve Police Force (SRPF), Police Drivers, and Bandsman via <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">policerecruitment.mahait.org</a> and <a href="https://www.mahapolice.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">mahapolice.gov.in</a>, requires meeting strict multi-stage benchmarks: <strong>50-mark physical ground test (PET/PST)</strong>, <strong>100-mark OMR written examination</strong>, and <strong>160 × 200 px photo (5 KB – 20 KB)</strong> &amp; <strong>256 × 64 px signature (5 KB – 20 KB)</strong> online upload compliance.
+    </p>
+  </div>
 
-        <div class="my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-2">
-          <h4 class="font-bold text-primary text-base flex items-center gap-2">
-            <span>⚡</span> MahaPolice Cadre Vacancies &amp; Selection Flow
-          </h4>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-foreground/90 pt-1">
-            <li><strong>Police Constable (Sipahi):</strong> Pay Matrix S-7 (₹21,700–₹69,100)</li>
-            <li><strong>SRPF Armed Police:</strong> State Reserve Police Force Battalions across Maharashtra</li>
-            <li><strong>Police Constable Driver:</strong> Requires valid LMV / TR driving license</li>
-            <li><strong>Selection Order:</strong> Stage 1 Physical Test (50 Marks) &rarr; Stage 2 Written Test (100 Marks)</li>
-          </ul>
-        </div>
-      </section>
+  <p>
+    Every recruitment cycle, over 1.5 million aspirants from Mumbai, Pune, Nagpur, Nashik, Chhatrapati Sambhajinagar, Thane, Solapur, Kolhapur, and across Maharashtra register through the official MahaIT recruitment portal. However, thousands encounter form rejection or missing hall tickets due to file size truncation errors, uploading mobile snapshots larger than 20 KB, or using incorrect signature dimensions.
+  </p>
 
-      <section id="ground-marks" class="space-y-4 mt-8">
-        <h2>Maharashtra Police Bharti Ground Marks (50 Marks) Breakdown</h2>
-        <p>In Maharashtra Police Bharti, candidates must first clear the Physical Efficiency Test (PET / Ground Test) carrying <strong>50 marks</strong>. Candidates must secure at least <strong>50% (25 marks)</strong> to qualify for the 100-mark written exam. Candidates are shortlisted for the written exam at a strict <strong>1:10 ratio</strong> based on ground merit.</p>
+  <p>
+    This diagnostic master handbook provides an <strong>actionable 5W1H troubleshooting framework</strong> covering 1600m/800m running charts, Shot Put scoring, Marathi syllabus breakdowns, hall ticket download steps, and instant image formatting using our free client-side utility: the <a href="/maharashtra-police-signature-resize/" class="text-primary font-semibold underline">SignResize Maharashtra Police Resizer Tool</a>.
+  </p>
+</section>
 
-        <div class="my-6 overflow-x-auto">
-          <table class="w-full text-xs sm:text-sm text-left border border-border">
-            <thead class="bg-muted text-foreground font-semibold">
-              <tr>
-                <th class="p-3 border-b">Physical Event</th>
-                <th class="p-3 border-b">Male Candidates Standard</th>
-                <th class="p-3 border-b">Female Candidates Standard</th>
-                <th class="p-3 border-b">Maximum Marks</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border">
-              <tr>
-                <td class="p-3 font-semibold text-primary">Distance Endurance Run</td>
-                <td class="p-3 font-mono">1,600 Meters (Target: &le; 5 min 10 sec)</td>
-                <td class="p-3 font-mono">800 Meters (Target: &le; 2 min 50 sec)</td>
-                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 Marks</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold text-primary">Sprint Run</td>
-                <td class="p-3 font-mono">100 Meters (&le; 11.50 sec for full marks)</td>
-                <td class="p-3 font-mono">100 Meters (&le; 14.00 sec for full marks)</td>
-                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">15 Marks</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold text-primary">Shot Put (गोळा फेक)</td>
-                <td class="p-3 font-mono">7.260 kg Ball (Throw 8.50+ meters)</td>
-                <td class="p-3 font-mono">4.000 kg Ball (Throw 6.00+ meters)</td>
-                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">15 Marks</td>
-              </tr>
-              <tr class="bg-muted/40 font-bold">
-                <td class="p-3">Total Ground Score</td>
-                <td class="p-3" colspan="2">Mandatory Minimum 25 Marks to Qualify for Written Test</td>
-                <td class="p-3 font-mono text-primary text-base">50 Marks</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+<!-- Authoritative Master Technical Specifications -->
+<section id="mp-master-specs" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📐 1.</span> Master MahaPolice Technical Benchmark Specifications
+  </h2>
 
-      <section id="running-time-chart" class="space-y-4 mt-8">
-        <h2>Maharashtra Police Bharti 1600 Meter Running Time &amp; Marks Chart (Male)</h2>
-        <p>The 1600m event is the decisive scoring factor in the physical test. Review the official time-to-marks scale to plan your daily ground training drills:</p>
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Regulatory Parameter</th>
+          <th class="px-4 py-3">Official Maharashtra Police Standard</th>
+          <th class="px-4 py-3">Statutory Rule / Portal Boundary</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Passport Photo Dimensions</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">160 × 200 px (or 160 × 212 px)</td>
+          <td class="px-4 py-3 text-muted-foreground">5 KB to 20 KB (or 50 KB max), JPG format, light background</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Signature Scan Dimensions</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">256 × 64 px (or 200 × 80 px)</td>
+          <td class="px-4 py-3 text-muted-foreground">5 KB to 20 KB, black ballpoint ink on unruled white sheet</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Physical Test Minimum Benchmark</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">50% Marks (25 / 50 Marks)</td>
+          <td class="px-4 py-3 text-muted-foreground">Mandatory minimum to qualify for 100-mark written test (1:10 ratio)</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Written Examination Format</td>
+          <td class="px-4 py-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">100 MCQs • 100 Marks • 90 Mins</td>
+          <td class="px-4 py-3 text-muted-foreground">Marathi, Maths, Reasoning &amp; GK — NO negative marking</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Official Application Portal</td>
+          <td class="px-4 py-3 font-mono text-primary">policerecruitment2024.mahait.org / mahapolice.gov.in</td>
+          <td class="px-4 py-3 text-muted-foreground">Official State Government Recruitment Portal</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-        <div class="my-6 overflow-x-auto">
-          <table class="w-full text-xs sm:text-sm text-left border border-border">
-            <thead class="bg-muted text-foreground font-semibold">
-              <tr>
-                <th class="p-3 border-b">1600m Running Time (Male)</th>
-                <th class="p-3 border-b">Marks Awarded</th>
-                <th class="p-3 border-b">Performance Level</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border">
-              <tr class="bg-emerald-500/10 font-semibold">
-                <td class="p-3 font-mono">5 Minutes 10 Seconds or Less</td>
-                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 Marks (Full Marks)</td>
-                <td class="p-3 text-emerald-700 dark:text-emerald-300">Outstanding</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono">5 min 11 sec to 5 min 30 sec</td>
-                <td class="p-3 font-mono font-bold">18 Marks</td>
-                <td class="p-3 text-foreground/80">Excellent</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono">5 min 31 sec to 5 min 50 sec</td>
-                <td class="p-3 font-mono font-bold">15 Marks</td>
-                <td class="p-3 text-foreground/80">Good</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono">5 min 51 sec to 6 min 10 sec</td>
-                <td class="p-3 font-mono font-bold">12 Marks</td>
-                <td class="p-3 text-foreground/80">Average</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono">6 min 11 sec to 6 min 30 sec</td>
-                <td class="p-3 font-mono font-bold">10 Marks</td>
-                <td class="p-3 text-amber-600 dark:text-amber-400">Borderline Pass</td>
-              </tr>
-              <tr class="bg-destructive/10 text-destructive">
-                <td class="p-3 font-mono">More than 6 Minutes 30 Seconds</td>
-                <td class="p-3 font-mono font-bold">0 Marks</td>
-                <td class="p-3">Disqualified in Run</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<!-- FAILURE STATE 1: Upload Errors -->
+<section id="mp-failure-upload" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="flex flex-wrap items-center justify-between gap-2">
+    <div class="space-y-1">
+      <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20">
+        Stage 1 Failure State
+      </span>
+      <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+        📸 Failure State 1: MahaIT 160×200 Photo &amp; 256×64 Signature 5-20KB Upload Rejections
+      </h2>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="/maharashtra-police-signature-resize/" class="px-3 py-1.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition">
+        Maha Police Resizer Tool
+      </a>
+    </div>
+  </div>
 
-        <h3>Female Candidates: 800 Meter Running Time Chart</h3>
-        <div class="my-4 overflow-x-auto">
-          <table class="w-full text-xs sm:text-sm text-left border border-border">
-            <thead class="bg-muted text-foreground font-semibold">
-              <tr>
-                <th class="p-3 border-b">800m Running Time (Female)</th>
-                <th class="p-3 border-b">Marks Awarded</th>
-                <th class="p-3 border-b">Remarks</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border">
-              <tr class="bg-emerald-500/10 font-semibold">
-                <td class="p-3 font-mono">2 Minutes 50 Seconds or Less</td>
-                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 Marks</td>
-                <td class="p-3">Full Marks</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono">2 min 51 sec to 3 min 00 sec</td>
-                <td class="p-3 font-mono font-bold">18 Marks</td>
-                <td class="p-3">High Merit</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono">3 min 01 sec to 3 min 10 sec</td>
-                <td class="p-3 font-mono font-bold">15 Marks</td>
-                <td class="p-3">Standard Merit</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono">3 min 11 sec to 3 min 20 sec</td>
-                <td class="p-3 font-mono font-bold">12 Marks</td>
-                <td class="p-3">Passing</td>
-              </tr>
-              <tr class="bg-destructive/10 text-destructive">
-                <td class="p-3 font-mono">More than 4 Minutes 00 Seconds</td>
-                <td class="p-3 font-mono font-bold">0 Marks</td>
-                <td class="p-3">Disqualified</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    During the online application upload on <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">policerecruitment.mahait.org</a>, server decoders check binary streams. When a photo exceeds 20.0 KB or signature pixel width differs from 256 px, the portal displays a hard upload exception.
+  </p>
 
-      <section id="age-limit" class="space-y-4 mt-8">
-        <h2>Maharashtra Police Bharti Age Limit &amp; Category Relaxation</h2>
-        <p>Age calculations are evaluated as per the cut-off date specified in the official notification. Candidates must ensure they meet the minimum 18 years threshold:</p>
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-primary">● WHAT:</span> Exact Portal Error String
+        </strong>
+        <p class="text-muted-foreground font-mono text-xs">
+          "Image file size must be between 5 KB and 20 KB" OR "Width and Height of Photo must be 160x200 pixels".
+        </p>
+      </div>
 
-        <div class="my-6 overflow-x-auto">
-          <table class="w-full text-xs sm:text-sm text-left border border-border">
-            <thead class="bg-muted text-foreground font-semibold">
-              <tr>
-                <th class="p-3 border-b">Candidate Category</th>
-                <th class="p-3 border-b">Minimum Age</th>
-                <th class="p-3 border-b">Maximum Age (Constable)</th>
-                <th class="p-3 border-b">Age Relaxation</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border">
-              <tr>
-                <td class="p-3 font-semibold">Open / General (Unreserved)</td>
-                <td class="p-3 font-mono">18 Years</td>
-                <td class="p-3 font-mono">28 Years</td>
-                <td class="p-3 font-mono">No Relaxation</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold">OBC, SC, ST, VJNT, SBC, EWS</td>
-                <td class="p-3 font-mono">18 Years</td>
-                <td class="p-3 font-mono">33 Years</td>
-                <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400">+5 Years</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold">Home Guards (with 3+ years service)</td>
-                <td class="p-3 font-mono">18 Years</td>
-                <td class="p-3 font-mono">33 Years</td>
-                <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400">+5 Years</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold">Project Affected / Earthquake Affected</td>
-                <td class="p-3 font-mono">18 Years</td>
-                <td class="p-3 font-mono">45 Years</td>
-                <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400">Up to 45 Years</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold">Ex-Servicemen</td>
-                <td class="p-3 font-mono">18 Years</td>
-                <td class="p-3 font-mono">Defense Service + 3 Years</td>
-                <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400">Service + 3 Yrs</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-amber-600 dark:text-amber-400">● WHY:</span> Technical Root Cause
+        </strong>
+        <p class="text-muted-foreground">
+          Mobile phone cameras capture images ranging from 2 MB to 6 MB. Simply renaming PNG to .jpg does not compress underlying bytes. Files over 20 KB trigger server database overflow rejection.
+        </p>
+      </div>
 
-      <section id="syllabus-papers" class="space-y-4 mt-8">
-        <h2>Maharashtra Police Bharti Syllabus &amp; 100-Mark Written Exam Pattern</h2>
-        <p>The written examination is administered on OMR sheets in Marathi language. It features <strong>100 questions</strong> for <strong>100 marks</strong> with a duration of <strong>90 minutes</strong>. There is <strong>no negative marking</strong>.</p>
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-cyan-600 dark:text-cyan-400">● HOW:</span> Step-by-Step Technical Fix
+        </strong>
+        <p class="text-muted-foreground">
+          1. Upload your photo to <a href="/maharashtra-police-signature-resize/" class="text-primary underline font-bold">SignResize Maha Police Resizer</a>.<br/>
+          2. Auto-crop photo to <strong>160×200 px (5–20 KB)</strong> and signature to <strong>256×64 px (5–20 KB)</strong>.<br/>
+          3. Download clean JPG files and upload seamlessly to the portal.
+        </p>
+      </div>
 
-        <div class="my-6 overflow-x-auto">
-          <table class="w-full text-xs sm:text-sm text-left border border-border">
-            <thead class="bg-muted text-foreground font-semibold">
-              <tr>
-                <th class="p-3 border-b">Subject Name (विषय)</th>
-                <th class="p-3 border-b">Questions</th>
-                <th class="p-3 border-b">Marks</th>
-                <th class="p-3 border-b">Core High-Yield Topics</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border">
-              <tr>
-                <td class="p-3 font-semibold text-primary">Marathi Grammar (मराठी व्याकरण)</td>
-                <td class="p-3 font-mono">25</td>
-                <td class="p-3 font-mono font-bold">25 Marks</td>
-                <td class="p-3 text-xs">संधी, समास, अलंकार, म्हणी, वाक्यप्रचार, प्रयोग, शब्दसिद्धी</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold text-primary">Mathematics (अंकगणित)</td>
-                <td class="p-3 font-mono">25</td>
-                <td class="p-3 font-mono font-bold">25 Marks</td>
-                <td class="p-3 text-xs">संख्याज्ञान, लसावि-मसावि, नफा-तोटा, शेकडेवारी, काळ-काम-वेग, सरासरी</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold text-primary">Reasoning (बुद्धिमत्ता चाचणी)</td>
-                <td class="p-3 font-mono">25</td>
-                <td class="p-3 font-mono font-bold">25 Marks</td>
-                <td class="p-3 text-xs">अक्षर मालिका, संख्या मालिका, वेन आकृत्या, दिशा, नातेसंबंध, घड्याळ व दिनदर्शिका</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold text-primary">General Knowledge &amp; Current Affairs</td>
-                <td class="p-3 font-mono">25</td>
-                <td class="p-3 font-mono font-bold">25 Marks</td>
-                <td class="p-3 text-xs">महाराष्ट्र भूगोल व इतिहास, राज्यघटना, पंचायत राज, क्रीडा घडामोडी, विज्ञान</td>
-              </tr>
-              <tr class="bg-muted/40 font-bold">
-                <td class="p-3">Total Written Exam</td>
-                <td class="p-3 font-mono">100</td>
-                <td class="p-3 font-mono text-primary text-base">100 Marks</td>
-                <td class="p-3">Time: 90 Minutes | No Negative Marking</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-emerald-600 dark:text-emerald-400">● WHO:</span> Affected Applicants
+        </strong>
+        <p class="text-muted-foreground">
+          All Police Constable, SRPF, Driver, Bandsman, and Jail Police applicants applying on MahaIT portal.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <h3>Maharashtra Police Bharti Question Paper &amp; PDF Download Strategy</h3>
-        <p>Aspirants should download past 5 years' solved <strong>Maharashtra Police Bharti question paper PDFs</strong>. Practicing authentic past papers allows you to:</p>
-        <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
-          <li>Familiarize with frequent Marathi grammar vocabulary (समानार्थी/विरुद्धार्थी शब्द).</li>
-          <li>Solve 25 maths questions in under 22 minutes to reserve time for reasoning drills.</li>
-          <li>Review Maharashtra-specific GK questions (Sahyadri peaks, rivers, districts, and historical forts).</li>
-        </ul>
-      </section>
+<!-- FAILURE STATE 2: Physical Test Ground Marks -->
+<section id="mp-failure-ground" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
+      Stage 2 Physical Benchmark
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      🏃 Physical Test (PET) 50 Ground Marks &amp; Running Time Chart (मैदानी चाचणी गुण)
+    </h2>
+  </div>
 
-      <section id="dates-hall-ticket" class="space-y-4 mt-8">
-        <h2>Maharashtra Police Bharti Online Form Date &amp; Hall Ticket 2026 Schedule</h2>
-        <p>Keep track of the official dates for application registration, ground hall tickets, and examination timelines:</p>
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    Candidates must secure at least <strong>50% (25 out of 50 marks)</strong> in the physical test to qualify for the 100-mark written exam. Review the complete time-to-marks scales below:
+  </p>
 
-        <div class="my-6 overflow-x-auto">
-          <table class="w-full text-xs sm:text-sm text-left border border-border">
-            <thead class="bg-muted text-foreground font-semibold">
-              <tr>
-                <th class="p-3 border-b">Recruitment Stage</th>
-                <th class="p-3 border-b">Bharti 2025 Timeline</th>
-                <th class="p-3 border-b">Bharti 2026 Estimated Schedule</th>
-                <th class="p-3 border-b">Status</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border">
-              <tr>
-                <td class="p-3 font-semibold">Official Notification Release</td>
-                <td class="p-3 font-mono">March 2024 / 2025</td>
-                <td class="p-3 font-mono">October / November 2026</td>
-                <td class="p-3 text-primary font-semibold">Upcoming Cycle</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold">Online Form Start Date</td>
-                <td class="p-3 font-mono">Official Window</td>
-                <td class="p-3 font-mono">To be notified on MahaPolice</td>
-                <td class="p-3 text-muted-foreground">Portal Link Active Soon</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold">Physical Test Hall Ticket Download</td>
-                <td class="p-3 font-mono">Issued 7 days prior to trials</td>
-                <td class="p-3 font-mono">December 2026</td>
-                <td class="p-3 text-muted-foreground">Online Download</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold">Written Exam &amp; Hall Ticket 2026</td>
-                <td class="p-3 font-mono">Post-Ground Merit List</td>
-                <td class="p-3 font-mono">January 2027</td>
-                <td class="p-3 text-muted-foreground">District Level Centres</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <h3 class="font-bold text-foreground text-base">Male Candidates: 1600m Running Time &amp; Marks Scale (पुरुष धावणे तक्ता)</h3>
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">1600m Running Time (Male)</th>
+          <th class="px-4 py-3">Marks Awarded</th>
+          <th class="px-4 py-3">Performance Grade</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="bg-emerald-500/10 font-semibold">
+          <td class="px-4 py-3 font-mono">5 Minutes 10 Seconds or Less</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 Marks (Full Marks)</td>
+          <td class="px-4 py-3 text-emerald-700 dark:text-emerald-300">Outstanding</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-mono">5 min 11 sec to 5 min 30 sec</td>
+          <td class="px-4 py-3 font-mono font-bold">18 Marks</td>
+          <td class="px-4 py-3">Excellent</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-mono">5 min 31 sec to 5 min 50 sec</td>
+          <td class="px-4 py-3 font-mono font-bold">15 Marks</td>
+          <td class="px-4 py-3">Good</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-mono">5 min 51 sec to 6 min 10 sec</td>
+          <td class="px-4 py-3 font-mono font-bold">12 Marks</td>
+          <td class="px-4 py-3">Average</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-mono">6 min 11 sec to 6 min 30 sec</td>
+          <td class="px-4 py-3 font-mono font-bold text-amber-600 dark:text-amber-400">10 Marks</td>
+          <td class="px-4 py-3">Borderline Pass</td>
+        </tr>
+        <tr class="bg-rose-500/10 text-rose-700 dark:text-rose-300">
+          <td class="px-4 py-3 font-mono">More than 6 Minutes 30 Seconds</td>
+          <td class="px-4 py-3 font-mono font-bold">0 Marks</td>
+          <td class="px-4 py-3">Disqualified</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-        <h3>How to Download Maharashtra Police Bharti Hall Ticket 2026</h3>
-        <ol class="list-decimal pl-5 text-sm space-y-1 text-muted-foreground">
-          <li>Visit the official MahaPolice recruitment portal: <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">policerecruitment.mahait.org</a>.</li>
-          <li>Enter your registered <strong>Application ID</strong> and <strong>Password / Date of Birth</strong>.</li>
-          <li>Click on <strong>"Hall Ticket / Admit Card"</strong> link for Physical PET or Written Test.</li>
-          <li>Verify your ground venue, trial date, batch reporting time, and print 2 copies on clean A4 paper.</li>
-        </ol>
-      </section>
+  <h3 class="font-bold text-foreground text-base pt-3">Female Candidates: 800m Running Time &amp; Marks Scale (महिला धावणे तक्ता)</h3>
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">800m Running Time (Female)</th>
+          <th class="px-4 py-3">Marks Awarded</th>
+          <th class="px-4 py-3">Performance Grade</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="bg-emerald-500/10 font-semibold">
+          <td class="px-4 py-3 font-mono">2 Minutes 50 Seconds or Less</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 Marks (Full Marks)</td>
+          <td class="px-4 py-3 text-emerald-700 dark:text-emerald-300">Outstanding</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-mono">2 min 51 sec to 3 min 00 sec</td>
+          <td class="px-4 py-3 font-mono font-bold">18 Marks</td>
+          <td class="px-4 py-3">Excellent</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-mono">3 min 01 sec to 3 min 10 sec</td>
+          <td class="px-4 py-3 font-mono font-bold">15 Marks</td>
+          <td class="px-4 py-3">Good</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-mono">3 min 11 sec to 3 min 20 sec</td>
+          <td class="px-4 py-3 font-mono font-bold text-amber-600 dark:text-amber-400">12 Marks</td>
+          <td class="px-4 py-3">Passing</td>
+        </tr>
+        <tr class="bg-rose-500/10 text-rose-700 dark:text-rose-300">
+          <td class="px-4 py-3 font-mono">More than 4 Minutes 00 Seconds</td>
+          <td class="px-4 py-3 font-mono font-bold">0 Marks</td>
+          <td class="px-4 py-3">Disqualified</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-      <section id="document-specs" class="space-y-4 mt-8">
-        <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2">
-          <h4 class="font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2">
-            <span>⚠️</span> Why 15% of Maharashtra Police Online Forms are Rejected
-          </h4>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            The MahaPolice application portal automatically rejects files exceeding pixel borders or byte limits. Protect your candidature:
-          </p>
-          <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
-            <li><strong>Photo Bounds:</strong> Must be strictly <strong>160 &times; 212 pixels</strong> and <strong>5 KB to 20 KB</strong> in JPG format.</li>
-            <li><strong>Signature Bounds:</strong> Must be strictly <strong>256 &times; 64 pixels</strong> and <strong>5 KB to 20 KB</strong> in JPG format.</li>
-            <li><strong>Running Hand Only:</strong> Do not sign in ALL CAPITAL or BLOCK LETTERS.</li>
-            <li><strong>Spectacles &amp; Caps:</strong> Headgear or dark glasses invalidate passport biometric verification.</li>
-          </ul>
-        </div>
+<!-- FAILURE STATE 3: Shot Put Distance Scale -->
+<section id="mp-failure-shotput" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20">
+      Stage 3 Shot Put Metric
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      ⚽ Shot Put (गोळा फेक) Distance vs Marks Scale (Male 7.26kg / Female 4kg)
+    </h2>
+  </div>
 
-        <h2>Document Specifications: Photo &amp; Signature Format for Online Form</h2>
-        <div class="my-6 overflow-x-auto">
-          <table class="w-full text-xs sm:text-sm text-left border border-border">
-            <thead class="bg-muted text-foreground font-semibold">
-              <tr>
-                <th class="p-3 border-b">Document</th>
-                <th class="p-3 border-b">Pixel Dimensions</th>
-                <th class="p-3 border-b">Allowed File Size</th>
-                <th class="p-3 border-b">Format &amp; Quality</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border">
-              <tr>
-                <td class="p-3 font-semibold text-primary">Passport Photograph</td>
-                <td class="p-3 font-mono">160 &times; 212 px</td>
-                <td class="p-3 font-mono font-bold">5.0 KB to 20.0 KB</td>
-                <td class="p-3">Color JPG, plain light background, crisp focus</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold text-primary">Applicant Signature</td>
-                <td class="p-3 font-mono">256 &times; 64 px</td>
-                <td class="p-3 font-mono font-bold">5.0 KB to 20.0 KB</td>
-                <td class="p-3">Black ballpoint ink, unruled white sheet</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+    <!-- Male Shot Put -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>Male Shot Put (7.260 kg Ball)</span>
+        <span class="text-primary font-mono">Max 15 Marks</span>
+      </h3>
+      <ul class="space-y-2 text-muted-foreground font-mono">
+        <li class="flex justify-between font-bold text-emerald-600 dark:text-emerald-400"><span>8.50 Meters or More</span> <span>15 Marks</span></li>
+        <li class="flex justify-between"><span>7.90m to 8.49m</span> <span>12 Marks</span></li>
+        <li class="flex justify-between"><span>7.30m to 7.89m</span> <span>10 Marks</span></li>
+        <li class="flex justify-between"><span>6.70m to 7.29m</span> <span>8 Marks</span></li>
+        <li class="flex justify-between text-rose-600"><span>Below 6.00 Meters</span> <span>0 Marks</span></li>
+      </ul>
+    </div>
 
-        <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 space-y-3">
-          <h4 class="text-base font-bold text-foreground">Resize Maharashtra Police Documents in Seconds</h4>
-          <p class="text-sm text-muted-foreground">Format your photo and signature to exact MahaPolice pixel and KB boundaries with our specialized <a href="/maharashtra-police-signature-resize/" class="text-primary font-bold underline">Maharashtra Police Resizer</a> or <a href="/compress-image-to-kb/" class="text-primary font-bold underline">Compress Image to 5-20 KB</a>.</p>
-          <div class="pt-1 flex flex-wrap gap-3">
-            <a href="/maharashtra-police-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-95 transition shadow-xs flex items-center gap-1.5">
-              <span>Maha Police Resizer Tool</span>
-              <span>&rarr;</span>
-            </a>
-            <a href="/photo-resizer/" class="px-4 py-2.5 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:bg-muted transition">
-              Passport Photo Resizer
-            </a>
-          </div>
-        </div>
-      </section>
+    <!-- Female Shot Put -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>Female Shot Put (4.000 kg Ball)</span>
+        <span class="text-primary font-mono">Max 15 Marks</span>
+      </h3>
+      <ul class="space-y-2 text-muted-foreground font-mono">
+        <li class="flex justify-between font-bold text-emerald-600 dark:text-emerald-400"><span>6.00 Meters or More</span> <span>15 Marks</span></li>
+        <li class="flex justify-between"><span>5.50m to 5.99m</span> <span>12 Marks</span></li>
+        <li class="flex justify-between"><span>5.00m to 5.49m</span> <span>10 Marks</span></li>
+        <li class="flex justify-between"><span>4.50m to 4.99m</span> <span>8 Marks</span></li>
+        <li class="flex justify-between text-rose-600"><span>Below 4.00 Meters</span> <span>0 Marks</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-      <section id="strategy" class="space-y-4 mt-8">
-        <h2>Maharashtra Police Bharti Preparation Strategy &amp; Daily Routine</h2>
-        <p>Clearing Maharashtra Police Bharti requires balanced daily preparation between ground endurance and written academic practice:</p>
-        <ul class="list-disc pl-5 text-sm space-y-2 text-muted-foreground">
-          <li><strong>Morning Ground Session (05:30 AM – 07:30 AM):</strong> Interval sprint workouts for 100m, progressive endurance laps to bring 1600m under 5:10, and shot put release mechanics.</li>
-          <li><strong>Daytime Academic Session (10:00 AM – 01:00 PM):</strong> Daily chapter practice in Marathi Grammar (प्रयोग, समास) and speed mathematics calculations.</li>
-          <li><strong>Evening Speed Mock Test (04:00 PM – 06:00 PM):</strong> Timed 90-minute full-length mock paper simulating previous year question papers.</li>
-        </ul>
+<!-- FAILURE STATE 4: Written Exam & Syllabus -->
+<section id="mp-failure-written" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20">
+      Stage 4 Written Exam
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      📚 100-Mark Written Exam Syllabus Breakdown
+    </h2>
+  </div>
 
-        <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20">
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <h4 class="font-bold text-lg text-foreground">Prepare Your Maharashtra Police Bharti 2026 Documents in Seconds</h4>
-              <p class="text-sm text-muted-foreground mt-1">Resize your photo and signature to exact 5 KB – 20 KB portal specifications 100% free.</p>
-            </div>
-            <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-              <a href="/maharashtra-police-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
-                <span>⚡</span> Maha Police Resizer
-              </a>
-              <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
-                <span>📸</span> Resize Photo
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    `
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    The written examination is an OMR-based test comprising <strong>100 questions for 100 marks</strong> with a duration of <strong>90 minutes</strong>. There is <strong>NO negative marking</strong>.
+  </p>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Subject</th>
+          <th class="px-4 py-3">Questions</th>
+          <th class="px-4 py-3">Marks</th>
+          <th class="px-4 py-3">Core Topics Covered</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Marathi Grammar</td>
+          <td class="px-4 py-3 font-mono">25</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">25 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Sandhi, Samas, Prayog, Alankar, Synonyms &amp; Antonyms, Idioms &amp; Phrases</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Mathematics</td>
+          <td class="px-4 py-3 font-mono">25</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">25 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Number System, LCM &amp; HCF, Profit &amp; Loss, Percentage, Average, Time &amp; Work</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Reasoning / Intelligence Test</td>
+          <td class="px-4 py-3 font-mono">25</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">25 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Letter Series, Number Series, Venn Diagrams, Blood Relations, Clock &amp; Calendar</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">GK &amp; Current Affairs</td>
+          <td class="px-4 py-3 font-mono">25</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">25 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Maharashtra History &amp; Geography, Indian Constitution, Panchayat Raj, Current Events</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FAILURE STATE 5: Hall Ticket & Portal -->
+<section id="mp-failure-hallticket" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+      Stage 5 Admit Card
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      🎟️ Downloading Maharashtra Police Bharti Hall Ticket 2026
+    </h2>
+  </div>
+
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3 text-xs sm:text-sm">
+    <p><strong>Step 1:</strong> Visit the official portal: <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">policerecruitment.mahait.org</a> or <a href="https://www.mahapolice.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">mahapolice.gov.in</a>.</p>
+    <p><strong>Step 2:</strong> Enter your registered <strong>Application Number / User ID</strong> and <strong>Password / Date of Birth</strong>.</p>
+    <p><strong>Step 3:</strong> Click on <strong>Download Physical Test (PET) Hall Ticket</strong> or <strong>Written Exam Admit Card</strong>.</p>
+    <p><strong>Step 4:</strong> Print 2 physical color copies and carry them along with your original photo identity card (Aadhaar / Voter ID / Driving License) to the ground venue.</p>
+  </div>
+</section>
+
+<!-- Tool CTA Callout -->
+<div class="my-8 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 space-y-3">
+  <h4 class="text-base sm:text-lg font-extrabold text-foreground">Resize Photo &amp; Signature for Maharashtra Police Portal Instantly</h4>
+  <p class="text-xs sm:text-sm text-muted-foreground">Crop your photo to 160×200 px (5–20 KB) and signature to 256×64 px (5–20 KB) in seconds with 100% privacy — zero server uploads.</p>
+  <div class="flex flex-wrap gap-3 pt-1">
+    <a href="/maharashtra-police-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
+      Open Maharashtra Police Resizer Tool &rarr;
+    </a>
+    <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted transition">
+      General Photo Resizer
+    </a>
+  </div>
+</div>
+`,
+    contentHtml_mr: `
+<!-- Sticky Quick Problem Finder (मराठी नेव्हिगेशन) -->
+<div class="my-6 p-4 sm:p-5 rounded-2xl bg-card border-2 border-primary/30 shadow-md space-y-3 sticky top-4 z-20 backdrop-blur-md bg-card/95">
+  <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-2.5">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+      <h3 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground">🚨 त्वरित मदत व समस्या निवारण मार्गदर्शक (महाराष्ट्र पोलीस भरती)</h3>
+    </div>
+    <span class="text-[10px] font-mono text-muted-foreground font-semibold">तुमच्या आवश्यक घटकावर थेट जा</span>
+  </div>
+
+  <!-- Jump Action Chips -->
+  <div class="flex flex-wrap gap-2 text-xs">
+    <a href="#mp-failure-upload" class="px-3 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📸</span>
+      <span>फोटो (160×200) / सही (256×64) 5-20KB त्रुटी निवारण</span>
+    </a>
+    <a href="#mp-failure-ground" class="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-200 border border-amber-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>🏃</span>
+      <span>मैदानी चाचणी गुण व १६००m / ८००m रनिंग टाइम तक्ता</span>
+    </a>
+    <a href="#mp-failure-shotput" class="px-3 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-800 dark:text-indigo-200 border border-indigo-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>⚽</span>
+      <span>गोळा फेक अंतर व गुण तक्ता (Shot Put)</span>
+    </a>
+    <a href="#mp-failure-written" class="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-800 dark:text-rose-200 border border-rose-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📚</span>
+      <span>१०० गुणांची लेखी परीक्षा व मराठी व्याकरण अभ्यासक्रम</span>
+    </a>
+    <a href="#mp-failure-hallticket" class="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>🎟️</span>
+      <span>प्रवेशपत्र (Hall Ticket) डाऊनलोड व महाआयटी पोर्टल</span>
+    </a>
+  </div>
+</div>
+
+<section id="overview" class="space-y-4">
+  <div class="p-4 sm:p-5 rounded-2xl bg-primary/10 border border-primary/20 text-foreground">
+    <p class="text-sm sm:text-base font-semibold leading-relaxed">
+      <strong>महाराष्ट्र पोलीस भरती २०२६ संपूर्ण मास्टर मार्गदर्शक:</strong> महाराष्ट्र राज्य पोलीस दलात <strong>१७,४७१+ पेक्षा जास्त पदांसाठी</strong> पोलीस शिपाई, राज्य राखीव पोलीस बल (SRPF), पोलीस शिपाई चालक व बँड्समन या पदांची भरती प्रक्रिया <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">policerecruitment.mahait.org</a> आणि <a href="https://www.mahapolice.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">mahapolice.gov.in</a> या अधिकृत महाआयटी पोर्टल्सद्वारे आयोजित केली जाते. उमेदवारांना <strong>५० गुणांची मैदानी शारीरिक चाचणी (PET/PST)</strong>, <strong>१०० गुणांची OMR आधारित लेखी परीक्षा</strong>, आणि <strong>१६० × २०० px फोटो (५ KB ते २० KB)</strong> व <strong>२५६ × ६४ px स्वाक्षरी (५ KB ते २० KB)</strong> ऑनलाइन अपलोड नियमांची पूर्तता करणे अनिवार्य आहे.
+    </p>
+  </div>
+
+  <p>
+    दरवर्षी मुंबई, पुणे, नागपूर, नाशिक, छत्रपती संभाजीनगर, ठाणे, सोलापूर, कोल्हापूर व संपूर्ण महाराष्ट्रातून १५ लाखांहून अधिक उमेदवार अर्ज भरतात. तथापि, फोटो व स्वाक्षरीचा आकार योग्य नसेल किंवा २० KB पेक्षा जास्त असेल तर अर्ज फेटाळला जाण्याचा धोका असतो.
+  </p>
+
+  <p>
+    या मार्गदर्शकामध्ये १६००m व ८००m धावणे वेळ तक्ता, गोळा फेकीचे गुण, लेखी परीक्षेचा अभ्यासक्रम, हॉल तिकीट डाऊनलोड टप्पे आणि आमच्या मोफत <a href="/maharashtra-police-signature-resize/" class="text-primary font-semibold underline">SignResize महाराष्ट्र पोलीस रिसाइझर टूल</a> ची सविस्तर माहिती दिली आहे.
+  </p>
+</section>
+
+<!-- १. महापोलीस तांत्रिक निकष तक्ता -->
+<section id="mp-master-specs" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📐 १.</span> महाराष्ट्र पोलीस भरती तांत्रिक निकष (Technical Benchmark Specs)
+  </h2>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">नियम / पॅरामीटर</th>
+          <th class="px-4 py-3">अधिकृत पोलीस भरती प्रमाण (Standard)</th>
+          <th class="px-4 py-3">पोर्टल अपलोड मर्यादा व अट</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">पासपोर्ट फोटो आकार (Photo Dimensions)</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">१६० × २०० पिक्सेल (किंवा १६० × २१२ px)</td>
+          <td class="px-4 py-3 text-muted-foreground">५ KB ते २० KB (किंवा कमाल ५० KB), JPG फॉरमॅट, फिकट पार्श्वभूमी</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">स्वाक्षरी स्कॅन आकार (Signature Dimensions)</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">२५६ × ६४ पिक्सेल (किंवा २०० × ८० px)</td>
+          <td class="px-4 py-3 text-muted-foreground">५ KB ते २० KB, पांढऱ्या कागदावर काळ्या शाईच्या बॉलपेनाने स्वाक्षरी</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">मैदानी चाचणी किमान पात्रता गुण</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">५०% गुण (२५ / ५० गुण)</td>
+          <td class="px-4 py-3 text-muted-foreground">लेखी परीक्षेच्या १:१० निवडीसाठी किमान २५ गुण आवश्यक</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">लेखी परीक्षा स्वरूप (Written Exam)</td>
+          <td class="px-4 py-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">१०० बहुपर्यायी प्रश्न • १०० गुण • ९० मिनिटे</td>
+          <td class="px-4 py-3 text-muted-foreground">OMR आधारित परीक्षा; नकारात्मक गुण पद्धत (Negative Marking) नाही</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">अधिकृत अर्ज पोर्टल</td>
+          <td class="px-4 py-3 font-mono text-primary">policerecruitment2024.mahait.org / mahapolice.gov.in</td>
+          <td class="px-4 py-3 text-muted-foreground">महाराष्ट्र शासन अधिकृत पोलीस भरती पोर्टल</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- टप्पा १: फोटो व सही ऑनलाइन अपलोड -->
+<section id="mp-failure-upload" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+      टप्पा १ ऑनलाइन अर्ज
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      📸 फोटो व सही ऑनलाइन अपलोड समस्या निवारण (५ KB ते २० KB)
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    ऑनलाइन अर्ज भरताना उमेदवारांना <em>"File size must be between 5 KB and 20 KB"</em> किंवा <em>"Invalid image dimensions"</em> यांसारख्या त्रुटींचा सामना करावा लागतो.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-2">
+      <h3 class="font-bold text-foreground text-sm">अधिकृत फोटो निकष</h3>
+      <ul class="space-y-1.5 text-xs text-muted-foreground">
+        <li>• <strong>रुंदी × उंची:</strong> १६० × २०० पिक्सेल (किंवा १६० × २१२ px)</li>
+        <li>• <strong>फाईल साईज:</strong> तंतोतंत ५ KB ते २० KB (JPG / JPEG)</li>
+        <li>• <strong>पार्श्वभूमी:</strong> फिकट / पांढरी पार्श्वभूमी व स्पष्ट चेहरा</li>
+        <li>• <strong>नवीन फोटो:</strong> मागील ३ महिन्यांतील फोटो; टोपी किंवा गॉगल नसावा</li>
+      </ul>
+    </div>
+
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-2">
+      <h3 class="font-bold text-foreground text-sm">अधिकृत स्वाक्षरी निकष</h3>
+      <ul class="space-y-1.5 text-xs text-muted-foreground">
+        <li>• <strong>रुंदी × उंची:</strong> २५६ × ६४ पिक्सेल (किंवा २०० × ८० px)</li>
+        <li>• <strong>फाईल साईज:</strong> तंतोतंत ५ KB ते २० KB (JPG / JPEG)</li>
+        <li>• <strong>शाईचा प्रकार:</strong> कोऱ्या पांढऱ्या कागदावर काळ्या शाईचा बॉलपेन</li>
+        <li>• <strong>नियम:</strong> सुवाच्य स्वाक्षरी असावी (कॅपिटल / ब्लॉक अक्षरात सही करू नये)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-2xl bg-muted/40 border border-border flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div>
+      <h4 class="font-bold text-sm text-foreground">तुमचे फोटो व सही त्वरित रिसाइझ करायचे आहे का?</h4>
+      <p class="text-xs text-muted-foreground">आमच्या मोफत टूलद्वारे १६०×२०० फोटो व २५६×६४ सही त्वरित तयार करा.</p>
+    </div>
+    <a href="/maharashtra-police-signature-resize/" class="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition whitespace-nowrap">
+      फोटो व सही रिसाइझ करा &rarr;
+    </a>
+  </div>
+</section>
+
+<!-- टप्पा २: मैदानी चाचणी (PET) -->
+<section id="mp-failure-ground" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
+      टप्पा २ शारीरिक मैदानी चाचणी
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      🏃 ५० गुणांची मैदानी चाचणी (PET) व १६००m / ८००m धावणे वेळ तक्ता
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    मैदानी चाचणीत उमेदवारांना <strong>किमान ५०% गुण (२५/५० गुण)</strong> मिळवणे अनिवार्य आहे. २५ पेक्षा कमी गुण मिळवणारे उमेदवार लेखी परीक्षेसाठी अपात्र ठरतात.
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <!-- पुरुष मैदानी घटक -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>पुरुष उमेदवार (मैदानी चाचणी - ५० गुण)</span>
+        <span class="text-xs font-mono bg-primary/10 text-primary px-2 py-0.5 rounded-md">३ प्रकार</span>
+      </h3>
+      <ul class="space-y-2 text-xs">
+        <li class="flex justify-between items-center py-1 border-b border-border/40">
+          <span class="font-medium text-foreground">१६०० मीटर धावणे (1600m Run)</span>
+          <span class="font-mono font-bold text-primary">२० गुण</span>
+        </li>
+        <li class="flex justify-between items-center py-1 border-b border-border/40">
+          <span class="font-medium text-foreground">१०० मीटर धावणे (100m Sprint)</span>
+          <span class="font-mono font-bold text-primary">१५ गुण</span>
+        </li>
+        <li class="flex justify-between items-center py-1">
+          <span class="font-medium text-foreground">गोळा फेक (Shot Put - ७.२६० किग्रॅ)</span>
+          <span class="font-mono font-bold text-primary">१५ गुण</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- महिला मैदानी घटक -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>महिला उमेदवार (मैदानी चाचणी - ५० गुण)</span>
+        <span class="text-xs font-mono bg-primary/10 text-primary px-2 py-0.5 rounded-md">३ प्रकार</span>
+      </h3>
+      <ul class="space-y-2 text-xs">
+        <li class="flex justify-between items-center py-1 border-b border-border/40">
+          <span class="font-medium text-foreground">८०० मीटर धावणे (800m Run)</span>
+          <span class="font-mono font-bold text-primary">२० गुण</span>
+        </li>
+        <li class="flex justify-between items-center py-1 border-b border-border/40">
+          <span class="font-medium text-foreground">१०० मीटर धावणे (100m Sprint)</span>
+          <span class="font-mono font-bold text-primary">१५ गुण</span>
+        </li>
+        <li class="flex justify-between items-center py-1">
+          <span class="font-medium text-foreground">गोळा फेक (Shot Put - ४.००० किग्रॅ)</span>
+          <span class="font-mono font-bold text-primary">१५ गुण</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- पुरुष १६००m धावणे वेळ व गुण तक्ता -->
+  <div class="space-y-2">
+    <h3 class="text-base font-bold text-foreground">पुरुष १६०० मीटर धावणे वेळ व गुण तक्ता</h3>
+    <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+      <table class="w-full text-xs text-left border-collapse">
+        <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border">
+          <tr>
+            <th class="px-4 py-2.5">धावणे वेळ (Running Time)</th>
+            <th class="px-4 py-2.5">मिळालेले गुण</th>
+            <th class="px-4 py-2.5">पात्रता स्थिती</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/60 font-mono">
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5 font-bold text-emerald-600 dark:text-emerald-400">५ मिनिटे १० सेकंद किंवा कमी</td>
+            <td class="px-4 py-2.5 font-bold text-emerald-600 dark:text-emerald-400">२० / २० गुण (पैकीच्या पैकी)</td>
+            <td class="px-4 py-2.5 text-emerald-600 font-sans">पूर्ण गुण</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5">५ मि. ११ से. ते ५ मि. ३० से.</td>
+            <td class="px-4 py-2.5 font-bold">१८ गुण</td>
+            <td class="px-4 py-2.5 text-muted-foreground font-sans">पात्र</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5">५ मि. ३१ से. ते ५ मि. ५० से.</td>
+            <td class="px-4 py-2.5 font-bold">१५ गुण</td>
+            <td class="px-4 py-2.5 text-muted-foreground font-sans">पात्र</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5">५ मि. ५१ से. ते ६ मि. १० से.</td>
+            <td class="px-4 py-2.5 font-bold">१२ गुण</td>
+            <td class="px-4 py-2.5 text-muted-foreground font-sans">पात्र</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5">६ मि. ११ से. ते ६ मि. ३० से.</td>
+            <td class="px-4 py-2.5 font-bold">१० गुण</td>
+            <td class="px-4 py-2.5 text-muted-foreground font-sans">पात्र</td>
+          </tr>
+          <tr class="hover:bg-muted/20 bg-rose-500/5">
+            <td class="px-4 py-2.5 font-bold text-rose-600">६ मिनिटे ३० सेकंदापेक्षा जास्त</td>
+            <td class="px-4 py-2.5 font-bold text-rose-600">० गुण</td>
+            <td class="px-4 py-2.5 text-rose-600 font-sans font-bold">अपात्र (Disqualified)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- टप्पा ३: गोळा फेक अंतर व गुण तक्ता -->
+<section id="mp-failure-shotput" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20">
+      टप्पा ३ गोळा फेक चाचणी
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      ⚽ गोळा फेक फेकीचे अंतर व गुण तक्ता (Shot Put Table)
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+    <!-- पुरुष गोळा फेक -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>पुरुष गोळा फेक (७.२६० किग्रॅ गोळा)</span>
+        <span class="text-primary font-mono">कमाल १५ गुण</span>
+      </h3>
+      <ul class="space-y-2 text-muted-foreground font-mono">
+        <li class="flex justify-between font-bold text-emerald-600 dark:text-emerald-400"><span>८.५० मीटर किंवा जास्त</span> <span>१५ गुण</span></li>
+        <li class="flex justify-between"><span>७.९०m ते ८.४९m</span> <span>१२ गुण</span></li>
+        <li class="flex justify-between"><span>७.३०m ते ७.८९m</span> <span>१० गुण</span></li>
+        <li class="flex justify-between"><span>६.७०m ते ७.२९m</span> <span>८ गुण</span></li>
+        <li class="flex justify-between text-rose-600"><span>६.०० मीटरपेक्षा कमी</span> <span>० गुण</span></li>
+      </ul>
+    </div>
+
+    <!-- महिला गोळा फेक -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>महिला गोळा फेक (४.००० किग्रॅ गोळा)</span>
+        <span class="text-primary font-mono">कमाल १५ गुण</span>
+      </h3>
+      <ul class="space-y-2 text-muted-foreground font-mono">
+        <li class="flex justify-between font-bold text-emerald-600 dark:text-emerald-400"><span>६.०० मीटर किंवा जास्त</span> <span>१५ गुण</span></li>
+        <li class="flex justify-between"><span>५.५०m ते ५.९९m</span> <span>१२ गुण</span></li>
+        <li class="flex justify-between"><span>५.००m ते ५.४९m</span> <span>१० गुण</span></li>
+        <li class="flex justify-between"><span>४.५०m ते ४.९९m</span> <span>८ गुण</span></li>
+        <li class="flex justify-between text-rose-600"><span>४.०० मीटरपेक्षा कमी</span> <span>० गुण</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- टप्पा ४: लेखी परीक्षा अभ्यासक्रम -->
+<section id="mp-failure-written" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20">
+      टप्पा ४ लेखी परीक्षा
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      📚 १०० गुणांची लेखी परीक्षा अभ्यासक्रम व विषयनिहाय गुण विभागणी
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    लेखी परीक्षा ही OMR आधारित <strong>१०० प्रश्नांची १०० गुणांसाठी</strong> असून वेळ <strong>९० मिनिटे</strong> आहे. यात <strong>कोणतेही नकारात्मक गुण (No Negative Marking)</strong> नाहीत.
+  </p>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">विषय (Subject)</th>
+          <th class="px-4 py-3">प्रश्न</th>
+          <th class="px-4 py-3">गुण</th>
+          <th class="px-4 py-3">प्रमुख घटक व अभ्यासक्रम</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">मराठी व्याकरण</td>
+          <td class="px-4 py-3 font-mono">२५</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">२५ गुण</td>
+          <td class="px-4 py-3 text-muted-foreground">संधी, समास, प्रयोग, अलंकार, समानार्थी व विरुद्धार्थी शब्द, म्हणी व वाक्प्रचार</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">अंकगणित (Mathematics)</td>
+          <td class="px-4 py-3 font-mono">२५</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">२५ गुण</td>
+          <td class="px-4 py-3 text-muted-foreground">संख्याज्ञान, लसावि-मसावि, नफा-तोटा, शेकडेवारी, सरासरी, काळ-काम-वेग</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">बुद्धिमत्ता चाचणी (Reasoning)</td>
+          <td class="px-4 py-3 font-mono">२५</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">२५ गुण</td>
+          <td class="px-4 py-3 text-muted-foreground">अक्षर मालिका, संख्या मालिका, वेन आकृत्या, नातेसंबंध, घड्याळ व दिनदर्शिका</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">सामान्य ज्ञान व चालू घडामोडी</td>
+          <td class="px-4 py-3 font-mono">२५</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">२५ गुण</td>
+          <td class="px-4 py-3 text-muted-foreground">महाराष्ट्र इतिहास व भूगोल, राज्यघटना, पंचायत राज, सहकार, क्रीडा घडामोडी</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- टप्पा ५: प्रवेशपत्र (Hall Ticket) डाऊनलोड -->
+<section id="mp-failure-hallticket" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+      टप्पा ५ प्रवेशपत्र (Admit Card)
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      🎟️ महाराष्ट्र पोलीस भरती प्रवेशपत्र (Hall Ticket) डाऊनलोड पद्धत
+    </h2>
+  </div>
+
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3 text-xs sm:text-sm">
+    <p><strong>पायरी १:</strong> महाआयटी अधिकृत संकेतस्थळाला भेट द्या: <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">policerecruitment2024.mahait.org</a> किंवा <a href="https://www.mahapolice.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">mahapolice.gov.in</a>.</p>
+    <p><strong>पायरी २:</strong> तुमचा नोंदणीकृत <strong>अर्ज क्रमांक (User ID / Application No)</strong> व <strong>पासवर्ड / जन्मतारीख</strong> प्रविष्ट करा.</p>
+    <p><strong>पायरी ३:</strong> <strong>Download Hall Ticket (मैदानी चाचणी / लेखी परीक्षा)</strong> पर्यायावर क्लिक करा.</p>
+    <p><strong>पायरी ४:</strong> प्रवेशपत्राच्या २ रंगीत प्रती प्रिंट करा आणि मूळ ओळखपत्रासोबत (आधार कार्ड/मतदान ओळखपत्र/ड्रायव्हिंग लायसन्स) मैदानावर उपस्थित राहा.</p>
+  </div>
+</section>
+
+<!-- टूल कॉलआउट -->
+<div class="my-8 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 space-y-3">
+  <h4 class="text-base sm:text-lg font-extrabold text-foreground">महाराष्ट्र पोलीस भरतीसाठी फोटो व स्वाक्षरी त्वरित रिसाइझ करा</h4>
+  <p class="text-xs sm:text-sm text-muted-foreground">फोटो १६०×२०० px (५ ते २० KB) आणि सही २५६×६४ px (५ ते २० KB) रिसाइझ करण्यासाठी आमचे मोफत टूल वापरा.</p>
+  <div class="flex flex-wrap gap-3 pt-1">
+    <a href="/maharashtra-police-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
+      पोलीस भरती रिसाइझर टूल उघडा &rarr;
+    </a>
+    <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted transition">
+      सामान्य फोटो रिसाइझर
+    </a>
+  </div>
+</div>
+`,
+    contentHtml_hi: `
+<!-- Sticky Quick Problem Finder (हिंदी नेविगेशन) -->
+<div class="my-6 p-4 sm:p-5 rounded-2xl bg-card border-2 border-primary/30 shadow-md space-y-3 sticky top-4 z-20 backdrop-blur-md bg-card/95">
+  <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-2.5">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+      <h3 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground">🚨 त्वरित सहायता एवं समस्या निवारण गाइड (महाराष्ट्र पुलिस भर्ती)</h3>
+    </div>
+    <span class="text-[10px] font-mono text-muted-foreground font-semibold">अपने आवश्यक विषय पर सीधे जाएं</span>
+  </div>
+
+  <!-- Jump Action Chips -->
+  <div class="flex flex-wrap gap-2 text-xs">
+    <a href="#mp-failure-upload" class="px-3 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📸</span>
+      <span>फोटो (160×200) / हस्ताक्षर (256×64) 5-20KB त्रुटि निवारण</span>
+    </a>
+    <a href="#mp-failure-ground" class="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-200 border border-amber-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>🏃</span>
+      <span>फिजिकल टेस्ट अंक एवं 1600m / 800m दौड़ समय तालिका</span>
+    </a>
+    <a href="#mp-failure-shotput" class="px-3 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-800 dark:text-indigo-200 border border-indigo-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>⚽</span>
+      <span>गोला फेंक अंक तालिका (Shot Put)</span>
+    </a>
+    <a href="#mp-failure-written" class="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-800 dark:text-rose-200 border border-rose-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📚</span>
+      <span>100 अंकों की लिखित परीक्षा एवं पाठ्यक्रम</span>
+    </a>
+    <a href="#mp-failure-hallticket" class="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>🎟️</span>
+      <span>प्रवेश पत्र (Hall Ticket) एवं पोर्टल गाइड</span>
+    </a>
+  </div>
+</div>
+
+<section id="overview" class="space-y-4">
+  <div class="p-4 sm:p-5 rounded-2xl bg-primary/10 border border-primary/20 text-foreground">
+    <p class="text-sm sm:text-base font-semibold leading-relaxed">
+      <strong>महाराष्ट्र पुलिस भर्ती 2026 संपूर्ण मास्टर गाइड:</strong> महाराष्ट्र राज्य पुलिस विभाग में <strong>17,471+ से अधिक पदों पर</strong> पुलिस कांस्टेबल, राज्य रिजर्व पुलिस बल (SRPF), पुलिस ड्राइवर एवं बैंड्समैन पदों की भर्ती प्रक्रिया <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">policerecruitment.mahait.org</a> एवं <a href="https://www.mahapolice.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">mahapolice.gov.in</a> आधिकारिक महाआईटी पोर्टल द्वारा आयोजित की जाती है। उम्मीदवारों को <strong>50 अंकों की शारीरिक दक्षता परीक्षा (PET/PST)</strong>, <strong>100 अंकों की लिखित OMR परीक्षा</strong>, तथा <strong>160 × 200 px फोटो (5 KB से 20 KB)</strong> व <strong>256 × 64 px हस्ताक्षर (5 KB से 20 KB)</strong> ऑनलाइन अपलोड नियमों का पालन करना अनिवार्य है।
+    </p>
+  </div>
+
+  <p>
+    प्रतिवर्ष मुंबई, पुणे, नागपुर, नासिक, छत्रपति संभाजीनगर, ठाणे, सोलापुर, कोल्हापुर एवं पूरे महाराष्ट्र से 15 लाख से अधिक अभ्यर्थी आवेदन फॉर्म भरते हैं। लेकिन यदि फोटो व हस्ताक्षर का साइज 20 KB से अधिक या गलत डायमेंशन में हो, तो फॉर्म रिजेक्ट होने का खतरा रहता है।
+  </p>
+
+  <p>
+    इस विस्तृत गाइड में 1600m एवं 800m दौड़ समय तालिका, गोला फेंक अंक तालिका, लिखित परीक्षा पाठ्यक्रम, हॉल टिकट डाउनलोड प्रक्रिया और हमारे मुफ्त <a href="/maharashtra-police-signature-resize/" class="text-primary font-semibold underline">SignResize महाराष्ट्र पुलिस रिसाइजर टूल</a> की पूरी जानकारी दी गई है।
+  </p>
+</section>
+
+<!-- 1. महाराष्ट्र पुलिस तकनीकी मानदंड तालिका -->
+<section id="mp-master-specs" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📐 1.</span> महाराष्ट्र पुलिस भर्ती तकनीकी मानदंड (Technical Benchmark Specs)
+  </h2>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">नियम / पैरामीटर</th>
+          <th class="px-4 py-3">आधिकारिक पुलिस भर्ती मानक (Standard)</th>
+          <th class="px-4 py-3">पोर्टल अपलोड सीमा एवं शर्त</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">पासपोर्ट फोटो साइज (Photo Dimensions)</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">160 × 200 पिक्सेल (या 160 × 212 px)</td>
+          <td class="px-4 py-3 text-muted-foreground">5 KB से 20 KB (या अधिकतम 50 KB), JPG फॉर्मेट, हल्का बैकग्राउंड</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">हस्ताक्षर स्कैन साइज (Signature Dimensions)</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">256 × 64 पिक्सेल (या 200 × 80 px)</td>
+          <td class="px-4 py-3 text-muted-foreground">5 KB से 20 KB, सफेद कागज पर काली स्याही के बॉलपेन से हस्ताक्षर</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">फिजिकल टेस्ट न्यूनतम पात्रता अंक</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">50% अंक (25 / 50 अंक)</td>
+          <td class="px-4 py-3 text-muted-foreground">लिखित परीक्षा के 1:10 शॉर्टलिस्टिंग हेतु न्यूनतम 25 अंक अनिवार्य</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">लिखित परीक्षा प्रारूप (Written Exam)</td>
+          <td class="px-4 py-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">100 बहुविकल्पीय प्रश्न • 100 अंक • 90 मिनट</td>
+          <td class="px-4 py-3 text-muted-foreground">OMR आधारित परीक्षा; कोई नेगेटिव मार्किंग (Negative Marking) नहीं</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">आधिकारिक आवेदन पोर्टल</td>
+          <td class="px-4 py-3 font-mono text-primary">policerecruitment2024.mahait.org / mahapolice.gov.in</td>
+          <td class="px-4 py-3 text-muted-foreground">महाराष्ट्र सरकार आधिकारिक पुलिस भर्ती पोर्टल</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- चरण 1: फोटो एवं हस्ताक्षर अपलोड -->
+<section id="mp-failure-upload" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+      चरण 1 ऑनलाइन आवेदन
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      📸 फोटो एवं हस्ताक्षर ऑनलाइन अपलोड गाइड (5 KB से 20 KB)
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    ऑनलाइन फॉर्म भरते समय अभ्यर्थियों को <em>"File size must be between 5 KB and 20 KB"</em> अथवा <em>"Invalid image dimensions"</em> जैसी त्रुटियों का सामना करना पड़ता है।
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-2">
+      <h3 class="font-bold text-foreground text-sm">आधिकारिक फोटो नियम</h3>
+      <ul class="space-y-1.5 text-xs text-muted-foreground">
+        <li>• <strong>चौड़ाई × ऊंचाई:</strong> 160 × 200 पिक्सेल (या 160 × 212 px)</li>
+        <li>• <strong>फाइल साइज:</strong> सटीक 5 KB से 20 KB (JPG / JPEG)</li>
+        <li>• <strong>बैकग्राउंड:</strong> हल्का / सफेद बैकग्राउंड व स्पष्ट चेहरा</li>
+        <li>• <strong>नवीनतम फोटो:</strong> पिछले 3 महीने के भीतर खींची गई फोटो</li>
+      </ul>
+    </div>
+
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-2">
+      <h3 class="font-bold text-foreground text-sm">आधिकारिक हस्ताक्षर नियम</h3>
+      <ul class="space-y-1.5 text-xs text-muted-foreground">
+        <li>• <strong>चौड़ाई × ऊंचाई:</strong> 256 × 64 पिक्सेल (या 200 × 80 px)</li>
+        <li>• <strong>फाइल साइज:</strong> सटीक 5 KB से 20 KB (JPG / JPEG)</li>
+        <li>• <strong>स्याही का प्रकार:</strong> सादे सफेद कागज पर काले बॉलपेन से हस्ताक्षर</li>
+        <li>• <strong>नियम:</strong> प्रवाहित हस्तलेख में हस्ताक्षर (ब्लॉक कैपिटल अक्षरों में हस्ताक्षर न करें)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-2xl bg-muted/40 border border-border flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div>
+      <h4 class="font-bold text-sm text-foreground">क्या आपको फोटो व हस्ताक्षर तुरंत रिसाइझ करना है?</h4>
+      <p class="text-xs text-muted-foreground">हमारे मुफ्त टूल द्वारा 160×200 फोटो एवं 256×64 हस्ताक्षर तुरंत तैयार करें।</p>
+    </div>
+    <a href="/maharashtra-police-signature-resize/" class="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition whitespace-nowrap">
+      फोटो व हस्ताक्षर रिसाइझ करें &rarr;
+    </a>
+  </div>
+</section>
+
+<!-- चरण 2: शारीरिक दक्षता परीक्षा (PET) -->
+<section id="mp-failure-ground" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
+      चरण 2 शारीरिक दक्षता परीक्षा
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      🏃 50 अंकों की शारीरिक परीक्षा (PET) एवं 1600m / 800m दौड़ समय तालिका
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    शारीरिक परीक्षा में अभ्यर्थियों को <strong>न्यूनतम 50% अंक (25/50 अंक)</strong> प्राप्त करना अनिवार्य है। 25 से कम अंक प्राप्त करने वाले अभ्यर्थी लिखित परीक्षा के लिए अयोग्य घोषित हो जाते हैं।
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <!-- पुरुष शारीरिक इवेंट -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>पुरुष अभ्यर्थी (फिजिकल टेस्ट - 50 अंक)</span>
+        <span class="text-xs font-mono bg-primary/10 text-primary px-2 py-0.5 rounded-md">3 इवेंट</span>
+      </h3>
+      <ul class="space-y-2 text-xs">
+        <li class="flex justify-between items-center py-1 border-b border-border/40">
+          <span class="font-medium text-foreground">1600 मीटर दौड़ (1600m Run)</span>
+          <span class="font-mono font-bold text-primary">20 अंक</span>
+        </li>
+        <li class="flex justify-between items-center py-1 border-b border-border/40">
+          <span class="font-medium text-foreground">100 मीटर दौड़ (100m Sprint)</span>
+          <span class="font-mono font-bold text-primary">15 अंक</span>
+        </li>
+        <li class="flex justify-between items-center py-1">
+          <span class="font-medium text-foreground">गोला फेंक (Shot Put - 7.260 किग्रा)</span>
+          <span class="font-mono font-bold text-primary">15 अंक</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- महिला शारीरिक इवेंट -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>महिला अभ्यर्थी (फिजिकल टेस्ट - 50 अंक)</span>
+        <span class="text-xs font-mono bg-primary/10 text-primary px-2 py-0.5 rounded-md">3 इवेंट</span>
+      </h3>
+      <ul class="space-y-2 text-xs">
+        <li class="flex justify-between items-center py-1 border-b border-border/40">
+          <span class="font-medium text-foreground">800 मीटर दौड़ (800m Run)</span>
+          <span class="font-mono font-bold text-primary">20 अंक</span>
+        </li>
+        <li class="flex justify-between items-center py-1 border-b border-border/40">
+          <span class="font-medium text-foreground">100 मीटर दौड़ (100m Sprint)</span>
+          <span class="font-mono font-bold text-primary">15 अंक</span>
+        </li>
+        <li class="flex justify-between items-center py-1">
+          <span class="font-medium text-foreground">गोला फेंक (Shot Put - 4.000 किग्रा)</span>
+          <span class="font-mono font-bold text-primary">15 अंक</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- पुरुष 1600m दौड़ समय तालिका -->
+  <div class="space-y-2">
+    <h3 class="text-base font-bold text-foreground">पुरुष 1600 मीटर दौड़ समय एवं अंक तालिका</h3>
+    <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+      <table class="w-full text-xs text-left border-collapse">
+        <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] tracking-wider border-b border-border">
+          <tr>
+            <th class="px-4 py-2.5">दौड़ समय सीमा (Running Time)</th>
+            <th class="px-4 py-2.5">प्राप्त अंक</th>
+            <th class="px-4 py-2.5">पात्रता स्थिति</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/60 font-mono">
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5 font-bold text-emerald-600 dark:text-emerald-400">5 मिनट 10 सेकंड या उससे कम</td>
+            <td class="px-4 py-2.5 font-bold text-emerald-600 dark:text-emerald-400">20 / 20 अंक (पूर्ण अंक)</td>
+            <td class="px-4 py-2.5 text-emerald-600 font-sans">अधिकतम अंक</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5">5 मि. 11 से. से 5 मि. 30 से.</td>
+            <td class="px-4 py-2.5 font-bold">18 अंक</td>
+            <td class="px-4 py-2.5 text-muted-foreground font-sans">योग्य (Qualified)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5">5 मि. 31 से. से 5 मि. 50 से.</td>
+            <td class="px-4 py-2.5 font-bold">15 अंक</td>
+            <td class="px-4 py-2.5 text-muted-foreground font-sans">योग्य (Qualified)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5">5 मि. 51 से. से 6 मि. 10 से.</td>
+            <td class="px-4 py-2.5 font-bold">12 अंक</td>
+            <td class="px-4 py-2.5 text-muted-foreground font-sans">योग्य (Qualified)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="px-4 py-2.5">6 मि. 11 से. से 6 मि. 30 से.</td>
+            <td class="px-4 py-2.5 font-bold">10 अंक</td>
+            <td class="px-4 py-2.5 text-muted-foreground font-sans">योग्य (Qualified)</td>
+          </tr>
+          <tr class="hover:bg-muted/20 bg-rose-500/5">
+            <td class="px-4 py-2.5 font-bold text-rose-600">6 मिनट 30 सेकंड से अधिक</td>
+            <td class="px-4 py-2.5 font-bold text-rose-600">0 अंक</td>
+            <td class="px-4 py-2.5 text-rose-600 font-sans font-bold">अयोग्य (Disqualified)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- चरण 3: गोला फेंक अंक तालिका -->
+<section id="mp-failure-shotput" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20">
+      चरण 3 गोला फेंक परीक्षा
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      ⚽ गोला फेंक दूरी एवं अंक तालिका (Shot Put Table)
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+    <!-- पुरुष गोला फेंक -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>पुरुष गोला फेंक (7.260 किग्रा गोला)</span>
+        <span class="text-primary font-mono">अधिकतम 15 अंक</span>
+      </h3>
+      <ul class="space-y-2 text-muted-foreground font-mono">
+        <li class="flex justify-between font-bold text-emerald-600 dark:text-emerald-400"><span>8.50 मीटर या अधिक</span> <span>15 अंक</span></li>
+        <li class="flex justify-between"><span>7.90m से 8.49m</span> <span>12 अंक</span></li>
+        <li class="flex justify-between"><span>7.30m से 7.89m</span> <span>10 अंक</span></li>
+        <li class="flex justify-between"><span>6.70m से 7.29m</span> <span>8 अंक</span></li>
+        <li class="flex justify-between text-rose-600"><span>6.00 मीटर से कम</span> <span>0 अंक</span></li>
+      </ul>
+    </div>
+
+    <!-- महिला गोला फेंक -->
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-3">
+      <h3 class="font-bold text-foreground flex items-center justify-between border-b border-border pb-2">
+        <span>महिला गोला फेंक (4.000 किग्रा गोला)</span>
+        <span class="text-primary font-mono">अधिकतम 15 अंक</span>
+      </h3>
+      <ul class="space-y-2 text-muted-foreground font-mono">
+        <li class="flex justify-between font-bold text-emerald-600 dark:text-emerald-400"><span>6.00 मीटर या अधिक</span> <span>15 अंक</span></li>
+        <li class="flex justify-between"><span>5.50m से 5.99m</span> <span>12 अंक</span></li>
+        <li class="flex justify-between"><span>5.00m से 5.49m</span> <span>10 अंक</span></li>
+        <li class="flex justify-between"><span>4.50m से 4.99m</span> <span>8 अंक</span></li>
+        <li class="flex justify-between text-rose-600"><span>4.00 मीटर से कम</span> <span>0 अंक</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- चरण 4: लिखित परीक्षा पाठ्यक्रम -->
+<section id="mp-failure-written" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20">
+      चरण 4 लिखित परीक्षा
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      📚 100 अंकों की लिखित परीक्षा पाठ्यक्रम एवं विषयवार अंक विभाजन
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    लिखित परीक्षा OMR आधारित <strong>100 प्रश्नों की 100 अंकों के लिए</strong> होती है जिसकी समय सीमा <strong>90 मिनट</strong> है। इसमें <strong>कोई नेगेटिव मार्किंग (No Negative Marking)</strong> नहीं है।
+  </p>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">विषय (Subject)</th>
+          <th class="px-4 py-3">प्रश्न</th>
+          <th class="px-4 py-3">अंक</th>
+          <th class="px-4 py-3">मुख्य विषय एवं टॉपिक</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">मराठी व्याकरण</td>
+          <td class="px-4 py-3 font-mono">25</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">25 अंक</td>
+          <td class="px-4 py-3 text-muted-foreground">संधि, समास, प्रयोग, अलंकार, पर्यायवाची व विलोम शब्द, मुहावरे एवं कहावतें</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">गणित / अंकगणित (Mathematics)</td>
+          <td class="px-4 py-3 font-mono">25</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">25 अंक</td>
+          <td class="px-4 py-3 text-muted-foreground">संख्या पद्धति, ल.स.प.-म.स.प., लाभ-हानि, प्रतिशत, औसत, समय व कार्य</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">रीजनिंग / बुद्धिमत्ता (Reasoning)</td>
+          <td class="px-4 py-3 font-mono">25</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">25 अंक</td>
+          <td class="px-4 py-3 text-muted-foreground">अक्षर श्रृंखला, संख्या श्रृंखला, वेन आरेख, रक्त संबंध, घड़ी एवं कैलेंडर</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">सामान्य ज्ञान एवं समसामयिकी</td>
+          <td class="px-4 py-3 font-mono">25</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">25 अंक</td>
+          <td class="px-4 py-3 text-muted-foreground">महाराष्ट्र इतिहास व भूगोल, संविधान, पंचायत राज, सहकारिता, खेलकूद घटनाक्रम</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- चरण 5: प्रवेश पत्र (Hall Ticket) डाउनलोड -->
+<section id="mp-failure-hallticket" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+      चरण 5 प्रवेश पत्र (Admit Card)
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      🎟️ महाराष्ट्र पुलिस भर्ती हॉल टिकट (Hall Ticket) डाउनलोड प्रक्रिया
+    </h2>
+  </div>
+
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3 text-xs sm:text-sm">
+    <p><strong>स्टेप 1:</strong> महाआईटी आधिकारिक वेबसाइट पर जाएं: <a href="https://policerecruitment2024.mahait.org" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">policerecruitment2024.mahait.org</a> अथवा <a href="https://www.mahapolice.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">mahapolice.gov.in</a>.</p>
+    <p><strong>स्टेप 2:</strong> अपना पंजीकृत <strong>आवेदन क्रमांक (User ID / Application No)</strong> एवं <strong>पासवर्ड / जन्मतिथि</strong> दर्ज करें।</p>
+    <p><strong>स्टेप 3:</strong> <strong>Download Hall Ticket (फिजिकल टेस्ट / लिखित परीक्षा)</strong> विकल्प पर क्लिक करें।</p>
+    <p><strong>स्टेप 4:</strong> प्रवेश पत्र की 2 रंगीन प्रतियां प्रिंट करें तथा मूल पहचान पत्र (आधार कार्ड/मतदाता पहचान पत्र/ड्राइविंग लाइसेंस) के साथ मैदान पर उपस्थित हों।</p>
+  </div>
+</section>
+
+<!-- टूल कॉलआउट -->
+<div class="my-8 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 space-y-3">
+  <h4 class="text-base sm:text-lg font-extrabold text-foreground">महाराष्ट्र पुलिस फॉर्म के लिए फोटो व हस्ताक्षर तुरंत रिसाइझ करें</h4>
+  <p class="text-xs sm:text-sm text-muted-foreground">फोटो 160×200 px (5 से 20 KB) एवं हस्ताक्षर 256×64 px (5 से 20 KB) रिसाइझ करने के लिए हमारा मुफ्त टूल इस्तेमाल करें।</p>
+  <div class="flex flex-wrap gap-3 pt-1">
+    <a href="/maharashtra-police-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
+      पुलिस भर्ती रिसाइझर टूल खोलें &rarr;
+    </a>
+    <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted transition">
+      सामान्य फोटो रिसाइझर
+    </a>
+  </div>
+</div>
+`
   },
 
   {
@@ -9508,6 +10324,1116 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
 
 </div>
     `
+  }
+  ,
+  // =========================================================
+  // 🇧🇩 BANGLADESH COUNTRY ARTICLES
+  // =========================================================
+  {
+    slug: "bpsc-teletalk-bangladesh-photo-signature-resize-guide-2026",
+    title: "BPSC & Teletalk Bangladesh Master Guide 2026: Govt Job Online Apply, Photo (300×300px / 100KB) & Signature (300×80px / 60KB) Resizer",
+    metaTitle: "BPSC Teletalk Bangladesh Master Guide 2026: Online Apply, Photo & Signature Resizer",
+    metaDescription: "Complete BPSC & Teletalk Bangladesh 2026 master guide covering govt job online apply, photo 300x300 px (100 KB) & signature 300x80 px (60 KB) resizer, admit card, payment & validator.",
+    excerpt: "Master handbook for BPSC & Teletalk Bangladesh 2026 covering govt job online apply, Teletalk photo resizer (300×300 px / 100 KB), signature resizer (300×80 px / 60 KB), payment via Teletalk SMS, admit card download, and common upload error fixes.",
+    category: "Guidelines & Tips",
+    country: "BD",
+    publishDate: "Oct 06, 2026",
+    lastUpdated: "Oct 06, 2026",
+    author: "SignResize Bangladesh Desk",
+    authorRole: "BPSC & Teletalk Recruitment Compliance Specialist",
+    readTime: "13 min read",
+    featured: true,
+    tags: [
+      "BPSC Bangladesh",
+      "Teletalk Photo Resize",
+      "Bangladesh Govt Job 2026",
+      "Teletalk 300x300 Photo",
+      "300x80 Signature Bangladesh",
+      "alljobs teletalk com bd",
+      "Bangladesh Online Apply"
+    ],
+    relatedExamPreset: "bpsc-bd",
+    quickFacts: [
+      {
+        "label": "Conducting Body",
+        "value": "Bangladesh Public Service Commission (BPSC, Agargaon, Dhaka)"
+      },
+      {
+        "label": "Official Portals",
+        "value": "bpsc.gov.bd | bpsc.teletalk.com.bd | alljobs.teletalk.com.bd"
+      },
+      {
+        "label": "Passport Photo Bounds",
+        "value": "300 × 300 px (max 100 KB, White/Light BG, JPG, Color)"
+      },
+      {
+        "label": "Signature Scan Bounds",
+        "value": "300 × 80 px (max 60 KB, Black/Blue Ink on White Paper, JPG)"
+      },
+      {
+        "label": "Fee Payment Method",
+        "value": "Teletalk Prepaid SIM SMS (specific command per circular)"
+      },
+      {
+        "label": "Official Validator Tool",
+        "value": "bpsc.teletalk.com.bd/ncad/imsize.php (Photo & Sign Validator)"
+      },
+      {
+        "label": "Support Contact",
+        "value": "alljobs.query@teletalk.com.bd"
+      },
+      {
+        "label": "Photo Type Required",
+        "value": "Recent Color Photo only — Black & White / Grayscale NOT accepted"
+      }
+    ],
+    faqs: [
+      {
+        "question": "What is BPSC Bangladesh?",
+        "answer": "The ==Bangladesh Public Service Commission (BPSC)== is a constitutional body established under the Bangladesh Public Service Commission Act. Located in Agargaon, Dhaka, it conducts competitive examinations and recruitment processes including the BCS (Bangladesh Civil Service) examination to appoint qualified candidates to government posts."
+      },
+      {
+        "question": "What is the photo size for BPSC Teletalk application?",
+        "answer": "BPSC and all Teletalk-based govt job portals require a recent ==color passport photo measuring exactly 300 × 300 pixels== with file size strictly ==under 100 KB in JPG/JPEG format== on a plain white or light-colored background."
+      },
+      {
+        "question": "What is the signature size for Bangladesh govt job applications?",
+        "answer": "The signature file must be ==300 × 80 pixels (width × height)== with a maximum file size of ==60 KB in JPG/JPEG format==. Sign with black or blue ballpoint pen on a clean white sheet of paper."
+      },
+      {
+        "question": "How to apply online for Bangladesh govt jobs on Teletalk portal?",
+        "answer": "Visit ==alljobs.teletalk.com.bd== or the specific job portal (e.g. bpsc.teletalk.com.bd), register or log in, fill the application form, upload your 300×300 px photo (≤100 KB) and 300×80 px signature (≤60 KB), verify using the Photo/Sign Validator tool, and complete payment via Teletalk SMS."
+      },
+      {
+        "question": "How to use the Teletalk Photo/Sign Validator?",
+        "answer": "Go to ==bpsc.teletalk.com.bd/ncad/imsize.php== and upload your photo and signature files. The official validator checks dimensions and file size and confirms whether your files meet the portal requirements before submission."
+      },
+      {
+        "question": "Can I use a black-and-white photo for Teletalk job application?",
+        "answer": "No. ==Black-and-white, grayscale, or monochrome photos are strictly rejected== by all Teletalk government job portals. The portal uses facial recognition verification that requires a color photograph."
+      },
+      {
+        "question": "Can I use PNG format for Teletalk photo upload?",
+        "answer": "No. The Teletalk portal only accepts ==JPG/JPEG format== for both photo and signature uploads. PNG, HEIC, WEBP, or PDF formats will be rejected by the portal validator."
+      },
+      {
+        "question": "How to pay the Teletalk application fee?",
+        "answer": "After completing the online application form, the portal provides a specific ==SMS command== to send from a Teletalk prepaid SIM card. The fee is deducted from your Teletalk balance. Specific SMS format and fee amount are always mentioned in the official circular."
+      },
+      {
+        "question": "My Teletalk payment was deducted but status not updated — what to do?",
+        "answer": "Do not pay again. Email ==alljobs.query@teletalk.com.bd== with your application number, mobile number, transaction ID, and fee amount. The Teletalk support team reconciles payments manually within 2–3 working days."
+      },
+      {
+        "question": "How to download Bangladesh govt job admit card?",
+        "answer": "Admit cards are published on the respective Teletalk portal (e.g. bpsc.teletalk.com.bd) usually 7–10 days before the exam. Log in with your ==User ID and Password== used during registration to download and print your admit card."
+      },
+      {
+        "question": "What causes Teletalk photo upload rejection?",
+        "answer": "Common rejection causes: ==file exceeds 100 KB==, dimensions are not exactly 300×300 px, non-JPG format, black-and-white photo, blurry or shadowed image, face not fully visible, or non-plain background."
+      },
+      {
+        "question": "What causes Teletalk signature upload rejection?",
+        "answer": "Signature rejections occur when: ==file exceeds 60 KB==, dimensions differ from 300×80 px, the file is PNG or other non-JPG format, signature is typed/block-letter rather than handwritten, or the signature area has shadows or a colored background."
+      },
+      {
+        "question": "How to resize photo to 300x300 px under 100 KB for Bangladesh govt job?",
+        "answer": "Upload your photo to our ==SignResize Bangladesh Teletalk Photo Tool== to automatically crop your image to exactly 300×300 pixels and compress it under 100 KB in JPG format — instantly and with zero privacy risk."
+      },
+      {
+        "question": "I did not receive the Teletalk OTP — what should I do?",
+        "answer": "Check your phone's SMS inbox and spam folder. Ensure your registered mobile number has good signal. If the OTP still does not arrive, wait 5 minutes and request a resend. Contact ==alljobs.query@teletalk.com.bd== if the issue persists."
+      },
+      {
+        "question": "How to check Bangladesh govt job exam result?",
+        "answer": "Results are published on the official exam body's website (e.g. ==bpsc.gov.bd== for BPSC) and on the respective Teletalk portal. Log in with your User ID and Password or search using your Roll Number in the published result PDF."
+      }
+    ],
+    contentHtml: `
+<!-- Sticky Quick Problem Finder (Anchor Jump Bar) -->
+<div class="my-6 p-4 sm:p-5 rounded-2xl bg-card border-2 border-primary/30 shadow-md space-y-3 sticky top-4 z-20 backdrop-blur-md bg-card/95">
+  <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-2.5">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+      <h3 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground">🚨 Instant Diagnostic Failure Finder</h3>
+    </div>
+    <span class="text-[10px] font-mono text-muted-foreground">Jump directly to your specific failure state</span>
+  </div>
+
+  <!-- Jump Action Chips -->
+  <div class="flex flex-wrap gap-2 text-xs">
+    <a href="#bd-failure-upload" class="px-3 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📸</span>
+      <span>300×300 Photo / 300×80 Signature Upload Error</span>
+    </a>
+    <a href="#bd-failure-payment" class="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-200 border border-amber-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📱</span>
+      <span>Teletalk SMS Fee Payment</span>
+    </a>
+    <a href="#bd-failure-admitcard" class="px-3 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-800 dark:text-indigo-200 border border-indigo-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>🎟️</span>
+      <span>Admit Card Download</span>
+    </a>
+    <a href="#bd-failure-validator" class="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-800 dark:text-rose-200 border border-rose-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>🔍</span>
+      <span>Photo/Sign Validator Rejected</span>
+    </a>
+    <a href="#bd-failure-result" class="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📊</span>
+      <span>Result &amp; Merit Check</span>
+    </a>
+  </div>
+</div>
+
+<section id="bd-overview" class="space-y-4">
+  <div class="p-4 sm:p-5 rounded-2xl bg-primary/10 border border-primary/20 text-foreground">
+    <p class="text-sm sm:text-base font-semibold leading-relaxed">
+      <strong>Complete BPSC &amp; Teletalk Bangladesh 2026 Master Overview:</strong> The Bangladesh Public Service Commission (BPSC), headquartered in Agargaon, Dhaka and accessible via <a href="https://bpsc.gov.bd" target="_blank" rel="noopener noreferrer" class="text-primary underline">bpsc.gov.bd</a>, is the central recruitment authority for government posts in Bangladesh. All online applications are submitted through the <a href="https://alljobs.teletalk.com.bd" target="_blank" rel="noopener noreferrer" class="text-primary underline">Teletalk Alljobs portal</a> or specific body portals like <strong>bpsc.teletalk.com.bd</strong>, <strong>dpe.teletalk.com.bd</strong>, and <strong>ntrca.teletalk.com.bd</strong>. Every application requires strict compliance with image upload standards: <strong>300 × 300 pixel color photo under 100 KB</strong> and <strong>300 × 80 pixel handwritten signature under 60 KB</strong>, both in JPG format.
+    </p>
+  </div>
+
+  <p>
+    Each year, hundreds of thousands of aspirants from Dhaka, Chittagong, Sylhet, Rajshahi, Khulna, Barisal, and across Bangladesh apply for civil service, teaching, banking, and ministry positions through Teletalk-powered portals. Yet thousands face application rejection or admit card issues due to file size violations, incorrect pixel dimensions, using PNG or HEIC formats, or failed Teletalk SMS fee payments.
+  </p>
+
+  <p>
+    This diagnostic master guide delivers an <strong>actionable troubleshooting framework</strong> covering every stage — Teletalk online registration, photo &amp; signature upload compliance, SMS fee payment, admit card download, result checking, and instant image formatting using our free client-side utility: the <a href="/teletalk-photo-signature-resize/" class="text-primary font-semibold underline">SignResize Bangladesh Teletalk Photo &amp; Signature Resizer</a>.
+  </p>
+</section>
+
+<!-- Authoritative Master Specifications & Policy Bounds -->
+<section id="bd-master-specs" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📐 1.</span> Master Teletalk Bangladesh Regulatory &amp; Technical Benchmark Specifications
+  </h2>
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    Authoritative structural parameters governing Bangladesh government job applications, Teletalk portal limits, BPSC, NTRCA, DPE, and bank recruitment standards.
+  </p>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Regulatory Parameter</th>
+          <th class="px-4 py-3">Official Teletalk Bangladesh Standard</th>
+          <th class="px-4 py-3">Statutory Rule / Authority</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Passport Photo File Bounds</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">300 × 300 px (max 100 KB)</td>
+          <td class="px-4 py-3 text-muted-foreground">White/Light BG, Color JPG, No B&amp;W</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Signature Scan File Bounds</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">300 × 80 px (max 60 KB)</td>
+          <td class="px-4 py-3 text-muted-foreground">Black/Blue ballpoint ink on white unruled paper</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Photo Format Requirement</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">JPG / JPEG only</td>
+          <td class="px-4 py-3 text-muted-foreground">PNG, HEIC, WEBP, PDF formats auto-rejected</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Application Fee System</td>
+          <td class="px-4 py-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">Teletalk Prepaid SMS (circular-specific command)</td>
+          <td class="px-4 py-3 text-muted-foreground">Teletalk Bangladesh mobile wallet fee deduction</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Official Photo/Sign Validator</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">bpsc.teletalk.com.bd/ncad/imsize.php</td>
+          <td class="px-4 py-3 text-muted-foreground">Use before final submission to verify file compliance</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Application Portal</td>
+          <td class="px-4 py-3 font-mono">alljobs.teletalk.com.bd / bpsc.teletalk.com.bd</td>
+          <td class="px-4 py-3 text-muted-foreground">Govt-authorised Teletalk recruitment platform</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Support Email</td>
+          <td class="px-4 py-3 font-mono">alljobs.query@teletalk.com.bd</td>
+          <td class="px-4 py-3 text-muted-foreground">For payment disputes and technical upload issues</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Visual Dimension Blueprints -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
+    <!-- Photo Blueprint -->
+    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <h3 class="font-bold text-sm sm:text-base text-foreground flex items-center gap-2">
+          <span>📐</span> Photo Blueprint (300 × 300 px)
+        </h3>
+        <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-primary/10 text-primary">Max 100 KB</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs text-muted-foreground">
+        <div class="w-24 h-24 rounded-xl border-2 border-dashed border-primary/50 bg-primary/5 flex flex-col items-center justify-center text-center p-2 shrink-0">
+          <span class="font-bold text-primary text-[10px]">80% Face</span>
+          <span class="text-[9px] text-muted-foreground">300×300 px</span>
+          <span class="text-[8px] text-emerald-600 dark:text-emerald-400 font-mono mt-1">White BG</span>
+        </div>
+        <div class="space-y-1.5">
+          <p><strong class="text-foreground">Aspect Ratio:</strong> Square (1:1) — 300 × 300 px.</p>
+          <p><strong class="text-foreground">Face Coverage:</strong> Full frontal color photo, neutral expression, ears visible, no sunglasses.</p>
+          <p><strong class="text-foreground">Size Limit:</strong> Strictly under 100 KB in JPG/JPEG format.</p>
+          <p><strong class="text-foreground">Color Requirement:</strong> Color photo mandatory — no B&amp;W or grayscale.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signature Blueprint -->
+    <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <h3 class="font-bold text-sm sm:text-base text-foreground flex items-center gap-2">
+          <span>✍️</span> Signature Blueprint (300 × 80 px)
+        </h3>
+        <span class="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-primary/10 text-primary">Max 60 KB</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-1">
+          <span class="text-emerald-700 dark:text-emerald-300 font-bold flex items-center justify-center gap-1">
+            <span>✅</span> Valid Signature
+          </span>
+          <div class="font-serif italic text-base text-foreground py-1">Rahim Ahmed</div>
+          <p class="text-[10px] text-muted-foreground leading-tight">Black/Blue ballpoint ink scan on white paper, 300×80 px, under 60 KB.</p>
+        </div>
+        <div class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 space-y-1">
+          <span class="text-rose-700 dark:text-rose-300 font-bold flex items-center justify-center gap-1">
+            <span>❌</span> Auto-Rejected
+          </span>
+          <div class="font-mono font-bold tracking-widest text-sm text-rose-600 dark:text-rose-400 py-1">RAHIM AHMED</div>
+          <p class="text-[10px] text-muted-foreground leading-tight">Typed, block letter, or shadowed background signatures are rejected.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAILURE STATE 1: Upload & File Errors -->
+<section id="bd-failure-upload" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="flex flex-wrap items-center justify-between gap-2">
+    <div class="space-y-1">
+      <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20">
+        Stage 1 Failure State
+      </span>
+      <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+        📸 Failure State 1: Teletalk 300×300 px Photo &amp; 300×80 px Signature Upload Rejections
+      </h2>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="/teletalk-photo-signature-resize/" class="px-3 py-1.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition">
+        BD Photo Tool
+      </a>
+    </div>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    During the image upload step on <a href="https://alljobs.teletalk.com.bd" target="_blank" rel="noopener noreferrer" class="text-primary underline">alljobs.teletalk.com.bd</a>, the server validates the binary stream against exact dimension and file-size constraints. Any deviation — even 1 KB over the 100 KB limit — triggers a hard portal exception.
+  </p>
+
+  <!-- 5W1H Diagnostic Card -->
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-primary">● WHAT:</span> Exact Error String
+        </strong>
+        <p class="text-muted-foreground font-mono text-xs">
+          "Photo size exceeds 100 KB limit. Please upload a JPG file of 300×300 px under 100 KB" OR "Signature size exceeds 60 KB. Upload 300×80 px JPG under 60 KB."
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-amber-600 dark:text-amber-400">● WHY:</span> Technical Root Cause
+        </strong>
+        <p class="text-muted-foreground">
+          Smartphone cameras produce images ranging from 2 MB to 8 MB at full resolution. Simply renaming a PNG or HEIC file to .jpg does not compress the underlying byte data. Files over 100 KB fail Teletalk's database blob size constraints at server level.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-rose-600 dark:text-rose-400">● WHEN:</span> Failure Window
+        </strong>
+        <p class="text-muted-foreground">
+          Occurs during the image upload step of the online application form. If unresolved before the closing date deadline (typically 11:59 PM per circular), the application remains incomplete and un-submitted.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-indigo-600 dark:text-indigo-400">● WHERE:</span> Official Portal Link
+        </strong>
+        <p class="text-muted-foreground">
+          Teletalk Bangladesh Application Portal: <code>alljobs.teletalk.com.bd → Login → Apply → Image Upload Step</code>. Validator: <code>bpsc.teletalk.com.bd/ncad/imsize.php</code>.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-emerald-600 dark:text-emerald-400">● WHO:</span> Affected Candidates
+        </strong>
+        <p class="text-muted-foreground">
+          All BCS, NTRCA, Primary Teacher, Bangladesh Bank, Sonali Bank, Janata Bank, and Ministry applicants using Teletalk-powered recruitment portals.
+        </p>
+      </div>
+
+      <div class="p-3 rounded-xl bg-muted/30 border border-border/60 space-y-1">
+        <strong class="text-foreground flex items-center gap-1.5 font-bold">
+          <span class="text-cyan-600 dark:text-cyan-400">● HOW:</span> Step-by-Step Technical Fix
+        </strong>
+        <p class="text-muted-foreground">
+          1. Upload your photo to <a href="/teletalk-photo-signature-resize/" class="text-primary underline">SignResize Bangladesh Photo Tool</a>.<br/>
+          2. Select <strong>300×300 px, max 100 KB, JPG</strong> preset for photo.<br/>
+          3. For signature: use <strong>300×80 px, max 60 KB, JPG</strong>.<br/>
+          4. Verify with the official Teletalk validator before final upload.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Common Rejection Root Causes -->
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3">
+    <h3 class="font-bold text-base text-foreground">7 Most Common Teletalk Image Rejection Causes:</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-rose-500/5 border border-rose-500/20">
+        <span class="text-rose-500 font-bold shrink-0">✖</span>
+        <div><strong class="text-foreground">File over 100 KB:</strong> <span class="text-muted-foreground">Compress photo to under 100 KB before uploading.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-rose-500/5 border border-rose-500/20">
+        <span class="text-rose-500 font-bold shrink-0">✖</span>
+        <div><strong class="text-foreground">Wrong dimensions:</strong> <span class="text-muted-foreground">Photo must be exactly 300×300 px — not 640×480 or 200×200.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-rose-500/5 border border-rose-500/20">
+        <span class="text-rose-500 font-bold shrink-0">✖</span>
+        <div><strong class="text-foreground">PNG / HEIC format:</strong> <span class="text-muted-foreground">Only JPG/JPEG is accepted — no format conversion by renaming.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-rose-500/5 border border-rose-500/20">
+        <span class="text-rose-500 font-bold shrink-0">✖</span>
+        <div><strong class="text-foreground">Black &amp; White photo:</strong> <span class="text-muted-foreground">Color photograph is mandatory — grayscale auto-rejected.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-rose-500/5 border border-rose-500/20">
+        <span class="text-rose-500 font-bold shrink-0">✖</span>
+        <div><strong class="text-foreground">Blurry or dark photo:</strong> <span class="text-muted-foreground">Ensure good lighting and sharp focus — facial recognition may fail.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-rose-500/5 border border-rose-500/20">
+        <span class="text-rose-500 font-bold shrink-0">✖</span>
+        <div><strong class="text-foreground">Signature over 60 KB:</strong> <span class="text-muted-foreground">Signature must be 300×80 px and strictly under 60 KB.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-rose-500/5 border border-rose-500/20">
+        <span class="text-rose-500 font-bold shrink-0">✖</span>
+        <div><strong class="text-foreground">Typed/printed signature:</strong> <span class="text-muted-foreground">Only handwritten ink signatures on white paper are accepted.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAILURE STATE 2: Teletalk SMS Fee Payment -->
+<section id="bd-failure-payment" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
+      Stage 2 Fee System
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      📱 Teletalk Bangladesh SMS Application Fee Payment Guide
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    Unlike India's net banking challan or Pakistan's 1Bill PSID, Bangladesh uses a <strong>Teletalk prepaid SIM SMS system</strong> for government job application fee payment. The specific SMS format and fee amount are published in each official job circular.
+  </p>
+
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4 text-xs sm:text-sm">
+    <h3 class="font-bold text-foreground text-base">3-Step Teletalk SMS Fee Payment Workflow:</h3>
+    <ol class="list-decimal pl-5 space-y-2 text-muted-foreground">
+      <li><strong>Complete the Online Form:</strong> Fill and submit your application on <code>alljobs.teletalk.com.bd</code>. Note your <strong>User ID</strong> generated after form submission.</li>
+      <li><strong>Send SMS from Teletalk SIM:</strong> Open the SMS app on your Teletalk prepaid phone. Type the specific command published in the circular (e.g., <code>EXAM&lt;space&gt;User ID</code>) and send to the designated number (usually 16222).</li>
+      <li><strong>Receive Confirmation SMS:</strong> You will receive a PIN number via return SMS. Send the PIN confirmation SMS as instructed. Fee is deducted from your Teletalk balance, and the application portal status updates automatically within minutes.</li>
+    </ol>
+
+    <!-- Dark Snippet Box -->
+    <div class="my-4 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-1">
+      <div class="text-emerald-400 font-bold">// Example Teletalk SMS Payment Flow (sample format — check your circular)</div>
+      <div>Step 1 SMS → To: 16222 → Message: <span class="text-amber-300">BPSC&lt;space&gt;User_ID</span></div>
+      <div>Return SMS → PIN: <span class="text-amber-300">XXXXXX</span> | Fee: BDT 200 (example)</div>
+      <div>Step 2 SMS → To: 16222 → Message: <span class="text-amber-300">BPSC&lt;space&gt;Yes&lt;space&gt;PIN&lt;space&gt;User_ID</span></div>
+      <div>Status: <span class="text-emerald-400">Payment Received — Application Confirmed</span></div>
+    </div>
+
+    <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs sm:text-sm space-y-1">
+      <strong class="text-amber-800 dark:text-amber-200 flex items-center gap-1">⚠️ Payment Deducted But Status Not Updated?</strong>
+      <p class="text-muted-foreground">Do NOT pay again. Email <strong>alljobs.query@teletalk.com.bd</strong> with your Application Number, Teletalk mobile number, transaction time, and fee amount. Teletalk support manually reconciles payments within 2–3 working days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAILURE STATE 3: Admit Card Download -->
+<section id="bd-failure-admitcard" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20">
+      Stage 3 Test Entry
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      🎟️ Bangladesh Govt Job Admit Card Download Protocol
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    Approximately 7–14 days before the scheduled examination date, the respective Teletalk portal publishes admit cards online. Candidates do not receive physical admit cards by post.
+  </p>
+
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3 text-xs sm:text-sm">
+    <p><strong>Step 1:</strong> Visit <a href="https://alljobs.teletalk.com.bd" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold underline">alljobs.teletalk.com.bd</a> or the specific portal (e.g. <code>bpsc.teletalk.com.bd</code>, <code>dpe.teletalk.com.bd</code>).</p>
+    <p><strong>Step 2:</strong> Click on <strong>Admit Card / Pravesh Patra Download</strong> or log in with the <strong>User ID</strong> and <strong>Password</strong> you created during registration.</p>
+    <p><strong>Step 3:</strong> Download the PDF admit card containing your Roll Number, Exam Center, Exam Date &amp; Time, and reporting instructions.</p>
+    <p><strong>Step 4:</strong> Print the admit card and bring it along with your original <strong>NID (National Identity Card)</strong> to the exam center.</p>
+
+    <div class="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-xs sm:text-sm space-y-1">
+      <strong class="text-indigo-800 dark:text-indigo-200 flex items-center gap-1">ℹ️ Admit Card Not Available Yet?</strong>
+      <p class="text-muted-foreground">Admit cards are released only after final scrutiny of applications. Monitor the official portal and the conducting body's website (e.g. bpsc.gov.bd) regularly. Notifications are also shared via official social media pages.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAILURE STATE 4: Photo/Sign Validator -->
+<section id="bd-failure-validator" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20">
+      Stage 4 Validator
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      🔍 Using the Official Teletalk Photo &amp; Signature Validator
+    </h2>
+  </div>
+
+  <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+    Before uploading your photo and signature on any Teletalk portal, always use the <strong>official Photo/Sign Validator</strong> to confirm your files meet exact requirements — this prevents last-minute rejection at submission.
+  </p>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Validator Check</th>
+          <th class="px-4 py-3">Required Value</th>
+          <th class="px-4 py-3">What to Do If Fails</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Photo Dimensions</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">Exactly 300 × 300 px</td>
+          <td class="px-4 py-3 text-muted-foreground">Resize using SignResize tool to exact 300×300 px</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Photo File Size</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">≤ 100 KB</td>
+          <td class="px-4 py-3 text-muted-foreground">Compress with SignResize compress tool</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Signature Dimensions</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Exactly 300 × 80 px</td>
+          <td class="px-4 py-3 text-muted-foreground">Crop and resize signature to exactly 300×80 px</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Signature File Size</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">≤ 60 KB</td>
+          <td class="px-4 py-3 text-muted-foreground">Compress signature JPG under 60 KB</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">File Format</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">JPG / JPEG only</td>
+          <td class="px-4 py-3 text-muted-foreground">Convert file to true JPG (not just rename)</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Photo Color Type</td>
+          <td class="px-4 py-3 font-bold text-foreground">Color (RGB) required</td>
+          <td class="px-4 py-3 text-muted-foreground">Take new color photo — grayscale will be rejected</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FAILURE STATE 5: Result Check -->
+<section id="bd-failure-result" class="space-y-4 pt-6 border-t-2 border-primary/20">
+  <div class="space-y-1">
+    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+      Stage 5 Result
+    </span>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+      📊 Bangladesh Govt Job Result &amp; Merit List Check Protocol
+    </h2>
+  </div>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Exam Body</th>
+          <th class="px-4 py-3">Result Portal</th>
+          <th class="px-4 py-3">Check Method</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">BPSC (BCS Exam)</td>
+          <td class="px-4 py-3 font-mono text-primary">bpsc.gov.bd</td>
+          <td class="px-4 py-3 text-muted-foreground">Login with User ID or search Roll Number in PDF result list</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">NTRCA</td>
+          <td class="px-4 py-3 font-mono text-primary">ntrca.gov.bd</td>
+          <td class="px-4 py-3 text-muted-foreground">Registration & result available on official NTRCA portal</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Primary Teacher (DPE)</td>
+          <td class="px-4 py-3 font-mono text-primary">dpe.gov.bd / dpe.teletalk.com.bd</td>
+          <td class="px-4 py-3 text-muted-foreground">Check result via Roll Number on DPE official portal</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Bangladesh Bank</td>
+          <td class="px-4 py-3 font-mono text-primary">bb.org.bd / erecruitment.bb.org.bd</td>
+          <td class="px-4 py-3 text-muted-foreground">Login with registered email or Roll Number</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Sonali / Janata Bank</td>
+          <td class="px-4 py-3 font-mono text-primary">sonalibank.com.bd / janatabank-bd.com</td>
+          <td class="px-4 py-3 text-muted-foreground">Results published on official bank website and Teletalk portal</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Tool Callout CTA Box -->
+<div class="my-8 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 space-y-3">
+  <h4 class="text-base sm:text-lg font-extrabold text-foreground">Resize Photo &amp; Signature for Bangladesh Teletalk Portal Instantly</h4>
+  <p class="text-xs sm:text-sm text-muted-foreground">Crop your photo to exactly 300×300 px (under 100 KB) and signature to 300×80 px (under 60 KB) with zero privacy risk — 100% client-side, no uploads to server.</p>
+  <div class="flex flex-wrap gap-3 pt-1">
+    <a href="/teletalk-photo-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
+      Open Bangladesh Photo Resizer &rarr;
+    </a>
+    <a href="/compress-image-to-kb/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted transition">
+      Compress Image to KB
+    </a>
+  </div>
+</div>
+`
+  },
+  {
+    slug: "bcs-exam-bangladesh-complete-guide-2026-syllabus-preparation-photo-upload",
+    title: "BCS Exam Bangladesh Complete Guide 2026: BPSC Syllabus, Preliminary Preparation, Admit Card Download & Teletalk Photo (300×300px) Upload Guide",
+    metaTitle: "BCS Bangladesh Complete Guide 2026: Syllabus, Preparation & Photo Resize",
+    metaDescription: "Complete BCS Bangladesh 2026 guide — BPSC 3-stage exam (Preliminary 200 MCQ, Written, Viva), syllabus breakdown, preparation strategy, admit card download, and Teletalk photo 300x300 px (100 KB) resize guide.",
+    excerpt: "Comprehensive guide for BCS Bangladesh 2026 covering the 3-stage BPSC process — Preliminary (200 marks MCQ), Written Exam (1000 marks), and Viva Voce — with full subject-wise syllabus, preparation tips, Teletalk photo upload specs (300×300 px / 100 KB), admit card download, and result check steps.",
+    category: "Study Prep",
+    country: "BD",
+    publishDate: "Oct 06, 2026",
+    lastUpdated: "Oct 06, 2026",
+    author: "SignResize Bangladesh Desk",
+    authorRole: "BCS & Competitive Exam Methodology Specialist",
+    readTime: "14 min read",
+    featured: false,
+    tags: [
+      "BCS Exam Bangladesh",
+      "BCS Syllabus 2026",
+      "BCS Preliminary Preparation",
+      "BPSC Bangladesh",
+      "BCS Written Exam",
+      "BCS Admit Card",
+      "Bangladesh Civil Service"
+    ],
+    relatedExamPreset: "bpsc-bd",
+    quickFacts: [
+      {
+        "label": "Conducting Body",
+        "value": "Bangladesh Public Service Commission (BPSC) — bpsc.gov.bd"
+      },
+      {
+        "label": "Exam Stages",
+        "value": "3 Stages: Preliminary (MCQ) → Written → Viva Voce"
+      },
+      {
+        "label": "Preliminary Marks",
+        "value": "200 Marks (100 MCQs × 2 Marks, 2.5 Hours)"
+      },
+      {
+        "label": "Written Exam Marks",
+        "value": "1,100 Marks across compulsory + optional subjects"
+      },
+      {
+        "label": "Viva Voce Marks",
+        "value": "100 Marks (personality and aptitude assessment)"
+      },
+      {
+        "label": "Application Portal",
+        "value": "bpsc.teletalk.com.bd (Teletalk Bangladesh)"
+      },
+      {
+        "label": "Photo Requirement",
+        "value": "300 × 300 px, max 100 KB, JPG, Color, White BG"
+      },
+      {
+        "label": "Total Exam Timeline",
+        "value": "~1.5 to 2 Years from Circular to Final Result"
+      }
+    ],
+    faqs: [
+      {
+        "question": "What is the Bangladesh Civil Service (BCS) exam?",
+        "answer": "The ==Bangladesh Civil Service (BCS) examination== is the most prestigious competitive examination in Bangladesh, conducted by the Bangladesh Public Service Commission (BPSC). It selects candidates for senior civil service positions across 26 cadres including administration, police, foreign affairs, education, health, agriculture, and engineering services."
+      },
+      {
+        "question": "How many stages does the BCS exam have?",
+        "answer": "The BCS exam has ==3 stages: (1) Preliminary Examination== (200 marks MCQ screening), ==(2) Written Examination== (1,100 marks descriptive papers), and ==(3) Viva Voce== (100 marks personality assessment). Candidates must pass each stage sequentially."
+      },
+      {
+        "question": "How many marks is the BCS Preliminary exam?",
+        "answer": "The BCS Preliminary Examination consists of ==200 marks== across 100 multiple-choice questions (2 marks each). The exam duration is 2 hours and 30 minutes. Subject areas include Bangla, English, Bangladesh Affairs, International Affairs, General Science &amp; Technology, Math &amp; Mental Ability, and Geography &amp; Environment."
+      },
+      {
+        "question": "What subjects are in the BCS Preliminary exam?",
+        "answer": "The BCS Preliminary covers 9 subject areas: ==Bangla (35 marks), English (35 marks), Bangladesh Affairs (30 marks), International Affairs (20 marks), General Science &amp; Technology (15 marks), Computer &amp; Information Technology (15 marks), Mathematical Reasoning &amp; Mental Ability (15 marks), Geography, Environment &amp; Disaster Management (10 marks), and Everyday Science (5 marks)==."
+      },
+      {
+        "question": "What subjects are in the BCS Written exam?",
+        "answer": "Compulsory written subjects include: ==Bangla (200 marks), English (200 marks), Bangladesh Affairs (200 marks), International Affairs (100 marks), Mathematical Reasoning &amp; Mental Ability (100 marks), and General Science &amp; Technology (100 marks)==. Optional subject paper (200 marks) is selected from the cadre specialization."
+      },
+      {
+        "question": "How long does the entire BCS process take?",
+        "answer": "The full BCS process — from circular release to final posting — typically takes ==1.5 to 2 years==, comprising the Preliminary (2–3 months after circular), Written (4–6 months later), Viva (3–4 months after written result), and final cadre allocation and posting."
+      },
+      {
+        "question": "What is the age limit for BCS exam?",
+        "answer": "The general age limit for BCS examination is ==21 to 30 years== as of the application date. For candidates with freedom fighter quotas and certain other categories, the upper limit is relaxed to 32 years. Age is verified from the NID card."
+      },
+      {
+        "question": "What is the minimum pass mark for BCS Preliminary?",
+        "answer": "BPSC does not declare a fixed cut-off mark in advance. The preliminary qualifying threshold depends on the ==number of candidates qualified relative to written exam seat allocation==. Generally a score of 100–120 out of 200 is competitive, but this varies each year."
+      },
+      {
+        "question": "How to apply for BCS exam online?",
+        "answer": "Visit ==bpsc.teletalk.com.bd== during the open application window, create an account or log in, fill in the personal, educational, and cadre preference details, upload your 300×300 px color photo (max 100 KB) and 300×80 px signature (max 60 KB), verify with the Photo/Sign Validator, and complete fee payment via Teletalk SMS."
+      },
+      {
+        "question": "How to download the BCS Admit Card (Pravesh Patra)?",
+        "answer": "BCS admit cards are published on ==bpsc.teletalk.com.bd== approximately 7–10 days before the examination date. Log in with your User ID and Password or enter your Roll Number to download and print the PDF admit card."
+      },
+      {
+        "question": "Where can I find BCS past question papers?",
+        "answer": "BCS past papers (Previous Years' Questions) are available on the ==BPSC official website (bpsc.gov.bd)==, major bookstores (Solution books), and educational apps. Practicing 5–10 years of past preliminary papers is the most effective preparation strategy."
+      },
+      {
+        "question": "How to check the BCS result by roll number?",
+        "answer": "BCS Preliminary results are published as a PDF list of qualified Roll Numbers on ==bpsc.gov.bd==. Written and Viva results with final merit/cadre allocation are also posted on the official BPSC website. Log in with your portal credentials to check personalized status."
+      },
+      {
+        "question": "What photo size is required for BCS application on bpsc.teletalk.com.bd?",
+        "answer": "The BCS application via the Teletalk portal requires a ==color passport photo of exactly 300 × 300 pixels (width × height)== with a maximum file size of ==100 KB in JPG/JPEG format== on a plain white background. Black-and-white photos are rejected."
+      }
+    ],
+    contentHtml: `
+<!-- Sticky Quick Problem Finder -->
+<div class="my-6 p-4 sm:p-5 rounded-2xl bg-card border-2 border-primary/30 shadow-md space-y-3 sticky top-4 z-20 backdrop-blur-md bg-card/95">
+  <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-2.5">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+      <h3 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground">🚨 Jump to BCS Guide Section</h3>
+    </div>
+    <span class="text-[10px] font-mono text-muted-foreground">Click to navigate directly</span>
+  </div>
+  <div class="flex flex-wrap gap-2 text-xs">
+    <a href="#bcs-what" class="px-3 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📖</span><span>What is BCS?</span>
+    </a>
+    <a href="#bcs-syllabus" class="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-200 border border-amber-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📝</span><span>Preliminary Syllabus (200 Marks)</span>
+    </a>
+    <a href="#bcs-written" class="px-3 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-800 dark:text-indigo-200 border border-indigo-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>✍️</span><span>Written Exam Guide</span>
+    </a>
+    <a href="#bcs-photo" class="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-800 dark:text-rose-200 border border-rose-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📸</span><span>Photo &amp; Signature Upload</span>
+    </a>
+    <a href="#bcs-timeline" class="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/25 font-semibold transition flex items-center gap-1.5 shadow-2xs">
+      <span>📅</span><span>BCS Timeline &amp; Stages</span>
+    </a>
+  </div>
+</div>
+
+<section id="bcs-overview" class="space-y-4">
+  <div class="p-4 sm:p-5 rounded-2xl bg-primary/10 border border-primary/20 text-foreground">
+    <p class="text-sm sm:text-base font-semibold leading-relaxed">
+      <strong>Complete BCS Bangladesh 2026 Master Overview:</strong> The Bangladesh Civil Service (BCS) examination, conducted by the <a href="https://bpsc.gov.bd" target="_blank" rel="noopener noreferrer" class="text-primary underline">Bangladesh Public Service Commission (BPSC)</a>, is the nation's most competitive and prestigious government recruitment process. Passing BCS opens doors to <strong>26 prestigious cadres</strong> including Administration, Police, Foreign Service, Taxation, Audit &amp; Accounts, Education, Health, Agriculture, Public Works, and more — with salaries ranging from BDT 16,000 to BDT 78,000 per month (Grade 5–9) plus government benefits.
+    </p>
+  </div>
+
+  <p>
+    Each BCS cycle attracts over 400,000 to 500,000 applicants from across Bangladesh — from Dhaka, Chittagong, Sylhet, Rajshahi, Khulna, Barisal, Rangpur, and Mymensingh. Yet thousands fail at the very first hurdle: the Teletalk online application portal rejects their photo or signature files due to dimension or file size violations, costing them their BCS opportunity before the exam even begins.
+  </p>
+
+  <p>
+    This comprehensive guide covers every stage of BCS — from online application and photo upload compliance to the Preliminary syllabus breakdown, Written exam strategy, Viva preparation, and admit card/result download — backed by the free <a href="/teletalk-photo-signature-resize/" class="text-primary font-semibold underline">SignResize Bangladesh BCS Photo &amp; Signature Resizer</a>.
+  </p>
+</section>
+
+<!-- What is BCS -->
+<section id="bcs-what" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📖 1.</span> What is BCS? Bangladesh Civil Service — Complete Explainer
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-2 text-center">
+      <div class="text-3xl">🏛️</div>
+      <h3 class="font-bold text-foreground text-sm">Stage 1: Preliminary</h3>
+      <p class="text-xs text-muted-foreground">200 Marks MCQ Screening Exam. 100 Questions × 2 Marks. Duration: 2.5 Hours. Negative marking: -0.50 per wrong answer.</p>
+      <span class="inline-block px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono text-[10px] font-bold">Qualifying Stage</span>
+    </div>
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-2 text-center">
+      <div class="text-3xl">✍️</div>
+      <h3 class="font-bold text-foreground text-sm">Stage 2: Written</h3>
+      <p class="text-xs text-muted-foreground">1,100 Marks across 6 compulsory + 1 optional subject. Descriptive answers. Tests depth, analytical skill, and language command.</p>
+      <span class="inline-block px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 font-mono text-[10px] font-bold">Main Exam</span>
+    </div>
+    <div class="p-4 rounded-2xl bg-card border border-border space-y-2 text-center">
+      <div class="text-3xl">🎙️</div>
+      <h3 class="font-bold text-foreground text-sm">Stage 3: Viva Voce</h3>
+      <p class="text-xs text-muted-foreground">100 Marks oral interview conducted by BPSC board. Assesses personality, knowledge, communication, and cadre suitability.</p>
+      <span class="inline-block px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-mono text-[10px] font-bold">Final Stage</span>
+    </div>
+  </div>
+</section>
+
+<!-- BCS Preliminary Syllabus -->
+<section id="bcs-syllabus" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📝 2.</span> BCS Preliminary Syllabus — Subject-Wise 200 Marks Breakdown
+  </h2>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Subject Area</th>
+          <th class="px-4 py-3">Marks</th>
+          <th class="px-4 py-3">Key Topics to Focus</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Bangla Language &amp; Literature</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">35 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Grammar, literature, poetry, prose, Bangladeshi authors, language history</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">English Language &amp; Literature</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">35 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Grammar, vocabulary, idioms, literature authors, comprehension, sentence correction</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Bangladesh Affairs</td>
+          <td class="px-4 py-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">30 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Liberation War 1971, constitution, geography, history, economy, culture</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">International Affairs</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">20 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Geopolitics, international organizations (UN, WTO, IMF), current events</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">General Science &amp; Technology</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">15 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Physics, Chemistry, Biology basics, environmental science, everyday science</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Computer &amp; Information Technology</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">15 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Computer basics, internet, MS Office, digital Bangladesh, ICT policy</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Mathematical Reasoning &amp; Mental Ability</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">15 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Arithmetic, algebra, ratio, percentage, logical reasoning, analogy, series</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Geography, Environment &amp; Disaster</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">10 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Bangladesh geography, rivers, climate change, natural disasters, environment</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Everyday Science</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">5 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Day-to-day science applications, health, nutrition, domestic science</td>
+        </tr>
+        <tr class="bg-muted/40">
+          <td class="px-4 py-3 font-extrabold text-foreground">TOTAL</td>
+          <td class="px-4 py-3 font-extrabold text-primary">200 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Duration: 2 Hours 30 Minutes | Negative: −0.50 per wrong answer</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- BCS Written Exam -->
+<section id="bcs-written" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>✍️ 3.</span> BCS Written Exam — 1,100 Marks Compulsory &amp; Optional Papers
+  </h2>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Paper</th>
+          <th class="px-4 py-3">Subject</th>
+          <th class="px-4 py-3">Marks</th>
+          <th class="px-4 py-3">Preparation Focus</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Compulsory 1</td>
+          <td class="px-4 py-3">Bangla (1st &amp; 2nd Paper)</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">200 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Essay, summary, grammar, translation, letter/application writing</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Compulsory 2</td>
+          <td class="px-4 py-3">English (1st &amp; 2nd Paper)</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">200 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Essay, comprehension, letter, precis writing, grammar, translation</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Compulsory 3</td>
+          <td class="px-4 py-3">Bangladesh Affairs</td>
+          <td class="px-4 py-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">200 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Liberation War, constitution, governance, economy, development</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Compulsory 4</td>
+          <td class="px-4 py-3">International Affairs</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">100 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Current global events, foreign policy, international organizations</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Compulsory 5</td>
+          <td class="px-4 py-3">Math, Reasoning &amp; Mental Ability</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">100 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Algebra, statistics, geometry, logical reasoning problems</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Compulsory 6</td>
+          <td class="px-4 py-3">General Science &amp; Technology</td>
+          <td class="px-4 py-3 font-mono font-bold text-foreground">100 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Physics, Chemistry, Biology, ICT, environment science</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Optional Paper</td>
+          <td class="px-4 py-3">Cadre-Specific Subject (2 papers)</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">200 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Based on cadre preference — e.g. Economics, Law, Engineering, Medicine</td>
+        </tr>
+        <tr class="bg-muted/40">
+          <td class="px-4 py-3 font-extrabold text-foreground" colspan="2">TOTAL</td>
+          <td class="px-4 py-3 font-extrabold text-primary">1,100 Marks</td>
+          <td class="px-4 py-3 text-muted-foreground">Viva Voce: 100 Marks | Grand Total: 1,200 Marks</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- BCS Photo Upload Guide -->
+<section id="bcs-photo" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📸 4.</span> BCS Photo &amp; Signature Upload Guide — bpsc.teletalk.com.bd
+  </h2>
+
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+      <div class="p-4 rounded-2xl border-2 border-primary/30 bg-primary/5 space-y-2">
+        <h3 class="font-bold text-foreground flex items-center gap-2"><span>📷</span> Photo Requirements</h3>
+        <ul class="space-y-1 text-muted-foreground list-none">
+          <li>✅ <strong>Dimensions:</strong> 300 × 300 pixels (exact)</li>
+          <li>✅ <strong>Max File Size:</strong> 100 KB</li>
+          <li>✅ <strong>Format:</strong> JPG / JPEG only</li>
+          <li>✅ <strong>Type:</strong> Color photo (no B&amp;W)</li>
+          <li>✅ <strong>Background:</strong> White or light solid color</li>
+          <li>✅ <strong>Face:</strong> Full frontal, ears visible, no sunglasses</li>
+          <li>❌ <strong>Rejected:</strong> PNG, HEIC, blurry, dark photos</li>
+        </ul>
+      </div>
+      <div class="p-4 rounded-2xl border-2 border-emerald-500/30 bg-emerald-500/5 space-y-2">
+        <h3 class="font-bold text-foreground flex items-center gap-2"><span>✍️</span> Signature Requirements</h3>
+        <ul class="space-y-1 text-muted-foreground list-none">
+          <li>✅ <strong>Dimensions:</strong> 300 × 80 pixels (exact)</li>
+          <li>✅ <strong>Max File Size:</strong> 60 KB</li>
+          <li>✅ <strong>Format:</strong> JPG / JPEG only</li>
+          <li>✅ <strong>Ink:</strong> Black or Blue ballpoint pen</li>
+          <li>✅ <strong>Paper:</strong> White unruled blank paper</li>
+          <li>✅ <strong>Style:</strong> Handwritten cursive signature</li>
+          <li>❌ <strong>Rejected:</strong> Typed, block letters, colored BG</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step-by-step upload guide -->
+    <div class="space-y-3">
+      <h3 class="font-bold text-foreground text-base">Step-by-Step BCS Online Application &amp; Upload Workflow:</h3>
+      <div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-5 text-xs sm:text-sm">
+        <div class="relative">
+          <div class="absolute -left-8 w-5 h-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-[10px]">1</div>
+          <strong class="text-foreground">Visit bpsc.teletalk.com.bd</strong>
+          <p class="text-muted-foreground">Go to the official BPSC Teletalk portal during the open application window for the BCS cycle you are applying for.</p>
+        </div>
+        <div class="relative">
+          <div class="absolute -left-8 w-5 h-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-[10px]">2</div>
+          <strong class="text-foreground">Register or Login</strong>
+          <p class="text-muted-foreground">Create a new account with your NID number, date of birth, and mobile number. Note your User ID and Password carefully.</p>
+        </div>
+        <div class="relative">
+          <div class="absolute -left-8 w-5 h-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-[10px]">3</div>
+          <strong class="text-foreground">Fill Application Form</strong>
+          <p class="text-muted-foreground">Enter personal details, educational qualifications, cadre preferences (up to 14 cadres in order of preference), and district/division information accurately.</p>
+        </div>
+        <div class="relative">
+          <div class="absolute -left-8 w-5 h-5 rounded-full bg-amber-600 text-white flex items-center justify-center font-bold text-[10px]">4</div>
+          <strong class="text-foreground">Resize &amp; Upload Photo and Signature</strong>
+          <p class="text-muted-foreground">Resize photo to 300×300 px (max 100 KB) and signature to 300×80 px (max 60 KB) using our <a href="/teletalk-photo-signature-resize/" class="text-primary underline">SignResize Bangladesh Tool</a>. Verify using the official Photo/Sign Validator at bpsc.teletalk.com.bd/ncad/imsize.php before uploading.</p>
+        </div>
+        <div class="relative">
+          <div class="absolute -left-8 w-5 h-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-[10px]">5</div>
+          <strong class="text-foreground">Pay Fee via Teletalk SMS</strong>
+          <p class="text-muted-foreground">After form submission, send the SMS command (provided in the circular) from your Teletalk prepaid number to complete the application fee payment. Confirm with the PIN return SMS.</p>
+        </div>
+        <div class="relative">
+          <div class="absolute -left-8 w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-[10px]">6</div>
+          <strong class="text-foreground">Download Admit Card</strong>
+          <p class="text-muted-foreground">7–14 days before exam, log in to bpsc.teletalk.com.bd to download your PDF admit card. Print and carry it to the exam center along with original NID.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BCS Timeline -->
+<section id="bcs-timeline" class="space-y-4 pt-6 border-t border-border">
+  <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+    <span>📅 5.</span> BCS Full Timeline — From Circular to Final Posting
+  </h2>
+
+  <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+      <thead class="bg-muted/70 text-muted-foreground uppercase text-[10px] sm:text-xs tracking-wider border-b border-border">
+        <tr>
+          <th class="px-4 py-3">Stage</th>
+          <th class="px-4 py-3">Timeline</th>
+          <th class="px-4 py-3">Portal / Action</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Circular Released</td>
+          <td class="px-4 py-3 text-muted-foreground">Month 0</td>
+          <td class="px-4 py-3 text-muted-foreground">Apply online on bpsc.teletalk.com.bd within deadline</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Application Processing</td>
+          <td class="px-4 py-3 text-muted-foreground">Month 1–2</td>
+          <td class="px-4 py-3 text-muted-foreground">BPSC scrutinizes applications and verifies eligibility</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-primary">Preliminary Exam</td>
+          <td class="px-4 py-3 font-mono font-bold text-primary">Month 3–4</td>
+          <td class="px-4 py-3 text-muted-foreground">200 Marks MCQ — Download Admit Card 7–14 days prior</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Preliminary Result</td>
+          <td class="px-4 py-3 text-muted-foreground">Month 5–6</td>
+          <td class="px-4 py-3 text-muted-foreground">Qualified Roll Numbers published on bpsc.gov.bd</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-indigo-600 dark:text-indigo-400">Written Examination</td>
+          <td class="px-4 py-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">Month 8–12</td>
+          <td class="px-4 py-3 text-muted-foreground">Multiple papers over 8–12 days, 1,100 marks total</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Written Result</td>
+          <td class="px-4 py-3 text-muted-foreground">Month 14–16</td>
+          <td class="px-4 py-3 text-muted-foreground">Written qualified list published on bpsc.gov.bd</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-emerald-600 dark:text-emerald-400">Viva Voce</td>
+          <td class="px-4 py-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Month 17–20</td>
+          <td class="px-4 py-3 text-muted-foreground">100 Marks oral interview — BPSC headquarters, Dhaka</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Final Merit List &amp; Gazette</td>
+          <td class="px-4 py-3 text-muted-foreground">Month 22–24</td>
+          <td class="px-4 py-3 text-muted-foreground">Cadre allocation and Bangladesh Gazette notification</td>
+        </tr>
+        <tr class="hover:bg-muted/20">
+          <td class="px-4 py-3 font-bold text-foreground">Posting to Department</td>
+          <td class="px-4 py-3 text-muted-foreground">Month 24+</td>
+          <td class="px-4 py-3 text-muted-foreground">Ministry/Department issues appointment letters to successful candidates</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Preparation Tips -->
+  <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3 text-xs sm:text-sm">
+    <h3 class="font-bold text-foreground text-base">🎯 Top BCS Preliminary Preparation Strategies:</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/20">
+        <span class="text-emerald-500 font-bold shrink-0">✔</span>
+        <div><strong class="text-foreground">Solve 10+ Years Past Papers:</strong> <span class="text-muted-foreground">BCS past questions (available from BPSC website and solution books) reveal recurring patterns and question styles.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/20">
+        <span class="text-emerald-500 font-bold shrink-0">✔</span>
+        <div><strong class="text-foreground">Focus on Bangla &amp; English:</strong> <span class="text-muted-foreground">Combined 70 marks — high-scoring opportunity with targeted grammar and literature revision.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/20">
+        <span class="text-emerald-500 font-bold shrink-0">✔</span>
+        <div><strong class="text-foreground">Master Bangladesh Affairs (30 marks):</strong> <span class="text-muted-foreground">Liberation War 1971, constitution articles, district geography, and history are highest-scoring focus areas.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/20">
+        <span class="text-emerald-500 font-bold shrink-0">✔</span>
+        <div><strong class="text-foreground">Daily Current Affairs Reading:</strong> <span class="text-muted-foreground">Read one national newspaper daily. International Affairs (20 marks) heavily features recent global events.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/20">
+        <span class="text-emerald-500 font-bold shrink-0">✔</span>
+        <div><strong class="text-foreground">Beware Negative Marking:</strong> <span class="text-muted-foreground">Each wrong answer costs −0.50 marks. Attempt only questions you are confident about — guessing randomly reduces scores.</span></div>
+      </div>
+      <div class="flex items-start gap-2 p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/20">
+        <span class="text-emerald-500 font-bold shrink-0">✔</span>
+        <div><strong class="text-foreground">ICT &amp; Computer (15 marks):</strong> <span class="text-muted-foreground">Relatively easy scoring — cover MS Office basics, internet concepts, Digital Bangladesh initiatives, and e-governance.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tool CTA -->
+<div class="my-8 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 space-y-3">
+  <h4 class="text-base sm:text-lg font-extrabold text-foreground">Prepare Your BCS Application Documents Instantly</h4>
+  <p class="text-xs sm:text-sm text-muted-foreground">Resize and compress your BCS photo to exactly 300×300 px (under 100 KB) and signature to 300×80 px (under 60 KB) — in seconds, 100% free, no account needed.</p>
+  <div class="flex flex-wrap gap-3 pt-1">
+    <a href="/teletalk-photo-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
+      Open BCS Bangladesh Photo Resizer &rarr;
+    </a>
+    <a href="/compress-image-to-kb/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted transition">
+      Compress to KB Tool
+    </a>
+  </div>
+</div>
+`
   }
 ];
 

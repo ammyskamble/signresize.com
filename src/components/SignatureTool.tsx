@@ -654,8 +654,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
   const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
 
-  // Determine initial preset from prop if provided, else mode default
-  const resolvedPreset = (initialPresetId && ALL_COMBINED_PRESETS.find(p => p.id === initialPresetId)) || null;
+  // Determine initial preset from prop or URL query parameter (?preset=id) if provided
+  const getPresetFromUrl = () => {
+    if (typeof window === 'undefined') return null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const pId = urlParams.get('preset');
+    if (!pId) return null;
+    return ALL_COMBINED_PRESETS.find(p => p.id === pId || p.shortCode.toLowerCase() === pId.toLowerCase()) || null;
+  };
+  const resolvedPreset = (initialPresetId && ALL_COMBINED_PRESETS.find(p => p.id === initialPresetId)) || getPresetFromUrl();
   const effectiveInitialMode = resolvedPreset?.targetType || initialMode;
 
   // Determine target tool mode: 'signature' | 'photo' | 'document'

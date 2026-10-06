@@ -34,10 +34,23 @@ const relatedPreset = post.relatedExamPreset
   : null;
 
 const focusedPreset = /sbi/i.test(post.slug) ? 'sbi-signature' : /iit-jam/i.test(post.slug) ? 'iit-jam' : post.relatedExamPreset;
-const relatedExamPage = focusedPreset
-  ? EXAM_PAGES_DATA.find(p => p.presetId === focusedPreset || p.slug === focusedPreset)
-  : null;
-const relatedExamSlug = relatedExamPage ? relatedExamPage.slug : 'ssc-signature-resize';
+
+// Determine related exam page slug based on explicit country or preset mapping
+let relatedExamSlug = 'ssc-signature-resize';
+if (post.country === 'BD') {
+  relatedExamSlug = 'teletalk-photo-signature-resize';
+} else if (post.country === 'PK') {
+  relatedExamSlug = 'ppsc-signature-resize';
+} else if (post.country === 'PH') {
+  relatedExamSlug = 'prc-photo-signature-resize-philippines';
+} else if (post.country === 'NP') {
+  relatedExamSlug = 'lok-sewa-photo-resize-nepal';
+} else if (focusedPreset) {
+  const matchedPage = EXAM_PAGES_DATA.find(p => p.presetId === focusedPreset || p.slug === focusedPreset);
+  if (matchedPage) {
+    relatedExamSlug = matchedPage.slug;
+  }
+}
 
 // Intelligent Related Posts selection:
 // Calculate relevance score for all other posts based on category, tags, and cluster overlap
@@ -193,19 +206,29 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
 
     <main class="flex-1 max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 space-y-6 sm:space-y-8 w-full min-w-0 overflow-x-hidden">
       
-      <!-- Breadcrumbs -->
-      <nav class="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
-        <a href="/" class="hover:text-primary transition flex items-center gap-1">
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg>
-          Home
-        </a>
-        <span>/</span>
-        <a href="/blog/" class="hover:text-primary transition">Blog</a>
-        <span>/</span>
-        <span class="text-foreground font-medium truncate max-w-[150px] sm:max-w-xs md:max-w-md">{post.title}</span>
-      </nav>
+      <!-- Breadcrumbs & Language Switcher Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-3">
+        <nav class="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+          </a>
+          <span>/</span>
+          <a href="/blog/" class="hover:text-primary transition">Blog</a>
+          <span>/</span>
+          <span class="text-foreground font-medium truncate max-w-[150px] sm:max-w-xs md:max-w-md">{post.title}</span>
+        </nav>
+
+        <!-- Language Switcher Bar -->
+        <div class="flex items-center gap-1.5 text-xs bg-muted/60 p-1 rounded-xl border border-border/60">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-2">📖 Read In:</span>
+          <a href={`/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇬🇧 English</a>
+          <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🇮🇳 हिंदी</a>
+          <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🚩 मराठी</a>
+        </div>
+      </div>
 
       <!-- Article Header -->
       <header class="space-y-3 sm:space-y-4 border-b border-border pb-5 sm:pb-6">

@@ -1006,12 +1006,34 @@ const isJobs = currentPath.startsWith('/government-jobs') || currentPath.startsW
     }
   });
 
-  // Track clicks on language choices to persist in localStorage and dispatch custom event
+  // Track clicks on language choices to persist in localStorage and route dynamically across blog pages
   document.querySelectorAll('.lang-option, .mobile-lang-pill').forEach((el) => {
-    el.addEventListener('click', () => {
+    el.addEventListener('click', (e) => {
       const selected = el.getAttribute('data-lang');
       if (selected) {
         localStorage.setItem('signresize_lang', selected);
+        const path = window.location.pathname;
+        
+        const blogSlugMatch = path.match(/\/(?:hi\/|mr\/)?blog\/([^\/]+)/);
+        const blogIndexMatch = path.match(/\/(?:hi\/|mr\/)?blog\/?$/);
+        
+        if (blogSlugMatch && blogSlugMatch[1]) {
+          e.preventDefault();
+          const slug = blogSlugMatch[1];
+          if (selected === 'hi') window.location.href = `/hi/blog/${slug}/`;
+          else if (selected === 'mr') window.location.href = `/mr/blog/${slug}/`;
+          else window.location.href = `/blog/${slug}/`;
+          return;
+        }
+        
+        if (blogIndexMatch) {
+          e.preventDefault();
+          if (selected === 'hi') window.location.href = `/hi/blog/`;
+          else if (selected === 'mr') window.location.href = `/mr/blog/`;
+          else window.location.href = `/blog/`;
+          return;
+        }
+
         window.dispatchEvent(new CustomEvent('signresize-lang-change', { detail: { lang: selected } }));
       }
     });
