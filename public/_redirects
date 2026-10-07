@@ -47,7 +47,7 @@
 /blog/mega-railway-banking-recruitment-2026-opportunities /government-jobs/ 301
 /blog/mega-railway-banking-recruitment-2026-opportunities/ /government-jobs/ 301
 
-# 3. Non-Trailing Slash Canonical Redirects (Fixes GSC "Page with redirect" Warnings)
+# 3. Canonical trailing-slash redirects (GSC "Page with redirect" is expected for these source URLs)
 /contact /contact/ 301
 /disclaimer /disclaimer/ 301
 /privacy /privacy/ 301

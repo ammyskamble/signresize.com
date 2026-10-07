@@ -74,6 +74,429 @@ export function getBlogPostContent(post: BlogPost, lang?: string): string {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "mp-police-constable-2026-vacancy-syllabus-physical-chart-salary",
+    title: "MP Police Constable 2026: Vacancy, Syllabus, Physical Chart & Salary Guide",
+    metaTitle: "MP Police Constable 2026: Syllabus, Physical & Cut-Off",
+    metaDescription: "Complete guide to MP Police Constable 2026 recruitment: CBT syllabus, 100-mark physical chart, salary matrix, admit card download, and document upload rules.",
+    excerpt: "Complete candidate blueprint for MP Police Constable 2026: 100-mark CBT syllabus, 100-mark PET physical chart, height criteria, salary matrix, admit card steps, and document resize guidelines.",
+    category: "Study Prep",
+    country: "IN",
+    publishDate: "Oct 07, 2026",
+    lastUpdated: "Oct 07, 2026",
+    author: "SignResize Academic Research Desk",
+    authorRole: "Police Recruitment & Physical Standards Analyst",
+    readTime: "9 min read",
+    featured: true,
+    tags: [
+      "MP Police 2026",
+      "MP Police Constable",
+      "MP Police Syllabus",
+      "Physical Chart 100 Marks",
+      "MP Police Salary",
+      "MPESB Vyapam",
+      "Admit Card Download",
+      "Document Guidelines"
+    ],
+    relatedExamPreset: "mp-police-constable",
+    quickFacts: [
+      { label: "Conducting Body", value: "Madhya Pradesh Employees Selection Board (MPESB / Vyapam)" },
+      { label: "Total Selection Marks", value: "200 Marks (100 Marks Written CBT + 100 Marks PET Physical)" },
+      { label: "Written Exam Pattern", value: "100 MCQs | 120 Minutes | No Negative Marking" },
+      { label: "Physical Efficiency Test", value: "800m Run (40 Marks), Long Jump (30 Marks), Shot Put (30 Marks)" },
+      { label: "Male Height Standard", value: "168 cm (General/OBC/SC), 160 cm (ST)" },
+      { label: "Female Height Standard", value: "155 cm (All Categories)" },
+      { label: "Basic Pay Scale", value: "₹19,500 – ₹62,000 (Level 4, 7th Pay Matrix)" },
+      { label: "Official Web Portal", value: "esb.mp.gov.in / peb.mp.gov.in" }
+    ],
+    faqs: [
+      {
+        question: "MP police me hight kitni chahiye (What is the height requirement for MP Police)?",
+        answer: "==For male candidates in General, OBC, and SC categories, the minimum required height is 168 cm with a chest of 81 cm unexpanded and 86 cm expanded. For ST male candidates, the height requirement is 160 cm with a chest of 76–81 cm. For all female candidates across every category, the minimum required height is 155 cm with no chest measurement criteria.=="
+      },
+      {
+        question: "MP police me running kitni hoti hai (What is the 800m running duration and marks)?",
+        answer: "==MP Police Constable PET requires an 800-meter run carrying a maximum of 40 marks. Male candidates scoring the full 40 marks must clock 124 seconds or less (2 minutes 04 seconds), while completing the run in 198 seconds grants the minimum baseline score. For female candidates, the maximum 40 marks are awarded for finishing in 176 seconds or less.=="
+      },
+      {
+        question: "MP police ka syllabus kya hai (What is the MP Police written exam syllabus)?",
+        answer: "==The MP Police Constable written CBT consists of 100 objective questions for 100 marks with zero negative marking. The subject weightage includes: General Knowledge and Reasoning (40 marks), Intellectual Ability and Mental Aptitude (30 marks), and Science and Simple Arithmetic (30 marks). The exam duration is 120 minutes.=="
+      },
+      {
+        question: "MP police constable ki salary kitni hoti hai (What is the in-hand salary)?",
+        answer: "==MP Police Constable falls under Pay Matrix Level 4 with a basic pay scale of ₹19,500 to ₹62,000. In addition to basic pay, constables receive Dearness Allowance (DA at 50%), House Rent Allowance (HRA at 9% to 27%), Uniform Allowance, Ration Allowance, and Kit Maintenance. The starting gross salary is approximately ₹31,500, resulting in a net monthly in-hand salary of approximately ₹26,500 to ₹28,500.=="
+      },
+      {
+        question: "MP police ka admit card kaise nikale (How to download MP Police Admit Card)?",
+        answer: "==Visit the official MPESB portal at esb.mp.gov.in, select your preferred language (English/Hindi), click on the 'Test Admit Card: Police Constable Recruitment' link, enter your 13-digit Application Number, Date of Birth (DD/MM/YYYY), first 2 letters of mother's name plus the last 4 digits of your Aadhaar Number, solve the security captcha, and download your hall ticket.=="
+      },
+      {
+        question: "MP police constable me kitne number chahiye (What is the safe qualifying cut-off)?",
+        answer: "==Because final selection is calculated on a 200-mark aggregate (100 marks CBT + 100 marks Physical PET), candidates should target a combined score of 145 to 155 marks for the General/UR category, 138 to 148 marks for OBC, 130 to 140 marks for SC, and 120 to 130 marks for ST. For the written CBT stage alone, targeting 75+ out of 100 marks ensures qualification for the physical test.=="
+      },
+      {
+        question: "MP police verification process me kya hota hai (How is Police Verification conducted)?",
+        answer: "==Police verification takes place after provisional merit selection. Candidates submit the official Character and Antecedent Verification Form (Anubraman Patra) detailing permanent residence, educational records, and references. The local police station in the candidate's jurisdiction verifies criminal records, court cases, FIR status, and character standing before dispatching the clean report to Police Headquarters.=="
+      },
+      {
+        question: "MP police 2026 vacancy kab aayegi (When will the 2026 recruitment notification release)?",
+        answer: "==The Madhya Pradesh Employees Selection Board (MPESB) publishes police recruitment notifications in accordance with Police Headquarters requisition cycles. Updates and rulebooks are hosted directly on esb.mp.gov.in. Candidates should monitor the official exam calendar released each January and keep their digital document templates ready.=="
+      }
+    ],
+    contentHtml: `
+      <div class="mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+        <h4 class="font-bold text-primary mb-2">⚡ Direct Answer: MP Police Constable 2026 Selection Blueprint</h4>
+        <p class="text-sm text-foreground/90 leading-relaxed">
+          The Madhya Pradesh Police Constable recruitment is administered by the <strong>Madhya Pradesh Employees Selection Board (MPESB / Vyapam)</strong> across a two-tier <strong>200-mark evaluation system</strong>. Candidates undergo a 100-mark Computer-Based Test (CBT) covering GK, Reasoning, Arithmetic, and Science, followed by a revolutionary 100-mark Physical Efficiency Test (PET) comprising an 800m run (40 marks), Long Jump (30 marks), and Shot Put (30 marks). Final appointment follows strict document verification, medical clearance, and local police character verification.
+        </p>
+      </div>
+
+      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
+        <div class="flex items-center justify-between text-slate-400 text-[11px]">
+          <span>⚡ MP Police Scoring &amp; Merit Formula</span>
+          <span>Official MPESB Rulebook Standard</span>
+        </div>
+        <pre class="overflow-x-auto text-emerald-400"><code>Total Final Score = CBT Score (Max 100 Marks) + PET Physical Score (Max 100 Marks)
+Selection Ratio for PET: 7 Times the Vacancy Count per Category
+Written Negative Marking: 0.00 (Zero Negative Marks)</code></pre>
+      </div>
+
+      <h2>⚡ 1. MP Police Recruitment 2025–2026 Snapshot &amp; Cadres</h2>
+      <p>
+        The Madhya Pradesh Police force offers diverse operational assignments across Executive, Armed, and Technical branches. Recruitment drives conducted by MPESB cover multiple functional branches, each with distinct physical benchmarks and technical requirements:
+      </p>
+
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground">
+              <th class="p-3 border border-border">Recruitment Cadre</th>
+              <th class="p-3 border border-border">Educational Qualification</th>
+              <th class="p-3 border border-border">Age Bracket (General)</th>
+              <th class="p-3 border border-border">Selection Stages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Constable (GD) – DEF (District Executive Force)</td>
+              <td class="p-3 border border-border">10th Class Passed (8th for ST candidates)</td>
+              <td class="p-3 border border-border">18 to 33 Years (+ State relaxations)</td>
+              <td class="p-3 border border-border">CBT (100) + PET (100) + Medical</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Constable (GD) – SAF (Special Armed Force)</td>
+              <td class="p-3 border border-border">10th Class Passed from recognized Board</td>
+              <td class="p-3 border border-border">18 to 33 Years (+ State relaxations)</td>
+              <td class="p-3 border border-border">CBT (100) + PET (100) + Medical</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Constable (Radio Operator)</td>
+              <td class="p-3 border border-border">12th Pass + 2-Yr ITI / Polytechnic Diploma in Electronics/IT</td>
+              <td class="p-3 border border-border">18 to 33 Years (+ State relaxations)</td>
+              <td class="p-3 border border-border">CBT Paper 1 + Technical Paper 2 + PET (Qualifying)</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Constable (Band / Bugler / Armorer)</td>
+              <td class="p-3 border border-border">10th Pass + Trade Proficiency in Musical Band</td>
+              <td class="p-3 border border-border">18 to 33 Years (+ State relaxations)</td>
+              <td class="p-3 border border-border">CBT (100) + Trade Test + PET</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Candidates planning their application must ensure their digital documents conform precisely to official guidelines. You can generate certified uploads instantly using our free tools for 
+        <a href="/mp-police-photo-resize/" class="text-primary font-semibold underline hover:text-primary/80">MP Police Photo Resize</a> 
+        and 
+        <a href="/mp-police-signature-resize/" class="text-primary font-semibold underline hover:text-primary/80">MP Police Signature Resize</a>, 
+        or verify guidelines across other state exams via our comprehensive 
+        <a href="/government-jobs/" class="text-primary font-semibold underline hover:text-primary/80">Government Job Portal</a>.
+      </p>
+
+      <h2>📚 2. Written CBT Exam Pattern, Subject Weightage &amp; Preparation Routine</h2>
+      <p>
+        The written examination is administered as a single Computer-Based Test lasting 120 minutes (2 hours). One mark is awarded for every correct answer, and notably, <strong>there is no negative marking</strong> for incorrect responses.
+      </p>
+
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground">
+              <th class="p-3 border border-border">Subject Section</th>
+              <th class="p-3 border border-border">Question Count</th>
+              <th class="p-3 border border-border">Maximum Marks</th>
+              <th class="p-3 border border-border">High-Yield Focus Areas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">General Knowledge &amp; Reasoning</td>
+              <td class="p-3 border border-border">40 Questions</td>
+              <td class="p-3 border border-border">40 Marks</td>
+              <td class="p-3 border border-border">MP Static GK, Rivers, Forts, National Parks, Current Affairs, Analogies, Blood Relations</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Intellectual Ability &amp; Mental Aptitude</td>
+              <td class="p-3 border border-border">30 Questions</td>
+              <td class="p-3 border border-border">30 Marks</td>
+              <td class="p-3 border border-border">Syllogisms, Coding-Decoding, Non-Verbal Series, Venn Diagrams, Direction Sense</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Science &amp; Simple Arithmetic</td>
+              <td class="p-3 border border-border">30 Questions</td>
+              <td class="p-3 border border-border">30 Marks</td>
+              <td class="p-3 border border-border">Class 10th Physics, Chemistry, Biology, Percentages, Ratio, Profit &amp; Loss, Mensuration</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted font-bold text-foreground">
+              <td class="p-3 border border-border">Total Examination</td>
+              <td class="p-3 border border-border">100 Questions</td>
+              <td class="p-3 border border-border">100 Marks</td>
+              <td class="p-3 border border-border">Duration: 120 Minutes (No Negative Marking)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Strategic 90-Day Daily Study Routine</h3>
+      <p>
+        Candidates asking <em>"mp police ki taiyari kaise karen"</em> should implement a structured tripartite daily routine:
+      </p>
+      <ul>
+        <li><strong>Morning Block (6:00 AM – 8:30 AM):</strong> Track training for the 800m running and long jump. Conditioning muscles early prevents burnout during evening study sessions.</li>
+        <li><strong>Midday Block (11:00 AM – 2:00 PM):</strong> Quantitative Aptitude and Reasoning practice. Solve 40 daily arithmetic questions covering Number Systems, Speed-Time-Distance, and LCM-HCF.</li>
+        <li><strong>Evening Block (5:00 PM – 8:00 PM):</strong> Madhya Pradesh State GK and General Science. Focus heavily on MP geography, district history, tribal culture, and Class 10 NCERT science formulas.</li>
+        <li><strong>Night Review (9:30 PM – 10:30 PM):</strong> Timed sectional mock test or previous years' MPESB Constable question paper analysis.</li>
+      </ul>
+
+      <h2>🏃 3. Physical Standards (PST) &amp; 100-Mark PET Scoring Chart</h2>
+      <p>
+        The Physical Efficiency Test (PET) for MP Police Constable is unique among Indian state forces: <strong>it carries 100 marks that directly determine the final merit rank</strong>. Underperforming in the physical events cannot be compensated by written exam marks alone.
+      </p>
+
+      <h3>Physical Standard Test (PST) Minimum Benchmarks</h3>
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground">
+              <th class="p-3 border border-border">Candidate Category</th>
+              <th class="p-3 border border-border">Minimum Height</th>
+              <th class="p-3 border border-border">Chest (Unexpanded)</th>
+              <th class="p-3 border border-border">Chest (Expanded)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Male (UR / OBC / SC)</td>
+              <td class="p-3 border border-border">168 cm</td>
+              <td class="p-3 border border-border">81 cm</td>
+              <td class="p-3 border border-border">86 cm (Minimum 5 cm expansion)</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Male (ST - Scheduled Tribe)</td>
+              <td class="p-3 border border-border">160 cm</td>
+              <td class="p-3 border border-border">76 cm</td>
+              <td class="p-3 border border-border">81 cm (Minimum 5 cm expansion)</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Female (All Categories - UR, OBC, SC, ST)</td>
+              <td class="p-3 border border-border">155 cm</td>
+              <td class="p-3 border border-border">Not Applicable</td>
+              <td class="p-3 border border-border">Not Applicable</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Official 100-Mark PET Scoring Chart</h3>
+      <p>
+        The 100 marks of the Physical Efficiency Test are split into three competitive sporting events:
+      </p>
+      <ul>
+        <li><strong>800-Meter Run:</strong> Maximum 40 Marks (Single attempt only)</li>
+        <li><strong>Long Jump:</strong> Maximum 30 Marks (Three attempts permitted, best score counted)</li>
+        <li><strong>Shot Put:</strong> Maximum 30 Marks (Weight: 7.260 kg for Men, 4.0 kg for Women; three attempts permitted)</li>
+      </ul>
+
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground">
+              <th class="p-3 border border-border">Scored Marks</th>
+              <th class="p-3 border border-border">800m Run: Men (Seconds)</th>
+              <th class="p-3 border border-border">800m Run: Women (Seconds)</th>
+              <th class="p-3 border border-border">Long Jump: Men</th>
+              <th class="p-3 border border-border">Shot Put: Men (7.26 kg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border/50 bg-emerald-500/10 font-bold">
+              <td class="p-3 border border-border text-emerald-600 dark:text-emerald-400">40 Marks (Max Run) / 30 (Field)</td>
+              <td class="p-3 border border-border">&le; 124.2 sec (2m 04s)</td>
+              <td class="p-3 border border-border">&le; 176.0 sec (2m 56s)</td>
+              <td class="p-3 border border-border">&ge; 5.57 meters</td>
+              <td class="p-3 border border-border">&ge; 8.76 meters</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">35 Marks / 26 Marks</td>
+              <td class="p-3 border border-border">127.1 – 130.0 sec</td>
+              <td class="p-3 border border-border">181.1 – 186.0 sec</td>
+              <td class="p-3 border border-border">5.15 – 5.25 meters</td>
+              <td class="p-3 border border-border">8.00 – 8.18 meters</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">30 Marks / 22 Marks</td>
+              <td class="p-3 border border-border">133.1 – 136.0 sec</td>
+              <td class="p-3 border border-border">191.1 – 196.0 sec</td>
+              <td class="p-3 border border-border">4.75 – 4.85 meters</td>
+              <td class="p-3 border border-border">7.25 – 7.43 meters</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">25 Marks / 18 Marks</td>
+              <td class="p-3 border border-border">142.1 – 145.0 sec</td>
+              <td class="p-3 border border-border">206.1 – 211.0 sec</td>
+              <td class="p-3 border border-border">4.35 – 4.45 meters</td>
+              <td class="p-3 border border-border">6.50 – 6.68 meters</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">20 Marks / 14 Marks</td>
+              <td class="p-3 border border-border">154.1 – 157.0 sec</td>
+              <td class="p-3 border border-border">226.1 – 231.0 sec</td>
+              <td class="p-3 border border-border">3.95 – 4.05 meters</td>
+              <td class="p-3 border border-border">5.75 – 5.93 meters</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Baseline Qualifying Limit</td>
+              <td class="p-3 border border-border">198.0 sec (3m 18s)</td>
+              <td class="p-3 border border-border">261.0 sec (4m 21s)</td>
+              <td class="p-3 border border-border">2.96 meters</td>
+              <td class="p-3 border border-border">3.83 meters</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>💰 4. MP Police Constable Salary Structure &amp; Police Verification</h2>
+      <p>
+        Appointed constables in Madhya Pradesh receive benefits governed by the 7th Central Pay Commission (Pay Matrix Level 4). Below is the comprehensive monthly pay breakup:
+      </p>
+
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground">
+              <th class="p-3 border border-border">Salary Component</th>
+              <th class="p-3 border border-border">Amount / Percentage</th>
+              <th class="p-3 border border-border">Remarks &amp; Entitlements</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Basic Pay (Entry Level 4)</td>
+              <td class="p-3 border border-border">₹19,500 per month</td>
+              <td class="p-3 border border-border">Base pay scale ₹19,500 – ₹62,000</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Dearness Allowance (DA)</td>
+              <td class="p-3 border border-border">₹9,750 (50% of Basic)</td>
+              <td class="p-3 border border-border">Revised semiannually per state finance department orders</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">House Rent Allowance (HRA)</td>
+              <td class="p-3 border border-border">₹1,755 – ₹3,510 (9% to 18%)</td>
+              <td class="p-3 border border-border">Tier classification (Bhopal/Indore vs other district headquarters)</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Special allowances</td>
+              <td class="p-3 border border-border">₹1,200 – ₹2,000</td>
+              <td class="p-3 border border-border">Kit maintenance, uniform washing, and mobile conveyance</td>
+            </tr>
+            <tr class="border-b border-border/50 font-bold bg-muted">
+              <td class="p-3 border border-border">Gross Monthly Pay</td>
+              <td class="p-3 border border-border">₹32,205 – ₹34,760</td>
+              <td class="p-3 border border-border">Before statutory pension and professional tax deductions</td>
+            </tr>
+            <tr class="border-b border-border/50 text-emerald-600 dark:text-emerald-400 font-bold">
+              <td class="p-3 border border-border">Net In-Hand Salary</td>
+              <td class="p-3 border border-border">₹27,000 – ₹29,200</td>
+              <td class="p-3 border border-border">Credited monthly to candidate's bank account after NPS deduction</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Character &amp; Police Verification Protocol</h3>
+      <p>
+        Addressing candidate searches regarding <em>"mp police verification"</em>, the document validation workflow is formal and non-negotiable:
+      </p>
+      <ol class="list-decimal pl-5 space-y-2 text-sm text-foreground/90">
+        <li><strong>Submission of Attestation Form:</strong> Selected candidates fill out three sets of the official Anubraman Patra detailing residence records for the past 5 years, educational institutions attended, and names of two responsible local references.</li>
+        <li><strong>Local Police Station Verification:</strong> Forms are dispatched to the Superintendent of Police (SP) office and routed to the candidate's jurisdictional police thana. The local beat constable inspects records for active FIRs, chargesheets, or criminal court proceedings.</li>
+        <li><strong>Character Certificate Issuance:</strong> Once verified by local authorities and countersigned by the SP Office, the clean report is transmitted to the Police Training School (PTS) or recruitment board for final dispatch of joining orders.</li>
+      </ol>
+
+      <h2>🪪 5. MP Police Admit Card, Answer Key &amp; Cut-Off Roadmap</h2>
+      <p>
+        Candidates frequently encounter issues retrieving hall tickets and results. Follow this direct procedural guide for MPESB portal navigation:
+      </p>
+
+      <h3>How to Download the MP Police Admit Card (Admit Card Kaise Nikale)</h3>
+      <ol class="list-decimal pl-5 space-y-2 text-sm text-foreground/90">
+        <li>Access the official website: <strong>esb.mp.gov.in</strong> or <strong>peb.mp.gov.in</strong>.</li>
+        <li>Select the primary language interface (English or Hindi).</li>
+        <li>Click on <strong>"Admit Card"</strong> in the top navigation bar and select <strong>"Police Constable Recruitment Test"</strong>.</li>
+        <li>Read the advisory instructions regarding COVID and biometric verification, then click the search window.</li>
+        <li>Enter your <strong>13-digit Application Number</strong> and your <strong>Date of Birth (DD/MM/YYYY)</strong>.</li>
+        <li>Input the candidate identifier: the first two letters of your mother's name followed by the last four digits of your Aadhaar card.</li>
+        <li>Enter the calculation captcha and click <strong>Search</strong> to download and print your hall ticket in duplicate.</li>
+      </ol>
+
+      <h3>Category-Wise Cut-Off Trends (Combined 200 Marks Benchmark)</h3>
+      <p>
+        With the 100-mark physical test directly influencing rankings, overall safe target marks across previous and expected cycles are summarized below:
+      </p>
+      <ul>
+        <li><strong>General / Unreserved (UR):</strong> 145 – 155 Marks (Combined out of 200)</li>
+        <li><strong>Other Backward Classes (OBC):</strong> 138 – 148 Marks</li>
+        <li><strong>Economically Weaker Section (EWS):</strong> 134 – 142 Marks</li>
+        <li><strong>Scheduled Caste (SC):</strong> 128 – 136 Marks</li>
+        <li><strong>Scheduled Tribe (ST):</strong> 118 – 128 Marks</li>
+      </ul>
+
+      <h2>📐 6. MPESB Official Document &amp; Scanned Signature Specifications</h2>
+      <p>
+        More than 15% of online applications on the MPESB / Vyapam portal get rejected during automated scanning because candidates fail to comply with the combined self-declaration template rules.
+      </p>
+
+      <div class="my-8 p-6 rounded-2xl bg-card border border-border shadow-sm">
+        <h3 class="text-base font-bold text-foreground mb-4 flex items-center gap-2">
+          <span>📋</span> MP Police MPESB Portal Upload Guidelines
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
+            <h4 class="font-bold text-primary">Passport Photo Standards</h4>
+            <ul class="space-y-1 text-muted-foreground">
+              <li>Dimensions: <strong>3.5 &times; 4.5 cm</strong> (approx. 240 &times; 320 px)</li>
+              <li>File Size: <strong>20 KB to 50 KB</strong> in JPG/JPEG format</li>
+              <li>Background: Clear white or light off-white background</li>
+              <li>Slate Rule: Photo must show candidate holding a slate with their clear name and photograph date</li>
+              <li>Format tool: <a href="/mp-police-photo-resize/" class="text-primary font-semibold underline">Resize MP Police Photo</a></li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
+            <h4 class="font-bold text-primary">Signature &amp; Declaration Standards</h4>
+            <ul class="space-y-1 text-muted-foreground">
+              <li>Dimensions: <strong>140 &times; 60 pixels</strong> (4.0 &times; 2.0 cm)</li>
+              <li>File Size: <strong>10 KB to 20 KB</strong> in JPG/JPEG format</li>
+              <li>Ink: Running handwriting using dark black ballpoint pen</li>
+              <li>Important: Signatures in CAPITAL / BLOCK letters are rejected</li>
+              <li>Format tool: <a href="/mp-police-signature-resize/" class="text-primary font-semibold underline">Resize MP Police Signature</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  {
     slug: "rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2",
     title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
     excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, step-by-step navigation, and speed calculation methods.",
@@ -2441,324 +2864,162 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     slug: "rrb-ntpc-exam-date-2026-city-intimation-slip-admit-card",
-    title: "RRB NTPC Exam Date 2026: City Intimation Slip, Admit Card Download & CBT-1 Schedule (Graduate & Undergraduate)",
-    metaTitle: "RRB NTPC Exam Date 2026: City Intimation Slip & Admit Card Link",
-    metaDescription: "Official RRB NTPC 2026 CBT-1 exam schedule, undergraduate & graduate dates, city intimation slip direct download links, admit card release timeline, and photo/sign rules.",
-    excerpt: "Everything you need to know about RRB NTPC 2026 CBT-1: Undergraduate (CEN 06/2024) and Graduate (CEN 05/2024) exam dates, city intimation slip login, admit card download steps, and exam-day document verification guidelines.",
+    title: "RRB NTPC 2026: Exam Date, Notification, Apply Online, Admit Card & Result",
+    metaTitle: "RRB NTPC 2026: Exam Date, Notification, Admit Card & Result",
+    metaDescription: "Check RRB NTPC 2026 exam dates by CEN, notification and application deadlines, city intimation, admit card, syllabus, answer key and result steps.",
+    excerpt: "Find the right RRB NTPC recruitment cycle and official notice links for exam dates, graduate and undergraduate applications, city slips, admit cards, answer keys and results.",
     category: "Exam Alerts",
     publishDate: "Sep 25, 2026",
     publishTime: "09:00 AM IST",
-    lastUpdated: "Sep 25, 2026",
-    deployedAt: "Sep 25, 2026 • 09:00 AM IST",
+    lastUpdated: "2026-10-06T18:42:15.213Z",
+    deployedAt: "7 October 2026 at 12:12 am IST",
     author: "SignResize Railway Examination Desk",
     authorRole: "Senior Examination Analyst",
-    readTime: "8 min read",
+    readTime: "9 min read",
     featured: false,
     relatedExamPreset: "rrb-railway",
     tags: [
+      "RRB NTPC 2026",
       "RRB NTPC Exam Date 2026",
-      "RRB NTPC Admit Card 2026",
-      "RRB NTPC City Intimation Slip 2026",
-      "RRB NTPC Undergraduate Exam Date 2026",
-      "RRB NTPC Official Website",
-      "RRB NTPC Recruitment 2025",
+      "RRB NTPC Notification 2026",
       "RRB NTPC Apply Online",
-      "RRB NTPC Answer Key",
-      "RRB NTPC Result 2025 Graduate",
-      "RRB NTPC UG Result 2025",
+      "RRB NTPC Admit Card 2026",
+      "RRB NTPC Result 2026",
+      "RRB NTPC Syllabus 2026",
       "Railway Exams"
     ],
     quickFacts: [
-      { label: "Exam Name", value: "RRB NTPC (Non-Technical Popular Categories)" },
-      { label: "Notifications", value: "CEN 05/2024 (Graduate) & CEN 06/2024 (Undergraduate)" },
-      { label: "Total Vacancies", value: "11,558 Posts (8,110 Graduate + 3,448 UG)" },
-      { label: "CBT-1 Mode", value: "Computer Based Test (90 Mins, 100 MCQs)" },
-      { label: "Negative Marking", value: "1/3rd Mark (0.33) Per Incorrect Answer" },
-      { label: "City Intimation Slip", value: "Live 10 Days Before Scheduled Exam Date" },
-      { label: "Admit Card Release", value: "Live 4 Days Prior to Individual Exam Date" },
-      { label: "Official Central Portal", value: "rrbapply.gov.in & 21 Regional RRB Portals" }
+      {
+        "label": "Identify Your Cycle",
+        "value": "Match the CEN number and exam stage on your application"
+      },
+      {
+        "label": "Graduate Cycle",
+        "value": "CEN 06/2025; older CEN 05/2024 is separate"
+      },
+      {
+        "label": "Undergraduate Cycle",
+        "value": "CEN 07/2025; older CEN 06/2024 is separate"
+      },
+      {
+        "label": "City Slip",
+        "value": "Follow the CEN-specific release notice; not an admit card"
+      },
+      {
+        "label": "New 2026–27 Dates",
+        "value": "Current detailed notice not independently verified in this update"
+      },
+      {
+        "label": "Apply Online",
+        "value": "rrbapply.gov.in via the official recruitment notice"
+      }
     ],
     faqs: [
       {
-        question: "What is the RRB NTPC 2026 CBT-1 exam date for undergraduate and graduate posts?",
-        answer: "The Railway Recruitment Boards (RRB) conduct CBT-1 in multiple phases across early 2026. Graduate posts (CEN 05/2024: 8,110 vacancies) and Undergraduate posts (CEN 06/2024: 3,448 vacancies) are scheduled in dedicated shifts. Candidates can check their exact shift, date, and venue on their regional RRB portal through the City Intimation Slip."
+        "question": "RRB NTPC ka exam kab hoga 2026? / When is the RRB NTPC exam in 2026?",
+        "answer": "Identify your CEN number and exam stage first. Different graduate and undergraduate recruitment cycles have different schedules. Read the latest schedule or revised schedule on your regional RRB website; your e-call letter gives your individual date, shift and centre. An expected date from a search result is not confirmation."
       },
       {
-        question: "When will the RRB NTPC city intimation slip 2026 be released?",
-        answer: "The RRB NTPC City Intimation Slip is officially activated exactly 10 days before your scheduled CBT-1 exam date. It displays your allotted test city, state, shift timing, reporting time, and includes the free sleeper class travel pass for eligible SC/ST candidates."
+        "question": "RRB NTPC undergraduate exam kab hoga 2026?",
+        "answer": "Open the undergraduate notice page for the CEN shown on your submitted application. CEN 06/2024 and CEN 07/2025 are separate cycles. Check the latest CBT-1 or CBT-2 schedule and any rescheduling notice, then use the city slip and e-call letter for your own allocation."
       },
       {
-        question: "How can I download the RRB NTPC admit card 2026?",
-        answer: "RRB NTPC admit cards (e-call letters) are made available exactly 4 days prior to your exam date. Visit your regional RRB official website or rrbapply.gov.in, log in with your Registration Number and Date of Birth (DD-MM-YYYY), and download your hall ticket. Ensure the barcode and photograph are sharp and clearly printed."
+        "question": "RRB NTPC ka form kab aayega 2026? / When will the application form open?",
+        "answer": "An application date must come from an official recruitment notice and its corrigenda. Check the relevant CEN for the opening date, closing time, fee-payment deadline and correction window. This update could not independently verify a fresh 2026-27 detailed NTPC notice, so it does not label a proposed application date as confirmed."
       },
       {
-        question: "What are the official regional RRB websites to check exam dates and city slips?",
-        answer: "All 21 Railway Recruitment Boards host authentic notifications on their respective official portals, including RRB Chandigarh (rrbcdg.gov.in), RRB Mumbai (rrbmumbai.gov.in), RRB Allahabad/Prayagraj (rrbald.gov.in), RRB Kolkata (rrbkolkata.gov.in), RRB Chennai (rrbchennai.gov.in), RRB Secunderabad (rrbsecunderabad.gov.in), and the unified application portal at rrbapply.gov.in."
+        "question": "RRB NTPC ki vacancy kab aayegi 2026?",
+        "answer": "Check official RRB recruitment notices for the relevant graduate or undergraduate CEN. An indicative notice can give tentative vacancies; the detailed notice and later vacancy amendments determine the applicable total and category-wise distribution. Do not carry vacancy totals from a previous cycle into a new one."
       },
       {
-        question: "What documents and photographs must candidates carry to the RRB NTPC exam center?",
-        answer: "Candidates must carry: 1) Printed RRB NTPC e-call letter (admit card) with self-declaration blank, 2) Original valid photo ID (Aadhaar Card with biometric verification is preferred, Voter ID, PAN card, or Passport), and 3) One recent color passport photograph (35 mm x 45 mm) identical to the one uploaded during online application."
+        "question": "RRB NTPC ka admit card kab aayega 2026?",
+        "answer": "Official NTPC exam notices commonly make e-call letters available four days before the candidate’s exam, but check your specific notice for the operative window. Open the download link from your regional RRB notice page and follow the login format displayed there."
       },
       {
-        question: "What are the photo and signature upload requirements for RRB NTPC recruitment?",
-        answer: "RRB mandates a clear color photograph (35x45 mm, 30-70 KB in JPG) taken against a plain white/light background without caps or dark glasses, and a running handwriting signature in black ink (140x60 px, 10-20 KB in JPG). Signatures in CAPITAL LETTERS are strictly disqualified."
+        "question": "RRB NTPC undergraduate ka result kab aayega 2026?",
+        "answer": "The result date depends on the CEN, stage and regional RRB. Check for a dated result notice, shortlist and cut-off on your board’s website. There is no reliable fixed number of days after the answer key that guarantees a result, and a CBT shortlist is not a final selection list."
       },
       {
-        question: "When will the RRB NTPC answer key and result 2025-2026 be published?",
-        answer: "The provisional RRB NTPC answer key and candidate response sheets are typically published within 2 to 3 weeks following the conclusion of all CBT-1 shifts. Candidates get 4 to 5 days to submit online objections with proof. The normalized results and CBT-2 shortlist cut-offs are declared within 45 to 60 days of answer key finalization."
+        "question": "How to check RRB NTPC result 2026?",
+        "answer": "Visit the RRB where you applied, select the correct CEN and stage, and open the result PDF and cut-off notice. Search for your roll number. If a scorecard link is active, log in using the requested credentials and save your scorecard. Read the next-stage instructions separately."
+      },
+      {
+        "question": "Where is the RRB NTPC 2026 city intimation link?",
+        "answer": "Use the link published in the city-intimation notice on your official regional RRB website. Match the CEN and stage before logging in. The city slip helps with travel planning and does not replace the e-call letter needed for examination entry."
+      },
+      {
+        "question": "Where can I find the RRB NTPC 2026 answer key and question paper?",
+        "answer": "Check the official question-paper, responses and answer-key notice for your CEN and stage. Use the response-sheet login during its stated availability period. Submit objections only through the official tracker, with supporting evidence and the fee specified in that notice."
+      },
+      {
+        "question": "Is an RRB NTPC 2026 final result the same as a CBT result?",
+        "answer": "No. A CBT result usually shortlists candidates for another stage. Follow the CEN-specific requirements for CBT-2, the applicable aptitude or typing test, document verification and medical examination, and read the final panel notice for selection status."
       }
     ],
     contentHtml: `
-<section id="overview" class="space-y-4">
-  <p class="lead text-lg font-medium text-foreground/90 leading-relaxed">
-    Looking for the official <strong>RRB NTPC exam date 2026</strong>, <strong>city intimation slip download link</strong>, and <strong>CBT-1 admit card release date</strong>? With over 1.2 crore applicants competing for <strong>11,558 vacancies</strong> under Centralised Employment Notice (CEN) No. 05/2024 (Graduate Posts) and CEN No. 06/2024 (Undergraduate Posts), the Railway Recruitment Boards (RRB) are rolling out examination schedules across all 21 regional zones.
-  </p>
-  <p class="text-muted-foreground leading-relaxed">
-    In this definitive guide, our examination desk breaks down the shift-wise CBT-1 schedule, city intimation release windows, step-by-step admit card access, regional portal links, and the non-negotiable <strong>photo and signature upload rules</strong> required during verification to prevent immediate candidature cancellation.
-  </p>
-</section>
+<p class="text-sm text-muted-foreground"><strong>Last updated:</strong> <time datetime="2026-10-06T18:42:15.213Z">7 October 2026 at 12:12 am IST</time></p>
+<p><strong>Looking for RRB NTPC 2026 exam dates, a notification, an application form or a result?</strong> Start with the Centralised Employment Notice (CEN) number on your application. “2026” can describe the year of an exam for an older recruitment, or a proposed new recruitment cycle. It does not identify one common schedule for every NTPC candidate.</p>
+<p>This guide covers graduate and undergraduate exam-date checks, apply-online steps, city intimation, admit cards, syllabus, question papers, answer keys and results. Current government pages could not all be retrieved during this update. Check the linked official notice pages before acting on a deadline; no unverified new application date or result date is presented here as confirmed.</p>
 
-<section id="schedule-comparison" class="space-y-4 mt-8">
-  <h2 class="text-2xl font-bold text-foreground">RRB NTPC 2026: Graduate vs Undergraduate Key Milestones</h2>
-  <p class="text-muted-foreground">
-    Unlike previous editions, the Ministry of Railways bifurcated RRB NTPC into separate recruitments to streamline computer-based testing. Review the structural timeline below:
-  </p>
+<nav aria-label="Article sections" class="my-6 p-4 rounded-xl border border-border">
+<ul><li><a href="#exam-date">Exam dates and recruitment cycles</a></li><li><a href="#notification">Notification, vacancy and application dates</a></li><li><a href="#city-slip">City intimation and admit card</a></li><li><a href="#syllabus">Syllabus and question papers</a></li><li><a href="#results">Answer key, result and final selection</a></li></ul>
+</nav>
 
-  <div class="overflow-x-auto my-6">
-    <table class="w-full text-left text-sm border-collapse rounded-xl overflow-hidden shadow-xs border border-border">
-      <thead class="bg-muted text-foreground font-semibold">
-        <tr>
-          <th class="p-3.5 border-b border-border">Recruitment Feature</th>
-          <th class="p-3.5 border-b border-border">Graduate Posts (CEN 05/2024)</th>
-          <th class="p-3.5 border-b border-border">Undergraduate Posts (CEN 06/2024)</th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-border text-muted-foreground">
-        <tr class="hover:bg-muted/40 transition">
-          <td class="p-3.5 font-medium text-foreground">Total Vacancies</td>
-          <td class="p-3.5 font-bold text-primary">8,110 Posts</td>
-          <td class="p-3.5 font-bold text-primary">3,448 Posts</td>
-        </tr>
-        <tr class="hover:bg-muted/40 transition">
-          <td class="p-3.5 font-medium text-foreground">Pay Matrix Levels</td>
-          <td class="p-3.5">Level 5 &amp; Level 6 (₹29,200 – ₹35,400 Basic)</td>
-          <td class="p-3.5">Level 2 &amp; Level 3 (₹19,900 – ₹21,700 Basic)</td>
-        </tr>
-        <tr class="hover:bg-muted/40 transition">
-          <td class="p-3.5 font-medium text-foreground">Popular Designations</td>
-          <td class="p-3.5">Station Master, Goods Train Manager, Sr Commercial Clerk</td>
-          <td class="p-3.5">Commercial cum Ticket Clerk, Accounts Clerk, Jr Clerk Typist</td>
-        </tr>
-        <tr class="hover:bg-muted/40 transition">
-          <td class="p-3.5 font-medium text-foreground">CBT-1 Test Format</td>
-          <td class="p-3.5">Common 90-Minute CBT (100 Questions, 1/3rd Negative)</td>
-          <td class="p-3.5">Common 90-Minute CBT (100 Questions, 1/3rd Negative)</td>
-        </tr>
-        <tr class="hover:bg-muted/40 transition">
-          <td class="p-3.5 font-medium text-foreground">City Slip Window</td>
-          <td class="p-3.5">10 Days Prior to Exam Date</td>
-          <td class="p-3.5">10 Days Prior to Exam Date</td>
-        </tr>
-        <tr class="hover:bg-muted/40 transition">
-          <td class="p-3.5 font-medium text-foreground">Admit Card Window</td>
-          <td class="p-3.5">4 Days Prior to Exam Date</td>
-          <td class="p-3.5">4 Days Prior to Exam Date</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+<h2 id="exam-date">RRB NTPC 2026 Exam Date: Graduate and Undergraduate Cycles</h2>
+<p>The CEN year is the year of the recruitment notice, not necessarily the exam year. Keep these separate when searching for an RRB NTPC 2026 exam date:</p>
+<div class="overflow-x-auto"><table class="w-full text-sm border border-border my-6"><thead><tr><th class="p-3 text-left">Cycle</th><th class="p-3 text-left">Category</th><th class="p-3 text-left">Where to check</th></tr></thead><tbody>
+<tr><td class="p-3">CEN 05/2024</td><td class="p-3">Graduate</td><td class="p-3">Older cycle: check its own stage-specific notices, not a new CBT-1 application timetable.</td></tr>
+<tr><td class="p-3">CEN 06/2024</td><td class="p-3">Undergraduate</td><td class="p-3">Older cycle: results or later-stage notices must match this CEN.</td></tr>
+<tr><td class="p-3">CEN 06/2025</td><td class="p-3">Graduate</td><td class="p-3"><a href="https://www.rrbcdg.gov.in/2025-06-ntpcg.php">Graduate notice page</a> for examinations and subsequent stages in 2026.</td></tr>
+<tr><td class="p-3">CEN 07/2025</td><td class="p-3">Undergraduate</td><td class="p-3"><a href="https://www.rrbcdg.gov.in/2025-07-ntpcug.php">Undergraduate notice page</a> for its separate schedule.</td></tr>
+<tr><td class="p-3">Fresh 2026–27 recruitment</td><td class="p-3">Confirm in the official notice</td><td class="p-3">Verify the new CEN, detailed notice and amendments. This update could not verify the current detailed notice.</td></tr>
+</tbody></table></div>
+<p><strong>Historical reference:</strong> the official CEN 06/2025 graduate CBT-1 schedule listed 16–27 March 2026. Those dates are past dates, not a new October exam announcement. See the <a href="https://www.rrbcdg.gov.in/uploads/2025/06-NTPCG/062025NTPCG-CBT1_Schedule-Hi.pdf">graduate CBT-1 schedule notice</a>. For later stages, consult the newest notice for the same CEN.</p>
+<h3>RRB NTPC ka exam kab hoga 2026?</h3>
+<p lang="hi">अपने आवेदन का CEN नंबर, Graduate/Undergraduate श्रेणी और CBT का चरण पहले देखें। उसी भर्ती की आधिकारिक परीक्षा सूचना और संशोधित कार्यक्रम पढ़ें। आपकी व्यक्तिगत परीक्षा तारीख, शिफ्ट और केंद्र e-call letter में होंगे। केवल “expected exam date” को पक्की तारीख न मानें।</p>
+<p>The same check answers “when is RRB NTPC exam 2026” and “RRB NTPC undergraduate ka exam kab hoga 2026”: use the correct recruitment and stage, rather than a general year-based search. A revised notice can supersede an earlier tentative schedule.</p>
 
-<section id="city-intimation-slip" class="space-y-4 mt-8">
-  <h2 class="text-2xl font-bold text-foreground">RRB NTPC City Intimation Slip 2026: What It Is &amp; How to Check</h2>
-  <p class="text-muted-foreground leading-relaxed">
-    The <strong>City Intimation Slip</strong> is NOT the admit card. It is a preliminary informational docket activated <strong>10 days prior</strong> to CBT-1 to help outstation candidates arrange travel and lodging.
-  </p>
-  <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
-    <li><strong>Allotted Test City &amp; State:</strong> Confirms the city where your exam centre is situated.</li>
-    <li><strong>Exact Exam Shift &amp; Timings:</strong> Indicates whether you are assigned Shift 1 (Morning), Shift 2 (Afternoon), or Shift 3 (Evening).</li>
-    <li><strong>SC/ST Free Travel Authority:</strong> Candidates belonging to SC/ST categories who opted for the travel pass during online application can download their train travel authority pass alongside the city slip.</li>
-  </ul>
+<h2 id="notification">RRB NTPC 2026 Notification, Vacancy and 2026–27 Updates</h2>
+<p>Searches for “RRB NTPC 2026-27 notification”, “RRB NTPC 2026 to 2027 notification” and “RRB NTPC 2026 notification expected date” refer to demand for a fresh cycle. Keyword demand does not establish that a notice has been issued. An indicative notice and a detailed CEN serve different purposes: confirm full eligibility, post-wise vacancies and the selection scheme in the detailed document and its amendments.</p>
+<p>Check the <a href="https://www.rrbcdg.gov.in/">official RRB Chandigarh notice board</a> or your regional RRB. Record the CEN number, notice publication date and whether the document is indicative, detailed or a corrigendum. A vacancy number from an older CEN is not the total for a fresh recruitment.</p>
+<h3>RRB NTPC ki vacancy kab aayegi / form kab aayega 2026?</h3>
+<p lang="hi">नई vacancy और form की तारीख संबंधित आधिकारिक सूचना से ही तय करें। Indicative notice में पदों की संख्या अस्थायी हो सकती है। Detailed CEN और corrigendum में आवेदन की शुरुआत, अंतिम तारीख और पात्रता जाँचें। इस अपडेट में नई 2026–27 भर्ती की विस्तृत सूचना स्वतंत्र रूप से सत्यापित नहीं हो सकी है।</p>
 
-  <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2">
-    <h4 class="font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2">
-      <span>⚠️</span> Note on Exam City Modification
-    </h4>
-    <p class="text-sm text-muted-foreground leading-relaxed">
-      Railway Recruitment Boards strictly do not entertain any requests for changes in the allotted exam date, shift, or test city under any circumstances. Examination centres are allocated via automated computerized algorithms based on zone preference and system capacity.
-    </p>
-  </div>
-</section>
+<h2>RRB NTPC 2026 Application Date, Last Date to Apply and Apply Online</h2>
+<p>Before applying, make a checklist from the correct notice: application opening date, submission closing date and time, fee-payment deadline, and correction-window dates. These can differ. A later corrigendum may extend one deadline without changing the others.</p>
+<ol><li>Read the detailed CEN, vacancy tables and eligibility rules on the official RRB website.</li><li>Follow its application link to <a href="https://www.rrbapply.gov.in/">rrbapply.gov.in</a>.</li><li>Select the correct recruitment and board, then follow the account and identity-verification instructions.</li><li>Enter qualifications, category and post preferences carefully. Preview your information before payment and submission.</li><li>Complete the required photo capture or uploads and signature upload using the instructions actually displayed for that cycle.</li><li>Save the submitted application and payment acknowledgement, then check application-status notices separately.</li></ol>
+<p>A missing application link does not prove a new cycle is open or closed. Recheck the official notice and its operative dates. Do not use an unofficial payment or login link sent by a third party.</p>
 
-<section id="admit-card-download" class="space-y-4 mt-8">
-  <h2 class="text-2xl font-bold text-foreground">How to Download RRB NTPC Admit Card 2026 (Step-by-Step)</h2>
-  <p class="text-muted-foreground leading-relaxed">
-    Hall tickets (e-call letters) are made available exactly <strong>4 days prior to your scheduled exam date</strong>. Follow these verified steps to download:
-  </p>
-  <ol class="list-decimal pl-6 space-y-3 text-muted-foreground">
-    <li>Navigate to the unified railway portal at <a href="https://rrbapply.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">rrbapply.gov.in</a> or your respective regional RRB website.</li>
-    <li>Click on the prominent link labeled <em>"CEN 05/2024 &amp; 06/2024: Download CBT-1 E-Call Letter &amp; Travel Pass"</em>.</li>
-    <li>Enter your <strong>Registration Number</strong> and <strong>User Password (Date of Birth in DDMMYYYY format)</strong>.</li>
-    <li>Enter the visual Captcha code and click <strong>Login</strong>.</li>
-    <li>Review the displayed candidate details, roll number, test centre venue address, and reporting time.</li>
-    <li>Download the PDF and print at least <strong>two clear color copies</strong> on standard A4 paper.</li>
-  </ol>
-</section>
+<h2 id="city-slip">RRB NTPC 2026 City Intimation and City Intimation Link</h2>
+<p>The city slip helps you plan travel; it is not the examination admission document. NTPC notices commonly describe city information becoming available about ten days before a candidate's exam. Follow your CEN-specific notice for the actual release window and any eligible travel-authority instructions.</p>
+<ol><li>Open your regional RRB website and the matching CEN notice page.</li><li>Choose the city-intimation link for the right stage: CBT-1, CBT-2 or the applicable skill test.</li><li>Enter the registration details in the format the login screen requests.</li><li>Check your allotted date and city, and save the slip if available.</li><li>Return to the official notice page for the e-call-letter link when its window opens.</li></ol>
+<p>Use the official notice-page links above rather than a hard-coded third-party exam-login URL: links and availability windows change between stages.</p>
 
-<section id="official-websites-directory" class="space-y-4 mt-8">
-  <h2 class="text-2xl font-bold text-foreground">Official Regional RRB Websites Directory (21 Zones)</h2>
-  <p class="text-muted-foreground">
-    Always check notifications exclusively on authentic government portals. Below is the verified regional RRB portal directory:
-  </p>
+<h2 id="admit-card">RRB NTPC 2026 Admit Card: Download and Exam-Day Checks</h2>
+<p>Official NTPC notices commonly specify e-call-letter downloads from four days before the exam. Confirm that rule in your own stage's notice. “RRB NTPC ka admit card kab aayega 2026?” therefore depends on your individual allocation, rather than one universal release day.</p>
+<ol><li>Follow the official e-call-letter link for your CEN and stage.</li><li>Log in using the requested registration number and password or date-of-birth format.</li><li>Check your name, photograph, exam date, reporting time and venue.</li><li>Download and print the document as instructed. Read its ID, photograph and declaration requirements carefully.</li><li>Check official rescheduling notices before travelling, particularly if you received a revised allocation.</li></ol>
+<p>Carry the original identification and other documents specified in your e-call letter. Follow the applicable Aadhaar and biometric instructions. Do not fill a declaration or sign a space that the instructions reserve for the examination centre.</p>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-6">
-    <a href="https://www.rrbahmedabad.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Ahmedabad</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbajmer.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Ajmer</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbald.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Allahabad (Prayagraj)</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbbnc.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Bangalore</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbbhopal.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Bhopal</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbbbs.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Bhubaneswar</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbbilaspur.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Bilaspur</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbcdg.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Chandigarh</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbchennai.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Chennai</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbgkp.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Gorakhpur</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbguwahati.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Guwahati</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbkolkata.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Kolkata</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbmumbai.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Mumbai</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbpatna.gov.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Patna</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-    <a href="https://www.rrbsecunderabad.nic.in" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl border border-border bg-card hover:border-primary/50 transition flex justify-between items-center group">
-      <span class="font-medium text-foreground group-hover:text-primary">RRB Secunderabad</span>
-      <span class="text-xs text-muted-foreground">&rarr;</span>
-    </a>
-  </div>
-</section>
+<h2 id="syllabus">RRB NTPC 2026 Syllabus and Question Paper Preparation</h2>
+<p>Use the syllabus and exam scheme in your detailed CEN. The NTPC CBT preparation areas include Mathematics, General Intelligence and Reasoning, and General Awareness. Practice arithmetic, percentages and data interpretation; series, coding and logical reasoning; and general science, history, geography and current affairs. Check the stage-specific marks, duration, negative marking and any accommodation rules before starting a timed mock.</p>
+<p>Our <a href="/blog/rrb-ntpc-syllabus-exam-pattern-cbt-1-cbt-2/">RRB NTPC syllabus and CBT-1/CBT-2 preparation guide</a> expands these topics. Use it alongside the official CEN, which controls the scheme for your application.</p>
+<p>For an RRB NTPC 2026 question paper, use the official response-sheet portal when available. Save your question paper, recorded responses and answer key during its viewing window. Label practice material by CEN, date and stage so you do not confuse an older paper with the current cycle. Official mock-test links help you learn the test interface.</p>
 
-<section id="exam-day-photo-specs" class="space-y-4 mt-8">
-  <h2 class="text-2xl font-bold text-foreground">Critical Biometric &amp; Photo Guidelines for RRB NTPC</h2>
-  <p class="text-muted-foreground leading-relaxed">
-    During CBT-1 entry, invigilators match candidate physical features against the photo printed on your admit card and the online database. Thousands of candidates get stalled at the gate due to mismatched or degraded photos.
-  </p>
+<h2 id="results">RRB NTPC 2026 Answer Key, Result and Final Result</h2>
+<p>The provisional answer key and objection tracker have their own dated notice. Check its opening and closing times, objection fee, evidence requirements and refund conditions. This guide does not assume that every answer key appears within a fixed number of weeks or that all objection windows last the same number of days.</p>
+<h3>How to check RRB NTPC result 2026</h3>
+<ol><li>Open the official website of the RRB where you applied.</li><li>Select the correct CEN and stage, then read the dated result notice.</li><li>Download the shortlist PDF and category/post-specific cut-off notice. Search the PDF for your roll number.</li><li>If a scorecard link is active, log in using the details requested and save your individual scorecard.</li><li>Read the next-stage notice separately for CBT-2, aptitude or typing tests, document verification or medical examination, as applicable.</li></ol>
+<h3>RRB NTPC undergraduate ka result kab aayega 2026?</h3>
+<p lang="hi">Result की तारीख CEN, परीक्षा के चरण और आपके RRB पर निर्भर करती है। आधिकारिक result notice, shortlist और cut-off देखें। Answer key के बाद निश्चित दिनों में result आने की गारंटी नहीं है। CBT में shortlist होना final selection नहीं है।</p>
+<p>An RRB NTPC 2026 final result or panel must be distinguished from a CBT shortlist. Read the final notice for its conditions and any remaining formalities; do not infer appointment from a provisional exam result.</p>
 
-  <div class="my-6 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 space-y-4">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <div>
-        <h4 class="font-bold text-lg text-foreground">Prepare Your RRB NTPC Photo &amp; Signature Now</h4>
-        <p class="text-sm text-muted-foreground mt-1">
-          Resize your passport photograph to exact 35×45 mm (30–70 KB) and signature to 140×60 px (10–20 KB) in seconds.
-        </p>
-      </div>
-      <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-        <a href="/rrb-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
-          <span>✍️</span> RRB Signature Resizer
-        </a>
-        <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
-          <span>📸</span> 35×45 mm Photo Resizer
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<h2>RRB NTPC Photo and Signature Preparation</h2>
+<p>Upload requirements can change between CENs. Follow the detailed notice and live application screen for photo capture, image format, dimensions and file size. Do not assume a scanned photo is accepted when the application requires a live capture, or reuse a previous cycle's signature size without checking.</p>
+<p>Once you know the required dimensions and KB range, use the <a href="/rrb-signature-resize/">RRB signature resizer</a> or <a href="/photo-resizer/">photo resizer</a> for a required image upload. Use your own authentic handwritten signature, retain readability, and inspect the downloaded file before submitting.</p>
 
-<section id="cbt1-exam-pattern" class="space-y-4 mt-8">
-  <h2 class="text-2xl font-bold text-foreground">RRB NTPC CBT-1 Examination Pattern &amp; Negative Marking</h2>
-  <p class="text-muted-foreground leading-relaxed">
-    CBT-1 is a common screening test for all posts. Scores are subjected to <strong>Percentile Score Normalization</strong> across shifts to ensure fair shortlisting at a <strong>1:15 ratio</strong> for CBT-2.
-  </p>
-
-  <div class="overflow-x-auto my-6">
-    <table class="w-full text-left text-sm border-collapse rounded-xl overflow-hidden shadow-xs border border-border">
-      <thead class="bg-muted text-foreground font-semibold">
-        <tr>
-          <th class="p-3.5 border-b border-border">Subject Section</th>
-          <th class="p-3.5 border-b border-border">Total Questions</th>
-          <th class="p-3.5 border-b border-border">Max Marks</th>
-          <th class="p-3.5 border-b border-border">Duration</th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-border text-muted-foreground">
-        <tr class="hover:bg-muted/40 transition">
-          <td class="p-3.5 font-medium text-foreground">General Awareness (GA &amp; NCERT Science)</td>
-          <td class="p-3.5">40 MCQs</td>
-          <td class="p-3.5">40 Marks</td>
-          <td class="p-3.5 rowspan-3" rowspan="3"><strong>90 Minutes</strong><br><span class="text-xs text-muted-foreground">(120 Mins for PwBD)</span></td>
-        </tr>
-        <tr class="hover:bg-muted/40 transition">
-          <td class="p-3.5 font-medium text-foreground">Mathematics (Quantitative Aptitude)</td>
-          <td class="p-3.5">30 MCQs</td>
-          <td class="p-3.5">30 Marks</td>
-        </tr>
-        <tr class="hover:bg-muted/40 transition">
-          <td class="p-3.5 font-medium text-foreground">General Intelligence &amp; Reasoning</td>
-          <td class="p-3.5">30 MCQs</td>
-          <td class="p-3.5">30 Marks</td>
-        </tr>
-        <tr class="bg-muted/30 font-bold text-foreground">
-          <td class="p-3.5">Total Cumulative Paper</td>
-          <td class="p-3.5 text-primary">100 Questions</td>
-          <td class="p-3.5 text-primary">100 Marks</td>
-          <td class="p-3.5">1/3rd Negative Marking</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section id="next-steps" class="space-y-4 mt-8">
-  <h2 class="text-2xl font-bold text-foreground">What Happens After CBT-1? Answer Key &amp; Result Timeline</h2>
-  <p class="text-muted-foreground leading-relaxed">
-    Following the last day of CBT-1 examinations:
-  </p>
-  <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
-    <li><strong>Provisional Answer Key:</strong> Released within 15–20 days with candidate question papers and recorded responses on regional RRB portals.</li>
-    <li><strong>Objection Tracker:</strong> Open for 5 days where candidates can challenge questions by depositing ₹50 per question (refunded if objection is upheld).</li>
-    <li><strong>Final Results &amp; Normalised Cut-Off:</strong> Published zone-wise and category-wise with roll numbers of candidates shortlisted for CBT-2.</li>
-  </ul>
-  <p class="text-muted-foreground mt-4">
-    Explore the full listing of ongoing central and state vacancies in our <a href="/government-jobs/" class="text-primary font-bold underline">Live Government Jobs Directory</a> or test your document compliance now using our <a href="/" class="text-primary font-bold underline">Online Signature Resizer</a>.
-  </p>
-</section>
+<h2>Official Sources and Verification Notes</h2>
+<ul><li><a href="https://www.rrbcdg.gov.in/">RRB Chandigarh official notice board</a>: recruitment notices and amendments.</li><li><a href="https://www.rrbcdg.gov.in/2025-06-ntpcg.php">CEN 06/2025 graduate notices</a>: stage-specific exam and result updates.</li><li><a href="https://www.rrbcdg.gov.in/2025-07-ntpcug.php">CEN 07/2025 undergraduate notices</a>: separate exam and result updates.</li><li><a href="https://www.rrbbbs.gov.in/notifications.php">RRB Bhubaneswar notifications</a>: another official regional source.</li><li><a href="https://www.rrbapply.gov.in/">RRB application portal</a>: follow the application link from the relevant CEN.</li></ul>
+<p>The update timestamp records the editorial revision, not an official RRB announcement. Historical indexed official notices establish the recruitment-cycle distinction; failed retrieval of current notice pages means this article does not assert the latest stage is live, or confirm fresh 2026–27 application and vacancy dates.</p>
 `
   },
   {
@@ -2914,13 +3175,14 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
 
   {
     slug: "how-to-change-signature-in-outlook",
-    title: "How to Change Signature in Outlook: Complete 2025 Guide (Desktop, Web & Mobile)",
-    metaTitle: "How to Change Signature in Outlook (2025) — Desktop, Web & Mobile Guide",
+    title: "How to Change Signature in Outlook: Complete 2026 Guide (Desktop, Web & Mobile)",
+    metaTitle: "How to Change Signature in Outlook (2026) — Desktop, Web & Mobile Guide",
     metaDescription: "Learn how to change your email signature in Outlook in under 2 minutes. Step-by-step guide for Outlook 365, Outlook Web (OWA), Outlook on Mac, iOS & Android. Includes HTML signature tips and common fixes.",
-    excerpt: "Complete step-by-step guide to changing your email signature in Microsoft Outlook — covers Outlook 365 desktop, Outlook Web App, Mac, iPhone and Android with screenshots and expert tips for professional signatures.",
+    excerpt: "Complete step-by-step guide to changing your email signature in Microsoft Outlook — covers Outlook 365 desktop, Outlook Web App, Mac, iPhone and Android with practical templates and troubleshooting tips for professional signatures.",
     category: "Guidelines & Tips",
     publishDate: "Sep 23, 2026",
-    lastUpdated: "Sep 23, 2026",
+    lastUpdated: "2026-10-06T18:21:24.428Z",
+    deployedAt: "6 October 2026 at 11:51 pm IST",
     author: "SignResize Editorial Team",
     authorRole: "Productivity & Digital Signature Expert",
     readTime: "7 min read",
@@ -2941,9 +3203,9 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       { label: "Applies To", value: "Outlook 365, 2021, 2019, OWA, Mac, iOS, Android" },
       { label: "Time Required", value: "Under 2 minutes" },
       { label: "Signature Path (Windows)", value: "File → Options → Mail → Signatures" },
-      { label: "Signature Path (Web)", value: "Settings ⚙ → View All Settings → Compose → Email Signature" },
-      { label: "Image Format", value: "JPEG / PNG (max 5 MB)" },
-      { label: "HTML Allowed", value: "Yes — full HTML formatting supported" }
+      { label: "Signature Path (Web)", value: "Settings → Accounts → Signatures" },
+      { label: "Image Format", value: "PNG or JPEG; keep images small" },
+      { label: "HTML Allowed", value: "Rich text, links and images; test formatting" }
     ],
     faqs: [
       {
@@ -2952,7 +3214,23 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       },
       {
         question: "How do I change signature in Outlook Web App (OWA)?",
-        answer: "Log in to Outlook Web (outlook.office.com) → click the Settings gear icon (⚙) at the top right → select 'View all Outlook settings' → go to Mail → Compose and reply → scroll to 'Email signature'. Edit your signature text or image, then click Save."
+        answer: "In Outlook on the web or new Outlook, open Settings → Accounts → Signatures. Select the correct account, edit an existing signature or add a new one, choose whether to include it on new messages and replies, then select Save. Older interfaces may show Mail → Compose and reply."
+      },
+      {
+        question: "How to add a signature in Outlook?",
+        answer: "Open your version's signature settings and choose New or Add signature. Name it, enter your contact details, choose the sending account and defaults, then save. Use the Signature menu in a draft to insert a saved signature manually."
+      },
+      {
+        question: "How to update or edit an email signature in Outlook?",
+        answer: "Select your existing signature in File → Options → Mail → Signatures in classic Outlook, or Settings → Accounts → Signatures in new Outlook and on the web. Edit its text, links or image, save, and check a fresh draft. Sent emails retain their original signatures."
+      },
+      {
+        question: "Why is my Outlook signature not showing?",
+        answer: "Check the sending account and the separate defaults for new messages and replies. Open a fresh draft or insert it manually from the Signature menu. If you changed devices or apps, check that the signature is configured there too. Ask IT if a company-managed signature overrides your changes."
+      },
+      {
+        question: "Where is the new Outlook signature location?",
+        answer: "Open Settings → Accounts → Signatures in new Outlook. Select your mailbox and edit or add a signature. Older Outlook web interfaces may show Mail → Compose and reply instead."
       },
       {
         question: "Can I insert a handwritten signature image into Outlook?",
@@ -2960,22 +3238,24 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       }
     ],
     contentHtml: `
+<p class="text-sm text-muted-foreground"><strong>Last updated:</strong> <time datetime="2026-10-06T18:21:24.428Z">6 October 2026 at 11:51 pm IST</time></p>
+<p><strong>To change your Outlook signature:</strong> in classic Outlook, open File → Options → Mail → Signatures. In new Outlook and Outlook on the web, open Settings → Accounts → Signatures. Edit the signature for your sending account and save it. Start a fresh email to check the result.</p>
 <h2>Why Update Your Outlook Email Signature?</h2>
 <p>Your email signature is your digital business card. Whether you are sending client proposals, responding to job recruiters, or communicating with colleagues, a crisp, professional signature with your updated title, contact details, and brand signature image builds trust and authority.</p>
 
-<p>Microsoft Outlook stores signatures differently across its desktop app, web browser (OWA), Mac version, and mobile apps (iOS &amp; Android). This guide walks you through changing your signature step-by-step on <strong>every device and Outlook platform</strong> in under 2 minutes.</p>
+<p>Microsoft Outlook stores signatures differently across its desktop app, web browser (OWA), Mac version, and mobile apps (iOS &amp; Android). This guide walks you through changing your signature step-by-step on <strong>every device and Outlook platform</strong> using the settings for your version.</p>
 
 <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20 text-sm">
   <h4 class="font-bold text-primary mb-1">⚡ Quick Navigation by Platform:</h4>
   <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 font-medium">
-    <li>• <a href="#method-1-outlook-365-desktop-windows" class="text-primary hover:underline">Method 1: Outlook 365 / Windows Desktop</a></li>
-    <li>• <a href="#method-2-outlook-web-app-owa--new-outlook" class="text-primary hover:underline">Method 2: Outlook Web (OWA) &amp; New Outlook</a></li>
-    <li>• <a href="#method-3-outlook-for-mac" class="text-primary hover:underline">Method 3: Outlook for Mac</a></li>
-    <li>• <a href="#method-4-outlook-mobile-app-ios--android" class="text-primary hover:underline">Method 4: Outlook Mobile (iOS &amp; Android)</a></li>
+    <li>• <a href="#classic-outlook-signature" class="text-primary hover:underline">Method 1: Outlook 365 / Windows Desktop</a></li>
+    <li>• <a href="#new-outlook-signature" class="text-primary hover:underline">Method 2: Outlook Web (OWA) &amp; New Outlook</a></li>
+    <li>• <a href="#mac-outlook-signature" class="text-primary hover:underline">Method 3: Outlook for Mac</a></li>
+    <li>• <a href="#mobile-outlook-signature" class="text-primary hover:underline">Method 4: Outlook Mobile (iOS &amp; Android)</a></li>
   </ul>
 </div>
 
-<h2>Method 1: Change Signature in Outlook 365 / Windows Desktop</h2>
+<h2 id="classic-outlook-signature">Method 1: Change Signature in Outlook 365 / Windows Desktop</h2>
 <p>If you use Microsoft Outlook 365, Outlook 2021, 2019, or 2016 on a Windows desktop PC:</p>
 
 <ol class="space-y-3 text-sm list-decimal list-inside my-4">
@@ -2992,17 +3272,17 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       <li>Set <strong>Replies/forwards</strong> to your signature (or leave as <em>(none)</em> if preferred).</li>
     </ul>
   </li>
-  <li>Click <strong>OK</strong> twice to save your settings.</li>
+  <li>Select <strong>Save</strong>, then <strong>OK</strong> to close the settings. Open a new message to verify the updated signature.</li>
 </ol>
 
-<h2>Method 2: Change Signature in Outlook Web App (OWA) &amp; New Outlook</h2>
+<h2 id="new-outlook-signature">Method 2: Change Signature in Outlook Web App (OWA) &amp; New Outlook</h2>
 <p>If you access email via web browser (outlook.office.com / outlook.live.com) or the New Outlook app:</p>
 
 <ol class="space-y-3 text-sm list-decimal list-inside my-4">
   <li>Click the <strong>Settings gear icon ⚙</strong> in the top-right header toolbar.</li>
-  <li>Click <strong>View all Outlook settings</strong> (or <strong>Accounts → Signatures</strong> in New Outlook).</li>
-  <li>Navigate to <strong>Mail</strong> → <strong>Compose and reply</strong>.</li>
-  <li>Under <em>Email signature</em>, select your signature or click <strong>+ New signature</strong>.</li>
+  <li>Open <strong>Accounts → Signatures</strong>. This is the new Outlook signature location and the current web settings path.</li>
+  <li>Select the account you send from. In an older web interface, look under <strong>Mail → Compose and reply</strong> instead.</li>
+  <li>Select the edit button beside your signature, or choose <strong>Add signature</strong> / <strong>+ New signature</strong> and give it a name.</li>
   <li>Type your text into the rich text editor. You can change font family, color, align text, add hyperlinks, and insert inline logo image.</li>
   <li>Under <em>Select default signatures</em>, choose when to automatically include your signature:
     <ul class="list-disc list-inside ml-6 mt-1 space-y-1 text-slate-600 dark:text-slate-400">
@@ -3013,26 +3293,26 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   <li>Click <strong>Save</strong> at the bottom of the window.</li>
 </ol>
 
-<h2>Method 3: Change Signature in Outlook for Mac</h2>
+<h2 id="mac-outlook-signature">Method 3: Change Signature in Outlook for Mac</h2>
 <p>If you use Microsoft Outlook on macOS:</p>
 
 <ol class="space-y-3 text-sm list-decimal list-inside my-4">
-  <li>In the menu bar, click <strong>Outlook</strong> → <strong>Preferences</strong>.</li>
+  <li>In the menu bar, click <strong>Outlook</strong> → <strong>Settings</strong> (called Preferences in some older versions).</li>
   <li>Click <strong>Signatures</strong>.</li>
-  <li>Select the signature to edit from the left panel, or click <strong>+</strong> to create a new one.</li>
+  <li>Select the signature and choose <strong>Edit</strong>, or click <strong>+</strong> to create a new one.</li>
   <li>Edit the content in the right panel. You can drag-and-drop an image directly into the editor.</li>
   <li>In the <em>Default Signatures</em> section, assign the signature to your account.</li>
-  <li>Close the Preferences window — changes save automatically.</li>
+  <li>Close the Signatures window, then open a fresh message to check the result.</li>
 </ol>
 
-<h2>Method 4: Change Signature in Outlook Mobile App (iOS &amp; Android)</h2>
+<h2 id="mobile-outlook-signature">Method 4: Change Signature in Outlook Mobile App (iOS &amp; Android)</h2>
 <p>The Outlook app for iPhone, iPad, and Android supports plain-text signatures:</p>
 
 <ol class="space-y-2 text-sm list-decimal list-inside my-4">
   <li>Open the Outlook app and tap your <strong>profile picture</strong> or initials (top-left).</li>
   <li>Tap the <strong>Settings gear ⚙</strong> icon (bottom-left).</li>
-  <li>Scroll down and tap your <strong>email account name</strong>.</li>
-  <li>Tap <strong>Signature</strong>.</li>
+  <li>Under <strong>Mail</strong>, tap <strong>Signature</strong>.</li>
+  <li>Use one signature for all accounts, or enable <strong>Per Account Signature</strong> to edit them separately.</li>
   <li>Clear the existing text and type your new signature.</li>
   <li>Tap the <strong>checkmark ✓</strong> (iOS) or back arrow (Android) to save.</li>
 </ol>
@@ -3048,7 +3328,35 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   <li>Add your name, title, phone number as text below the image.</li>
 </ol>
 
-<h2>Outlook Signature Best Practices for 2025</h2>
+
+<h2>How to Add, Create or Set Up an Outlook Signature</h2>
+<p>For first-time Outlook signature setup, use the settings path for your platform above and choose <strong>New</strong> or <strong>Add signature</strong>. Give it a recognizable name such as “Work”, enter your contact details, and assign it to the correct email account. Choose it for new messages and, if you want, replies and forwards. Save before closing the editor.</p>
+<p>To add a saved signature to one message, use the message toolbar's <strong>Signature</strong> menu and select its name. Editing a saved signature does not rewrite emails you have already sent; check a new draft after each update.</p>
+
+<h2>Outlook Signature Templates, Examples and Signature Blocks</h2>
+<p>A useful Outlook signature template starts with readable contact information. Copy this example into your signature editor and replace each placeholder:</p>
+<pre>Alex Morgan
+Customer Success Manager | Example Company
+Phone: +1 202 555 0142
+Website: https://example.com</pre>
+<p>For a shorter reply signature block, use your name and one contact method. For a job search, use your name, professional role and portfolio link. Keep essential details as text so recipients can read and copy them even when images are blocked.</p>
+<p>For a formatted layout, Microsoft offers <a href="https://support.microsoft.com/en-us/outlook/create-an-email-signature-from-a-template">email signature templates</a> you can personalize in Word and copy into Outlook. Paste the rendered layout rather than raw HTML code, then test links and spacing in a fresh email.</p>
+
+<h2>Outlook Signature Generator or Creator: What Do You Need?</h2>
+<p>An email signature creator builds a contact block containing your name, role, links and optional logo. A handwritten signature generator creates an image of your name. <a href="/signature-generator/">SignResize's signature generator</a> helps with the handwritten image; add your contact details separately in Outlook's signature editor. It does not install the finished email signature into your mailbox.</p>
+
+<h2>Outlook Signature Not Showing? Check These Settings</h2>
+<ul>
+  <li><strong>Check your sending account:</strong> a signature assigned to one mailbox may not appear when you send from another.</li>
+  <li><strong>Check the defaults:</strong> enable the signature for new messages and separately for replies or forwards. In classic Outlook, a default of “(none)” leaves it out.</li>
+  <li><strong>Start a fresh draft:</strong> a message already open when you changed the settings may need a manual insertion from the Signature menu.</li>
+  <li><strong>Check each app:</strong> do not assume your desktop signature is available on the web, another computer or your phone. Set it up in the app you are using if it is missing.</li>
+  <li><strong>Check missing pictures:</strong> insert the image through the editor rather than linking to a local file. Recipients may block images, so retain your contact details as text.</li>
+  <li><strong>Check company policies:</strong> if a managed signature keeps returning, ask your IT administrator whether the organization controls the signature.</li>
+</ul>
+<p>Settings labels can differ between Outlook versions. See Microsoft's <a href="https://support.microsoft.com/en-us/outlook/mail/how-to-add-and-change-an-email-signature-in-outlook">current Outlook signature instructions</a> for Windows and web.</p>
+
+<h2>Outlook Signature Best Practices for 2026</h2>
 <ul class="space-y-2 text-sm list-disc list-inside my-4">
   <li>Keep your signature to <strong>4–6 lines</strong> max — long signatures feel spammy.</li>
   <li>Include: <strong>Name → Job Title → Company → Phone → Website/LinkedIn</strong>.</li>
@@ -3067,216 +3375,249 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
 
   {
     slug: "ssc-cgl-2026-master-application-preparation-guide",
-    title: "SSC CGL 2026 Master Application & Preparation Guide: Tier-1 Strategy, Photo/Signature Rules & Step-by-Step Portal Navigation",
-    metaTitle: "SSC CGL 2026 Master Guide: Tier-1, Photo & Sign Rules",
-    metaDescription: "Comprehensive SSC CGL 2026 handbook: Tier-1 scoring strategy, live webcam photo rules, 10-20KB signature bounds & timetable. Resize documents online free!",
-    excerpt: "Comprehensive 2026 candidate handbook for Staff Selection Commission CGL: Tier-1 sectional breakdown, live webcam photo setup, 10-20KB signature rules, step-by-step portal navigation, and 90-day study timetable.",
+    title: "SSC CGL 2026 Master Guide: Tier-1 & Tier-2 Strategy, Signature 10-20KB Resize & Live Photo Rules",
+    metaTitle: "SSC CGL 2026 Master Guide: Photo, Signature & Syllabus",
+    metaDescription: "Complete SSC CGL 2026 master guide: 140x60 px signature resize (10-20 KB), live webcam photo setup, Tier-1 & Tier-2 syllabus, salary matrix, and portal steps.",
+    excerpt: "Comprehensive candidate blueprint for Staff Selection Commission CGL 2026: Tier-1 & Tier-2 sectional weightage, 10-20KB signature resize rules, live webcam photo setup, and 7th CPC salary matrix.",
     category: "Exam Alerts",
+    country: "IN",
     publishDate: "Sept 18, 2026",
     publishTime: "09:00 AM IST",
-    lastUpdated: "Sept 20, 2026",
-    deployedAt: "Sept 20, 2026 • 09:00 AM IST",
+    lastUpdated: "Oct 07, 2026",
+    deployedAt: "Oct 07, 2026 • 11:45 PM IST",
     author: "SignResize Examination Standards Desk",
     authorRole: "Staff Selection Commission Analytics Team",
-    readTime: "9 min read",
-    featured: false,
-    tags: ["SSC CGL 2026","Tier 1 Preparation","Live Photo Rules","Signature 10-20KB","Govt Exam Strategy","Portal Guide"],
+    readTime: "11 min read",
+    featured: true,
+    tags: [
+      "SSC CGL 2026",
+      "SSC Signature Resize",
+      "10 to 20 KB Signature",
+      "Live Photo Rules",
+      "Tier 1 Preparation",
+      "Tier 2 Pattern",
+      "SSC Salary Matrix",
+      "Govt Exam Strategy"
+    ],
     relatedExamPreset: "ssc-general",
     quickFacts: [
-        {
-            "label": "Conducting Body",
-            "value": "Staff Selection Commission (SSC)"
-        },
-        {
-            "label": "Total Vacancies",
-            "value": "17,727 Posts (Group B & C)"
-        },
-        {
-            "label": "Application Last Date",
-            "value": "Sept 24, 2026 (23:00 Hrs)"
-        },
-        {
-            "label": "Selection Stages",
-            "value": "Tier-1 (Screening) + Tier-2 (Merit)"
-        },
-        {
-            "label": "Target Tier-1 Score",
-            "value": "150+ Marks (UR Category)"
-        },
-        {
-            "label": "Document Specs",
-            "value": "Live Webcam Photo + 140×60 px Sign (10–20 KB)"
-        }
+      { label: "Conducting Body", value: "Staff Selection Commission (SSC, New Delhi)" },
+      { label: "Target Cadres", value: "ASO (MEA, CSS, IB), Income Tax Inspector, GST Inspector, CBI SI, Auditor, Tax Assistant" },
+      { label: "Selection Framework", value: "Tier-1 (Screening) + Tier-2 (Merit Ranking) + DEST Typing Test" },
+      { label: "Signature Bounds", value: "140 × 60 px | 10 KB to 20 KB | Black Ink on White Paper (No Capital Letters)" },
+      { label: "Photo Format", value: "Live Webcam Stream / MySSC Mobile App (Plain Light Background, No Caps/Glasses)" },
+      { label: "Tier-1 Blueprint", value: "100 MCQs | 200 Marks | 60 Minutes | Negative Marking: 0.50 Marks" },
+      { label: "Tier-2 Merit Total", value: "390 Marks (Maths 90 + Reasoning 90 + English 135 + GA 75) + Qualifying Modules" },
+      { label: "Starting Pay Matrix", value: "₹35,000 to ₹85,000 Gross Monthly (Pay Level 4 to Level 8, 7th CPC)" },
+      { label: "Official Web Portal", value: "ssc.gov.in (One-Time Registration OTR)" }
     ],
     faqs: [
-        {
-            "question": "What is the Tier-1 exam pattern and negative marking penalty in SSC CGL 2026?",
-            "answer": "Tier-1 comprises 100 multiple-choice questions carrying 200 marks, scheduled for 60 minutes across four subjects: Reasoning (25Q/50M), General Awareness (25Q/50M), Quantitative Aptitude (25Q/50M), and English (25Q/50M). A penalty deduction of 0.50 marks (25%) is enforced for each incorrect answer."
-        },
-        {
-            "question": "What are the live photo webcam capture rules on ssc.gov.in?",
-            "answer": "SSC requires a live picture captured through the browser webcam or MySSC mobile application against a plain light background. Face features must cover 80% of the oval frame without caps, sunglasses, reading spectacles, or face-covering headwear."
-        },
-        {
-            "question": "What are the signature dimensions and file size bounds for SSC CGL?",
-            "answer": "The signature must measure exactly 140 pixels in width by 60 pixels in height (aspect ratio ~4.0 cm × 2.0 cm), strictly between 10.0 KB and 20.0 KB in JPG/JPEG format, written in black ballpoint ink on unruled white paper. Capital or block letters cause immediate rejection."
-        },
-        {
-            "question": "Does the Tier-1 score count towards the final SSC CGL merit list?",
-            "answer": "No, Tier-1 is purely qualifying in nature to shortlist candidates for Tier-2 at a 1:10 vacancy ratio. The final merit ranking is determined 100% on aggregate marks obtained in Tier-2 Paper-I, provided the candidate qualifies the Computer Knowledge Module and DEST."
-        },
-        {
-            "question": "What is the educational qualification required for SSC CGL?",
-            "answer": "Candidates must hold a Bachelor's Degree in any discipline from a recognized University before the prescribed cut-off date. Final-year students are eligible only if results are declared on or before the closing date."
-        },
-        {
-            "question": "What is the age limit and relaxation criteria for SSC CGL posts?",
-            "answer": "Age limits vary between 18–27, 18–30, and up to 32 years depending on post cadre. Standard statutory relaxations apply: OBC candidates receive +3 years, SC/ST candidates receive +5 years, and PwBD candidates receive +10 to +15 years."
-        },
-        {
-            "question": "What are the top posts available in SSC CGL 2026?",
-            "answer": "Key positions include Assistant Section Officer (ASO in CSS, MEA, IB), Inspector of Income Tax, Central Excise Inspector, Assistant Audit Officer (AAO), Sub-Inspector in CBI, and Tax Assistant."
-        },
-        {
-            "question": "What is the application fee and exemption criteria for SSC CGL?",
-            "answer": "The application fee is ₹100. All female candidates, Scheduled Castes (SC), Scheduled Tribes (ST), Persons with Benchmark Disabilities (PwBD), and Ex-Servicemen are 100% exempted from paying the fee."
-        },
-        {
-            "question": "What is the application correction window timeline and charges?",
-            "answer": "The correction window operates from September 27 to September 29, 2026. SSC charges ₹200 for the first modification and ₹500 for a second resubmission."
-        },
-        {
-            "question": "What is the in-hand salary for Pay Level 7 posts in SSC CGL?",
-            "answer": "For Pay Level 7 posts (Basic ₹44,900): In Class X metro cities, gross monthly pay is ~₹85,000, yielding net in-hand earnings of approximately ₹73,000–₹78,000 after NPS and insurance deductions."
-        },
-        {
-            "question": "Can an average student clear SSC CGL from zero in 6 months?",
-            "answer": "Yes. A 6-month roadmap: Months 1–3: Complete 100% syllabus fundamentals and concept notes. Months 4–5: Solve 5,000+ TCS PYQs and build sectional speed. Month 6: Attempt 40 full-length mocks, analyze every incorrect question, and revise formula sheets daily."
-        }
+      {
+        question: "What are the official signature dimensions and file size bounds for SSC CGL?",
+        answer: "==SSC requires scanned signatures to measure exactly 140 pixels in width by 60 pixels in height (aspect ratio roughly 4.0 cm × 2.0 cm), with file size strictly between 10.0 KB and 20.0 KB in JPG or JPEG format. Signatures must be written in running cursive handwriting using a black ballpoint pen on unruled white paper. Signatures in ALL CAPITAL or BLOCK letters are rejected automatically.=="
+      },
+      {
+        question: "How do I resize my signature for SSC to 10–20 KB online?",
+        answer: "==Sign on clean white paper using a black ballpoint pen, take a clear photo in good light, crop tightly with a 2–3 mm margin, upload it to the free SignResize SSC Signature Tool, select the SSC preset (140×60 px / 10–20 KB), and download your portal-compliant JPG file ready for ssc.gov.in.=="
+      },
+      {
+        question: "Can I use blue ink for my SSC signature upload?",
+        answer: "==While black ballpoint ink is officially mandated by the Staff Selection Commission for high-contrast optical scanner verification, dark blue ink signatures can be accepted only if they reproduce with sharp, dark strokes on pure white paper without grey background shadows. Gel ink and fountain pens are prohibited because they bleed into paper fibers.=="
+      },
+      {
+        question: "What are the live photo webcam capture rules on ssc.gov.in?",
+        answer: "==SSC does not permit pre-scanned photo uploads for CGL; candidates must capture a live photo using the browser webcam on ssc.gov.in or via the official MySSC mobile application. The photo must feature a plain light-colored background, face occupying 80% of the frame, frontal lighting without shadows, and completely unobstructed eyes without caps, tinted spectacles, or reading glasses.=="
+      },
+      {
+        question: "What is the Tier-1 exam pattern and negative marking penalty in SSC CGL 2026?",
+        answer: "==Tier-1 consists of 100 multiple-choice questions for 200 marks across four subjects: General Intelligence and Reasoning (25Q/50M), General Awareness (25Q/50M), Quantitative Aptitude (25Q/50M), and English Comprehension (25Q/50M). Duration is 60 minutes with a negative marking penalty of 0.50 marks per incorrect response. Tier-1 is qualifying in nature.=="
+      },
+      {
+        question: "How is the final SSC CGL merit list calculated in Tier-2?",
+        answer: "==Final merit ranking is calculated out of 390 marks in Tier-2 Paper-I: Mathematical Abilities (30Q × 3 = 90 marks), Reasoning (30Q × 3 = 90 marks), English Language (45Q × 3 = 135 marks), and General Awareness (25Q × 3 = 75 marks). Candidates must also qualify the Computer Knowledge Module (60 marks) and the Data Entry Speed Test (DEST typing).=="
+      },
+      {
+        question: "What is the typing speed requirement in the SSC CGL DEST test?",
+        answer: "==Candidates must complete 2,000 key depressions over a 15-minute passage on a computer terminal, which equates to an effective typing speed of approximately 27 words per minute (WPM). The DEST test is mandatory for all posts and qualifying in nature with permissible error limits between 5% and 10%.=="
+      },
+      {
+        question: "What is the educational qualification and age eligibility for SSC CGL?",
+        answer: "==Candidates must possess a Bachelor's Degree in any discipline from a recognized university on or before the crucial closing date. The age limit ranges between 18–27, 18–30, or up to 32 years depending on post cadre, with statutory relaxations of +3 years for OBC, +5 years for SC/ST, and +10 to +15 years for PwBD.=="
+      },
+      {
+        question: "What is the in-hand salary for Pay Level 7 posts like ASO and Income Tax Inspector?",
+        answer: "==Pay Level 7 posts carry a basic pay of ₹44,900. In Class X metro cities (such as Delhi, Mumbai, Bengaluru), with 50% Dearness Allowance (DA), 30% HRA, and Transport Allowance, gross monthly pay is approximately ₹85,000, yielding a net in-hand monthly salary of approximately ₹73,000 to ₹77,000 after NPS deductions.=="
+      },
+      {
+        question: "Can an average candidate clear SSC CGL from scratch in 6 months?",
+        answer: "==Yes. A proven 6-month roadmap involves: Months 1–3 dedicated to syllabus completion and core arithmetic/grammar concepts, Months 4–5 solving 5,000+ TCS previous year questions (PYQs) to build sectional speed, and Month 6 attempting 40+ full-length mock tests with comprehensive error log revision.=="
+      }
     ],
     contentHtml: `
-<h2 id="overview">SSC CGL 2026: Complete Recruitment Overview &amp; Key Milestones</h2>
-      <p>The Staff Selection Commission (SSC) has released the official notification for the <strong>Combined Graduate Level (CGL) Examination 2026</strong>. Covering over 17,700 positions across premier central ministries—including Assistant Audit Officer (AAO), Assistant Section Officer (ASO in MEA and IB), Inspector of Income Tax, and Central Excise Inspector—CGL is India's most sought-after non-UPSC recruitment drive.</p>
-      
-      <p>Achieving a merit rank among 30+ lakh applicants demands a two-pronged strategy: securing high accuracy in Tier-1 Computer Based Examination (CBE) and adhering strictly to SSC's revamped digital document verification rules during online submission.</p>
-
-      <div class="my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-2">
-        <h4 class="font-bold text-primary text-base flex items-center gap-2">
-          <span>⚡</span> SSC CGL 2026 Critical Timelines &amp; Cutoff Benchmarks
-        </h4>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-foreground/90 pt-1">
-          <li><strong>Application Window:</strong> Open till Sept 24, 2026 (23:00 Hrs)</li>
-          <li><strong>Correction Window:</strong> Sept 27 to Sept 29, 2026</li>
-          <li><strong>Tier-I CBT Window:</strong> Oct – Nov 2026</li>
-          <li><strong>Target Tier-1 Score:</strong> 150+ Marks (UR Category)</li>
-        </ul>
+      <div class="mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+        <h4 class="font-bold text-primary mb-2">⚡ Direct Answer: SSC CGL 2026 Master Examination &amp; Upload Blueprint</h4>
+        <p class="text-sm text-foreground/90 leading-relaxed">
+          The Staff Selection Commission Combined Graduate Level (SSC CGL 2026) examination recruits for premier Group B and Group C central government posts across Indian ministries. Application compliance on <strong>ssc.gov.in</strong> requires a two-step digital upload: a <strong>live webcam photo</strong> captured against a plain light background without spectacles or caps, and a <strong>140 × 60 pixel scanned signature</strong> strictly compressed between <strong>10.0 KB and 20.0 KB</strong> in black running ink. Final merit rankings depend exclusively on <strong>Tier-2 Paper-I (390 Marks)</strong> alongside qualifying Computer Knowledge and Data Entry Speed Test (DEST) benchmarks.
+        </p>
       </div>
 
-      <h2 id="document-specs" id="exam-pattern">Tier-1 Exam Blueprint &amp; Sectional Scoring Rules</h2>
-      <p>Tier-1 serves as a qualifying screening test consisting of 100 multiple-choice questions carrying 200 total marks. Candidates get 60 minutes with a negative marking penalty of <strong>0.50 marks</strong> per incorrect answer.</p>
+      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
+        <div class="flex items-center justify-between text-slate-400 text-[11px]">
+          <span>⚡ Official SSC Scoring &amp; Merit Formula</span>
+          <span>Staff Selection Commission Rulebook</span>
+        </div>
+        <pre class="overflow-x-auto text-emerald-400"><code>Tier-1 Raw Score = (Correct Attempts × 2.0) - (Incorrect Attempts × 0.50) [Qualifying Only]
+Tier-2 Merit Score = (Maths 30Q × 3) + (Reasoning 30Q × 3) + (English 45Q × 3) + (GA 25Q × 3) = 390 Marks
+Qualifying Modules: Computer Knowledge (20Q × 3 = 60 Marks) + DEST Typing (2000 Key Depressions / 15 Mins)</code></pre>
+      </div>
+
+      <h2 id="overview">⚡ 1. SSC CGL 2026 Examination Snapshot &amp; Cadre Hierarchy</h2>
+      <p>
+        The Combined Graduate Level Examination is India's most prestigious non-civil services examination, attracting over 30 lakh applicants each recruitment cycle. Recruited officers serve across premier intelligence, tax, vigilance, and administrative directorates:
+      </p>
 
       <div class="my-6 overflow-x-auto">
-        <table class="w-full text-xs sm:text-sm text-left border border-border">
-          <thead class="bg-muted text-foreground font-semibold">
-            <tr>
-              <th class="p-3 border-b">Subject Section</th>
-              <th class="p-3 border-b">Questions</th>
-              <th class="p-3 border-b">Marks</th>
-              <th class="p-3 border-b">Recommended Time</th>
-              <th class="p-3 border-b">High-Yield Focus Areas</th>
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground font-semibold">
+              <th class="p-3 border border-border">Cadre Group &amp; Pay Level</th>
+              <th class="p-3 border border-border">Premier Job Designations</th>
+              <th class="p-3 border border-border">Controlling Ministry / Department</th>
+              <th class="p-3 border border-border">Age Bracket (UR)</th>
+              <th class="p-3 border border-border">Initial Gross Monthly Pay</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-border">
-            <tr>
-              <td class="p-3 font-semibold text-primary">General Intelligence &amp; Reasoning</td>
-              <td class="p-3 font-mono">25</td>
-              <td class="p-3 font-mono">50</td>
-              <td class="p-3 font-mono">15 Mins</td>
-              <td class="p-3">Analogies, Coding-Decoding, Syllogisms, Paper Folding, Non-verbal Series</td>
+          <tbody>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold text-primary">Pay Level 8 (₹47,600 – ₹1,51,100)</td>
+              <td class="p-3 border border-border">Assistant Audit Officer (AAO), Assistant Accounts Officer</td>
+              <td class="p-3 border border-border">Comptroller &amp; Auditor General of India (CAG)</td>
+              <td class="p-3 border border-border">18 to 30 Years</td>
+              <td class="p-3 border border-border font-mono">₹90,000 – ₹95,000</td>
             </tr>
-            <tr>
-              <td class="p-3 font-semibold text-primary">General Awareness</td>
-              <td class="p-3 font-mono">25</td>
-              <td class="p-3 font-mono">50</td>
-              <td class="p-3 font-mono">10 Mins</td>
-              <td class="p-3">Polity (Articles/Amendments), History, Modern Science, Last 8 Months Current Affairs</td>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold text-primary">Pay Level 7 (₹44,900 – ₹1,42,400)</td>
+              <td class="p-3 border border-border">ASO in MEA, CSS, IB, Railway; Inspector of Income Tax (CBDT); GST Inspector (CBIC)</td>
+              <td class="p-3 border border-border">Ministry of External Affairs, Finance, Home Affairs</td>
+              <td class="p-3 border border-border">20 to 30 Years</td>
+              <td class="p-3 border border-border font-mono">₹82,000 – ₹86,000</td>
             </tr>
-            <tr>
-              <td class="p-3 font-semibold text-primary">Quantitative Aptitude</td>
-              <td class="p-3 font-mono">25</td>
-              <td class="p-3 font-mono">50</td>
-              <td class="p-3 font-mono">25 Mins</td>
-              <td class="p-3">Geometry, Mensuration 3D, Trigonometry, Algebra, Profit &amp; Loss, DI</td>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold text-primary">Pay Level 6 (₹35,400 – ₹1,12,400)</td>
+              <td class="p-3 border border-border">Sub-Inspector in CBI, NIA; Divisional Accountant (CAG); Statistical Investigator</td>
+              <td class="p-3 border border-border">Central Bureau of Investigation, MoSPI</td>
+              <td class="p-3 border border-border">18 to 30 Years</td>
+              <td class="p-3 border border-border font-mono">₹65,000 – ₹70,000</td>
             </tr>
-            <tr>
-              <td class="p-3 font-semibold text-primary">English Comprehension</td>
-              <td class="p-3 font-mono">25</td>
-              <td class="p-3 font-mono">50</td>
-              <td class="p-3 font-mono">10 Mins</td>
-              <td class="p-3">Cloze Test, Error Spotting, Idioms/Phrases, One-Word Substitution, Active-Passive</td>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold text-primary">Pay Level 5 (₹29,200 – ₹92,300)</td>
+              <td class="p-3 border border-border">Auditor, Accountant, Junior Accountant</td>
+              <td class="p-3 border border-border">CAG, CGA, Controller General of Defence Accounts (CGDA)</td>
+              <td class="p-3 border border-border">18 to 27 Years</td>
+              <td class="p-3 border border-border font-mono">₹54,000 – ₹58,000</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold text-primary">Pay Level 4 (₹25,500 – ₹81,100)</td>
+              <td class="p-3 border border-border">Tax Assistant (CBDT &amp; CBIC), Upper Division Clerk (UDC)</td>
+              <td class="p-3 border border-border">Revenue, Narcotics, Military Engineer Services (MES)</td>
+              <td class="p-3 border border-border">18 to 27 Years</td>
+              <td class="p-3 border border-border font-mono">₹46,000 – ₹50,000</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
-        <div class="flex items-center justify-between text-slate-400 text-[11px]">
-          <span>⚡ Tier-1 Score Calculation Formula &amp; Penalty Rule Snippet</span>
-          <span>SSC Calculation Standard</span>
-        </div>
-        <pre class="overflow-x-auto text-emerald-400"><code>Total Tier-1 Raw Score = (Correct Attempts × 2.0) - (Incorrect Attempts × 0.50)
-Target Safe Zone: 75+ Correct Attempts with >= 88% Accuracy -> ~150 Net Score</code></pre>
+      <p>
+        Securing a final appointment begins with flawless digital application compliance. Aspirants can instantly format their uploads using our 
+        <a href="/ssc-signature-resize/" class="text-primary font-semibold underline hover:text-primary/80">SSC Signature Resizer (10–20 KB)</a> 
+        and inspect other national examination requirements on our 
+        <a href="/government-jobs/" class="text-primary font-semibold underline hover:text-primary/80">Government Job Directory</a>.
+      </p>
+
+      <h2 id="signature-rules">✍️ 2. Official SSC Signature Specifications &amp; Step-by-Step Resizing Protocol</h2>
+      <p>
+        Over <strong>1.2 lakh online applications are rejected annually</strong> during preliminary automated scrutiny on <code>ssc.gov.in</code> due to non-compliant signatures. To prevent disqualification, candidates must adhere strictly to the commission's official dimensions and file size bounds:
+      </p>
+
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground font-semibold">
+              <th class="p-3 border border-border">Technical Parameter</th>
+              <th class="p-3 border border-border">Official Commission Standard</th>
+              <th class="p-3 border border-border">Why Non-Compliance Triggers Rejection</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Pixel Dimensions</td>
+              <td class="p-3 border border-border font-mono">140 × 60 Pixels (Aspect Ratio 7:3)</td>
+              <td class="p-3 border border-border">Non-standard dimensions distort signature aspect ratios on generated admit cards.</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Physical Equivalent</td>
+              <td class="p-3 border border-border">4.0 cm Width × 2.0 cm Height</td>
+              <td class="p-3 border border-border">Official print specification for biometric attendance sheets at examination centres.</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Strict File Weight</td>
+              <td class="p-3 border border-border font-mono text-emerald-600 dark:text-emerald-400 font-bold">10.0 KB to 20.0 KB</td>
+              <td class="p-3 border border-border">Files under 10 KB suffer heavy pixelation; files over 20 KB are blocked by portal upload filters.</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">File Format</td>
+              <td class="p-3 border border-border font-mono">JPG / JPEG Only</td>
+              <td class="p-3 border border-border">PNG, PDF, or WEBP extensions cause immediate upload script failure.</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Ink Color &amp; Type</td>
+              <td class="p-3 border border-border">Dark Black Ballpoint Pen (Recommended)</td>
+              <td class="p-3 border border-border">High-speed OCR scanners at exam centres convert signatures to binary bitmaps; faint blue ink can disappear.</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Handwriting Style</td>
+              <td class="p-3 border border-border font-bold text-rose-600 dark:text-rose-400">Natural Running Cursive Handwriting</td>
+              <td class="p-3 border border-border">Signatures in ALL CAPITAL / BLOCK letters cause automatic disqualification.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      
-<div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2">
-  <h4 class="font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2">
-    <span>⚠️</span> Critical Application Rejection Traps to Avoid
-  </h4>
-  <p class="text-sm text-muted-foreground leading-relaxed">
-    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:
-  </p>
-  <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
-    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>
-    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>
-    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>
-    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>
-  </ul>
-</div>
-
-<h2>Document Processing &amp; Verification Pipeline</h2>
-      <p>Under the revised SSC online portal (ssc.gov.in), candidate photographs are captured via a live browser camera stream, while signatures must be uploaded as scanned digital files matching rigid dimensions and file weight.</p>
 
       <div class="my-8 p-6 rounded-2xl bg-card border border-border shadow-sm">
         <h3 class="text-base font-bold text-foreground mb-4 flex items-center gap-2">
-          <span>📐</span> 4-Step Official Document Processing Pipeline
+          <span>📐</span> How to Resize Your Signature for SSC in 5 Easy Steps
         </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center">
+        <p class="text-xs text-muted-foreground mb-4">
+          Follow this proven 5-step workflow to prepare a compliant signature on any mobile phone or computer:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 text-center">
           <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
-            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">1</div>
-            <span class="font-bold text-xs text-foreground">Live Photo Capture</span>
-            <span class="text-[11px] text-muted-foreground">Bright lighting, plain background, no caps/glasses</span>
+            <div class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">1</div>
+            <span class="font-bold text-xs text-foreground">Sign on Paper</span>
+            <span class="text-[11px] text-muted-foreground">Clean, unruled white paper with dark black/blue ballpoint pen</span>
           </div>
           <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
-            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">2</div>
-            <span class="font-bold text-xs text-foreground">Signature Crop</span>
-            <span class="text-[11px] text-muted-foreground">Crop to exact 140 &times; 60 px canvas ratio</span>
+            <div class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">2</div>
+            <span class="font-bold text-xs text-foreground">Capture Photo</span>
+            <span class="text-[11px] text-muted-foreground">Take a well-lit photo avoiding phone shadows or yellow bulbs</span>
           </div>
           <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
-            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">3</div>
-            <span class="font-bold text-xs text-foreground">Shadow Filter</span>
-            <span class="text-[11px] text-muted-foreground">Convert grey paper shadow to pure white</span>
+            <div class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">3</div>
+            <span class="font-bold text-xs text-foreground">Crop Margins</span>
+            <span class="text-[11px] text-muted-foreground">Crop closely leaving a tiny 2–3 mm margin around strokes</span>
           </div>
           <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
-            <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">4</div>
-            <span class="font-bold text-xs text-foreground">KB Compression</span>
-            <span class="text-[11px] text-muted-foreground">Strict 10.0 KB to 20.0 KB file weight</span>
+            <div class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">4</div>
+            <span class="font-bold text-xs text-foreground">Select Preset</span>
+            <span class="text-[11px] text-muted-foreground">Open SignResize and pick the SSC preset (140×60 px / 10–20 KB)</span>
+          </div>
+          <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-2">
+            <div class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">5</div>
+            <span class="font-bold text-xs text-foreground">Download JPG</span>
+            <span class="text-[11px] text-muted-foreground">Automated white filter cleans paper; download ready file</span>
           </div>
         </div>
       </div>
-
-      <h2>Signature Rules: Accepted vs Rejected Compliance</h2>
-      <p>Every year, over <strong>1.2 lakh SSC applications are rejected</strong> during automated registration checks due to improper signature formatting. Review the visual comparison below before uploading your file:</p>
 
       <div class="my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="p-5 rounded-2xl border-2 border-emerald-500/30 bg-emerald-500/5 space-y-3">
@@ -3291,9 +3632,9 @@ Target Safe Zone: 75+ Correct Attempts with >= 88% Accuracy -> ~150 Net Score</c
             </svg>
           </div>
           <ul class="text-xs space-y-1 text-slate-700 dark:text-slate-300">
-            <li>✅ Natural running cursive handwriting</li>
-            <li>✅ Black ballpoint pen on plain white paper</li>
-            <li>✅ Dimensions: 140 &times; 60 px | Size: 14.8 KB (Matches 10–20 KB bound)</li>
+            <li>✅ Continuous natural running cursive handwriting</li>
+            <li>✅ Black ballpoint pen on pure white unruled paper</li>
+            <li>✅ Exact 140 &times; 60 px canvas | Size: 14.8 KB (Matches 10–20 KB bound)</li>
           </ul>
         </div>
 
@@ -3306,85 +3647,240 @@ Target Safe Zone: 75+ Correct Attempts with >= 88% Accuracy -> ~150 Net Score</c
             <span class="font-mono font-bold tracking-widest text-slate-800 text-lg">VIKRAM SHARMA</span>
           </div>
           <ul class="text-xs space-y-1 text-slate-700 dark:text-slate-300">
-            <li>❌ ALL CAPITAL / BLOCK LETTERS (Triggers auto-rejection)</li>
-            <li>❌ Grey camera shadow or dirty paper background</li>
-            <li>❌ Size: 8.2 KB (Fails minimum 10.0 KB limit)</li>
+            <li>❌ ALL CAPITAL / BLOCK LETTERS (Triggers automated portal rejection)</li>
+            <li>❌ Grey camera shadow or dirty yellow paper background</li>
+            <li>❌ File Size: 8.2 KB (Fails minimum 10.0 KB limit)</li>
           </ul>
         </div>
       </div>
 
       <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
-        <h4 class="text-base font-bold text-foreground">Format Your SSC Signature Right Now</h4>
-        <p class="text-sm text-muted-foreground mt-1">Resize, clean white paper background, and compress your signature to exact 140&times;60 px and 10–20 KB limits directly on your device.</p>
+        <h4 class="text-base font-bold text-foreground">Resize Your Signature for SSC Now</h4>
+        <p class="text-sm text-muted-foreground mt-1">
+          SignResize automates cropping, white background cleaning, and file compression to 140×60 px and 10–20 KB directly in your browser without uploading your signature to any remote server.
+        </p>
         <div class="flex flex-wrap gap-3 mt-3">
-          <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
-            Launch SSC Signature Tool &rarr;
+          <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Launch SSC Signature Resizer &rarr;
           </a>
-          <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-95 transition">
-            Resize Passport Photo &rarr;
+          <a href="/photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-95 transition">
+            Passport Photo Resizer &rarr;
           </a>
         </div>
       </div>
 
-      <h2>Step-by-Step SSC Portal Application &amp; Upload Navigation Guide</h2>
-      <p>Follow this exact step-by-step workflow to complete your application without registration errors or portal lockouts:</p>
+      <h2 id="live-photo">📸 3. SSC Live Photo &amp; Webcam Capture Protocol (ssc.gov.in &amp; MySSC App)</h2>
+      <p>
+        With the launch of the new portal <code>ssc.gov.in</code>, the Staff Selection Commission completely abolished pre-scanned photograph uploads. Candidates must capture their live photograph in real-time during the application process:
+      </p>
 
-      <div class="my-8 space-y-4">
-        <div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-6">
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</div>
-            <h4 class="font-bold text-foreground text-sm">Access One-Time Registration (OTR) Portal</h4>
-            <p class="text-xs text-muted-foreground mt-1">Visit <code>ssc.gov.in</code>. Log in using your Registration Number and Password. Verify your basic demographic details and educational certificates.</p>
-          </div>
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</div>
-            <h4 class="font-bold text-foreground text-sm">Capture Live Webcam Photograph</h4>
-            <p class="text-xs text-muted-foreground mt-1">Click 'Capture Live Photo'. Stand against a plain light background. Ensure your face is centered inside the green oval overlay before clicking capture.</p>
-          </div>
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">3</div>
-            <h4 class="font-bold text-foreground text-sm">Upload Formatted 10–20 KB Signature</h4>
-            <p class="text-xs text-muted-foreground mt-1">Click 'Choose File' under Signature Upload. Select your 140&times;60 px JPEG signature file created via SignResize. Confirm that file size is strictly between 10 KB and 20 KB.</p>
-          </div>
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">4</div>
-            <h4 class="font-bold text-foreground text-sm">Select Examination Centre &amp; Post Preferences</h4>
-            <p class="text-xs text-muted-foreground mt-1">Select 3 preferred exam cities within your regional zone. Input post preference codes carefully for Tier-2 allocation.</p>
-          </div>
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">5</div>
-            <h4 class="font-bold text-foreground text-sm">Final Application Preview &amp; Fee Payment</h4>
-            <p class="text-xs text-muted-foreground mt-1">Thoroughly review the generated PDF preview. Check for spelling, photo clarity, and signature alignment. Proceed to complete the ₹100 fee via BHIM UPI or Net Banking.</p>
-          </div>
-        </div>
+      <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-3">
+        <h4 class="font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2">
+          <span>⚠️</span> Mandatory Live Webcam Rules to Prevent Rejection
+        </h4>
+        <ul class="list-disc pl-5 text-sm space-y-1.5 text-foreground/90">
+          <li><strong>Plain Light Background:</strong> Sit or stand against a plain white or light off-white wall. Avoid patterned wallpapers, curtains, or cluttered bookshelves.</li>
+          <li><strong>Zero Spectacles / Sunglasses:</strong> Remove all spectacles, including prescription reading glasses. Flash reflection on lenses obscures iris biometrics and results in automated AI rejection.</li>
+          <li><strong>Frontal Eye Level &amp; 80% Coverage:</strong> Position the camera directly at eye level. Your face, neck, and shoulder contours must occupy at least 80% of the green oval alignment frame.</li>
+          <li><strong>Uniform Frontal Lighting:</strong> Ensure direct frontal light on your face. Backlighting from windows or harsh overhead lighting casts shadows behind your ears and under your jawline.</li>
+          <li><strong>Headwear Restrictions:</strong> Caps, hats, and beanies are strictly prohibited. Religious head coverings are permitted only if the entire facial oval from hairline to chin is fully visible.</li>
+        </ul>
       </div>
 
-      <div class="my-6 p-4 rounded-xl bg-card border border-border space-y-1">
-        <p class="text-xs font-bold text-primary uppercase tracking-wider">💡 Pro-Tip for SSC Registration</p>
-        <p class="text-xs text-muted-foreground leading-relaxed">Always download and save your final submitted SSC Application Form PDF. Note down your Application ID and keep a copy of the uploaded signature file on your phone for verification during Tier-1 exam entry.</p>
+      <h3>Capturing via the Official 'MySSC' Mobile Application</h3>
+      <p>
+        If your laptop webcam suffers from low resolution or poor lighting, use the official <strong>MySSC</strong> Android application available on the Google Play Store:
+      </p>
+      <ol class="list-decimal pl-5 space-y-2 text-sm text-foreground/90 my-3">
+        <li>Log into the application using your 13-digit One-Time Registration (OTR) number and password.</li>
+        <li>Navigate to the active application form under 'Capture Live Photo'.</li>
+        <li>Grant camera permissions and hold the phone steadily at eye level in a brightly lit room.</li>
+        <li>Align your face within the digital oval until the frame indicator turns green, then tap capture.</li>
+      </ol>
+
+      <h2 id="exam-pattern">📚 4. Tier-1 &amp; Tier-2 Examination Blueprint &amp; Subject Weightage</h2>
+      <p>
+        The SSC CGL examination is conducted in two computer-based stages: Tier-1 acts as a qualifying filter, while Tier-2 determines 100% of the final merit ranking.
+      </p>
+
+      <h3>Tier-1 Computer Based Examination (CBE) – Qualifying Screening</h3>
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground font-semibold">
+              <th class="p-3 border border-border">Subject Section</th>
+              <th class="p-3 border border-border">Question Count</th>
+              <th class="p-3 border border-border">Maximum Marks</th>
+              <th class="p-3 border border-border">Ideal Time Budget</th>
+              <th class="p-3 border border-border">High-Yield Focus Areas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold text-primary">General Intelligence &amp; Reasoning</td>
+              <td class="p-3 border border-border font-mono">25</td>
+              <td class="p-3 border border-border font-mono">50</td>
+              <td class="p-3 border border-border font-mono">15 Mins</td>
+              <td class="p-3 border border-border">Analogies, Coding-Decoding, Non-Verbal Series, Syllogisms, Blood Relations</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold text-primary">General Awareness</td>
+              <td class="p-3 border border-border font-mono">25</td>
+              <td class="p-3 border border-border font-mono">50</td>
+              <td class="p-3 border border-border font-mono">10 Mins</td>
+              <td class="p-3 border border-border">Polity Articles/Amendments, Modern History, Static GK, 8 Months Current Affairs</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold text-primary">Quantitative Aptitude</td>
+              <td class="p-3 border border-border font-mono">25</td>
+              <td class="p-3 border border-border font-mono">50</td>
+              <td class="p-3 border border-border font-mono">25 Mins</td>
+              <td class="p-3 border border-border">Geometry, Mensuration 2D/3D, Trigonometry, Algebra, Profit &amp; Loss, Data Interpretation</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold text-primary">English Comprehension</td>
+              <td class="p-3 border border-border font-mono">25</td>
+              <td class="p-3 border border-border font-mono">50</td>
+              <td class="p-3 border border-border font-mono">10 Mins</td>
+              <td class="p-3 border border-border">Cloze Test, Error Spotting, Idioms/Phrases, One-Word Substitution, Active-Passive Voice</td>
+            </tr>
+            <tr class="border-b border-border/50 font-bold bg-muted">
+              <td class="p-3 border border-border">Total Tier-1 Examination</td>
+              <td class="p-3 border border-border font-mono">100</td>
+              <td class="p-3 border border-border font-mono">200</td>
+              <td class="p-3 border border-border font-mono">60 Minutes</td>
+              <td class="p-3 border border-border">Negative Penalty: 0.50 Marks (Qualifying Only)</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    
-<h2 id="strategy">SSC CGL 2026 Master Application & Preparation Guide: High-Yield Preparation Strategy &amp; Daily Routine</h2>
-<p>Focus on high-weightage topics, daily revision schedules, and solving previous year question papers under strict exam timer conditions.</p>
-<div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20">
-  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-    <div>
-      <h4 class="font-bold text-lg text-foreground">Prepare Your SSC CGL 2026 Master Application & Preparation Guide Documents in Seconds</h4>
-      <p class="text-sm text-muted-foreground mt-1">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>
-    </div>
-    <div class="flex flex-wrap gap-2 w-full sm:w-auto">
-      <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
-        <span>📸</span> Resize Photo
-      </a>
-      <a href="/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
-        <span>✍️</span> Resize Signature
-      </a>
-    </div>
-  </div>
-</div>
+
+      <h3>Tier-2 Examination Pattern – 390-Mark Merit Architecture</h3>
+      <p>
+        Tier-2 Paper-I is conducted on a single day and comprises three sequential sections. Only Section-I and Section-II scores count toward the final 390-mark merit list:
+      </p>
+
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground font-semibold">
+              <th class="p-3 border border-border">Tier-2 Section</th>
+              <th class="p-3 border border-border">Module Subjects</th>
+              <th class="p-3 border border-border">Questions &amp; Marks</th>
+              <th class="p-3 border border-border">Weightage</th>
+              <th class="p-3 border border-border">Merit Evaluation Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Section I (1 Hour)</td>
+              <td class="p-3 border border-border">Mathematical Abilities (30Q) + Reasoning (30Q)</td>
+              <td class="p-3 border border-border font-mono">60 Questions × 3 = 180 Marks</td>
+              <td class="p-3 border border-border font-mono">46.1%</td>
+              <td class="p-3 border border-border font-semibold text-emerald-600 dark:text-emerald-400">Counts for Final Merit List</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Section II (1 Hour)</td>
+              <td class="p-3 border border-border">English Language (45Q) + General Awareness (25Q)</td>
+              <td class="p-3 border border-border font-mono">70 Questions × 3 = 210 Marks</td>
+              <td class="p-3 border border-border font-mono">53.9%</td>
+              <td class="p-3 border border-border font-semibold text-emerald-600 dark:text-emerald-400">Counts for Final Merit List</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold">Section III Module 1 (15 Mins)</td>
+              <td class="p-3 border border-border">Computer Knowledge Test (20Q)</td>
+              <td class="p-3 border border-border font-mono">20 Questions × 3 = 60 Marks</td>
+              <td class="p-3 border border-border font-mono">Qualifying</td>
+              <td class="p-3 border border-border text-amber-600 font-semibold">Must qualify; higher cut-off for ASO/Tax Assistant</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold">Section III Module 2 (15 Mins)</td>
+              <td class="p-3 border border-border">Data Entry Speed Test (DEST)</td>
+              <td class="p-3 border border-border font-mono">2,000 Key Depressions (~27 WPM)</td>
+              <td class="p-3 border border-border font-mono">Qualifying</td>
+              <td class="p-3 border border-border text-amber-600 font-semibold">Mandatory for all posts; disqualification if failed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="salary">💰 5. 7th Pay Commission Salary Breakdown Across City Tiers</h2>
+      <p>
+        Salaries for SSC CGL recruits are governed by the 7th Central Pay Commission. Total in-hand remuneration depends significantly on whether your posting is in a Class X (Metropolitan), Class Y (Urban), or Class Z (Rural/Small Town) location:
+      </p>
+
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-muted text-foreground font-semibold">
+              <th class="p-3 border border-border">Pay Matrix Level</th>
+              <th class="p-3 border border-border">Basic Pay Scale</th>
+              <th class="p-3 border border-border">Dearness Allowance (DA 50%)</th>
+              <th class="p-3 border border-border">HRA (Class X - 30%)</th>
+              <th class="p-3 border border-border">Approx. Gross Monthly Pay</th>
+              <th class="p-3 border border-border">Net In-Hand Earnings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold text-primary">Level 8 (AAO)</td>
+              <td class="p-3 border border-border font-mono">₹47,600</td>
+              <td class="p-3 border border-border font-mono">₹23,800</td>
+              <td class="p-3 border border-border font-mono">₹14,280</td>
+              <td class="p-3 border border-border font-mono">₹92,800</td>
+              <td class="p-3 border border-border font-mono text-emerald-600 dark:text-emerald-400 font-bold">₹79,000 – ₹83,000</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold text-primary">Level 7 (ASO, ITI, GST)</td>
+              <td class="p-3 border border-border font-mono">₹44,900</td>
+              <td class="p-3 border border-border font-mono">₹22,450</td>
+              <td class="p-3 border border-border font-mono">₹13,470</td>
+              <td class="p-3 border border-border font-mono">₹85,600</td>
+              <td class="p-3 border border-border font-mono text-emerald-600 dark:text-emerald-400 font-bold">₹73,000 – ₹77,000</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold text-primary">Level 6 (CBI SI, DA)</td>
+              <td class="p-3 border border-border font-mono">₹35,400</td>
+              <td class="p-3 border border-border font-mono">₹17,700</td>
+              <td class="p-3 border border-border font-mono">₹10,620</td>
+              <td class="p-3 border border-border font-mono">₹68,200</td>
+              <td class="p-3 border border-border font-mono text-emerald-600 dark:text-emerald-400 font-bold">₹58,000 – ₹62,000</td>
+            </tr>
+            <tr class="border-b border-border/50 bg-muted/20">
+              <td class="p-3 border border-border font-semibold text-primary">Level 5 (Auditor)</td>
+              <td class="p-3 border border-border font-mono">₹29,200</td>
+              <td class="p-3 border border-border font-mono">₹14,600</td>
+              <td class="p-3 border border-border font-mono">₹8,760</td>
+              <td class="p-3 border border-border font-mono">₹56,400</td>
+              <td class="p-3 border border-border font-mono text-emerald-600 dark:text-emerald-400 font-bold">₹48,000 – ₹51,000</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="p-3 border border-border font-semibold text-primary">Level 4 (Tax Assistant)</td>
+              <td class="p-3 border border-border font-mono">₹25,500</td>
+              <td class="p-3 border border-border font-mono">₹12,750</td>
+              <td class="p-3 border border-border font-mono">₹7,650</td>
+              <td class="p-3 border border-border font-mono">₹49,500</td>
+              <td class="p-3 border border-border font-mono text-emerald-600 dark:text-emerald-400 font-bold">₹41,000 – ₹44,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="portal-navigation">🪪 6. Step-by-Step ssc.gov.in Portal Navigation &amp; OTR Workflow</h2>
+      <p>
+        The Staff Selection Commission operates exclusively on its new digital platform (<code>ssc.gov.in</code>). Candidates must follow these sequential steps to submit their application without technical locks:
+      </p>
+
+      <ol class="list-decimal pl-5 space-y-3 text-sm text-foreground/90 my-4">
+        <li><strong>One-Time Registration (OTR):</strong> Create or update your profile with your Aadhaar number, matriculation roll number, and personal details. Double-check your name spelling against your 10th marksheet.</li>
+        <li><strong>Initiate Application:</strong> Under the 'Live Examinations' dashboard, click 'Apply' beside Combined Graduate Level Examination.</li>
+        <li><strong>Capture Live Photo:</strong> Use your browser webcam or the MySSC mobile app. Ensure a light plain wall behind you and no glasses on your face. Verify that your face occupies 80% of the oval overlay.</li>
+        <li><strong>Upload Scanned Signature:</strong> Select your 140 × 60 px JPG file resized via SignResize. Verify that file weight is strictly between 10 KB and 20 KB and written in natural cursive handwriting.</li>
+        <li><strong>Select Exam Centres &amp; Post Preferences:</strong> Choose 3 regional test cities and input your cadre preferences.</li>
+        <li><strong>Final Preview &amp; Fee Payment:</strong> Review every data field on the generated PDF preview. Submit the ₹100 fee via BHIM UPI, Net Banking, or Visa/Mastercard (women, SC, ST, PwBD, and Ex-Servicemen are 100% exempt).</li>
+      </ol>
     `
   },
-
   {
     slug: "rrb-ntpc-2026-master-document-rules-preparation-strategy",
     title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
@@ -9258,7 +9754,7 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
 
 <ul class="my-4 space-y-2 text-sm">
   <li>💡 <strong>Best Solution:</strong> Take 30 seconds to sign fresh with a dark black ballpoint pen on spotless white paper. It is always safest to comply with the exact letter of the notification.</li>
-  <li>🛠️ <strong>Tool Fix:</strong> If you cannot access pen and paper right now, upload your blue signature to <a href="/signature-resizer/" class="text-primary underline">SignResize</a> and toggle on the <strong>Pure Black &amp; White Mode</strong> or <strong>Clean White Paper</strong> filter. The tool boosts the stroke luminance contrast, converting blue ink into solid black lines before compressing to your portal's target KB.</li>
+  <li>🛠️ <strong>Tool Fix:</strong> If you cannot access pen and paper right now, upload your blue signature to <a href="/" class="text-primary underline">SignResize</a> and toggle on the <strong>Pure Black &amp; White Mode</strong> or <strong>Clean White Paper</strong> filter. The tool boosts the stroke luminance contrast, converting blue ink into solid black lines before compressing to your portal's target KB.</li>
 </ul>
 
 <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
@@ -9267,7 +9763,7 @@ Percentile Normalization adjusts for difficulty variances across multi-day shift
     Crop, enhance stroke contrast, and compress to official 10–20 KB limits with zero quality loss.
   </p>
   <div class="flex flex-wrap gap-2 mt-3">
-    <a href="/signature-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+    <a href="/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
       ✍️ Universal Signature Resizer &rarr;
     </a>
     <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
