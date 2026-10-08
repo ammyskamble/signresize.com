@@ -2347,21 +2347,21 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
         {/* Official Guidance Alert for Active Preset - High Contrast Theme-Safe */}
         {selectedPreset && (
-          <div className="flex items-start gap-3 p-3.5 rounded-xl bg-amber-500/10 border-2 border-amber-500/40 text-amber-900 dark:bg-amber-950/40 dark:text-amber-200 dark:border-amber-500/50 shadow-xs">
-            <div className="p-1.5 rounded-lg bg-amber-400 text-slate-950 shrink-0 mt-0.5 font-bold">
+          <div className="flex items-start gap-3 p-3.5 rounded-xl bg-amber-500/15 dark:bg-amber-950/50 border-2 border-amber-500/40 dark:border-amber-500/60 text-amber-950 dark:text-amber-100 shadow-xs">
+            <div className="p-1.5 rounded-lg bg-amber-500 dark:bg-amber-400 text-slate-950 shrink-0 mt-0.5 font-bold shadow-2xs">
               <AlertCircle className="w-4 h-4" />
             </div>
             <div className="space-y-1 text-xs">
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase tracking-wider">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="px-2 py-0.5 rounded bg-amber-500 dark:bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase tracking-wider shadow-2xs">
                   Official Rule
                 </span>
-                <span className="font-bold text-amber-300">
+                <span className="font-bold text-amber-950 dark:text-amber-200">
                   {selectedPreset.name} Upload Guidelines
                 </span>
               </div>
-              <p className="leading-relaxed text-amber-100">
-                {selectedPreset.notes} • <strong>Ink:</strong> {selectedPreset.inkRequirement}
+              <p className="leading-relaxed text-amber-900/90 dark:text-amber-100/90">
+                {selectedPreset.notes} • <strong className="text-amber-950 dark:text-amber-50 font-semibold">Ink:</strong> {selectedPreset.inkRequirement}
               </p>
             </div>
           </div>
