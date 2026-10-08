@@ -43,7 +43,7 @@ export interface ExamPreset {
     | 'PSU & Regulators'
     | 'International'
     | 'General';
-  country?: 'IN' | 'PK' | 'PH' | 'BD' | 'NP' | 'GLOBAL';
+  country?: 'IN' | 'PK' | 'PH' | 'BD' | 'NP' | 'ID' | 'US' | 'UK' | 'CA' | 'AU' | 'GLOBAL';
   widthPx: number;
   heightPx: number;
   widthCm?: number;

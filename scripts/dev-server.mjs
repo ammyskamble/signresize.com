@@ -1,15 +1,11 @@
+// scripts/dev-server.mjs
 import { dev } from 'astro';
 
-console.log('Starting Astro programmatic dev server...');
 try {
-  const server = await dev({
-    root: '.',
-    server: {
-      port: 4321,
-      host: true
-    }
-  });
-  console.log('Astro dev server is actively listening on port 4321');
+  const server = await dev({ root: '.' });
+  const address = server.address;
+  console.log(`Astro dev server active at http://${address.address === '::' || address.address === '0.0.0.0' ? 'localhost' : address.address}:${address.port}`);
 } catch (err) {
-  console.error('Failed to start dev server:', err);
+  console.error('Failed to start Astro dev server:', err);
+  process.exit(1);
 }

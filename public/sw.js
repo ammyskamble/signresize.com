@@ -41,6 +41,12 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // A worker installed during a previous visit must not cache Vite's mutable
+  // development modules. Production bundles use hashed /_astro/ URLs.
+  if (url.origin === self.location.origin && /^\/(?:@vite|@id|@fs|src|node_modules)\//.test(url.pathname)) {
+    return;
+  }
+
   // Skip non-GET requests or external analytics
   if (request.method !== 'GET' || url.hostname.includes('google') || url.hostname.includes('analytics')) {
     return;

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
 import {
   Upload,
   RotateCw,
@@ -47,12 +47,10 @@ import {
 } from 'lucide-react';
 import { TRANSLATIONS, type SupportedLang } from '../data/i18n/translations';
 import {
-  EXAM_PRESETS,
   SIGNATURE_PRESETS,
   PHOTO_PRESETS,
   DOCUMENT_PRESETS,
-  ALL_COMBINED_PRESETS,
-  CATEGORIES
+  ALL_COMBINED_PRESETS
 } from '../data/examPresets';
 import type {
   ExamPreset,
@@ -74,10 +72,11 @@ import {
   applyDocumentFilters
 } from '../utils/imageProcessor';
 import { createPdfFromJpegBlob } from '../utils/pdfGenerator';
-import { SignaturePadModal } from './SignaturePadModal';
 import { ToastNotification, type ToastItem } from './tool/ToastNotification';
 import { StepIndicator } from './tool/StepIndicator';
 import { PresetBanner } from './tool/PresetBanner';
+
+const SignaturePadModal = lazy(() => import('./SignaturePadModal').then((module) => ({ default: module.SignaturePadModal })));
 
 export const MODE_CONFIG: Record<ToolTargetMode, {
   noun: string;
@@ -238,387 +237,80 @@ export const MODE_CONFIG: Record<ToolTargetMode, {
   }
 };
 
-// Synthetic Signature Generator
-export const createSampleSignatureData = (text: string, subText: string, width = 600, height = 250): string => {
-  const canvas = document.createElement('canvas');
-  canvas.width = width;
-  canvas.height = height;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return '';
-
-  ctx.fillStyle = '#FAF7EE';
-  ctx.fillRect(0, 0, width, height);
-
-  const grad = ctx.createLinearGradient(0, 0, width, height);
-  grad.addColorStop(0, 'rgba(0,0,0,0.04)');
-  grad.addColorStop(1, 'rgba(0,0,0,0.01)');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, width, height);
-
-  ctx.strokeStyle = '#111827';
-  ctx.lineWidth = 4.5;
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-
-  ctx.beginPath();
-  ctx.moveTo(80, 140);
-  ctx.bezierCurveTo(110, 60, 160, 60, 150, 160);
-  ctx.bezierCurveTo(140, 210, 200, 190, 240, 130);
-  ctx.bezierCurveTo(270, 90, 290, 160, 330, 130);
-  ctx.bezierCurveTo(360, 110, 380, 150, 420, 120);
-  ctx.bezierCurveTo(450, 100, 480, 140, 520, 110);
-  ctx.stroke();
-
-  ctx.beginPath();
-  ctx.moveTo(110, 185);
-  ctx.quadraticCurveTo(300, 215, 490, 175);
-  ctx.stroke();
-
-  ctx.font = 'bold 16px monospace';
-  ctx.fillStyle = '#475569';
-  ctx.fillText(text, 20, 30);
-  ctx.font = '12px sans-serif';
-  ctx.fillText(subText, 20, 50);
-
-  return canvas.toDataURL('image/jpeg', 0.95);
+const PRESET_ALIASES: Record<string, string> = {
+  ssc: 'ssc-general',
+  ibps: 'ibps-sbi',
+  upsc: 'upsc-civil-services',
+  rrb: 'rrb-railway',
+  neet: 'nta-neet-jee',
+  pan: 'pan-card-nsdl',
+  gate: 'gate-jam',
+  sbi: 'sbi-signature',
+  jam: 'iit-jam',
+  thumb: 'thumb-impression-general',
+  afcat: 'afcat-iaf',
+  agniveer: 'agniveer-recruitment',
+  coastguard: 'indian-coast-guard',
+  cat: 'cat-iim',
+  clat: 'clat-law',
+  uppsc: 'uppsc',
+  bpsc: 'bpsc',
+  mpsc: 'mpsc',
+  tnpsc: 'tnpsc',
+  rbi: 'rbi-grade-b',
+  police: 'maharashtra-police',
+  mahapolice: 'maharashtra-police',
+  'maharashtra-police': 'maharashtra-police',
+  'up-police': 'up-police',
+  uppolice: 'up-police',
+  teletalk: 'teletalk-bd',
+  // Pakistan aliases
+  ppsc: 'ppsc-pk',
+  'ppsc-pk': 'ppsc-pk',
+  'ppsc-photo': 'ppsc-pk',
+  'ppsc-sign': 'ppsc-sign-pk',
+  fpsc: 'fpsc-pk',
+  'fpsc-pk': 'fpsc-pk',
+  'fpsc-photo': 'fpsc-pk',
+  'fpsc-sign': 'fpsc-sign-pk',
+  css: 'css-pk',
+  'css-pk': 'css-pk',
+  'css-exam': 'css-pk',
+  'css-sign': 'css-sign-pk',
+  nts: 'nts-pk',
+  'nts-pk': 'nts-pk',
+  'nts-sign': 'nts-sign-pk',
+  nadra: 'nadra-pk',
+  'nadra-pk': 'nadra-pk',
+  'nadra-passport': 'nadra-pk',
+  'nadra-cnic': 'nadra-pk',
+  cnic: 'nadra-pk',
+  pakistan: 'nadra-pk',
+  prc: 'prc-ph',
+  loksewa: 'loksewa-np',
+  // Indonesia aliases
+  cpns: 'id-cpns',
+  sscasn: 'id-cpns',
+  bkn: 'id-cpns',
+  swafoto: 'id-cpns',
+  pasfoto: 'id-cpns',
+  utbk: 'id-utbk',
+  snbt: 'id-utbk',
+  snpmb: 'id-utbk',
+  paspor: 'id-passport',
+  'id-cpns': 'id-cpns',
+  'id-utbk': 'id-utbk',
+  'id-passport': 'id-passport'
 };
 
-// Synthetic Passport Photo Generator
-export const createSamplePhotoData = (name = 'RAHUL SHARMA', dop = '', width = 350, height = 450): string => {
-  const canvas = document.createElement('canvas');
-  canvas.width = width;
-  canvas.height = height;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return '';
-
-  // Studio light background with subtle radial gradient
-  const bgGrad = ctx.createRadialGradient(width * 0.5, height * 0.35, 30, width * 0.5, height * 0.4, width * 0.7);
-  bgGrad.addColorStop(0, '#f8fafc');
-  bgGrad.addColorStop(1, '#e2e8f0');
-  ctx.fillStyle = bgGrad;
-  ctx.fillRect(0, 0, width, height);
-
-  // Candidate Shoulders / Formal Suit
-  ctx.fillStyle = '#1e293b';
-  ctx.beginPath();
-  ctx.moveTo(width * 0.05, height);
-  ctx.bezierCurveTo(width * 0.1, height * 0.72, width * 0.3, height * 0.65, width * 0.38, height * 0.64);
-  ctx.lineTo(width * 0.62, height * 0.64);
-  ctx.bezierCurveTo(width * 0.7, height * 0.65, width * 0.9, height * 0.72, width * 0.95, height);
-  ctx.closePath();
-  ctx.fill();
-
-  // White formal shirt collar / V-neck
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.moveTo(width * 0.38, height * 0.64);
-  ctx.lineTo(width * 0.5, height * 0.78);
-  ctx.lineTo(width * 0.62, height * 0.64);
-  ctx.closePath();
-  ctx.fill();
-
-  // Necktie
-  ctx.fillStyle = '#991b1b';
-  ctx.beginPath();
-  ctx.moveTo(width * 0.47, height * 0.73);
-  ctx.lineTo(width * 0.53, height * 0.73);
-  ctx.lineTo(width * 0.52, height * 0.95);
-  ctx.lineTo(width * 0.48, height * 0.95);
-  ctx.closePath();
-  ctx.fill();
-
-  // Neck
-  ctx.fillStyle = '#f6c197';
-  ctx.beginPath();
-  ctx.rect(width * 0.42, height * 0.48, width * 0.16, height * 0.18);
-  ctx.fill();
-
-  // Neck shadow
-  ctx.fillStyle = 'rgba(0,0,0,0.08)';
-  ctx.beginPath();
-  ctx.arc(width * 0.5, height * 0.48, width * 0.18, 0, Math.PI);
-  ctx.fill();
-
-  // Head / Face Oval
-  ctx.fillStyle = '#fbd0ab';
-  ctx.beginPath();
-  ctx.ellipse(width * 0.5, height * 0.38, width * 0.22, height * 0.23, 0, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Ears
-  ctx.fillStyle = '#f6c197';
-  ctx.beginPath();
-  ctx.ellipse(width * 0.27, height * 0.38, width * 0.04, height * 0.07, 0, 0, Math.PI * 2);
-  ctx.ellipse(width * 0.73, height * 0.38, width * 0.04, height * 0.07, 0, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Dark Groomed Hair
-  ctx.fillStyle = '#1e1b18';
-  ctx.beginPath();
-  ctx.ellipse(width * 0.5, height * 0.25, width * 0.23, height * 0.14, 0, Math.PI, Math.PI * 2);
-  ctx.bezierCurveTo(width * 0.25, height * 0.32, width * 0.25, height * 0.35, width * 0.28, height * 0.32);
-  ctx.bezierCurveTo(width * 0.35, height * 0.23, width * 0.65, height * 0.23, width * 0.72, height * 0.32);
-  ctx.bezierCurveTo(width * 0.75, height * 0.35, width * 0.75, height * 0.32, width * 0.73, height * 0.25);
-  ctx.closePath();
-  ctx.fill();
-
-  // Eyebrows
-  ctx.strokeStyle = '#2d241e';
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.moveTo(width * 0.36, height * 0.33);
-  ctx.quadraticCurveTo(width * 0.42, height * 0.31, width * 0.46, height * 0.33);
-  ctx.moveTo(width * 0.54, height * 0.33);
-  ctx.quadraticCurveTo(width * 0.58, height * 0.31, width * 0.64, height * 0.33);
-  ctx.stroke();
-
-  // Eyes
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.ellipse(width * 0.41, height * 0.36, width * 0.04, height * 0.022, 0, 0, Math.PI * 2);
-  ctx.ellipse(width * 0.59, height * 0.36, width * 0.04, height * 0.022, 0, 0, Math.PI * 2);
-  ctx.fill();
-
-  ctx.fillStyle = '#261b14';
-  ctx.beginPath();
-  ctx.arc(width * 0.41, height * 0.36, width * 0.02, 0, Math.PI * 2);
-  ctx.arc(width * 0.59, height * 0.36, width * 0.02, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Eye highlights
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.arc(width * 0.418, height * 0.354, width * 0.007, 0, Math.PI * 2);
-  ctx.arc(width * 0.598, height * 0.354, width * 0.007, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Nose bridge & tip
-  ctx.strokeStyle = 'rgba(180, 110, 70, 0.6)';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(width * 0.5, height * 0.35);
-  ctx.lineTo(width * 0.505, height * 0.43);
-  ctx.quadraticCurveTo(width * 0.5, height * 0.445, width * 0.48, height * 0.435);
-  ctx.moveTo(width * 0.505, height * 0.43);
-  ctx.quadraticCurveTo(width * 0.51, height * 0.445, width * 0.52, height * 0.435);
-  ctx.stroke();
-
-  // Closed Neutral Smile
-  ctx.strokeStyle = '#a84e32';
-  ctx.lineWidth = 2.5;
-  ctx.beginPath();
-  ctx.moveTo(width * 0.44, height * 0.49);
-  ctx.quadraticCurveTo(width * 0.5, height * 0.505, width * 0.56, height * 0.49);
-  ctx.stroke();
-
-  // Name & Date on Photo (DoP) banner
-  ctx.fillStyle = '#ffffff';
-  ctx.fillRect(0, height - 32, width, 32);
-  ctx.fillStyle = '#0f172a';
-  ctx.font = 'bold 11px sans-serif';
-  ctx.textAlign = 'center';
-  const displayDate = dop || '08/09/2026';
-  ctx.fillText(`${name.toUpperCase()} • DOP: ${displayDate}`, width / 2, height - 12);
-
-  return canvas.toDataURL('image/jpeg', 0.95);
-};
-
-// Synthetic Marksheet / Document Generator
-export const createSampleDocumentData = (title = 'CENTRAL BOARD OF SECONDARY EDUCATION', docType = 'MARKS STATEMENT & CERTIFICATE', width = 500, height = 700): string => {
-  const canvas = document.createElement('canvas');
-  canvas.width = width;
-  canvas.height = height;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return '';
-
-  // Ivory Certificate Paper Background
-  ctx.fillStyle = '#fafaf9';
-  ctx.fillRect(0, 0, width, height);
-
-  // Formal Outer Double Border
-  ctx.strokeStyle = '#0284c7';
-  ctx.lineWidth = 3;
-  ctx.strokeRect(16, 16, width - 32, height - 32);
-  ctx.strokeStyle = '#e0f2fe';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(22, 22, width - 44, height - 44);
-
-  // Emblem Header
-  ctx.fillStyle = '#0369a1';
-  ctx.beginPath();
-  ctx.arc(width / 2, 60, 20, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 16px serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('★', width / 2, 66);
-
-  // Institution Title
-  ctx.fillStyle = '#0f172a';
-  ctx.font = 'bold 14px serif';
-  ctx.fillText(title, width / 2, 104);
-
-  ctx.font = 'bold 11px sans-serif';
-  ctx.fillStyle = '#64748b';
-  ctx.fillText(docType.toUpperCase(), width / 2, 122);
-
-  ctx.strokeStyle = '#cbd5e1';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(40, 134);
-  ctx.lineTo(width - 40, 134);
-  ctx.stroke();
-
-  // Candidate Details Section
-  ctx.textAlign = 'left';
-  ctx.font = '11px sans-serif';
-  ctx.fillStyle = '#334155';
-  
-  const leftX = 45;
-  const rightX = 275;
-  
-  ctx.fillText('Candidate Name:', leftX, 162);
-  ctx.font = 'bold 11px sans-serif';
-  ctx.fillStyle = '#0f172a';
-  ctx.fillText('RAHUL SHARMA', leftX + 110, 162);
-
-  ctx.font = '11px sans-serif';
-  ctx.fillStyle = '#334155';
-  ctx.fillText('Roll Number:', rightX, 162);
-  ctx.font = 'bold 11px monospace';
-  ctx.fillStyle = '#0f172a';
-  ctx.fillText('240891402', rightX + 85, 162);
-
-  ctx.font = '11px sans-serif';
-  ctx.fillStyle = '#334155';
-  ctx.fillText("Mother's Name:", leftX, 186);
-  ctx.font = 'bold 11px sans-serif';
-  ctx.fillStyle = '#0f172a';
-  ctx.fillText('SUNITA SHARMA', leftX + 110, 186);
-
-  ctx.font = '11px sans-serif';
-  ctx.fillStyle = '#334155';
-  ctx.fillText("Father's Name:", rightX, 186);
-  ctx.font = 'bold 11px sans-serif';
-  ctx.fillStyle = '#0f172a';
-  ctx.fillText('RAMESH SHARMA', rightX + 85, 186);
-
-  // Marks Table Grid
-  const tableY = 215;
-  const tableW = width - 90;
-  const colX = [45, 115, 280, 360, 435];
-
-  ctx.fillStyle = '#f1f5f9';
-  ctx.fillRect(45, tableY, tableW, 26);
-  ctx.strokeStyle = '#94a3b8';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(45, tableY, tableW, 190);
-
-  // Table Headers
-  ctx.fillStyle = '#0f172a';
-  ctx.font = 'bold 10px sans-serif';
-  ctx.fillText('CODE', colX[0] + 8, tableY + 17);
-  ctx.fillText('SUBJECT NAME', colX[1] + 8, tableY + 17);
-  ctx.fillText('MAX', colX[2] + 8, tableY + 17);
-  ctx.fillText('OBTAINED', colX[3] + 8, tableY + 17);
-  ctx.fillText('GRADE', colX[4] + 8, tableY + 17);
-
-  // Rows
-  const subjects = [
-    { code: '101', name: 'ENGLISH COMMUNICATIVE', max: '100', marks: '091', grade: 'A1' },
-    { code: '041', name: 'MATHEMATICS STANDARD', max: '100', marks: '095', grade: 'A1' },
-    { code: '086', name: 'SCIENCE (THEORY & PRAC)', max: '100', marks: '088', grade: 'A2' },
-    { code: '087', name: 'SOCIAL SCIENCE', max: '100', marks: '092', grade: 'A1' },
-    { code: '165', name: 'COMPUTER APPLICATIONS', max: '100', marks: '096', grade: 'A1' }
-  ];
-
-  subjects.forEach((sub, idx) => {
-    const rowY = tableY + 26 + (idx + 1) * 28;
-    ctx.strokeStyle = '#e2e8f0';
-    ctx.beginPath();
-    ctx.moveTo(45, rowY - 10);
-    ctx.lineTo(45 + tableW, rowY - 10);
-    ctx.stroke();
-
-    ctx.font = '10px monospace';
-    ctx.fillStyle = '#334155';
-    ctx.fillText(sub.code, colX[0] + 8, rowY + 5);
-    ctx.font = '10px sans-serif';
-    ctx.fillText(sub.name, colX[1] + 8, rowY + 5);
-    ctx.font = '10px monospace';
-    ctx.fillText(sub.max, colX[2] + 10, rowY + 5);
-    ctx.font = 'bold 10px monospace';
-    ctx.fillStyle = '#0f172a';
-    ctx.fillText(sub.marks, colX[3] + 16, rowY + 5);
-    ctx.fillStyle = '#0284c7';
-    ctx.fillText(sub.grade, colX[4] + 12, rowY + 5);
-  });
-
-  // Overall Result Banner
-  ctx.fillStyle = '#ecfdf5';
-  ctx.strokeStyle = '#10b981';
-  ctx.fillRect(45, 415, tableW, 28);
-  ctx.strokeRect(45, 415, tableW, 28);
-  ctx.fillStyle = '#047857';
-  ctx.font = 'bold 11px sans-serif';
-  ctx.fillText('FINAL RESULT: PASSED (OVERALL: 92.4% - GRADE A1)', 60, 433);
-
-  // Official Circular Stamp Seal
-  ctx.save();
-  ctx.translate(120, 530);
-  ctx.rotate(-0.08);
-  ctx.strokeStyle = '#be123c';
-  ctx.lineWidth = 2.5;
-  ctx.beginPath();
-  ctx.arc(0, 0, 40, 0, Math.PI * 2);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(0, 0, 34, 0, Math.PI * 2);
-  ctx.stroke();
-  ctx.fillStyle = '#be123c';
-  ctx.font = 'bold 7px sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('SECONDARY EDUCATION', 0, -20);
-  ctx.fillText('OFFICIAL CERTIFICATE', 0, 22);
-  ctx.font = 'bold 13px serif';
-  ctx.fillText('★ SEAL ★', 0, 4);
-  ctx.restore();
-
-  // Authorized Signatory
-  ctx.textAlign = 'center';
-  ctx.font = 'italic 18px cursive';
-  ctx.fillStyle = '#1e3a8a';
-  ctx.fillText('K. S. Narayanan', 380, 530);
-  ctx.strokeStyle = '#1e3a8a';
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(310, 540);
-  ctx.quadraticCurveTo(380, 555, 450, 538);
-  ctx.stroke();
-
-  ctx.font = 'bold 10px sans-serif';
-  ctx.fillStyle = '#475569';
-  ctx.fillText('CONTROLLER OF EXAMINATIONS', 380, 565);
-
-  return canvas.toDataURL('image/jpeg', 0.95);
-};
-
-// Universal Sample Factory
-export const createSampleDataForMode = (
-  mode: ToolTargetMode,
-  title?: string,
-  sub?: string
-): { dataUrl: string; width: number; height: number; filename: string; size: number } => {
-  if (mode === 'photo') {
-    const dataUrl = createSamplePhotoData('RAHUL SHARMA', '', 350, 450);
-    return { dataUrl, width: 350, height: 450, filename: 'sample_passport_photo', size: 55000 };
-  }
-  if (mode === 'document') {
-    const dataUrl = createSampleDocumentData('CENTRAL BOARD OF SECONDARY EDUCATION', 'Marksheet Certificate', 500, 700);
-    return { dataUrl, width: 500, height: 700, filename: 'sample_marksheet_document', size: 145000 };
-  }
-  const dataUrl = createSampleSignatureData(title || 'Sample Signature', sub || 'Candidate Form Spec', 600, 250);
-  return { dataUrl, width: 600, height: 250, filename: 'sample_candidate_signature', size: 45200 };
+const findPresetByKey = (key: string): ExamPreset | undefined => {
+  const norm = key.toLowerCase().trim();
+  const aliasId = PRESET_ALIASES[norm] || norm;
+  return (
+    ALL_COMBINED_PRESETS.find((p) => p.id.toLowerCase() === aliasId) ||
+    ALL_COMBINED_PRESETS.find((p) => p.shortCode.toLowerCase() === norm) ||
+    ALL_COMBINED_PRESETS.find((p) => p.id.toLowerCase().includes(norm))
+  );
 };
 
 export interface SignatureToolProps {
@@ -660,9 +352,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     const urlParams = new URLSearchParams(window.location.search);
     const pId = urlParams.get('preset');
     if (!pId) return null;
-    return ALL_COMBINED_PRESETS.find(p => p.id === pId || p.shortCode.toLowerCase() === pId.toLowerCase()) || null;
+    return findPresetByKey(pId) || ALL_COMBINED_PRESETS.find(p => p.id === pId || p.shortCode.toLowerCase() === pId.toLowerCase()) || null;
   };
-  const resolvedPreset = (initialPresetId && ALL_COMBINED_PRESETS.find(p => p.id === initialPresetId)) || getPresetFromUrl();
+  const resolvedPreset = useMemo(() => (initialPresetId && findPresetByKey(initialPresetId)) || getPresetFromUrl(), [initialPresetId]);
   const effectiveInitialMode = resolvedPreset?.targetType || initialMode;
 
   // Determine target tool mode: 'signature' | 'photo' | 'document'
@@ -721,10 +413,17 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     setToasts((prev) => prev.filter((t) => t.id !== id));
   }, []);
 
+  const loadSampleGenerators = useCallback(async () => {
+    try {
+      return await import('../utils/sampleImages');
+    } catch {
+      addToast('Could not load sample images. Please try again.', 'Sample images', 'warning');
+      return null;
+    }
+  }, [addToast]);
+
   // Preset state
-  const [selectedCategory, setSelectedCategory] = useState<string>('Popular');
   const [selectedPreset, setSelectedPreset] = useState<ExamPreset | null>(initialPreset);
-  const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Unit and dimension settings
   const [unit, setUnit] = useState<UnitType>('px');
@@ -750,9 +449,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
   // Global Filters & Paper Cleaning
   const [filters, setFilters] = useState<FilterOptions>({
-    cleanPaper: initialMode === 'signature',
+    cleanPaper: effectiveInitialMode === 'signature',
     brightness: 0,
-    contrast: initialMode === 'document' ? 20 : initialMode === 'photo' ? 10 : 15,
+    contrast: effectiveInitialMode === 'document' ? 20 : effectiveInitialMode === 'photo' ? 10 : 15,
     blackAndWhite: false,
     threshold: 160
   });
@@ -784,35 +483,22 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   const [inspectZoom, setInspectZoom] = useState<number>(2);
   const [inspectTab, setInspectTab] = useState<'processed' | 'original' | 'split'>('processed');
 
-  // Consolidated Combobox Popover state & Category Accordions
+  // Inline preset browser stays open until explicitly closed.
   const [isExamDropdownOpen, setIsExamDropdownOpen] = useState<boolean>(false);
   const [comboboxSearch, setComboboxSearch] = useState<string>('');
   const [hasBlockCapitalWarning, setHasBlockCapitalWarning] = useState<boolean>(false);
   const [hasDownloaded, setHasDownloaded] = useState<boolean>(false);
   const [showCtetStrategyTip, setShowCtetStrategyTip] = useState<boolean>(true);
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
-    'Management': true,
-    'Banking': true,
-    'UPSC': true,
-    'Engineering': true,
-    'SSC': true
+    'International & Passports': true,
+    'Management & MBA': true,
+    'Banking & Financial': true,
+    'Civil Services / UPSC': true,
+    'Engineering & Medical': true,
+    'Staff Selection (SSC) & Railways': true
   });
   const comboboxRef = useRef<HTMLDivElement | null>(null);
-
-  // Close combobox when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (comboboxRef.current && !comboboxRef.current.contains(e.target as Node)) {
-        setIsExamDropdownOpen(false);
-      }
-    };
-    if (isExamDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isExamDropdownOpen]);
+  const initializedPresetSourceRef = useRef<string | null>(null);
 
   // Non-blocking batch sync timer ref
   const batchSyncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -864,7 +550,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   }, [sourceImage, addToast]);
 
   // Switch Tool Target Mode (Signature / Photo / Document)
-  const switchTargetType = useCallback((newType: ToolTargetMode) => {
+  const switchTargetType = useCallback(async (newType: ToolTargetMode) => {
     setTargetType(newType);
     const presets = newType === 'photo' ? PHOTO_PRESETS : newType === 'document' ? DOCUMENT_PRESETS : SIGNATURE_PRESETS;
     const defaultPreset = presets[0];
@@ -882,6 +568,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
     // Automatically update active image if it was an artificial sample
     if (sourceImage && isSampleImage) {
+      const generators = await loadSampleGenerators();
+      if (!generators) return;
+      const { createSampleDataForMode } = generators;
       const sample = createSampleDataForMode(newType);
       const img = new Image();
       img.onload = () => {
@@ -901,58 +590,17 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       // Retain real user uploaded photo/signature, just adjust crop to the new mode preset ratio
       initCropBox(sourceImage, defaultPreset.aspectRatio);
     }
-  }, [applyPreset, isSampleImage, sourceImage]);
+  }, [applyPreset, isSampleImage, sourceImage, loadSampleGenerators]);
 
-
-const PRESET_ALIASES: Record<string, string> = {
-  ssc: 'ssc-general',
-  ibps: 'ibps-sbi',
-  upsc: 'upsc-civil-services',
-  rrb: 'rrb-railway',
-  neet: 'nta-neet-jee',
-  pan: 'pan-card-nsdl',
-  gate: 'gate-jam',
-  sbi: 'sbi-signature',
-  jam: 'iit-jam',
-  thumb: 'thumb-impression-general',
-  afcat: 'afcat-iaf',
-  agniveer: 'agniveer-recruitment',
-  coastguard: 'indian-coast-guard',
-  cat: 'cat-iim',
-  clat: 'clat-law',
-  uppsc: 'uppsc',
-  bpsc: 'bpsc',
-  mpsc: 'mpsc',
-  tnpsc: 'tnpsc',
-  rbi: 'rbi-grade-b',
-  police: 'maharashtra-police',
-  mahapolice: 'maharashtra-police',
-  'maharashtra-police': 'maharashtra-police',
-  'up-police': 'up-police',
-  uppolice: 'up-police',
-  uppbpb: 'up-police',
-  teletalk: 'teletalk-bd',
-  ppsc: 'ppsc-pk',
-  fpsc: 'fpsc-pk',
-  prc: 'prc-ph',
-  loksewa: 'loksewa-np'
-};
-
-const findPresetByKey = (key: string): ExamPreset | undefined => {
-  const norm = key.toLowerCase().trim();
-  const aliasId = PRESET_ALIASES[norm] || norm;
-  return (
-    ALL_COMBINED_PRESETS.find((p) => p.id.toLowerCase() === aliasId) ||
-    ALL_COMBINED_PRESETS.find((p) => p.shortCode.toLowerCase() === norm) ||
-    ALL_COMBINED_PRESETS.find((p) => p.id.toLowerCase().includes(norm))
-  );
-};
-
-  // Sync preset if prop or URL param ?preset= changes, or when select-exam-preset custom event fires
+  // Apply page/URL defaults once per source, so later selections are retained.
   useEffect(() => {
     const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     const urlPreset = urlParams?.get('preset');
     const targetId = initialPresetId || urlPreset;
+    const sourceKey = targetId || '';
+    if (initializedPresetSourceRef.current === sourceKey) return;
+    initializedPresetSourceRef.current = sourceKey;
+
     if (targetId) {
       const matched = findPresetByKey(targetId);
       if (matched && matched.id !== selectedPreset?.id) {
@@ -971,8 +619,12 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
       }
     }
 
-    const handleCustomPresetSelect = (e: any) => {
-      const presetId = e?.detail;
+  }, [initialPresetId, applyPreset, selectedPreset?.id]);
+
+  useEffect(() => {
+    const handleCustomPresetSelect = (e: Event) => {
+      const event = e as CustomEvent<string>;
+      const presetId = event.detail;
       if (presetId) {
         const matched = findPresetByKey(presetId);
         if (matched) {
@@ -983,7 +635,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
     window.addEventListener('select-exam-preset', handleCustomPresetSelect);
     return () => window.removeEventListener('select-exam-preset', handleCustomPresetSelect);
-  }, [initialPresetId, applyPreset, selectedPreset?.id]);
+  }, [applyPreset]);
 
   // Initialize crop box to centered aspect ratio
   const initCropBox = (img: HTMLImageElement, targetAspect: number) => {
@@ -1155,7 +807,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
   };
 
   // Load single sample image (Signature, Passport Photo, or Document)
-  const loadSingleSampleSignature = () => {
+  const loadSingleSampleSignature = async () => {
+    const generators = await loadSampleGenerators();
+    if (!generators) return;
+    const { createSampleDataForMode } = generators;
     setIsSampleImage(true);
     const sample = createSampleDataForMode(targetType);
     setSourceFileName(sample.filename);
@@ -1176,7 +831,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
   };
 
   // Load 3 sample images into Batch Mode for instant multi-edit test
-  const loadSampleBatchSignatures = () => {
+  const loadSampleBatchSignatures = async () => {
+    const generators = await loadSampleGenerators();
+    if (!generators) return;
+    const { createSamplePhotoData, createSampleDocumentData, createSampleSignatureData } = generators;
     setIsSampleImage(true);
     setToolMode('batch');
     const samples = targetType === 'photo'
@@ -1839,19 +1497,6 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     }
   };
 
-  // Filter presets by search and category
-  const filteredPresets = EXAM_PRESETS.filter((p) => {
-    const matchesSearch =
-      p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.authority.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.category.toLowerCase().includes(searchQuery.toLowerCase());
-
-    if (!matchesSearch) return false;
-    if (selectedCategory === 'All') return true;
-    if (selectedCategory === 'Popular') return p.isPopular;
-    return p.category === selectedCategory;
-  });
-
   // Diagnostic Auto-Fix for Error: File size below minimum limit (<10KB or <20KB)
   const autoFixMinKb = async () => {
     if (!processedResult || targetFormat !== 'image/jpeg') {
@@ -2320,6 +1965,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
   // Group presets into intuitive Category Accordions for the Consolidated Combobox
   const CATEGORY_GROUPS = [
+    { name: 'International & Passports', categories: ['International'], description: 'Indonesia (CPNS, UTBK, Paspor), US Visa DS-160, UK & Global' },
     { name: 'Management & MBA', categories: ['Management'], description: 'CAT (IIM), XAT, SNAP, NMAT & CMAT' },
     { name: 'Civil Services / UPSC', categories: ['UPSC'], description: 'UPSC IAS, NDA, CDS, CMS & CAPF (AC)' },
     { name: 'Banking & Financial', categories: ['Banking', 'PSU & Regulators'], description: 'IBPS, SBI, RBI Grade B, SEBI & LIC' },
@@ -2332,8 +1978,32 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     { name: 'Identity & Portals', categories: ['Identity', 'General'], description: 'PAN Card (NSDL), Left Thumb, Sarathi DL & Passport' }
   ];
 
+  const isPakistan = (typeof window !== 'undefined' && window.location.pathname.includes('/pk')) || initialPreset?.country === 'PK' || selectedPreset?.country === 'PK';
+  const isIndonesian = (typeof window !== 'undefined' && window.location.pathname.includes('/id')) || initialPreset?.country === 'ID' || selectedPreset?.country === 'ID';
+
   // Pinned Entrance Exams based on active mode
-  const PINNED_TOP_EXAMS = targetType === 'photo'
+  const PINNED_TOP_EXAMS = isPakistan
+    ? (targetType === 'photo'
+        ? [
+            { id: 'nadra-pk', short: 'NADRA PK', label: 'NADRA CNIC & Passport', specs: '350×450 • 10–1000 KB' },
+            { id: 'ppsc-pk', short: 'PPSC PK', label: 'PPSC Punjab PSC Photo', specs: '200×230 • 5–25 KB' },
+            { id: 'fpsc-pk', short: 'FPSC PK', label: 'FPSC Federal PSC Photo', specs: '200×230 • 5–30 KB' },
+            { id: 'css-pk', short: 'CSS Exam', label: 'CSS Competitive Exam Photo', specs: '200×230 • 5–30 KB' }
+          ]
+        : [
+            { id: 'ppsc-sign-pk', short: 'PPSC Sign', label: 'PPSC Punjab PSC Sign', specs: '140×60 • 5–25 KB' },
+            { id: 'fpsc-sign-pk', short: 'FPSC Sign', label: 'FPSC Federal Sign', specs: '140×60 • 5–30 KB' },
+            { id: 'css-sign-pk', short: 'CSS Sign', label: 'CSS Competitive Sign', specs: '140×60 • 5–30 KB' },
+            { id: 'nadra-pk', short: 'NADRA PK', label: 'NADRA CNIC & Passport Photo', specs: '350×450 • 10–1000 KB' }
+          ])
+    : isIndonesian
+    ? [
+        { id: 'id-cpns', short: 'CPNS SSCASN', label: 'CPNS Formal & Swafoto', specs: '400×600 • 100–500 KB' },
+        { id: 'id-utbk', short: 'UTBK-SNBT', label: 'UTBK-SNBT 4×6', specs: '400×600 • 80–300 KB' },
+        { id: 'id-passport', short: 'Paspor RI', label: 'Paspor / eVisa Imigrasi', specs: '350×450 • 100–1000 KB' },
+        { id: 'us-ds160', short: 'US DS-160', label: 'US Visa DS-160', specs: '600×600 • 20–240 KB' }
+      ]
+    : targetType === 'photo'
     ? [
         { id: 'ssc-photo', short: 'SSC Photo', label: 'SSC Photo', specs: '200×230 • 20–50 KB' },
         { id: 'upsc-photo', short: 'UPSC Photo', label: 'UPSC Photo', specs: '350×350 • 20–300 KB' },
@@ -2360,18 +2030,28 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     ? DOCUMENT_PRESETS
     : SIGNATURE_PRESETS;
 
-  // Filter presets for search inside combobox
-  const comboboxFilteredPresets = currentPresetList.filter((p) => {
-    if (!comboboxSearch.trim()) return true;
-    const q = comboboxSearch.toLowerCase();
-    return (
+  // Filter presets for search inside combobox (searches current mode list first, falls back to all presets)
+  const comboboxFilteredPresets = useMemo(() => {
+    if (!comboboxSearch.trim()) return currentPresetList;
+    const q = comboboxSearch.trim().toLowerCase();
+    const matchesCurrent = currentPresetList.filter((p) => (
       p.name.toLowerCase().includes(q) ||
       p.shortCode.toLowerCase().includes(q) ||
       p.authority.toLowerCase().includes(q) ||
       p.category.toLowerCase().includes(q) ||
+      (p.country && p.country.toLowerCase().includes(q)) ||
       p.notes.toLowerCase().includes(q)
-    );
-  });
+    ));
+    if (matchesCurrent.length > 0) return matchesCurrent;
+    return ALL_COMBINED_PRESETS.filter((p) => (
+      p.name.toLowerCase().includes(q) ||
+      p.shortCode.toLowerCase().includes(q) ||
+      p.authority.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      (p.country && p.country.toLowerCase().includes(q)) ||
+      p.notes.toLowerCase().includes(q)
+    ));
+  }, [comboboxSearch, currentPresetList]);
 
 
   // Toggle Category Accordion in Combobox
@@ -2387,7 +2067,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
     const isPinnedActive = PINNED_TOP_EXAMS.some((item) => item.id === selectedPreset?.id);
 
     return (
-      <div className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-3 relative" ref={comboboxRef}>
+      <div id="exam-preset-selector" className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-3 relative scroll-mt-24" ref={comboboxRef}>
         
         {/* Top Header: Title & Active Preset Badge */}
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -2421,7 +2101,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
           </span>
 
           {/* 4 Pinned Chips */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full scrollbar-none sm:flex-wrap sm:overflow-visible sm:pb-0">
+          <div className="flex flex-wrap items-center gap-2 max-w-full">
             {PINNED_TOP_EXAMS.map((item) => {
               const isSelected = selectedPreset?.id === item.id;
               return (
@@ -2431,8 +2111,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                   onClick={() => {
                     const p = ALL_COMBINED_PRESETS.find((x) => x.id === item.id) || currentPresetList.find((x) => x.id === item.id);
                     if (p) applyPreset(p);
-                    setIsExamDropdownOpen(false);
                   }}
+                  aria-pressed={isSelected}
                   className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition flex items-center gap-1.5 shadow-2xs shrink-0 cursor-pointer ${
                     isSelected
                       ? 'bg-primary text-primary-foreground font-bold shadow-sm'
@@ -2450,14 +2130,14 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
             {/* Consolidated Dropdown Trigger Button */}
             <button
               type="button"
-              onClick={() => setIsExamDropdownOpen(!isExamDropdownOpen)}
+              onClick={() => setIsExamDropdownOpen((open) => !open)}
               className={`min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 border shadow-2xs shrink-0 cursor-pointer ${
                 isExamDropdownOpen || (!isPinnedActive && selectedPreset)
                   ? 'bg-primary/15 text-primary border-primary/40 shadow-xs'
                   : 'bg-card hover:bg-muted text-foreground border-border hover:border-primary/40'
               }`}
               aria-expanded={isExamDropdownOpen}
-              aria-haspopup="dialog"
+              aria-controls="exam-preset-options"
             >
               <Search className="w-3.5 h-3.5 text-primary" />
               <span>
@@ -2480,7 +2160,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
         {/* Consolidated Exam Selector Dropdown Combobox Popover */}
         {isExamDropdownOpen && (
-          <div className="mt-2 p-3 sm:p-4 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] space-y-3 sm:space-y-4 z-30 animate-in fade-in slide-in-from-top-2 duration-150 ring-1 ring-black/5 dark:ring-white/10">
+          <div id="exam-preset-options" role="region" aria-label="Exam preset search" className="mt-2 p-3 sm:p-4 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] space-y-3 sm:space-y-4 z-30 animate-in fade-in slide-in-from-top-2 duration-150 ring-1 ring-black/5 dark:ring-white/10">
             
             {/* Combobox Search Toolbar */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/80 pb-3">
@@ -2535,10 +2215,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                         <button
                           key={preset.id}
                           type="button"
-                          onClick={() => {
-                            applyPreset(preset);
-                            setIsExamDropdownOpen(false);
-                          }}
+                          onClick={() => applyPreset(preset)}
+                          aria-pressed={isSelected}
                           className={`text-left p-3 rounded-xl border transition text-xs flex flex-col justify-between cursor-pointer ${
                             isSelected
                               ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
@@ -2590,6 +2268,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                       <button
                         type="button"
                         onClick={() => toggleCategoryAccordion(group.name)}
+                        aria-expanded={isExpanded}
                         className="w-full p-3 flex items-center justify-between text-left hover:bg-muted/40 transition select-none cursor-pointer"
                       >
                         <div className="flex items-center gap-2">
@@ -2617,10 +2296,8 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
                                 <button
                                   key={preset.id}
                                   type="button"
-                                  onClick={() => {
-                                    applyPreset(preset);
-                                    setIsExamDropdownOpen(false);
-                                  }}
+                                  onClick={() => applyPreset(preset)}
+                                  aria-pressed={isSelected}
                                   className={`text-left p-2.5 rounded-xl border transition text-xs flex flex-col justify-between cursor-pointer ${
                                     isSelected
                                       ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
@@ -2693,6 +2370,13 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
       </div>
     );
   };
+
+  // Reuse the preset tree while crop, filters, processing status, and toasts update.
+  const presetSelector = useMemo(renderPresetSelector, [
+    targetType, selectedPreset, targetWidthPx, targetHeightPx, minKb, maxKb,
+    isExamDropdownOpen, comboboxSearch, expandedCategories, lang, applyPreset,
+    isPakistan, isIndonesian,
+  ]);
 
   return (
     <div className="w-full max-w-7xl mx-auto space-y-6 scroll-mt-24 min-h-[900px] sm:min-h-[800px] lg:min-h-[660px]" id="tool-workspace">
@@ -2817,6 +2501,9 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
         </div>
       </div>
 
+      {/* Primary Exam Preset Selector & Guidance Alert */}
+      {presetSelector}
+
 
       {/* ========================================================================= */}
       {/* ⚡ BATCH MODE: SIMULTANEOUS MASTER EDITING SUITE (All 10 Signs Together) */}
@@ -2874,10 +2561,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
             </div>
           </div>
 
-          {/* 1. Exam Preset Selector right at top of Batch Editor */}
-          {renderPresetSelector()}
-
-          {/* 2. Universal Simultaneous Master Editing Toolbar */}
+          {/* 1. Universal Simultaneous Master Editing Toolbar */}
           <div className="p-5 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-5">
             
             {/* Header with status */}
@@ -3380,7 +3064,10 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
             dpi={dpi}
             hasSourceImage={!!sourceImage}
             targetType={targetType}
-            onChangePresetClick={() => window.dispatchEvent(new CustomEvent('open-header-preset-search'))}
+            onChangePresetClick={() => {
+              setIsExamDropdownOpen(true);
+              comboboxRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
             onClearClick={clearAllSelectedFiles}
             onToast={addToast}
           />
@@ -4589,6 +4276,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
       {/* On-Screen Signature Drawing Pad Modal */}
       {isDrawingPadOpen && (
+        <Suspense fallback={<div role="status" className="fixed inset-0 z-50 grid place-items-center bg-slate-950/80 text-white">Loading signature pad…</div>}>
         <SignaturePadModal
           isOpen={isDrawingPadOpen}
           onClose={() => setIsDrawingPadOpen(false)}
@@ -4605,6 +4293,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
             img.src = dataUrl;
           }}
         />
+        </Suspense>
       )}
 
       {/* 🔍 Full-Detail Signature Pixel Inspector & Quality Verification Modal */}

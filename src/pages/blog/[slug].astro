@@ -47,6 +47,8 @@ if (post.country === 'BD') {
   relatedExamSlug = 'lok-sewa-photo-resize-nepal';
 } else if (post.country === 'US') {
   relatedExamSlug = 'us/ds-160-photo-resizer';
+} else if (post.country === 'ID') {
+  relatedExamSlug = 'id/cpns-sscasn-photo-resizer';
 } else if (focusedPreset) {
   const matchedPage = EXAM_PAGES_DATA.find(p => p.presetId === focusedPreset || p.slug === focusedPreset);
   if (matchedPage) {
@@ -148,11 +150,109 @@ function cleanSchemaText(text: string): string {
   return text.replace(/<[^>]*>?/gm, '').replace(/==/g, '').trim();
 }
 
-// Helper to convert markdown query highlights (==...==) to semantic HTML <mark> tags for Google AI Overviews and snippet indexing
+interface NavItem {
+  id: string;
+  title: string;
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/<[^>]*>/g, '')
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+// Process article HTML to inject missing IDs on <h2>, adjust sticky offsets, and format markups
+function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: string; navItems: NavItem[] } {
+  if (!rawHtml) return { processedHtml: '', navItems: [] };
+
+  let html = rawHtml;
+  const navItems: NavItem[] = [];
+  const registeredIds = new Set<string>();
+
+  // 1. Check for section tags with an id and a heading inside
+  const sectionRegex = /<section[^>]*id="([^"]+)"[^>]*>[\s\S]*?<h2[^>]*>(.*?)<\/h2>/gi;
+  let sectionMatch: RegExpExecArray | null;
+  while ((sectionMatch = sectionRegex.exec(html)) !== null) {
+    const id = sectionMatch[1];
+    const rawTitle = sectionMatch[2].replace(/<[^>]*>/g, '').replace(/^[^\w\s]+/, '').trim();
+    const cleanTitle = rawTitle.replace(/^[\d\.\s-]+/, '').trim() || rawTitle;
+    if (!registeredIds.has(id)) {
+      registeredIds.add(id);
+      navItems.push({ id, title: cleanTitle });
+    }
+  }
+
+  // 2. If no section-based headings were found, inspect all <h2> tags and inject missing IDs
+  if (navItems.length === 0) {
+    html = html.replace(/<h2([^>]*)>(.*?)<\/h2>/gi, (match, attrs, content) => {
+      const rawText = content.replace(/<[^>]*>/g, '').trim();
+      const idMatch = attrs.match(/id="([^"]+)"/);
+      let id = idMatch ? idMatch[1] : slugify(rawText);
+      if (!id) id = `section-${navItems.length + 1}`;
+
+      const cleanTitle = rawText.replace(/^[⚡📐⚖️💡❓📚🏃💰🪪✍️📸📊🎫\d\.\s-]+/, '').trim() || rawText;
+
+      if (!registeredIds.has(id)) {
+        registeredIds.add(id);
+        navItems.push({ id, title: cleanTitle });
+      }
+
+      if (!idMatch) {
+        return `<h2 id="${id}"${attrs}>${content}</h2>`;
+      }
+      return match;
+    });
+  }
+
+  // 3. Fallback: if still empty, check for known landmark IDs in the HTML
+  if (navItems.length === 0) {
+    const knownLandmarks = [
+      { id: 'overview', title: '1. Overview & Context' },
+      { id: 'master-specs', title: '2. Master Specifications' },
+      { id: 'diagnostic-failures', title: '3. Rejection Traps & Fixes' },
+      { id: 'online-workflow', title: '4. Step-by-Step Workflow' },
+      { id: 'dedicated-tools', title: '5. Dedicated Resizer Tools' },
+      { id: 'shooting-guide', title: '6. Smartphone Shooting Guide' },
+      { id: 'fee-payment-guide', title: '7. Fee Payment Blueprint' },
+      { id: 'ppsc-planner-guide', title: '8. Planner & Exam Schedule' },
+      { id: 'privacy-guarantee', title: '9. Security & Privacy Guarantee' },
+      { id: 'exam-pattern', title: 'Exam Pattern' },
+      { id: 'document-specs', title: 'Document Specs' },
+      { id: 'strategy', title: 'Preparation Strategy' }
+    ];
+
+    for (const landmark of knownLandmarks) {
+      if (html.includes(`id="${landmark.id}"`) && !registeredIds.has(landmark.id)) {
+        registeredIds.add(landmark.id);
+        navItems.push(landmark);
+      }
+    }
+  }
+
+  // Always append FAQs if present
+  if (faqs && faqs.length > 0) {
+    navItems.push({ id: 'faqs', title: `FAQs (${faqs.length} Answers)` });
+  }
+
+  // 4. Adjust sticky jump bars from `sticky top-4` to `sticky top-20` (80px) to clear the 64px sticky header
+  html = html.replace(/sticky top-4/g, 'sticky top-20');
+
+  // 5. Highlight syntax ==...==
+  html = html.replace(/==(.*?)==/g, '<mark class="bg-primary/15 text-foreground font-semibold px-1.5 py-0.5 rounded-sm selection:bg-primary/30">$1</mark>');
+
+  return { processedHtml: html, navItems };
+}
+
 function formatHighlightMarkup(html: string): string {
   if (!html) return '';
   return html.replace(/==(.*?)==/g, '<mark class="bg-primary/15 text-foreground font-semibold px-1.5 py-0.5 rounded-sm selection:bg-primary/30">$1</mark>');
 }
+
+const { processedHtml, navItems } = processArticleContent(post.contentHtml, post.faqs);
+
 
 // Dynamic FAQPage Schema
 const faqSchema = (post.faqs && post.faqs.length > 0) ? {
@@ -319,46 +419,38 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
       )}
 
       <!-- Table of Contents / Quick Jump -->
-      <nav class="rounded-xl border border-border bg-muted/30 p-3.5 sm:p-5 space-y-2.5">
-        <div class="flex items-center gap-2 text-xs font-bold text-foreground uppercase tracking-wider">
-          <span>📑</span>
-          <span>Quick Navigation &amp; Key Sections</span>
-        </div>
-        <div class="flex flex-wrap gap-1.5 sm:gap-2 text-xs">
-          {/* Show exam-specific TOC anchors only for exam/study-prep posts */}
-          {(post.category === 'Study Prep' || post.category === 'Exam Alerts' || post.relatedExamPreset) && (
-            <>
-              <a href="#overview" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
-                1. Overview &amp; Key Dates
+      {navItems.length > 0 && (
+        <nav class="rounded-xl border border-border bg-muted/30 p-3.5 sm:p-5 space-y-2.5">
+          <div class="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+            <div class="flex items-center gap-2 text-xs font-bold text-foreground uppercase tracking-wider">
+              <span>📑</span>
+              <span>Quick Navigation &amp; Key Sections</span>
+            </div>
+            <span class="text-[10px] text-muted-foreground font-mono">Jump to Section</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2 text-xs">
+            {navItems.map((item, idx) => (
+              <a
+                href={`#${item.id}`}
+                class:list={[
+                  "px-2.5 py-1.5 min-h-[34px] inline-flex items-center gap-1.5 rounded-lg border transition font-medium text-xs shadow-2xs",
+                  item.id === 'faqs'
+                    ? "bg-primary/10 text-primary border-primary/30 hover:bg-primary/20 font-bold"
+                    : "bg-card border-border hover:border-primary/50 hover:text-primary"
+                ]}
+              >
+                <span class="text-[10px] font-bold text-muted-foreground">{idx + 1}.</span>
+                <span>{item.title}</span>
               </a>
-              <a href="#exam-pattern" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
-                2. Exam Pattern &amp; Blueprint
-              </a>
-              <a href="#document-specs" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
-                3. Photo &amp; Signature Specs
-              </a>
-              <a href="#strategy" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
-                4. Preparation Strategy
-              </a>
-            </>
-          )}
-          {post.faqs && post.faqs.length > 0 && (
-            <a href="#faqs" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 transition font-bold">
-              {(post.category === 'Study Prep' || post.category === 'Exam Alerts' || post.relatedExamPreset) ? '5.' : '→'} FAQs ({post.faqs.length} Answers)
-            </a>
-          )}
-          {post.contentHtml && post.contentHtml.includes('id="keyword-directory"') && (
-            <a href="#keyword-directory" class="px-2.5 py-1.5 min-h-[34px] inline-flex items-center rounded-lg bg-card border border-border hover:border-primary/50 hover:text-primary transition font-medium">
-              6. 20-Keyword 5W1H Matrix
-            </a>
-          )}
-        </div>
-      </nav>
+            ))}
+          </div>
+        </nav>
+      )}
 
 
       <!-- Main Article Prose Content (with Enhanced Headline, Code, Stepper & Table Responsiveness) -->
       <article class="article-prose prose prose-slate dark:prose-invert max-w-none w-full min-w-0 break-words prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
-        <Fragment set:html={formatHighlightMarkup(post.contentHtml)} />
+        <Fragment set:html={processedHtml} />
       </article>
 
       <!-- Prominent Social Share Card after Article -->

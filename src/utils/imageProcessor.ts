@@ -131,13 +131,9 @@ export function applySignatureFilters(
   ctx.putImageData(imgData, 0, 0);
 }
 
-// Cache intermediate rotated/flipped canvas to prevent allocating large memory on every crop drag
-let cachedSourceKey: string | null = null;
-let cachedIntermediateCanvas: HTMLCanvasElement | null = null;
-
 /**
- * Creates a helper canvas that handles rotation, flipping, and high-precision cropping.
- * Uses intelligent intermediate canvas caching for 60fps drag performance.
+ * Draws the transformed crop directly at the requested output size.
+ * Avoids retaining an extra full-resolution bitmap for large uploads.
  */
 export function renderProcessedCanvas(
   sourceImage: HTMLImageElement | CanvasImageSource,
@@ -155,42 +151,6 @@ export function renderProcessedCanvas(
   const intermediateW = is90or270 ? sourceNaturalHeight : sourceNaturalWidth;
   const intermediateH = is90or270 ? sourceNaturalWidth : sourceNaturalHeight;
 
-  // Cache key based on source, rotation and flips
-  const imgSrc = (sourceImage as HTMLImageElement).src || 'direct-source';
-  const cacheKey = `${imgSrc}_${rotation}_${flipH}_${flipV}_${sourceNaturalWidth}_${sourceNaturalHeight}`;
-
-  let fullCanvas: HTMLCanvasElement;
-
-  if (cachedIntermediateCanvas && cachedSourceKey === cacheKey) {
-    fullCanvas = cachedIntermediateCanvas;
-  } else {
-    fullCanvas = document.createElement('canvas');
-    fullCanvas.width = intermediateW;
-    fullCanvas.height = intermediateH;
-    const fullCtx = fullCanvas.getContext('2d', { willReadFrequently: true });
-    if (!fullCtx) throw new Error('Canvas 2D context unavailable');
-
-    fullCtx.fillStyle = '#FFFFFF';
-    fullCtx.fillRect(0, 0, intermediateW, intermediateH);
-
-    fullCtx.save();
-    fullCtx.translate(intermediateW / 2, intermediateH / 2);
-    fullCtx.rotate((rotation * Math.PI) / 180);
-    fullCtx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
-    fullCtx.drawImage(
-      sourceImage,
-      -sourceNaturalWidth / 2,
-      -sourceNaturalHeight / 2,
-      sourceNaturalWidth,
-      sourceNaturalHeight
-    );
-    fullCtx.restore();
-
-    cachedSourceKey = cacheKey;
-    cachedIntermediateCanvas = fullCanvas;
-  }
-
-  // Step 2: Render into target dimensions from crop coordinates
   const outputCanvas = document.createElement('canvas');
   outputCanvas.width = targetWidth;
   outputCanvas.height = targetHeight;
@@ -204,22 +164,24 @@ export function renderProcessedCanvas(
   outCtx.imageSmoothingQuality = 'high';
 
   // Draw cropped section stretched to target dimensions with clamped coordinates
-  const safeCropX = Math.max(0, Math.min(fullCanvas.width - 1, crop.x));
-  const safeCropY = Math.max(0, Math.min(fullCanvas.height - 1, crop.y));
-  const safeCropW = Math.max(1, Math.min(fullCanvas.width - safeCropX, crop.width));
-  const safeCropH = Math.max(1, Math.min(fullCanvas.height - safeCropY, crop.height));
+  const safeCropX = Math.max(0, Math.min(intermediateW - 1, crop.x));
+  const safeCropY = Math.max(0, Math.min(intermediateH - 1, crop.y));
+  const safeCropW = Math.max(1, Math.min(intermediateW - safeCropX, crop.width));
+  const safeCropH = Math.max(1, Math.min(intermediateH - safeCropY, crop.height));
 
+  outCtx.save();
+  outCtx.scale(targetWidth / safeCropW, targetHeight / safeCropH);
+  outCtx.translate(intermediateW / 2 - safeCropX, intermediateH / 2 - safeCropY);
+  outCtx.rotate((rotation * Math.PI) / 180);
+  outCtx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
   outCtx.drawImage(
-    fullCanvas,
-    safeCropX,
-    safeCropY,
-    safeCropW,
-    safeCropH,
-    0,
-    0,
-    targetWidth,
-    targetHeight
+    sourceImage,
+    -sourceNaturalWidth / 2,
+    -sourceNaturalHeight / 2,
+    sourceNaturalWidth,
+    sourceNaturalHeight
   );
+  outCtx.restore();
 
   // Step 3: Apply filter enhancements
   applySignatureFilters(outCtx, targetWidth, targetHeight, filters);
@@ -432,13 +394,9 @@ export function applyDocumentFilters(
 }
 
 /**
- * Compresses canvas to blob with exact target size (KB).
- * Ultra-fast adaptive multi-stage algorithm with instant zero-lag performance (< 25ms):
- * 1. Adaptive Dimension Capping: Pre-scales excessive camera resolution (> 1400-1800px) so toBlob encodes 15x faster.
- * 2. Predictive Quality Calculation: Reaches target KB in only 2-3 iterations.
- * 3. Proportional Dimension Fallback: If quality alone cannot reach small KB (e.g. 20KB for high-entropy images),
- *    proportional downscale guarantees the target KB is 100% met without infinite loops.
- * 4. Safe JPEG Exif Padding: Guarantees minimum size requirements for portal acceptance.
+ * Encodes at the highest quality first, then searches lower qualities if needed.
+ * Optional dimension reduction limits work for large images. JPEG comments can
+ * meet minimum file sizes without encoding the same pixels again.
  */
 export async function compressCanvasToTargetSize(
   canvas: HTMLCanvasElement,
@@ -494,15 +452,10 @@ export async function compressCanvasToTargetSize(
     }
   }
 
-// Session quality predictor: stores last successful quality to make incremental slider/crop updates instant
-let lastSuccessfulQuality: number = 0.75;
-
-  // 3. Fast Predictive Bounded Quality Binary Search (Max 3-4 iterations)
+  // Try maximum quality first. Most preset-sized images already fit in one encode.
   let low = 0.08;
   let high = 0.98;
-  let currentQuality = (lastSuccessfulQuality >= 0.15 && lastSuccessfulQuality <= 0.95)
-    ? lastSuccessfulQuality
-    : 0.75;
+  let currentQuality = high;
   let bestBlob: Blob | null = null;
   let bestDiff = Infinity;
 
@@ -517,13 +470,13 @@ let lastSuccessfulQuality: number = 0.75;
     if (diff < bestDiff) {
       bestDiff = diff;
       bestBlob = testBlob;
-      lastSuccessfulQuality = currentQuality;
     }
 
-    // Instant exit if within 0.6 KB or comfortably within min-max bounds
-    if (diff <= 0.6 || (testKb >= minKb && testKb <= maxKb && diff < 1.5)) {
+    // Stop once compliant. An undersized maximum-quality JPEG needs padding,
+    // not three more encodes that can only make it smaller.
+    if ((testKb >= minKb && testKb <= maxKb) ||
+        (iter === 0 && testKb < minKb && mimeType === 'image/jpeg')) {
       bestBlob = testBlob;
-      lastSuccessfulQuality = currentQuality;
       break;
     }
 
@@ -570,9 +523,9 @@ let lastSuccessfulQuality: number = 0.75;
 
   // 5. Safe JPEG Comment Padding if below minKb
   if (finalKb < minKb && mimeType === 'image/jpeg') {
-    const bytesNeeded = Math.ceil((minKb + 0.8 - finalKb) * 1024);
-    if (bytesNeeded > 0 && bytesNeeded < 80 * 1024) {
-      finalBlob = await padJpegWithSafeExif(finalBlob, bytesNeeded);
+    const bytesNeeded = Math.ceil(minKb * 1024) - finalBlob.size;
+    if (bytesNeeded > 0) {
+      finalBlob = await padJpegWithComments(finalBlob, bytesNeeded);
       finalKb = finalBlob.size / 1024;
     }
   }
@@ -595,10 +548,9 @@ let lastSuccessfulQuality: number = 0.75;
 
 
 /**
- * Safely adds harmless JPEG COM (Comment) marker to hit government portal minimum KB requirements.
- * Government portals reject files <10KB; this ensures 100% upload compliance without visual artifacts.
+ * Adds JPEG COM segments to meet a minimum size without changing image pixels.
  */
-async function padJpegWithSafeExif(jpegBlob: Blob, extraBytes: number): Promise<Blob> {
+async function padJpegWithComments(jpegBlob: Blob, extraBytes: number): Promise<Blob> {
   try {
     const arrayBuffer = await jpegBlob.arrayBuffer();
     const bytes = new Uint8Array(arrayBuffer);
@@ -606,20 +558,6 @@ async function padJpegWithSafeExif(jpegBlob: Blob, extraBytes: number): Promise<
     // Verify JPEG SOI marker (0xFF, 0xD8)
     if (bytes[0] !== 0xff || bytes[1] !== 0xd8) {
       return jpegBlob;
-    }
-
-    // COM marker is 0xFF 0xFE followed by 2-byte length
-    // Safe comment payload
-    const markerHeader = new Uint8Array([0xff, 0xfe]);
-    const maxChunk = 65500;
-    const payloadLen = Math.min(extraBytes, maxChunk);
-    const chunkLen = payloadLen + 2;
-    const lenBytes = new Uint8Array([(chunkLen >> 8) & 0xff, chunkLen & 0xff]);
-
-    const padding = new Uint8Array(payloadLen);
-    const text = 'SignResize-Verified-Compliance-Pad-';
-    for (let i = 0; i < payloadLen; i++) {
-      padding[i] = text.charCodeAt(i % text.length);
     }
 
     // Insert COM segment safely AFTER any existing APP0 (JFIF) or APPn markers
@@ -635,14 +573,21 @@ async function padJpegWithSafeExif(jpegBlob: Blob, extraBytes: number): Promise<
       }
     }
 
-    const combined = new Uint8Array(bytes.length + 4 + payloadLen);
-    combined.set(bytes.slice(0, insertPos), 0);
-    combined.set(markerHeader, insertPos);
-    combined.set(lenBytes, insertPos + 2);
-    combined.set(padding, insertPos + 4);
-    combined.set(bytes.slice(insertPos), insertPos + 4 + payloadLen);
-
-    return new Blob([combined], { type: 'image/jpeg' });
+    const parts: BlobPart[] = [jpegBlob.slice(0, insertPos)];
+    let remaining = Math.max(4, extraBytes);
+    while (remaining > 0) {
+      // A segment has a four-byte header and a 16-bit length including two
+      // length bytes. Leave enough room for the next header when splitting.
+      let segmentSize = Math.min(remaining, 65537);
+      if (remaining > segmentSize && remaining - segmentSize < 4) segmentSize -= 4;
+      const payload = new Uint8Array(segmentSize - 4);
+      payload.fill(32);
+      const length = payload.length + 2;
+      parts.push(new Uint8Array([0xff, 0xfe, length >> 8, length & 0xff]), payload);
+      remaining -= segmentSize;
+    }
+    parts.push(jpegBlob.slice(insertPos));
+    return new Blob(parts, { type: 'image/jpeg' });
   } catch (e) {
     console.warn('Could not pad JPEG, using original blob', e);
     return jpegBlob;

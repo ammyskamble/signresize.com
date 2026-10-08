@@ -199,6 +199,10 @@ body {
 }
 
 /* Prevent horizontal viewport overflow and left-right dragging */
+html {
+  scroll-padding-top: 5.5rem; /* Ensures anchor links clear the sticky header (h-16 = 64px) */
+}
+
 html,
 body {
   overflow-x: clip;
