@@ -92,413 +92,296 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           </svg>
         </button>
 
-        <!-- Dropdown: International Country Hubs & Tools -->
+        <!-- Dropdown: International Country Hubs & Tools (Compressed & Fast) -->
         <div
           id="international-dropdown-panel"
           class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-0 top-full pt-1 z-50 pointer-events-none group-hover:pointer-events-auto"
-          style="width: 400px; max-width: calc(100vw - 2rem);"
+          style="width: 350px; max-width: calc(100vw - 2rem);"
         >
-          <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-slate-200 dark:border-slate-700 p-3.5 ring-1 ring-black/5 dark:ring-white/10 pointer-events-auto space-y-2 text-xs max-h-[80vh] overflow-y-auto">
+          <div class="bg-white dark:bg-slate-900 rounded-xl shadow-[0_16px_36px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_45px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-700 p-2.5 ring-1 ring-black/5 dark:ring-white/10 pointer-events-auto space-y-1.5 text-xs max-h-[360px] overflow-y-auto">
             
             <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-primary px-1 pb-1 border-b border-slate-100 dark:border-slate-800">
-              <span>🌐 International Country Tools</span>
-              <span class="font-mono text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded">CLICK COUNTRY TO DROP DOWN</span>
+              <span class="flex items-center gap-1">🌐 Country Portals</span>
+              <span class="font-mono text-[9px] text-muted-foreground font-semibold">9 Countries</span>
             </div>
 
-            <!-- 1. 🇺🇸 United States Dropdown Accordion (4 Tools) -->
-            <details class="group/us rounded-xl border border-indigo-500/30 bg-indigo-500/5 dark:bg-indigo-950/20 p-2 transition space-y-1.5">
-              <summary class="flex items-center justify-between font-bold text-xs text-foreground cursor-pointer select-none py-1 px-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base">🇺🇸</span>
-                  <span class="group-hover/us:text-primary transition">United States (US Suite)</span>
+            <!-- 1-Click Country Flag Jump Strip -->
+            <div class="grid grid-cols-9 gap-1 p-1 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+              <a href="/us/" title="United States" class="py-0.5 rounded hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition text-sm">🇺🇸</a>
+              <a href="/uk/" title="United Kingdom" class="py-0.5 rounded hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition text-sm">🇬🇧</a>
+              <a href="/ca/" title="Canada" class="py-0.5 rounded hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition text-sm">🇨🇦</a>
+              <a href="/au/" title="Australia" class="py-0.5 rounded hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition text-sm">🇦🇺</a>
+              <a href="/id/" title="Indonesia" class="py-0.5 rounded hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition text-sm">🇮🇩</a>
+              <a href="/pk/" title="Pakistan" class="py-0.5 rounded hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition text-sm">🇵🇰</a>
+              <a href="/bd/" title="Bangladesh" class="py-0.5 rounded hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition text-sm">🇧🇩</a>
+              <a href="/np/" title="Nepal" class="py-0.5 rounded hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition text-sm">🇳🇵</a>
+              <a href="/ph/" title="Philippines" class="py-0.5 rounded hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition text-sm">🇵🇭</a>
+            </div>
+
+            <!-- Compact Accordion List (Single Active via name="intl-country") -->
+            <div class="space-y-1">
+              <!-- 1. 🇺🇸 United States -->
+              <details name="intl-country" class="group/us rounded-lg border border-indigo-500/25 bg-indigo-500/5 dark:bg-indigo-950/20 transition">
+                <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-indigo-500/10 rounded-lg">
+                  <span class="flex items-center gap-1.5"><span>🇺🇸</span><span>United States</span></span>
+                  <div class="flex items-center gap-1">
+                    <span class="text-[9px] font-mono text-indigo-600 dark:text-indigo-400 font-bold">4 tools</span>
+                    <svg class="w-3 h-3 text-indigo-500 transition-transform duration-150 group-open/us:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </summary>
+                <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-indigo-500/15">
+                  <a href="/us/ds-160-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">📄 Form DS-160 Visa Photo</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">600×600 px</span>
+                  </a>
+                  <a href="/us/passport-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🛂 US Passport (2×2")</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">600×600 px</span>
+                  </a>
+                  <a href="/us/green-card-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🗽 USCIS Green Card &amp; DV</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">sRGB</span>
+                  </a>
+                  <a href="/us/common-app-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🎓 Common App Photo Upload</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&lt;200 KB</span>
+                  </a>
+                  <a href="/us/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline">
+                    <span>Explore US Hub</span>
+                    <span>→</span>
+                  </a>
                 </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-[9px] bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 px-1.5 py-0.5 rounded font-bold">4 TOOLS</span>
-                  <svg class="w-3.5 h-3.5 text-indigo-500 transition-transform duration-200 group-open/us:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
+              </details>
+
+              <!-- 2. 🇬🇧 United Kingdom -->
+              <details name="intl-country" class="group/uk rounded-lg border border-blue-500/25 bg-blue-500/5 dark:bg-blue-950/20 transition">
+                <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-blue-500/10 rounded-lg">
+                  <span class="flex items-center gap-1.5"><span>🇬🇧</span><span>United Kingdom</span></span>
+                  <div class="flex items-center gap-1">
+                    <span class="text-[9px] font-mono text-blue-600 dark:text-blue-400 font-bold">3 tools</span>
+                    <svg class="w-3 h-3 text-blue-500 transition-transform duration-150 group-open/uk:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </summary>
+                <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-blue-500/15">
+                  <a href="/uk/ukvi-visa-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🇬🇧 UKVI Digital Visa Photo</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">600×750 px</span>
+                  </a>
+                  <a href="/uk/hm-passport-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🛂 HM Passport Digital Resizer</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">600×750 px</span>
+                  </a>
+                  <a href="/uk/ucas-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🎓 UCAS Photo &amp; Document</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&lt;2 MB</span>
+                  </a>
+                  <a href="/uk/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-blue-600 dark:text-blue-400 hover:underline">
+                    <span>Explore UK Hub</span>
+                    <span>→</span>
+                  </a>
                 </div>
-              </summary>
+              </details>
 
-              <!-- 4 Tools Dropdown Items -->
-              <div class="pt-1.5 space-y-1 pl-1 border-t border-indigo-500/15">
-                <a href="/us/ds-160-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-indigo-500/20">
-                  <span class="text-sm">📄</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Form DS-160 US Visa Photo Resizer</div>
-                    <div class="text-[10px] text-muted-foreground truncate">600×600 px | &lt;240 KB | travel.state.gov</div>
+              <!-- 3. 🇨🇦 Canada -->
+              <details name="intl-country" class="group/ca rounded-lg border border-red-500/25 bg-red-500/5 dark:bg-red-950/20 transition">
+                <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-red-500/10 rounded-lg">
+                  <span class="flex items-center gap-1.5"><span>🇨🇦</span><span>Canada</span></span>
+                  <div class="flex items-center gap-1">
+                    <span class="text-[9px] font-mono text-red-600 dark:text-red-400 font-bold">3 tools</span>
+                    <svg class="w-3 h-3 text-red-500 transition-transform duration-150 group-open/ca:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
                   </div>
-                </a>
-
-                <a href="/us/passport-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-indigo-500/20">
-                  <span class="text-sm">🛂</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">US Passport Photo Resizer (2×2 Inch)</div>
-                    <div class="text-[10px] text-muted-foreground truncate">600×600 px | White BG | Passport Renewals</div>
-                  </div>
-                </a>
-
-                <a href="/us/green-card-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-indigo-500/20">
-                  <span class="text-sm">🗽</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">USCIS Green Card &amp; DV Lottery</div>
-                    <div class="text-[10px] text-muted-foreground truncate">600×600 px | sRGB 24-bit color space</div>
-                  </div>
-                </a>
-
-                <a href="/us/common-app-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-indigo-500/20">
-                  <span class="text-sm">🎓</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Common App Photo &amp; Document Upload</div>
-                    <div class="text-[10px] text-muted-foreground truncate">College Application Uploads (&lt;200 KB)</div>
-                  </div>
-                </a>
-
-                <a href="/us/" class="flex items-center justify-between p-1.5 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 transition text-[11px] font-bold text-indigo-600 dark:text-indigo-400">
-                  <span>🇺🇸 United States Main Hub Landing Page</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </details>
-
-            <!-- 2. 🇬🇧 United Kingdom Dropdown Accordion (3 Tools) -->
-            <details class="group/uk rounded-xl border border-blue-500/30 bg-blue-500/5 dark:bg-blue-950/20 p-2 transition space-y-1.5">
-              <summary class="flex items-center justify-between font-bold text-xs text-foreground cursor-pointer select-none py-1 px-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base">🇬🇧</span>
-                  <span class="group-hover/uk:text-primary transition">United Kingdom (UK Suite)</span>
+                </summary>
+                <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-red-500/15">
+                  <a href="/ca/ircc-pr-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🍁 IRCC PR &amp; Express Entry</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">420×540 px</span>
+                  </a>
+                  <a href="/ca/study-work-permit-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🎓 Study &amp; Work Permit Photo</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">420×540 px</span>
+                  </a>
+                  <a href="/ca/canadian-passport-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🛂 Canadian Passport (50×70 mm)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">600×840 px</span>
+                  </a>
+                  <a href="/ca/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-red-600 dark:text-red-400 hover:underline">
+                    <span>Explore Canada Hub</span>
+                    <span>→</span>
+                  </a>
                 </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-[9px] bg-blue-500/15 text-blue-600 dark:text-blue-400 px-1.5 py-0.5 rounded font-bold">3 TOOLS</span>
-                  <svg class="w-3.5 h-3.5 text-blue-500 transition-transform duration-200 group-open/uk:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
+              </details>
+
+              <!-- 4. 🇦🇺 Australia -->
+              <details name="intl-country" class="group/au rounded-lg border border-amber-500/25 bg-amber-500/5 dark:bg-amber-950/20 transition">
+                <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-amber-500/10 rounded-lg">
+                  <span class="flex items-center gap-1.5"><span>🇦🇺</span><span>Australia</span></span>
+                  <div class="flex items-center gap-1">
+                    <span class="text-[9px] font-mono text-amber-600 dark:text-amber-400 font-bold">2 tools</span>
+                    <svg class="w-3 h-3 text-amber-500 transition-transform duration-150 group-open/au:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </summary>
+                <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-amber-500/15">
+                  <a href="/au/immiaccount-visa-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🦘 ImmiAccount Visa Photo</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">600×750 px</span>
+                  </a>
+                  <a href="/au/australian-passport-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🛂 Australian Passport (35×45 mm)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">Passports</span>
+                  </a>
+                  <a href="/au/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-amber-600 dark:text-amber-400 hover:underline">
+                    <span>Explore Australia Hub</span>
+                    <span>→</span>
+                  </a>
                 </div>
-              </summary>
+              </details>
 
-              <!-- 3 Tools Dropdown Items -->
-              <div class="pt-1.5 space-y-1 pl-1 border-t border-blue-500/15">
-                <a href="/uk/ukvi-visa-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-blue-500/20">
-                  <span class="text-sm">🇬🇧</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">UKVI Digital Visa Photo Resizer</div>
-                    <div class="text-[10px] text-muted-foreground truncate">600×750 px | 50 KB – 6 MB | GOV.UK</div>
+              <!-- 5. 🇮🇩 Indonesia -->
+              <details name="intl-country" class="group/id rounded-lg border border-red-500/25 bg-red-500/5 dark:bg-red-950/20 transition">
+                <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-red-500/10 rounded-lg">
+                  <span class="flex items-center gap-1.5"><span>🇮🇩</span><span>Indonesia</span></span>
+                  <div class="flex items-center gap-1">
+                    <span class="text-[9px] font-mono text-red-600 dark:text-red-400 font-bold">3 tools</span>
+                    <svg class="w-3 h-3 text-red-500 transition-transform duration-150 group-open/id:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
                   </div>
-                </a>
-
-                <a href="/uk/hm-passport-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-blue-500/20">
-                  <span class="text-sm">🛂</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">HM Passport Office Digital Resizer</div>
-                    <div class="text-[10px] text-muted-foreground truncate">600×750 px | Passport Renewals</div>
-                  </div>
-                </a>
-
-                <a href="/uk/ucas-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-blue-500/20">
-                  <span class="text-sm">🎓</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">UCAS Photo &amp; Document Upload</div>
-                    <div class="text-[10px] text-muted-foreground truncate">UK College Admissions (&lt;2 MB)</div>
-                  </div>
-                </a>
-
-                <a href="/uk/" class="flex items-center justify-between p-1.5 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 transition text-[11px] font-bold text-blue-600 dark:text-blue-400">
-                  <span>🇬🇧 United Kingdom Main Hub Landing Page</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </details>
-
-            <!-- 3. 🇨🇦 Canada Dropdown Accordion (3 Tools) -->
-            <details class="group/ca rounded-xl border border-red-500/30 bg-red-500/5 dark:bg-red-950/20 p-2 transition space-y-1.5">
-              <summary class="flex items-center justify-between font-bold text-xs text-foreground cursor-pointer select-none py-1 px-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base">🇨🇦</span>
-                  <span class="group-hover/ca:text-primary transition">Canada (IRCC &amp; Passport Suite)</span>
+                </summary>
+                <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-red-500/15">
+                  <a href="/id/cpns-sscasn-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🇮🇩 CPNS / SSCASN Swafoto</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">400×600 px</span>
+                  </a>
+                  <a href="/id/utbk-snbt-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🎓 UTBK-SNBT Pasfoto (4×6 cm)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">400×600 px</span>
+                  </a>
+                  <a href="/id/indonesia-passport-visa-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🛂 Indonesia Passport &amp; eVisa</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">350×450 px</span>
+                  </a>
+                  <a href="/id/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-red-600 dark:text-red-400 hover:underline">
+                    <span>Explore Indonesia Hub</span>
+                    <span>→</span>
+                  </a>
                 </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-[9px] bg-red-500/15 text-red-600 dark:text-red-400 px-1.5 py-0.5 rounded font-bold">3 TOOLS</span>
-                  <svg class="w-3.5 h-3.5 text-red-500 transition-transform duration-200 group-open/ca:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
+              </details>
+
+              <!-- 6. 🇵🇰 Pakistan -->
+              <details name="intl-country" class="group/pk rounded-lg border border-emerald-500/25 bg-emerald-500/5 dark:bg-emerald-950/20 transition">
+                <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-emerald-500/10 rounded-lg">
+                  <span class="flex items-center gap-1.5"><span>🇵🇰</span><span>Pakistan</span></span>
+                  <div class="flex items-center gap-1">
+                    <span class="text-[9px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">4 tools</span>
+                    <svg class="w-3 h-3 text-emerald-500 transition-transform duration-150 group-open/pk:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </summary>
+                <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-emerald-500/15">
+                  <a href="/pk/fpsc-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🏛️ FPSC Photo Resizer</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&le;30 KB</span>
+                  </a>
+                  <a href="/pk/css-exam-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">⭐ CSS Exam Photo Resizer</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&le;30 KB</span>
+                  </a>
+                  <a href="/pk/ppsc-kppsc-spsc-bpsc-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">📌 Provincial PSCs (PPSC/KPPSC)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&le;25 KB</span>
+                  </a>
+                  <a href="/pk/nadra-passport-cnic-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🪪 NADRA CNIC &amp; Passport</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">350×450 px</span>
+                  </a>
+                  <a href="/pk/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline">
+                    <span>Explore Pakistan Hub</span>
+                    <span>→</span>
+                  </a>
                 </div>
-              </summary>
+              </details>
 
-              <!-- 3 Tools Dropdown Items -->
-              <div class="pt-1.5 space-y-1 pl-1 border-t border-red-500/15">
-                <a href="/ca/ircc-pr-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-red-500/20">
-                  <span class="text-sm">🍁</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">IRCC Express Entry &amp; PR Photo Resizer</div>
-                    <div class="text-[10px] text-muted-foreground truncate">420×540 px | 240 KB – 4 MB | IRCC Portal</div>
+              <!-- 7. 🇧🇩 Bangladesh -->
+              <details name="intl-country" class="group/bd rounded-lg border border-emerald-500/25 bg-emerald-500/5 dark:bg-emerald-950/20 transition">
+                <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-emerald-500/10 rounded-lg">
+                  <span class="flex items-center gap-1.5"><span>🇧🇩</span><span>Bangladesh</span></span>
+                  <div class="flex items-center gap-1">
+                    <span class="text-[9px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">2 tools</span>
+                    <svg class="w-3 h-3 text-emerald-500 transition-transform duration-150 group-open/bd:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
                   </div>
-                </a>
-
-                <a href="/ca/study-work-permit-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-red-500/20">
-                  <span class="text-sm">🎓</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Study &amp; Work Permit Photo Resizer</div>
-                    <div class="text-[10px] text-muted-foreground truncate">420×540 px | Student &amp; Work Permits</div>
-                  </div>
-                </a>
-
-                <a href="/ca/canadian-passport-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-red-500/20">
-                  <span class="text-sm">🛂</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Canadian Passport Photo Resizer (50×70 mm)</div>
-                    <div class="text-[10px] text-muted-foreground truncate">600×840 px | Passport Program Canada</div>
-                  </div>
-                </a>
-
-                <a href="/ca/" class="flex items-center justify-between p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 transition text-[11px] font-bold text-red-600 dark:text-red-400">
-                  <span>🇨🇦 Canada Main Hub Landing Page</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </details>
-
-            <!-- 4. 🇦🇺 Australia Dropdown Accordion (2 Tools) -->
-            <details class="group/au rounded-xl border border-amber-500/30 bg-amber-500/5 dark:bg-amber-950/20 p-2 transition space-y-1.5">
-              <summary class="flex items-center justify-between font-bold text-xs text-foreground cursor-pointer select-none py-1 px-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base">🇦🇺</span>
-                  <span class="group-hover/au:text-primary transition">Australia (ImmiAccount &amp; Passport)</span>
+                </summary>
+                <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-emerald-500/15">
+                  <a href="/teletalk-photo-signature-resize/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">📷 Teletalk Photo (300×300)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&le;100 KB</span>
+                  </a>
+                  <a href="/bd/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">✍️ Teletalk Signature (300×80)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&le;60 KB</span>
+                  </a>
+                  <a href="/bd/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline">
+                    <span>Explore Bangladesh Hub</span>
+                    <span>→</span>
+                  </a>
                 </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-[9px] bg-amber-500/15 text-amber-600 dark:text-amber-400 px-1.5 py-0.5 rounded font-bold">2 TOOLS</span>
-                  <svg class="w-3.5 h-3.5 text-amber-500 transition-transform duration-200 group-open/au:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
+              </details>
+
+              <!-- 8. 🇳🇵 Nepal -->
+              <details name="intl-country" class="group/np rounded-lg border border-red-500/25 bg-red-500/5 dark:bg-red-950/20 transition">
+                <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-red-500/10 rounded-lg">
+                  <span class="flex items-center gap-1.5"><span>🇳🇵</span><span>Nepal</span></span>
+                  <div class="flex items-center gap-1">
+                    <span class="text-[9px] font-mono text-red-600 dark:text-red-400 font-bold">1 tool</span>
+                    <svg class="w-3 h-3 text-red-500 transition-transform duration-150 group-open/np:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </summary>
+                <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-red-500/15">
+                  <a href="/lok-sewa-photo-resize-nepal/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🇳🇵 Lok Sewa Nepal PSC</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">350×300 px</span>
+                  </a>
+                  <a href="/np/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-red-600 dark:text-red-400 hover:underline">
+                    <span>Explore Nepal Hub</span>
+                    <span>→</span>
+                  </a>
                 </div>
-              </summary>
+              </details>
 
-              <!-- 2 Tools Dropdown Items -->
-              <div class="pt-1.5 space-y-1 pl-1 border-t border-amber-500/15">
-                <a href="/au/immiaccount-visa-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-amber-500/20">
-                  <span class="text-sm">🦘</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">ImmiAccount Visa Photo Resizer</div>
-                    <div class="text-[10px] text-muted-foreground truncate">600×750 px | Student, Skilled, Visitor Visas</div>
+              <!-- 9. 🇵🇭 Philippines -->
+              <details name="intl-country" class="group/ph rounded-lg border border-blue-500/25 bg-blue-500/5 dark:bg-blue-950/20 transition">
+                <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-blue-500/10 rounded-lg">
+                  <span class="flex items-center gap-1.5"><span>🇵🇭</span><span>Philippines</span></span>
+                  <div class="flex items-center gap-1">
+                    <span class="text-[9px] font-mono text-blue-600 dark:text-blue-400 font-bold">1 tool</span>
+                    <svg class="w-3 h-3 text-blue-500 transition-transform duration-150 group-open/ph:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
                   </div>
-                </a>
-
-                <a href="/au/australian-passport-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-amber-500/20">
-                  <span class="text-sm">🛂</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Australian Passport Photo Resizer (35×45 mm)</div>
-                    <div class="text-[10px] text-muted-foreground truncate">600×750 px | passports.gov.au</div>
-                  </div>
-                </a>
-
-                <a href="/au/" class="flex items-center justify-between p-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 transition text-[11px] font-bold text-amber-600 dark:text-amber-400">
-                  <span>🇦🇺 Australia Main Hub Landing Page</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </details>
-
-            <!-- 5. 🇮🇩 Indonesia Dropdown Accordion (3 Tools) -->
-            <details class="group/id rounded-xl border border-red-500/30 bg-red-500/5 dark:bg-red-950/20 p-2 transition space-y-1.5">
-              <summary class="flex items-center justify-between font-bold text-xs text-foreground cursor-pointer select-none py-1 px-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base">🇮🇩</span>
-                  <span class="group-hover/id:text-primary transition">Indonesia (CPNS, UTBK &amp; Passport)</span>
+                </summary>
+                <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-blue-500/15">
+                  <a href="/prc-photo-signature-resize-philippines/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🇵🇭 PRC 2×2 Passport Photo</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">LERIS Online</span>
+                  </a>
+                  <a href="/ph/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-blue-600 dark:text-blue-400 hover:underline">
+                    <span>Explore Philippines Hub</span>
+                    <span>→</span>
+                  </a>
                 </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-[9px] bg-red-500/15 text-red-600 dark:text-red-400 px-1.5 py-0.5 rounded font-bold">3 TOOLS</span>
-                  <svg class="w-3.5 h-3.5 text-red-500 transition-transform duration-200 group-open/id:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </summary>
-
-              <!-- 3 Tools Dropdown Items -->
-              <div class="pt-1.5 space-y-1 pl-1 border-t border-red-500/15">
-                <a href="/id/cpns-sscasn-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-red-500/20">
-                  <span class="text-sm">🇮🇩</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">CPNS / SSCASN Photo &amp; Swafoto Resizer</div>
-                    <div class="text-[10px] text-muted-foreground truncate">400×600 px | Latar Merah &amp; Swafoto (100–500 KB)</div>
-                  </div>
-                </a>
-
-                <a href="/id/utbk-snbt-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-red-500/20">
-                  <span class="text-sm">🎓</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">UTBK-SNBT Pasfoto Resizer (4×6 cm)</div>
-                    <div class="text-[10px] text-muted-foreground truncate">400×600 px | SNPMB Kemendikbudristek (80–300 KB)</div>
-                  </div>
-                </a>
-
-                <a href="/id/indonesia-passport-visa-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-red-500/20">
-                  <span class="text-sm">🛂</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Indonesia Passport &amp; eVisa Photo Resizer</div>
-                    <div class="text-[10px] text-muted-foreground truncate">350×450 px | Direktorat Jenderal Imigrasi</div>
-                  </div>
-                </a>
-
-                <a href="/id/" class="flex items-center justify-between p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 transition text-[11px] font-bold text-red-600 dark:text-red-400">
-                  <span>🇮🇩 Indonesia Main Hub Landing Page</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </details>
-
-            <!-- 5. 🇧🇩 Bangladesh Accordion Dropdown -->
-            <details class="group/bd rounded-xl border border-emerald-500/30 bg-emerald-500/5 dark:bg-emerald-950/20 p-2 transition space-y-1.5">
-              <summary class="flex items-center justify-between font-bold text-xs text-foreground cursor-pointer select-none py-1 px-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base">🇧🇩</span>
-                  <span class="group-hover/bd:text-primary transition">Bangladesh (Teletalk Suite)</span>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-[9px] bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-bold">2 TOOLS</span>
-                  <svg class="w-3.5 h-3.5 text-emerald-500 transition-transform duration-200 group-open/bd:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </summary>
-
-              <div class="pt-1.5 space-y-1 pl-1 border-t border-emerald-500/15">
-                <a href="/teletalk-photo-signature-resize/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item">
-                  <span class="text-sm">📷</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Teletalk Photo Resizer (300×300 px)</div>
-                    <div class="text-[10px] text-muted-foreground truncate">All Jobs &amp; BCS Exam (&le; 100 KB)</div>
-                  </div>
-                </a>
-                <a href="/bd/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item">
-                  <span class="text-sm">✍️</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Teletalk Signature Resizer (300×80 px)</div>
-                    <div class="text-[10px] text-muted-foreground truncate">Teletalk &amp; NTRCA (&le; 60 KB)</div>
-                  </div>
-                </a>
-                <a href="/bd/" class="flex items-center justify-between p-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 transition text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
-                  <span>🇧🇩 Bangladesh Main Hub Page</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </details>
-
-            <!-- 3. 🇳🇵 Nepal Accordion Dropdown -->
-            <details class="group/np rounded-xl border border-red-500/30 bg-red-500/5 dark:bg-red-950/20 p-2 transition space-y-1.5">
-              <summary class="flex items-center justify-between font-bold text-xs text-foreground cursor-pointer select-none py-1 px-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base">🇳🇵</span>
-                  <span class="group-hover/np:text-primary transition">Nepal (Lok Sewa Suite)</span>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-[9px] bg-red-500/15 text-red-600 dark:text-red-400 px-1.5 py-0.5 rounded font-bold">1 TOOL</span>
-                  <svg class="w-3.5 h-3.5 text-red-500 transition-transform duration-200 group-open/np:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </summary>
-
-              <div class="pt-1.5 space-y-1 pl-1 border-t border-red-500/15">
-                <a href="/lok-sewa-photo-resize-nepal/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item">
-                  <span class="text-sm">🇳🇵</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Lok Sewa Nepal Photo &amp; Signature</div>
-                    <div class="text-[10px] text-muted-foreground truncate">350×300 px | PSC Nepal Uploads</div>
-                  </div>
-                </a>
-                <a href="/np/" class="flex items-center justify-between p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 transition text-[11px] font-bold text-red-600 dark:text-red-400">
-                  <span>🇳🇵 Nepal Main Hub Page</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </details>
-
-            <!-- 4. 🇵🇭 Philippines Accordion Dropdown -->
-            <details class="group/ph rounded-xl border border-blue-500/30 bg-blue-500/5 dark:bg-blue-950/20 p-2 transition space-y-1.5">
-              <summary class="flex items-center justify-between font-bold text-xs text-foreground cursor-pointer select-none py-1 px-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base">🇵🇭</span>
-                  <span class="group-hover/ph:text-primary transition">Philippines (PRC &amp; LERIS)</span>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-[9px] bg-blue-500/15 text-blue-600 dark:text-blue-400 px-1.5 py-0.5 rounded font-bold">1 TOOL</span>
-                  <svg class="w-3.5 h-3.5 text-blue-500 transition-transform duration-200 group-open/ph:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </summary>
-
-              <div class="pt-1.5 space-y-1 pl-1 border-t border-blue-500/15">
-                <a href="/prc-photo-signature-resize-philippines/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item">
-                  <span class="text-sm">🇵🇭</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">PRC Philippines 2×2 Passport Photo</div>
-                    <div class="text-[10px] text-muted-foreground truncate">LERIS Online &amp; Civil Service Exam</div>
-                  </div>
-                </a>
-                <a href="/ph/" class="flex items-center justify-between p-1.5 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 transition text-[11px] font-bold text-blue-600 dark:text-blue-400">
-                  <span>🇵🇭 Philippines Main Hub Page</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </details>
-
-            <!-- 5. 🇵🇰 Pakistan Accordion Dropdown (4 Tools) -->
-            <details class="group/pk rounded-xl border border-emerald-500/30 bg-emerald-500/5 dark:bg-emerald-950/20 p-2 transition space-y-1.5">
-              <summary class="flex items-center justify-between font-bold text-xs text-foreground cursor-pointer select-none py-1 px-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base">🇵🇰</span>
-                  <span class="group-hover/pk:text-primary transition">Pakistan (FPSC, CSS, PPSC &amp; NADRA)</span>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="font-mono text-[9px] bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-bold">4 TOOLS</span>
-                  <svg class="w-3.5 h-3.5 text-emerald-500 transition-transform duration-200 group-open/pk:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </summary>
-
-              <div class="pt-1.5 space-y-1 pl-1 border-t border-emerald-500/15">
-                <a href="/pk/fpsc-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-emerald-500/20">
-                  <span class="text-sm">🏛️</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">FPSC Photo Resizer (&le; 30 KB)</div>
-                    <div class="text-[10px] text-muted-foreground truncate">Federal Public Service Commission</div>
-                  </div>
-                </a>
-
-                <a href="/pk/css-exam-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-emerald-500/20">
-                  <span class="text-sm">⭐</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">CSS Exam Photo Resizer (&le; 30 KB)</div>
-                    <div class="text-[10px] text-muted-foreground truncate">Central Superior Services Competitive Exam</div>
-                  </div>
-                </a>
-
-                <a href="/pk/ppsc-kppsc-spsc-bpsc-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-emerald-500/20">
-                  <span class="text-sm">📌</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">Provincial PSCs (PPSC, KPPSC, SPSC, BPSC)</div>
-                    <div class="text-[10px] text-muted-foreground truncate">Punjab, KP, Sindh &amp; Balochistan (&le; 25 KB)</div>
-                  </div>
-                </a>
-
-                <a href="/pk/nadra-passport-cnic-photo-resizer/" class="flex items-start gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition text-[11px] font-medium group/item border border-transparent hover:border-emerald-500/20">
-                  <span class="text-sm">🪪</span>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold group-hover/item:text-primary truncate">NADRA CNIC &amp; Passport Photo Resizer</div>
-                    <div class="text-[10px] text-muted-foreground truncate">3.5×4.5 cm (350×450 px) | Pak-Identity &amp; Passport</div>
-                  </div>
-                </a>
-
-                <a href="/pk/" class="flex items-center justify-between p-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 transition text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
-                  <span>🇵🇰 Pakistan Main Hub Landing Page</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </details>
-
-            <div class="pt-1 text-[9px] text-center font-mono text-muted-foreground">
-              ➕ Scalable for future countries (Canada 🇨🇦, UK 🇬🇧, Australia 🇦🇺)
+              </details>
             </div>
 
           </div>
@@ -2167,6 +2050,27 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
     openSearchPopover();
   });
 
+  // International Dropdown Click & Touch Handler
+  const intlBtn = document.getElementById('international-menu-btn');
+  const intlPanel = document.getElementById('international-dropdown-panel');
+  const intlGroup = document.getElementById('international-nav-group');
+
+  function toggleIntlDropdown(show) {
+    if (show) {
+      intlPanel?.classList.add('!visible', '!opacity-100', '!pointer-events-auto');
+      intlBtn?.setAttribute('aria-expanded', 'true');
+    } else {
+      intlPanel?.classList.remove('!visible', '!opacity-100', '!pointer-events-auto');
+      intlBtn?.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  intlBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isCurrentlyOpen = intlPanel?.classList.contains('!visible');
+    toggleIntlDropdown(!isCurrentlyOpen);
+  });
+
   // Signature Dropdown Click & Touch Handler
   const signBtn = document.getElementById('signature-menu-btn');
   const signPanel = document.getElementById('signature-dropdown-panel');
@@ -2188,7 +2092,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
     toggleSignDropdown(!isCurrentlyOpen);
   });
 
-  // Close mobile menu or signature dropdown if clicked outside
+  // Close mobile menu or dropdowns if clicked outside
   document.addEventListener('click', (e) => {
     if (
       mobileDrawer &&
@@ -2199,6 +2103,10 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
       closeMobileMenu();
     }
 
+    if (intlGroup && !intlGroup.contains(e.target)) {
+      toggleIntlDropdown(false);
+    }
+
     if (signGroup && !signGroup.contains(e.target)) {
       toggleSignDropdown(false);
     }
@@ -2206,6 +2114,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      toggleIntlDropdown(false);
       toggleSignDropdown(false);
       closeMobileMenu();
     }

@@ -542,6 +542,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       initCropBox(sourceImage, preset.aspectRatio);
     }
 
+    // Automatically close the preset selection pop-up upon picking any preset
+    setIsExamDropdownOpen(false);
+
     addToast(
       `Applied ${preset.name} (${preset.widthPx}×${preset.heightPx} px, ${preset.minKb}–${preset.maxKb} KB)`,
       'Preset Applied',
@@ -2158,42 +2161,42 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
           </div>
         </div>
 
-        {/* Consolidated Exam Selector Dropdown Combobox Popover */}
+        {/* Consolidated Exam Selector Dropdown Combobox Popover (Compressed & Compact) */}
         {isExamDropdownOpen && (
-          <div id="exam-preset-options" role="region" aria-label="Exam preset search" className="mt-2 p-3 sm:p-4 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] space-y-3 sm:space-y-4 z-30 animate-in fade-in slide-in-from-top-2 duration-150 ring-1 ring-black/5 dark:ring-white/10">
+          <div id="exam-preset-options" role="region" aria-label="Exam preset search" className="mt-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 shadow-[0_16px_40px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.8)] space-y-2 sm:space-y-2.5 z-30 animate-in fade-in slide-in-from-top-2 duration-150 ring-1 ring-black/5 dark:ring-white/10">
             
-            {/* Combobox Search Toolbar */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/80 pb-3">
+            {/* Combobox Search Toolbar - Compact */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/80 pb-2">
               <div className="relative flex-1">
-                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+                <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                 <input
                   type="text"
                   placeholder={lang === 'hi' ? '40+ परीक्षा प्रारूप खोजें (UPSC, SSC, UPPSC, BPSC, PAN)...' : lang === 'mr' ? '40+ परीक्षा फॉरमॅट शोधा (MPSC, पोलीस भरती, तलाठी, SSC)...' : modeConfig.searchPlaceholder}
                   aria-label="Search presets by exam or authority"
                   value={comboboxSearch}
                   onChange={(e) => setComboboxSearch(e.target.value)}
-                  className="w-full pl-9 pr-10 py-2.5 sm:py-2 text-base sm:text-xs rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
+                  className="w-full pl-8 pr-8 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
                 />
                 {comboboxSearch && (
                   <button
                     type="button"
                     onClick={() => setComboboxSearch('')}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground w-8 h-8 flex items-center justify-center rounded-lg hover:bg-muted/60 cursor-pointer"
+                    className="absolute right-1.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground w-6 h-6 flex items-center justify-center rounded hover:bg-muted/60 cursor-pointer"
                     title="Clear search"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="w-3.5 h-3.5" />
                   </button>
                 )}
               </div>
 
-              <div className="flex items-center justify-between sm:justify-end gap-3 text-xs">
-                <span className="text-muted-foreground font-mono text-[11px]">
+              <div className="flex items-center justify-between sm:justify-end gap-2 text-xs">
+                <span className="text-muted-foreground font-mono text-[10px]">
                   {comboboxFilteredPresets.length} {t.tool.presetsFound}
                 </span>
                 <button
                   type="button"
                   onClick={() => setIsExamDropdownOpen(false)}
-                  className="px-3 py-1.5 min-h-[38px] rounded-lg border border-border hover:bg-muted text-xs font-semibold text-muted-foreground hover:text-foreground transition cursor-pointer flex items-center gap-1"
+                  className="px-2.5 py-1 min-h-[30px] rounded-lg border border-border hover:bg-muted text-xs font-semibold text-muted-foreground hover:text-foreground transition cursor-pointer flex items-center gap-1"
                 >
                   {t.tool.close}
                 </button>
@@ -2202,22 +2205,25 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
             {/* When Searching: Flat Search Results Grid */}
             {comboboxSearch.trim() ? (
-              <div className="space-y-2 max-h-[360px] overflow-y-auto pr-1">
+              <div className="space-y-1.5 max-h-[280px] sm:max-h-[320px] overflow-y-auto pr-1">
                 {comboboxFilteredPresets.length === 0 ? (
-                  <div className="p-8 text-center text-xs text-muted-foreground">
+                  <div className="p-6 text-center text-xs text-muted-foreground">
                     No matching presets found for &ldquo;{comboboxSearch}&rdquo;. Try another search term.
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5">
                     {comboboxFilteredPresets.map((preset) => {
                       const isSelected = selectedPreset?.id === preset.id;
                       return (
                         <button
                           key={preset.id}
                           type="button"
-                          onClick={() => applyPreset(preset)}
+                          onClick={() => {
+                            applyPreset(preset);
+                            setIsExamDropdownOpen(false);
+                          }}
                           aria-pressed={isSelected}
-                          className={`text-left p-3 rounded-xl border transition text-xs flex flex-col justify-between cursor-pointer ${
+                          className={`text-left p-2 rounded-lg border transition text-xs flex flex-col justify-between cursor-pointer ${
                             isSelected
                               ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
                               : 'border-border/70 bg-card hover:border-primary/40 hover:bg-muted/40'
@@ -2225,16 +2231,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         >
                           <div>
                             <div className="flex items-center justify-between gap-1">
-                              <span className="font-bold text-foreground truncate">{preset.shortCode}</span>
-                              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-muted text-muted-foreground shrink-0">
-                                {preset.category}
+                              <span className="font-bold text-xs text-foreground truncate">{preset.shortCode}</span>
+                              <span className="text-[10px] font-mono font-bold text-primary shrink-0">
+                                {preset.minKb}–{preset.maxKb}KB
                               </span>
                             </div>
-                            <div className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">{preset.name}</div>
+                            <div className="text-[11px] text-muted-foreground truncate mt-0.5">{preset.name}</div>
                           </div>
-                          <div className="pt-2 flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono border-t border-border/40 mt-2">
+                          <div className="pt-1 flex items-center justify-between gap-1 text-[9px] font-mono border-t border-border/40 mt-1 text-muted-foreground">
                             <span>{preset.widthPx}×{preset.heightPx}px</span>
-                            <span className="text-primary font-bold">{preset.minKb}–{preset.maxKb}KB</span>
+                            <span className="text-primary font-medium truncate">{preset.category}</span>
                           </div>
                         </button>
                       );
@@ -2244,13 +2250,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
               </div>
             ) : (
               /* When Not Searching: Category Accordions */
-              <div className="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+              <div className="space-y-1.5 max-h-[280px] sm:max-h-[320px] overflow-y-auto pr-1">
                 {(targetType === 'document'
                   ? [
-                      { name: 'Education & Marksheets', match: (p: ExamPreset) => p.docCategory === 'Education' || p.category === 'General', description: '10th, 12th & Graduation Certificates' },
-                      { name: 'Identity & Address Proofs', match: (p: ExamPreset) => p.docCategory === 'Identity' || p.category === 'Identity', description: 'Aadhaar, PAN Card & Voter ID Scans' },
-                      { name: 'Category & Reservation', match: (p: ExamPreset) => p.docCategory === 'Reservation', description: 'Caste Validity, EWS, Non-Creamy Layer' },
-                      { name: 'Biometric & Thumb Scans', match: (p: ExamPreset) => p.docCategory === 'Biometric', description: 'Left Thumb Impression, Medical & PwD' }
+                      { name: 'Education & Marksheets', match: (p: ExamPreset) => p.docCategory === 'Education' || p.category === 'General', description: '10th, 12th & Certificates' },
+                      { name: 'Identity & Address Proofs', match: (p: ExamPreset) => p.docCategory === 'Identity' || p.category === 'Identity', description: 'Aadhaar, PAN & Voter ID' },
+                      { name: 'Category & Reservation', match: (p: ExamPreset) => p.docCategory === 'Reservation', description: 'Caste, EWS, NCL' },
+                      { name: 'Biometric & Thumb Scans', match: (p: ExamPreset) => p.docCategory === 'Biometric', description: 'Left Thumb, Medical & PwD' }
                     ]
                   : CATEGORY_GROUPS.map(g => ({
                       name: g.name,
@@ -2264,41 +2270,44 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                   const isExpanded = expandedCategories[group.name] ?? false;
 
                   return (
-                    <div key={group.name} className="border border-border/80 rounded-xl overflow-hidden bg-muted/20">
+                    <div key={group.name} className="border border-border/70 rounded-lg overflow-hidden bg-muted/15">
                       <button
                         type="button"
                         onClick={() => toggleCategoryAccordion(group.name)}
                         aria-expanded={isExpanded}
-                        className="w-full p-3 flex items-center justify-between text-left hover:bg-muted/40 transition select-none cursor-pointer"
+                        className="w-full py-1.5 px-2.5 flex items-center justify-between text-left hover:bg-muted/40 transition select-none cursor-pointer"
                       >
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1.5">
                           <span className="font-bold text-xs text-foreground">{group.name}</span>
                           <span className="text-[10px] text-muted-foreground hidden sm:inline">• {group.description}</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-muted text-muted-foreground border border-border">
-                            {groupPresets.length} presets
+                        <div className="flex items-center gap-1.5">
+                          <span className="px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-muted text-muted-foreground border border-border">
+                            {groupPresets.length}
                           </span>
                           {isExpanded ? (
-                            <ChevronUp className="w-3.5 h-3.5 text-muted-foreground" />
+                            <ChevronUp className="w-3 h-3 text-muted-foreground" />
                           ) : (
-                            <ChevronDown className="w-3.5 h-3.5 text-muted-foreground" />
+                            <ChevronDown className="w-3 h-3 text-muted-foreground" />
                           )}
                         </div>
                       </button>
 
                       {isExpanded && (
-                        <div className="p-3 pt-1 border-t border-border/60 bg-card">
-                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                        <div className="p-2 pt-1 border-t border-border/50 bg-card">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5">
                             {groupPresets.map((preset) => {
                               const isSelected = selectedPreset?.id === preset.id;
                               return (
                                 <button
                                   key={preset.id}
                                   type="button"
-                                  onClick={() => applyPreset(preset)}
+                                  onClick={() => {
+                                    applyPreset(preset);
+                                    setIsExamDropdownOpen(false);
+                                  }}
                                   aria-pressed={isSelected}
-                                  className={`text-left p-2.5 rounded-xl border transition text-xs flex flex-col justify-between cursor-pointer ${
+                                  className={`text-left p-2 rounded-lg border transition text-xs flex flex-col justify-between cursor-pointer ${
                                     isSelected
                                       ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
                                       : 'border-border/70 bg-card hover:border-primary/40 hover:bg-muted/40'
@@ -2306,15 +2315,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                                 >
                                   <div>
                                     <div className="flex items-center justify-between gap-1">
-                                      <span className="font-bold text-foreground truncate">{preset.shortCode}</span>
-                                      <span className="text-[10px] font-mono font-bold text-primary">{preset.minKb}–{preset.maxKb}KB</span>
+                                      <span className="font-bold text-xs text-foreground truncate">{preset.shortCode}</span>
+                                      <span className="text-[10px] font-mono font-bold text-primary shrink-0">{preset.minKb}–{preset.maxKb}KB</span>
                                     </div>
-                                    <div className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">{preset.name}</div>
+                                    <div className="text-[11px] text-muted-foreground truncate mt-0.5">{preset.name}</div>
                                   </div>
-                                  <div className="pt-2 flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-muted-foreground border-t border-border/40 mt-1.5">
+                                  <div className="pt-1 flex items-center justify-between gap-1 text-[9px] font-mono text-muted-foreground border-t border-border/40 mt-1">
                                     <span>{preset.widthPx}×{preset.heightPx}px</span>
-                                    <span className="text-[9px] font-medium text-primary sm:text-muted-foreground">
-                                      {targetType === 'photo' ? 'Light/White BG' : targetType === 'document' ? 'Board Seal' : preset.inkRequirement}
+                                    <span className="text-primary font-medium truncate">
+                                      {targetType === 'photo' ? 'White BG' : targetType === 'document' ? 'Seal' : preset.inkRequirement}
                                     </span>
                                   </div>
                                 </button>
@@ -2329,13 +2338,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
               </div>
             )}
 
-            {/* Bottom Reference Link */}
-            <div className="pt-2 border-t border-border/60 flex items-center justify-between text-xs">
-              <span className="text-muted-foreground text-[11px]">Looking for official print size rules?</span>
+            {/* Bottom Reference Link - Compact */}
+            <div className="pt-1.5 border-t border-border/60 flex items-center justify-between text-[11px]">
+              <span className="text-muted-foreground text-[10px]">Looking for official print size rules?</span>
               <a
                 href="/#exam-specs"
                 onClick={() => setIsExamDropdownOpen(false)}
-                className="font-bold text-primary hover:underline flex items-center gap-1"
+                className="font-bold text-primary hover:underline flex items-center gap-1 text-[11px]"
               >
                 <span>Browse Full Exam Dimensions Matrix (30+ Guidelines)</span>
                 <span>↓</span>
@@ -3065,7 +3074,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
             hasSourceImage={!!sourceImage}
             targetType={targetType}
             onChangePresetClick={() => {
-              setIsExamDropdownOpen(true);
+              setIsExamDropdownOpen((open) => !open);
               comboboxRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
             onClearClick={clearAllSelectedFiles}
