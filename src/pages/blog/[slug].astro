@@ -8,7 +8,7 @@ import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 import SocialShare from '../../components/SocialShare.astro';
 import { BLOG_POSTS, type BlogPost } from '../../data/blogPostsData';
-import { EXAM_PRESETS } from '../../data/examPresets';
+import { EXAM_PRESETS, ALL_COMBINED_PRESETS } from '../../data/examPresets';
 import { EXAM_PAGES_DATA } from '../../data/examPagesData';
 
 export function getStaticPaths() {
@@ -30,7 +30,7 @@ const canonicalUrl = `https://signresize.in/blog/${post.slug}/`;
 
 // Find related preset if specified
 const relatedPreset = post.relatedExamPreset
-  ? EXAM_PRESETS.find(p => p.id === post.relatedExamPreset)
+  ? ALL_COMBINED_PRESETS.find(p => p.id === post.relatedExamPreset) || EXAM_PRESETS.find(p => p.id === post.relatedExamPreset)
   : null;
 
 const focusedPreset = /sbi/i.test(post.slug) ? 'sbi-signature' : /iit-jam/i.test(post.slug) ? 'iit-jam' : post.relatedExamPreset;
@@ -45,6 +45,8 @@ if (post.country === 'BD') {
   relatedExamSlug = 'prc-photo-signature-resize-philippines';
 } else if (post.country === 'NP') {
   relatedExamSlug = 'lok-sewa-photo-resize-nepal';
+} else if (post.country === 'US') {
+  relatedExamSlug = 'us/ds-160-photo-resizer';
 } else if (focusedPreset) {
   const matchedPage = EXAM_PAGES_DATA.find(p => p.presetId === focusedPreset || p.slug === focusedPreset);
   if (matchedPage) {

@@ -3,7 +3,7 @@
 import { BLOG_POSTS } from '../data/blogPostsData';
 
 interface Props {
-  country: 'PK' | 'PH' | 'BD' | 'NP';
+  country: 'PK' | 'PH' | 'BD' | 'NP' | 'US';
 }
 
 const { country } = Astro.props;
@@ -13,6 +13,7 @@ const countryTitles = {
   PH: "Philippines Board Exam & Civil Service Guides",
   BD: "Bangladesh Teletalk & BPSC Preparation Guides",
   NP: "Nepal Lok Sewa Aayog & PSC Upload Guides",
+  US: "United States Visa, Passport & Immigration Photo Guides",
 };
 
 const countryPosts = BLOG_POSTS.filter((post) => post.country === country);
