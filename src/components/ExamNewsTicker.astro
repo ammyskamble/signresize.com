@@ -8,8 +8,8 @@ const itemsWithStatus = ONGOING_EXAMS_DATA.map(item => ({
   liveStatus: getExamLiveStatus(item)
 }));
 
-// Duplicate items to ensure smooth continuous marquee loop
-const marqueeList = [...itemsWithStatus, ...itemsWithStatus];
+// Deduplicate items for clean unique scrolling loop
+const marqueeList = itemsWithStatus;
 ---
 
 <div class="relative w-full bg-card/95 dark:bg-slate-900/95 border-y border-primary/20 backdrop-blur-md overflow-hidden text-xs select-none z-30 max-w-full">
@@ -112,7 +112,7 @@ const marqueeList = [...itemsWithStatus, ...itemsWithStatus];
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-100%);
     }
   }
 

@@ -608,10 +608,54 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         min-width: 0;
         overflow-wrap: break-word;
         word-break: break-word;
+        color: var(--color-foreground);
       }
       :global(.article-prose p) {
         overflow-wrap: break-word;
         word-break: break-word;
+      }
+      /* Anti-Blending Fail-Safes for Dark Cards & Tables */
+      :global(.article-prose [class*="bg-slate-900"]),
+      :global(.article-prose [class*="bg-slate-950"]) {
+        color: #f8fafc !important;
+      }
+      :global(.article-prose [class*="bg-slate-900"] p),
+      :global(.article-prose [class*="bg-slate-950"] p),
+      :global(.article-prose [class*="bg-slate-900"] li),
+      :global(.article-prose [class*="bg-slate-950"] li) {
+        color: #cbd5e1 !important;
+      }
+      /* Prevent global h2/h3 banner styles from distorting card titles */
+      :global(.article-prose [class*="bg-slate-900"] h2),
+      :global(.article-prose [class*="bg-slate-950"] h2),
+      :global(.article-prose [class*="bg-slate-900"] h3),
+      :global(.article-prose [class*="bg-slate-950"] h3),
+      :global(.article-prose [class*="bg-gradient-"] h2),
+      :global(.article-prose [class*="bg-gradient-"] h3) {
+        background: transparent !important;
+        border-left: none !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        color: #ffffff !important;
+      }
+      :global(.article-prose [class*="bg-card"] h2),
+      :global(.article-prose [class*="bg-card"] h3) {
+        background: transparent !important;
+        border-left: none !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        color: var(--color-foreground) !important;
+      }
+      :global(.article-prose table) {
+        color: var(--color-foreground);
+      }
+      :global(.article-prose th) {
+        color: var(--color-foreground) !important;
+      }
+      :global(.article-prose td) {
+        color: var(--color-foreground);
       }
       :global(.article-prose h2) {
         position: relative;

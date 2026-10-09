@@ -30,6 +30,8 @@ export default defineConfig({
     '/gate': '/gate-signature-resize/',
     '/thumb': '/thumb-impression-resize/',
     '/blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
+    '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muduvfwu': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
+    '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
     '/blog/ssc-cgl-2026-notification-dates-signature-guidelines': '/blog/ssc-cgl-2026-master-application-preparation-guide/',
     '/blog/upsc-csat-paper-2-qualifying-speed-strategy-comprehension-hacks': '/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/',
     '/blog/state-psc-one-time-registration-otr-document-standards': '/blog/state-psc-otr-registration-photo-signature-guidelines/',
@@ -68,14 +70,14 @@ export default defineConfig({
           item.priority = 1.0;
           item.changefreq = 'daily';
         } else if (url.includes('-signature-resize') || url.includes('-photo-resize') || url.includes('-photo-resizer') || url.match(/https:\/\/signresize\.in\/[a-z]{2}\/$/)) {
-          item.priority = 0.9;
+          item.priority = 0.95;
           item.changefreq = 'daily';
         } else if (url.includes('/blog/')) {
-          item.priority = 0.8;
-          item.changefreq = 'weekly';
+          item.priority = 0.85;
+          item.changefreq = 'daily';
         } else {
-          item.priority = 0.5;
-          item.changefreq = 'monthly';
+          item.priority = 0.7;
+          item.changefreq = 'weekly';
         }
 
         return item;

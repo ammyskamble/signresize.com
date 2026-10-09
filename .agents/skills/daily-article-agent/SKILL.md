@@ -61,7 +61,13 @@ This agent executes daily at 9:00 AM to research, draft, format, and publish fre
      </div>
      ```
 
-5. **Quality & Validation Steps:**
+5. **Font Color Contrast & Theme Safety Rules (Anti-Blending Standard):**
+   - **Never Use Unpaired Dark Classes**: Do not use `text-slate-800`, `text-slate-900`, or `text-black` without explicit `dark:text-slate-200` or `dark:text-slate-100` pairs.
+   - **Use Semantic Design Tokens**: Use `text-foreground`, `text-muted-foreground`, `bg-card`, `bg-muted`, and `border-border` so text automatically adjusts between dark and light themes.
+   - **Enclose Dark Cards**: Any container with fixed dark backgrounds (`bg-slate-900`, `bg-slate-950`) **MUST** explicitly declare `text-slate-100` or `text-white` on the parent container so child text is 100% visible in both light and dark modes.
+   - **Table Cells & Headers**: Tables must use `bg-slate-100 dark:bg-slate-800` for headers and `text-slate-900 dark:text-slate-100` or `text-foreground` for rows.
+
+6. **Quality & Validation Steps:**
    - Ensure the slug is completely unique (not already in `BLOG_POSTS`).
    - Run `npx astro build` to confirm zero compilation or TypeScript errors across all dynamic routes.
    - Summarize the newly added article with its title, category, slug, and word count.
