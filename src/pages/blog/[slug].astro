@@ -234,7 +234,7 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
 
   // Always append FAQs if present
   if (faqs && faqs.length > 0) {
-    navItems.push({ id: 'faqs', title: `FAQs (${faqs.length} Answers)` });
+    navItems.push({ id: 'faqs', title: `Frequently Asked Questions (${faqs.length} Clarified)` });
   }
 
   // 4. Adjust sticky jump bars from `sticky top-4` to `sticky top-20` (80px) to clear the 64px sticky header
