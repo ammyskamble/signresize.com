@@ -172,53 +172,45 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
   const navItems: NavItem[] = [];
   const registeredIds = new Set<string>();
 
-  // 1. Check for section tags with an id and a heading inside
-  const sectionRegex = /<section[^>]*id="([^"]+)"[^>]*>[\s\S]*?<h2[^>]*>(.*?)<\/h2>/gi;
-  let sectionMatch: RegExpExecArray | null;
-  while ((sectionMatch = sectionRegex.exec(html)) !== null) {
-    const id = sectionMatch[1];
-    const rawTitle = sectionMatch[2].replace(/<[^>]*>/g, '').replace(/^[^\w\s]+/, '').trim();
-    const cleanTitle = rawTitle.replace(/^[\d\.\s-]+/, '').trim() || rawTitle;
+  // 1. First ensure all <h2> tags have an id attribute
+  html = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs, content) => {
+    const rawText = content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    const idMatch = attrs.match(/id="([^"]+)"/);
+    let id = idMatch ? idMatch[1] : slugify(rawText);
+    if (!id) id = `section-h2-${navItems.length + 1}`;
+
+    if (!attrs.includes('id=')) {
+      return `<h2 id="${id}"${attrs}>${content}</h2>`;
+    }
+    return match;
+  });
+
+  // 2. Parse all <h2> elements (including those inside <section id="...">) in order
+  const h2Regex = /<h2[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/gi;
+  let h2Match: RegExpExecArray | null;
+  while ((h2Match = h2Regex.exec(html)) !== null) {
+    const id = h2Match[1];
+    const rawTitle = h2Match[2].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    const cleanTitle = rawTitle.replace(/^[⚡📐⚖️💡❓📚🏃💼📸📊🎫📝🏛️📖\d\.\s-]+/, '').trim() || rawTitle;
+
     if (!registeredIds.has(id)) {
       registeredIds.add(id);
       navItems.push({ id, title: cleanTitle });
     }
   }
 
-  // 2. If no section-based headings were found, inspect all <h2> tags and inject missing IDs
-  if (navItems.length === 0) {
-    html = html.replace(/<h2([^>]*)>(.*?)<\/h2>/gi, (match, attrs, content) => {
-      const rawText = content.replace(/<[^>]*>/g, '').trim();
-      const idMatch = attrs.match(/id="([^"]+)"/);
-      let id = idMatch ? idMatch[1] : slugify(rawText);
-      if (!id) id = `section-${navItems.length + 1}`;
-
-      const cleanTitle = rawText.replace(/^[⚡📐⚖️💡❓📚🏃💰🪪✍️📸📊🎫\d\.\s-]+/, '').trim() || rawText;
-
-      if (!registeredIds.has(id)) {
-        registeredIds.add(id);
-        navItems.push({ id, title: cleanTitle });
-      }
-
-      if (!idMatch) {
-        return `<h2 id="${id}"${attrs}>${content}</h2>`;
-      }
-      return match;
-    });
-  }
-
   // 3. Fallback: if still empty, check for known landmark IDs in the HTML
   if (navItems.length === 0) {
     const knownLandmarks = [
-      { id: 'overview', title: '1. Overview & Context' },
-      { id: 'master-specs', title: '2. Master Specifications' },
-      { id: 'diagnostic-failures', title: '3. Rejection Traps & Fixes' },
-      { id: 'online-workflow', title: '4. Step-by-Step Workflow' },
-      { id: 'dedicated-tools', title: '5. Dedicated Resizer Tools' },
-      { id: 'shooting-guide', title: '6. Smartphone Shooting Guide' },
-      { id: 'fee-payment-guide', title: '7. Fee Payment Blueprint' },
-      { id: 'ppsc-planner-guide', title: '8. Planner & Exam Schedule' },
-      { id: 'privacy-guarantee', title: '9. Security & Privacy Guarantee' },
+      { id: 'overview', title: 'Overview & Context' },
+      { id: 'master-specs', title: 'Master Specifications' },
+      { id: 'diagnostic-failures', title: 'Rejection Traps & Fixes' },
+      { id: 'online-workflow', title: 'Step-by-Step Workflow' },
+      { id: 'dedicated-tools', title: 'Dedicated Resizer Tools' },
+      { id: 'shooting-guide', title: 'Smartphone Shooting Guide' },
+      { id: 'fee-payment-guide', title: 'Fee Payment Blueprint' },
+      { id: 'ppsc-planner-guide', title: 'Planner & Exam Schedule' },
+      { id: 'privacy-guarantee', title: 'Security & Privacy Guarantee' },
       { id: 'exam-pattern', title: 'Exam Pattern' },
       { id: 'document-specs', title: 'Document Specs' },
       { id: 'strategy', title: 'Preparation Strategy' }

@@ -208,3 +208,69 @@ body {
   overflow-x: clip;
   max-width: 100%;
 }
+
+/* ⚡ Hero Project-Related Animation Keyframes */
+@keyframes scanLine {
+  0%, 100% {
+    top: 6%;
+    opacity: 0.3;
+  }
+  50% {
+    top: 88%;
+    opacity: 1;
+  }
+}
+
+@keyframes drawSignPath {
+  0% {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    opacity: 0.4;
+  }
+  45%, 85% {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes floatPill {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulseGlowBorder {
+  0%, 100% {
+    border-color: rgba(79, 70, 229, 0.3);
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.15);
+  }
+  50% {
+    border-color: rgba(79, 70, 229, 0.7);
+    box-shadow: 0 0 25px rgba(79, 70, 229, 0.35);
+  }
+}
+
+.animate-scan-line {
+  animation: scanLine 2.8s ease-in-out infinite;
+}
+
+.animate-draw-sign {
+  animation: drawSignPath 3.5s ease-in-out infinite;
+}
+
+.animate-float-pill {
+  animation: floatPill 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlowBorder 3s ease-in-out infinite;
+}
