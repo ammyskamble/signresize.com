@@ -191,7 +191,7 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
   while ((h2Match = h2Regex.exec(html)) !== null) {
     const id = h2Match[1];
     const rawTitle = h2Match[2].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
-    const cleanTitle = rawTitle.replace(/^[⚡📐⚖️💡❓📚🏃💼📸📊🎫📝🏛️📖\d\.\s-]+/, '').trim() || rawTitle;
+    const cleanTitle = rawTitle.replace(/^([\p{Extended_Pictographic}\u2000-\u3300\uFE00-\uFE0F\s]*\d+[\.\-\)]\s*)+/u, '').trim() || rawTitle;
 
     if (!registeredIds.has(id)) {
       registeredIds.add(id);
@@ -456,7 +456,8 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
 
       <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
       {post.faqs && post.faqs.length > 0 && (
-        <section id="faqs" class="space-y-4 pt-6 border-t border-border">
+        <section id="faqs" class="space-y-4 pt-6 border-t border-border scroll-mt-20">
+          <span id="section-6" class="scroll-mt-24 block -mt-6 pt-6"></span>
           <div class="space-y-1">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
               <span>❓</span> Official Candidate FAQs
