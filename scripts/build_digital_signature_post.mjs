@@ -133,21 +133,25 @@ const digitalSignaturePost = {
 </div>
 
 <!-- Interactive Tool Callout Card -->
-<div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-card border-2 border-primary/30 shadow-sm">
-  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-    <div class="space-y-1">
-      <h4 class="text-base sm:text-lg font-extrabold text-foreground flex items-center gap-2">
-        <span>✍️</span> Need to Create or Clean an Online Signature for Documents?
-      </h4>
+<div class="not-prose my-8 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-card via-primary/5 to-card border-2 border-primary/25 shadow-xs">
+  <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+    <div class="flex-1 min-w-0 space-y-2">
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
+        <span>✍️</span> Free Client-Side Document Utilities
+      </div>
+      <div role="heading" aria-level="3" class="text-base sm:text-lg font-extrabold text-foreground dark:text-white leading-snug">
+        Need to Create or Clean an Online Signature for Documents?
+      </div>
       <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
         Whether you need an unruled transparent signature for PDF contracts or need to format image files for portal uploads, SignResize offers zero-upload, client-side signature generation tools.
       </p>
     </div>
-    <div class="flex flex-wrap sm:flex-nowrap gap-2 shrink-0">
-      <a href="/electronic-signature/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">
-        Draw Electronic Signature &rarr;
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+      <a href="/electronic-signature/" class="px-5 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-95 transition shadow-xs flex items-center justify-center gap-1.5 no-underline">
+        <span>Draw Electronic Signature</span>
+        <span>&rarr;</span>
       </a>
-      <a href="/signature-generator/" class="px-4 py-2.5 rounded-xl bg-muted text-foreground border border-border font-bold text-xs sm:text-sm hover:bg-muted/80 transition">
+      <a href="/signature-generator/" class="px-5 py-2.5 min-h-[42px] rounded-xl bg-card border border-border text-foreground font-semibold text-xs sm:text-sm hover:bg-muted transition flex items-center justify-center no-underline">
         Type Handwritten Signatures
       </a>
     </div>
