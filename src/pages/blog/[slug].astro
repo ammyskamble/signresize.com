@@ -115,10 +115,10 @@ const breadcrumbSchema = {
   ]
 };
 
-// Dynamic BlogPosting Schema
+// Dynamic BlogPosting & TechArticle Schema
 const articleSchema = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
+  "@type": post.category === 'Guidelines & Tips' ? ["BlogPosting", "TechArticle"] : "BlogPosting",
   "headline": post.title,
   "description": post.excerpt,
   "image": ["https://signresize.in/favicon-96x96.png"],
@@ -262,7 +262,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
 ---
 
 <!doctype html>
-<html lang="en-IN" class="scroll-smooth">
+<html lang={post.country === 'US' ? 'en-US' : 'en-IN'} class="scroll-smooth">
   <head>
     <ThemeScript />
     <GoogleAnalytics />
@@ -280,12 +280,17 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
     <link rel="manifest" href="/site.webmanifest" />
     <GoogleFonts />
 
-    <!-- Open Graph -->
+    <!-- Open Graph & Social Cards -->
     <meta property="og:type" content="article" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="SignResize" />
+    <meta property="og:image" content="https://signresize.in/favicon-96x96.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content="https://signresize.in/favicon-96x96.png" />
 
     <!-- Article & Breadcrumb Schemas -->
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -315,13 +320,20 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <span class="text-foreground font-medium truncate max-w-[150px] sm:max-w-xs md:max-w-md">{post.title}</span>
         </nav>
 
-        <!-- Language Switcher Bar -->
-        <div class="flex items-center gap-1.5 text-xs bg-muted/60 p-1 rounded-xl border border-border/60">
-          <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-2">📖 Read In:</span>
-          <a href={`/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇬🇧 English</a>
-          <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🇮🇳 हिंदी</a>
-          <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🚩 मराठी</a>
-        </div>
+        <!-- Language Switcher Bar / Edition Tag -->
+        {post.country === 'US' ? (
+          <div class="flex items-center gap-1.5 text-xs bg-muted/60 px-3 py-1 rounded-xl border border-border/60 text-muted-foreground">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-primary">🇺🇸 US Edition:</span>
+            <span class="font-medium text-foreground">Federal ESIGN & PKI Standards</span>
+          </div>
+        ) : (
+          <div class="flex items-center gap-1.5 text-xs bg-muted/60 p-1 rounded-xl border border-border/60">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-2">📖 Read In:</span>
+            <a href={`/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇬🇧 English</a>
+            <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🇮🇳 हिंदी</a>
+            <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🚩 मराठी</a>
+          </div>
+        )}
       </div>
 
       <!-- Article Header -->
@@ -451,7 +463,8 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         title={post.title}
         description={post.excerpt}
         variant="card"
-        badgeText="Share this Official Exam Guide with Aspirants & Study Groups"
+        badgeText={post.country === 'US' || post.category === 'Guidelines & Tips' ? "Share this Technical & Compliance Guide with Colleagues" : "Share this Official Exam Guide with Aspirants & Study Groups"}
+        subtext={post.country === 'US' || post.category === 'Guidelines & Tips' ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : "Help fellow candidates avoid application rejections on official exam portals."}
       />
 
       <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
@@ -460,13 +473,15 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <span id="section-6" class="scroll-mt-24 block -mt-6 pt-6"></span>
           <div class="space-y-1">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
-              <span>❓</span> Official Candidate FAQs
+              <span>❓</span> {post.country === 'US' || post.category === 'Guidelines & Tips' ? 'Technical & Regulatory FAQs' : 'Official Candidate FAQs'}
             </div>
             <h2 class="text-xl sm:text-3xl font-extrabold text-foreground tracking-tight break-words">
               Frequently Asked Questions ({post.faqs.length} Clarified)
             </h2>
             <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
-              Direct, authoritative answers verified against official commission gazettes, application instructions, and scrutiny standards.
+              {post.country === 'US' || post.category === 'Guidelines & Tips'
+                ? 'Authoritative answers verified against technical RFC specifications, NIST standards, and legal compliance frameworks.'
+                : 'Direct, authoritative answers verified against official commission gazettes, application instructions, and scrutiny standards.'}
             </p>
           </div>
 
@@ -554,7 +569,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <div class="flex items-center justify-between">
             <h3 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
               <span>📚</span>
-              <span>Related High-Yield Preparation Guides</span>
+              <span>{post.country === 'US' || post.category === 'Guidelines & Tips' ? 'Related Technical & Document Standards Guides' : 'Related High-Yield Preparation Guides'}</span>
             </h3>
             <a href="/blog/" class="text-xs text-primary font-semibold hover:underline">
               View All Guides &rarr;
@@ -592,7 +607,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
 
     </main>
 
-    <Footer />
+    <Footer topic={post.country === 'US' || post.category === 'Guidelines & Tips' ? 'standards' : 'exams'} />
 
     <style>
       :global(.article-prose) {

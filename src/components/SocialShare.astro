@@ -8,6 +8,7 @@ interface Props {
   description?: string;
   variant?: 'inline' | 'card';
   badgeText?: string;
+  subtext?: string;
 }
 
 const {
@@ -15,7 +16,8 @@ const {
   title = "SignResize: Free Online Photo & Signature Resizer for Govt Exams",
   description = "Resize and compress photos and signatures for SSC, RRB, IBPS, UPSC, and State PSC exams to official KB & pixel guidelines.",
   variant = 'card',
-  badgeText = "Share with Friends & Study Groups"
+  badgeText = "Share with Friends & Study Groups",
+  subtext = "Help fellow candidates avoid application rejections on official exam portals."
 } = Astro.props;
 
 const shareMessage = `${title}\n\n${description}`;
@@ -72,7 +74,7 @@ const shareLinks = [
         </span>
         <div>
           <h4 class="font-bold text-sm sm:text-base text-foreground dark:text-zinc-100 leading-tight">{badgeText}</h4>
-          <p class="text-xs text-muted-foreground dark:text-zinc-400 mt-0.5">Help fellow candidates avoid application rejections on official exam portals.</p>
+          <p class="text-xs text-muted-foreground dark:text-zinc-400 mt-0.5">{subtext}</p>
         </div>
       </div>
       <span class="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono text-primary dark:text-indigo-300 font-semibold px-2.5 py-1 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/40 shrink-0">

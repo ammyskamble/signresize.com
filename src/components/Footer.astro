@@ -5,6 +5,13 @@ import Logo from './Logo.astro';
 import SocialShare from './SocialShare.astro';
 import ChatBot from './ChatBot.tsx';
 import ScrollToTop from './ScrollToTop.astro';
+
+interface Props {
+  topic?: 'exams' | 'standards' | 'tech';
+}
+
+const { topic = 'exams' } = Astro.props;
+const isTechOrStandards = topic === 'standards' || topic === 'tech';
 const currentYear = new Date().getFullYear();
 ---
 
@@ -18,19 +25,23 @@ const currentYear = new Date().getFullYear();
 
   <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10">
     
-    <!-- Sarkari Exam Alert & Newsletter Subscription Card in Vibrant Highlight Gradient -->
+    <!-- Alert & Newsletter Subscription Card in Vibrant Highlight Gradient -->
     <div class="relative overflow-hidden rounded-2xl border-2 border-primary/50 bg-gradient-to-r from-indigo-950 via-purple-950/90 to-slate-900 p-5 sm:p-6 shadow-2xl shadow-primary/20 backdrop-blur-md">
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 relative z-10">
         <div class="space-y-1.5 max-w-xl">
           <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/25 text-indigo-200 border border-primary/50 text-[10px] font-mono font-bold tracking-wide shadow-xs">
             <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
-            FREE SARKARI EXAM ALERTS
+            {isTechOrStandards ? 'DOCUMENT SECURITY & STANDARDS ALERTS' : 'FREE SARKARI EXAM ALERTS'}
           </div>
           <h3 class="text-sm sm:text-base font-bold text-white tracking-tight">
-            Never miss a 2026 photo rule change or application deadline
+            {isTechOrStandards 
+              ? 'Never miss a 2026 digital signature or PDF compliance update' 
+              : 'Never miss a 2026 photo rule change or application deadline'}
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Get instant email alerts when SSC, RRB, UPSC, or State PSCs modify upload specs, launch live webcam verification, or release new admit card guidelines.
+            {isTechOrStandards
+              ? 'Get instant updates when NIST, Adobe AATL, or US/EU electronic signature compliance frameworks modify verification rules.'
+              : 'Get instant email alerts when SSC, RRB, UPSC, or State PSCs modify upload specs, launch live webcam verification, or release new admit card guidelines.'}
           </p>
         </div>
 
@@ -43,7 +54,7 @@ const currentYear = new Date().getFullYear();
                 type="email"
                 id="subscriber-email"
                 required
-                placeholder="Enter email for exam updates..."
+                placeholder={isTechOrStandards ? "Enter email for standards updates..." : "Enter email for exam updates..."}
                 class="w-full px-2 py-1.5 text-xs bg-transparent text-white placeholder:text-slate-400 focus:outline-none"
               />
               <button
@@ -56,11 +67,13 @@ const currentYear = new Date().getFullYear();
               </button>
             </div>
             <div id="subscribe-status" class="hidden text-[11px] font-medium text-emerald-400 pl-1">
-              ✓ Subscribed! You will receive 2026 exam photo &amp; signature notifications.
+              {isTechOrStandards 
+                ? '✓ Subscribed! You will receive document security & signature compliance notifications.'
+                : '✓ Subscribed! You will receive 2026 exam photo & signature notifications.'}
             </div>
             <div class="flex items-center justify-between px-1 text-[10px] text-slate-400">
               <span>🔒 100% In-Browser. No Spam.</span>
-              <span class="text-emerald-400 font-semibold">⚡ 12,000+ Aspirants Joined</span>
+              <span class="text-emerald-400 font-semibold">{isTechOrStandards ? '⚡ 15,000+ Professionals Joined' : '⚡ 12,000+ Aspirants Joined'}</span>
             </div>
           </form>
         </div>
