@@ -132,19 +132,6 @@ const digitalSignaturePost = {
   </div>
 </div>
 
-<!-- Quick Navigation Ribbon -->
-<div class="my-6 p-4 rounded-xl bg-muted/30 border border-border">
-  <h4 class="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">📑 Quick Navigation Index</h4>
-  <div class="flex flex-wrap gap-2 text-xs">
-    <a href="#section-1" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary text-foreground transition">⚡ 1. Cryptography & PKI Architecture</a>
-    <a href="#section-2" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary text-foreground transition">📐 2. Digital Signature vs Electronic Signature</a>
-    <a href="#section-3" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary text-foreground transition">⚖️ 3. Implementation Pros & Cons Matrix</a>
-    <a href="#section-4" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary text-foreground transition">💡 4. Step-by-Step Signing Protocol & APIs</a>
-    <a href="#section-5" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary text-foreground transition">5. Master Technical & Security Query Directory (5W1H Framework)</a>
-    <a href="#faqs" class="px-2.5 py-1 rounded-lg bg-card border border-border hover:border-primary text-foreground transition">6. Frequently Asked Questions</a>
-  </div>
-</div>
-
 <!-- Interactive Tool Callout Card -->
 <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-card border-2 border-primary/30 shadow-sm">
   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
