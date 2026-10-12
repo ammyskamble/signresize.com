@@ -998,11 +998,11 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     presetId: 'wbpsc-west-bengal',
     pageTitle: 'WBPSC Signature Resize 10 to 20 KB (140x60 px) - SignResize',
     metaDescription: 'Resize signature for West Bengal PSC (WBCS, Clerkship, Miscellaneous). Format to 140x60 px (4x2 cm), strictly 10 to 20 KB JPG.',
-    keywords: 'wbpsc signature resize, wbcs signature size 10 to 20 kb, west bengal psc signature format, wbpsc clerkship signature resizer',
+    keywords: 'wbpsc signature resize, wbcs signature size 10 to 20 kb, west bengal psc signature format, wbpsc clerkship signature resizer, wbpsc miscellaneous form fill up 2026, wbpsc photo resize',
     h1: 'WBPSC Signature Resize & Compressor (10 KB – 20 KB)',
-    subheading: 'Exact 140×60 px (4.0×2.0 cm) format with strict 10 KB to 20 KB file bounds compliant with WBPSC OTR portal.',
+    subheading: 'Exact 140×60 px (4.0×2.0 cm) / 138×59 px format with strict 10 KB to 20 KB file bounds compliant with WBPSC OTR portal.',
     authority: 'West Bengal Public Service Commission (WBPSC)',
-    targetExams: 'WBCS (Exe), WBPSC Clerkship, Miscellaneous Services, Food SI, ICDS Supervisor',
+    targetExams: 'WBCS (Exe), WBPSC Clerkship, Miscellaneous Services 2026, Food SI, ICDS Supervisor',
     widthPx: 140,
     heightPx: 60,
     widthCm: 4.0,
@@ -1012,17 +1012,26 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     recommendedKb: 15,
     dpi: 200,
     ink: 'Black Ink Ballpoint Pen Only',
-    aspectRatioLabel: '7:3 (~140×60 px)',
+    aspectRatioLabel: '7:3 (~140×60 px / 138×59 px)',
     strictNotice: 'WBPSC portal strictly disallows files under 10 KB and above 20 KB. Must be running handwriting in black ink.',
     tips: [
-      'Sign in black ballpoint ink on spotless white paper.',
-      'Crop cleanly around the text.',
-      'Ensure the final file size shows between 10.0 KB and 19.9 KB.'
+      'Sign in black ballpoint ink on spotless white paper in running cursive handwriting.',
+      'Crop cleanly around the text without leaving excessive blank margins.',
+      'Ensure the final file size shows between 10.0 KB and 19.9 KB.',
+      'Upload file in authentic JPG / JPEG format (avoid renaming PNG directly to JPG).'
     ],
     faqs: [
       {
         q: 'What is the allowed signature size for WBCS / WBPSC?',
-        a: 'The allowed signature size is strictly between 10 KB and 20 KB with dimensions of 140 × 60 pixels (~4 cm × 2 cm).'
+        a: 'The allowed signature size is strictly between 10 KB and 20 KB with dimensions of 140 × 60 pixels (~4 cm × 2 cm) or 138 × 59 pixels in JPG format.'
+      },
+      {
+        q: 'What are the photo dimensions for WBPSC Miscellaneous & Clerkship?',
+        a: 'The photograph must be in JPEG format, sized between 20 KB and 100 KB with pixel dimensions of 138 × 177 pixels (3.5 × 4.5 cm) against a white background.'
+      },
+      {
+        q: 'Why does the WBPSC portal show "Invalid dimensions or file size" error?',
+        a: 'This occurs if your signature is smaller than 10 KB or larger than 20 KB, or if the pixel width and height deviate from the required 140×60 px / 138×59 px standard. Use SignResize to lock within the exact required bounds.'
       }
     ]
   },

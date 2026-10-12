@@ -74,6 +74,358 @@ export function getBlogPostContent(post: BlogPost, lang?: string): string {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "wbpsc-miscellaneous-clerkship-form-fill-up-photo-signature-resize-guide",
+    title: "WBPSC Form Fill Up 2026: Miscellaneous, Clerkship, Syllabus, Salary, Results & Photo/Signature Resizer",
+    excerpt: "The master guide for WBPSC 2026: Miscellaneous & Clerkship recruitment, post list, syllabus, salary slips, results, server crash solutions, and 10–20 KB signature/photo upload tools.",
+    category: "Guidelines & Tips",
+    publishDate: "Oct 12, 2026",
+    lastUpdated: "Oct 12, 2026",
+    author: "SignResize Commission Verification Team",
+    authorRole: "West Bengal PSC Examination & Portal Desk",
+    readTime: "12 min read",
+    featured: true,
+    tags: [
+      "WBPSC",
+      "WBPSC Miscellaneous",
+      "WBPSC Clerkship",
+      "WBPSC Syllabus",
+      "WBPSC Salary",
+      "WBPSC Result",
+      "WBCS 2026",
+      "Signature Resize 10-20KB",
+      "Photo Compressor",
+      "OTR Portal Fixes"
+    ],
+    relatedExamPreset: "wbpsc-west-bengal",
+    quickFacts: [
+      { label: "Commission", value: "West Bengal Public Service Commission (WBPSC)" },
+      { label: "Official Portals", value: "psc.wb.gov.in / wbpsc.ucanapply.com" },
+      { label: "Signature Bounds", value: "10 KB – 20 KB (140×60 px / 138×59 px)" },
+      { label: "Photo Bounds", value: "20 KB – 100 KB (138×177 px / 3.5×4.5 cm)" },
+      { label: "Key Exams 2026", value: "Miscellaneous Services, Clerkship, WBCS, Food SI" },
+      { label: "Clerkship In-Hand Pay", value: "Level 6 (~₹26,500 – ₹29,200 / month)" }
+    ],
+    contentHtml: `
+      <div class="my-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs sm:text-sm text-foreground/90 leading-relaxed">
+        <strong>⚡ Direct Summary:</strong> If you are filling up the form for <strong>WBPSC Miscellaneous 2026</strong>, <strong>Clerkship</strong>, or <strong>WBCS</strong> on <code>psc.wb.gov.in</code> or <code>wbpsc.ucanapply.com</code>, your scanned photograph must be <strong>138 &times; 177 pixels (20 KB – 100 KB)</strong> and signature must strictly be <strong>140 &times; 60 pixels (or 138 &times; 59 pixels) between 10 KB and 20 KB</strong> in running cursive black/blue ink. Below you will find the complete syllabus, salary slips, post breakdown, server timeout workarounds, and 1-click resizing tools.
+      </div>
+
+      <h2 id="wbpsc-overview">1. WBPSC Overview &amp; Official Portals</h2>
+      <p>The <strong>West Bengal Public Service Commission (WBPSC)</strong> is the premier constitutional recruitment body established under Article 315 of the Constitution of India, headquartered at Mudiali, Kolkata. It conducts competitive recruitment examinations for Group A, B, C, and D administrative, executive, supervisory, and clerical services for the Government of West Bengal.</p>
+
+      <!-- Bengali Information Card -->
+      <div class="my-4 p-4 rounded-xl bg-sky-500/10 border border-sky-500/30">
+        <h4 class="font-bold text-sky-900 dark:text-sky-200 text-sm flex items-center gap-2">
+          <span>🏛️</span> WBPSC কি? (What is WBPSC in Bengali)
+        </h4>
+        <p class="text-xs sm:text-sm text-sky-950 dark:text-sky-100 mt-1 leading-relaxed">
+          <strong>WBPSC</strong> (West Bengal Public Service Commission) হলো পশ্চিমবঙ্গ সরকারের সাংবিধানিক কমিশন, যা রাজ্য সিভিল সার্ভিস (WBCS), ক্লার্কশিপ (Clerkship), মিসলেনিয়াস সার্ভিস (Miscellaneous Services), ফুড এসআই (Food SI) ইত্যাদি গুরুত্বপূর্ণ সরকারি চাকরির পরীক্ষা পরিচালনা করে।
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+        <div class="p-4 rounded-xl bg-card border border-border">
+          <h4 class="font-semibold text-foreground text-sm">Official Commission Website</h4>
+          <p class="text-xs text-muted-foreground mt-1">Official notifications, answer keys, results, and interview schedules:</p>
+          <a href="https://psc.wb.gov.in" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs font-mono font-bold text-primary underline">
+            psc.wb.gov.in &nearr;
+          </a>
+        </div>
+        <div class="p-4 rounded-xl bg-card border border-border">
+          <h4 class="font-semibold text-foreground text-sm">Online Application &amp; OTR Portal</h4>
+          <p class="text-xs text-muted-foreground mt-1">One-Time Registration, candidate login, and form fill-up engine:</p>
+          <a href="https://wbpsc.ucanapply.com" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs font-mono font-bold text-primary underline">
+            wbpsc.ucanapply.com &nearr;
+          </a>
+        </div>
+      </div>
+
+      <p class="text-xs sm:text-sm text-foreground/90"><strong>Who is the Chairman of WBPSC?</strong> The Commission is governed by a Chairman and Members appointed by the Governor of West Bengal pursuant to Article 316 of the Constitution of India.</p>
+
+      <div class="my-4 p-3 rounded-xl bg-primary/10 border border-primary/20 text-xs sm:text-sm text-foreground/90">
+        <strong>💡 Are WBPSC and WBCS the same?</strong> No! <strong>WBPSC</strong> is the state recruitment commission itself. <strong>WBCS (West Bengal Civil Service Executive)</strong> is the flagship elite examination organized by WBPSC for recruitment to Group A administrative officers (WBCS Exe, WBPS, WB Commercial Tax Service, etc.).
+      </div>
+
+      <h2 id="wbpsc-miscellaneous-posts">2. WBPSC Miscellaneous Services 2026: Posts, Cadres &amp; Eligibility</h2>
+      <p>Candidates repeatedly ask: <em>"WBPSC Miscellaneous which post?"</em> The WBPSC Miscellaneous Services Examination is one of the most prestigious multi-departmental examinations in West Bengal, hiring officers for both <strong>Pay Level 10 (Rs. 32,100 – Rs. 82,900)</strong> and <strong>Pay Level 9 (Rs. 28,900 – Rs. 74,500)</strong>.</p>
+
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full min-w-[620px] text-xs sm:text-sm text-left border border-border">
+          <thead class="bg-muted text-foreground font-semibold">
+            <tr>
+              <th class="p-3 border-b">Designated Post Title</th>
+              <th class="p-3 border-b">Parent Department / Directorate</th>
+              <th class="p-3 border-b">ROPA Pay Level</th>
+              <th class="p-3 border-b">Role &amp; Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="p-3 font-semibold text-primary">Assistant Programme Officer (APO)</td>
+              <td class="p-3">Panchayat &amp; Rural Development</td>
+              <td class="p-3 font-mono font-bold">Level 10 (Rs. 32,100+)</td>
+              <td class="p-3">Oversees MGNREGA and rural infrastructure schemes at the Block level.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Disaster Management Officer (DMO)</td>
+              <td class="p-3">Disaster Management &amp; Civil Defence</td>
+              <td class="p-3 font-mono font-bold">Level 10 (Rs. 32,100+)</td>
+              <td class="p-3">Coordinates relief operations, emergency shelter response, and hazard mitigation.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Block Youth Officer / Municipal Youth Officer</td>
+              <td class="p-3">Youth Services &amp; Sports Dept</td>
+              <td class="p-3 font-mono font-bold">Level 10 (Rs. 32,100+)</td>
+              <td class="p-3">Promotes state youth welfare programs, sports clinics, and vocational talent hunts.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Block Welfare Officer (BWO)</td>
+              <td class="p-3">Backward Classes Welfare / Tribal Dev</td>
+              <td class="p-3 font-mono font-bold">Level 10 (Rs. 32,100+)</td>
+              <td class="p-3">Administers SC/ST/OBC scholarships, hostel management, and caste certification.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Sub-Inspector of Food &amp; Supplies</td>
+              <td class="p-3">Food &amp; Supplies Department</td>
+              <td class="p-3 font-mono font-bold">Level 10 (Rs. 32,100+)</td>
+              <td class="p-3">Fair price shop inspections, ration distribution auditing, and procurement control.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Assistant Agricultural Marketing Officer</td>
+              <td class="p-3">Agricultural Marketing Dept</td>
+              <td class="p-3 font-mono font-bold">Level 10 (Rs. 32,100+)</td>
+              <td class="p-3">Supervises wholesale mandi prices, cold storage logistics, and farmer market fair play.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Consumer Welfare Officer (CWO)</td>
+              <td class="p-3">Consumer Affairs Department</td>
+              <td class="p-3 font-mono font-bold">Level 9 (Rs. 28,900+)</td>
+              <td class="p-3">Enforces legal metrology, consumer rights, and anti-adulteration drives.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Controller of Vagrancy / Revenue Inspector</td>
+              <td class="p-3">Women &amp; Child Dev / Land Revenue</td>
+              <td class="p-3 font-mono font-bold">Level 9 (Rs. 28,900+)</td>
+              <td class="p-3">Field auditing, social welfare shelters, and revenue verification.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="my-4 p-4 rounded-xl bg-card border border-border">
+        <h4 class="font-bold text-foreground text-sm">📅 WBPSC Miscellaneous 2026 Form Fill-Up &amp; Timeline</h4>
+        <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 mt-2">
+          <li><strong>Notification Release:</strong> Announced officially via <code>psc.wb.gov.in</code>.</li>
+          <li><strong>Educational Eligibility:</strong> Bachelor's Degree in any discipline from a recognized University. Ability to read, write, and speak in Bengali (or Nepali for hill candidates).</li>
+          <li><strong>Age Criteria:</strong> 20 to 39 years (with 5 years relaxation for SC/ST and 3 years for OBC of West Bengal).</li>
+          <li><strong>Application Fee:</strong> ₹160 + processing fees (Exempted for SC/ST of West Bengal and PwBD &ge; 40%).</li>
+        </ul>
+      </div>
+
+      <h2 id="wbpsc-syllabus-prep">3. WBPSC Miscellaneous Syllabus &amp; High-Scoring Preparation Strategy</h2>
+      <p>The examination is conducted in three successive stages: <strong>Preliminary Examination (Objective)</strong>, <strong>Final Examination (Conventional Written)</strong>, and <strong>Personality Test (Interview)</strong>.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+        <div class="p-4 rounded-xl bg-card border border-border space-y-3">
+          <h4 class="font-bold text-primary text-sm flex items-center gap-1.5">
+            <span>📝</span> Stage 1: Preliminary Exam (200 Marks)
+          </h4>
+          <p class="text-xs text-muted-foreground">Screening test containing 100 Multiple Choice Questions (MCQs) for a duration of <strong>1 Hour 30 Minutes</strong>:</p>
+          <ul class="text-xs space-y-1 text-foreground/90">
+            <li><strong>General Studies:</strong> 75 Questions &times; 2 Marks = <strong>150 Marks</strong> (Indian History, Geography, Polity, Science, Current Affairs).</li>
+            <li><strong>Arithmetic:</strong> 25 Questions &times; 2 Marks = <strong>50 Marks</strong> (Madhyamik Standard Arithmetic, Percentages, Profit-Loss, Time-Speed, Ratio).</li>
+            <li><strong>Negative Marking:</strong> <strong>2/3rd (0.66 marks deducted)</strong> per incorrect answer.</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl bg-card border border-border space-y-3">
+          <h4 class="font-bold text-primary text-sm flex items-center gap-1.5">
+            <span>✍️</span> Stage 2: Final Examination (450 Marks)
+          </h4>
+          <p class="text-xs text-muted-foreground">Conventional descriptive written test consisting of three separate papers:</p>
+          <ul class="text-xs space-y-1 text-foreground/90">
+            <li><strong>Paper I (English):</strong> 150 Marks (Drafting Report, Translation, Summary/Pr&eacute;cis, Grammar). Duration: 1.5 Hours.</li>
+            <li><strong>Paper II (Bengali / Hindi / Urdu / Nepali / Santhali):</strong> 150 Marks (Descriptive drafting &amp; Translation). Duration: 1.5 Hours.</li>
+            <li><strong>Paper III (GS &amp; Arithmetic):</strong> 150 Marks (100 Marks GS + 50 Marks Madhyamik Math). Duration: 2.5 Hours.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 text-xs sm:text-sm text-foreground/90">
+        <strong>🎯 Stage 3: Personality Test (100 Marks)</strong>: Candidates clearing the cut-off in the 450-mark conventional final exam are invited to the Commission's Mudiali office. The final merit list is compiled strictly based on <strong>Final Written Exam (450) + Personality Test (100) = 550 Marks Total</strong>.
+      </div>
+
+      <h2 id="wbpsc-clerkship-guide">4. WBPSC Clerkship 2026: Salary, Applicant Competition &amp; Exam Pattern</h2>
+      <p>The <strong>WBPSC Clerkship Examination</strong> is the largest entry-level state recruitment, deploying Lower Division Assistants (LDA) and Lower Division Clerks (LDC) across West Bengal Secretariats, Directorates, and District Offices.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+        <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+          <h4 class="font-bold text-foreground text-sm">💰 WBPSC Clerkship Monthly Salary Slip (ROPA 2019)</h4>
+          <div class="text-xs space-y-1.5 text-foreground/90">
+            <div class="flex justify-between border-b pb-1"><span>Pay Matrix Level:</span><span class="font-bold font-mono">Level 6</span></div>
+            <div class="flex justify-between border-b pb-1"><span>Basic Pay (Entry):</span><span class="font-mono">₹22,700</span></div>
+            <div class="flex justify-between border-b pb-1"><span>Dearness Allowance (DA):</span><span class="font-mono">Current State Rates</span></div>
+            <div class="flex justify-between border-b pb-1"><span>House Rent Allowance (HRA 12%):</span><span class="font-mono">₹2,724</span></div>
+            <div class="flex justify-between border-b pb-1"><span>Medical Allowance (MA):</span><span class="font-mono">₹500</span></div>
+            <div class="flex justify-between pt-1 font-bold text-primary"><span>Estimated Monthly In-Hand Gross:</span><span class="font-mono">₹26,500 – ₹29,200</span></div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+          <h4 class="font-bold text-foreground text-sm">📊 How Many Candidates Applied for WBPSC Clerkship?</h4>
+          <p class="text-xs text-foreground/90 leading-relaxed">
+            Over <strong>7.5 to 8 Lakh candidates</strong> submit applications for WBPSC Clerkship, making it the most competitive examination conducted by the Commission.
+          </p>
+          <ul class="text-xs space-y-1 text-muted-foreground mt-2">
+            <li><strong>Minimum Qualification:</strong> Madhyamik Pass (10th Standard) + Basic Computer Literacy.</li>
+            <li><strong>Part I Exam:</strong> 100 Marks MCQ (English 30, GS 40, Arithmetic 30).</li>
+            <li><strong>Part II Exam:</strong> 100 Marks Descriptive (English 50 + Bengali/Hindi 50).</li>
+            <li><strong>Computer Typing Test:</strong> Qualifying test (20 WPM English or 10 WPM Bengali).</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="wbpsc-admit-results">5. WBPSC Admit Card Download &amp; Result Checking Protocol</h2>
+      <p>Whether you need your <strong>WBPSC Clerkship Admit Card</strong>, <strong>Miscellaneous Admit Card</strong>, or are checking the <strong>WBPSC Clerkship Result</strong>, follow these official procedures:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+        <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+          <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+            <span>🎟️</span> How to Download WBPSC Admit Card
+          </h4>
+          <ol class="text-xs space-y-1.5 list-decimal pl-4 text-foreground/90">
+            <li>Visit <code>psc.wb.gov.in</code>.</li>
+            <li>Under "Candidate's Corner" on the right sidebar, click <strong>"Download Admit Card (For Written / Screening Test)"</strong>.</li>
+            <li>Find your respective notification (e.g., Clerkship / Miscellaneous / Food SI).</li>
+            <li>Select login mode: Enter <strong>Enrolment Number &amp; Date of Birth</strong> OR <strong>First Name &amp; DOB</strong>.</li>
+            <li>Click "Search", download your hall ticket PDF, and print in clear A4 color format.</li>
+          </ol>
+        </div>
+
+        <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+          <h4 class="font-bold text-foreground text-sm flex items-center gap-1.5">
+            <span>🏆</span> How to Check WBPSC Clerkship &amp; Miscellaneous Result
+          </h4>
+          <ol class="text-xs space-y-1.5 list-decimal pl-4 text-foreground/90">
+            <li>Navigate to the homepage of <code>psc.wb.gov.in</code>.</li>
+            <li>Click on <strong>"Results / Recommendation"</strong> under the main header menu.</li>
+            <li>Locate the PDF titled <em>"List of Qualified Candidates in [Exam Name] (Advt No. XX/202X)"</em>.</li>
+            <li>Open the PDF and press <code>Ctrl + F</code> (or search on mobile) to enter your Roll Number.</li>
+            <li>Scroll to the final page to check official category-wise cut-off marks (UR, OBC-A, OBC-B, SC, ST, EWS).</li>
+          </ol>
+        </div>
+      </div>
+
+      <h2 id="wbpsc-photo-sign-specs">6. Mandatory Photo &amp; Signature Dimensions for WBPSC OTR</h2>
+      <p>The WBPSC One-Time Registration and application system (<code>wbpsc.ucanapply.com</code>) enforces strict pixel dimension and kilobyte barriers. Files deviating from these bounds will be immediately rejected by the portal's validation engine:</p>
+
+      <div class="my-6 overflow-x-auto">
+        <table class="w-full min-w-[620px] text-xs sm:text-sm text-left border border-border">
+          <thead class="bg-muted text-foreground font-semibold">
+            <tr>
+              <th class="p-3 border-b">Document Type</th>
+              <th class="p-3 border-b">Exact Pixel Dimensions</th>
+              <th class="p-3 border-b">File Weight (KB)</th>
+              <th class="p-3 border-b">Pen / Backdrop Rules</th>
+              <th class="p-3 border-b">Common Portal Rejection Cause</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="p-3 font-semibold text-primary">Passport Photograph</td>
+              <td class="p-3 font-mono font-bold">138 &times; 177 px (3.5 &times; 4.5 cm)</td>
+              <td class="p-3 font-mono font-bold">20 KB – 100 KB</td>
+              <td class="p-3">Plain light or spotless white background. Clear front view (75–80% face).</td>
+              <td class="p-3 text-red-600 dark:text-red-400">File &gt; 100 KB, background shadows, wearing sunglasses or caps.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-primary">Candidate Signature</td>
+              <td class="p-3 font-mono font-bold">138 &times; 59 px or 140 &times; 60 px</td>
+              <td class="p-3 font-mono font-bold">10 KB – 20 KB strictly</td>
+              <td class="p-3">Running cursive handwriting using black or dark blue ballpoint pen on plain white paper.</td>
+              <td class="p-3 text-red-600 dark:text-red-400">File &lt; 10 KB or &gt; 20 KB, BLOCK CAPITAL letters, ruled lined paper.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Interactive Callout / CTA Box -->
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30 shadow-sm">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h4 class="text-base font-bold text-foreground">Resize Your Signature &amp; Photo for WBPSC in 5 Seconds</h4>
+            <p class="text-xs text-muted-foreground mt-1">Automatic 138&times;59 px / 140&times;60 px cropping, background shadow removal, and strict 10 KB to 20 KB clamping. 100% private in-browser canvas processing.</p>
+          </div>
+          <a href="/wbpsc-signature-resize/" class="shrink-0 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition shadow-xs">
+            Open WBPSC Resizer Tool &rarr;
+          </a>
+        </div>
+      </div>
+
+      <h2 id="wbpsc-troubleshooting">7. Troubleshooting: Why WBPSC Site is Not Opening &amp; How to Edit Form</h2>
+
+      <h3>Why is the WBPSC Site Not Opening? (504 Gateway / Server Timeouts)</h3>
+      <p>During active form fill-up windows for Miscellaneous or Clerkship, tens of thousands of applicants access <code>psc.wb.gov.in</code> and <code>wbpsc.ucanapply.com</code> simultaneously, triggering <strong>Server 504 Gateway Timeout</strong>, endless buffering, or broken captcha codes. Solve this using these verified steps:</p>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5 my-2">
+        <li><strong>Use Incognito / Private Window:</strong> The portal relies on strict session cookies that frequently corrupt in normal browser caches. A fresh Incognito window bypasses cached authentication deadlocks.</li>
+        <li><strong>Bypass Direct Domain to Application Engine:</strong> If <code>psc.wb.gov.in</code> is down, try navigating directly to the sub-engine at <code>wbpsc.ucanapply.com</code>.</li>
+        <li><strong>Switch to High-Speed Public DNS:</strong> Change your router or mobile DNS to Google Public DNS (<code>8.8.8.8</code> / <code>8.8.4.4</code>) or Cloudflare (<code>1.1.1.1</code>) to resolve stale regional routing tables.</li>
+        <li><strong>Apply During Off-Peak Hours:</strong> Access the form between <strong>11:00 PM and 7:00 AM IST</strong>, when server traffic drops by over 80%.</li>
+      </ul>
+
+      <h3>How to Edit WBPSC Application Form After Submission</h3>
+      <p>Made an error in your category, post preference, or uploaded an unreadable signature? WBPSC typically opens an official <strong>Correction / Edit Window</strong> for 3 to 7 days after the registration deadline:</p>
+      <ol class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-decimal pl-5 my-2">
+        <li>Visit <code>wbpsc.ucanapply.com</code> and log in with your Enrolment Number and Password.</li>
+        <li>Click on your submitted Application Form status. If the Edit Window is live, you will see an active <strong>"Edit Application"</strong> link.</li>
+        <li>Update demographic details or upload your corrected <strong>10–20 KB signature and 138&times;177 px photograph</strong>.</li>
+        <li>Save changes, generate a new updated Acknowledgement Slip, and re-download the confirmation PDF.</li>
+      </ol>
+    `,
+    faqs: [
+      {
+        question: "What is the exact photo and signature size for WBPSC Miscellaneous and Clerkship?",
+        answer: "For all WBPSC recruitments (Miscellaneous, Clerkship, WBCS, Food SI), the photograph must be in JPEG/JPG format between 20 KB and 100 KB with pixel dimensions of 138 × 177 pixels (3.5 × 4.5 cm). The signature must be strictly between 10 KB and 20 KB with dimensions of 138 × 59 pixels (or 140 × 60 pixels)."
+      },
+      {
+        question: "What posts are included under WBPSC Miscellaneous Services?",
+        answer: "WBPSC Miscellaneous Services recruits officers for Pay Level 10 and Level 9 posts including Assistant Programme Officer (APO), Disaster Management Officer (DMO), Block Youth Officer, Block Welfare Officer (BWO), Sub-Inspector of Food & Supplies, Assistant Agricultural Marketing Officer, and Consumer Welfare Officer."
+      },
+      {
+        question: "What is the monthly salary for WBPSC Clerkship?",
+        answer: "Under ROPA 2019 Pay Level 6, the basic entry pay for WBPSC Clerkship is ₹22,700. Including Dearness Allowance (DA), 12% House Rent Allowance (HRA: ₹2,724), and Medical Allowance (₹500), the starting in-hand monthly salary ranges between approximately ₹26,500 and ₹29,200."
+      },
+      {
+        question: "How many candidates applied for the WBPSC Clerkship examination?",
+        answer: "Over 7.5 to 8 Lakh applicants register for WBPSC Clerkship across West Bengal, making it one of the largest competitive recruitment drives in the state."
+      },
+      {
+        question: "Why is the WBPSC portal (psc.wb.gov.in / wbpsc.ucanapply.com) not opening or showing a session timeout?",
+        answer: "Heavy traffic surges cause 504 Gateway Timeouts. Fix this by opening an Incognito/Private window, switching DNS to 1.1.1.1 or 8.8.8.8, navigating directly to wbpsc.ucanapply.com, or submitting during low-traffic hours (11 PM to 7 AM)."
+      },
+      {
+        question: "How do I edit my WBPSC application form if my photograph or signature is rejected?",
+        answer: "Log into wbpsc.ucanapply.com with your Enrolment Number and Password during the designated 3 to 7 day Edit Window announced after registrations close. Click 'Edit Application', upload your corrected 10–20 KB signature and 138×177 px photo, and save changes."
+      },
+      {
+        question: "How to check WBPSC Clerkship result and download merit list PDF?",
+        answer: "Visit psc.wb.gov.in, navigate to 'Results / Recommendation', and click on the Clerkship result link. Open the PDF, press Ctrl + F to search your Roll Number, and check the category-wise cut-off marks at the end of the notification."
+      },
+      {
+        question: "Are WBPSC and WBCS the same thing?",
+        answer: "No. WBPSC (West Bengal Public Service Commission) is the recruiting constitutional body, while WBCS (West Bengal Civil Service Executive) is the premier administrative exam conducted by WBPSC for Group A, B, C, and D state civil service cadres."
+      },
+      {
+        question: "What is the exam pattern and negative marking for WBPSC Miscellaneous Prelims?",
+        answer: "The Preliminary examination has 100 MCQs for 200 Marks (75 General Studies + 25 Arithmetic) lasting 1 hour 30 minutes. Each incorrect answer incurs a negative marking penalty of 2/3rd (0.66 marks deducted)."
+      },
+      {
+        question: "Can I sign in block/capital letters or use a blue pen for WBPSC?",
+        answer: "Block or capital letter signatures are strictly disqualified. You must sign in natural running cursive handwriting on a clean white unruled paper using a black or dark blue ballpoint pen."
+      }
+    ]
+  },
+
+  {
     slug: "upsc-csat-paper-2-master-blueprint-comprehension-hacks",
     title: "UPSC CSE Prelims: CSAT Paper-II Qualifying Blueprint, Reading Comprehension & Speed Logic Hacks",
     excerpt: "Master the 33% CSAT qualifying cutoff with proven strategies for high-accuracy reading comprehension, critical reasoning, arithmetic problem selection, and UPSC OTR document rules.",

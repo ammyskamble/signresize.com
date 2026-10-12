@@ -4144,7 +4144,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         type="button"
                         onClick={() => adjustWidth(-1)}
                         aria-label="Decrease width"
-                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
+                        className="w-7 sm:w-8 min-w-[28px] sm:min-w-[32px] shrink-0 min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer text-sm select-none"
                       >
                         -
                       </button>
@@ -4155,13 +4155,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         aria-label={`Target width in ${unit}`}
                         value={widthInput}
                         onChange={(e) => handleWidthChange(e.target.value)}
-                        className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
+                        className="w-full min-w-0 px-0.5 text-center font-mono font-bold text-sm text-foreground bg-transparent focus:outline-none"
                       />
                       <button
                         type="button"
                         onClick={() => adjustWidth(1)}
                         aria-label="Increase width"
-                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
+                        className="w-7 sm:w-8 min-w-[28px] sm:min-w-[32px] shrink-0 min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer text-sm select-none"
                       >
                         +
                       </button>
@@ -4178,7 +4178,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         type="button"
                         onClick={() => adjustHeight(-1)}
                         aria-label="Decrease height"
-                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
+                        className="w-7 sm:w-8 min-w-[28px] sm:min-w-[32px] shrink-0 min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer text-sm select-none"
                       >
                         -
                       </button>
@@ -4189,13 +4189,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         aria-label={`Target height in ${unit}`}
                         value={heightInput}
                         onChange={(e) => handleHeightChange(e.target.value)}
-                        className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
+                        className="w-full min-w-0 px-0.5 text-center font-mono font-bold text-sm text-foreground bg-transparent focus:outline-none"
                       />
                       <button
                         type="button"
                         onClick={() => adjustHeight(1)}
                         aria-label="Increase height"
-                        className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
+                        className="w-7 sm:w-8 min-w-[28px] sm:min-w-[32px] shrink-0 min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer text-sm select-none"
                       >
                         +
                       </button>
@@ -4218,7 +4218,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                           type="button"
                           onClick={() => adjustMinKb(-1)}
                           aria-label="Decrease minimum KB limit"
-                          className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
+                          className="w-7 sm:w-8 min-w-[28px] sm:min-w-[32px] shrink-0 min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer text-sm select-none"
                         >
                           -
                         </button>
@@ -4229,13 +4229,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                           aria-label="Minimum file size in KB"
                           value={minKbInput}
                           onChange={(e) => handleMinKbChange(e.target.value)}
-                          className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
+                          className="w-full min-w-0 px-0.5 text-center font-mono font-bold text-sm text-foreground bg-transparent focus:outline-none"
                         />
                         <button
                           type="button"
                           onClick={() => adjustMinKb(1)}
                           aria-label="Increase minimum KB limit"
-                          className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
+                          className="w-7 sm:w-8 min-w-[28px] sm:min-w-[32px] shrink-0 min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer text-sm select-none"
                         >
                           +
                         </button>
@@ -4249,7 +4249,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                           type="button"
                           onClick={() => adjustMaxKb(-1)}
                           aria-label="Decrease maximum KB limit"
-                          className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
+                          className="w-7 sm:w-8 min-w-[28px] sm:min-w-[32px] shrink-0 min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer text-sm select-none"
                         >
                           -
                         </button>
@@ -4260,13 +4260,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                           aria-label="Maximum file size in KB"
                           value={maxKbInput}
                           onChange={(e) => handleMaxKbChange(e.target.value)}
-                          className="w-full text-center font-mono font-bold text-foreground bg-transparent focus:outline-none"
+                          className="w-full min-w-0 px-0.5 text-center font-mono font-bold text-sm text-foreground bg-transparent focus:outline-none"
                         />
                         <button
                           type="button"
                           onClick={() => adjustMaxKb(1)}
                           aria-label="Increase maximum KB limit"
-                          className="min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer"
+                          className="w-7 sm:w-8 min-w-[28px] sm:min-w-[32px] shrink-0 min-h-[44px] flex items-center justify-center hover:bg-muted font-bold text-foreground cursor-pointer text-sm select-none"
                         >
                           +
                         </button>

@@ -56,6 +56,9 @@ if (post.country === 'BD') {
   }
 }
 
+const isPkiCompliancePost = post.country === 'US' || (post.tags && post.tags.some(t => /pki|nist|digital signature|esign|cryptograph/i.test(t)));
+const isWbpscPost = Boolean(post.tags && post.tags.some(t => /wbpsc|wbcs/i.test(t)));
+
 // Intelligent Related Posts selection:
 // Calculate relevance score for all other posts based on category, tags, and cluster overlap
 const scoredPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).map(other => {
@@ -164,6 +167,17 @@ function slugify(text: string): string {
     .replace(/\s+/g, '-');
 }
 
+function decodeHtmlEntities(str: string): string {
+  if (!str) return '';
+  return str
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ');
+}
+
 // Process article HTML to inject missing IDs on <h2>, adjust sticky offsets, and format markups
 function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: string; navItems: NavItem[] } {
   if (!rawHtml) return { processedHtml: '', navItems: [] };
@@ -174,7 +188,7 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
 
   // 1. First ensure all <h2> tags have an id attribute
   html = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs, content) => {
-    const rawText = content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    const rawText = decodeHtmlEntities(content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
     const idMatch = attrs.match(/id="([^"]+)"/);
     let id = idMatch ? idMatch[1] : slugify(rawText);
     if (!id) id = `section-h2-${navItems.length + 1}`;
@@ -190,7 +204,7 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
   let h2Match: RegExpExecArray | null;
   while ((h2Match = h2Regex.exec(html)) !== null) {
     const id = h2Match[1];
-    const rawTitle = h2Match[2].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    const rawTitle = decodeHtmlEntities(h2Match[2].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
     const cleanTitle = rawTitle.replace(/^([\p{Extended_Pictographic}\u2000-\u3300\uFE00-\uFE0F\s]*\d+[\.\-\)]\s*)+/u, '').trim() || rawTitle;
 
     if (!registeredIds.has(id)) {
@@ -271,6 +285,10 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={`https://signresize.in/blog/${post.slug}/`} />
+    <link rel="alternate" hreflang="hi" href={`https://signresize.in/hi/blog/${post.slug}/`} />
+    <link rel="alternate" hreflang="mr" href={`https://signresize.in/mr/blog/${post.slug}/`} />
+    <link rel="alternate" hreflang="x-default" href={`https://signresize.in/blog/${post.slug}/`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -463,8 +481,8 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         title={post.title}
         description={post.excerpt}
         variant="card"
-        badgeText={post.country === 'US' || post.category === 'Guidelines & Tips' ? "Share this Technical & Compliance Guide with Colleagues" : "Share this Official Exam Guide with Aspirants & Study Groups"}
-        subtext={post.country === 'US' || post.category === 'Guidelines & Tips' ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : "Help fellow candidates avoid application rejections on official exam portals."}
+        badgeText={isPkiCompliancePost ? "Share this Technical & Compliance Guide with Colleagues" : isWbpscPost ? "Share this WBPSC Exam Guide with Aspirants & Study Groups" : "Share this Official Exam Guide with Aspirants & Study Groups"}
+        subtext={isPkiCompliancePost ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : isWbpscPost ? "Help fellow aspirants format their WBPSC photos and signatures correctly and bypass portal errors." : "Help fellow candidates avoid application rejections on official exam portals."}
       />
 
       <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
@@ -473,15 +491,17 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <span id="section-6" class="scroll-mt-24 block -mt-6 pt-6"></span>
           <div class="space-y-1">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
-              <span>❓</span> {post.country === 'US' || post.category === 'Guidelines & Tips' ? 'Technical & Regulatory FAQs' : 'Official Candidate FAQs'}
+              <span>❓</span> {isPkiCompliancePost ? 'Technical & Regulatory FAQs' : 'Official Candidate FAQs'}
             </div>
             <h2 class="text-xl sm:text-3xl font-extrabold text-foreground tracking-tight break-words">
               Frequently Asked Questions ({post.faqs.length} Clarified)
             </h2>
             <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
-              {post.country === 'US' || post.category === 'Guidelines & Tips'
+              {isPkiCompliancePost
                 ? 'Authoritative answers verified against technical RFC specifications, NIST standards, and legal compliance frameworks.'
-                : 'Direct, authoritative answers verified against official commission gazettes, application instructions, and scrutiny standards.'}
+                : isWbpscPost
+                  ? 'Authoritative answers verified against official WBPSC recruitment notifications and commission portal upload benchmarks.'
+                  : 'Direct, authoritative answers verified against official commission gazettes, application instructions, and scrutiny standards.'}
             </p>
           </div>
 
@@ -569,7 +589,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <div class="flex items-center justify-between">
             <h3 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
               <span>📚</span>
-              <span>{post.country === 'US' || post.category === 'Guidelines & Tips' ? 'Related Technical & Document Standards Guides' : 'Related High-Yield Preparation Guides'}</span>
+              <span>{isPkiCompliancePost ? 'Related Technical & Document Standards Guides' : 'Related High-Yield Preparation Guides'}</span>
             </h3>
             <a href="/blog/" class="text-xs text-primary font-semibold hover:underline">
               View All Guides &rarr;
@@ -607,7 +627,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
 
     </main>
 
-    <Footer topic={post.country === 'US' || post.category === 'Guidelines & Tips' ? 'standards' : 'exams'} />
+    <Footer topic={isPkiCompliancePost ? 'standards' : 'exams'} />
 
     <style>
       :global(.article-prose) {

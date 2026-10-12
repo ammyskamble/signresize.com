@@ -13,6 +13,7 @@ interface Props {
 const { topic = 'exams' } = Astro.props;
 const isTechOrStandards = topic === 'standards' || topic === 'tech';
 const currentYear = new Date().getFullYear();
+const currentPath = Astro.url.pathname;
 ---
 
 <!-- Vibrant Top Visual Separator Bar (Multi-color Glowing Gradient Bridge) -->
@@ -36,12 +37,12 @@ const currentYear = new Date().getFullYear();
           <h3 class="text-sm sm:text-base font-bold text-white tracking-tight">
             {isTechOrStandards 
               ? 'Never miss a 2026 digital signature or PDF compliance update' 
-              : 'Never miss a 2026 photo rule change or application deadline'}
+              : 'Never miss a 2026 WBPSC, SSC, or Railway photo deadline'}
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
             {isTechOrStandards
               ? 'Get instant updates when NIST, Adobe AATL, or US/EU electronic signature compliance frameworks modify verification rules.'
-              : 'Get instant email alerts when SSC, RRB, UPSC, or State PSCs modify upload specs, launch live webcam verification, or release new admit card guidelines.'}
+              : 'Get instant alerts when commission upload specs, admit card releases, or correction windows go live.'}
           </p>
         </div>
 
@@ -477,7 +478,7 @@ const currentYear = new Date().getFullYear();
               <li><a href="/mpsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">MPSC Maharashtra Services</a></li>
               <li><a href="/rpsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">RPSC Rajasthan RAS / RTS</a></li>
               <li><a href="/kpsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">KPSC Karnataka Gazetted</a></li>
-              <li><a href="/wbpsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">WBPSC West Bengal Civil</a></li>
+              <li><a href="/wbpsc-signature-resize/" aria-current={currentPath === '/wbpsc-signature-resize/' ? "page" : undefined} class={currentPath === '/wbpsc-signature-resize/' ? "text-amber-400 font-bold" : "text-slate-300 hover:text-amber-300 transition-colors"}>WBPSC West Bengal Civil</a></li>
               <li><a href="/tnpsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">TNPSC Tamil Nadu Group 1/2</a></li>
               <li><a href="/appsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">APPSC Andhra Pradesh Service</a></li>
               <li><a href="/tspsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">TGPSC / TSPSC Telangana Service</a></li>

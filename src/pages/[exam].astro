@@ -494,16 +494,28 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               <span class="text-[10px] text-muted-foreground">Instant Presets</span>
             </div>
             <div class="space-y-1.5">
-              {otherExams.map((item) => (
+              {otherExams.slice(0, 8).map((item) => (
                 <a
                   href={`/${item.slug}/`}
-                  class="flex items-center justify-between p-2 rounded-lg hover:bg-muted transition group text-[11px]"
+                  aria-current={item.slug === examData.slug ? "page" : undefined}
+                  class:list={[
+                    "flex items-center justify-between p-2 rounded-lg transition group text-[11px]",
+                    item.slug === examData.slug
+                      ? "bg-primary/10 text-primary font-bold border border-primary/30"
+                      : "hover:bg-muted text-foreground"
+                  ]}
                 >
-                  <span class="font-medium text-foreground group-hover:text-primary transition">{item.authority}</span>
+                  <span class="font-medium group-hover:text-primary transition">{item.authority}</span>
                   <span class="font-mono text-[10px] text-muted-foreground">{item.minKb}–{item.maxKb} KB →</span>
                 </a>
               ))}
             </div>
+            <a
+              href="/#tool-workspace"
+              class="block text-center pt-2 text-[11px] font-bold text-primary hover:underline border-t border-border/50"
+            >
+              Browse All Exam Presets &rarr;
+            </a>
           </div>
 
           <!-- Card 3: Standalone Tools -->
