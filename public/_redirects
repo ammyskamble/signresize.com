@@ -31,11 +31,31 @@
 /appsc-tspsc /appsc-tspsc-signature-resize/ 301
 /appsc-tspsc/ /appsc-tspsc-signature-resize/ 301
 
-# 2. Renamed & Historical Blog Articles (Fixes GSC 404 Error)
+# International Single-Canonical Presets (Fixes GSC Alternate Page with Proper Canonical)
+/prc-photo-signature-resize-philippines /ph/prc-photo-signature-resize-philippines/ 301
+/prc-photo-signature-resize-philippines/ /ph/prc-photo-signature-resize-philippines/ 301
+/lok-sewa-photo-resize-nepal /np/lok-sewa-photo-resize-nepal/ 301
+/lok-sewa-photo-resize-nepal/ /np/lok-sewa-photo-resize-nepal/ 301
+/ppsc-signature-resize /pk/ppsc-signature-resize/ 301
+/ppsc-signature-resize/ /pk/ppsc-signature-resize/ 301
+/fpsc-photo-resize /pk/fpsc-photo-resize/ 301
+/fpsc-photo-resize/ /pk/fpsc-photo-resize/ 301
+
+# 2. Renamed & Historical Blog Articles (Fixes GSC 404 & Hash Duplicates)
 /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muduvfwu /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
 /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muduvfwu/ /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
 /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2 /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
 /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2/ /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/hi/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2 /hi/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/hi/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2/ /hi/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/mr/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2 /mr/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/mr/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2/ /mr/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/state-psc-otr-registration-photo-signature-guidelines-muxyprqk /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/blog/state-psc-otr-registration-photo-signature-guidelines-muxyprqk/ /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/hi/blog/state-psc-otr-registration-photo-signature-guidelines-muxyprqk /hi/blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/hi/blog/state-psc-otr-registration-photo-signature-guidelines-muxyprqk/ /hi/blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/mr/blog/state-psc-otr-registration-photo-signature-guidelines-muxyprqk /mr/blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/mr/blog/state-psc-otr-registration-photo-signature-guidelines-muxyprqk/ /mr/blog/state-psc-otr-registration-photo-signature-guidelines/ 301
 /blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
 /blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy/ /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
 /blog/ssc-cgl-2026-notification-dates-signature-guidelines /blog/ssc-cgl-2026-master-application-preparation-guide/ 301

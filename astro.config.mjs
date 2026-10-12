@@ -3,6 +3,10 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import { BLOG_POSTS } from './src/data/blogPostsData.ts';
+
+const hiSlugsWithContent = new Set(BLOG_POSTS.filter((p) => Boolean(p.contentHtml_hi)).map((p) => p.slug));
+const mrSlugsWithContent = new Set(BLOG_POSTS.filter((p) => Boolean(p.contentHtml_mr)).map((p) => p.slug));
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,9 +33,20 @@ export default defineConfig({
     '/jee': '/nta-neet-jee-signature-resize/',
     '/gate': '/gate-signature-resize/',
     '/thumb': '/thumb-impression-resize/',
+    // International Single-Canonical Presets
+    '/prc-photo-signature-resize-philippines': '/ph/prc-photo-signature-resize-philippines/',
+    '/lok-sewa-photo-resize-nepal': '/np/lok-sewa-photo-resize-nepal/',
+    '/ppsc-signature-resize': '/pk/ppsc-signature-resize/',
+    '/fpsc-photo-resize': '/pk/fpsc-photo-resize/',
+    // Blog Redirects & Hash Cleanup
     '/blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
     '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muduvfwu': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
     '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
+    '/hi/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2': '/hi/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
+    '/mr/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-muwjkuc2': '/mr/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
+    '/blog/state-psc-otr-registration-photo-signature-guidelines-muxyprqk': '/blog/state-psc-otr-registration-photo-signature-guidelines/',
+    '/hi/blog/state-psc-otr-registration-photo-signature-guidelines-muxyprqk': '/hi/blog/state-psc-otr-registration-photo-signature-guidelines/',
+    '/mr/blog/state-psc-otr-registration-photo-signature-guidelines-muxyprqk': '/mr/blog/state-psc-otr-registration-photo-signature-guidelines/',
     '/blog/ssc-cgl-2026-notification-dates-signature-guidelines': '/blog/ssc-cgl-2026-master-application-preparation-guide/',
     '/blog/upsc-csat-paper-2-qualifying-speed-strategy-comprehension-hacks': '/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/',
     '/blog/state-psc-one-time-registration-otr-document-standards': '/blog/state-psc-otr-registration-photo-signature-guidelines/',
@@ -39,7 +54,6 @@ export default defineConfig({
     '/blog/ssc-rrb-quantitative-aptitude-reasoning-speed-strategy': '/blog/',
     '/blog/mega-railway-banking-recruitment-2026-opportunities': '/government-jobs/'
   },
-
 
   build: {
     inlineStylesheets: 'auto',
@@ -62,6 +76,19 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
+      filter(page) {
+        // Exclude untranslated /hi/blog/ posts
+        const hiMatch = page.match(/\/hi\/blog\/([^/]+)\/?$/);
+        if (hiMatch) {
+          return hiSlugsWithContent.has(hiMatch[1]);
+        }
+        // Exclude untranslated /mr/blog/ posts
+        const mrMatch = page.match(/\/mr\/blog\/([^/]+)\/?$/);
+        if (mrMatch) {
+          return mrSlugsWithContent.has(mrMatch[1]);
+        }
+        return true;
+      },
       serialize(item) {
         const url = item.url;
         item.lastmod = new Date().toISOString();

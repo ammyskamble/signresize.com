@@ -187,6 +187,14 @@ const presetSlugMap = new Map([
 
 const examPageMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p]));
 
+const getExamUrl = (slug: string | null, presetId: string) => {
+  if (!slug) return `/?preset=${encodeURIComponent(presetId)}#tool-workspace`;
+  if (slug === 'prc-photo-signature-resize-philippines') return `/ph/${slug}/`;
+  if (slug === 'lok-sewa-photo-resize-nepal') return `/np/${slug}/`;
+  if (slug === 'ppsc-signature-resize' || slug === 'fpsc-photo-resize') return `/pk/${slug}/`;
+  return `/${slug}/`;
+};
+
 const searchableExams = EXAM_PRESETS.map((p) => {
   const page = examPageMap.get(p.id);
   const slug = page?.slug || presetSlugMap.get(p.id) || null;
@@ -194,7 +202,7 @@ const searchableExams = EXAM_PRESETS.map((p) => {
     type: 'exam',
     id: p.id,
     slug: slug,
-    url: slug ? `/${slug}/` : `/?preset=${encodeURIComponent(p.id)}#tool-workspace`,
+    url: getExamUrl(slug, p.id),
     title: p.name,
     shortCode: p.shortCode,
     category: p.category,

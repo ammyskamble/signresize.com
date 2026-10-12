@@ -12,15 +12,23 @@ import { EXAM_PAGES_DATA, type ExamPageInfo } from '../data/examPagesData';
 import { BLOG_POSTS } from '../data/blogPostsData';
 
 export async function getStaticPaths() {
-  return EXAM_PAGES_DATA.map((page) => ({
-    params: { exam: page.slug },
-    props: { examData: page }
-  }));
+  const INTERNATIONAL_COUNTRY_SLUGS = [
+    'prc-photo-signature-resize-philippines',
+    'lok-sewa-photo-resize-nepal',
+    'ppsc-signature-resize',
+    'fpsc-photo-resize'
+  ];
+  return EXAM_PAGES_DATA
+    .filter((page) => !INTERNATIONAL_COUNTRY_SLUGS.includes(page.slug))
+    .map((page) => ({
+      params: { exam: page.slug },
+      props: { examData: page }
+    }));
 }
 
-const { examData } = Astro.props as { examData: ExamPageInfo };
+const { examData, canonicalUrl: propCanonicalUrl } = Astro.props as { examData: ExamPageInfo; canonicalUrl?: string };
 
-const canonicalUrl = `https://signresize.in/${examData.slug}/`;
+const canonicalUrl = propCanonicalUrl || `https://signresize.in/${examData.slug}/`;
 const ogImageUrl = 'https://signresize.in/og-image.png';
 const currentYear = 2026;
 const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);

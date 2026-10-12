@@ -30,7 +30,10 @@ const translatedContent = getBlogPostContent(post, 'hi');
 
 const pageTitle = post.metaTitle_hi || `${translatedTitle} | SignResize हिंदी`;
 const pageDescription = post.metaDescription_hi || translatedExcerpt;
-const canonicalUrl = `https://signresize.in/hi/blog/${post.slug}/`;
+const hasTranslation = Boolean(post.contentHtml_hi);
+const canonicalUrl = hasTranslation
+  ? `https://signresize.in/hi/blog/${post.slug}/`
+  : `https://signresize.in/blog/${post.slug}/`;
 
 const relatedPreset = post.relatedExamPreset
   ? EXAM_PRESETS.find(p => p.id === post.relatedExamPreset)
@@ -38,9 +41,9 @@ const relatedPreset = post.relatedExamPreset
 
 let relatedExamSlug = 'ssc-signature-resize';
 if (post.country === 'BD') relatedExamSlug = 'teletalk-photo-signature-resize';
-else if (post.country === 'PK') relatedExamSlug = 'ppsc-signature-resize';
-else if (post.country === 'PH') relatedExamSlug = 'prc-photo-signature-resize-philippines';
-else if (post.country === 'NP') relatedExamSlug = 'lok-sewa-photo-resize-nepal';
+else if (post.country === 'PK') relatedExamSlug = 'pk/ppsc-signature-resize';
+else if (post.country === 'PH') relatedExamSlug = 'ph/prc-photo-signature-resize-philippines';
+else if (post.country === 'NP') relatedExamSlug = 'np/lok-sewa-photo-resize-nepal';
 else if (post.relatedExamPreset) {
   const matchedPage = EXAM_PAGES_DATA.find(p => p.presetId === post.relatedExamPreset || p.slug === post.relatedExamPreset);
   if (matchedPage) relatedExamSlug = matchedPage.slug;
