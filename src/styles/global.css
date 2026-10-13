@@ -274,3 +274,21 @@ body {
 .animate-pulse-glow {
   animation: pulseGlowBorder 3s ease-in-out infinite;
 }
+
+/* 🚀 Core Web Vitals & Rendering Performance Accelerators */
+#exam-specs,
+#guide,
+#seo-content,
+#faq,
+#troubleshooting,
+#changelog,
+#author-editorial,
+footer[role="contentinfo"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+/* Optimize image and media rendering */
+img, svg {
+  shape-rendering: auto;
+}

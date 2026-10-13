@@ -1,7 +1,14 @@
 ---
 // src/components/GoogleFonts.astro
 // Self-hosted Inter: preloaded for instant LCP text render (no render-block, font-display:optional in CSS).
-// Noto Devanagari: non-blocking async via media="print" onload trick — eliminates 750ms render-block penalty.
+// Noto Devanagari: conditionally loaded only when Hindi or Marathi scripts are active.
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isDevanagariNeeded = lang === 'hi' || lang === 'mr' || currentPath.startsWith('/hi') || currentPath.startsWith('/mr');
 ---
 
 <!-- Self-hosted Inter Variable: preloaded, render-non-blocking (font-display:optional in global.css) -->
@@ -13,32 +20,29 @@
   crossorigin="anonymous"
 />
 
-<!-- Preconnect to Google Fonts (DNS + TLS warm-up, zero render cost) -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+{isDevanagariNeeded && (
+  <>
+    <!-- Preconnect to Google Fonts (DNS + TLS warm-up for regional scripts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<!--
-  Noto Sans Devanagari — NON-BLOCKING async load.
-  1. rel="preload" as="style" — hints to the browser preload scanner early (no render-block).
-  2. media="print" prevents treating the stylesheet as render-critical.
-  3. onload swaps media to "all" once the CSS is fully downloaded.
-  4. <noscript> fallback for JS-disabled crawlers/environments.
-  5. display=swap in URL shows system fallback text immediately (no invisible-text FOIT).
--->
-<link
-  rel="preload"
-  href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
-  as="style"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
-  rel="stylesheet"
-  media="print"
-  onload="this.media='all'"
-/>
-<noscript>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-</noscript>
+    <!-- Noto Sans Devanagari async stylesheet for Hindi & Marathi -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+  </>
+)}

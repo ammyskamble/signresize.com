@@ -12,6 +12,7 @@ const mrSlugsWithContent = new Set(BLOG_POSTS.filter((p) => Boolean(p.contentHtm
 export default defineConfig({
   site: 'https://signresize.in',
   trailingSlash: 'always',
+  compressHTML: true,
 
   redirects: {
     '/signature-resizer': '/',

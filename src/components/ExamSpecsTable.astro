@@ -21,6 +21,7 @@ const countryPresetsMap = {
 };
 
 const displayPresets = countryPresetsMap[country] || countryPresetsMap['IN'];
+const quickMatrixPresets = displayPresets.slice(0, 8);
 
 const countryTitles = {
   PK: "Official Pakistan Recruitment Photo & Signature Guidelines",
@@ -63,10 +64,13 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
       <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
         <h3 class="font-bold text-sm sm:text-base text-foreground">
-          Quick Specification Matrix
+          Quick Specification Matrix (Top Most-Applied)
         </h3>
       </div>
-      <span class="text-xs text-muted-foreground font-mono">Verified Portal Parameters 2026</span>
+      <a href="#exam-specs-search" class="text-xs text-primary hover:underline font-medium inline-flex items-center gap-1">
+        <span>Search all {displayPresets.length} guidelines below</span>
+        <span>↓</span>
+      </a>
     </div>
 
     <div class="overflow-x-auto rounded-xl border border-border/80">
@@ -82,7 +86,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
           </tr>
         </thead>
         <tbody class="divide-y divide-border/60 font-medium">
-          {displayPresets.map((preset) => {
+          {quickMatrixPresets.map((preset) => {
             const dedicatedSlug = presetSlugMap.get(preset.id);
             return (
               <tr class="hover:bg-muted/40 transition">
