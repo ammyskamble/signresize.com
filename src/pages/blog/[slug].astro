@@ -58,6 +58,7 @@ if (post.country === 'BD') {
 
 const isPkiCompliancePost = post.country === 'US' || (post.tags && post.tags.some(t => /pki|nist|digital signature|esign|cryptograph/i.test(t)));
 const isWbpscPost = Boolean(post.tags && post.tags.some(t => /wbpsc|wbcs/i.test(t)));
+const isOssscPost = Boolean(post.slug?.includes("osssc") || (post.tags && post.tags.some(t => /osssc/i.test(t))));
 
 // Intelligent Related Posts selection:
 // Calculate relevance score for all other posts based on category, tags, and cluster overlap
@@ -186,17 +187,25 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
   const navItems: NavItem[] = [];
   const registeredIds = new Set<string>();
 
-  // 1. First ensure all <h2> tags have an id attribute
+  // 1. First ensure all <h2> tags have an id attribute and scroll-mt-28 sm:scroll-mt-32 to clear the 104px sticky header
   html = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs, content) => {
     const rawText = decodeHtmlEntities(content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
     const idMatch = attrs.match(/id="([^"]+)"/);
     let id = idMatch ? idMatch[1] : slugify(rawText);
     if (!id) id = `section-h2-${navItems.length + 1}`;
 
-    if (!attrs.includes('id=')) {
-      return `<h2 id="${id}"${attrs}>${content}</h2>`;
+    let updatedAttrs = attrs;
+    if (!updatedAttrs.includes('id=')) {
+      updatedAttrs = ` id="${id}"${updatedAttrs}`;
     }
-    return match;
+    if (!updatedAttrs.includes('scroll-mt-')) {
+      if (updatedAttrs.includes('class="')) {
+        updatedAttrs = updatedAttrs.replace(/class="([^"]*)"/, 'class="$1 scroll-mt-28 sm:scroll-mt-32"');
+      } else {
+        updatedAttrs = ` class="scroll-mt-28 sm:scroll-mt-32"${updatedAttrs}`;
+      }
+    }
+    return `<h2${updatedAttrs}>${content}</h2>`;
   });
 
   // 2. Parse all <h2> elements (including those inside <section id="...">) in order
@@ -243,8 +252,8 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
     navItems.push({ id: 'faqs', title: `Frequently Asked Questions (${faqs.length} Clarified)` });
   }
 
-  // 4. Adjust sticky jump bars from `sticky top-4` to `sticky top-20` (80px) to clear the 64px sticky header
-  html = html.replace(/sticky top-4/g, 'sticky top-20');
+  // 4. Adjust sticky jump bars from `sticky top-4` to `sticky top-28` (80px) to clear the 64px sticky header
+  html = html.replace(/sticky top-4/g, 'sticky top-28');
 
   // 5. Highlight syntax ==...==
   html = html.replace(/==(.*?)==/g, '<mark class="bg-primary/15 text-foreground font-semibold px-1.5 py-0.5 rounded-sm selection:bg-primary/30">$1</mark>');
@@ -321,7 +330,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
   <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
     <Header />
 
-    <main class="flex-1 max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 space-y-6 sm:space-y-8 w-full min-w-0 overflow-x-hidden">
+    <main class="flex-1 max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-6 sm:pt-10 md:pt-12 pb-8 sm:pb-12 space-y-6 sm:space-y-8 w-full min-w-0">
       
       <!-- Breadcrumbs & Language Switcher Bar -->
       <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-3">
@@ -355,7 +364,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
       </div>
 
       <!-- Article Header -->
-      <header class="space-y-3 sm:space-y-4 border-b border-border pb-5 sm:pb-6">
+      <header id="article-header" class="space-y-3 sm:space-y-4 border-b border-border pb-5 sm:pb-6 scroll-mt-32 sm:scroll-mt-36">
         <div class="flex flex-wrap items-center gap-2 text-xs">
           <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 shrink-0">
             <span class="relative flex h-2 w-2">
@@ -377,7 +386,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         </div>
 
         <!-- Highlighted Main Headline (H1) with Matching Ambient Animation -->
-        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-card border border-primary/25 p-3.5 sm:p-6 shadow-xs">
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-card border border-primary/25 p-3.5 sm:p-6 shadow-xs scroll-mt-32 sm:scroll-mt-36">
           <!-- Ambient animated glowing flares matching hero banner -->
           <div class="absolute -right-8 -top-8 w-44 h-44 bg-primary/15 dark:bg-primary/25 rounded-full blur-2xl pointer-events-none animate-pulse"></div>
           <div class="absolute left-1/3 -bottom-10 w-36 h-36 bg-cyan-glow/10 rounded-full blur-xl pointer-events-none animate-pulse" style="animation-duration: 4s;"></div>
@@ -440,37 +449,41 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         </section>
       )}
 
-      <!-- Table of Contents / Quick Jump -->
-      {navItems.length > 0 && (
-        <nav class="rounded-xl border border-border bg-muted/30 p-3.5 sm:p-5 space-y-2.5">
-          <div class="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
-            <div class="flex items-center gap-2 text-xs font-bold text-foreground uppercase tracking-wider">
-              <span>📑</span>
-              <span>Quick Navigation &amp; Key Sections</span>
-            </div>
-            <span class="text-[10px] text-muted-foreground font-mono">Jump to Section</span>
-          </div>
-          <div class="flex flex-wrap gap-1.5 sm:gap-2 text-xs">
-            {navItems.map((item, idx) => (
-              <a
-                href={`#${item.id}`}
-                class:list={[
-                  "px-2.5 py-1.5 min-h-[34px] inline-flex items-center gap-1.5 rounded-lg border transition font-medium text-xs shadow-2xs",
-                  item.id === 'faqs'
-                    ? "bg-primary/10 text-primary border-primary/30 hover:bg-primary/20 font-bold"
-                    : "bg-card border-border hover:border-primary/50 hover:text-primary"
-                ]}
-              >
-                <span class="text-[10px] font-bold text-muted-foreground">{idx + 1}.</span>
-                <span>{item.title}</span>
-              </a>
-            ))}
-          </div>
-        </nav>
-      )}
+      <!-- Two Column Layout: Main Article Body + Sticky Desktop Table of Contents -->
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_260px] xl:grid-cols-[minmax(0,1fr)_290px] gap-8 xl:gap-10 items-start relative">
+        
+        <!-- Primary Article Content Column -->
+        <div class="min-w-0 space-y-6 sm:space-y-8">
+          <!-- Mobile / Tablet Compact TOC (Visible on < lg screens) -->
+          {navItems.length > 0 && (
+            <nav class="lg:hidden rounded-xl border border-border bg-muted/30 p-3.5 sm:p-5 space-y-2.5">
+              <div class="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+                <div class="flex items-center gap-2 text-xs font-bold text-foreground uppercase tracking-wider">
+                  <span>📑</span>
+                  <span>Quick Navigation &amp; Key Sections</span>
+                </div>
+                <span class="text-[10px] text-muted-foreground font-mono">Jump to Section</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 sm:gap-2 text-xs">
+                {navItems.map((item, idx) => (
+                  <a
+                    href={`#${item.id}`}
+                    class:list={[
+                      "px-2.5 py-1.5 min-h-[34px] inline-flex items-center gap-1.5 rounded-lg border transition font-medium text-xs shadow-2xs",
+                      item.id === 'faqs'
+                        ? "bg-primary/10 text-primary border-primary/30 hover:bg-primary/20 font-bold"
+                        : "bg-card border-border hover:border-primary/50 hover:text-primary"
+                    ]}
+                  >
+                    <span class="text-[10px] font-bold text-muted-foreground">{idx + 1}.</span>
+                    <span>{item.title}</span>
+                  </a>
+                ))}
+              </div>
+            </nav>
+          )}
 
-
-      <!-- Main Article Prose Content (with Enhanced Headline, Code, Stepper & Table Responsiveness) -->
+<!-- Main Article Prose Content (with Enhanced Headline, Code, Stepper & Table Responsiveness) -->
       <article class="article-prose prose prose-slate dark:prose-invert max-w-none w-full min-w-0 break-words prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
         <Fragment set:html={processedHtml} />
       </article>
@@ -481,13 +494,14 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         title={post.title}
         description={post.excerpt}
         variant="card"
-        badgeText={isPkiCompliancePost ? "Share this Technical & Compliance Guide with Colleagues" : isWbpscPost ? "Share this WBPSC Exam Guide with Aspirants & Study Groups" : "Share this Official Exam Guide with Aspirants & Study Groups"}
-        subtext={isPkiCompliancePost ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : isWbpscPost ? "Help fellow aspirants format their WBPSC photos and signatures correctly and bypass portal errors." : "Help fellow candidates avoid application rejections on official exam portals."}
+        badgeText={isPkiCompliancePost ? "Share this Technical & Compliance Guide with Colleagues" : isOssscPost ? "Share this OSSSC 2026 Exam Guide with Aspirants & Study Groups" : isWbpscPost ? "Share this WBPSC Exam Guide with Aspirants & Study Groups" : "Share this Official Exam Guide with Aspirants & Study Groups"}
+        subtext={isPkiCompliancePost ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : isOssscPost ? "Help fellow candidates format their OSSSC photos and 10–20 KB signatures correctly and bypass portal errors." : isWbpscPost ? "Help fellow aspirants format their WBPSC photos and signatures correctly and bypass portal errors." : "Help fellow candidates avoid application rejections on official exam portals."}
       />
 
       <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
       {post.faqs && post.faqs.length > 0 && (
         <section id="faqs" class="space-y-4 pt-6 border-t border-border scroll-mt-20">
+          <span id="12-frequently-asked-questions" class="scroll-mt-24 block -mt-6 pt-6"></span>
           <span id="section-6" class="scroll-mt-24 block -mt-6 pt-6"></span>
           <div class="space-y-1">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
@@ -624,7 +638,64 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           </div>
         </section>
       )}
+        </div>
 
+        <!-- Sticky Right-Side Table of Contents (Desktop only: lg & xl) -->
+        {navItems.length > 0 && (
+          <aside class="hidden lg:block sticky top-28 self-start space-y-4">
+            <nav class="rounded-2xl border border-border bg-card/95 backdrop-blur-md p-4 shadow-sm space-y-3 max-h-[calc(100vh-8rem)] overflow-y-auto scrollbar-thin">
+              <div class="flex items-center justify-between border-b border-border/60 pb-2.5">
+                <div class="flex items-center gap-2 text-xs font-bold text-foreground uppercase tracking-wider">
+                  <span class="text-primary">📑</span>
+                  <span>Table of Contents</span>
+                </div>
+                <span class="text-[10px] text-muted-foreground font-mono bg-muted px-1.5 py-0.5 rounded">{navItems.length} Sections</span>
+              </div>
+              
+              <ul class="space-y-1 text-xs" id="desktop-toc-list">
+                {navItems.map((item, idx) => (
+                  <li>
+                    <a
+                      href={`#${item.id}`}
+                      class:list={[
+                        "toc-desktop-link group flex items-start gap-2 px-2.5 py-1.5 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 transition text-xs leading-snug",
+                        item.id === 'faqs' ? "font-semibold text-primary/90" : ""
+                      ]}
+                      data-target={item.id}
+                    >
+                      <span class="text-[10px] font-mono font-bold text-muted-foreground/60 group-hover:text-primary shrink-0 mt-0.5">
+                        {idx + 1}.
+                      </span>
+                      <span class="line-clamp-2">{item.title}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Sticky Instant Tool Shortcut Box -->
+              {relatedPreset && (
+                <div class="pt-3 border-t border-border/60 space-y-2">
+                  <div class="text-[11px] font-bold text-foreground flex items-center gap-1.5">
+                    <span>⚡</span>
+                    <span>Instant Preset Resizer</span>
+                  </div>
+                  <p class="text-[10px] text-muted-foreground leading-tight">
+                    {relatedPreset.name} ({relatedPreset.minKb}–{relatedPreset.maxKb} KB)
+                  </p>
+                  <a
+                    href={`/${relatedExamSlug}/`}
+                    class="flex items-center justify-center gap-1.5 w-full py-2 px-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shadow-2xs"
+                  >
+                    <span>Open Resizer Canvas</span>
+                    <span>&rarr;</span>
+                  </a>
+                </div>
+              )}
+            </nav>
+          </aside>
+        )}
+
+      </div>
     </main>
 
     <Footer topic={isPkiCompliancePost ? 'standards' : 'exams'} />
@@ -840,5 +911,43 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         margin-bottom: 0.35rem;
       }
     </style>
+
+    <script>
+      function initTocScrollSpy() {
+        const tocLinks = document.querySelectorAll('.toc-desktop-link');
+        if (!tocLinks.length) return;
+
+        const headingIds = Array.from(tocLinks).map(link => link.getAttribute('data-target')).filter(Boolean);
+        const headings = headingIds.map(id => document.getElementById(id)).filter(Boolean);
+
+        if (!headings.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const currentId = entry.target.id;
+              tocLinks.forEach(link => {
+                const isMatch = link.getAttribute('data-target') === currentId;
+                if (isMatch) {
+                  link.classList.add('text-primary', 'font-bold', 'bg-primary/10', 'border-l-2', 'border-primary');
+                  link.classList.remove('text-muted-foreground');
+                } else {
+                  link.classList.remove('text-primary', 'font-bold', 'bg-primary/10', 'border-l-2', 'border-primary');
+                  link.classList.add('text-muted-foreground');
+                }
+              });
+            }
+          });
+        }, {
+          rootMargin: '-10% 0px -70% 0px',
+          threshold: 0
+        });
+
+        headings.forEach(h => observer.observe(h));
+      }
+
+      document.addEventListener('DOMContentLoaded', initTocScrollSpy);
+      document.addEventListener('astro:page-load', initTocScrollSpy);
+    </script>
   </body>
 </html>

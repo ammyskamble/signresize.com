@@ -155,7 +155,7 @@ const shareLinks = [
       </svg>
 
       <!-- Floating Tooltip -->
-      <span class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-md bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-[10px] font-bold pointer-events-none opacity-0 transition-opacity whitespace-nowrap shadow-lg border border-zinc-700 dark:border-zinc-300">
+      <span class="copy-tooltip hidden opacity-0 absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-md bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-[10px] font-bold pointer-events-none transition-opacity whitespace-nowrap shadow-lg border border-zinc-700 dark:border-zinc-300">
         Copied!
       </span>
     </button>
@@ -189,8 +189,11 @@ const shareLinks = [
             textSpan.innerText = 'Copied! ✓';
           }
           if (tooltip) {
-            tooltip.classList.remove('opacity-0');
-            tooltip.classList.add('opacity-100');
+            tooltip.classList.remove('hidden');
+            requestAnimationFrame(() => {
+              tooltip.classList.remove('opacity-0');
+              tooltip.classList.add('opacity-100');
+            });
           }
           copyBtn.classList.add('border-emerald-500/50', 'bg-emerald-500/10', 'text-emerald-600', 'dark:text-emerald-400');
 
@@ -205,6 +208,9 @@ const shareLinks = [
             if (tooltip) {
               tooltip.classList.add('opacity-0');
               tooltip.classList.remove('opacity-100');
+              setTimeout(() => {
+                tooltip.classList.add('hidden');
+              }, 200);
             }
             copyBtn.classList.remove('border-emerald-500/50', 'bg-emerald-500/10', 'text-emerald-600', 'dark:text-emerald-400');
           }, 2000);

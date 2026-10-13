@@ -14,6 +14,19 @@ const { topic = 'exams' } = Astro.props;
 const isTechOrStandards = topic === 'standards' || topic === 'tech';
 const currentYear = new Date().getFullYear();
 const currentPath = Astro.url.pathname;
+
+let examAlertTitle = 'Never miss a 2026 SSC, State PSC, or Railway photo deadline';
+if (currentPath.includes('osssc')) {
+  examAlertTitle = 'Never miss a 2026 OSSSC, OPSC, or Railway photo deadline';
+} else if (currentPath.includes('wbpsc')) {
+  examAlertTitle = 'Never miss a 2026 WBPSC, SSC, or Railway photo deadline';
+} else if (currentPath.includes('mppsc')) {
+  examAlertTitle = 'Never miss a 2026 MPPSC, SSC, or Railway photo deadline';
+} else if (currentPath.includes('bpsc')) {
+  examAlertTitle = 'Never miss a 2026 BPSC, SSC, or Railway photo deadline';
+} else if (currentPath.includes('upsc')) {
+  examAlertTitle = 'Never miss a 2026 UPSC, SSC, or Defence photo deadline';
+}
 ---
 
 <!-- Vibrant Top Visual Separator Bar (Multi-color Glowing Gradient Bridge) -->
@@ -37,7 +50,7 @@ const currentPath = Astro.url.pathname;
           <h3 class="text-sm sm:text-base font-bold text-white tracking-tight">
             {isTechOrStandards 
               ? 'Never miss a 2026 digital signature or PDF compliance update' 
-              : 'Never miss a 2026 WBPSC, SSC, or Railway photo deadline'}
+              : examAlertTitle}
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
             {isTechOrStandards
@@ -487,7 +500,7 @@ const currentPath = Astro.url.pathname;
               <li><a href="/hpsc-ppsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">HPSC &amp; PPSC Haryana / Punjab</a></li>
               <li><a href="/kerala-psc-photo-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">Kerala PSC Thulasi Photo &amp; Sign</a></li>
               <li><a href="/apsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">APSC Assam Combined Exam</a></li>
-              <li><a href="/osssc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">OSSSC Odisha Sub-ordinate</a></li>
+              <li><a href="/osssc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">OSSSC Signature (140×60) 10–20 KB</a></li>
               <li><a href="/opsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">OPSC Odisha Civil Services</a></li>
               <li><a href="/iit-jam-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">IIT JAM Signature Resizer</a></li>
               <li><a href="/gate-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">GATE Signature Resizer</a></li>

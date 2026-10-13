@@ -1063,28 +1063,40 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "osssc-cre-2026-master-guide-ri-ari-amin-peo-photo-signature-rules",
-    "title": "OSSSC Combined Recruitment (CRE) 2026 Guide: RI, ARI, Amin & PEO Syllabus, Salary & Photo-Signature Guidelines",
-    "metaTitle": "OSSSC CRE 2026 Guide: RI, ARI, Amin, PEO Syllabus & Photo Resizer",
-    "metaDescription": "Exhaustive OSSSC Combined Recruitment Exam (CRE) 2026 master guide: RI, ARI, Amin & PEO syllabus, ORSP Pay Level 4 to 9 salary matrix, Odia language eligibility, 40% CPT cutoff, and 20–100 KB document resizer.",
-    "excerpt": "Master candidate guide for OSSSC CRE 2026 (RI, ARI, Amin, PEO, ICDS Supervisor): OTR profile creation, 1/3rd negative marking rule, Odia language eligibility, Pay Level 4 to 9 matrix, and 20–100 KB photo/signature upload resizer.",
+    "title": "OSSSC Recruitment 2026 Master Guide: Apply Online, Admit Card & Photo Rules",
+    "metaTitle": "OSSSC 2026 Guide: Apply Online, Admit Card & Photo Resizer",
+    "metaDescription": "OSSSC 2026 Master Guide: How to apply online, download admit cards for RI & Amin, fix login errors, and resize photos & signatures to strict 10–20 KB rules.",
+    "excerpt": "Authoritative candidate intelligence for OSSSC recruitments: Step-by-step online application (OTR), hall ticket download links, fixing 'why OSSSC site is not working', Employment Exchange requirements, SFS & PEO cadre pay scales, and 10–20 KB photo/signature resizing.",
     "category": "Career Opportunity",
     "country": "IN",
     "publishDate": "Oct 09, 2026",
     "publishTime": "08:15 PM IST",
-    "lastUpdated": "Oct 09, 2026",
-    "author": "SignResize Odisha Civil Service Research Desk",
-    "authorRole": "Senior State Subordinate Selection Specialist",
-    "readTime": "9 min read",
+    "lastUpdated": "Oct 13, 2026",
+    "author": "SignResize Odisha Subordinate Selection Research Desk",
+    "authorRole": "Senior State Recruitment & Document Verification Specialist",
+    "readTime": "14 min read",
     "featured": true,
     "relatedExamPreset": "osssc-signature-resize",
     "tags": [
-      "OSSSC CRE",
-      "OSSSC RI ARI Amin Syllabus",
-      "OSSSC PEO Recruitment 2026",
-      "OSSSC OTR Registration",
+      "OSSSC",
+      "OSSSC Admit Card",
+      "OSSSC Login",
+      "OSSSC RI Admit Card",
+      "OSSSC RI ARI Amin Admit Card",
+      "OSSSC Nursing Officer Recruitment",
+      "OSSSC Forest Guard Admit Card",
+      "OSSSC Forest Guard Result",
+      "OSSSC Mock Test",
+      "OSSSC Live Test",
+      "OSSSC CBT Test",
+      "How to Apply OSSSC Online",
+      "SFS Full Form in OSSSC",
+      "Why OSSSC Site is Not Working",
+      "OSSSC PEO Which Group",
+      "Is Employment Exchange Necessary for OSSSC",
       "OSSSC Photo Resizer 100KB",
-      "OSSSC Signature Resizer 50KB",
-      "Odisha Govt Jobs Salary",
+      "OSSSC Signature Resizer 20KB",
+      "OSSSC Exam Calendar",
       "Odia Language Eligibility"
     ],
     "quickFacts": [
@@ -1097,70 +1109,776 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         "value": "osssc.gov.in"
       },
       {
-        "label": "Recruitment Cycle",
-        "value": "2026 Combined Recruitment Examination (CRE)"
+        "label": "Key Recruitments",
+        "value": "CRE (RI, ARI, Amin, SFS, ICDS), Nursing Officer, Forest Guard"
       },
       {
-        "label": "Registration System",
-        "value": "OSSSC One Time Registration (OTR)"
+        "label": "Candidate Registration",
+        "value": "OSSSC One Time Registration (OTR) / Re-Registration"
       },
       {
         "label": "Photo Specification",
-        "value": "JPG/JPEG, 3.5×4.5 cm (200×230 px), 20 KB – 100 KB"
+        "value": "JPG/JPEG, 3.5×4.5 cm (200×230 px), 20 KB – 100 KB, Light Background"
       },
       {
         "label": "Signature Specification",
-        "value": "Black Ballpoint Pen, 3.5×1.5 cm (140×60 px), 20 KB – 50 KB"
+        "value": "Black Ballpoint Pen, 3.5×1.5 cm (140×60 px), 10 KB – 20 KB strictly (Hard Portal Cutoff)"
+      },
+      {
+        "label": "Employment Exchange",
+        "value": "Mandatory for District Cadres (or State Exchange + Resident Certificate)"
+      },
+      {
+        "label": "Marking Penalty",
+        "value": "0.25 to 0.50 Penalty per Wrong MCQ (Exam Specific: 0.50 CRE / 0.25-0.33 Standard)"
       }
     ],
+    "contentHtml": `
+    <p class="text-base sm:text-lg leading-relaxed text-foreground font-medium mb-6">
+      The <strong>Odisha Sub-Ordinate Staff Selection Commission (OSSSC)</strong> serves as the premier recruitment body administering competitive examinations for Group-C and non-gazetted Group-B district cadre posts under the Government of Odisha. Managing major employment drives such as the <strong>Combined Recruitment Examination (CRE for RI, ARI, Amin, SFS, and ICDS Supervisor)</strong>, <strong>Nursing Officer Recruitment (5,989+ Vacancies)</strong>, <strong>Panchayat Executive Officer (PEO)</strong>, and <strong>Forest Guard / Forester</strong>, OSSSC mandates an automated candidate screening mechanism on its central portal <code>osssc.gov.in</code>. Whether you need to navigate the <strong>OSSSC One Time Registration (OTR)</strong> system, download the latest <strong>OSSSC Admit Card</strong>, diagnose <strong>why the OSSSC site is not working or throwing 504 errors</strong>, clarify <strong>Employment Exchange registration rules</strong>, or format digital files to the strict <strong>10–20 KB signature and 20–100 KB photo limits</strong>, this master guide provides exhaustive, candidate-first intelligence.
+    </p>
+
+    <!-- Key Callout Tool Card with Visual Bounding Box Diagram -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-card border-2 border-primary/30 shadow-sm space-y-6">
+      <!-- Visual Bounding Box Diagram -->
+      <div class="p-4 rounded-xl bg-background border border-border flex flex-col md:flex-row items-center gap-6 justify-around">
+        <div class="w-48 shrink-0 bg-card border-2 border-dashed border-primary/60 rounded-xl p-3 shadow-sm flex flex-col items-center justify-between gap-2 text-center h-[220px]">
+          <div class="w-full h-[140px] bg-muted/50 rounded-lg flex flex-col items-center justify-center border border-border p-1">
+            <span class="text-xl">👤</span>
+            <span class="text-[11px] font-bold text-foreground mt-0.5">Passport Photograph</span>
+            <span class="text-[10px] text-muted-foreground">3.5 × 4.5 cm (200×230 px)</span>
+            <span class="text-[9px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">20 KB – 100 KB</span>
+          </div>
+          <div class="w-full h-[50px] bg-primary/10 rounded-lg flex flex-col items-center justify-center border border-primary/30">
+            <span class="text-[10px] font-bold text-primary font-serif italic">Candidate Signature</span>
+            <span class="text-[8px] text-muted-foreground">140 × 60 px | 10–20 KB (Black Pen)</span>
+          </div>
+        </div>
+        <div class="space-y-2 text-xs sm:text-sm text-muted-foreground max-w-md">
+          <strong class="text-foreground font-bold text-sm block flex items-center gap-2">
+            <span>📌</span> OSSSC Official Bounding Box Proportions & Strict Formatting Notice
+          </strong>
+          <p class="leading-relaxed">
+            Ensure your photograph features a plain white/light background with both ears unobstructed. Your signature must be written in <strong>BLACK BALLPOINT INK</strong> in running cursive script inside the <strong>140×60 px</strong> frame. ==Signatures uploaded in BLOCK / CAPITAL LETTERS or files exceeding 20 KB are automatically rejected by the OSSSC portal upload engine.==
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <h4 class="text-base sm:text-lg font-extrabold text-foreground flex items-center gap-2">
+            <span>⚡</span> Official OSSSC Signature (10–20 KB) & Photo Resizer Tool
+          </h4>
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Compress and crop your photo to 200×230 px (20–100 KB) and signature to 140×60 px (10–20 KB) in seconds without losing sharpness.
+          </p>
+        </div>
+        <a href="/osssc-signature-resize/?preset=osssc&photoW=3.5&photoH=4.5&photoMin=20&photoMax=100&signW=3.5&signH=1.5&signMin=10&signMax=20" class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition shrink-0">
+          Resize for OSSSC Online &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- 1. Executive Quick Facts & Important Recruitment Dates -->
+    <h2 id="1-osssc-executive-quick-facts--important-recruitment-dates" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">1. OSSSC Executive Quick Facts & Important Recruitment Dates</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      Official recruitment notifications, candidate OTR registrations, admit cards, and preliminary merit lists are published exclusively via <code>osssc.gov.in</code>. Below is the operational calendar and recruitment schedule:
+    </p>
+
+    <div class="text-[11px] text-muted-foreground flex items-center gap-1 mb-1.5 md:hidden">
+      <span>👉 Swipe horizontally to view full table details</span>
+    </div>
+    <div class="my-6 overflow-x-auto scrollbar-thin">
+      <table class="w-full text-xs sm:text-sm border border-border rounded-xl overflow-hidden min-w-[500px]">
+        <thead class="bg-muted text-foreground font-bold">
+          <tr>
+            <th class="p-3 text-left border-b border-border">Recruitment Milestone</th>
+            <th class="p-3 text-left border-b border-border">Scheduled Timeline / Window</th>
+            <th class="p-3 text-left border-b border-border">Authority Mandate & Action Required</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border text-muted-foreground">
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Official Advertisement Release</td>
+            <td class="p-3 font-mono text-primary font-bold">Published on osssc.gov.in</td>
+            <td class="p-3">Refer to respective active notification (e.g., Advt. No. IIE-04/2026/OSSSC or CRE circular)</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Online Registration (OTR) Start Date</td>
+            <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400 font-bold">Phase 1 Opening (10:00 AM)</td>
+            <td class="p-3">Mobile & Email OTP verification, Aadhaar locking</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Registration & Application Closing Date</td>
+            <td class="p-3 font-mono text-destructive font-bold">Final Closing (11:59 PM IST)</td>
+            <td class="p-3">No offline applications or hardcopies accepted</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Application Correction / Edit Window</td>
+            <td class="p-3 font-mono">3 to 5 Days Post-Closing</td>
+            <td class="p-3">Self-editable fields only (Educational & Photo files)</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Admission Letter (Admit Card) Release</td>
+            <td class="p-3 font-mono text-primary font-bold">7 to 10 Days Before Exam</td>
+            <td class="p-3">Download via User ID & DOB on osssc.gov.in</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Preliminary Examination (CRE / Written)</td>
+            <td class="p-3 font-mono">Notified via Exam Calendar</td>
+            <td class="p-3">100 MCQs (OMR / CBT format across 30 Odisha Districts)</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Main Examination & Practical Computer Test (CPT)</td>
+            <td class="p-3 font-mono">Conducted 45–60 Days Post-Prelims</td>
+            <td class="p-3">180 MCQs Mains + 50 Marks Practical Skill Test (40% Cutoff)</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Document Scrutiny (DV) & Final Merit</td>
+            <td class="p-3 font-mono">Post-Skill Test</td>
+            <td class="p-3">Commission Office, Unit-1, Bhubaneswar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 2. How to Apply OSSSC Online Step-by-Step -->
+    <h2 id="2-how-to-apply-osssc-online-step-by-step-otr--re-registration-walkthrough" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">2. How to Apply OSSSC Online Step-by-Step (OTR & Re-Registration Walkthrough)</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      Applying for an OSSSC recruitment requires completing a centralized registration before submitting post-specific choices. Under Government of Odisha policy, <strong>NO APPLICATION FEE</strong> is charged to any category of applicants. Follow this chronological 4-step walkthrough:
+    </p>
+
+    <div class="my-6 space-y-4">
+      <div class="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
+        <span class="w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">1</span>
+        <div>
+          <h4 class="font-bold text-sm text-foreground">Step 1: Portal Navigation & Primary Authentication</h4>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-1">Visit <code>osssc.gov.in</code> and click on <strong>'Apply Online'</strong>. First-time candidates must click on <strong>'New User'</strong> to initiate One Time Registration (OTR). Enter your active Mobile Number, personal Email ID, and 12-digit Aadhaar Number. Verify both the mobile and email OTPs immediately to lock your base profile.</p>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
+        <span class="w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">2</span>
+        <div>
+          <h4 class="font-bold text-sm text-foreground">Step 2: Matriculation (10th) Memo Mapping & Identity Verification</h4>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-1">Enter your Candidate Name, Father's Name, Mother's Name, and Date of Birth <strong>strictly as printed on your High School Certificate (HSC/10th)</strong>. Input your 10th Roll Number, Year of Passing, and Board Name (BSE Odisha, CBSE, ICSE). This combination acts as your immutable system identifier.</p>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
+        <span class="w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">3</span>
+        <div>
+          <h4 class="font-bold text-sm text-foreground">Step 3: Document Upload (Photo, Signature & Thumb Impression)</h4>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-1">Upload your recent passport photo (200×230 px, 20–100 KB) and running signature in black ink (140×60 px, 10–20 KB). Ensure the cropped signature image does not include excessive white margins. Set your permanent password to generate your <strong>OSSSC User ID / Registration Number</strong>.</p>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
+        <span class="w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">4</span>
+        <div>
+          <h4 class="font-bold text-sm text-foreground">Step 4: Re-Registration / Application Submission for Active Posts</h4>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-1">If you already hold an OSSSC User ID, log in using <strong>'Registered User'</strong>. Click on <strong>'Re-registration'</strong> under the active advertisement (e.g., CRE 2026, Nursing Officer, or Forest Guard). Verify your domicile details, enter post preferences, review the application summary preview, and download your <strong>Application Acknowledgment Slip</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Top 5 Form Rejection Traps & Profile Editing Rules -->
+    <h2 id="3-top-5-form-rejection-traps--profile-editing-rules" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">3. Top 5 Form Rejection Traps & Profile Editing Rules</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      Every year, thousands of OSSSC online applications are summarily rejected during automated machine scrutiny or post-exam document verification. Avoid these 5 critical pitfalls:
+    </p>
+
+    <div class="my-6 space-y-3">
+      <div class="p-4 rounded-xl bg-destructive/5 border border-destructive/20 space-y-1">
+        <h4 class="font-bold text-sm text-destructive flex items-center gap-2">
+          <span>❌</span> Trap 1: Signatures in CAPITAL / BLOCK Letters or Blue/Gel Ink
+        </h4>
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          The OSSSC portal software runs an OCR shape detector. Signatures written in all-capital letters or executed in colored inks (blue, red, green) are automatically classified as fraudulent markups. You must sign in <strong>natural running cursive handwriting using a black ballpoint pen</strong> on unruled plain white paper.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-destructive/5 border border-destructive/20 space-y-1">
+        <h4 class="font-bold text-sm text-destructive flex items-center gap-2">
+          <span>❌</span> Trap 2: Expired or Non-District Employment Exchange Registration
+        </h4>
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          For district-cadre posts like Junior Assistant and Amin, failing to maintain an active registration in that specific district's Employment Exchange causes disqualification during Document Verification. If registered at a State Exchange, you must have an authentic <strong>Resident Certificate issued by a Tahasildar</strong> of that district.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-destructive/5 border border-destructive/20 space-y-1">
+        <h4 class="font-bold text-sm text-destructive flex items-center gap-2">
+          <span>❌</span> Trap 3: Casual Selfies or Dark/Patterned Background Photos
+        </h4>
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          Photos taken with mobile front cameras (selfies), photos with dark or patterned backgrounds, or pictures where the candidate is wearing hats, dark sunglasses, or face masks lead to immediate rejection during biometric center verification.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-destructive/5 border border-destructive/20 space-y-1">
+        <h4 class="font-bold text-sm text-destructive flex items-center gap-2">
+          <span>❌</span> Trap 4: Altering Locked 10th Memo Fields Online
+        </h4>
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          Candidates often create a duplicate profile when discovering a typo in their name or date of birth. ==Creating multiple OTR accounts is a criminal offence that leads to debarment under OSSSC rules.== If your primary name or DOB is misprinted, submit an official grievance ticket to the Commission Desk in Bhubaneswar with your original 10th marks memo.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-destructive/5 border border-destructive/20 space-y-1">
+        <h4 class="font-bold text-sm text-destructive flex items-center gap-2">
+          <span>❌</span> Trap 5: Uploading Uncompressed Files Exceeding Byte Limits
+        </h4>
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          Uploading images larger than 20 KB (for signatures) or 100 KB (for photos) triggers server-side timeout scripts on <code>osssc.gov.in</code>, freezing the session and corrupting the upload packet.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4. Employment Exchange Registration Rule -->
+    <h2 id="4-employment-exchange-registration-is-it-mandatory-for-all-cadres" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">4. Employment Exchange Registration: Is It Mandatory for All Cadres?</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      One of the most persistent questions from aspirants is: <em>"Is Employment Exchange registration necessary for OSSSC?"</em> The commission's rule distinguishes between <strong>District Cadre</strong> and <strong>State Cadre</strong> posts:
+    </p>
+
+    <div class="my-6 p-5 rounded-2xl bg-card border border-border space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
+          <h4 class="font-bold text-primary flex items-center gap-1.5">
+            <span>📍</span> District Cadre Posts (Junior Assistant, Amin, PEO, RI)
+          </h4>
+          <p class="text-muted-foreground leading-relaxed">
+            For district-specific posts, official notifications explicitly mandate that candidates must have registered their names in the <strong>Employment Exchange of the concerned district</strong> on or before the application closing date.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
+          <h4 class="font-bold text-primary flex items-center gap-1.5">
+            <span>🏛️</span> State / Special Employment Exchange Exception
+          </h4>
+          <p class="text-muted-foreground leading-relaxed">
+            If a candidate is registered with a State Employment Exchange, Special Employment Exchange for PwD, or University Employment Bureau, they must upload an official <strong>Resident Certificate (Domicile)</strong> issued by a competent Revenue Authority (Tahasildar) of that district.
+          </p>
+        </div>
+      </div>
+      <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs sm:text-sm space-y-1">
+        <strong class="font-bold block">⚠️ Crucial Tip for Document Verification:</strong>
+        <span>Ensure your Employment Exchange Registration Card is active and renewed. Expired registration cards presented during Certificate Verification lead to immediate cancellation of candidature.</span>
+      </div>
+    </div>
+
+    <!-- 5. Cadre Breakdown, SFS Full Form & PEO Group Classification -->
+    <h2 id="5-cadre-breakdown-sfs-full-form-peo-group--nursing-officer-hierarchy" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">5. Cadre Breakdown: SFS Full Form, PEO Group & Nursing Officer Hierarchy</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      Candidates frequently search for acronyms like <strong>SFS</strong> and the cadre classification of <strong>PEO</strong>. Here is the official organizational mapping, departmental jurisdiction, and eligibility benchmark:
+    </p>
+
+    <div class="text-[11px] text-muted-foreground flex items-center gap-1 mb-1.5 md:hidden">
+      <span>👉 Swipe horizontally to view full table details</span>
+    </div>
+    <div class="my-6 overflow-x-auto scrollbar-thin">
+      <table class="w-full text-xs sm:text-sm border border-border rounded-xl overflow-hidden min-w-[650px]">
+        <thead class="bg-muted text-foreground font-bold">
+          <tr>
+            <th class="p-3 text-left border-b border-border">Post Title</th>
+            <th class="p-3 text-left border-b border-border">Full Form & Department</th>
+            <th class="p-3 text-left border-b border-border">Cadre & Classification</th>
+            <th class="p-3 text-left border-b border-border">ORSP Pay Level</th>
+            <th class="p-3 text-left border-b border-border">Age Limits (Gen)</th>
+            <th class="p-3 text-left border-b border-border">Minimum Qualification</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border text-muted-foreground">
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Revenue Inspector (RI)</td>
+            <td class="p-3">Revenue & Disaster Management</td>
+            <td class="p-3">District Cadre (Group B Non-Gazetted)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 9</td>
+            <td class="p-3 font-mono">21 to 38 Yrs</td>
+            <td class="p-3">Graduate in any discipline + Computer knowledge</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">ICDS Supervisor</td>
+            <td class="p-3">Women & Child Development</td>
+            <td class="p-3">District Cadre (Female Only, Group B)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 9</td>
+            <td class="p-3 font-mono">21 to 38 Yrs</td>
+            <td class="p-3">Degree in Arts/Science/Commerce</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Assistant Revenue Inspector (ARI)</td>
+            <td class="p-3">Revenue & Disaster Management</td>
+            <td class="p-3">District Cadre (Group C)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 4</td>
+            <td class="p-3 font-mono">18 to 38 Yrs</td>
+            <td class="p-3">Higher Secondary (10+2 / CHSE) Pass</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">PEO (Panchayat Executive Officer)</td>
+            <td class="p-3">Panchayati Raj & Drinking Water</td>
+            <td class="p-3"><strong>Group C District Cadre</strong></td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 4</td>
+            <td class="p-3 font-mono">18 to 38 Yrs</td>
+            <td class="p-3">+2 Examination in any stream + basic computer</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Amin</td>
+            <td class="p-3">Revenue & Disaster Management</td>
+            <td class="p-3">District Cadre (Group C)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 3</td>
+            <td class="p-3 font-mono">18 to 38 Yrs</td>
+            <td class="p-3">10+2 Pass + Survey Proficiency</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">SFS</td>
+            <td class="p-3"><strong>Statistical Field Surveyor</strong> (Economics & Statistics)</td>
+            <td class="p-3">District Cadre (Group C)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 3</td>
+            <td class="p-3 font-mono">18 to 38 Yrs</td>
+            <td class="p-3">10+2 (CHSE) in any stream</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Nursing Officer</td>
+            <td class="p-3">Health & Family Welfare (5,989+ Vacancies)</td>
+            <td class="p-3">District Cadre (Group C)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 9</td>
+            <td class="p-3 font-mono">21 to 38 Yrs</td>
+            <td class="p-3">+2 Science + GNM / B.Sc Nursing + ONC Reg.</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Forest Guard & Forester</td>
+            <td class="p-3">Forest, Environment & Climate Change</td>
+            <td class="p-3">District Cadre (Uniformed Group C)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 3 / Level 7</td>
+            <td class="p-3 font-mono">18 to 38 Yrs</td>
+            <td class="p-3">10th / +2 Science + Physical Test (PST/PET)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 6. Selection Process, Exam Pattern & Negative Marking Notice -->
+    <h2 id="6-selection-process-exam-pattern--negative-marking-notice" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">6. Selection Process, Exam Pattern & Negative Marking Notice</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      OSSSC conducts recruitments in multiple sequential stages designed to filter candidates objectively through standardized testing:
+    </p>
+
+    <div class="my-6 p-5 rounded-2xl bg-card border border-border space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl bg-muted/30 border border-border space-y-2">
+          <strong class="text-foreground text-sm block">Stage 1: Preliminary Examination (Screening)</strong>
+          <ul class="space-y-1.5 text-muted-foreground">
+            <li><strong>Total Questions & Marks:</strong> 100 MCQs, 100 Marks</li>
+            <li><strong>Duration:</strong> 1.5 Hours (90 Minutes)</li>
+            <li><strong>Subjects:</strong> Mathematics (40 Qs), General Studies (40 Qs), Logical Reasoning (20 Qs)</li>
+            <li><strong>Shortlisting Ratio:</strong> 1:5 to 1:6 candidates shortlisted for Mains per vacancy</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl bg-muted/30 border border-border space-y-2">
+          <strong class="text-foreground text-sm block">Stage 2: Main Written Examination</strong>
+          <ul class="space-y-1.5 text-muted-foreground">
+            <li><strong>Total Questions & Marks:</strong> 180 MCQs, 180 Marks</li>
+            <li><strong>Duration:</strong> 3.0 Hours (180 Minutes)</li>
+            <li><strong>Subjects:</strong> General Studies (50 Qs), Odia Language (40 Qs), English Language (40 Qs), Computer Fundamentals (50 Qs)</li>
+            <li><strong>Standard:</strong> Higher Secondary (10+2) & Graduation level</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl bg-muted/30 border border-border space-y-2">
+          <strong class="text-foreground text-sm block">Stage 3: Practical Computer Skill Test (CPT)</strong>
+          <ul class="space-y-1.5 text-muted-foreground">
+            <li><strong>Total Marks & Duration:</strong> 50 Marks, 45 Minutes</li>
+            <li><strong>Qualifying Benchmark:</strong> <strong>40% Cutoff (20 Marks out of 50)</strong></li>
+            <li><strong>Syllabus:</strong> MS Word (formatting), MS Excel (spreadsheets/formulas), MS PowerPoint, and basic file management</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl bg-muted/30 border border-border space-y-2">
+          <strong class="text-foreground text-sm block">Stage 4: Physical Test (PET/PST - Forest Guard)</strong>
+          <ul class="space-y-1.5 text-muted-foreground">
+            <li><strong>Male Walking Standard:</strong> 25 km within 4 Hours</li>
+            <li><strong>Female Walking Standard:</strong> 16 km within 4 Hours</li>
+            <li><strong>Height Standard:</strong> Male UR/SEBC 168 cm, ST 158 cm; Female UR/SEBC 153 cm, ST 145 cm</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs sm:text-sm space-y-1.5">
+        <strong class="font-bold flex items-center gap-1.5">
+          <span>⚠️</span> Critical Regulatory Notice: Negative Marking Rate Variations
+        </strong>
+        <p class="leading-relaxed">
+          Candidates must note that OSSSC negative marking penalties vary depending on the specific recruitment advertisement:
+        </p>
+        <ul class="list-disc list-inside space-y-1 text-muted-foreground pl-1">
+          <li><strong>Recent CRE Examinations (RI, ARI, Amin, SFS):</strong> Several recent circulars have enforced a penalty of <strong>0.50 (1/2 mark)</strong> deduction per incorrect MCQ.</li>
+          <li><strong>Standard General & Technical Notifications:</strong> Other recruitments enforce <strong>0.33 (1/3rd mark)</strong> or <strong>0.25 (1/4th mark)</strong> deductions.</li>
+          <li><strong>Recommendation:</strong> Always verify the <em>'Plan of Examination / Negative Marking'</em> clause in your specific advertisement. Unattempted questions incur 0 deduction.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7. Official Pay Scales, Allowances & In-Hand Salary Calculation -->
+    <h2 id="7-official-pay-scales-allowances--in-hand-salary-calculation" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">7. Official Pay Scales, Allowances & In-Hand Salary Calculation</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      Under the <strong>Odisha Revised Scales of Pay (ORSP Rules 2017)</strong>, employees receive substantial monthly compensation including Dearness Allowance (DA at prevailing state rates ~50%), House Rent Allowance (HRA 9% to 18% depending on city classification), and medical allowances:
+    </p>
+
+    <div class="text-[11px] text-muted-foreground flex items-center gap-1 mb-1.5 md:hidden">
+      <span>👉 Swipe horizontally to view full table details</span>
+    </div>
+    <div class="my-6 overflow-x-auto scrollbar-thin">
+      <table class="w-full text-xs sm:text-sm border border-border rounded-xl overflow-hidden min-w-[550px]">
+        <thead class="bg-muted text-foreground font-bold">
+          <tr>
+            <th class="p-3 text-left border-b border-border">Designation & Cadre</th>
+            <th class="p-3 text-left border-b border-border">ORSP Pay Level</th>
+            <th class="p-3 text-left border-b border-border">Basic Pay Scale</th>
+            <th class="p-3 text-left border-b border-border">Estimated Allowances (DA + HRA)</th>
+            <th class="p-3 text-left border-b border-border">Estimated Monthly In-Hand Salary</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border text-muted-foreground">
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Revenue Inspector (RI) & ICDS Supervisor</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 9</td>
+            <td class="p-3 font-mono">₹35,400 – ₹1,12,400</td>
+            <td class="p-3 font-mono">~₹20,000 – ₹22,000</td>
+            <td class="p-3 font-mono font-bold text-foreground">₹51,000 – ₹55,000</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Nursing Officer (Health Dept)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 9</td>
+            <td class="p-3 font-mono">₹29,200 – ₹92,300</td>
+            <td class="p-3 font-mono">~₹16,500 – ₹18,500</td>
+            <td class="p-3 font-mono font-bold text-foreground">₹43,000 – ₹46,000</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">ARI & Panchayat Executive Officer (PEO)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 4</td>
+            <td class="p-3 font-mono">₹19,900 – ₹63,200</td>
+            <td class="p-3 font-mono">~₹11,500 – ₹13,000</td>
+            <td class="p-3 font-mono font-bold text-foreground">₹29,500 – ₹32,000</td>
+          </tr>
+          <tr class="hover:bg-muted/30">
+            <td class="p-3 font-semibold text-foreground">Amin & Statistical Field Surveyor (SFS)</td>
+            <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">Level 3</td>
+            <td class="p-3 font-mono">₹18,000 – ₹56,900</td>
+            <td class="p-3 font-mono">~₹10,500 – ₹12,000</td>
+            <td class="p-3 font-mono font-bold text-foreground">₹26,500 – ₹29,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8. Document Verification (DV) Scrutiny Checklist -->
+    <h2 id="8-document-verification-dv-scrutiny-checklist" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">8. Document Verification (DV) Scrutiny Checklist</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      Shortlisted candidates summoned to the OSSSC office in Bhubaneswar must produce the following original documents along with two sets of self-attested photocopies:
+    </p>
+
+    <div class="my-6 p-5 rounded-2xl bg-card border border-border space-y-3">
+      <ul class="list-disc list-inside text-xs sm:text-sm text-muted-foreground space-y-2">
+        <li><strong class="text-foreground">HSC / 10th Class Board Certificate & Marksheet:</strong> Mandatory proof for Date of Birth (DOB) and candidate's official legal name.</li>
+        <li><strong class="text-foreground">+2 / Intermediate / Higher Secondary Certificate:</strong> Academic qualification proof for ARI, Amin, SFS, and PEO cadres.</li>
+        <li><strong class="text-foreground">Graduation Degree Certificate & Marksheets:</strong> Essential qualification certificate for Revenue Inspector (RI) and ICDS Supervisor.</li>
+        <li><strong class="text-foreground">GNM / B.Sc Nursing Certificate & ONC Registration:</strong> Compulsory for Nursing Officer candidates, proving valid registration with the Odisha Nursing Council.</li>
+        <li><strong class="text-foreground">Odia Language Competency Certificate:</strong> Middle School Odia exam pass certificate, or HSC certificate showing Odia as a first/second language or medium of exam.</li>
+        <li><strong class="text-foreground">Active Employment Exchange Registration Card:</strong> Proving registration in the concerned district before the application cutoff date.</li>
+        <li><strong class="text-foreground">Resident / Domicile Certificate:</strong> Issued by a competent Revenue Authority (Tahasildar / Additional Tahasildar) within valid timeline.</li>
+        <li><strong class="text-foreground">Caste Certificate (SC / ST / SEBC):</strong> Issued by a competent revenue authority. SEBC certificates must be current and within the prescribed non-creamy layer validity.</li>
+        <li><strong class="text-foreground">Government Photo Identity Proof:</strong> Original Aadhaar Card, Voter ID Card, or PAN Card.</li>
+        <li><strong class="text-foreground">OSSSC Application Form & Admission Letter:</strong> Printed copies of the online acknowledgment slip and written exam admit card.</li>
+      </ul>
+    </div>
+
+    <!-- 9. OSSSC Admit Card Download Procedure & Emergency Protocol -->
+    <h2 id="9-osssc-admit-card-download-procedure--emergency-photo-protocol" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">9. OSSSC Admit Card Download Procedure & Emergency Photo Protocol</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      Admission Letters (Hall Tickets) are uploaded on <code>osssc.gov.in</code> roughly <strong>7 to 10 days before the scheduled exam date</strong> for RI, ARI, Amin, Forest Guard, and Nursing Officer. Follow this verified procedure to download your admit card:
+    </p>
+
+    <div class="my-6 p-5 rounded-2xl bg-card border border-border space-y-4">
+      <h3 class="text-base font-bold text-foreground">How to Download OSSSC Admit Card:</h3>
+      <ol class="list-decimal list-inside text-xs sm:text-sm text-muted-foreground space-y-2">
+        <li>Navigate to the official portal: <strong>osssc.gov.in</strong>.</li>
+        <li>Click on <strong>'Download Admission Letter'</strong> located in the quick notifications bar or candidate dashboard.</li>
+        <li>Select your active recruitment advertisement (e.g., <em>“CRE Prelims Admission Letter”</em> or <em>“Forest Guard Physical Test Hall Ticket”</em>).</li>
+        <li>Input your <strong>User ID / Registration Number / Registered Mobile Number</strong> along with your <strong>Password / Date of Birth (DD-MM-YYYY)</strong>.</li>
+        <li>Enter the Captcha challenge and click <strong>'Login'</strong>.</li>
+        <li>Download your Admission Letter PDF and print <strong>at least 2 color copies</strong> on standard A4 paper.</li>
+      </ol>
+
+      <div class="p-4 rounded-xl bg-destructive/5 border border-destructive/20 text-xs sm:text-sm space-y-2 mt-4">
+        <strong class="text-destructive font-bold flex items-center gap-1.5">
+          <span>🚨</span> Emergency Protocol for Blank or Distorted Photos on Admit Card
+        </strong>
+        <p class="text-muted-foreground leading-relaxed">
+          If your admit card prints with a blurred or missing photograph, automated entry at the test center will be barred. You must immediately:
+        </p>
+        <ul class="list-disc list-inside space-y-1 text-muted-foreground">
+          <li>Paste two recent color passport photos (formatted to 200×230 px) on the printed admission letter.</li>
+          <li>Have the photos self-attested or attested by a Gazetted Officer.</li>
+          <li>Carry the original Aadhaar Card / Voter ID plus two photocopies and your OSSSC Registration Acknowledgment Slip.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 10. Troubleshooting: Why OSSSC Site is Not Working -->
+    <h2 id="10-troubleshooting-portal-glitches-why-osssc-site-is-not-working--login-fixes" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">10. Troubleshooting Portal Glitches: Why OSSSC Site is Not Working & Login Fixes</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      During the final 72 hours before an application deadline or upon the sudden release of admit cards and results, lakhs of candidates attempt to access <code>osssc.gov.in</code> simultaneously. This causes <strong>HTTP 502 Bad Gateway</strong>, <strong>504 Gateway Timeout</strong>, or unresponsive login screens. Here is how to resolve these glitches:
+    </p>
+
+    <div class="my-6 space-y-3">
+      <div class="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
+        <span class="text-xl">⏰</span>
+        <div>
+          <h4 class="font-bold text-sm text-foreground">Strategy 1: Shift to the Off-Peak Window (12:00 AM – 5:30 AM IST)</h4>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-1">Server concurrency drops by over 80% between midnight and early morning. Document uploads, fee payments, and admit card downloads process smoothly during this window without gateway timeout crashes.</p>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
+        <span class="text-xl">🧹</span>
+        <div>
+          <h4 class="font-bold text-sm text-foreground">Strategy 2: Flush Browser Cache & Use Incognito Mode</h4>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-1">OSSSC portals use state session cookies. Cached session tokens frequently create infinite login redirection loops. Press <code>Ctrl + Shift + Delete</code> to clear cookies, or launch an Incognito / Private window (<code>Ctrl + Shift + N</code>) with all extensions disabled.</p>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
+        <span class="text-xl">📶</span>
+        <div>
+          <h4 class="font-bold text-sm text-foreground">Strategy 3: Bypass ISP Routing Bottlenecks</h4>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-1">State government data centers in Odisha occasionally face DNS routing delays with specific commercial broadband networks. Switch your device connection to mobile data via phone hotspot to establish an alternative route.</p>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
+        <span class="text-xl">📐</span>
+        <div>
+          <h4 class="font-bold text-sm text-foreground">Strategy 4: Pre-Compress Upload Files to Prevent Session Expiration</h4>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-1">Uploading large, uncompressed image files forces the government server to perform server-side image processing. If this takes longer than 30 seconds under heavy traffic, the server throws an automatic timeout error. Use the <a href="/osssc-signature-resize/" class="text-primary font-bold hover:underline">SignResize OSSSC Resizer</a> to compress your signature to exactly 10–20 KB before opening the portal.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Official Photo & Signature Technical Upload Specifications -->
+    <h2 id="11-official-photo--signature-technical-upload-specifications" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">11. Official Photo & Signature Technical Upload Specifications</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+      Adhering to exact byte boundaries and pixel dimensions prevents form rejection during preliminary validation. Review the official specification matrix below:
+    </p>
+
+    <div class="my-6 p-5 rounded-2xl bg-card border border-border space-y-4">
+      <h3 class="text-base font-bold text-foreground">Official Image Dimension & File Size Matrix</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-muted-foreground">
+        <div class="p-4 rounded-xl bg-muted/30 border border-border space-y-2">
+          <strong class="text-foreground text-sm block">1. Passport Photograph Specifications</strong>
+          <ul class="space-y-1">
+            <li><strong>Physical Dimensions:</strong> 3.5 cm × 4.5 cm</li>
+            <li><strong>Pixel Resolution:</strong> <strong>200 × 230 pixels</strong> (Portal validation standard)</li>
+            <li><strong>File Size Boundary:</strong> <strong>20 KB to 100 KB strictly</strong></li>
+            <li><strong>Image Format:</strong> JPG / JPEG format only</li>
+            <li><strong>Composition:</strong> Light/white background, frontal view, both ears visible</li>
+            <li><strong>Aspect Ratio Note:</strong> Mathematically, 3.5 × 4.5 cm maintains a 7:9 ratio (~1:1.2857), which converts to approx. 200 × 257 px at standard print DPI. However, the commission's portal validator explicitly overrides standard photographic proportions with a fixed 200 × 230 px canvas (~1:1.15 ratio). Our preset tool pre-crops and fits your image to this exact 200 × 230 px canvas so you pass automated validation without portal distortion or dimension errors.</li>
+            <li><strong>Prohibitions:</strong> No sunglasses, caps, masks, or shadows</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl bg-muted/30 border border-border space-y-2">
+          <strong class="text-foreground text-sm block">2. Scanned Signature Specifications</strong>
+          <ul class="space-y-1">
+            <li><strong>Physical Dimensions:</strong> 3.5 cm × 1.5 cm</li>
+            <li><strong>Pixel Resolution:</strong> <strong>140 × 60 pixels</strong> (Aspect Ratio 7:3)</li>
+            <li><strong>File Size Boundary:</strong> <strong>10 KB to 20 KB strictly</strong> (Active 2026 portal validation cutoff; files exceeding 20.0 KB are rejected)</li>
+            <li><strong>Ink Mandate:</strong> <strong>Black Ballpoint Pen strictly</strong></li>
+            <li><strong>Surface:</strong> Clean, unruled plain white paper</li>
+            <li><strong>Prohibition:</strong> Signatures in CAPITAL / BLOCK letters are invalid</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direct Deep-Linked CTA Button -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-card border-2 border-primary/30 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <h4 class="text-base sm:text-lg font-extrabold text-foreground flex items-center gap-2">
+          <span>⚙️</span> Preset OSSSC Signature (10–20 KB) & Photo Resizer Canvas
+        </h4>
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          Instantly optimize your photo to 200×230 px and signature to 10–20 KB in your browser with zero data uploads to external servers.
+        </p>
+      </div>
+      <a href="/osssc-signature-resize/?preset=osssc&photoW=3.5&photoH=4.5&photoMin=20&photoMax=100&signW=3.5&signH=1.5&signMin=10&signMax=20" class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition shrink-0">
+        Resize Documents for OSSSC Online &rarr;
+      </a>
+    </div>
+  `,
     "faqs": [
       {
-        "question": "Q1: What is OSSSC OTR and how do I register on osssc.gov.in?",
-        "answer": "OSSSC OTR (One Time Registration) is the mandatory candidate portal on osssc.gov.in. Applicants create a centralized candidate profile using their Mobile Number, Email ID, Aadhaar Card / Identity Proof, and 10th Matriculation Memo. Once submitted, candidates receive a permanent User ID / Registration Number used to apply for all OSSSC recruitment cycles."
+        "question": "How do I apply online for OSSSC recruitments on osssc.gov.in step-by-step?",
+        "answer": "To apply online: 1. Visit osssc.gov.in and click on 'Apply Online'. 2. New users must click 'New User' to complete One Time Registration (OTR) with mobile number, email ID, Aadhaar number, and 10th Roll Number. 3. Upload your scanned photograph (20–100 KB) and black ink signature (10–20 KB). 4. For registered users, log in using your User ID/Registration Number, click 'Re-registration' for the active post, fill in department choices, and submit your final application acknowledgment."
       },
       {
-        "question": "Q2: What is the age limit and relaxation criteria for OSSSC CRE 2026 (RI, ARI, Amin, PEO)?",
-        "answer": "The cutoff reference date for age calculation is January 1 of the recruitment year. For Revenue Inspector (RI), the age bracket is 21 to 38 years. For ARI, Amin, PEO, and ICDS Supervisor, the age bracket is 18 to 38 years. SC, ST, SEBC, and Female candidates receive a +5-year age relaxation (up to 43 years maximum), while PwD candidates receive a +10-year extension."
+        "question": "Why is the OSSSC site not working, and how do I fix login errors or gateway timeouts?",
+        "answer": "The OSSSC portal (osssc.gov.in) experiences severe traffic spikes during exam notifications, admit card releases, and application deadlines, causing HTTP 502/504 Bad Gateway errors. Fixes: 1. Access the site during off-peak hours (12:00 AM to 5:30 AM IST). 2. Flush your browser cache and cookies or use Chrome Incognito mode. 3. Switch between broadband Wi-Fi and mobile data to bypass ISP DNS routing bottlenecks. 4. Pre-compress upload images using SignResize so upload requests don't time out."
       },
       {
-        "question": "Q3: What is the mandatory Odia Language Eligibility criterion for OSSSC recruitment?",
-        "answer": "Candidates must be able to read, write, and speak Odia fluently. Additionally, candidates must have passed a language test in Odia of at least Middle School standard, or passed the Matriculation / 10th exam with Odia as a medium of examination or a subject."
+        "question": "Is registration in an Employment Exchange mandatory for OSSSC online applications?",
+        "answer": "Yes, for district-cadre posts (such as Junior Assistant, Amin, and PEO), candidates must have registered their names in an Employment Exchange of the concerned district on or before the application deadline. Candidates registered with State or Special Employment Exchanges can also apply provided they hold and upload a valid Resident / Domicile Certificate issued by the competent Revenue Authority of that district."
       },
       {
-        "question": "Q4: Is there negative marking in OSSSC CRE Prelims and Mains examinations?",
-        "answer": "Yes. Both the OSSSC CRE Preliminary Examination (100 MCQs) and Main Examination (180 MCQs) enforce negative marking at a rate of 1/3rd mark deduction (0.33 penalty per wrong response) for every incorrect answer."
+        "question": "What is the full form of SFS in OSSSC, and what are the qualifications and pay scale?",
+        "answer": "In OSSSC recruitments, SFS stands for Statistical Field Surveyor. It is a Group-C district cadre post under the Directorate of Economics and Statistics (Planning & Convergence Department, Odisha). The minimum qualification is Higher Secondary (10+2 / CHSE) in any stream. Under ORSP Rules 2017, SFS is placed in Pay Matrix Level 3 with a basic pay scale of ₹18,000 to ₹56,900 per month."
       },
       {
-        "question": "Q5: What is the Practical Computer Skill Test pattern and qualifying cutoff score?",
-        "answer": "The Practical Computer Skill Test is a mandatory 50-mark qualifying exam with a 45-minute duration. It assesses hands-on proficiency in MS Word, MS Excel, MS PowerPoint, and basic file management. The minimum qualifying score across all categories is 40% (20 Marks out of 50)."
+        "question": "Which group does OSSSC PEO belong to, and what is the salary?",
+        "answer": "Panchayat Executive Officer (PEO) is a Group-C district cadre post under the Panchayati Raj & Drinking Water Department, Government of Odisha. It requires a +2 pass in any stream with basic computer knowledge. Under ORSP Rules 2017, PEO is placed in Pay Matrix Level 4 with a basic pay scale of ₹19,900 to ₹63,200 per month."
       },
       {
-        "question": "Q6: What are the exact photo and signature upload size limits for OSSSC Online?",
-        "answer": "OSSSC mandates: Passport photograph must be 3.5 cm × 4.5 cm (200 × 230 pixels), JPG/JPEG format, sized strictly between 20 KB and 100 KB on a light/white background. Signature must be 3.5 cm × 1.5 cm (140 × 60 pixels), JPG/JPEG format, sized strictly between 20 KB and 50 KB, signed strictly using a BLACK BALLPOINT PEN on plain white paper."
+        "question": "How can I download the OSSSC Admit Card for RI, ARI, Amin, and Forest Guard?",
+        "answer": "To download your admit card: 1. Visit osssc.gov.in. 2. Click on 'Download Admission Letter'. 3. Select your exam advertisement (e.g., CRE 2026 or Forest Guard PET/PST). 4. Enter your User ID / Registration Number / Mobile Number and Password / Date of Birth. 5. Enter the Captcha and click Login. Download the PDF and print at least 2 clear copies to carry to the examination center."
       },
       {
-        "question": "Q7: Which profile fields can be edited online vs fields requiring OSSSC Helpdesk intervention?",
-        "answer": "Educational qualifications, correspondence address, mobile number, email ID, and updated photo/signature files can be edited online under 'Re-registration / Profile Edit'. However, primary core fields—including Candidate Name (as per 10th memo), Father's Name, Date of Birth, and Category—cannot be altered without submitting an official grievance to the OSSSC Desk in Bhubaneswar."
+        "question": "What are the exact photo and signature size limits for OSSSC online forms?",
+        "answer": "OSSSC mandates: Passport photograph must be 3.5 cm × 4.5 cm (200 × 230 pixels), JPG/JPEG format, sized strictly between 20 KB and 100 KB on a light/white background. Signature must be 3.5 cm × 1.5 cm (140 × 60 pixels), JPG/JPEG format, sized strictly between 10 KB and 20 KB (the active OSSSC portal validator enforces a hard 20.0 KB cutoff; any file exceeding 20 KB is rejected automatically), signed strictly using a BLACK BALLPOINT PEN on plain white paper. Signatures in capital letters will be rejected."
       },
       {
-        "question": "Q8: What are the pay scales for RI, ARI, Amin, and PEO under ORSP Rules 2017?",
-        "answer": "Under Odisha Revised Scales of Pay (ORSP Rules 2017): Revenue Inspector (RI) and ICDS Supervisor are placed in Pay Matrix Level 9 (Scale: ₹35,400 – ₹1,12,400); Assistant Revenue Inspector (ARI), Amin, and Panchayat Executive Officer (PEO) are placed in Pay Matrix Level 4 (Scale: ₹19,900 – ₹63,200) plus state DA and HRA."
+        "question": "What is the negative marking penalty in OSSSC written and CBT exams?",
+        "answer": "Negative marking varies by advertisement: In recent Combined Recruitment Examinations (CRE for RI, ARI, Amin, SFS), the penalty is 0.50 (1/2 mark) deduction per incorrect response. In other technical and general exams, the penalty is 0.33 (1/3rd mark) or 0.25 (1/4th mark) deduction. Always check the 'Scheme of Examination' section in your specific notification. Unattempted questions incur 0 deduction."
       },
       {
-        "question": "Q9: What is the Mains shortlisting ratio from OSSSC CRE Prelims?",
-        "answer": "Candidates are shortlisted from the Preliminary Examination to the Main Written Examination in a 1:5 to 1:6 ratio (5 to 6 times the total advertised vacancies per post/category) based on Prelims merit."
+        "question": "How can I access and practice the official OSSSC CBT Mock Test?",
+        "answer": "Prior to online CBT exams, OSSSC publishes an official 'Mock Test / Demo Exam' link on osssc.gov.in. Candidates can click the link to experience the real exam interface, test question palette color codes (Green for Answered, Red for Unanswered, Purple for Marked for Review), practice countdown timer management, and test navigation between sections."
       },
       {
-        "question": "Q10: What original documents are required during OSSSC Certificate Verification (DV)?",
-        "answer": "Candidates called for Document Verification must produce: 1. HSC / 10th Class Board Certificate & Marksheet (DOB proof), 2. 12th / +2 & Graduation Certificates, 3. School / Board Certificate proving Odia Language proficiency, 4. Resident / Domicile Certificate issued by Revenue Authority, 5. SC / ST / SEBC Caste Certificate (if applicable), 6. Identity Proof (Aadhaar Card/Voter ID), 7. OSSSC Registration Slip & Admit Card."
+        "question": "What are the eligibility criteria and vacancies for OSSSC Nursing Officer recruitment?",
+        "answer": "The OSSSC Nursing Officer recruitment fills 5,989+ district-cadre Group-C posts in the Health & Family Welfare Department. Candidates must have passed +2 Science under CHSE Odisha, completed Diploma in GNM or B.Sc Nursing from an INC-approved institution, and hold a valid registration with the Odisha Nursing Council. The post carries Pay Matrix Level 9 (₹29,200 – ₹92,300)."
+      },
+      {
+        "question": "What should I do if my photo or signature is missing or blurry on the OSSSC Admit Card?",
+        "answer": "If your photo is distorted or missing on your downloaded admit card, immediately affix two recent passport-size photographs (formatted to 200×230 px) on the printed admit card and self-attest them. Carry your original Aadhaar Card or Voter ID, two self-attested photocopies of your ID, and your OSSSC Application Acknowledgment Slip to the exam center superintendent."
+      },
+      {
+        "question": "What original documents are required during OSSSC Document Verification (DV)?",
+        "answer": "Shortlisted candidates must produce: 1. HSC / 10th Board Certificate & Marksheet (for DOB verification), 2. +2 / Intermediate & Graduation Certificates, 3. Odia language pass certificate (Middle School / Matriculation), 4. Valid Resident / Domicile Certificate issued by Tahasildar, 5. Active Employment Exchange Registration Card, 6. Caste Certificate (SC/ST/SEBC) if applicable, 7. Valid Govt Photo ID and OSSSC Application Printout."
       }
     ],
-    "title_hi": "OSSSC CRE 2026 मास्टर गाइड: RI, ARI, Amin एवं PEO सिलेबस, सैलरी और फोटो-हस्ताक्षर नियम",
-    "metaTitle_hi": "OSSSC CRE 2026 मास्टर गाइड: RI, ARI, Amin भर्ती, सिलेबस और फोटो रिसाइज़र",
-    "metaDescription_hi": "OSSSC CRE 2026 भर्ती की पूरी जानकारी: RI, ARI, Amin, PEO सैलरी, 10-20KB हस्ताक्षर व फोटो नियम, परीक्षा पैटर्न और ऑनलाइन आवेदन निर्देश।",
-    "excerpt_hi": "ओडिशा OSSSC Combined Recruitment (CRE) 2026: RI, ARI, Amin, PEO भर्ती, 7वें वेतन आयोग का वेतनमान, सिलेबस और 10–20 KB हस्ताक्षर रिसाइज गाइड।",
-    "contentHtml_hi": "\n<div class=\"mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20\">\n  <h4 class=\"font-bold text-primary mb-2\">⚡ त्वरित सारांश: OSSSC CRE 2026 चयन एवं दस्तावेज अपलोड नियम</h4>\n  <p class=\"text-sm text-foreground/90 leading-relaxed\">\n    ओडिशा अधीनस्थ कर्मचारी चयन आयोग (OSSSC) द्वारा आयोजित <strong>Combined Recruitment Examination (CRE 2026)</strong> के माध्यम से Revenue Inspector (RI), Assistant Revenue Inspector (ARI), Amin, और Panchayat Executive Officer (PEO) के पदों पर भर्ती की जाती है। आयोग के पोर्टल <code>osssc.gov.in</code> पर आवेदन करते समय उम्मीदवारों को <strong>20 KB से 50 KB के बीच रंगीन पासपोर्ट फोटो</strong> और <strong>140 × 60 पिक्सल का हस्ताक्षर (10 KB से 20 KB)</strong> अपलोड करना अनिवार्य है।\n  </p>\n</div>\n\n<h2>📋 1. OSSSC CRE 2026 पद विवरण एवं वेतनमान (Pay Scale)</h2>\n<p>\n  OSSSC CRE परीक्षा ओडिशा राज्य के राजस्व एवं आपदा प्रबंधन विभाग और पंचायती राज विभाग में ग्रुप-C और ग्रुप-B पदों को भरती है:\n</p>\n\n<div class=\"my-6 overflow-x-auto\">\n  <table class=\"w-full text-left border-collapse border border-border text-xs sm:text-sm\">\n    <thead>\n      <tr class=\"bg-muted text-foreground\">\n        <th class=\"p-3 border border-border\">पद का नाम (Post)</th>\n        <th class=\"p-3 border border-border\">पे मैट्रिक्स लेवल (Pay Level)</th>\n        <th class=\"p-3 border border-border\">मूल वेतन (Basic Pay)</th>\n        <th class=\"p-3 border border-border\">शैक्षणिक योग्यता (Eligibility)</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr class=\"border-b border-border/50\">\n        <td class=\"p-3 border border-border font-semibold\">Revenue Inspector (RI)</td>\n        <td class=\"p-3 border border-border\">Level 9 (Pay Matrix)</td>\n        <td class=\"p-3 border border-border font-mono\">₹35,400 प्रति माह</td>\n        <td class=\"p-3 border border-border\">किसी भी विषय में स्नातक (Graduate) + कंप्यूटर ज्ञान</td>\n      </tr>\n      <tr class=\"border-b border-border/50 bg-muted/20\">\n        <td class=\"p-3 border border-border font-semibold\">Assistant Revenue Inspector (ARI)</td>\n        <td class=\"p-3 border border-border\">Level 4 (Pay Matrix)</td>\n        <td class=\"p-3 border border-border font-mono\">₹19,900 प्रति माह</td>\n        <td class=\"p-3 border border-border\">उच्च माध्यमिक (10+2 / Higher Secondary)</td>\n      </tr>\n      <tr class=\"border-b border-border/50\">\n        <td class=\"p-3 border border-border font-semibold\">Amin</td>\n        <td class=\"p-3 border border-border\">Level 3 (Pay Matrix)</td>\n        <td class=\"p-3 border border-border font-mono\">₹18,000 प्रति माह</td>\n        <td class=\"p-3 border border-border\">10+2 उत्तीर्ण</td>\n      </tr>\n      <tr class=\"border-b border-border/50 bg-muted/20\">\n        <td class=\"p-3 border border-border font-semibold\">Panchayat Executive Officer (PEO)</td>\n        <td class=\"p-3 border border-border\">Level 4 (Pay Matrix)</td>\n        <td class=\"p-3 border border-border font-mono\">₹19,900 प्रति माह</td>\n        <td class=\"p-3 border border-border\">+2 Pass (किसी भी संकाय में)</td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n\n<h2>📐 2. OSSSC ऑनलाइन पोर्टल हेतु फोटो एवं हस्ताक्षर विनिर्देश (Specifications)</h2>\n<p>\n  OSSSC पोर्टल पर ऑटोमेटेड OCR सॉफ्टवेयर द्वारा दस्तावेजों की जांच की जाती है। निम्नलिखित मानकों का अक्षरशः पालन करें:\n</p>\n\n<div class=\"my-6 p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4\">\n  <div class=\"grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm\">\n    <div class=\"p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2\">\n      <h4 class=\"font-bold text-primary\">पासपोर्ट फोटो मानक (Photo)</h4>\n      <ul class=\"space-y-1.5 text-muted-foreground\">\n        <li>आकार: <strong>20 KB से 50 KB</strong> के बीच (JPG/JPEG प्रारूप)</li>\n        <li>आयाम: <strong>3.5 सेमी × 4.5 सेमी</strong> (लगभग 200 × 250 पिक्सल)</li>\n        <li>पृष्ठभूमि: हल्के रंग या सफेद बैकग्राउंड, दोनों कान साफ दिखाई दें</li>\n        <li>प्रतिबंध: चश्मा, धूप का चश्मा या टोपी पहनने पर फोटो स्वतः निरस्त होगी</li>\n      </ul>\n    </div>\n    <div class=\"p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2\">\n      <h4 class=\"font-bold text-primary\">हस्ताक्षर विनिर्देश (Signature)</h4>\n      <ul class=\"space-y-1.5 text-muted-foreground\">\n        <li>आकार: <strong>10 KB से 20 KB</strong> (कड़ाई से अनिवार्य सीमा)</li>\n        <li>आयाम: <strong>140 × 60 पिक्सल</strong> (पहलू अनुपात 7:3)</li>\n        <li>स्याही: साफ सफेद कागज पर काली या नीली बॉलपॉइंट स्याही से रनिंग राइटिंग</li>\n        <li>चेतावनी: बड़े अक्षरों (BLOCK/CAPITAL) में किए गए हस्ताक्षर अमान्य हैं</li>\n      </ul>\n    </div>\n  </div>\n</div>\n\n<div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n  <h4 class=\"text-base font-bold text-foreground\">OSSSC हस्ताक्षर एवं फोटो 1 क्लिक में रिसाइज करें</h4>\n  <p class=\"text-sm text-muted-foreground mt-1\">SignResize टूल से अपने हस्ताक्षर को बिना किसी गुणवत्ता हानि के तुरंत 10-20 KB में बदलें।</p>\n  <a href=\"/osssc-signature-resize/\" class=\"inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition\">\n    OSSSC रिसाइज़र टूल खोलें &rarr;\n  </a>\n</div>\n"
+    "title_hi": "OSSSC भर्ती 2026 मास्टर गाइड: ऑनलाइन आवेदन, एडमिट कार्ड डाउनलोड, साइट एरर समाधान, सिलेबस और फोटो-हस्ताक्षर नियम",
+    "metaTitle_hi": "OSSSC 2026 मास्टर गाइड: ऑनलाइन आवेदन, एडमिट कार्ड व फोटो रिसाइज़र",
+    "metaDescription_hi": "OSSSC भर्ती 2026 की संपूर्ण जानकारी: ऑनलाइन आवेदन (OTR) चरण, RI, ARI, Amin व Forest Guard एडमिट कार्ड डाउनलोड, साइट एरर समाधान, SFS/PEO वेतनमान, और 10-20KB हस्ताक्षर रिसाइज़र।",
+    "excerpt_hi": "ओडिशा OSSSC 2026 भर्ती मास्टर गाइड: OTR रजिस्ट्रेशन, एडमिट कार्ड डाउनलोड लिंक, साइट ना चलने की समस्या के समाधान, Employment Exchange नियम, SFS व PEO वेतनमान और 10–20 KB हस्ताक्षर रिसाइज नियम।",
+    "contentHtml_hi": `
+<div class="mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+  <h4 class="font-bold text-primary mb-2">⚡ त्वरित सारांश: OSSSC 2026 चयन, एडमिट कार्ड एवं दस्तावेज अपलोड नियम</h4>
+  <p class="text-sm text-foreground/90 leading-relaxed">
+    ओडिशा अधीनस्थ कर्मचारी चयन आयोग (OSSSC) द्वारा <strong>Combined Recruitment Examination (CRE: RI, ARI, Amin, SFS, ICDS)</strong>, <strong>Nursing Officer (5,989 पद)</strong>, <strong>Panchayat Executive Officer (PEO)</strong> और <strong>Forest Guard</strong> के पदों पर भर्ती की जाती है। आयोग के पोर्टल <code>osssc.gov.in</code> पर आवेदन करते समय <strong>20 KB से 100 KB के बीच रंगीन पासपोर्ट फोटो</strong> और <strong>140 × 60 पिक्सल का हस्ताक्षर (10 KB से 20 KB)</strong> अपलोड करना अनिवार्य है।
+  </p>
+</div>
+
+<h2>📋 1. OSSSC पद विवरण, SFS फुल फॉर्म एवं वेतनमान (Pay Scale)</h2>
+<p>
+  OSSSC के तहत आयोजित परीक्षाओं के प्रमुख पद, उनका कैडर एवं 7वें वेतन आयोग (ORSP Rules 2017) के तहत वेतनमान निम्नलिखित है:
+</p>
+
+<div class="my-6 overflow-x-auto">
+  <table class="w-full text-left border-collapse border border-border text-xs sm:text-sm">
+    <thead>
+      <tr class="bg-muted text-foreground">
+        <th class="p-3 border border-border">पद का नाम (Post)</th>
+        <th class="p-3 border border-border">विभाग / फुल फॉर्म</th>
+        <th class="p-3 border border-border">पे मैट्रिक्स लेवल</th>
+        <th class="p-3 border border-border">मूल वेतन (Basic Pay)</th>
+        <th class="p-3 border border-border">न्यूनतम योग्यता</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b border-border/50">
+        <td class="p-3 border border-border font-semibold">Revenue Inspector (RI)</td>
+        <td class="p-3 border border-border">राजस्व एवं आपदा प्रबंधन विभाग</td>
+        <td class="p-3 border border-border">Level 9</td>
+        <td class="p-3 border border-border font-mono">₹35,400 प्रति माह</td>
+        <td class="p-3 border border-border">स्नातक (Graduate) + कंप्यूटर दक्षता</td>
+      </tr>
+      <tr class="border-b border-border/50 bg-muted/20">
+        <td class="p-3 border border-border font-semibold">Panchayat Executive Officer (PEO)</td>
+        <td class="p-3 border border-border">पंचायती राज एवं पेयजल विभाग (ग्रुप-C)</td>
+        <td class="p-3 border border-border">Level 4</td>
+        <td class="p-3 border border-border font-mono">₹19,900 प्रति माह</td>
+        <td class="p-3 border border-border">10+2 (Higher Secondary) पास</td>
+      </tr>
+      <tr class="border-b border-border/50">
+        <td class="p-3 border border-border font-semibold">SFS</td>
+        <td class="p-3 border border-border"><strong>Statistical Field Surveyor</strong> (अर्थशास्त्र एवं सांख्यिकी)</td>
+        <td class="p-3 border border-border">Level 3</td>
+        <td class="p-3 border border-border font-mono">₹18,000 प्रति माह</td>
+        <td class="p-3 border border-border">10+2 (CHSE) किसी भी संकाय में</td>
+      </tr>
+      <tr class="border-b border-border/50 bg-muted/20">
+        <td class="p-3 border border-border font-semibold">Assistant Revenue Inspector (ARI)</td>
+        <td class="p-3 border border-border">राजस्व विभाग (ग्रुप-C)</td>
+        <td class="p-3 border border-border">Level 4</td>
+        <td class="p-3 border border-border font-mono">₹19,900 प्रति माह</td>
+        <td class="p-3 border border-border">10+2 पास</td>
+      </tr>
+      <tr class="border-b border-border/50">
+        <td class="p-3 border border-border font-semibold">Amin</td>
+        <td class="p-3 border border-border">राजस्व विभाग (ग्रुप-C)</td>
+        <td class="p-3 border border-border">Level 3</td>
+        <td class="p-3 border border-border font-mono">₹18,000 प्रति माह</td>
+        <td class="p-3 border border-border">10+2 पास</td>
+      </tr>
+      <tr class="border-b border-border/50 bg-muted/20">
+        <td class="p-3 border border-border font-semibold">Nursing Officer</td>
+        <td class="p-3 border border-border">स्वास्थ्य एवं परिवार कल्याण विभाग</td>
+        <td class="p-3 border border-border">Level 9</td>
+        <td class="p-3 border border-border font-mono">₹29,200 प्रति माह</td>
+        <td class="p-3 border border-border">+2 साइंस + GNM / B.Sc नर्सिंग + ओडिशा नर्सिंग काउंसिल</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>🛠️ 2. OSSSC वेबसाइट ना चलने या 504 एरर आने पर समाधान</h2>
+<p>
+  अंतिम तिथि या एडमिट कार्ड जारी होने पर लाखों परीक्षार्थी एक साथ पोर्टल खोलते हैं, जिससे सर्वर क्रैश हो जाता है। इसके समाधान हेतु:
+</p>
+<ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-muted-foreground my-4">
+  <li><strong>ऑफ-पीक समय (रात 12:00 से सुबह 5:30 बजे):</strong> इस समय ट्रैफिक कम होता है और फॉर्म बिना एरर सबमिट होता है।</li>
+  <li><strong>ब्राउज़र कैशे साफ़ करें / Incognito मोड:</strong> कुकीज की वजह से लॉगिन लूप होने पर <code>Ctrl + Shift + N</code> दबाकर प्राइवेट विंडो में खोलें।</li>
+  <li><strong>फाइलों को पहले से रिसाइज करें:</strong> पोर्टल पर सर्वर-साइड टाइमआउट से बचने के लिए हस्ताक्षर को पहले ही 10-20 KB में रिसाइज करके रखें।</li>
+</ul>
+
+<h2>📐 3. OSSSC ऑनलाइन पोर्टल हेतु फोटो एवं हस्ताक्षर विनिर्देश</h2>
+<div class="my-6 p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+    <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
+      <h4 class="font-bold text-primary">पासपोर्ट फोटो मानक (Photo)</h4>
+      <ul class="space-y-1.5 text-muted-foreground">
+        <li>आकार: <strong>20 KB से 100 KB</strong> के बीच (JPG/JPEG प्रारूप)</li>
+        <li>आयाम: <strong>3.5 सेमी × 4.5 सेमी</strong> (200 × 230 पिक्सल)</li>
+        <li>पृष्ठभूमि: हल्के रंग या सफेद बैकग्राउंड, दोनों कान साफ दिखाई दें</li>
+        <li>प्रतिबंध: चश्मा या टोपी पहनने पर फोटो स्वतः निरस्त होगी</li>
+      </ul>
+    </div>
+    <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
+      <h4 class="font-bold text-primary">हस्ताक्षर विनिर्देश (Signature)</h4>
+      <ul class="space-y-1.5 text-muted-foreground">
+        <li>आकार: <strong>10 KB से 20 KB</strong> (कड़ाई से अनिवार्य सीमा)</li>
+        <li>आयाम: <strong>140 × 60 पिक्सल</strong> (पहलू अनुपात 7:3)</li>
+        <li>स्याही: साफ सफेद कागज पर <strong>काली बॉलपॉइंट स्याही</strong> से रनिंग राइटिंग</li>
+        <li>चेतावनी: बड़े अक्षरों (BLOCK/CAPITAL) में किए गए हस्ताक्षर अमान्य हैं</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+  <h4 class="text-base font-bold text-foreground">OSSSC हस्ताक्षर एवं फोटो 1 क्लिक में रिसाइज करें</h4>
+  <p class="text-sm text-muted-foreground mt-1">SignResize टूल से अपने हस्ताक्षर को बिना किसी गुणवत्ता हानि के तुरंत 10-20 KB में बदलें।</p>
+  <a href="/osssc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+    OSSSC रिसाइज़र टूल खोलें &rarr;
+  </a>
+</div>
+`
   },
+
+
+
   {
     "slug": "dsssb-tgt-pgt-prt-2026-master-guide-postcard-photo-signature-rules",
     "title": "DSSSB 2026 Master Guide: TGT, PGT, PRT & LDC Exam Pattern, Postcard Photo (480x672) & Signature Upload Rules",
