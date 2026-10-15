@@ -10,4 +10,5 @@ if (fs.existsSync(sitemap0Path)) {
   console.log('✨ Successfully copied sitemap-0.xml to sitemap.xml in dist!');
 } else {
   console.error('❌ sitemap-0.xml not found in dist directory');
+  process.exitCode = 1;
 }

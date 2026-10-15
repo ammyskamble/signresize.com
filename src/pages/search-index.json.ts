@@ -5,6 +5,13 @@ import { BLOG_POSTS } from '../data/blogPostsData';
 import { PAN_INDIA_GOV_JOBS } from '../data/governmentJobsData';
 
 const CORE_TOOLS = [
+  ...[
+    ['photo-with-name-and-date-maker', 'Photo with Name and Date Maker', 'Add a name and photograph date strip; export a 20–50 KB JPG'],
+    ['admit-card-photo-print-sheet', 'Admit Card Photo Print Sheet', 'Eight 35 × 45 mm passport photos on a 6 × 4 inch PDF sheet'],
+    ['handwritten-declaration-resizer', 'Handwritten Declaration Resizer', 'Declaration wording reference, scan checklist, and 50–100 KB JPG preset'],
+    ['live-webcam-photo-checker', 'Live Webcam Photo Pre-Check', 'Check camera access, lighting, and face framing privately'],
+    ['rrb-ntpc-undergraduate-document-guide', 'RRB NTPC Undergraduate Document Checklist', 'CEN 07/2026 Class 12 marksheet, category certificate, photo and signature checklist'],
+  ].map(([slug, title, desc]) => ({ type: 'tool', id: `tool-${slug}`, slug, title, shortCode: title, desc, url: `/${slug}/`, category: 'Exam Day Toolkit', badge: 'NEW', keywords: `${title} ${desc}` })),
   {
     type: 'tool',
     id: 'tool-signature-resizer',

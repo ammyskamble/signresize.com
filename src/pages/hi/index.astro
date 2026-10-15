@@ -3,6 +3,7 @@
 import '../../styles/global.css';
 import Header from '../../components/Header.astro';
 import { SignatureTool } from '../../components/SignatureTool';
+import ExamDayToolkit from '../../components/ExamDayToolkit.astro';
 import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
 import GuideSection from '../../components/GuideSection.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -136,6 +137,7 @@ const keywordsContent = "सिग्नेचर रिसाइज, हस्�
 
       <!-- Main Interactive Resizer Studio initialized in Hindi -->
       <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
+        <ExamDayToolkit lang="hi" />
         <SignatureTool client:idle initialLang="hi" />
       </section>
 

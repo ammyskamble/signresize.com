@@ -6,6 +6,7 @@ import Footer from '../../components/Footer.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
+import { WebcamChecker } from '../../components/WebcamChecker';
 import SocialShare from '../../components/SocialShare.astro';
 import { BLOG_POSTS, type BlogPost } from '../../data/blogPostsData';
 import { EXAM_PRESETS, ALL_COMBINED_PRESETS } from '../../data/examPresets';
@@ -485,6 +486,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
 
 <!-- Main Article Prose Content (with Enhanced Headline, Code, Stepper & Table Responsiveness) -->
       <article class="article-prose prose prose-slate dark:prose-invert max-w-none w-full min-w-0 break-words prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
+        {post.slug === 'ssc-live-photo-webcam-guidelines-troubleshooting-2026' && <section class="mb-6 space-y-3"><h2 class="text-xl font-bold">Try your webcam before opening SSC</h2><WebcamChecker client:visible /></section>}
         <Fragment set:html={processedHtml} />
       </article>
 

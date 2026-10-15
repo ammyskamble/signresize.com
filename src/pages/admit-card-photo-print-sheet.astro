@@ -1,0 +1,8 @@
+---
+import UtilityPage from '../layouts/UtilityPage.astro';
+import { PhotoPrintSheet } from '../components/PhotoPrintSheet';
+---
+<UtilityPage title="Admit Card Photo Print Sheet" description="Arrange eight passport photographs on a 6 × 4 inch sheet. Adjust the crop and download a PDF with an exact paper size, ready to print at 100%.">
+  <PhotoPrintSheet client:load />
+  <section class="grid sm:grid-cols-2 gap-4"><div class="rounded-2xl border border-border bg-card p-5 space-y-2"><h2 class="font-bold">Need a single 4 × 6 inch postcard photo?</h2><p class="text-sm text-muted-foreground">A postcard photograph is one large photograph, not a sheet of eight passport photos. Follow the instructions issued for your exam.</p><a class="text-primary text-sm font-semibold" href="/photo-resizer/?preset=neet-postcard-photo">Open postcard photo preset →</a></div><div class="rounded-2xl border border-border bg-card p-5 space-y-2"><h2 class="font-bold">Keep your ID and admit card legible</h2><p class="text-sm text-muted-foreground">Print the original admit-card PDF using the issuing portal’s instructions. Do not reduce a barcode or QR code until it becomes unreadable.</p><a class="text-primary text-sm font-semibold" href="/document-resizer/?preset=id-proof-card">Prepare an ID image →</a></div></section>
+</UtilityPage>

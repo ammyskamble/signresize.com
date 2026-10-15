@@ -1,0 +1,27 @@
+[
+  {
+    "id": "nicl-ao-2026",
+    "title": "NICL AO · 321 posts",
+    "label": "NICL AO",
+    "opensOn": "2026-10-08",
+    "closesOn": "2026-10-28",
+    "closingTime": null,
+    "toolUrl": "/handwritten-declaration-resizer/",
+    "sourceUrl": "https://ibpsreg.ibps.in/niiclsep26/",
+    "verifiedOn": "2026-10-16",
+    "verification": "Application portal"
+  },
+  {
+    "id": "rrb-ntpc-ug-2026",
+    "title": "RRB NTPC UG · CEN 07/2026",
+    "label": "RRB NTPC UG",
+    "opensOn": "2026-10-15",
+    "closesOn": "2026-11-13",
+    "closingTime": "23:59:00",
+    "toolUrl": "/rrb-ntpc-undergraduate-document-guide/",
+    "sourceUrl": "https://rrb.indianrailways.gov.in/patna",
+    "evidenceUrl": "https://indianexpress.com/article/education/rrb-ntpc-ug-notification-2026-out-rrb-indianrailways-gov-in-applications-open-1688-posts-10922540/",
+    "verifiedOn": "2026-10-16",
+    "verification": "RRB notice listing and published report"
+  }
+]

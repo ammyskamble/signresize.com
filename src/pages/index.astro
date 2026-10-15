@@ -15,6 +15,9 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
 import ThemeScript from '../components/ThemeScript.astro';
 import { BLOG_POSTS } from '../data/blogPostsData';
+import ExamDayToolkit from '../components/ExamDayToolkit.astro';
+import ApplicationPreparationCards from '../components/ApplicationPreparationCards.astro';
+import { ClosingSoon } from '../components/ClosingSoon';
 
 const pageTitle = "Resize Signature Online (10 to 20 KB) - Free Signature Resizer";
 const pageDescription = "Free online signature resize & compressor tool. Resize signature to 10 to 20 KB, set width & height in cm (140x60 px), whiten background shadows & convert to JPG for SSC, PAN, RRB & UPSC.";
@@ -375,6 +378,10 @@ const topGuides = BLOG_POSTS.slice(0, 6);
         </div>
       </section>
 
+
+      <ClosingSoon client:load />
+      <ApplicationPreparationCards />
+      <ExamDayToolkit />
 
       <!-- Main Interactive Resizer Studio (Full-Width Studio Command Center) -->
       <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">

@@ -246,6 +246,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
             <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
               {examData.subheading} Applicable for <strong>{examData.targetExams}</strong>.
             </p>
+              {examData.slug === 'lsat-india-signature-resize' && <aside class="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm space-y-2" aria-label="Legacy exam notice"><strong class="text-amber-800 dark:text-amber-200">Legacy LSAT—India preset</strong><p>LSAT—India has been discontinued. This page preserves the historical preset; it is not a current registration guide. Check your law school’s current admission route.</p><div class="flex flex-wrap gap-4 font-semibold text-primary"><a href="/clat-signature-resize/">CLAT signature tool →</a><a href="/ailet-signature-resize/">AILET signature tool →</a><a href="https://www.chitkara.edu.in/blogs/law-entrance-exams-after-12th-clat-lsat-cuet/" target="_blank" rel="noopener noreferrer">University admission guidance ↗</a></div></aside>}
           </div>
 
           <!-- Quick Matrix Badges -->

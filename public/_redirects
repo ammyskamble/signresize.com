@@ -32,6 +32,8 @@
 /appsc-tspsc/ /appsc-tspsc-signature-resize/ 301
 
 # International Single-Canonical Presets (Fixes GSC Alternate Page with Proper Canonical)
+/bd/teletalk-photo-signature-resize /teletalk-photo-signature-resize/ 301
+/bd/teletalk-photo-signature-resize/ /teletalk-photo-signature-resize/ 301
 /prc-photo-signature-resize-philippines /ph/prc-photo-signature-resize-philippines/ 301
 /prc-photo-signature-resize-philippines/ /ph/prc-photo-signature-resize-philippines/ 301
 /lok-sewa-photo-resize-nepal /np/lok-sewa-photo-resize-nepal/ 301
@@ -164,7 +166,8 @@
 /photo-resizer /photo-resizer/ 301
 /document-resizer /document-resizer/ 301
 /compress-image-to-kb /compress-image-to-kb/ 301
-/signature-creator /signature-creator/ 301
+/signature-creator /signature-generator/ 301
+/signature-creator/ /signature-generator/ 301
 /signature-generator /signature-generator/ 301
 /electronic-signature /electronic-signature/ 301
 /government-jobs /government-jobs/ 301

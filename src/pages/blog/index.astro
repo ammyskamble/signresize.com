@@ -6,6 +6,8 @@ import Footer from '../../components/Footer.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
+import ExamDayToolkit from '../../components/ExamDayToolkit.astro';
+import ApplicationPreparationCards from '../../components/ApplicationPreparationCards.astro';
 import { BLOG_POSTS } from '../../data/blogPostsData';
 import { EXAM_PAGES_DATA } from '../../data/examPagesData';
 import SocialShare from '../../components/SocialShare.astro';
@@ -78,6 +80,8 @@ const quickDeadlines = [
     <Header />
 
     <main class="flex-1 max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 space-y-6 sm:space-y-8 w-full min-w-0 overflow-x-hidden">
+      <ApplicationPreparationCards />
+      <ExamDayToolkit />
       
       <!-- Breadcrumbs & Language Switcher Bar -->
       <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-3">

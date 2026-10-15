@@ -3,10 +3,18 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import { readFileSync } from 'node:fs';
 import { BLOG_POSTS } from './src/data/blogPostsData.ts';
 
 const hiSlugsWithContent = new Set(BLOG_POSTS.filter((p) => Boolean(p.contentHtml_hi)).map((p) => p.slug));
 const mrSlugsWithContent = new Set(BLOG_POSTS.filter((p) => Boolean(p.contentHtml_mr)).map((p) => p.slug));
+// Submit destinations to search engines, never redirect sources or error pages.
+const redirectedPaths = new Set(readFileSync(new URL('./public/_redirects', import.meta.url), 'utf8')
+  .split(/\r?\n/)
+  .map(line => line.trim().split(/\s+/))
+  .filter(([source, target, status]) => source?.startsWith('/') && !source.includes('*') && /^30[1278]$/.test(status)
+    && source.replace(/\/$/, '') !== target.replace(/\/$/, ''))
+  .map(([source]) => source.replace(/\/$/, '') || '/'));
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +25,7 @@ export default defineConfig({
   redirects: {
     '/signature-resizer': '/',
     '/signature-creator': '/signature-generator/',
+    '/bd/teletalk-photo-signature-resize': '/teletalk-photo-signature-resize/',
     '/rrb-railway': '/rrb-signature-resize/',
     '/ssc-general': '/ssc-signature-resize/',
     '/ibps-sbi': '/ibps-signature-resize/',
@@ -113,6 +122,8 @@ export default defineConfig({
     react(),
     sitemap({
       filter(page) {
+        const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
+        if (redirectedPaths.has(pathname) || ['/404', '/500', '/404.html', '/500.html'].includes(pathname)) return false;
         // Exclude untranslated /hi/blog/ posts
         const hiMatch = page.match(/\/hi\/blog\/([^/]+)\/?$/);
         if (hiMatch) {
@@ -127,7 +138,11 @@ export default defineConfig({
       },
       serialize(item) {
         const url = item.url;
-        item.lastmod = new Date().toISOString();
+        // A deployment is not a content update. Only emit a known article date.
+        const blogSlug = new URL(url).pathname.match(/\/(?:blog)\/([^/]+)\/$/)?.[1];
+        const post = BLOG_POSTS.find(post => post.slug === blogSlug);
+        const modified = post && new Date((post.lastUpdated || post.publishDate).replace(/Sept\b/i, 'Sep'));
+        if (modified && !Number.isNaN(modified.getTime())) item.lastmod = modified.toISOString().slice(0, 10);
 
         if (url === 'https://signresize.in/' || url.includes('/photo-resizer') || url.includes('/document-resizer') || url.includes('/compress-image-to-kb') || url.includes('/signature-generator') || url.includes('/government-jobs') || url.includes('/resize-signature-to-10kb-20kb') || url.includes('/make-signature-background-white')) {
           item.priority = 1.0;

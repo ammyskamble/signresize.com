@@ -2669,7 +2669,27 @@ export const DOCUMENT_PRESETS: ExamPreset[] = [
     isPopular: false,
     targetType: 'document',
     docCategory: 'Education'
-  }
+  },
+  {
+    id: 'handwritten-declaration',
+    name: 'Handwritten Declaration (NICL AO reference)',
+    shortCode: 'Declaration', authority: 'NICL AO application guidelines', category: 'Banking',
+    widthPx: 800, heightPx: 400, widthCm: 10, heightCm: 5,
+    minKb: 50, maxKb: 100, recommendedKb: 75, dpi: 200,
+    format: 'JPG', aspectRatio: 2, inkRequirement: 'Black Ink Only',
+    notes: 'Write the exact wording from your notification in your own handwriting. NICL AO reference: 800 × 400 px, 50–100 KB JPG. Other recruitments may differ.',
+    isPopular: true, targetType: 'document', docCategory: 'General',
+  },
+  {
+    id: 'nicl-left-thumb',
+    name: 'NICL AO Left Thumb Impression', shortCode: 'NICL Thumb',
+    authority: 'NICL AO application guidelines', category: 'Banking',
+    widthPx: 240, heightPx: 240, widthCm: 3, heightCm: 3,
+    minKb: 20, maxKb: 50, recommendedKb: 35, dpi: 200,
+    format: 'JPG', aspectRatio: 1, inkRequirement: 'Black or Blue Ink',
+    notes: 'NICL AO reference: left thumb on white paper, 240 × 240 px, 20–50 KB JPG. Check the current notification before use.',
+    isPopular: false, targetType: 'document', docCategory: 'Biometric',
+  },
 ];
 
 export const SIGNATURE_PRESETS = EXAM_PRESETS;

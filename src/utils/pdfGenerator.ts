@@ -3,7 +3,7 @@
 // Directly wraps compressed JPEG stream via DCTDecode without re-compression or quality loss.
 
 export interface PdfGenerationOptions {
-  pageSize?: 'A4' | 'fit';
+  pageSize?: 'A4' | 'fit' | '4x6';
   title?: string;
 }
 
@@ -32,7 +32,13 @@ export async function createPdfFromJpegBlob(
   let drawX = 0;
   let drawY = 0;
 
-  if (pageSize === 'fit') {
+  if (pageSize === '4x6') {
+    // A landscape 6 × 4 inch page at 72 PDF points per inch.
+    pageW = 432;
+    pageH = 288;
+    drawW = pageW;
+    drawH = pageH;
+  } else if (pageSize === 'fit') {
     // Exact image dimensions in points (assuming 150 DPI baseline)
     const ptPerPx = 72 / 150;
     pageW = Math.max(100, imageWidth * ptPerPx);

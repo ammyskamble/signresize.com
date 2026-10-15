@@ -1,0 +1,12 @@
+---
+const cards = [
+  { tag: 'RAILWAYS · 12TH LEVEL', title: 'RRB NTPC Undergraduate', description: 'CEN 07/2026: prepare a clear signature and keep Class 12 and category documents ready. Check each upload field before choosing JPG or PDF.', href: '/rrb-ntpc-undergraduate-document-guide/', action: 'Open document checklist', color: 'text-primary' },
+  { tag: 'INSURANCE & BANKING', title: 'NICL AO · Declaration & thumb', description: 'NICL AO reference: declaration 50–100 KB; left thumb 20–50 KB. Start with the official wording and inspect your handwritten scan.', href: '/handwritten-declaration-resizer/', action: 'Prepare declaration', color: 'text-emerald-700 dark:text-emerald-300' },
+  { tag: 'DEFENCE · PHOTO RULES', title: 'Indian Coast Guard', description: 'If your notice requires a physical name-and-date slate, photograph yourself holding it. A digital text strip is not a substitute.', href: '/indian-coast-guard-signature-resize/', action: 'Open Coast Guard tool', color: 'text-amber-700 dark:text-amber-300' },
+];
+---
+<section class="space-y-3" aria-label="Application preparation">
+  <div class="flex flex-wrap justify-between items-baseline gap-2"><h2 class="text-lg font-bold">Prepare the upload, then open the portal</h2><a href="/government-jobs/" class="text-xs font-semibold text-primary">All recruitment tools →</a></div>
+  <div class="grid md:grid-cols-3 gap-3">{cards.map(card => <article class="rounded-2xl border border-border bg-card p-5 space-y-3"><p class:list={['text-[10px] font-bold tracking-wider', card.color]}>{card.tag}</p><h3 class="font-bold text-base">{card.title}</h3><p class="text-xs text-muted-foreground leading-relaxed">{card.description}</p><a href={card.href} class:list={['inline-block text-xs font-bold', card.color]}>{card.action} →</a></article>)}</div>
+  <p class="text-xs text-muted-foreground">Canara / UCO apprentice applicant? Check your bank’s current notice, then use the <a href="/photo-resizer/" class="underline text-primary">photo tool</a>, <a href="/ibps-signature-resize/" class="underline text-primary">banking signature tool</a>, or <a href="/handwritten-declaration-resizer/" class="underline text-primary">declaration checklist</a> with the limits stated there.</p>
+</section>

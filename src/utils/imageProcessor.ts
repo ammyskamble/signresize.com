@@ -341,12 +341,12 @@ export function applyNameAndDateStamp(
   ctx.font = `bold ${fontSize}px sans-serif`;
 
   if (hasBoth) {
-    ctx.fillText(candidateName.trim().toUpperCase(), w / 2, bannerY + bannerH * 0.32);
+    ctx.fillText(candidateName.trim().toUpperCase(), w / 2, bannerY + bannerH * 0.32, w * 0.94);
     ctx.font = `600 ${Math.max(8, fontSize - 1)}px monospace`;
-    ctx.fillText(`DOP: ${dateOfPhoto.trim()}`, w / 2, bannerY + bannerH * 0.72);
+    ctx.fillText(`DOP: ${dateOfPhoto.trim()}`, w / 2, bannerY + bannerH * 0.72, w * 0.94);
   } else {
     const text = candidateName.trim() ? candidateName.trim().toUpperCase() : `DOP: ${dateOfPhoto.trim()}`;
-    ctx.fillText(text, w / 2, bannerY + bannerH * 0.5);
+    ctx.fillText(text, w / 2, bannerY + bannerH * 0.5, w * 0.94);
   }
 }
 

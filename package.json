@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/copy-sitemap.mjs",
+    "verify:indexing": "node scripts/verify-indexing.mjs",
+    "verify:toolkit": "node scripts/verify-exam-day-tools.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "astro build && node scripts/copy-sitemap.mjs && wrangler pages deploy dist --project-name signresize --branch=main --commit-dirty=true",

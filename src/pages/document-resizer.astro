@@ -7,6 +7,7 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
 import { SignatureTool } from '../components/SignatureTool';
 import { DOCUMENT_PRESETS } from '../data/examPresets';
+import { DeclarationGuide } from '../components/DeclarationGuide';
 
 const pageTitle = "Document Resizer Online (100KB to 300KB) | Marksheet, Caste Certificate & ID Resizer - SignResize";
 const pageDescription = "Free online document and certificate resizer to 100 to 300 kb, A4 proportions for 10th marksheets, caste certificates, domicile, and photo ID cards for SSC, UPSC, and State PSC portals. 100% client-side private.";
@@ -153,6 +154,7 @@ const docFaqs = [
       <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
         <SignatureTool client:idle initialMode="document" />
       </section>
+      <DeclarationGuide client:visible />
 
       <!-- Document Guidelines & Specifications Matrix -->
       <section class="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs space-y-4">

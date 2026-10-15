@@ -317,9 +317,10 @@ export interface SignatureToolProps {
   initialPresetId?: string;
   initialMode?: ToolTargetMode;
   initialLang?: SupportedLang;
+  initialNameDateStamp?: boolean;
 }
 
-export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, initialMode = 'signature', initialLang }) => {
+export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, initialMode = 'signature', initialLang, initialNameDateStamp = false }) => {
   // Multilingual Support ('en' | 'hi' | 'mr')
   const [lang, setLang] = useState<SupportedLang>(() => {
     if (initialLang) return initialLang;
@@ -366,7 +367,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
   // Photo-specific configuration
   const [showFaceGuide, setShowFaceGuide] = useState<boolean>(true);
-  const [addNameDateStamp, setAddNameDateStamp] = useState<boolean>(() => Boolean(initialPreset?.requiresNameDate));
+  const [addNameDateStamp, setAddNameDateStamp] = useState<boolean>(() => initialNameDateStamp || Boolean(initialPreset?.requiresNameDate));
   const [candidateName, setCandidateName] = useState<string>('');
   const [dateOfPhoto, setDateOfPhoto] = useState<string>(() => {
     const d = new Date();
