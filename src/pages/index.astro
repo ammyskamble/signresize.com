@@ -1,13 +1,15 @@
 ---
 // src/pages/index.astro
 import '../styles/global.css';
+import '../styles/minimal-borders.css';
 import Header from '../components/Header.astro';
 import { SignatureTool } from '../components/SignatureTool';
-import ExamSpecsTable from '../components/ExamSpecsTable.astro';
+import ExamDirectory from '../components/ExamDirectory.astro';
+import '../styles/home-workspace.css';
 import GuideSection from '../components/GuideSection.astro';
 import SeoContentSection from '../components/SeoContentSection.astro';
 import FaqSection from '../components/FaqSection.astro';
-import TroubleshootingSection from '../components/TroubleshootingSection.astro';
+import PortalDiagnostics from '../components/PortalDiagnostics.astro';
 import ChangelogSection from '../components/ChangelogSection.astro';
 import AuthorBioSection from '../components/AuthorBioSection.astro';
 import Footer from '../components/Footer.astro';
@@ -16,8 +18,10 @@ import GoogleFonts from '../components/GoogleFonts.astro';
 import ThemeScript from '../components/ThemeScript.astro';
 import { BLOG_POSTS } from '../data/blogPostsData';
 import ExamDayToolkit from '../components/ExamDayToolkit.astro';
-import ApplicationPreparationCards from '../components/ApplicationPreparationCards.astro';
 import { ClosingSoon } from '../components/ClosingSoon';
+
+import ApplicationPreparationCards from '../components/ApplicationPreparationCards.astro';
+
 
 const pageTitle = "Resize Signature Online (10 to 20 KB) - Free Signature Resizer";
 const pageDescription = "Free online signature resize & compressor tool. Resize signature to 10 to 20 KB, set width & height in cm (140x60 px), whiten background shadows & convert to JPG for SSC, PAN, RRB & UPSC.";
@@ -26,7 +30,8 @@ const ogImageUrl = "https://signresize.in/og-image.png";
 const keywordsContent = "resize signature, signature resize, resize signature 10 to 20 kb, signature resize 10 to 20 kb online, signature resizer, signature compressor, resize signature online, crop signature online, make signature background white, ssc signature resize, pan card signature resize, rrb signature resize, signature resize in cm";
 
 // Top High-Yield Examination Guides for Sitewide PageRank Flow
-const topGuides = BLOG_POSTS.slice(0, 6);
+const seenGuides = new Set<string>();
+const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLowerCase().replace(/[^a-z0-9]/g, ''); if (seenGuides.has(guide.slug) || seenGuides.has(titleKey)) return false; seenGuides.add(guide.slug); seenGuides.add(titleKey); return true; }).slice(0, 6);
 ---
 
 <!doctype html>
@@ -248,406 +253,70 @@ const topGuides = BLOG_POSTS.slice(0, 6);
     })} />
   </head>
 
-  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+  <body class="home-workspace minimal-borders bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
     <!-- Navigation Header -->
     <Header />
 
     <!-- Main Container (Command Center & Assistant Architecture) -->
     <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-5 space-y-5">
-      
-      <!-- Hero / Command Header Banner with Project-Related Interactive Animation -->
-      <section class="rounded-3xl border border-primary/30 bg-gradient-to-br from-card via-card/95 to-primary/10 p-4 sm:p-6 shadow-lg shadow-primary/5 backdrop-blur relative overflow-hidden">
-        <!-- Ambient background aura glow -->
-        <div class="absolute -top-24 -right-24 w-72 h-72 bg-primary/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
-          
-          <!-- Left Column: Hero Content & Key Specs (7 Cols) -->
-          <div class="lg:col-span-7 space-y-3">
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/15 text-primary border border-primary/30 shadow-xs">
-                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                Updated 2026 Examination Guidelines
-              </span>
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/15 border border-emerald-500/30">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                0 Bytes Uploaded • 100% In-Browser Private
-              </span>
-            </div>
-
-            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-              Online <span class="bg-gradient-to-r from-primary via-indigo-600 to-purple-600 bg-clip-text text-transparent">Resize Signature</span> &amp; Compressor (10 to 20 KB)
-            </h1>
-
-            <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Instantly <strong>resize signature</strong> to 10 to 20 KB, adjust <strong>width and height in cm</strong> (<span class="font-mono text-foreground font-medium">140×60 px</span>, <span class="font-mono text-foreground font-medium">4×2 cm</span>), remove phone photo background shadows, and compress <strong>thumb impressions</strong> for <strong>SSC, PAN Card (NSDL), RRB &amp; UPSC</strong>.
-            </p>
-
-            <!-- Quick System Specs Badges -->
-            <div class="pt-1 flex items-center gap-2 flex-wrap shrink-0">
-              <div class="px-3 py-1.5 rounded-xl bg-card/90 border border-border text-center shadow-xs">
-                <div class="text-[9px] uppercase font-bold text-muted-foreground">Standard Dimension</div>
-                <div class="text-xs font-bold text-foreground font-mono">140×60 PX (4×2 CM)</div>
-              </div>
-              <div class="px-3 py-1.5 rounded-xl bg-card/90 border border-primary/30 text-center shadow-xs">
-                <div class="text-[9px] uppercase font-bold text-primary">Target File Size</div>
-                <div class="text-xs font-bold text-primary font-mono">10 KB – 20 KB</div>
-              </div>
-              <div class="px-3 py-1.5 rounded-xl bg-card/90 border border-border text-center shadow-xs">
-                <div class="text-[9px] uppercase font-bold text-muted-foreground">Output Quality</div>
-                <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 font-mono">200 DPI • #FFFFFF White</div>
-              </div>
-            </div>
+      <section class="workspace-intro creative-hero" aria-label="Signature resizer introduction">
+        <div class="hero-copy">
+          <p class="hero-eyebrow"><span aria-hidden="true"></span> FREE SIGNATURE RESIZER &amp; COMPRESSOR</p>
+          <h1 class="font-bold tracking-tight">Resize Signature Online<br /><span class="hero-headline-accent">10 to 20 KB.</span></h1>
+          <p class="hero-description">Resize signatures for SSC, UPSC, IBPS and RRB. Set dimensions and KB limits, then download your JPG.</p>
+          <div class="hero-actions">
+            <a class="hero-start" href="#tool-workspace">Resize my signature <span aria-hidden="true">↗</span></a>
+            <a class="hero-presets" href="#exam-specs">Browse exam presets <span aria-hidden="true">→</span></a>
           </div>
-
-          <!-- Right Column: Project-Related Interactive Animated Scanner Visual (5 Cols) -->
-          <div class="lg:col-span-5 relative">
-            <div class="rounded-2xl border-2 border-primary/30 bg-slate-900/90 dark:bg-slate-950/95 p-4 shadow-xl shadow-primary/10 backdrop-blur-md animate-pulse-glow space-y-3">
-              
-              <!-- Engine Header & Live Status -->
-              <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                <div class="flex items-center gap-2">
-                  <span class="relative flex h-2.5 w-2.5">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
-                  </span>
-                  <span class="text-xs font-mono font-bold text-cyan-400 tracking-wide uppercase">Signature Resizer Engine</span>
-                </div>
-                <span class="px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/40 text-[10px] font-mono font-semibold">
-                  140×60 PX Preset
-                </span>
-              </div>
-
-              <!-- Animated Signature Scanner Viewport -->
-              <div class="relative rounded-xl border border-cyan-500/30 bg-slate-950 p-4 h-[145px] flex items-center justify-center overflow-hidden shadow-inner">
-                <!-- Blueprint Grid Canvas Background -->
-                <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:14px_14px] opacity-40"></div>
-
-                <!-- Laser Beam Scanning Line (Moves Up & Down) -->
-                <div class="absolute left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 via-sky-300 to-transparent shadow-[0_0_15px_#38bdf8] animate-scan-line z-20"></div>
-
-                <!-- Pulsing Crop Corner Brackets -->
-                <div class="absolute top-2 left-2 w-3.5 h-3.5 border-t-2 border-l-2 border-cyan-400 rounded-tl-xs animate-pulse"></div>
-                <div class="absolute top-2 right-2 w-3.5 h-3.5 border-t-2 border-r-2 border-cyan-400 rounded-tr-xs animate-pulse"></div>
-                <div class="absolute bottom-2 left-2 w-3.5 h-3.5 border-b-2 border-l-2 border-cyan-400 rounded-bl-xs animate-pulse"></div>
-                <div class="absolute bottom-2 right-2 w-3.5 h-3.5 border-b-2 border-r-2 border-cyan-400 rounded-br-xs animate-pulse"></div>
-
-                <!-- Live Animated Vector Signature -->
-                <svg class="w-full h-full max-w-[210px] max-h-[85px] text-cyan-300 relative z-10 filter drop-shadow-[0_0_8px_rgba(56,189,248,0.6)]" viewBox="0 0 300 120" fill="none">
-                  <path d="M 20 70 Q 40 20 60 65 T 100 45 Q 120 85 140 30 T 180 75 Q 210 25 240 65 T 280 55" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" class="animate-draw-sign" />
-                  <path d="M 40 85 Q 110 75 180 85 T 260 80" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 4" class="animate-pulse" />
-                </svg>
-
-                <!-- Floating Dimension Tag -->
-                <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-slate-900/90 border border-cyan-500/40 text-[10px] font-mono text-cyan-300 flex items-center gap-1 z-20 shadow-xs">
-                  <span>📐 140 × 60 px</span>
-                  <span class="text-slate-400 text-[9px]">(4×2 cm)</span>
-                </div>
-
-                <!-- Floating Paper Whitening Badge -->
-                <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-slate-900/90 border border-emerald-500/40 text-[10px] font-mono text-emerald-400 flex items-center gap-1 z-20 shadow-xs">
-                  <span>✨ Clean Paper #FFFFFF</span>
-                </div>
-              </div>
-
-              <!-- Live File Size Compression Transformation Pill -->
-              <div class="grid grid-cols-2 gap-2 text-left">
-                <div class="p-2 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
-                  <div>
-                    <div class="text-[9px] uppercase font-bold text-slate-400">Raw Input Image</div>
-                    <div class="text-xs font-mono font-bold text-slate-400 line-through decoration-rose-500">1.8 MB • 3000×2000</div>
-                  </div>
-                  <span class="text-xs">📸</span>
-                </div>
-                <div class="p-2 rounded-xl bg-gradient-to-r from-emerald-950/90 via-slate-950 to-slate-950 border border-emerald-500/50 flex items-center justify-between shadow-xs animate-float-pill">
-                  <div>
-                    <div class="text-[9px] uppercase font-bold text-emerald-400 flex items-center gap-1">
-                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                      Portal Compressed
-                    </div>
-                    <div class="text-xs font-mono font-bold text-emerald-300">14.2 KB ✓ <span class="text-[9px] text-emerald-400/80 font-normal">Target Met</span></div>
-                  </div>
-                  <span class="text-xs">⚡</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
+          <p class="hero-privacy"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2 16 5v5c0 4-6 7-6 7s-6-3-6-7V5l6-3Z" stroke="currentColor" stroke-width="1.4"/><path d="m7 9 2 2 4-4" stroke="currentColor" stroke-width="1.4"/></svg> Your images stay on your device <span>·</span> Free. No signup.</p>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a paper signature becoming a resized JPG">
+          <svg class="hero-transformation" width="560" height="300" viewBox="0 0 560 300" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="hero-paper-tone" x1="30" y1="40" x2="280" y2="230" gradientUnits="userSpaceOnUse"><stop stop-color="#f6f1e6"/><stop offset="1" stop-color="#d6d1c9"/></linearGradient>
+              <linearGradient id="hero-trail-tone"><stop stop-color="#a78bfa" stop-opacity="0"/><stop offset=".6" stop-color="#a78bfa"/><stop offset="1" stop-color="#6ee7db"/></linearGradient>
+              <linearGradient id="hero-scan-tone" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a78bfa" stop-opacity="0"/><stop offset="1" stop-color="#a78bfa" stop-opacity=".32"/></linearGradient>
+              <path id="hero-signature-stroke" pathLength="1" d="M55 98C80 80 91 30 83 34C62 44 54 115 82 103C109 91 119 32 111 39C99 53 100 106 120 95C139 83 145 60 139 65C132 72 135 98 150 90C169 79 174 65 170 70C162 83 164 97 179 88C192 77 202 68 200 77C196 93 209 90 220 80C235 65 241 65 234 80C228 95 248 80 258 73C276 60 270 91 290 80L320 65M83 116C145 99 238 104 341 93"/>
+            </defs>
+            <circle cx="313" cy="145" r="127" stroke="#a78bfa" stroke-opacity=".13"/>
+            <circle cx="313" cy="145" r="98" stroke="#a78bfa" stroke-opacity=".12" stroke-dasharray="2 9"/>
+            <g class="hero-source-sheet">
+              <rect x="39" y="56" width="256" height="183" rx="9" fill="#000" fill-opacity=".18"/>
+              <rect x="31" y="46" width="256" height="183" rx="9" fill="url(#hero-paper-tone)"/>
+              <text x="50" y="69" fill="#77716b" font-size="9" letter-spacing="2">ORIGINAL SCAN</text>
+              <path d="M50 87H265M50 110H265M50 133H265M50 156H265M50 179H265M50 202H265" stroke="#77716b" stroke-opacity=".13"/>
+              <use href="#hero-signature-stroke" transform="translate(25 75) scale(.68)" stroke="#514b55" stroke-width="3" stroke-linecap="round"/>
+              <g class="hero-scan-beam"><rect x="48" y="85" width="56" height="114" fill="url(#hero-scan-tone)"/><path d="M104 85V199" stroke="#8b5cf6" stroke-width="2"/></g>
+            </g>
+            <path class="hero-transfer" d="M208 209C275 286 378 278 414 199" stroke="url(#hero-trail-tone)" stroke-width="2" stroke-dasharray="5 6"/>
+            <g class="hero-output-sheet">
+              <rect x="267" y="108" width="253" height="139" rx="12" fill="#000" fill-opacity=".2"/>
+              <rect x="258" y="99" width="253" height="139" rx="12" fill="#fff"/>
+              <text x="276" y="122" fill="#64748b" font-size="9" letter-spacing="1.4">THE RIGHT FIT</text>
+              <rect x="438" y="111" width="55" height="18" rx="9" fill="#ede9fe"/><text x="450" y="123" fill="#6d28d9" font-size="9" font-weight="600">.JPG</text>
+              <path d="M276 151V141H286M483 141H493V151M493 199V209H483M286 209H276V199" stroke="#8b5cf6" stroke-opacity=".6"/>
+              <use class="hero-output-ink" href="#hero-signature-stroke" transform="translate(263 118) scale(.62)" stroke="#252136" stroke-width="3" stroke-linecap="round"/>
+              <text x="276" y="226" fill="#64748b" font-size="9">140 × 60 px</text><text x="417" y="226" fill="#6d28d9" font-size="9">10–20 KB target</text>
+            </g>
+            <g class="hero-done"><circle cx="500" cy="96" r="18" fill="#b8f5da"/><path d="m492 96 5 5 10-11" stroke="#176847" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+          </svg>
+          <div class="hero-art-caption"><span>01 Scan <i>→</i> 02 Refine <i>→</i> 03 Resize <small>Illustration</small></span><button type="button" id="hero-motion" aria-label="Pause hero animation" aria-pressed="false">Pause Ⅱ</button></div>
         </div>
       </section>
-
-
-      <ClosingSoon client:load />
-      <ApplicationPreparationCards />
-      <ExamDayToolkit />
-
+      <ClosingSoon planner client:load />
       <!-- Main Interactive Resizer Studio (Full-Width Studio Command Center) -->
       <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
-        <SignatureTool client:idle />
+        <SignatureTool focusedWorkspace client:load />
       </section>
 
-      <!-- Pan-India & All States Govt Jobs 2026 Live Hub Banner -->
-      <section class="rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 via-card to-primary/5 p-4 sm:p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div class="flex items-start gap-3.5">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0 font-bold">
-            🏛️
-          </div>
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
-                1.8 LAKH+ VACANCIES
-              </span>
-              <span class="text-xs font-semibold text-foreground">Pan-India &amp; All 28 States Directory</span>
-            </div>
-            <h2 class="text-base sm:text-lg font-extrabold text-foreground">
-              Applying for Latest Government Jobs (SSC, RRB, State PSC &amp; Banking)?
-            </h2>
-            <p class="text-xs text-muted-foreground max-w-2xl leading-relaxed">
-              Browse ongoing notifications across Central ministries and all state commissions with direct official portal links and pre-calibrated photo/signature specifications.
-            </p>
-          </div>
-        </div>
-
-        <a
-          href="/government-jobs/"
-          class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shadow-sm shrink-0 text-center flex items-center justify-center gap-1.5"
-        >
-          <span>Explore All Govt Jobs</span>
-          <span>→</span>
-        </a>
-      </section>
-
-      <!-- Portal Diagnostics & Troubleshooting Common Portal Upload Errors -->
-      <TroubleshootingSection />
-
-      <!-- Knowledge Base & Portal Assistant Dual-Column Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        
-        <!-- Left Side: Official Verification Matrix & Knowledge Base (8 cols) -->
-        <div class="lg:col-span-8 space-y-6">
-          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-4">
-            <div class="flex items-center justify-between border-b border-border pb-3">
-              <h2 class="text-base font-bold text-foreground flex items-center gap-2">
-                <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                Official Verification Matrix &amp; Knowledge Base
-              </h2>
-              <span class="text-xs text-muted-foreground hidden sm:inline">2026 Examination Standards</span>
-            </div>
-
-            <!-- Accordion Panels -->
-            <div class="space-y-3">
-              <details id="exam-specs" class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
-                <summary class="font-semibold text-xs text-foreground cursor-pointer flex items-center justify-between select-none">
-                  <span>📊 1. Official Exam Dimensions &amp; Size Table (SSC, PAN, RRB, UPSC, IBPS)</span>
-                  <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="pt-4 border-t border-border/50 mt-3">
-                  <ExamSpecsTable />
-                </div>
-              </details>
-
-              <details id="guide" class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
-                <summary class="font-semibold text-xs text-foreground cursor-pointer flex items-center justify-between select-none">
-                  <span>🛡️ 2. How to Avoid Signature Rejection (Photo vs Ink Guidelines)</span>
-                  <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="pt-4 border-t border-border/50 mt-3">
-                  <GuideSection />
-                </div>
-              </details>
-
-              <details id="seo-guide" class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
-                <summary class="font-semibold text-xs text-foreground cursor-pointer flex items-center justify-between select-none">
-                  <span>📖 3. Complete Aspirant Guide (CM to Pixel Formulas &amp; DPI)</span>
-                  <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="pt-4 border-t border-border/50 mt-3">
-                  <SeoContentSection />
-                </div>
-              </details>
-
-              <details id="faq" class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
-                <summary class="font-semibold text-xs text-foreground cursor-pointer flex items-center justify-between select-none">
-                  <span>❓ 4. Frequently Asked Questions (Dual-Boundary &amp; Format Queries)</span>
-                  <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="pt-4 border-t border-border/50 mt-3">
-                  <FaqSection />
-                </div>
-              </details>
-
-              <details id="changelog-panel" class="group rounded-xl border border-border bg-muted/20 p-4 open:bg-card transition">
-                <summary class="font-semibold text-xs text-foreground cursor-pointer flex items-center justify-between select-none">
-                  <span>⏱️ 5. Portal Rules &amp; Engine Changelog (2026 Freshness Log)</span>
-                  <span class="text-primary group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="pt-4 border-t border-border/50 mt-3">
-                  <ChangelogSection />
-                </div>
-              </details>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Side: Sticky Smart Assistant Sidebar (4 cols) -->
-        <aside class="lg:col-span-4 space-y-4 sticky top-16">
-          
-          <!-- Card 1: Live Portal Compliance Checklist -->
-          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                Portal Compliance Checklist
-              </span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">Auto-Check</span>
-            </div>
-
-            <div class="space-y-2.5 text-xs">
-              <div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-muted/40 border border-border">
-                <div class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 font-bold text-xs">✓</div>
-                <div>
-                  <div class="font-semibold text-foreground">File Size Bounds (10–20 KB)</div>
-                  <div class="text-[11px] text-muted-foreground">Complies with strict SSC, RRB &amp; UPSC upload limiters.</div>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-muted/40 border border-border">
-                <div class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 font-bold text-xs">✓</div>
-                <div>
-                  <div class="font-semibold text-foreground">Aspect Ratio &amp; Pixels (140×60)</div>
-                  <div class="text-[11px] text-muted-foreground">Standard 7:3 aspect ratio preventing stretch distortion.</div>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-muted/40 border border-border">
-                <div class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 font-bold text-xs">✓</div>
-                <div>
-                  <div class="font-semibold text-foreground">Paper Shadow Whiten Filter</div>
-                  <div class="text-[11px] text-muted-foreground">Converts yellowish camera photos to clean pure white paper.</div>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-muted/40 border border-border">
-                <div class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 font-bold text-xs">✓</div>
-                <div>
-                  <div class="font-semibold text-foreground">100% Client-Side Privacy</div>
-                  <div class="text-[11px] text-muted-foreground">Processed in your browser canvas. No server upload.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: Interactive CM to Pixel Quick Calculator Widget -->
-          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                CM ⇄ Pixel Converter Widget
-              </span>
-              <span class="text-[10px] font-mono text-muted-foreground">200 DPI Basis</span>
-            </div>
-
-            <p class="text-[11px] text-muted-foreground">
-              Calculate exact pixel requirements from notification guidelines (e.g. 4.0 cm × 2.0 cm).
-            </p>
-
-            <div class="grid grid-cols-2 gap-2 text-xs">
-              <div class="space-y-1">
-                <label for="calc-w-cm" class="text-[10px] text-zinc-600 dark:text-zinc-400 font-medium">Width (cm):</label>
-                <input
-                  id="calc-w-cm"
-                  type="number"
-                  step="0.1"
-                  value="4.0"
-                  aria-label="Width in centimeters"
-                  class="w-full px-2.5 py-1.5 rounded-lg border border-border bg-background font-mono text-foreground text-xs"
-                />
-              </div>
-              <div class="space-y-1">
-                <label for="calc-h-cm" class="text-[10px] text-zinc-600 dark:text-zinc-400 font-medium">Height (cm):</label>
-                <input
-                  id="calc-h-cm"
-                  type="number"
-                  step="0.1"
-                  value="2.0"
-                  aria-label="Height in centimeters"
-                  class="w-full px-2.5 py-1.5 rounded-lg border border-border bg-background font-mono text-foreground text-xs"
-                />
-              </div>
-            </div>
-
-            <div class="p-3 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-between text-xs font-mono">
-              <span class="text-muted-foreground font-medium">Calculated Target:</span>
-              <span id="calc-result" class="font-bold text-primary text-sm">315 × 157 px</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Instant Quick Exam Requirement Reference -->
-          <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-3 text-xs">
-            <div class="font-bold text-foreground flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Top Portal Quick Rules (2026)
-            </div>
-
-            <ul class="space-y-1.5 text-[11px] text-muted-foreground">
-              <li class="pb-1.5 border-b border-border/50">
-                <a href="/ssc-signature-resize/" aria-label="Resize signature for SSC CGL / CHSL (140x60 px, 10 to 20 KB)" class="flex items-center justify-between p-2 min-h-[44px] rounded hover:bg-muted/40 transition group">
-                  <span class="font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-1">
-                    SSC CGL / CHSL
-                    <span class="text-[10px] text-primary opacity-70 group-hover:opacity-100">→</span>
-                  </span>
-                  <span class="font-mono text-primary font-medium">140×60 px (10–20 KB)</span>
-                </a>
-              </li>
-              <li class="pb-1.5 border-b border-border/50">
-                <a href="/pan-card-signature-resize/" aria-label="Resize signature for PAN Card NSDL (4.5x2 cm, under 50 KB)" class="flex items-center justify-between p-2 min-h-[44px] rounded hover:bg-muted/40 transition group">
-                  <span class="font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-1">
-                    PAN Card (NSDL)
-                    <span class="text-[10px] text-primary opacity-70 group-hover:opacity-100">→</span>
-                  </span>
-                  <span class="font-mono text-primary font-medium">4.5×2 cm (&lt;50 KB)</span>
-                </a>
-              </li>
-              <li class="pb-1.5 border-b border-border/50">
-                <a href="/rrb-signature-resize/" aria-label="Resize signature for RRB Railway (140x60 px, 10 to 20 KB)" class="flex items-center justify-between p-2 min-h-[44px] rounded hover:bg-muted/40 transition group">
-                  <span class="font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-1">
-                    RRB Railway
-                    <span class="text-[10px] text-primary opacity-70 group-hover:opacity-100">→</span>
-                  </span>
-                  <span class="font-mono text-primary font-medium">140×60 px (10–20 KB)</span>
-                </a>
-              </li>
-              <li class="pb-1.5 border-b border-border/50">
-                <a href="/thumb-impression-resize/" aria-label="Resize left thumb impression for RRB/SBI (3x3 cm, 10 to 20 KB)" class="flex items-center justify-between p-2 min-h-[44px] rounded hover:bg-muted/40 transition group">
-                  <span class="font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-1">
-                    Left Thumb (RRB/SBI)
-                    <span class="text-[10px] text-primary opacity-70 group-hover:opacity-100">→</span>
-                  </span>
-                  <span class="font-mono text-primary font-medium">3×3 cm (10–20 KB)</span>
-                </a>
-              </li>
-              <li>
-                <a href="/upsc-signature-resize/" aria-label="Resize signature for UPSC Civil Services (350x350 px, 20 to 300 KB)" class="flex items-center justify-between p-2 min-h-[44px] rounded hover:bg-muted/40 transition group">
-                  <span class="font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-1">
-                    UPSC Civil Services
-                    <span class="text-[10px] text-primary opacity-70 group-hover:opacity-100">→</span>
-                  </span>
-                  <span class="font-mono text-primary font-medium">350×350 px (20–300 KB)</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-        </aside>
-      </div>
+      <ExamDayToolkit />
+      <ExamDirectory />
+      <PortalDiagnostics />
+      <FaqSection title="Questions about resizing and downloads" description="Find help with image sizes, file limits and preparing your upload. Check your current exam notice for its requirements." />
 
       <!-- 2026 Examination Master Guides & Document Guidelines (SEO & Authority Hub) -->
-      <section class="bg-card border border-border rounded-2xl p-5 sm:p-6 shadow-sm space-y-5">
+      <section id="home-resources" class="bg-card border border-border rounded-2xl p-5 sm:p-6 shadow-sm space-y-5">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border pb-4">
           <div class="space-y-1">
             <div class="flex items-center gap-2">
@@ -701,217 +370,58 @@ const topGuides = BLOG_POSTS.slice(0, 6);
         </div>
       </section>
 
-      <!-- All Official Exam Tools & Presets Uncollapsed Directory (Direct Crawl & Indexing Hub) -->
-      <section class="bg-card border border-border rounded-2xl p-5 sm:p-6 shadow-sm space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
-          <div class="space-y-1">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/10 text-primary border border-primary/20 uppercase tracking-wider">
-              <span>🗂️</span> Verified Preset Directory
-            </div>
-            <h2 class="text-base sm:text-xl font-extrabold text-foreground">
-              Direct Exam Signature &amp; Photo Resizer Tools Index
-            </h2>
-          </div>
-          <span class="text-xs text-muted-foreground font-mono">100% Free &amp; Private</span>
-        </div>
+      <section id="portal-standards" class="rounded-xl border border-border bg-card p-4 space-y-3">
+        <h2 class="text-lg font-bold">Portal Submission Standards</h2>
+        <p class="text-xs text-muted-foreground">Open the guidance you need. Check your current exam notice before submitting.</p>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 text-xs pt-1">
-          <a href="/ssc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">SSC Signature</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/upsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">UPSC Signature</div>
-            <div class="text-[10px] font-mono text-muted-foreground">350×350 px • 20–300 KB</div>
-          </a>
-          <a href="/rrb-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">RRB Railway</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/ibps-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">IBPS PO / Clerk</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/gate-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">GATE Signature</div>
-            <div class="text-[10px] font-mono text-muted-foreground">160×560 px • 5–200 KB</div>
-          </a>
-          <a href="/nta-neet-jee-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">NTA NEET &amp; JEE</div>
-            <div class="text-[10px] font-mono text-muted-foreground">3.5×1.5 cm • 4–30 KB</div>
-          </a>
-          <a href="/pan-card-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">PAN Signature</div>
-            <div class="text-[10px] font-mono text-muted-foreground">4.5×2 cm • &lt;50 KB</div>
-          </a>
-          <a href="/pan-card-photo-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">PAN Card Photo</div>
-            <div class="text-[10px] font-mono text-muted-foreground">213×213 px • 200 DPI</div>
-          </a>
-          <a href="/mpsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">MPSC Signature</div>
-            <div class="text-[10px] font-mono text-muted-foreground">3.5×1.5 cm • 5–20 KB</div>
-          </a>
-          <a href="/tnpsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">TNPSC Signature</div>
-            <div class="text-[10px] font-mono text-muted-foreground">6.0×2.0 cm • 10–20 KB</div>
-          </a>
-          <a href="/wbpsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">WBPSC Signature</div>
-            <div class="text-[10px] font-mono text-muted-foreground">6.0×2.0 cm • 10–20 KB</div>
-          </a>
-          <a href="/gpsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">GPSC Gujarat</div>
-            <div class="text-[10px] font-mono text-muted-foreground">5.0×2.5 cm • 5–15 KB</div>
-          </a>
-          <a href="/hpsc-ppsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">HPSC &amp; PPSC</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/isro-drdo-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">ISRO &amp; DRDO</div>
-            <div class="text-[10px] font-mono text-muted-foreground">150×80 px • 10–20 KB</div>
-          </a>
-          <a href="/lic-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">LIC AAO / ADO</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/rbi-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">RBI Grade B</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/sebi-nabard-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">SEBI &amp; NABARD</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/afcat-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">AFCAT Air Force</div>
-            <div class="text-[10px] font-mono text-muted-foreground">4.5×3.5 cm • 10–50 KB</div>
-          </a>
-          <a href="/agniveer-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">Agniveer Army</div>
-            <div class="text-[10px] font-mono text-muted-foreground">4.5×3.5 cm • 5–10 KB</div>
-          </a>
-          <a href="/indian-coast-guard-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">Indian Coast Guard</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–50 KB</div>
-          </a>
-          <a href="/state-tet-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">State TET (UP/REE)</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/ugc-net-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">UGC NET &amp; JRF</div>
-            <div class="text-[10px] font-mono text-muted-foreground">3.5×1.5 cm • 4–30 KB</div>
-          </a>
-          <a href="/clat-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">CLAT Law Entrance</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/ailet-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">AILET Law Entrance</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/cat-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">CAT MBA Entrance</div>
-            <div class="text-[10px] font-mono text-muted-foreground">80×35 mm • 140–80 KB</div>
-          </a>
-          <a href="/snap-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary truncate">SNAP MBA Entrance</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/xat-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary truncate">XAT MBA Entrance</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 20–50 KB</div>
-          </a>
-          <a href="/sarathi-dl-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary truncate">Sarathi Driving Licence</div>
-            <div class="text-[10px] font-mono text-muted-foreground">256×64 px • 10–20 KB</div>
-          </a>
-          <a href="/appsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">APPSC Andhra</div>
-            <div class="text-[10px] font-mono text-muted-foreground">3.5×1.5 cm • 10–50 KB</div>
-          </a>
-          <a href="/tspsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">TSPSC Telangana</div>
-            <div class="text-[10px] font-mono text-muted-foreground">3.5×1.5 cm • 10–50 KB</div>
-          </a>
-          <a href="/apsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">APSC Assam</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/dsssb-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">DSSSB Delhi</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×110 px • 40 KB max</div>
-          </a>
-          <a href="/india-post-gds-photo-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">India Post GDS</div>
-            <div class="text-[10px] font-mono text-muted-foreground">200×230 px • 20–50 KB</div>
-          </a>
-          <a href="/kerala-psc-photo-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">Kerala PSC Thulasi</div>
-            <div class="text-[10px] font-mono text-muted-foreground">150×200 px • 30 KB max</div>
-          </a>
-          <a href="/mppsc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">MPPSC Madhya Pradesh</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/osssc-signature-resize/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary transition truncate">OSSSC Odisha</div>
-            <div class="text-[10px] font-mono text-muted-foreground">140×60 px • 10–20 KB</div>
-          </a>
-          <a href="/document-resizer/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary truncate">Document PDF Resizer</div>
-            <div class="text-[10px] font-mono text-muted-foreground">A4 PDF • &lt;300 KB</div>
-          </a>
-          <a href="/compress-image-to-kb/" class="p-2.5 rounded-xl bg-muted/30 hover:bg-primary/10 hover:border-primary/40 border border-border/70 transition space-y-1 group">
-            <div class="font-bold text-foreground group-hover:text-primary truncate">Compress Image to KB</div>
-            <div class="text-[10px] font-mono text-muted-foreground">Custom KB • Multi-format</div>
-          </a>
-        </div>
+        <details><summary>How to prepare your signature or photo</summary><GuideSection /></details>
+        <details><summary>Dimensions, DPI and preparation guidance</summary><SeoContentSection /></details>
+
+
+
       </section>
+      <details class="home-preparation rounded-xl border border-border bg-card p-4">
+        <summary class="font-semibold cursor-pointer">Exam-specific application checklists</summary>
+        <div class="space-y-4 mt-4"><ApplicationPreparationCards /></div>
+      </details>
 
-      <!-- Technical E-E-A-T & Author Identity Profile -->
-      <AuthorBioSection />
-
+      <section id="technical-trust" class="space-y-3">
+        <h2 class="text-lg font-bold">About the engine and its author</h2>
+        <details class="rounded-lg border border-border bg-card p-3"><summary class="cursor-pointer text-sm font-semibold">Engine changelog and portal rule updates</summary><ChangelogSection /></details>
+        <AuthorBioSection />
+      </section>
     </main>
 
     <!-- Global Footer -->
-    <Footer />
+    <Footer focused />
 
-    <!-- Script for Live CM to Pixel Calculator -->
     <script>
-      const inputW = document.getElementById('calc-w-cm');
-      const inputH = document.getElementById('calc-h-cm');
-      const resultBox = document.getElementById('calc-result');
-
-      function calculatePixels() {
-        if (!inputW || !inputH || !resultBox) return;
-        const wCm = parseFloat(inputW.value) || 0;
-        const hCm = parseFloat(inputH.value) || 0;
-        const dpi = 200; // Govt standard
-        const wPx = Math.round((wCm / 2.54) * dpi);
-        const hPx = Math.round((hCm / 2.54) * dpi);
-        resultBox.textContent = `${wPx} × ${hPx} px`;
-      }
-
-      inputW?.addEventListener('input', calculatePixels);
-      inputH?.addEventListener('input', calculatePixels);
-
-      // Trending & Workspace Preset Buttons Handler
-      document.querySelectorAll('main .preset-btn').forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          const examKey = e.currentTarget.getAttribute('data-exam');
-          if (examKey) {
-            window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: examKey }));
-            const url = new URL(window.location.href);
-            url.searchParams.set('preset', examKey);
-            window.history.replaceState({}, '', url.toString());
-            const studio = document.getElementById('tool-workspace') || document.getElementById('studio-container');
-            studio?.scrollIntoView({ behavior: 'smooth' });
-          }
+      const motionControl = document.getElementById('hero-motion');
+      const heroArt = document.querySelector<HTMLElement>('.hero-art');
+      if (motionControl && heroArt) {
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let visible = false;
+        let manuallyPaused = false;
+        const syncMotion = () => {
+          heroArt.dataset.motionRunning = String(visible && !document.hidden && !reducedMotion.matches && !manuallyPaused);
+        };
+        syncMotion();
+        const observer = new IntersectionObserver(entries => {
+          visible = entries[0].isIntersecting;
+          syncMotion();
         });
-      });
+        observer.observe(heroArt);
+        document.addEventListener('visibilitychange', syncMotion);
+        reducedMotion.addEventListener('change', syncMotion);
+        motionControl.addEventListener('click', () => {
+          manuallyPaused = !manuallyPaused;
+          motionControl.setAttribute('aria-pressed', String(manuallyPaused));
+          motionControl.setAttribute('aria-label', manuallyPaused ? 'Resume hero animation' : 'Pause hero animation');
+          motionControl.textContent = manuallyPaused ? 'Play ▷' : 'Pause Ⅱ';
+          syncMotion();
+        });
+      }
     </script>
+
   </body>
 </html>

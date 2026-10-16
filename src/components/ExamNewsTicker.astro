@@ -1,8 +1,55 @@
 ﻿---
-import { ClosingSoon } from './ClosingSoon';
 ---
-<div class="w-full border-t border-primary/15 bg-card/95">
+<div class="exam-alert-bar w-full border-t border-primary/15 bg-card/95">
   <div class="max-w-[1480px] mx-auto px-3 py-2">
-    <ClosingSoon client:load compact />
+    <section data-deadline-strip aria-label="Application deadlines" class="flex items-center gap-3 text-xs min-w-0">
+      <span data-deadline-heading class="shrink-0 font-bold text-primary">Application dates</span>
+      <div data-deadline-links class="flex gap-3 overflow-x-auto flex-1 min-w-0 pb-1 min-h-7"><span class="text-muted-foreground whitespace-nowrap">Checking calendar…</span></div>
+      <a href="/blog/" class="hidden sm:inline shrink-0 text-primary font-semibold">Guides ↗</a>
+      <button type="button" aria-label="Dismiss application deadlines" class="shrink-0 px-2 py-1 rounded hover:bg-muted">✕</button>
+    </section>
   </div>
 </div>
+<script>
+  import windows from '../data/applicationWindows.json';
+  import { activeApplications, daysUntilClose } from '../utils/applicationWindows';
+  document.querySelectorAll<HTMLElement>('[data-deadline-strip]').forEach(strip => {
+    try { strip.hidden = sessionStorage.getItem('signresize-deadlines-dismissed') === 'yes'; } catch {}
+    const update = () => {
+      if (strip.hidden || document.hidden) return;
+      const now = new Date(), active = activeApplications(windows, now);
+      const soon = active.filter(item => daysUntilClose(item, now) < 7);
+      const heading = strip.querySelector('[data-deadline-heading]');
+      const links = strip.querySelector('[data-deadline-links]');
+      if (!heading || !links) return;
+      heading.textContent = soon.length ? 'Closing this week' : 'Application dates';
+      const fragment = document.createDocumentFragment();
+      for (const item of (soon.length ? soon : active).slice(0, 3)) {
+        const link = document.createElement('a'), count = document.createElement('span');
+        link.href = item.toolUrl;
+        link.className = 'rounded-full border border-primary/20 bg-primary/5 px-3 py-1 whitespace-nowrap font-semibold';
+        link.append(item.label + ' ');
+        count.className = 'text-muted-foreground font-normal';
+        const days = daysUntilClose(item, now);
+        count.textContent = `· ${days === 0 ? 'closes today' : `${days} days left`}`;
+        link.append(count, ' →'); fragment.append(link);
+      }
+      if (!active.length) {
+        const link = document.createElement('a'); link.href = '/government-jobs/';
+        link.className = 'text-muted-foreground whitespace-nowrap';
+        link.textContent = 'No confirmed open windows · Browse tools →'; fragment.append(link);
+      }
+      links.replaceChildren(fragment);
+    };
+    update();
+    const timer = window.setInterval(update, 60_000);
+    document.addEventListener('visibilitychange', update);
+    strip.querySelector('button')?.addEventListener('click', () => {
+      strip.hidden = true; clearInterval(timer); document.removeEventListener('visibilitychange', update);
+      try { sessionStorage.setItem('signresize-deadlines-dismissed', 'yes'); } catch {}
+    });
+  });
+</script>
+<style is:global>
+  .exam-alert-bar:has(section[hidden]) { display: none; }
+</style>

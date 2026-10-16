@@ -6,6 +6,7 @@ dist/
 
 # dependencies
 node_modules/
+public/vendor/mediapipe-0.10.32/
 
 # logs
 npm-debug.log*
@@ -25,3 +26,6 @@ pnpm-debug.log*
 
 # wrangler
 .wrangler/
+
+# Private image comparisons supplied by users; never publish with the site.
+reports/signature-comparison/

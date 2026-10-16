@@ -20,10 +20,17 @@ const QUICK_QUESTIONS = [
   { label: '🏦 IBPS Thumb Impression', query: 'What is the Left Thumb Impression size for IBPS & SBI?' },
 ];
 
-export default function ChatBot() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isDismissed, setIsDismissed] = useState(false);
-  const [hasUnread, setHasUnread] = useState(true);
+export default function ChatBot({ initialOpen = false }: { initialOpen?: boolean }) {
+  const [isOpen, setIsOpen] = useState(initialOpen);
+  const [footerVisible, setFooterVisible] = useState(false);
+  useEffect(() => {
+    const footer = document.querySelector('footer');
+    const observer = new IntersectionObserver(entries => setFooterVisible(entries[0]?.isIntersecting || false));
+    if (footer) observer.observe(footer);
+    const openHelp = () => setIsOpen(true);
+    window.addEventListener('open-exam-help', openHelp);
+    return () => { observer.disconnect(); window.removeEventListener('open-exam-help', openHelp); };
+  }, []);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   
@@ -47,7 +54,6 @@ export default function ChatBot() {
   useEffect(() => {
     if (isOpen) {
       scrollToBottom();
-      setHasUnread(false);
     }
   }, [isOpen, messages, isTyping]);
 
@@ -222,77 +228,16 @@ export default function ChatBot() {
 
   return (
     <>
-      {/* Floating Chatbot Launcher Container */}
-      <div ref={launcherRef} className="fixed bottom-5 right-5 z-[9999] flex items-center gap-2 group">
-        
-        {/* If user dismissed the floating bar, show a mini discreet restore icon */}
-        {isDismissed ? (
-          <button
-            onClick={() => setIsDismissed(false)}
-            title="Open Exam AI Assistant"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/95 border border-primary/40 shadow-xl text-xs font-semibold text-primary backdrop-blur-md hover:scale-105 transition-all"
-          >
-            <span>🤖</span>
-            <span className="hidden sm:inline">AI Help</span>
-          </button>
-        ) : (
-          <>
-            {/* Expanded Label Pill with Dismiss '✕' Button */}
-            {!isOpen && (
-              <div className="flex items-center gap-1.5 pl-3 pr-1.5 py-1.5 rounded-full bg-card/95 border border-border shadow-xl text-[11px] font-semibold text-foreground backdrop-blur-md transition-all">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span onClick={() => setIsOpen(true)} className="cursor-pointer hover:text-primary">
-                  Ask Exam AI Copilot
-                </span>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsDismissed(true);
-                  }}
-                  title="Dismiss floating badge"
-                  className="w-4 h-4 ml-1 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-[10px] transition-colors"
-                >
-                  ✕
-                </button>
-              </div>
-            )}
-
-            {/* Main Launcher Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? 'Close Sarkari Exam Assistant' : 'Open Sarkari Exam Assistant'}
-              className={`relative w-13 h-13 rounded-full text-white shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center p-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
-                isOpen
-                  ? 'bg-rose-600 hover:bg-rose-700 shadow-rose-500/30'
-                  : 'bg-gradient-to-tr from-primary to-indigo-600 hover:shadow-primary/30'
-              }`}
-            >
-              {hasUnread && !isOpen && (
-                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-background animate-ping"></span>
-              )}
-              {hasUnread && !isOpen && (
-                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rose-500 rounded-full border-2 border-background"></span>
-              )}
-
-              {isOpen ? (
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                </svg>
-              )}
-            </button>
-          </>
-        )}
-      </div>
-
+      {(!footerVisible || isOpen) && <div ref={launcherRef} className="copilot-launcher fixed bottom-4 right-4 z-30">
+        <button type="button" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-label={isOpen ? 'Close exam help' : 'Open exam help'} className="rounded-full border border-border bg-card text-foreground px-3 py-2 text-xs font-semibold shadow-sm focus-visible:outline-2 focus-visible:outline-primary">
+          {isOpen ? 'Close help' : 'Exam help'}
+        </button>
+      </div>}
       {/* Floating Chat Modal Window */}
       {isOpen && (
         <div
           ref={modalRef}
-          className="fixed bottom-20 right-4 sm:right-6 z-[9999] w-[calc(100vw-2rem)] sm:w-[390px] h-[540px] max-h-[82vh] rounded-2xl border border-border/80 bg-card/98 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200"
+          className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[390px] h-[540px] max-h-[82vh] rounded-2xl border border-border/80 bg-card/98 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200"
         >
           {/* Header */}
           <div className="p-3.5 bg-gradient-to-r from-primary/15 via-background to-indigo-500/10 border-b border-border flex items-center justify-between">

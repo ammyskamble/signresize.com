@@ -1,0 +1,46 @@
+import type { ExamPreset, ProcessedImageResult } from '../types';
+export interface FileFacts { size: number; type: string; name: string; width: number; height: number; }
+export interface UploadIssue { code: string; message: string; fix: string; }
+export type ExportRule = Pick<ExamPreset, 'widthPx' | 'heightPx' | 'minKb' | 'maxKb'> & { format: string };
+export function inspectBackground(pixels: ArrayLike<number>, width: number, height: number, notes: string): UploadIssue[] {
+  const lightAllowed = /light|gr[ae]y|off-white/i.test(notes);
+  if (!/white|light.*background|background.*light|gr[ae]y.*background/i.test(notes)) return [];
+  let total = 0, unsuitable = 0;
+  // The outer edge is a background estimate, not a subject/face segmentation.
+  for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+    if (x > width * .08 && x < width * .92 && y > height * .08 && y < height * .92) continue;
+    const i = (y * width + x) * 4;
+    const r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
+    total++;
+    if (pixels[i + 3] < 245 || Math.min(r, g, b) < (lightAllowed ? 200 : 235) || Math.max(r, g, b) - Math.min(r, g, b) > 25) unsuitable++;
+  }
+  if (!total || unsuitable / total < .25) return [];
+  return [{ code: 'background', message: `Possible background problem: the image edges look coloured, dark, shadowed, or transparent. This preset calls for ${lightAllowed ? 'a plain light background' : 'a white background'}.`, fix: 'Check the background around the subject. Retake the photo against the required plain background, or upload a corrected image. For a signature or paper scan, try Clean White Paper and inspect the result.' }];
+}
+export const MAX_UPLOAD_BYTES = 15 * 1024 * 1024;
+export function fileIntakeError(file: Pick<FileFacts, 'size' | 'type' | 'name'>): string | null {
+  if (file.size === 0) return 'This file is empty. Choose a saved JPG, PNG, or WebP image.';
+  if (file.size > MAX_UPLOAD_BYTES) return 'This file exceeds the 15 MB editor limit. Export a smaller image or lower your scanner resolution, then upload again.';
+  const extension = file.name.split('.').pop()?.toLowerCase();
+  const allowed = ['jpg', 'jpeg', 'png', 'webp', 'jfif', 'bmp', 'gif', 'svg', 'heic', 'heif', 'tif', 'tiff'];
+  if (!file.type.startsWith('image/') && !allowed.includes(extension || '')) return 'This file is not a supported image. Export the page as JPG, PNG, or WebP. Renaming a PDF or document does not convert it.';
+  return null;
+}
+export function inspectSource(file: FileFacts, rule: Pick<ExamPreset, 'widthPx' | 'heightPx' | 'minKb' | 'maxKb' | 'format'>): UploadIssue[] {
+  const issues: UploadIssue[] = [];
+  if (file.width !== rule.widthPx || file.height !== rule.heightPx) issues.push({ code: 'pixels', message: `Uploaded: ${file.width} × ${file.height} px. Target: ${rule.widthPx} × ${rule.heightPx} px.`, fix: 'The editor resizes the export automatically. Check the crop so no words or part of your face are cut off.' });
+  if (file.size < rule.minKb * 1024 || file.size > rule.maxKb * 1024) issues.push({ code: 'bytes', message: `Uploaded: ${(file.size / 1024).toFixed(2)} KB. Target: ${rule.minKb}–${rule.maxKb} KB.`, fix: 'The editor adjusts the export size. Check the downloaded file, not the original upload.' });
+  const isJpeg = file.type === 'image/jpeg' || (!file.type && /\.(jpe?g|jfif)$/i.test(file.name));
+  const isPng = file.type === 'image/png' || (!file.type && /\.png$/i.test(file.name));
+  if (rule.format === 'PNG' ? !isPng : !isJpeg) issues.push({ code: 'format', message: `This preset uses ${rule.format}; the uploaded image uses another format.`, fix: `Choose ${rule.format} for export. The editor converts the image; changing the file extension is not enough.` });
+  if (file.width < rule.widthPx || file.height < rule.heightPx) issues.push({ code: 'resolution', message: 'The original image is smaller than the target dimensions.', fix: 'Use a clearer, higher-resolution scan if the resized result looks blurry. Upscaling cannot recover missing detail.' });
+  return issues;
+}
+export function inspectExport(result: Pick<ProcessedImageResult, 'width' | 'height' | 'sizeBytes' | 'format'>, rule: ExportRule): UploadIssue[] {
+  const issues: UploadIssue[] = [];
+  if (result.width !== rule.widthPx || result.height !== rule.heightPx) issues.push({ code: 'pixels', message: `Export is ${result.width} × ${result.height} px; the selected preset needs ${rule.widthPx} × ${rule.heightPx} px.`, fix: 'Restore the selected preset’s dimensions and process again.' });
+  if (result.sizeBytes < rule.minKb * 1024 || result.sizeBytes > rule.maxKb * 1024) issues.push({ code: 'bytes', message: `Export is ${(result.sizeBytes / 1024).toFixed(2)} KB; the selected preset needs ${rule.minKb}–${rule.maxKb} KB.`, fix: 'Restore the preset’s KB bounds. For a file still too large, use JPG and simplify the background or crop.' });
+  const normalized = result.format.toUpperCase().replace('JPEG', 'JPG');
+  if (normalized !== rule.format.replace('JPEG', 'JPG')) issues.push({ code: 'format', message: `Export is ${result.format}; the selected preset needs ${rule.format}.`, fix: `Choose ${rule.format} as the output format and process again.` });
+  return issues;
+}

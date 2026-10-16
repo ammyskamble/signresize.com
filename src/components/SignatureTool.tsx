@@ -1,4 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
+import '../styles/resizer-layout.css';
+import '../styles/control-polish.css';
+import '../styles/mobile-conversion.css';
+import { presetMode } from '../utils/presetMode';
 import {
   Upload,
   RotateCw,
@@ -75,6 +79,13 @@ import { createPdfFromJpegBlob } from '../utils/pdfGenerator';
 import { ToastNotification, type ToastItem } from './tool/ToastNotification';
 import { StepIndicator } from './tool/StepIndicator';
 import { PresetBanner } from './tool/PresetBanner';
+import { WorkspacePresetPicker } from './tool/WorkspacePresetPicker';
+import { MobileConversionBar } from './tool/MobileConversionBar';
+import { MobileOptions } from './tool/MobileOptions';
+import { UploadChecks } from './tool/UploadChecks';
+import { PortraitBackgroundFix } from './tool/PortraitBackgroundFix';
+import { ImageRuleChecks, ExportChecksDialog } from './tool/ImageRuleChecks';
+import { fileIntakeError, inspectExport } from '../utils/uploadValidation';
 
 const SignaturePadModal = lazy(() => import('./SignaturePadModal').then((module) => ({ default: module.SignaturePadModal })));
 
@@ -318,9 +329,12 @@ export interface SignatureToolProps {
   initialMode?: ToolTargetMode;
   initialLang?: SupportedLang;
   initialNameDateStamp?: boolean;
+  compactStudio?: boolean;
+  studioModeTabs?: boolean;
+  focusedWorkspace?: boolean;
 }
 
-export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, initialMode = 'signature', initialLang, initialNameDateStamp = false }) => {
+export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, initialMode = 'signature', initialLang, initialNameDateStamp = false, compactStudio = false, studioModeTabs = !compactStudio, focusedWorkspace = false }) => {
   // Multilingual Support ('en' | 'hi' | 'mr')
   const [lang, setLang] = useState<SupportedLang>(() => {
     if (initialLang) return initialLang;
@@ -382,6 +396,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
   // Mode state: 'single' or 'batch'
   const [toolMode, setToolMode] = useState<'single' | 'batch'>('single');
+  const [studioAdvanced, setStudioAdvanced] = useState(false);
 
 
   // Helper to reliably detect image files (including HEIC, JFIF, and cases where OS mime type is empty)
@@ -395,6 +410,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   const [sourceImage, setSourceImage] = useState<HTMLImageElement | null>(null);
   const [sourceFileName, setSourceFileName] = useState<string>('signature');
   const [sourceOriginalSize, setSourceOriginalSize] = useState<number>(0);
+  const [sourceFileType, setSourceFileType] = useState('');
+  const [uploadError, setUploadError] = useState('');
+  const [showExportChecks, setShowExportChecks] = useState(false);
   const [sourceDimensions, setSourceDimensions] = useState<{ width: number; height: number }>({ width: 0, height: 0 });
   const [isSampleImage, setIsSampleImage] = useState<boolean>(false);
 
@@ -469,6 +487,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const dragRafRef = useRef<number | null>(null);
   const sourceObjectUrlRef = useRef<string | null>(null);
+  const uploadSequenceRef = useRef(0);
+  const processingSequenceRef = useRef(0);
 
   const [processedResult, setProcessedResult] = useState<ProcessedImageResult | null>(null);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -479,7 +499,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   // New: Advanced Preview & Cropper UX States
   const [cropperZoom, setCropperZoom] = useState<number>(1);
   const [previewBg, setPreviewBg] = useState<'white' | 'checker'>('white');
-  const [previewScale, setPreviewScale] = useState<number>(1.2);
+  const [previewScale, setPreviewScale] = useState<number>(1);
   const [isInspectModalOpen, setIsInspectModalOpen] = useState<boolean>(false);
   const [inspectZoom, setInspectZoom] = useState<number>(2);
   const [inspectTab, setInspectTab] = useState<'processed' | 'original' | 'split'>('processed');
@@ -487,7 +507,6 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   // Inline preset browser stays open until explicitly closed.
   const [isExamDropdownOpen, setIsExamDropdownOpen] = useState<boolean>(false);
   const [comboboxSearch, setComboboxSearch] = useState<string>('');
-  const [hasBlockCapitalWarning, setHasBlockCapitalWarning] = useState<boolean>(false);
   const [hasDownloaded, setHasDownloaded] = useState<boolean>(false);
   const [showCtetStrategyTip, setShowCtetStrategyTip] = useState<boolean>(true);
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
@@ -507,6 +526,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   // Target dimensions in PX
   const targetWidthPx = Math.max(10, convertUnits(width, unit, 'px', dpi));
   const targetHeightPx = Math.max(10, convertUnits(height, unit, 'px', dpi));
+  const exportRule = { widthPx: targetWidthPx, heightPx: targetHeightPx, minKb, maxKb, format: targetFormat.split('/')[1].toUpperCase() };
+
+  useEffect(() => {
+    if (compactStudio || (!sourceImage && !uploadError)) return;
+    const frame = requestAnimationFrame(() => document.getElementById('upload-feedback')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    return () => cancelAnimationFrame(frame);
+  }, [sourceImage, uploadError, compactStudio]);
 
   // Apply an exam preset
   const applyPreset = useCallback((preset: ExamPreset) => {
@@ -546,18 +572,18 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     // Automatically close the preset selection pop-up upon picking any preset
     setIsExamDropdownOpen(false);
 
-    addToast(
+    if (!focusedWorkspace) addToast(
       `Applied ${preset.name} (${preset.widthPx}×${preset.heightPx} px, ${preset.minKb}–${preset.maxKb} KB)`,
       'Preset Applied',
       'success'
     );
-  }, [sourceImage, addToast]);
+  }, [sourceImage, addToast, focusedWorkspace]);
 
   // Switch Tool Target Mode (Signature / Photo / Document)
   const switchTargetType = useCallback(async (newType: ToolTargetMode) => {
     setTargetType(newType);
     const presets = newType === 'photo' ? PHOTO_PRESETS : newType === 'document' ? DOCUMENT_PRESETS : SIGNATURE_PRESETS;
-    const defaultPreset = presets[0];
+    const defaultPreset = (focusedWorkspace ? presets.find(p => !p.country || p.country === 'IN') : undefined) || presets[0];
     applyPreset(defaultPreset);
     if (newType === 'photo') {
       setLockAspect(true);
@@ -594,7 +620,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       // Retain real user uploaded photo/signature, just adjust crop to the new mode preset ratio
       initCropBox(sourceImage, defaultPreset.aspectRatio);
     }
-  }, [applyPreset, isSampleImage, sourceImage, loadSampleGenerators]);
+  }, [applyPreset, isSampleImage, sourceImage, loadSampleGenerators, focusedWorkspace]);
 
   // Apply page/URL defaults once per source, so later selections are retained.
   useEffect(() => {
@@ -632,7 +658,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       if (presetId) {
         const matched = findPresetByKey(presetId);
         if (matched) {
-          applyPreset(matched);
+          applyPreset({ ...matched, targetType: presetMode(matched) });
         }
       }
     };
@@ -707,18 +733,21 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
   // Helper to load a single file instantly using zero-copy Object URL
   const loadSingleImageFile = (file: File) => {
-    if (!isSupportedImageFile(file)) {
-      alert('Please upload a valid image file (JPG, PNG, WebP, HEIC, etc.)');
+    const sequence = ++uploadSequenceRef.current;
+    const error = fileIntakeError(file);
+    setUploadError(error || '');
+    if (error) {
       return;
     }
-
-    setIsSampleImage(false);
-    setSourceFileName(file.name.replace(/\.[^/.]+$/, ''));
-    setSourceOriginalSize(file.size);
-
     const objectUrl = URL.createObjectURL(file);
     const img = new Image();
     img.onload = () => {
+      if (sequence !== uploadSequenceRef.current) { URL.revokeObjectURL(objectUrl); return; }
+      setIsSampleImage(false);
+      setSourceFileName(file.name);
+      setSourceOriginalSize(file.size);
+      setSourceFileType(file.type);
+      setProcessedResult(prev => { if (prev?.dataUrl) URL.revokeObjectURL(prev.dataUrl); return null; });
       if (sourceObjectUrlRef.current) {
         URL.revokeObjectURL(sourceObjectUrlRef.current);
       }
@@ -730,22 +759,24 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     };
     img.onerror = () => {
       URL.revokeObjectURL(objectUrl);
-      alert('Could not decode the uploaded image file.');
+      if (sequence === uploadSequenceRef.current) setUploadError('This image could not be decoded. It may be damaged or use an unsupported camera format. Open the original and export it as JPG or PNG, then try again.');
     };
     img.src = objectUrl;
   };
 
   // Process incoming files (Handles 1 up to 10 signatures)
   const handleMultipleFiles = (files: FileList | File[]) => {
-    const fileArray = Array.from(files).filter(isSupportedImageFile);
+    const incoming = Array.from(files);
+    const invalid = incoming.map(file => ({ file, error: fileIntakeError(file) })).filter(item => item.error);
+    setUploadError(invalid.map(item => `${item.file.name}: ${item.error}`).join(' '));
+    const fileArray = incoming.filter(file => !fileIntakeError(file));
 
     if (fileArray.length === 0) {
-      alert('Please select valid image files (JPG, PNG, WebP, etc.).');
       return;
     }
 
     // If single file uploaded in single mode, always load directly into single editor
-    if (fileArray.length === 1 && toolMode === 'single') {
+    if (incoming.length === 1 && fileArray.length === 1 && toolMode === 'single') {
       loadSingleImageFile(fileArray[0]);
       return;
     }
@@ -753,13 +784,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     // Batch mode: enforce maximum of 10 signatures
     const availableSlots = 10 - batchItems.length;
     if (availableSlots <= 0) {
-      alert('Maximum batch capacity reached (10 signatures at a time). Please clear existing items.');
+      setUploadError('The batch already contains 10 images. Remove an image or clear the batch before adding more.');
       return;
     }
 
     const filesToLoad = fileArray.slice(0, availableSlots);
     if (fileArray.length > availableSlots) {
-      alert(`Only the first ${availableSlots} images were added. Maximum batch capacity is 10 signatures.`);
+      setUploadError(`Only the first ${availableSlots} images were added. The batch limit is 10 images; remove an image before adding more.`);
     }
 
     // Switch to batch mode
@@ -799,12 +830,14 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
           setSourceImage(img);
           setSourceFileName(file.name.replace(/\.[^/.]+$/, ''));
           setSourceOriginalSize(file.size);
+          setSourceFileType(file.type);
           setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
           initCropBox(img, selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx);
         }
       };
       img.onerror = () => {
         URL.revokeObjectURL(objectUrl);
+        setUploadError(prev => `${prev} ${file.name} could not be decoded. Export it as JPG or PNG and try again.`.trim());
       };
       img.src = objectUrl;
     });
@@ -812,6 +845,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
   // Load single sample image (Signature, Passport Photo, or Document)
   const loadSingleSampleSignature = async () => {
+    uploadSequenceRef.current++;
+    setUploadError('');
+    setSourceFileType('image/png');
     const generators = await loadSampleGenerators();
     if (!generators) return;
     const { createSampleDataForMode } = generators;
@@ -896,11 +932,28 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   // Drag & drop handlers
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     setIsDragOver(false);
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       handleMultipleFiles(e.dataTransfer.files);
     }
   };
+
+  useEffect(() => {
+    if (!focusedWorkspace) return;
+    const dragOver = (event: DragEvent) => {
+      if (Array.from(event.dataTransfer?.types || []).includes('Files')) event.preventDefault();
+    };
+    const drop = (event: DragEvent) => {
+      if (event.defaultPrevented || !event.dataTransfer?.files.length) return;
+      event.preventDefault();
+      setIsDragOver(false);
+      handleMultipleFiles(event.dataTransfer.files);
+    };
+    window.addEventListener('dragover', dragOver);
+    window.addEventListener('drop', drop);
+    return () => { window.removeEventListener('dragover', dragOver); window.removeEventListener('drop', drop); };
+  }, [focusedWorkspace, handleMultipleFiles]);
 
   // Clipboard paste listener
   useEffect(() => {
@@ -999,7 +1052,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   // Process single active signature / photo / document
   const processImage = useCallback(async () => {
     if (!sourceImage) return;
-
+    const sequence = ++processingSequenceRef.current;
     setIsProcessing(true);
     try {
       const renderedCanvas = renderProcessedCanvas(
@@ -1028,62 +1081,17 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
         }
       }
 
-      // Dynamic Block-Capital Failure Check (Heuristic stroke variance for strict scrutiny exams)
-      if (targetType === 'signature') {
-        try {
-          const sCtx = renderedCanvas.getContext('2d');
-          if (sCtx) {
-            const imgData = sCtx.getImageData(0, 0, renderedCanvas.width, renderedCanvas.height);
-            const data = imgData.data;
-            const w = renderedCanvas.width;
-            const h = renderedCanvas.height;
-            // Column density projection
-            let nonBlankCols = 0;
-            let gapTransitions = 0;
-            let inLetter = false;
-            for (let x = 0; x < w; x++) {
-              let darkPixelsInCol = 0;
-              for (let y = 0; y < h; y++) {
-                const idx = (y * w + x) * 4;
-                const brightness = (data[idx] + data[idx + 1] + data[idx + 2]) / 3;
-                if (brightness < 160 && data[idx + 3] > 80) {
-                  darkPixelsInCol++;
-                }
-              }
-              if (darkPixelsInCol > 2) {
-                nonBlankCols++;
-                if (!inLetter) {
-                  inLetter = true;
-                  gapTransitions++;
-                }
-              } else {
-                inLetter = false;
-              }
-            }
-            // Disconnected block letters show high letter boundary transitions (>7 discrete blocks)
-            // relative to connected cursive scripts
-            if (gapTransitions >= 7 && nonBlankCols > 30) {
-              setHasBlockCapitalWarning(true);
-            } else {
-              setHasBlockCapitalWarning(false);
-            }
-          }
-        } catch {
-          // Cross-origin fallback safety
-        }
-      } else {
-        setHasBlockCapitalWarning(false);
-      }
-
       const sweetspotKb = selectedPreset?.recommendedKb || (minKb + maxKb) / 2;
       const result = await compressCanvasToTargetSize(
         renderedCanvas,
         targetFormat,
         minKb,
         maxKb,
-        sweetspotKb
+        sweetspotKb,
+        true
       );
 
+      if (sequence !== processingSequenceRef.current) { URL.revokeObjectURL(result.dataUrl); return; }
       setProcessedResult((prev) => {
         if (prev?.dataUrl) {
           URL.revokeObjectURL(prev.dataUrl);
@@ -1092,8 +1100,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       });
     } catch (err) {
       console.error('Error processing image:', err);
+      if (sequence === processingSequenceRef.current) setUploadError('The image could not be processed. Choose a smaller JPG or PNG and upload again.');
     } finally {
-      setIsProcessing(false);
+      if (sequence === processingSequenceRef.current) setIsProcessing(false);
     }
   }, [
     sourceImage,
@@ -1118,10 +1127,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   // Trigger processing on settings change in single mode (debounced, skips while actively dragging)
   useEffect(() => {
     if (sourceImage && toolMode === 'single' && !isDraggingCrop) {
+      setProcessedResult(prev => { if (prev?.dataUrl) URL.revokeObjectURL(prev.dataUrl); return null; });
+      setIsProcessing(true);
       const timer = setTimeout(() => {
         processImage();
       }, 80);
-      return () => clearTimeout(timer);
+      return () => { clearTimeout(timer); processingSequenceRef.current++; };
     }
   }, [processImage, sourceImage, toolMode, isDraggingCrop]);
 
@@ -1174,7 +1185,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
       // Fast preview data URL without heavy binary search
       const dataUrl = canvas.toDataURL(targetFormat, 0.85);
-      
+
       // Calculate estimated size from base64 string
       const estimatedBytes = Math.round((dataUrl.length - dataUrl.indexOf(',') - 1) * 0.75);
       const estimatedKb = Number((estimatedBytes / 1024).toFixed(1));
@@ -1246,7 +1257,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
         targetFormat,
         minKb,
         maxKb,
-        sweetspotKb
+        sweetspotKb,
+        true
       );
 
       return {
@@ -1277,10 +1289,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
     for (let i = 0; i < batchItems.length; i++) {
       setBatchProgress({ current: i + 1, total: batchItems.length });
-      
+
       // Non-blocking yield
       await new Promise((resolve) => setTimeout(resolve, 15));
-      
+
       const processed = await compressBatchItemPrecise(batchItems[i]);
       setBatchItems((prev) => prev.map((item, idx) => (idx === i ? processed : item)));
     }
@@ -1480,6 +1492,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   };
   // Clear ALL selected files (Batch and Single)
   const clearAllSelectedFiles = () => {
+    uploadSequenceRef.current++;
+    setUploadError('');
+    setSourceFileType('');
     setIsSampleImage(false);
     batchItems.forEach((item) => {
       if (item.sourceUrl) {
@@ -1528,6 +1543,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   // Handle Single Download
   const handleDownload = () => {
     if (!processedResult) return;
+    if (isProcessing || !processedResult.withinTargetBounds || inspectExport(processedResult, exportRule).length) {
+      addToast('Fix the export checks before downloading. Restore the preset settings and inspect the crop.', 'Export needs attention', 'warning');
+      return;
+    }
     const ext = targetFormat === 'image/jpeg' ? 'jpg' : targetFormat === 'image/png' ? 'png' : 'webp';
     const cleanExamTag = selectedPreset ? `${selectedPreset.shortCode.toLowerCase()}_` : '';
     const filename = `${cleanExamTag}${modeConfig.filePrefix}${processedResult.width}x${processedResult.height}_${Math.round(processedResult.sizeKb)}kb.${ext}`;
@@ -2072,7 +2091,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
     return (
       <div id="exam-preset-selector" className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-3 relative scroll-mt-24" ref={comboboxRef}>
-        
+
         {/* Top Header: Title & Active Preset Badge */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
@@ -2165,7 +2184,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
         {/* Consolidated Exam Selector Dropdown Combobox Popover (Compressed & Compact) */}
         {isExamDropdownOpen && (
           <div id="exam-preset-options" role="region" aria-label="Exam preset search" className="mt-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 shadow-[0_16px_40px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.8)] space-y-2 sm:space-y-2.5 z-30 animate-in fade-in slide-in-from-top-2 duration-150 ring-1 ring-black/5 dark:ring-white/10">
-            
+
             {/* Combobox Search Toolbar - Compact */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/80 pb-2">
               <div className="relative flex-1">
@@ -2387,10 +2406,40 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     isExamDropdownOpen, comboboxSearch, expandedCategories, lang, applyPreset,
     isPakistan, isIndonesian,
   ]);
+  const SettingsPanel = focusedWorkspace ? 'details' : 'div';
+  const workspacePresets = focusedWorkspace ? ALL_COMBINED_PRESETS.filter(p => (!p.country || p.country === 'IN') && presetMode(p) === targetType) : currentPresetList;
 
   return (
-    <div className="w-full max-w-7xl mx-auto space-y-6 scroll-mt-24 min-h-[900px] sm:min-h-[800px] lg:min-h-[660px]" id="tool-workspace">
-      
+    <div className={`w-full max-w-7xl mx-auto space-y-6 scroll-mt-24 min-h-[900px] sm:min-h-[800px] lg:min-h-[660px] ${compactStudio ? 'compact-studio' : ''}`} data-has-image={!!sourceImage} data-drag-over={isDragOver} id="tool-workspace" onDragOver={focusedWorkspace ? event => { if (Array.from(event.dataTransfer.types).includes('Files')) { event.preventDefault(); setIsDragOver(true); } } : undefined} onDragLeave={focusedWorkspace ? event => { if (!event.relatedTarget || !event.currentTarget.contains(event.relatedTarget as Node)) setIsDragOver(false); } : undefined} onDrop={focusedWorkspace ? handleDrop : undefined}>
+      {compactStudio && <>
+        <nav className="compact-rail" aria-label="Resizer mode">
+          <span className="compact-label">TOOLS</span>
+          {(['signature', 'photo', 'document'] as ToolTargetMode[]).map(mode => <button type="button" key={mode} aria-pressed={targetType === mode} onClick={() => switchTargetType(mode)}>{mode === 'signature' ? <PenTool size={16} /> : mode === 'photo' ? <Camera size={16} /> : <FileText size={16} />}<span>{mode === 'signature' ? 'Signature' : mode === 'photo' ? 'Photo' : 'Document'}</span></button>)}
+          <a href="/#exam-day-toolkit">More tools</a>
+        </nav>
+        <div className="compact-preset" id="exam-preset-selector" ref={comboboxRef}>
+          <label htmlFor="studio-preset">Preset</label>
+          <select id="studio-preset" value={selectedPreset?.id || ''} onChange={e => { const preset = currentPresetList.find(p => p.id === e.target.value); if (preset) applyPreset(preset); }}>
+            {!selectedPreset && <option value="">Custom dimensions</option>}
+            {currentPresetList.map(preset => <option key={preset.id} value={preset.id}>{preset.name}</option>)}
+          </select>
+          <span>{targetWidthPx} × {targetHeightPx} px · {minKb}–{maxKb} KB</span>
+          <button type="button" onClick={() => fileInputRef.current?.click()}><Upload size={15} />{sourceImage ? 'Replace image' : 'Upload image'}</button>
+        </div>
+      </>}
+      <div className="quick-upload flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-xl border border-primary/25 bg-primary/5 p-3">
+        <div><p className="text-sm font-bold">Start with your image</p><p className="text-xs text-muted-foreground">JPG, PNG, WebP and browser-supported images · up to 15 MB</p></div>
+        <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-bold"><Upload className="w-4 h-4" />Upload image</button>
+      </div>
+      {!compactStudio && uploadError && <div id="upload-feedback" className="scroll-mt-32">
+        <UploadChecks
+          source={sourceImage ? { name: sourceFileName, type: sourceFileType, size: sourceOriginalSize, ...sourceDimensions } : null}
+          error={uploadError} result={processedResult} preset={selectedPreset} mode={targetType} busy={isProcessing}
+          onRestore={() => { if (selectedPreset) applyPreset(selectedPreset); }}
+          onCrop={() => document.getElementById('studio-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+        />
+      </div>}
+
       {/* Hidden Multi-File Input */}
       <input
         ref={fileInputRef}
@@ -2414,7 +2463,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       {/* ========================================================================= */}
       {/* 🚀 PRIMARY DEDICATED EXAM RESIZER SELECTOR (Signature / Photo / Documents) */}
       {/* ========================================================================= */}
-      <div className="p-3 sm:p-4 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-3 min-h-[185px] sm:min-h-[110px]">
+      {!studioModeTabs && <div className="mode-selector p-3 sm:p-4 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-3 min-h-[185px] sm:min-h-[110px]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-2.5">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
@@ -2511,22 +2560,32 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
         </div>
       </div>
 
+      }
       {/* Primary Exam Preset Selector & Guidance Alert */}
-      {presetSelector}
+      {!compactStudio && !focusedWorkspace && presetSelector}
 
 
       {/* ========================================================================= */}
       {/* ⚡ BATCH MODE: SIMULTANEOUS MASTER EDITING SUITE (All 10 Signs Together) */}
       {/* ========================================================================= */}
       {toolMode === 'batch' && (
-        <div className="space-y-4">
-          
+        <div className="batch-studio space-y-4">
+
+
           {/* Mode Switcher Bar in Batch Mode */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 rounded-2xl bg-card border border-border shadow-xs">
-            <div className="inline-flex items-center gap-1 p-0.5 rounded-lg bg-muted/60 border border-border shrink-0">
+          <div className="batch-toolbar flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-card border border-border shadow-xs">
+            {studioModeTabs && <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
+            {(['signature', 'photo', 'document'] as const).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
+              {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
+              <span>{lang === 'hi' ? (type === 'signature' ? 'हस्ताक्षर' : type === 'photo' ? 'फोटो' : 'दस्तावेज़') : lang === 'mr' ? (type === 'signature' ? 'स्वाक्षरी' : type === 'photo' ? 'फोटो' : 'कागदपत्रे') : (type === 'signature' ? 'Signature' : type === 'photo' ? 'Photo' : 'Documents')}</span>
+              {lang === 'en' && <small className="studio-mode-description">{type === 'signature' ? 'Crop & clean' : type === 'photo' ? 'Portrait sizing' : 'Scan & compress'}</small>}
+            </button>)}
+          </div>}
+            <div className="editor-mode-toggle inline-flex items-center gap-1 p-0.5 rounded-lg bg-muted/60 border border-border shrink-0">
               <button
                 type="button"
                 onClick={() => setToolMode('single')}
+                aria-pressed={false}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-muted-foreground hover:text-foreground transition cursor-pointer"
               >
                 <PenTool className="w-3.5 h-3.5 text-primary shrink-0" />
@@ -2535,6 +2594,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
               <button
                 type="button"
                 onClick={() => setToolMode('batch')}
+                aria-pressed={true}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold bg-primary text-primary-foreground shadow-xs cursor-pointer"
               >
                 <Layers className="w-3.5 h-3.5 shrink-0" />
@@ -2573,7 +2633,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
           {/* 1. Universal Simultaneous Master Editing Toolbar */}
           <div className="p-5 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-5">
-            
+
             {/* Header with status */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/80 pb-3">
               <div className="flex items-center gap-2.5">
@@ -2649,7 +2709,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
             {/* Master Toolbar: Grid of Dimensions, Transformations & Filters */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-              
+
               {/* Feature 1: Width & Height Direct Adjuster (in Master Toolbar) */}
               <div className="p-3.5 rounded-xl bg-muted/40 border border-border space-y-3">
                 <div className="flex items-center justify-between">
@@ -2930,7 +2990,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                     className="p-4 rounded-2xl border border-border bg-card shadow-xs flex flex-col justify-between space-y-3 hover:border-primary/50 transition group"
                   >
                     <div className="space-y-3">
-                      
+
                       {/* Card Header: Index, Filename, Remove */}
                       <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
                         <div className="flex items-center gap-1.5 min-w-0">
@@ -3056,16 +3116,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       {/* ========================================================================= */}
       {toolMode === 'single' && (
         <div className="space-y-3.5 scroll-mt-24" id="studio-container">
-          
+
           {/* 3-Step Guided Workflow Bar */}
-          <StepIndicator
+          {!compactStudio && <StepIndicator
             hasImage={!!sourceImage}
             isProcessed={!!processedResult}
             targetType={targetType}
-          />
+          />}
 
           {/* Top Bar: Active Preset One-Line Banner with Change Preset */}
-          <PresetBanner
+          {!compactStudio && <PresetBanner
             selectedPreset={selectedPreset}
             targetWidthPx={targetWidthPx}
             targetHeightPx={targetHeightPx}
@@ -3080,23 +3140,32 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
             }}
             onClearClick={clearAllSelectedFiles}
             onToast={addToast}
-          />
+          />}
 
           {/* Main Studio 2-Column Grid: Left Column (Cropper & Filters) + Right Column (Live Preview & Custom Inputs) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            
+          <div className="studio-grid grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
             {/* Left Column: Interactive Crop Area & Enhancements (7 Cols) */}
-            <div className="lg:col-span-7 space-y-5">
-              
+            <div className="studio-editor lg:col-span-7 space-y-5">
+
               {/* Card 1: Interactive Cropper Canvas */}
-              <div className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
-                <div className="studio-meta-bar flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-2">
+              <div className="studio-source-card bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
+
+                <div className="studio-meta-bar studio-inline-controls flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-2">
                   <div className="flex flex-wrap items-center gap-2.5">
-                    {/* Mode Selector & Canvas Title Merged Inline */}
-                    <div className="inline-flex items-center gap-1 p-0.5 rounded-lg bg-muted/60 border border-border shrink-0">
+                    {/* Image type and editing mode share one compact toolbar. */}
+                    {studioModeTabs && <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
+                  {(['signature', 'photo', 'document'] as const).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
+                    {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
+                    <span>{lang === 'hi' ? (type === 'signature' ? 'हस्ताक्षर' : type === 'photo' ? 'फोटो' : 'दस्तावेज़') : lang === 'mr' ? (type === 'signature' ? 'स्वाक्षरी' : type === 'photo' ? 'फोटो' : 'कागदपत्रे') : (type === 'signature' ? 'Signature' : type === 'photo' ? 'Photo' : 'Documents')}</span>
+                    {lang === 'en' && <small className="studio-mode-description">{type === 'signature' ? 'Crop & clean' : type === 'photo' ? 'Portrait sizing' : 'Scan & compress'}</small>}
+                  </button>)}
+                </div>}
+                    <div className="editor-mode-toggle inline-flex items-center gap-1 p-0.5 rounded-lg bg-muted/60 border border-border shrink-0">
                       <button
                         type="button"
                         onClick={() => setToolMode('single')}
+                        aria-pressed={toolMode === 'single'}
                         className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
                           toolMode === 'single'
                             ? 'bg-card text-foreground shadow-xs border border-border font-bold'
@@ -3109,6 +3178,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                       <button
                         type="button"
                         onClick={() => setToolMode('batch')}
+                        aria-pressed={toolMode === 'batch'}
                         className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
                           toolMode === 'batch'
                             ? 'bg-primary text-primary-foreground shadow-xs font-bold'
@@ -3129,7 +3199,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                       </button>
                     </div>
 
-                    <div className="flex items-center gap-2 pl-1 border-l border-border/60">
+                    <div className="canvas-title flex items-center gap-2 pl-1 border-l border-border/60">
                       <span className="text-xs font-bold uppercase tracking-wider text-foreground flex items-center gap-1.5">
                         <Maximize className="w-4 h-4 text-primary" />
                         Interactive Studio Canvas ({modeConfig.shortNoun}):
@@ -3170,20 +3240,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                       >
                         Fit View
                       </button>
-                      <button
-                        type="button"
-                        onClick={clearAllSelectedFiles}
-                        className="px-2 py-1 rounded-lg border border-red-200 dark:border-red-900/50 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 text-[10px] font-bold transition ml-1 cursor-pointer"
-                        title={`Clear current ${modeConfig.shortNoun.toLowerCase()}`}
-                      >
-                        Clear
-                      </button>
                     </div>
                   )}
                 </div>
 
+                {focusedWorkspace && <WorkspacePresetPicker presets={workspacePresets} selected={selectedPreset} mode={targetType} width={targetWidthPx} height={targetHeightPx} minKb={minKb} maxKb={maxKb} onSelect={preset => applyPreset({ ...preset, targetType: presetMode(preset) })} />}
+                {focusedWorkspace && <p className="mobile-studio-hint">{sourceImage ? "Resized automatically. Adjust the crop if needed, then preview and download." : "Choose your file type and preset, then upload. Resizing is automatic."}</p>}
+
                 {/* Selection Criteria Quick Bar (Auto-Fit, Aspect Ratios & Margins) */}
-                <div className="p-2.5 rounded-xl bg-muted/30 border border-border/80 flex flex-wrap items-center justify-between gap-2 text-xs">
+                <div className="crop-options p-2.5 rounded-xl bg-muted/30 border border-border/80 flex flex-wrap items-center justify-between gap-2 text-xs">
                   <div className="flex flex-wrap items-center gap-1.5">
                     {/* Smart Auto-Fit Button */}
                     <button
@@ -3210,7 +3275,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         type="button"
                         onClick={() => applyAspectPreset(selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx)}
                         className={`ratio-btn px-2 py-1 rounded-md text-[11px] font-medium transition cursor-pointer ${
-                          lockAspect
+                          lockAspect && !modeConfig.ratios.some(item => item.ratio !== 'free' && Math.abs(crop.width / crop.height - Number(item.ratio)) < 0.01)
                             ? 'bg-primary text-primary-foreground font-bold border border-primary shadow-xs'
                             : 'bg-card text-slate-800 dark:text-slate-200 border border-border hover:bg-muted font-medium'
                         }`}
@@ -3224,7 +3289,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                           type="button"
                           onClick={() => applyAspectPreset(item.ratio)}
                           className={`ratio-btn px-2 py-1 rounded-md text-[11px] font-medium transition cursor-pointer ${
-                            (item.ratio === 'free' && !lockAspect) || (item.ratio !== 'free' && lockAspect && Math.abs((selectedPreset?.aspectRatio || targetWidthPx / targetHeightPx) - Number(item.ratio)) < 0.05)
+                            (item.ratio === 'free' && !lockAspect) || (item.ratio !== 'free' && lockAspect && Math.abs(crop.width / crop.height - Number(item.ratio)) < 0.01)
                               ? 'bg-primary text-primary-foreground font-bold border border-primary shadow-xs'
                               : 'bg-card text-slate-800 dark:text-slate-200 border border-border hover:bg-muted font-medium'
                           }`}
@@ -3271,20 +3336,6 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 </div>
 
                 {/* Dynamic Block-Capital Scrutiny Failure Check Banner */}
-                {hasBlockCapitalWarning && targetType === 'signature' && (
-                  <div className="p-3.5 rounded-xl bg-rose-500/10 border-2 border-rose-500/40 text-rose-950 dark:text-rose-200 text-xs flex items-start gap-2.5 animate-in fade-in duration-200 shadow-xs">
-                    <AlertCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
-                    <div className="space-y-1">
-                      <div className="font-bold flex items-center gap-1.5 text-rose-800 dark:text-rose-300">
-                        <span>Mandatory Scrutiny Risk: Disconnected / Block Typography Detected</span>
-                      </div>
-                      <p className="text-[11px] leading-relaxed text-rose-900/90 dark:text-rose-200/90">
-                        Official board guidelines (CBSE CTET, SSC, NTA) declare that <strong>signatures penned in CAPITAL or BLOCK LETTERS face unconditional disqualification</strong>. Please ensure the signature was written in natural running cursive handwriting.
-                      </p>
-                    </div>
-                  </div>
-                )}
-
                 {/* CTET Dual-Language Strategic Scoring Insight */}
                 {(selectedPreset?.id === 'ctet-exam' || selectedPreset?.id === 'ctet-photo') && showCtetStrategyTip && (
                   <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/30 text-amber-950 dark:text-amber-200 text-xs flex items-start justify-between gap-3 shadow-2xs">
@@ -3342,7 +3393,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                       }}
                     >
                       <div
-                        className="relative inline-block max-w-full max-h-[460px]"
+                        className="relative inline-block max-w-full max-h-[500px]"
                         style={{
                           transform: `scale(${cropperZoom})`,
                           transformOrigin: 'center',
@@ -3356,7 +3407,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                           draggable={false}
                           style={{
                             transform: `rotate(${rotation}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`,
-                            maxHeight: '400px',
+                            maxHeight: '480px',
                             width: 'auto',
                             display: 'block'
                           }}
@@ -3508,7 +3559,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         <Upload className="w-7 h-7 animate-pulse" />
                       </div>
                       <p className="font-bold text-base text-foreground mb-1">
-                        {t.tool.uploadTitle}
+                        {focusedWorkspace && lang === 'en' ? (targetType === 'document' ? 'Upload a document image' : modeConfig.uploadBtn) : t.tool.uploadTitle}
                       </p>
                       <p className="text-xs text-muted-foreground mb-4 max-w-sm leading-relaxed">
                         {t.tool.supportedFormats} • <span className="font-semibold text-foreground">{targetWidthPx} × {targetHeightPx} px</span> ({minKb}–{maxKb} KB)
@@ -3552,7 +3603,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 </div>
 
                 {/* Transformation Toolbar */}
-                <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs">
+                <div className="transform-options flex flex-wrap items-center justify-between gap-2 pt-1 text-xs">
                   <div className="flex items-center gap-1">
                     <button
                       type="button"
@@ -3596,10 +3647,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                     </button>
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  <div className="canvas-file-actions flex items-center gap-2">
                     <button
                       type="button"
                       onClick={() => setLockAspect(!lockAspect)}
+                      aria-pressed={lockAspect}
+                      title="Lock or unlock the crop aspect ratio"
                       className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition cursor-pointer ${
                         lockAspect
                           ? 'bg-primary/10 border-primary/30 text-primary font-semibold'
@@ -3607,7 +3660,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                       }`}
                     >
                       {lockAspect ? <Lock className="w-3.5 h-3.5" /> : <Unlock className="w-3.5 h-3.5" />}
-                      <span>Aspect Ratio Locked</span>
+                      <span>{lockAspect ? 'Ratio locked' : 'Free ratio'}</span>
                     </button>
 
                     <button
@@ -3624,12 +3677,26 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                       }}
                       className="px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-muted text-foreground transition cursor-pointer"
                     >
-                      Reset Crop
+                      <RefreshCw className="w-3.5 h-3.5" /> Reset Crop
+                    </button>
+                    <button
+                      id="clear-canvas-files"
+                      type="button"
+                      onClick={clearAllSelectedFiles}
+                      disabled={!sourceImage && batchItems.length === 0}
+                      className="canvas-clear-button px-3 py-1.5 rounded-lg border border-border bg-card text-foreground transition cursor-pointer"
+                      title="Remove selected files and reset the output preview"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" /> Clear files
                     </button>
                   </div>
                 </div>
               </div>
 
+              {sourceImage && <ImageRuleChecks image={sourceImage} source={{ name: sourceFileName, type: sourceFileType, size: sourceOriginalSize, ...sourceDimensions }} preset={selectedPreset} mode={targetType} onClean={() => setFilters(prev => ({ ...prev, cleanPaper: true }))} onRemoveBackground={() => { const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null; if (fix) fix.open = true; document.getElementById('canvas-background-fix')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); document.getElementById('remove-canvas-background')?.focus({ preventScroll: true }); }} />}
+              {sourceImage && <PortraitBackgroundFix key={targetType} mode={targetType} image={sourceImage} isSample={isSampleImage} onApply={image => { setProcessedResult(null); setSourceImage(image); }} />}
+
+              {targetType === 'photo' && <MobileOptions enabled={focusedWorkspace} title="Photo options: alignment, name & date">
               {/* PHOTO-SPECIFIC CONTROLS (FACE GUIDE & NAME/DATE ON PHOTO DOP) */}
               {targetType === 'photo' && (
                 <div className="rounded-2xl border-2 border-primary/25 bg-card p-4 sm:p-5 shadow-xs space-y-4">
@@ -3709,6 +3776,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 </div>
               )}
 
+              </MobileOptions>}
+
+              {targetType === 'document' && <MobileOptions enabled={focusedWorkspace} title="Document text clarity">
               {/* DOCUMENT-SPECIFIC CONTROLS (TEXT CLARITY & SCAN ENHANCER) */}
               {targetType === 'document' && (
                 <div className="rounded-2xl border-2 border-primary/25 bg-card p-4 sm:p-5 shadow-xs space-y-3">
@@ -3737,8 +3807,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 </div>
               )}
 
+              </MobileOptions>}
+
+              <MobileOptions enabled={focusedWorkspace} title="Enhance image (optional)">
               {/* IMAGE ENHANCEMENT FILTERS */}
-              <div className="rounded-2xl border border-border bg-card p-4 sm:p-5 shadow-xs space-y-3">
+              <div className="enhancement-options rounded-2xl border border-border bg-card p-4 sm:p-5 shadow-xs space-y-3">
+
+
                 <div className="flex items-center justify-between">
                   <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-primary" />
@@ -3778,14 +3853,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 </div>
               </div>
 
+              </MobileOptions>
+
             </div>
 
             {/* Right Column: Big Size Real-Time Live Preview Canvas & Custom Bounds (5 Cols, Sticky) */}
-            <div className="lg:col-span-5 space-y-5 lg:sticky lg:top-20">
-              
+            <div className="studio-export lg:col-span-5 space-y-5 lg:sticky lg:top-20">
+              {compactStudio && uploadError && <div id="upload-feedback" className="scroll-mt-24">
+                <UploadChecks compact source={sourceImage ? { name: sourceFileName, type: sourceFileType, size: sourceOriginalSize, ...sourceDimensions } : null} error={uploadError} result={processedResult} preset={selectedPreset} mode={targetType} busy={isProcessing} onRestore={() => { if (selectedPreset) applyPreset(selectedPreset); }} onCrop={() => document.getElementById('studio-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} />
+              </div>}
+
               {/* Big Live Output Preview Card */}
-              <div className="bg-card border-2 border-primary/20 rounded-2xl p-5 shadow-md space-y-4">
-                
+              <div className="output-card bg-card border-2 border-primary/20 rounded-2xl p-5 shadow-md space-y-4">
+
                 {/* Header: Title, Live indicator & Inspect Button */}
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-3">
                   <div className="flex items-center gap-2">
@@ -3794,8 +3874,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                     </div>
                     <div>
                       <h3 className="font-bold text-sm text-foreground flex items-center gap-2">
-                        <span>Real-Time Output Preview ({modeConfig.shortNoun})</span>
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                        <span>{compactStudio ? 'Export' : `Real-Time Output Preview (${modeConfig.shortNoun})`}</span>
+                        <span className="live-badge inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                           Live Sync
                         </span>
@@ -3805,7 +3885,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-2">
                     <span id="preview-dim-tag" className="text-xs font-mono font-bold bg-primary/10 text-primary px-2.5 py-0.5 rounded-full border border-primary/20">
                       {targetWidthPx} × {targetHeightPx} px
@@ -3825,7 +3905,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 </div>
 
                 {/* Preview Display Controls (Scale & Background Paper Switcher) */}
-                <div className="flex items-center justify-between p-2 rounded-xl bg-muted/40 border border-border/80 text-xs">
+                <div className="preview-options flex items-center justify-between p-2 rounded-xl bg-muted/40 border border-border/80 text-xs">
                   <div className="flex items-center gap-1.5">
                     <span className="text-[11px] uppercase font-bold text-muted-foreground px-1">Scale:</span>
                     {[
@@ -3837,6 +3917,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         key={s.val}
                         type="button"
                         onClick={() => setPreviewScale(s.val)}
+                        aria-pressed={previewScale === s.val}
                         className={`px-2.5 py-1 rounded-lg text-xs font-mono transition cursor-pointer ${
                           previewScale === s.val
                             ? 'bg-primary text-primary-foreground font-bold shadow-xs'
@@ -3852,6 +3933,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                     <button
                       type="button"
                       onClick={() => setPreviewBg('white')}
+                      aria-pressed={previewBg === 'white'}
                       className={`px-3 py-1 rounded-lg text-xs font-medium transition cursor-pointer ${
                         previewBg === 'white'
                           ? 'bg-primary text-primary-foreground font-bold shadow-xs'
@@ -3864,6 +3946,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                     <button
                       type="button"
                       onClick={() => setPreviewBg('checker')}
+                      aria-pressed={previewBg === 'checker'}
                       className={`px-3 py-1 rounded-lg text-xs font-medium transition cursor-pointer ${
                         previewBg === 'checker'
                           ? 'bg-primary text-primary-foreground font-bold shadow-xs'
@@ -3878,7 +3961,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
                 {/* Big Size Canvas Preview Container (Visual Scaling for 140x60 etc) */}
                 <div
-                  className={`p-6 rounded-2xl border border-border flex flex-col items-center justify-center min-h-[220px] sm:min-h-[260px] overflow-hidden relative transition-colors shadow-inner ${
+                  className={`output-canvas p-6 rounded-2xl border border-border flex flex-col items-center justify-center min-h-[220px] sm:min-h-[260px] overflow-hidden relative transition-colors shadow-inner ${
                     previewBg === 'checker'
                       ? 'bg-[repeating-conic-gradient(#cbd5e1_0%_25%,#ffffff_0%_50%)] dark:bg-[repeating-conic-gradient(#334155_0%_25%,#0f172a_0%_50%)] [background-size:20px_20px]'
                       : 'bg-muted/30 dark:bg-slate-900/60'
@@ -3932,7 +4015,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                   <div>
                     <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Output File Size</div>
                     <div className="font-mono font-extrabold text-base text-foreground">
-                      {processedResult ? `${processedResult.sizeKb} KB` : `${selectedPreset?.recommendedKb || 15} KB (Est)`}
+                      {processedResult ? `${processedResult.sizeKb} KB` : compactStudio ? 'Awaiting image' : `${selectedPreset?.recommendedKb || 15} KB (Est)`}
                     </div>
                     {processedResult && <div className="text-[10px] text-muted-foreground break-words">{processedResult.width}×{processedResult.height} px · {processedResult.format} · {processedResult.sizeBytes.toLocaleString()} bytes</div>}
                   </div>
@@ -3948,7 +4031,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                     <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Status</div>
                     <div className="pt-0.5">
                       {processedResult ? (
-                        processedResult.withinTargetBounds ? (
+                        processedResult.withinTargetBounds && inspectExport(processedResult, exportRule).length === 0 ? (
                           <span className="inline-flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-300 text-[11px]">
                             <CheckCircle2 className="w-3.5 h-3.5" />
                             <span>Ready</span>
@@ -3956,11 +4039,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         ) : (
                           <span className="inline-flex items-center gap-1 font-bold text-amber-900 dark:text-amber-300 text-[11px]">
                             <AlertCircle className="w-3.5 h-3.5" />
-                            <span>Check Bounds</span>
+                            <span>Fix Export</span>
                           </span>
                         )
                       ) : (
-                        <span className="text-[11px] text-muted-foreground font-mono">Ready to process</span>
+                        <span className="text-[11px] text-muted-foreground font-mono">{compactStudio ? 'Awaiting image' : 'Ready to process'}</span>
                       )}
                     </div>
                   </div>
@@ -3996,14 +4079,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                   <button
                     id="download-btn"
                     type="button"
+                    disabled={(compactStudio && !processedResult) || isProcessing}
                     onClick={() => {
                       if (processedResult) {
-                        handleDownload();
+                        setShowExportChecks(true);
                       } else {
                         fileInputRef.current?.click();
                       }
                     }}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-primary-foreground font-bold shadow-md shadow-primary/20 hover:opacity-95 active:scale-98 transition text-xs sm:text-sm cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-primary-foreground font-bold shadow-md shadow-primary/20 hover:opacity-95 active:scale-98 transition text-xs sm:text-sm cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Download className="w-4 h-4" />
                     <span>
@@ -4108,7 +4192,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
               </div>
 
               {/* Card 2: Custom Dimensions & Units Controls */}
-              <div className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-4 text-xs">
+              {compactStudio && selectedPreset && <details className="compact-requirements"><summary>Preset requirements</summary><p>{selectedPreset.notes}</p><p>Ink: {selectedPreset.inkRequirement}. Verify the current application notice.</p></details>}
+              {compactStudio && <button type="button" className="compact-advanced" aria-expanded={studioAdvanced} aria-controls="studio-custom-bounds" onClick={() => setStudioAdvanced(!studioAdvanced)}><SlidersHorizontal size={15} />Advanced settings<ChevronDown size={14} /></button>}
+              <SettingsPanel id={compactStudio ? 'studio-custom-bounds' : undefined} hidden={compactStudio && !studioAdvanced} className="custom-export-settings bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-4 text-xs">
+                {focusedWorkspace && <summary className="cursor-pointer font-semibold text-sm">Advanced settings <span className="text-xs font-normal text-muted-foreground">· pixels, cm and KB limits</span></summary>}
                 <div className="flex items-center justify-between border-b border-border/60 pb-2">
                   <span className="font-bold text-foreground flex items-center gap-1.5">
                     <Scaling className="w-4 h-4 text-primary" />
@@ -4276,7 +4363,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                   </div>
                 </div>
 
-              </div>
+              </SettingsPanel>
 
             </div>
 
@@ -4473,7 +4560,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 </button>
                 <button
                   type="button"
-                  onClick={handleDownload}
+                  onClick={() => setShowExportChecks(true)}
                   className="px-5 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-md shadow-primary/25 hover:opacity-95 transition flex items-center gap-1.5 cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -4486,6 +4573,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       )}
 
       {/* Floating Toast Notification Stack */}
+      {focusedWorkspace && toolMode === 'single' && sourceImage && <MobileConversionBar result={processedResult} busy={isProcessing || isDraggingCrop} error={uploadError} onReview={() => setShowExportChecks(true)} />}
+      <ExportChecksDialog open={showExportChecks} result={processedResult} preset={selectedPreset} rule={exportRule} busy={isProcessing} onClose={() => setShowExportChecks(false)} onDownload={() => { handleDownload(); setShowExportChecks(false); }} onRestore={() => { if (selectedPreset) applyPreset(selectedPreset); setShowExportChecks(false); }} />
       <ToastNotification toasts={toasts} onDismiss={removeToast} />
 
     </div>

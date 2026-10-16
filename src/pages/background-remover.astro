@@ -1,0 +1,12 @@
+---
+import UtilityPage from '../layouts/UtilityPage.astro';
+import BackgroundRemoverTool from '../components/BackgroundRemoverTool';
+---
+<UtilityPage title="Signature & Photo Background Remover" description="Remove paper colour from signatures and documents, or replace a portrait background. Adjust cleanup and save a white, transparent or custom-colour image at its original size." eyebrow="BACKGROUND STUDIO" bodyClass="bg-remover-page">
+  <BackgroundRemoverTool client:load />
+  <section class="rounded-xl border border-border p-4 text-sm space-y-2">
+    <h2 class="font-semibold">Choose the right cleanup for your image</h2>
+    <p>Use Signature for handwriting on paper, Document for scanned text, and Portrait photo for a person. Inspect fine details with Actual size and View original before downloading. Transparent output uses PNG; JPG supports a solid background.</p>
+    <p>For exam uploads, use the background colour required by the official instructions, then <a href="/#tool-workspace" class="text-primary underline">resize the finished image to the required dimensions and file size</a>.</p>
+  </section>
+</UtilityPage>

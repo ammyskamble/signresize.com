@@ -1,0 +1,69 @@
+---
+import { ALL_COMBINED_PRESETS } from '../data/examPresets';
+import { EXAM_PAGES_DATA } from '../data/examPagesData';
+import { presetMode } from '../utils/presetMode';
+const links = new Map(EXAM_PAGES_DATA.map(page => [page.presetId, `/${page.slug}/`]));
+const featured = ['ssc-general', 'rrb-railway', 'upsc-civil-services', 'ibps-sbi', 'pan-card-nsdl', 'ssc-photo', 'neet-photo', 'gate-jam', 'pan-card-photo-nsdl', 'handwritten-declaration'];
+const presets = [...new Map(ALL_COMBINED_PRESETS.map(p => [p.id, { ...p, targetType: presetMode(p) }])).values()].sort((a, b) => {
+  const rank = (p: typeof a) => { const index = featured.indexOf(p.id); return index >= 0 ? index : 100 + (p.country && p.country !== 'IN' ? 100 : 0) + (p.isPopular ? 0 : 10); };
+  return rank(a) - rank(b);
+});
+const groupFor = (p: typeof presets[number]) => p.country && p.country !== 'IN' ? 'international' : ['SSC', 'UPSC', 'Railways'].includes(p.category) ? 'central' : p.category === 'Banking' || /\b(IBPS|SBI)\b/.test(p.name) ? 'banking' : p.category === 'State PSC' ? 'state' : ['Engineering', 'Law', 'Management'].includes(p.category) || /NEET|GATE|CAT|JEE/.test(p.shortCode) ? 'entrance' : 'other';
+const tabs = [['all', 'All'], ['central', 'Central'], ['banking', 'Banking'], ['state', 'State PSCs'], ['entrance', 'Entrance exams'], ['international', 'International']];
+const tabIcons: Record<string, string> = {
+  all: 'M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM15 15h6v6h-6z',
+  central: 'M3 10h18L12 3 3 10ZM5 10v9m7-9v9m7-9v9M3 21h18',
+  banking: 'M3 7h18v14H3zM7 7V3h10v4M3 12h18M10 12v3h4v-3',
+  state: 'm3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16',
+  entrance: 'm2 9 10-5 10 5-10 5L2 9Zm4 2v6l6 3 6-3v-6m4-2v8',
+  international: 'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z',
+};
+---
+<section id="exam-specs" class="home-directory rounded-xl border border-border bg-card p-4 space-y-3">
+  <div id="exam-directory" class="flex flex-wrap items-center justify-between gap-3">
+    <div><h2 class="text-lg font-bold">Find your exam preset</h2><p class="text-xs text-muted-foreground">Search signature, photo and document requirements. Follow your current exam notice.</p></div>
+    <label class="text-xs font-semibold">Search exams<input id="exam-directory-search" type="search" placeholder="SSC, UPSC, IBPS, marksheet…" class="block mt-1 rounded-lg border border-input bg-background px-3 py-2 text-sm w-full sm:w-72" /></label>
+  </div>
+  <div class="flex flex-wrap gap-2" role="group" aria-label="Filter exam directory">{tabs.map(([key, label]) => <button type="button" data-directory-tab={key} aria-pressed={key === 'all'} class="rounded-lg border border-border px-3 py-2 text-xs font-semibold"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={tabIcons[key]} /></svg>{label}</button>)}</div>
+  <p id="exam-directory-count" role="status" class="text-xs text-muted-foreground">Showing {Math.min(10, presets.length)} of {presets.length} presets</p>
+  <div class="max-h-[380px] overflow-auto rounded-lg border border-border" tabIndex="0" aria-label="Exam preset table">
+    <table class="w-full text-left text-xs min-w-[650px]">
+      <thead class="sticky top-0 bg-muted text-muted-foreground"><tr><th class="p-3">Exam / authority</th><th class="p-3">Type</th><th class="p-3">Dimensions (px / cm)</th><th class="p-3">File limit</th><th class="p-3">Action</th></tr></thead>
+      <tbody>{presets.map((p, index) => <tr hidden={index >= 10} data-directory-row data-category={groupFor(p)} data-search={`${p.name} ${p.authority} ${p.category} ${p.targetType || 'signature'}`.toLowerCase()} class="border-t border-border">
+        <td class="p-3"><a class="font-semibold text-primary hover:underline" href={links.get(p.id) || (p.country && !['IN', 'GLOBAL'].includes(p.country) ? `/${p.country.toLowerCase()}/` : p.targetType === 'photo' ? '/photo-resizer/' : p.targetType === 'document' ? '/document-resizer/' : '/resize-signature-to-10kb-20kb/')}>{p.name}</a><div class="text-muted-foreground mt-1">{p.authority}</div></td>
+        <td class="p-3 capitalize">{p.targetType || 'signature'}</td><td class="p-3 whitespace-nowrap">{p.widthPx} × {p.heightPx} px<div class="text-muted-foreground">{p.widthCm && p.heightCm ? `${p.widthCm} × ${p.heightCm} cm` : `${(p.widthPx / p.dpi * 2.54).toFixed(2)} × ${(p.heightPx / p.dpi * 2.54).toFixed(2)} cm at ${p.dpi} DPI`}</div></td>
+        <td class="p-3 whitespace-nowrap">{p.minKb}–{p.maxKb} KB<div class="text-muted-foreground">{p.format}</div></td><td class="p-3"><button type="button" data-use-preset={p.id} class="rounded-lg bg-primary text-primary-foreground px-3 py-2 font-semibold whitespace-nowrap" aria-label={`Use ${p.name} preset`}>Use preset</button></td>
+      </tr>)}</tbody>
+    </table>
+    <p id="exam-directory-empty" hidden class="p-4 text-sm">No matching presets. Try another exam name or choose All.</p>
+  </div>
+  <button id="exam-directory-expand" type="button" aria-expanded="false" class="rounded-lg border border-border px-4 py-2 text-xs font-semibold">View all {presets.length} presets</button>
+</section>
+<script>
+  const directory = document.getElementById('exam-specs');
+  const search = document.getElementById('exam-directory-search') as HTMLInputElement | null;
+  const rows = Array.from(directory?.querySelectorAll<HTMLElement>('[data-directory-row]') || []);
+  const tabs = Array.from(directory?.querySelectorAll<HTMLButtonElement>('[data-directory-tab]') || []);
+  let category = 'all';
+  let showAll = false;
+  const expand = document.getElementById('exam-directory-expand') as HTMLButtonElement | null;
+  function filterRows() {
+    const query = search?.value.trim().toLowerCase() || '';
+    let matched = 0;
+    let visible = 0;
+    rows.forEach(row => { const matches = (category === 'all' || row.dataset.category === category) && (row.dataset.search || '').includes(query); row.hidden = !matches || (!showAll && matched >= 10); if (matches) matched++; if (!row.hidden) visible++; });
+    const count = document.getElementById('exam-directory-count');
+    if (count) count.textContent = `Showing ${visible} of ${matched} matching presets`;
+    const empty = document.getElementById('exam-directory-empty');
+    if (empty) empty.hidden = visible !== 0;
+    if (expand) { expand.hidden = matched <= 10; expand.textContent = showAll ? 'Show top 10 presets' : `View all ${matched} presets`; expand.setAttribute('aria-expanded', String(showAll)); }
+  }
+  search?.addEventListener('input', filterRows);
+  expand?.addEventListener('click', () => { showAll = !showAll; filterRows(); });
+  tabs.forEach(tab => tab.addEventListener('click', () => { category = tab.dataset.directoryTab || 'all'; tabs.forEach(button => button.setAttribute('aria-pressed', String(button === tab))); filterRows(); }));
+  directory?.querySelectorAll<HTMLButtonElement>('[data-use-preset]').forEach(button => button.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: button.dataset.usePreset }));
+    document.getElementById('studio-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('workspace-exam-select')?.focus({ preventScroll: true });
+  }));
+</script>

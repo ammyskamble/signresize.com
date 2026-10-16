@@ -4,8 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ThemeScript from '../components/ThemeScript.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
-interface Props { title: string; description: string; eyebrow?: string; }
-const { title, description, eyebrow = 'EXAM DAY TOOLKIT' } = Astro.props;
+interface Props { title: string; description: string; eyebrow?: string; bodyClass?: string; compactIntro?: boolean; }
+const { title, description, eyebrow = 'EXAM DAY TOOLKIT', bodyClass = '', compactIntro = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, 'https://signresize.in').href;
 ---
 <!doctype html>
@@ -23,14 +23,14 @@ const canonical = new URL(Astro.url.pathname, 'https://signresize.in').href;
     <meta property="og:url" content={canonical} />
     <ThemeScript /><GoogleFonts />
   </head>
-  <body class="bg-background text-foreground min-h-screen flex flex-col antialiased">
+  <body class:list={["bg-background text-foreground min-h-screen flex flex-col antialiased", bodyClass]}>
     <Header />
     <main class="w-full max-w-[1480px] mx-auto px-4 sm:px-6 py-6 space-y-6 flex-1">
       <nav aria-label="Breadcrumb" class="text-xs text-muted-foreground"><a href="/">Home</a> / <a href="/#exam-day-toolkit">Exam day toolkit</a></nav>
-      <section class="rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-card p-6 sm:p-9 space-y-3">
+      <section class:list={["rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-card", compactIntro ? 'p-4 sm:p-6 space-y-2' : 'p-6 sm:p-9 space-y-3']}>
         <p class="text-xs font-bold tracking-[0.18em] text-primary">{eyebrow}</p>
-        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">{title}</h1>
-        <p class="text-muted-foreground max-w-3xl leading-relaxed">{description}</p>
+        <h1 class:list={["font-extrabold tracking-tight", compactIntro ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-4xl']}>{title}</h1>
+        <p class:list={["text-muted-foreground max-w-3xl leading-relaxed", compactIntro && 'text-sm']}>{description}</p>
         <p class="text-xs font-medium text-emerald-700 dark:text-emerald-300">Your images stay on your device. No account required.</p>
       </section>
       <slot />

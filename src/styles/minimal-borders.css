@@ -1,0 +1,70 @@
+/* Minimal surface treatment; retain the existing homepage layout and theme. */
+.minimal-borders {
+  --border: oklch(0.91 0.006 250);
+  --input: oklch(0.81 0.01 250);
+}
+
+.dark .minimal-borders {
+  --border: oklch(0.30 0.012 260);
+  --input: oklch(0.42 0.015 260);
+}
+
+.minimal-borders main :is(.rounded-2xl, .rounded-3xl) {
+  border-radius: 10px;
+}
+
+.minimal-borders main :is(button, input, select).rounded-xl {
+  border-radius: 8px;
+}
+
+.minimal-borders main :is([class*="shadow"], .animate-pulse-glow) {
+  box-shadow: none;
+}
+
+.minimal-borders #tool-workspace :is(.studio-editor, .studio-export) > .bg-card,
+.minimal-borders #exam-preset-selector {
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.minimal-borders #tool-workspace .studio-meta-bar > div > .inline-flex {
+  border-color: transparent;
+}
+
+.minimal-borders #upload-dropzone {
+  border-width: 1px;
+  border-radius: 8px;
+}
+
+.minimal-borders #upload-dropzone > div:first-child {
+  border: 0;
+  background: var(--muted);
+  border-radius: 8px;
+}
+
+.minimal-borders #upload-dropzone svg {
+  animation: none;
+}
+
+.minimal-borders #tool-workspace :is(input:not([type="range"]):not([type="checkbox"]), select) {
+  border-width: 1px;
+  border-color: var(--input);
+  border-radius: 8px;
+}
+
+.minimal-borders main :is(button, input, select, [role="button"]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.minimal-borders #exam-preset-options {
+  border-width: 1px;
+}
+
+.minimal-borders #tool-workspace :is(.live-badge, #preview-dim-tag) {
+  border-color: transparent;
+}
+
+.minimal-borders main a[class*="border"]:hover {
+  border-color: var(--input);
+}

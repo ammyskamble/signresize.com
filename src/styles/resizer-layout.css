@@ -1,0 +1,463 @@
+/* Minimal surface treatment; retain the existing homepage layout and theme. */
+body:has(#tool-workspace:not(.compact-studio)) {
+  --border: oklch(0.91 0.006 250);
+  --input: oklch(0.81 0.01 250);
+}
+
+.dark body:has(#tool-workspace:not(.compact-studio)) {
+  --border: oklch(0.30 0.012 260);
+  --input: oklch(0.42 0.015 260);
+}
+
+body:has(#tool-workspace:not(.compact-studio)) main :is(.rounded-2xl, .rounded-3xl) {
+  border-radius: 10px;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) main :is(button, input, select).rounded-xl {
+  border-radius: 8px;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) main :is([class*="shadow"], .animate-pulse-glow) {
+  box-shadow: none;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-editor, .studio-export) > .bg-card,
+body:has(#tool-workspace:not(.compact-studio)) #exam-preset-selector {
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-meta-bar > div > .inline-flex {
+  border-color: transparent;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) #upload-dropzone {
+  border-width: 1px;
+  border-radius: 8px;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) #upload-dropzone > div:first-child {
+  border: 0;
+  background: var(--muted);
+  border-radius: 8px;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) #upload-dropzone svg {
+  animation: none;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(input:not([type="range"]):not([type="checkbox"]), select) {
+  border-width: 1px;
+  border-color: var(--input);
+  border-radius: 8px;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) main :is(button, input, select, [role="button"]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) #exam-preset-options {
+  border-width: 1px;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.live-badge, #preview-dim-tag) {
+  border-color: transparent;
+}
+
+body:has(#tool-workspace:not(.compact-studio)) main a[class*="border"]:hover {
+  border-color: var(--input);
+}
+
+/* Shared layout for signature, photo, and document resizer pages. */
+body:has(#tool-workspace:not(.compact-studio)) main :is(section, div):has(> astro-island > #tool-workspace) {
+  min-height: 0;
+  padding: 16px;
+  border-radius: 10px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .studio-mode-tabs {
+  display: flex;
+  gap: 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+body:has(#tool-workspace:not(.compact-studio)) .studio-mode-tabs button {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+body:has(#tool-workspace:not(.compact-studio)) .studio-mode-tabs button[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+body:has(#tool-workspace:not(.compact-studio)) .studio-mode-tabs button[aria-pressed="false"]:hover {
+  background: var(--muted);
+}
+body:has(#tool-workspace:not(.compact-studio)) main {
+  width: calc(100% - clamp(32px, 8vw, 128px));
+  max-width: 1360px;
+  padding-inline: 0;
+  padding-top: 12px;
+  padding-bottom: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > * + * {
+  margin-top: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section:not(:first-child):not(:has(#tool-workspace)):not(#troubleshooting):not(#author-editorial) {
+  padding: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section > .grid {
+  gap: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section > .grid > a {
+  padding: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section > .grid > a > * + * {
+  margin-top: 8px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section > div:first-child.border-b {
+  padding-bottom: 10px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .knowledge-grid {
+  gap: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .knowledge-main > div,
+body:has(#tool-workspace:not(.compact-studio)) .knowledge-sidebar > div {
+  padding: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .knowledge-main details {
+  padding: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .knowledge-main > div > * + * {
+  margin-top: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #author-editorial {
+  padding-top: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #author-editorial > div {
+  padding: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #author-editorial > div > div:first-child {
+  padding-bottom: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) footer[role="contentinfo"] {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+body:has(#tool-workspace:not(.compact-studio)) footer > div.relative > * + * {
+  margin-top: 20px;
+}
+body:has(#tool-workspace:not(.compact-studio)) footer > div.relative > div:first-child {
+  padding: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) footer .grid {
+  gap: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section:first-child {
+  padding: 16px 20px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section:first-child h1 {
+  font-size: clamp(24px, 2.2vw, 32px);
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section:first-child .animate-pulse-glow {
+  padding: 12px;
+  border-width: 1px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section:first-child [class~="h-[145px]"] {
+  height: 100px;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section:has(#tool-workspace),
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace {
+  min-height: 0;
+}
+body:has(#tool-workspace:not(.compact-studio)) main > section:has(#tool-workspace) {
+  padding: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace > * + * {
+  margin-top: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .quick-upload {
+  display: none;
+}
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector {
+  min-height: 0;
+  padding: 12px 16px;
+  border-width: 1px;
+  border-color: var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector > div:first-child {
+  border: 0;
+  padding: 0;
+}
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector > div:first-child p,
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector > div:first-child > span,
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector h2 > span:last-child {
+  display: none;
+}
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector > div:last-child > button {
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 7px;
+  gap: 8px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector button > div > div:first-child {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+}
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector button > div > div:last-child > div:last-child {
+  display: none;
+}
+body:has(#tool-workspace:not(.compact-studio)) .mode-selector button > div {
+  gap: 6px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #exam-preset-selector {
+  padding: 12px 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #exam-preset-selector > * + * {
+  margin-top: 8px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #exam-preset-selector > div:last-child:not(#exam-preset-options):not(.preset-spec-chips) {
+  padding: 8px 12px;
+  border-width: 1px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #exam-preset-selector > div:last-child:not(#exam-preset-options) > div:first-child {
+  padding: 4px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #exam-preset-selector > div:last-child:not(#exam-preset-options) > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #exam-preset-selector > div:last-child:not(#exam-preset-options) p {
+  margin: 0;
+}
+body:has(#tool-workspace:not(.compact-studio)) #studio-container > div:first-child,
+body:has(#tool-workspace:not(.compact-studio)) #studio-container > div:has(button[title="Share Preset Link"]) {
+  display: none;
+}
+body:has(#tool-workspace:not(.compact-studio)) .studio-grid {
+  gap: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .studio-export {
+  container-type: inline-size;
+}
+body:has(#tool-workspace:not(.compact-studio)) :is(.studio-editor, .studio-export) > .bg-card {
+  padding: 12px 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) :is(.studio-editor, .studio-export) > * + * {
+  margin-top: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .studio-export > .bg-card > * + * {
+  margin-top: 10px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace[data-has-image="false"] #crop-workspace {
+  min-height: 240px;
+  padding: 8px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #upload-dropzone {
+  min-height: 220px;
+  padding: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .output-canvas {
+  min-height: 170px;
+  padding: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace[data-has-image="true"] .output-canvas {
+  min-height: 180px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace[data-has-image="true"] #crop-workspace {
+  min-height: 300px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .enhancement-options {
+  padding: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) .enhancement-options section[aria-label="Image issues and exam rules"] {
+  padding: 10px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #troubleshooting > .grid > div {
+  justify-content: flex-start;
+  gap: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #troubleshooting > .grid > div > * + * {
+  margin-top: 0;
+}
+body:has(#tool-workspace:not(.compact-studio)) .studio-meta-bar {
+  padding: 0 0 8px;
+  margin-bottom: 8px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #troubleshooting {
+  padding-top: 16px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #troubleshooting > div:first-child {
+  margin-bottom: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #troubleshooting > .grid {
+  gap: 12px;
+  margin-top: 12px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #troubleshooting > .grid > div {
+  padding: 16px;
+}
+@media (min-width: 1024px) {
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export > div:has(#width-input) {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px 6px;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export > div:has(#width-input) > div:first-child {
+    grid-column: 1 / -1;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export > div:has(#width-input) > .grid,
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export > div:has(#width-input) > div:last-child,
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export > div:has(#width-input) > div:last-child > .grid {
+    display: contents;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export > div:has(#width-input) > div:last-child > div:first-child,
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export label[for="width-input"] > span:last-child,
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export label[for="height-input"] > span:last-child {
+    display: none;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export > div:has(#width-input) input {
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export > div:has(#width-input) button[aria-label*="crease"] {
+    min-width: 24px;
+    width: 24px;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .knowledge-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .knowledge-main {
+    grid-column: 1 / span 2;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .knowledge-sidebar {
+    display: contents;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .knowledge-sidebar > div {
+    margin-top: 0;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .knowledge-sidebar > div:first-child {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .knowledge-sidebar > div:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .knowledge-sidebar > div:nth-child(3) {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .knowledge-sidebar > div:nth-child(3) ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .knowledge-sidebar > div:nth-child(3) li {
+    margin: 0;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) main > section:first-child > .grid {
+    gap: 16px;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) main > section:first-child .animate-pulse-glow > * + * {
+    margin-top: 8px;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) main > section:first-child [class~="h-[145px]"] {
+    height: 80px;
+  }
+}
+@media (max-width: 640px) {
+  body:has(#tool-workspace:not(.compact-studio)) main > section:first-child {
+    padding: 16px;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) :is(.studio-editor, .studio-export) > .bg-card {
+    padding: 12px;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .mode-selector > div:last-child {
+    width: 100%;
+  }
+  body:has(#tool-workspace:not(.compact-studio)) .mode-selector > div:last-child > button {
+    flex: 1 1 140px;
+  }
+}
+/* Exam pages place the studio beside another sidebar; keep inputs legible there. */
+@container (max-width: 420px) {
+  body:has(#tool-workspace:not(.compact-studio)) .studio-export > div:has(#width-input) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* One control language for both editors and all three image types. */
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace {
+  --control-radius: 8px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button[aria-pressed="true"],
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .editor-mode-toggle button[aria-pressed="true"] {
+  background: color-mix(in oklab, var(--primary) 12%, var(--card));
+  color: var(--primary);
+  border-color: transparent;
+  box-shadow: inset 0 -2px var(--primary);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .editor-mode-toggle {
+  border: 0;
+  gap: 4px;
+  padding: 3px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .editor-mode-toggle button {
+  min-height: 36px;
+  padding: 7px 12px;
+  border-radius: var(--control-radius);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .ratio-btn {
+  min-height: 32px;
+  min-width: 36px;
+  padding: 6px 9px;
+  font-size: 12px;
+  border-radius: var(--control-radius);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .ratio-btn[class*="bg-primary"] {
+  background: color-mix(in oklab, var(--primary) 12%, var(--card));
+  color: var(--primary);
+  border-color: color-mix(in oklab, var(--primary) 40%, var(--border));
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace button:disabled {
+  background: var(--muted);
+  color: var(--muted-foreground);
+  border-color: var(--border);
+  opacity: .65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace button:disabled svg {
+  color: inherit;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .batch-studio > .studio-mode-tabs {
+  max-width: 780px;
+}
+@media (pointer: coarse) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.ratio-btn, .editor-mode-toggle button) { min-height: 44px; }
+}

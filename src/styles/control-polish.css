@@ -1,0 +1,280 @@
+/* Tool cards and technical controls shared by all three image studios. */
+body:has(#tool-workspace:not(.compact-studio)) {
+  --pill-ink: #5841ac;
+  --pill-tint: #f0ecff;
+  --pill-line: #c8bbed;
+  --pill-gradient: linear-gradient(125deg, #6042c6, #3266c7);
+}
+.dark body:has(#tool-workspace:not(.compact-studio)) {
+  --pill-ink: #d8cbff;
+  --pill-tint: #29213d;
+  --pill-line: #675187;
+  --pill-gradient: linear-gradient(125deg, #7050ce, #365fb4);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs {
+  padding: 0;
+  gap: 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button[data-mode="signature"] { --mode-tone: #7955d4; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button[data-mode="photo"] { --mode-tone: #287dc0; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button[data-mode="document"] { --mode-tone: #269c87; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: center;
+  justify-content: start;
+  text-align: left;
+  min-height: 64px;
+  padding: 10px 22px 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px 18px 10px 10px;
+  background: linear-gradient(120deg, var(--card), color-mix(in oklab, var(--mode-tone) 4%, var(--card)));
+  column-gap: 10px;
+  row-gap: 3px;
+  font-size: 12px;
+  font-weight: 650;
+  transition: background-color .18s, border-color .18s, transform .18s;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs .studio-mode-description { grid-column: 2; font-size: 10px; font-weight: 400; color: var(--muted-foreground); white-space: nowrap; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button::before { content: attr(data-step); position: absolute; top: 7px; right: 9px; font: 9px monospace; color: var(--muted-foreground); opacity: .65; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button > svg {
+  box-sizing: content-box;
+  grid-row: 1 / 3;
+  width: 18px;
+  height: 18px;
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--mode-tone);
+  background: color-mix(in oklab, var(--mode-tone) 10%, var(--card));
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button[aria-pressed="true"] {
+  color: var(--foreground);
+  background: linear-gradient(120deg, var(--card), color-mix(in oklab, var(--mode-tone) 12%, var(--card)));
+  border-color: color-mix(in oklab, var(--mode-tone) 65%, var(--border));
+  box-shadow: 0 3px 8px color-mix(in oklab, var(--mode-tone) 12%, transparent);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button[aria-pressed="true"] > svg { background: var(--mode-tone); color: #fff; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button[aria-pressed="true"]::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  left: 12px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--mode-tone);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button[aria-pressed="false"]:hover {
+  background: var(--card);
+  border-color: var(--mode-tone);
+  color: var(--foreground);
+  transform: translateY(-1px);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .editor-mode-toggle {
+  border-radius: 8px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--muted) 55%, var(--card));
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .editor-mode-toggle button {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  min-height: 34px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .editor-mode-toggle button[aria-pressed="true"] {
+  background: var(--pill-tint);
+  color: var(--pill-ink);
+  border-color: var(--pill-line);
+  box-shadow: inset 0 -2px var(--pill-ink);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .editor-mode-toggle button > span:last-child:not(:first-of-type) {
+  color: var(--pill-ink);
+  background: var(--pill-tint);
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.ratio-btn, .preview-options button, button[aria-label^="Select unit"]) {
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  min-height: 30px;
+  padding: 5px 10px;
+  color: var(--muted-foreground);
+  background: var(--card);
+  transition: background-color .18s, border-color .18s, color .18s;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.ratio-btn[class*="bg-primary"], .preview-options button[aria-pressed="true"], button[aria-label^="Select unit"][class*="bg-primary"]) {
+  background: linear-gradient(150deg, var(--card), var(--pill-tint));
+  color: var(--pill-ink);
+  border-color: var(--pill-line);
+  box-shadow: inset 0 -2px 0 color-mix(in oklab, var(--pill-line) 50%, transparent);
+  font-weight: 700;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.ratio-btn, .preview-options button, button[aria-label^="Select unit"]):hover {
+  border-color: var(--pill-ink);
+  color: var(--pill-ink);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .live-badge {
+  border: 1px solid color-mix(in oklab, #16946b 30%, var(--border));
+  color: var(--foreground);
+  background: color-mix(in oklab, #16946b 8%, var(--card));
+  border-radius: 999px;
+  padding: 3px 8px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace #preview-dim-tag {
+  color: var(--pill-ink);
+  background: var(--pill-tint);
+  border: 1px solid var(--pill-line);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+body:has(#tool-workspace:not(.compact-studio)) :is([data-directory-tab], [data-diagnostic-tab]) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 7px 14px 7px 7px;
+  color: var(--muted-foreground);
+  background: linear-gradient(160deg, var(--card), color-mix(in oklab, var(--muted) 45%, var(--card)));
+  transition: transform .18s, border-color .18s, color .18s;
+  cursor: pointer;
+}
+body.home-workspace:has(#tool-workspace:not(.compact-studio)) :is([data-directory-tab][aria-pressed="true"], [data-diagnostic-tab][aria-selected="true"]) {
+  color: var(--pill-ink);
+  background: linear-gradient(130deg, var(--card), var(--pill-tint));
+  border-color: var(--pill-line);
+  box-shadow: inset 3px 0 var(--pill-ink), 0 3px 8px #46358a10;
+}
+body:has(#tool-workspace:not(.compact-studio)) :is([data-directory-tab], [data-diagnostic-tab]):hover {
+  border-color: var(--pill-line);
+  transform: translateY(-1px);
+}
+body:has(#tool-workspace:not(.compact-studio)) :is([data-directory-tab], [data-diagnostic-tab]) svg { box-sizing: content-box; width: 15px; height: 15px; flex-shrink: 0; padding: 3px; border-radius: 4px; background: color-mix(in oklab, var(--pill-ink) 7%, transparent); }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .canvas-file-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); flex: 1 1 340px; max-width: 450px; gap: 6px; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .canvas-file-actions button { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 7px 8px; font-size: 11px; border-radius: 6px; white-space: nowrap; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .canvas-file-actions button svg { flex-shrink: 0; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .canvas-file-actions .canvas-clear-button:not(:disabled) { color: #b93848; border-color: color-mix(in oklab, #b93848 35%, var(--border)); }
+.dark body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .canvas-file-actions .canvas-clear-button:not(:disabled) { color: #fda4af; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .canvas-file-actions .canvas-clear-button:not(:disabled):hover { background: color-mix(in oklab, #b93848 8%, var(--card)); }
+body:has(#tool-workspace:not(.compact-studio)) :is([data-directory-tab], [data-diagnostic-tab]):focus-visible { outline: 2px solid var(--pill-ink); outline-offset: 3px; }
+@media (max-width: 480px) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button { display: flex; flex-direction: column; padding: 7px 4px; gap: 5px; min-width: 0; min-height: 62px; font-size: 11px; border-radius: 8px; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button > svg { padding: 5px; width: 14px; height: 14px; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs .studio-mode-description,
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs button::before { display: none; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .preview-options { flex-wrap: wrap; gap: 8px; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .editor-mode-toggle button { padding: 6px 8px; gap: 4px; font-size: 11px; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .canvas-file-actions { flex-basis: 100%; max-width: none; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .canvas-file-actions button { font-size: 10px; gap: 4px; padding-inline: 4px; min-height: 44px; }
+}
+@media (pointer: coarse) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.ratio-btn, .preview-options button, .editor-mode-toggle button, button[aria-label^="Select unit"]),
+  body:has(#tool-workspace:not(.compact-studio)) :is([data-directory-tab], [data-diagnostic-tab]) { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-mode-tabs button, .ratio-btn, .preview-options button, button[aria-label^="Select unit"]),
+  body:has(#tool-workspace:not(.compact-studio)) :is([data-directory-tab], [data-diagnostic-tab]) { transition: none; }
+}
+
+/* Image type and single/batch editing share a compact toolbar. */
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-inline-controls > div:first-child { width: 100%; gap: 8px; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs { flex: 1 1 260px; gap: 4px; margin: 0; padding: 0; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button { display: flex; flex-direction: row; gap: 5px; min-height: 36px; padding: 5px 8px; font-size: 11px; border-radius: 7px; white-space: nowrap; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button > svg { width: 14px; height: 14px; padding: 3px; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-description,
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button::before { display: none; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-inline-controls .editor-mode-toggle { margin-left: auto; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-inline-controls .editor-mode-toggle button { min-height: 32px; padding: 5px 7px; font-size: 11px; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-inline-controls .editor-mode-toggle button > span:last-child:not(:first-of-type) { display: none; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-inline-controls > div:first-child > div:last-child:not(.editor-mode-toggle) { display: none; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace #crop-workspace { min-height: 440px; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace #upload-dropzone { min-height: 410px; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .output-canvas { min-height: 280px; }
+.background-fix { border: 1px solid color-mix(in oklab, var(--primary) 25%, var(--border)); border-radius: 10px; padding: 12px; background: color-mix(in oklab, var(--primary) 4%, var(--card)); font-size: 12px; }
+.background-fix p { margin: 6px 0; color: var(--muted-foreground); }
+.background-fix-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.background-fix button { min-height: 36px; padding: 7px 12px; border: 1px solid var(--border); border-radius: 7px; cursor: pointer; }
+.background-fix button:first-child { background: var(--primary); color: var(--primary-foreground); }
+.background-fix button:disabled { opacity: .55; cursor: wait; }
+.background-fix [role="alert"] { color: #b93848; }
+@media (max-width: 640px) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace #crop-workspace { min-height: 360px; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace #upload-dropzone { min-height: 330px; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-inline-controls .editor-mode-toggle { margin-left: 0; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button { min-height: 44px; }
+}
+
+/* A single moving selection surface, with no measurements or animation library. */
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs {
+  --tab-position: 0;
+  --tab-accent: #7955d4;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--muted) 70%, var(--card));
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs:has([data-mode="photo"][aria-pressed="true"]) { --tab-position: 1; --tab-accent: #287dc0; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .studio-mode-tabs:has([data-mode="document"][aria-pressed="true"]) { --tab-position: 2; --tab-accent: #269c87; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc((100% - 8px) / 3);
+  border: 1px solid color-mix(in oklab, var(--tab-accent) 50%, var(--border));
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--card), color-mix(in oklab, var(--tab-accent) 18%, var(--card)));
+  box-shadow: 0 2px 5px color-mix(in oklab, var(--tab-accent) 15%, transparent), inset 0 1px 0 color-mix(in oklab, white 40%, transparent);
+  transform: translateX(calc(var(--tab-position) * 100%));
+  transition: transform 360ms cubic-bezier(.22, 1, .36, 1), border-color 240ms, background 240ms;
+  pointer-events: none;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button {
+  min-width: 0;
+  min-height: 36px;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 9px;
+  overflow: hidden;
+  transform: none;
+  color: var(--muted-foreground);
+  transition: color 180ms;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button[aria-pressed="true"] { color: var(--foreground); }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button[aria-pressed="false"]:hover { color: var(--foreground); background: color-mix(in oklab, var(--tab-accent) 6%, transparent); }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button::after { content: none; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button > svg { border-radius: 6px; transition: background-color 180ms, color 180ms; }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button[aria-pressed="true"] > svg { animation: studio-tab-arrive 360ms cubic-bezier(.22, 1, .36, 1); }
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
+@keyframes studio-tab-arrive {
+  0% { transform: translateY(3px) scale(.85) rotate(-9deg); }
+  65% { transform: translateY(-1px) scale(1.08) rotate(2deg); }
+  100% { transform: none; }
+}
+@media (pointer: coarse), (max-width: 640px) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs::before,
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button,
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button > svg { transition: none; animation: none; }
+}
+@media (max-width: 480px) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button { flex-direction: column; gap: 4px; padding: 6px 2px; min-height: 60px; font-size: 11px; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button > svg { width: 18px; height: 18px; padding: 2px; flex-shrink: 0; }
+}

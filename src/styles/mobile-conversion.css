@@ -1,0 +1,74 @@
+.mobile-conversion-bar, .mobile-options-toggle, .mobile-studio-hint, .application-planner-toggle { display: none; }
+.export-review-image { display: block; max-width: 100%; max-height: 180px; width: auto; height: auto; object-fit: contain; margin: 12px auto; border: 1px solid var(--border); background: white; }
+.paper-cleanup-strength { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 12px; margin-top: 8px; }
+#tool-workspace .background-fix { padding: 0; }
+#tool-workspace .enhancement-options label { font-size: 12px; padding: 10px; }
+#tool-workspace .enhancement-options label > div > span:first-child { font-size: 12px; line-height: 1.4; }
+#tool-workspace .enhancement-options label > div > span:last-child { font-size: 10px; line-height: 1.4; }
+.background-fix > summary { display: flex; align-items: center; gap: 8px; padding: 8px 10px; min-height: 44px; cursor: pointer; list-style: none; }
+.background-fix > summary::-webkit-details-marker { display: none; }
+.background-fix > summary strong { font-size: 12px; font-weight: 600; }
+.background-fix > summary span { margin-left: auto; font-size: 11px; color: var(--primary); }
+.background-fix:not([open]) .background-fix-close-label, .background-fix[open] .background-fix-open-label { display: none; }
+.background-fix-body { padding: 0 10px 10px; }
+.background-fix:not([open]) > .background-fix-body { display: none; }
+#tool-workspace .paper-cleanup-strength button { min-height: 36px; border: 1px solid var(--border); border-radius: 6px; padding: 4px 9px; background: var(--card); color: var(--foreground); font-size: 12px; font-weight: 500; }
+#tool-workspace .paper-cleanup-strength button[aria-pressed="true"] { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 10%, var(--card)); color: var(--primary); }
+.background-fix-editor-link { display: inline-block; margin-top: 8px; font-size: 12px; color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+.background-ink-choice { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; font-size: 12px; line-height: 1.4; }
+.background-ink-choice input { flex-shrink: 0; width: 16px; height: 16px; }
+#tool-workspace .image-rule-notice { padding: 0; }
+#tool-workspace .image-rule-notice > details > summary { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; min-height: 48px; padding: 10px 12px; cursor: pointer; font-size: 12px; font-weight: 600; }
+.image-rule-notice summary small { font-size: 11px; font-weight: 400; color: var(--muted-foreground); }
+.image-rule-notice-content { padding: 0 12px 12px; }
+.image-rule-notice > details:not([open]) > .image-rule-notice-content { display: none; }
+.image-rule-notice > details > summary::after { content: '+'; margin-left: auto; }
+.image-rule-notice > details[open] > summary::after { content: '−'; }
+@media (max-width: 760px) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace #crop-workspace { min-height: 220px; padding: 6px; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace[data-has-image="true"] #crop-workspace { min-height: 220px; }
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace[data-has-image="false"] #crop-workspace, body:has(#tool-workspace:not(.compact-studio)) #tool-workspace #upload-dropzone { min-height: 190px; }
+  body:has(#tool-workspace) #tool-workspace #source-image { max-height: 340px; }
+  body:has(#tool-workspace) #tool-workspace .output-canvas { min-height: 140px; padding: 8px; }
+  body:has(#tool-workspace) #tool-workspace .studio-editor > * + *, body:has(#tool-workspace) #tool-workspace .studio-export > * + * { margin-top: 8px; }
+  body:has(#tool-workspace) #tool-workspace .background-fix { padding: 0; }
+  body:has(#tool-workspace) #tool-workspace .background-fix button { min-height: 44px; }
+  body:has(#tool-workspace) #tool-workspace .background-fix p { margin: 4px 0; font-size: 11px; }
+  body:has(#tool-workspace) #tool-workspace .paper-cleanup-strength button { font-size: 12px; }
+  body.home-workspace #application-planner { display: block; padding: 4px 12px; }
+  body.home-workspace #application-planner .application-planner-heading { display: none; }
+  body.home-workspace #application-planner .application-planner-toggle { display: flex; justify-content: space-between; align-items: center; width: 100%; min-height: 44px; text-align: left; font-size: 12px; font-weight: 600; }
+  .application-planner-toggle small { margin-left: 8px; font-size: 10px; font-weight: 400; color: var(--muted-foreground); }
+  body.home-workspace #application-planner[data-expanded="false"] .application-date-grid { display: none; }
+  body.home-workspace #application-planner[data-expanded="true"] .application-date-grid { margin: 4px 0 8px; }
+  body.home-workspace main > section:has(#tool-workspace), body.home-workspace #tool-workspace { min-height: 0; }
+  body.home-workspace main > section:has(#tool-workspace) { padding: 8px; }
+  body.home-workspace:has(#tool-workspace) #tool-workspace .studio-editor > .studio-source-card { padding: 4px; }
+  body.home-workspace #tool-workspace .studio-meta-bar { margin: 0; }
+  body.home-workspace #tool-workspace .mobile-studio-hint { display: block; font-size: 12px; line-height: 1.5; color: var(--muted-foreground); margin-top: 8px; }
+  body.home-workspace #tool-workspace .preset-selector-heading { display: none; }
+  body.home-workspace #tool-workspace[data-has-image="false"] :is(.crop-options, .transform-options, .mobile-options, .studio-export) { display: none; }
+  body.home-workspace #tool-workspace[data-has-image="false"] #crop-workspace { min-height: 190px; padding: 0; }
+  body.home-workspace #tool-workspace[data-has-image="false"] #upload-dropzone { min-height: 190px; padding: 16px 12px; }
+  body.home-workspace #tool-workspace #upload-dropzone > div:first-child { width: 36px; height: 36px; margin-bottom: 8px; }
+  body.home-workspace #tool-workspace #upload-dropzone > div:first-child svg { width: 22px; height: 22px; animation: none; }
+  body.home-workspace #tool-workspace #upload-dropzone button { min-height: 44px; }
+  body.home-workspace #tool-workspace[data-has-image="true"] #crop-workspace { min-height: 260px; }
+  body.home-workspace #tool-workspace .mobile-options-toggle { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; min-height: 48px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; text-align: left; font-size: 12px; font-weight: 600; background: var(--card); }
+  body.home-workspace #tool-workspace .mobile-options[data-open="false"] .mobile-options-content { display: none; }
+  body.home-workspace #tool-workspace .mobile-options[data-open="true"] .mobile-options-content { margin-top: 8px; }
+  body.home-workspace #tool-workspace .mobile-conversion-bar:not([hidden]) { display: flex; align-items: center; justify-content: space-between; gap: 12px; position: fixed; bottom: 0; left: 0; right: 0; z-index: 35; padding: 10px 16px max(10px, env(safe-area-inset-bottom)); border-top: 1px solid var(--border); background: var(--card); box-shadow: 0 -4px 18px #0f172a12; }
+  .mobile-conversion-bar > div { min-width: 0; }
+  .mobile-conversion-bar strong, .mobile-conversion-bar span { display: block; font-size: 11px; line-height: 1.5; }
+  .mobile-conversion-bar span { color: var(--muted-foreground); font-size: 10px; }
+  .mobile-conversion-bar button { min-height: 44px; padding: 10px 12px; border-radius: 8px; background: var(--primary); color: var(--primary-foreground); font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  body.home-workspace:has(#tool-workspace[data-has-image="true"]) { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+  body.home-workspace:has(.mobile-conversion-bar:not([hidden])) .copilot-launcher { bottom: calc(84px + env(safe-area-inset-bottom)); }
+  body.home-workspace:has(.mobile-conversion-bar:not([hidden])) .copilot-launcher:has(button[aria-expanded="false"]) { display: none; }
+  body.home-workspace:has(dialog[open]) #tool-workspace .mobile-conversion-bar { display: none; }
+  body.home-workspace #tool-workspace :is(.transform-options, .crop-options) button { min-height: 44px; min-width: 44px; }
+  body.home-workspace #tool-workspace dialog { padding: 14px; max-height: 90dvh; }
+  body.home-workspace #tool-workspace dialog button { min-height: 44px; }
+  body.home-workspace #tool-workspace dialog > div:last-child { position: sticky; bottom: -14px; padding: 12px 0; background: var(--card); border-top: 1px solid var(--border); }
+  body.home-workspace #tool-workspace dialog > div:last-child button { flex: 1 1 120px; }
+}

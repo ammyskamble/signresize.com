@@ -1,0 +1,37 @@
+<div id="help-launcher" class="copilot-launcher fixed bottom-4 right-4 z-30">
+  <button type="button" aria-label="Open exam help" aria-expanded="false" class="rounded-full border border-border bg-card text-foreground px-3 py-2 text-xs font-semibold shadow-sm focus-visible:outline-2 focus-visible:outline-primary">Exam help</button>
+  <span role="status" class="block text-xs bg-card"></span>
+</div>
+<div id="help-root"></div>
+<script>
+  const launcher = document.getElementById('help-launcher');
+  const button = launcher?.querySelector('button');
+  const status = launcher?.querySelector('[role="status"]');
+  const host = document.getElementById('help-root');
+  let loading = false, mounted = false;
+  const footer = document.querySelector('footer');
+  const observer = new IntersectionObserver(entries => {
+    if (launcher) launcher.hidden = mounted || Boolean(entries[0]?.isIntersecting);
+  });
+  if (footer) observer.observe(footer);
+  async function openHelp() {
+    if (loading || mounted || !host || !button) return;
+    loading = true; button.disabled = true;
+    if (status) status.textContent = 'Loading help...';
+    try {
+      // Pages without Astro React islands need the development refresh preamble too.
+      if (import.meta.env.DEV) await import('@vitejs/plugin-react/preamble');
+      const { mountChat } = await import('../utils/mountChat');
+      mountChat(host);
+      mounted = true; observer.disconnect();
+      if (launcher) launcher.hidden = true;
+      window.removeEventListener('open-exam-help', openHelp);
+    } catch (error) {
+      console.error('Exam help could not load:', error);
+      if (launcher) launcher.hidden = false;
+      if (status) status.textContent = 'Could not load help. Tap to retry.';
+    } finally { loading = false; button.disabled = false; }
+  }
+  button?.addEventListener('click', openHelp);
+  window.addEventListener('open-exam-help', openHelp);
+</script>

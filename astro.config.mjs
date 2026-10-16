@@ -21,6 +21,7 @@ export default defineConfig({
   site: 'https://signresize.in',
   trailingSlash: 'always',
   compressHTML: true,
+  devToolbar: { enabled: false },
 
   redirects: {
     '/signature-resizer': '/',
@@ -123,7 +124,7 @@ export default defineConfig({
     sitemap({
       filter(page) {
         const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
-        if (redirectedPaths.has(pathname) || ['/404', '/500', '/404.html', '/500.html'].includes(pathname)) return false;
+        if (redirectedPaths.has(pathname) || ['/404', '/500', '/404.html', '/500.html', '/studio-preview', '/live-layout-preview'].includes(pathname)) return false;
         // Exclude untranslated /hi/blog/ posts
         const hiMatch = page.match(/\/hi\/blog\/([^/]+)\/?$/);
         if (hiMatch) {
