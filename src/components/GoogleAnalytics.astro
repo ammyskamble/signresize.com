@@ -27,7 +27,8 @@
     document.head.appendChild(script);
 
     gtag('js', new Date());
-    gtag('config', 'G-1N3EF3HFPH');
+    // Local image-transfer tokens live in the fragment; never include them in analytics.
+    gtag('config', 'G-1N3EF3HFPH', { page_location: location.origin + location.pathname + location.search });
   }
 
   // 1. Load instantly on first real user engagement

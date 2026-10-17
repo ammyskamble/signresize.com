@@ -43,6 +43,7 @@ export interface BlogPost {
   tags: string[];
   featured?: boolean;
   relatedExamPreset?: string;
+  guideTool?: { href: string; label: string };
   quickFacts?: QuickFact[];
   quickFacts_hi?: QuickFact[];
   quickFacts_mr?: QuickFact[];
@@ -73,6 +74,53 @@ export function getBlogPostContent(post: BlogPost, lang?: string): string {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: 'handwritten-signature-transparent-png-pdf-word',
+    title: 'Make a Handwritten Signature Transparent for PDF and Word',
+    metaTitle: 'Transparent Signature PNG for PDF & Word | SignResize',
+    metaDescription: 'Remove paper from an existing handwritten signature, inspect faint strokes and save a transparent PNG for use in a PDF or Word document.',
+    excerpt: 'A practical workflow for turning handwriting on paper into a transparent PNG, with checks for faint strokes, white rectangles and useful image size.',
+    category: 'Guidelines & Tips', publishDate: '2026-10-17', author: 'SignResize Editorial Team', authorRole: 'Image preparation guides', readTime: '4 min read',
+    tags: ['signature cleanup', 'background removal', 'transparent PNG', 'document preparation'],
+    guideTool: { href: '/background-remover/?background=transparent', label: 'Make a transparent signature' },
+    quickFacts: [{ label: 'Input', value: 'An existing signature image' }, { label: 'Output', value: 'Transparent PNG' }, { label: 'Inspect', value: 'Loops, dots and faint pen strokes' }],
+    faqs: [
+      { question: 'Why does my signature have a white box?', answer: 'JPG cannot store transparency. Use Download Transparent PNG after removal. Some viewers show transparency as white, so test the PNG over a coloured area in your document.' },
+      { question: 'Can I use a signature downloaded from Remove.bg?', answer: 'Yes. Inspect the PNG for missing strokes first. If handwriting is missing, return to the original image and try the paper cleanup controls or a clearer scan. Resizing cannot recover lost ink.' },
+      { question: 'Does inserting this PNG sign or certify a document?', answer: 'The PNG is an image of handwriting. This tool does not provide identity verification, a signing audit trail or cryptographic certification. Follow the document recipient’s signing process.' }
+    ],
+    contentHtml: `<p>A transparent PNG lets you place existing handwriting over a document without covering the page with a white rectangle. Start with a clear signature photograph or scan, remove the paper, and inspect the result before inserting it.</p>
+<p><a href="/background-remover/?background=transparent">Open the signature background remover</a> to follow these steps.</p>
+<h2>1. Photograph the handwriting clearly</h2><p>Use plain paper and even light. Keep the camera parallel to the sheet and leave space around every pen stroke. Avoid your phone’s shadow. Blur and heavy shadows can hide detail that a background remover cannot reliably recover.</p>
+<h2>2. Remove the paper and inspect the ink</h2><p>Choose your image in Signature mode and press <strong>Remove background</strong>. Select <strong>Transparent</strong> for the preview. Use <strong>Actual size</strong> and <strong>View original</strong> to compare loops, dots, the first and last strokes, and any underline.</p><p>If fine lines disappear, reduce <strong>Cleanup strength</strong> and apply removal again. Keep <strong>All ink</strong> selected for black handwriting. Blue / purple ink is useful for coloured ink on grey ruling, but it can remove black writing. Keep only the main signature can remove detached dots, so inspect those carefully when using it.</p>
+<h2>3. Download Transparent PNG</h2><p>Choose <strong>Download Transparent PNG</strong>. The checkerboard indicates transparent areas; it is not part of the downloaded image. The PNG keeps the source image dimensions. Download White JPG is a separate output for destinations that require an opaque background.</p><p>Do not convert the cutout to JPG if you need transparency. A viewer may display a transparent PNG against white: place it over a coloured area to confirm whether the background is actually transparent.</p>
+<h2>4. Place the PNG in your document</h2><p>In your document editor, use its image insertion control to add the downloaded PNG. In a PDF editor, use an image insertion feature if the editor provides one. Resize proportionally, crop unused transparent space if needed, and check the exported document before sharing it. Avoid enlarging a small signature until the strokes look pixelated.</p><p>This workflow prepares an image. It does not establish the identity of a signer or certify a document. Use the signing process requested by the recipient.</p>
+<h2>Already tried Remove.bg?</h2><p><a href="https://www.remove.bg/f/remove-signature-background">Remove.bg also offers signature background removal</a>. If its result preserves your handwriting, a transparent PNG may already meet your document-layout needs. If a particular image loses thin strokes, return to the original and try the adjustable paper controls here. There is no quality guarantee for either workflow on every input.</p><p>Do not run a damaged cutout through more tools expecting missing ink to return. Retake or rescan the original when important strokes are absent.</p>
+<h2>Need a signature for an application form instead?</h2><p>Read the current form instructions for format, dimensions and file-size limits. Use <a href="/make-signature-background-white/">white signature background cleanup</a>, then choose <strong>Resize for an Exam</strong> to carry the result into the resizer. Select the matching preset or enter the requested dimensions and KB range. There is no single size that applies to every application.</p>`
+  },
+  {
+    slug: 'resize-remove-bg-photo-kb',
+    title: 'Resize a Remove.bg Photo to a 20 KB, 50 KB or 100 KB Limit',
+    metaTitle: 'Resize Remove.bg Photos to 20, 50 or 100 KB | SignResize',
+    metaDescription: 'Have a photo exported from Remove.bg? Flatten its transparent background to white, crop to your required dimensions and check the actual JPG file size.',
+    excerpt: 'Finish a background-removed portrait with a white JPG, the right crop and a checked file-size limit. Choose settings from your destination’s instructions.',
+    category: 'Guidelines & Tips', publishDate: '2026-10-17', author: 'SignResize Editorial Team', authorRole: 'Image preparation guides', readTime: '4 min read',
+    tags: ['photo resizing', 'background removal', 'file size', 'document preparation'],
+    guideTool: { href: '/photo-resizer/', label: 'Resize your downloaded photo' },
+    quickFacts: [{ label: 'Start with', value: 'Your downloaded PNG or JPG' }, { label: 'Choose', value: 'Required dimensions and KB limits' }, { label: 'Check', value: 'Crop, clarity and exported bytes' }],
+    faqs: [
+      { question: 'Should I use 20 KB, 50 KB or 100 KB?', answer: 'Use the limit stated by your destination. These are examples of upper limits, not a universal photo rule. If the form also gives a minimum, enter that minimum as well.' },
+      { question: 'Does a white background make a photo compliant?', answer: 'No. Photo requirements may also cover editing, capture method, head size, lighting, dimensions and file size. Some official destinations require an unedited photograph.' },
+      { question: 'Can resizing fix missing hair or a blurred face?', answer: 'No. Inspect the background-removal result before resizing. If important detail is missing, use a better original or retake the photo.' }
+    ],
+    contentHtml: `<p>If you already have a portrait exported from Remove.bg, the next task may be preparing it for a specific upload field. Background appearance, pixel dimensions and file size are separate checks. A transparent PNG can look correct while still using the wrong format or too many bytes.</p><p><a href="/photo-resizer/">Open the photo resizer</a> with your downloaded image. SignResize is independent of Remove.bg; this guide explains how to continue working with an exported file.</p>
+<h2>1. Check whether editing is permitted</h2><p>Read the receiving site’s current instructions first. Do not assume that a white background makes an edited portrait acceptable. For example, <a href="https://travel.state.gov/en/passports/apply/help/photos.html">U.S. passport guidance</a> requires an original, unedited photo, while <a href="https://www.gov.uk/photos-for-passports/photo-requirements">UK passport guidance</a> requires photographs unaltered by computer software. Retake the photo when background replacement is not permitted.</p>
+<h2>2. Inspect the exported cutout</h2><p>Open the downloaded image and look at hair, ears, glasses, shoulders and clothing edges. Check for missing areas and leftover background. Resizing and compression cannot recreate details that were removed. Use the original photograph if you need to redo the extraction.</p>
+<h2>3. Choose dimensions before file size</h2><p>Upload the image to the photo resizer. Select a relevant preset only if it matches your current instructions, or enter custom pixel dimensions. Adjust the crop so that the required head and shoulders remain in frame. Check the preview for stretching and accidental cuts.</p><p>The resizer renders transparent areas on white. Select JPG for an opaque output when the receiving form asks for JPEG. If you need a transparent design asset instead, keep your original PNG or use the <a href="/photo-background-remover/">portrait background remover’s Transparent PNG download</a>.</p>
+<h2>4. Set the actual KB rule</h2><table><thead><tr><th>Instruction from the destination</th><th>Settings to enter</th></tr></thead><tbody><tr><td>Maximum 20 KB</td><td>Maximum 20 KB; minimum 0 unless a minimum is specified</td></tr><tr><td>Maximum 50 KB</td><td>Maximum 50 KB; minimum from the instructions</td></tr><tr><td>Between 20 and 100 KB</td><td>Minimum 20 KB and maximum 100 KB</td></tr></tbody></table><p>These examples are not official requirements for any particular application. SignResize displays KB using 1,024 bytes per KB. If a portal specifies an exact byte ceiling, keep the exported file below that ceiling.</p><p>Inspect the final file-size check before downloading. A lower limit can reduce image quality, and the combination of requested dimensions and size may not produce an acceptable result. Do not sacrifice readability just to satisfy a number.</p>
+<h2>5. Download and inspect the final JPG</h2><p>Check the exported dimensions, format and actual file size. Open the downloaded JPG and inspect the face and outline. Test it in the intended upload field; this tool cannot guarantee acceptance by a third-party portal.</p>
+<h2>Need to remove the background first?</h2><p><a href="https://www.remove.bg/f/white-background-portrait">Remove.bg offers portrait background replacement</a>. You can also use our <a href="/photo-background-remover/">photo background remover</a> for a single-person portrait. Choose White, Transparent or Custom colour, inspect the edges, then select <strong>Resize Photo</strong> to carry a white-background copy into the resizer. This portrait workflow is not intended for product photographs, pets or group cutouts.</p><p>For handwriting on paper, use the separate <a href="/background-remover/">signature background remover</a>. Its paper and ink controls address a different kind of image.</p>`
+  },
   {
     slug: "upsc-csat-paper-2-master-blueprint-comprehension-hacks",
     title: "UPSC CSE Prelims: CSAT Paper-II Qualifying Blueprint, Reading Comprehension & Speed Logic Hacks",

@@ -496,8 +496,8 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         title={post.title}
         description={post.excerpt}
         variant="card"
-        badgeText={isPkiCompliancePost ? "Share this Technical & Compliance Guide with Colleagues" : isOssscPost ? "Share this OSSSC 2026 Exam Guide with Aspirants & Study Groups" : isWbpscPost ? "Share this WBPSC Exam Guide with Aspirants & Study Groups" : "Share this Official Exam Guide with Aspirants & Study Groups"}
-        subtext={isPkiCompliancePost ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : isOssscPost ? "Help fellow candidates format their OSSSC photos and 10–20 KB signatures correctly and bypass portal errors." : isWbpscPost ? "Help fellow aspirants format their WBPSC photos and signatures correctly and bypass portal errors." : "Help fellow candidates avoid application rejections on official exam portals."}
+        badgeText={post.guideTool ? 'Share this image preparation guide' : isPkiCompliancePost ? "Share this Technical & Compliance Guide with Colleagues" : isOssscPost ? "Share this OSSSC 2026 Exam Guide with Aspirants & Study Groups" : isWbpscPost ? "Share this WBPSC Exam Guide with Aspirants & Study Groups" : "Share this Official Exam Guide with Aspirants & Study Groups"}
+        subtext={post.guideTool ? 'Help someone prepare a clear image and check their final export.' : isPkiCompliancePost ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : isOssscPost ? "Help fellow candidates format their OSSSC photos and 10–20 KB signatures correctly and bypass portal errors." : isWbpscPost ? "Help fellow aspirants format their WBPSC photos and signatures correctly and bypass portal errors." : "Help fellow candidates avoid application rejections on official exam portals."}
       />
 
       <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
@@ -507,13 +507,13 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <span id="section-6" class="scroll-mt-24 block -mt-6 pt-6"></span>
           <div class="space-y-1">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
-              <span>❓</span> {isPkiCompliancePost ? 'Technical & Regulatory FAQs' : 'Official Candidate FAQs'}
+              <span>❓</span> {post.guideTool ? 'Image preparation FAQs' : isPkiCompliancePost ? 'Technical & Regulatory FAQs' : 'Official Candidate FAQs'}
             </div>
             <h2 class="text-xl sm:text-3xl font-extrabold text-foreground tracking-tight break-words">
               Frequently Asked Questions ({post.faqs.length} Clarified)
             </h2>
             <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
-              {isPkiCompliancePost
+              {post.guideTool ? 'Practical answers about this workflow and its limits.' : isPkiCompliancePost
                 ? 'Authoritative answers verified against technical RFC specifications, NIST standards, and legal compliance frameworks.'
                 : isWbpscPost
                   ? 'Authoritative answers verified against official WBPSC recruitment notifications and commission portal upload benchmarks.'
@@ -675,6 +675,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
               </ul>
 
               <!-- Sticky Instant Tool Shortcut Box -->
+              {post.guideTool && <div class="pt-3 border-t border-border/60"><a href={post.guideTool.href} class="flex items-center justify-center w-full py-2 px-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition">{post.guideTool.label} →</a></div>}
               {relatedPreset && (
                 <div class="pt-3 border-t border-border/60 space-y-2">
                   <div class="text-[11px] font-bold text-foreground flex items-center gap-1.5">

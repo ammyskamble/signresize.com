@@ -1,12 +1,10 @@
 ---
 import UtilityPage from '../layouts/UtilityPage.astro';
 import BackgroundRemoverTool from '../components/BackgroundRemoverTool';
+import BackgroundGuideContent from '../components/BackgroundGuideContent.astro';
 ---
-<UtilityPage title="Signature & Photo Background Remover" description="Remove paper colour from signatures and documents, or replace a portrait background. Adjust cleanup and save a white, transparent or custom-colour image at its original size." eyebrow="BACKGROUND STUDIO" bodyClass="bg-remover-page">
+<UtilityPage title="Signature Background Remover – Transparent PNG or White JPG" heading="Remove Background from Your Signature" description="Clean paper shadows from a handwritten signature. Download a transparent PNG for documents or a white JPG for forms, then continue to resizing when you need dimensions or a KB limit." eyebrow="SIGNATURE CLEANUP" bodyClass="bg-remover-page" compactIntro analytics>
+  <nav class="background-nav" aria-label="Background tools"><a href="/photo-background-remover/">Photo background remover</a><a href="/make-signature-background-white/">Make signature background white</a><a href="/#tool-workspace">Signature resizer</a></nav>
   <BackgroundRemoverTool client:load />
-  <section class="rounded-xl border border-border p-4 text-sm space-y-2">
-    <h2 class="font-semibold">Choose the right cleanup for your image</h2>
-    <p>Use Signature for handwriting on paper, Document for scanned text, and Portrait photo for a person. Inspect fine details with Actual size and View original before downloading. Transparent output uses PNG; JPG supports a solid background.</p>
-    <p>For exam uploads, use the background colour required by the official instructions, then <a href="/#tool-workspace" class="text-primary underline">resize the finished image to the required dimensions and file size</a>.</p>
-  </section>
+  <BackgroundGuideContent kind="signature" />
 </UtilityPage>

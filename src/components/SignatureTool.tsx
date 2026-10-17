@@ -87,6 +87,8 @@ import { UploadChecks } from './tool/UploadChecks';
 import { PortraitBackgroundFix } from './tool/PortraitBackgroundFix';
 import { ImageRuleChecks, ExportChecksDialog } from './tool/ImageRuleChecks';
 import { fileIntakeError, inspectExport } from '../utils/uploadValidation';
+import { takeBackgroundTransfer, TRANSFER_HASH, type BackgroundTransfer, type BackgroundMode } from '../utils/backgroundTransfer';
+import { trackBackgroundEvent } from '../utils/backgroundEvents';
 
 const SignaturePadModal = lazy(() => import('./SignaturePadModal').then((module) => ({ default: module.SignaturePadModal })));
 
@@ -413,6 +415,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   const [sourceOriginalSize, setSourceOriginalSize] = useState<number>(0);
   const [sourceFileType, setSourceFileType] = useState('');
   const [uploadError, setUploadError] = useState('');
+  const [backgroundTransferNotice, setBackgroundTransferNotice] = useState('');
+  const backgroundTransferMode = useRef<BackgroundMode | null>(null);
+  const backgroundTransferRequest = useRef<Promise<BackgroundTransfer> | null>(null);
   const [showExportChecks, setShowExportChecks] = useState(false);
   const [sourceDimensions, setSourceDimensions] = useState<{ width: number; height: number }>({ width: 0, height: 0 });
   const [isSampleImage, setIsSampleImage] = useState<boolean>(false);
@@ -553,7 +558,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
     if (preset.targetType) {
       setTargetType(preset.targetType);
-      if (preset.targetType === 'photo') {
+      if (backgroundTransferMode.current) {
+        setFilters({ cleanPaper: false, brightness: 0, contrast: 0, blackAndWhite: false, threshold: 160 });
+      } else if (preset.targetType === 'photo') {
         setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 10 }));
       } else if (preset.targetType === 'document') {
         setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 20 }));
@@ -733,7 +740,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   };
 
   // Helper to load a single file instantly using zero-copy Object URL
-  const loadSingleImageFile = (file: File) => {
+  const loadSingleImageFile = (file: File, transferredMode?: BackgroundMode) => {
     const sequence = ++uploadSequenceRef.current;
     const error = fileIntakeError(file);
     setUploadError(error || '');
@@ -755,8 +762,26 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       sourceObjectUrlRef.current = objectUrl;
       setSourceImage(img);
       setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
-      const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
-      initCropBox(img, targetAspect);
+      backgroundTransferMode.current = transferredMode || null;
+      setBackgroundTransferNotice('');
+      if (transferredMode) {
+        // A transfer starts at source dimensions. Let the visitor choose the form.
+        setTargetType(transferredMode); setSelectedPreset(null); setToolMode('single');
+        setWidth(img.naturalWidth); setHeight(img.naturalHeight);
+        setWidthInput(String(img.naturalWidth)); setHeightInput(String(img.naturalHeight));
+        setUnit('px'); setTargetFormat('image/jpeg'); setRotation(0); setFlipH(false); setFlipV(false);
+        setLockAspect(true); setAddNameDateStamp(false); setDocumentHighContrast(false);
+        setFilters({ cleanPaper: false, brightness: 0, contrast: 0, blackAndWhite: false, threshold: 160 });
+        setCrop({ x: 0, y: 0, width: img.naturalWidth, height: img.naturalHeight });
+        const limit = Math.max(100, Math.ceil(file.size / 1024) + 16);
+        setMinKb(0); setMaxKb(limit); setMinKbInput('0'); setMaxKbInput(String(limit));
+        setBackgroundTransferNotice('Your cleaned image is ready on a white background. Choose an exam preset or set dimensions and KB limits below. Check the crop before downloading.');
+        trackBackgroundEvent('resizer_open', transferredMode);
+        requestAnimationFrame(() => document.getElementById('tool-workspace')?.scrollIntoView({ block: 'start' }));
+      } else {
+        const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
+        initCropBox(img, targetAspect);
+      }
     };
     img.onerror = () => {
       URL.revokeObjectURL(objectUrl);
@@ -765,8 +790,29 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     img.src = objectUrl;
   };
 
+  useEffect(() => {
+    if (!location.hash.startsWith(TRANSFER_HASH)) return;
+    const id = location.hash.slice(TRANSFER_HASH.length);
+    const sequence = uploadSequenceRef.current;
+    let active = true;
+    backgroundTransferRequest.current ||= takeBackgroundTransfer(id);
+    void backgroundTransferRequest.current.then(transfer => {
+      if (!active) return;
+      history.replaceState(history.state, '', `${location.pathname}${location.search}#tool-workspace`);
+      if (sequence !== uploadSequenceRef.current) return; // A newer upload takes priority.
+      loadSingleImageFile(new File([transfer.blob], `cleaned-${transfer.mode}.png`, { type: 'image/png' }), transfer.mode);
+    }).catch(error => {
+      if (!active || sequence !== uploadSequenceRef.current) return;
+      history.replaceState(history.state, '', `${location.pathname}${location.search}#tool-workspace`);
+      setUploadError(error instanceof Error ? error.message : 'Could not open the transferred image. Return to the background remover and try again.');
+    });
+    return () => { active = false; };
+  }, []);
+
   // Process incoming files (Handles 1 up to 10 signatures)
   const handleMultipleFiles = (files: FileList | File[]) => {
+    backgroundTransferMode.current = null;
+    setBackgroundTransferNotice('');
     const incoming = Array.from(files);
     const invalid = incoming.map(file => ({ file, error: fileIntakeError(file) })).filter(item => item.error);
     setUploadError(invalid.map(item => `${item.file.name}: ${item.error}`).join(' '));
@@ -846,6 +892,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
   // Load single sample image (Signature, Passport Photo, or Document)
   const loadSingleSampleSignature = async () => {
+    backgroundTransferMode.current = null;
+    setBackgroundTransferNotice('');
     uploadSequenceRef.current++;
     setUploadError('');
     setSourceFileType('image/png');
@@ -1025,7 +1073,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   const handleMinKbChange = (valStr: string) => {
     setMinKbInput(valStr);
     const val = parseInt(valStr, 10);
-    if (!isNaN(val) && val >= 1) {
+    if (!isNaN(val) && val >= 0) {
       setMinKb(val);
     }
   };
@@ -1039,8 +1087,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   };
 
   const adjustMinKb = (delta: number) => {
-    const current = parseInt(minKbInput, 10) || minKb || 10;
-    const nextVal = Math.max(1, current + delta);
+    const parsed = parseInt(minKbInput, 10);
+    const current = Number.isNaN(parsed) ? minKb : parsed;
+    const nextVal = Math.max(0, current + delta);
     handleMinKbChange(String(nextVal));
   };
 
@@ -1466,6 +1515,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     link.click();
     document.body.removeChild(link);
     setHasDownloaded(true);
+
+    if (backgroundTransferMode.current) trackBackgroundEvent('resizer_export', backgroundTransferMode.current, ext);
   };
 
   // Load a batch item into single mode for manual cropping
@@ -2435,6 +2486,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
         <div><p className="text-sm font-bold">Start with your image</p><p className="text-xs text-muted-foreground">JPG, PNG, WebP and browser-supported images · up to 15 MB</p></div>
         <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-bold"><Upload className="w-4 h-4" />Upload image</button>
       </div>
+      {backgroundTransferNotice && <p role="status" className="rounded-xl border border-primary/25 bg-primary/5 p-3 text-sm">{backgroundTransferNotice}</p>}
       {!compactStudio && uploadError && <div id="upload-feedback" className="scroll-mt-32">
         <UploadChecks
           source={sourceImage ? { name: sourceFileName, type: sourceFileType, size: sourceOriginalSize, ...sourceDimensions } : null}

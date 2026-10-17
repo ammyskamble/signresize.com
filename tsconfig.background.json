@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "noEmit": true, "types": ["vite/client", "react"] },
+  "include": ["src/components/BackgroundRemoverTool.tsx", "src/components/SignatureTool.tsx", "src/components/tool/PortraitBackgroundFix.tsx", "src/utils/backgroundTransfer.ts", "src/utils/backgroundEvents.ts", "src/data/blogPostsData.ts", "src/pages/search-index.json.ts"],
+  "exclude": ["dist", "scratch"]
+}

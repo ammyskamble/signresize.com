@@ -105,7 +105,7 @@ export function PortraitBackgroundFix({ image, mode = 'photo', isSample = false,
     {!paper && isSample && <p>Upload a real portrait to use background removal.</p>}
     {status && <p role="status">{status}</p>}
     {error && <p role="alert">{error}</p>}
-    <a className="background-fix-editor-link" href={`/background-remover/?mode=${mode}`}>Open full background editor →</a>
+    <a className="background-fix-editor-link" href={mode === 'photo' ? '/photo-background-remover/' : `/background-remover/?mode=${mode}`}>Open full background editor →</a>
     </div>
   </details>;
 }

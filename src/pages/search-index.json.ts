@@ -6,6 +6,11 @@ import { PAN_INDIA_GOV_JOBS } from '../data/governmentJobsData';
 
 const CORE_TOOLS = [
   ...[
+    ['background-remover', 'Signature Background Remover', 'Remove paper shadows; download a transparent PNG or white JPG'],
+    ['photo-background-remover', 'Photo Background Remover', 'Remove a portrait background; choose white, transparent or custom colour'],
+    ['make-signature-background-white', 'Make Signature Background White', 'Clean paper lighting and export a white signature JPG'],
+  ].map(([slug, title, desc]) => ({ type: 'tool', id: `tool-${slug}`, slug, title, shortCode: title, desc, url: `/${slug}/`, category: 'Background Tools', badge: 'TOOL', keywords: `${title} ${desc}` })),
+  ...[
     ['photo-with-name-and-date-maker', 'Photo with Name and Date Maker', 'Add a name and photograph date strip; export a 20–50 KB JPG'],
     ['admit-card-photo-print-sheet', 'Admit Card Photo Print Sheet', 'Eight 35 × 45 mm passport photos on a 6 × 4 inch PDF sheet'],
     ['handwritten-declaration-resizer', 'Handwritten Declaration Resizer', 'Declaration wording reference, scan checklist, and 50–100 KB JPG preset'],

@@ -1,0 +1,53 @@
+---
+interface Props { kind: 'signature' | 'photo' | 'white'; }
+const { kind } = Astro.props;
+const photo = kind === 'photo';
+const white = kind === 'white';
+const faqs = photo ? [
+  ['Which photos work best?', 'Start with a clear photo of one person, with the full head and shoulders visible. Even lighting and contrast between the person and the background help. This tool uses a portrait model; product photos, pets and group photos are outside its intended use.'],
+  ['Can I change the background without changing the face?', 'The tool extracts the person and places the cutout on your chosen background. It does not generate a new face. Segmentation can still remove or soften hair, glasses and clothing edges, so inspect the result at Actual size.'],
+  ['Can I use an edited portrait for a passport or application?', 'Check the issuing authority’s current instructions before changing an official photo. Some authorities require an unedited photograph. A white background does not establish compliance, and this tool does not certify acceptance.'],
+  ['Why does the first photo take longer?', 'The portrait model and its runtime load when you first apply removal. The image is processed on your device. Connection speed, available memory and device performance affect the time taken.'],
+] : [
+  ['How do I keep faint pen strokes?', 'Choose All ink, lower Cleanup strength and compare the result with View original. Inspect loops, dots and detached strokes. If a stroke is missing or the source is blurry, use a clearer scan or retake the photo in even light.'],
+  ['Can I remove grey lines around blue ink?', 'Blue / purple ink can help separate coloured handwriting from grey ruling. It also removes black ink, so use All ink for black signatures or mixed-colour writing. Check the whole signature before saving.'],
+  ['Will every paper shadow disappear?', 'Lighting correction estimates the paper colour around each part of the image. Strong shadows, patterned paper and low contrast can leave residue or lose ink. A clearer photo is the better starting point when the preview cannot preserve the writing.'],
+  ['Does this create a signature or sign a PDF?', 'This tool cleans the visible handwriting in an existing image. It does not generate a new handwritten signature or sign a document. Download a transparent PNG, then insert it in your document editor.'],
+];
+faqs.push(
+  ['Should I download PNG or JPG?', 'Download Transparent PNG to retain a see-through background. JPG uses a solid background: white, or the custom colour you selected. Both downloads retain the source dimensions; the displayed file sizes are measured from the generated files.'],
+  ['Can I choose dimensions and a KB limit?', 'Choose Resize Photo or Resize for an Exam after processing. Your cleaned image opens in the resizer on a white background. Select the relevant preset or enter your own dimensions and file-size limits, then inspect the final crop and export checks.'],
+  ['Are my images uploaded?', 'The image-processing steps run in your browser. Continuing to the resizer stores a temporary image copy locally in your browser and removes that copy when the resizer reads it. Image contents and filenames are not included in workflow analytics.'],
+  ['Which files can I open?', 'Choose a JPG, PNG or WebP up to 25 MB and 20 megapixels. PDF pages must first be saved as image files. The separate resizer accepts images up to 15 MB; a larger cleanup result can still be downloaded.'],
+);
+---
+<div class="background-guide">
+  <section>
+    <h2>{photo ? 'Remove a portrait background, then finish the photo' : white ? 'Turn a paper photograph into a clean white signature image' : 'From handwriting on paper to a reusable signature image'}</h2>
+    <ol class="space-y-3">
+      <li><strong>{photo ? 'Choose a clear portrait.' : 'Choose a clear signature image.'}</strong> {photo ? 'Use a single-person photo with the head and shoulders visible.' : 'Photograph plain paper straight on in even light, with all strokes inside the frame.'}</li>
+      <li><strong>Remove and inspect.</strong> {photo ? 'Apply removal, then check hair, ears, glasses and clothing with Actual size and View original.' : 'Apply removal, then check thin lines and dots. Lower Cleanup strength if faint ink disappears.'}</li>
+      <li><strong>{white ? 'Download White JPG.' : 'Choose your output.'}</strong> {white ? 'For a form with specific pixel or KB requirements, continue to the resizer and select the matching settings.' : 'Save transparent PNG or a solid-background JPG. Continue to the resizer when you need specific dimensions or a file-size limit.'}</li>
+    </ol>
+  </section>
+  <section class="background-guide-grid">
+    <div><h2>Transparent PNG</h2><p>{photo ? 'Keep a portrait cutout for a presentation, design or profile graphic.' : 'Place your handwriting in a PDF, Word document or other layout without a white rectangle.'} The checkerboard in the preview represents transparency; it is not included in the PNG.</p></div>
+    <div><h2>{white ? 'White paper for forms' : 'White or colour JPG'}</h2><p>{photo ? 'Choose a solid colour for a portrait or headshot. Follow the destination’s requirements for application photos.' : 'Choose White JPG when the form asks for handwriting on white paper. Verify the required format, dimensions and file limits in the current instructions.'} JPG cannot preserve transparency.</p></div>
+  </section>
+  {white && <section><h2>Reduce shadows before processing</h2><p>Place the paper near soft, even daylight. Keep the phone and your hand out of the light path. Hold the camera parallel to the sheet and leave space around the signature. Harsh shadows and blur can hide detail that cleanup cannot recover.</p><p>Use the generated Blue ink, Faint ink and Paper shadow samples above to see how the controls behave. They illustrate the workflow; they are not accuracy benchmarks or evidence of portal acceptance.</p></section>}
+  {photo && <section><h2>For portraits and headshots</h2><p>Use this editor to prepare profile pictures, presentation cutouts and headshots. Check the full outline before saving: hair, glasses and pale clothing can be difficult to separate from a similar background.</p><p>Before editing an official photo, read its destination’s rules. For example, <a href="https://travel.state.gov/en/passports/apply/help/photos.html" rel="noopener noreferrer">U.S. passport photo guidance</a> asks for an original, unedited photo, and <a href="https://www.gov.uk/photos-for-passports/photo-requirements" rel="noopener noreferrer">UK passport photo guidance</a> requires photographs unaltered by computer software. Retake the photograph when the destination does not permit background replacement.</p></section>}
+  <section>
+    <h2>Finish your image</h2>
+    <div class="background-guide-grid">
+      {photo ? <>
+        <div><h3><a href="/photo-resizer/">Photo dimensions and file size</a></h3><p>Crop, set pixel dimensions and check the exported KB size. Use Resize Photo above to carry your current result across.</p></div>
+        <div><h3><a href="/blog/resize-remove-bg-photo-kb/">Resize a photo exported from Remove.bg</a></h3><p>Turn a cutout PNG into a white JPG and choose a 20 KB, 50 KB or 100 KB upper limit.</p></div>
+      </> : <>
+        <div><h3><a href="/blog/handwritten-signature-transparent-png-pdf-word/">Prepare a transparent signature for PDF and Word</a></h3><p>Keep the handwriting, choose the right format and inspect the image before adding it to a document.</p></div>
+        <div><h3><a href={white ? '/#tool-workspace' : '/make-signature-background-white/'}>{white ? 'Signature dimensions and file size' : 'White signature background'}</a></h3><p>Choose dimensions according to your application instructions. Use Resize for an Exam above to carry your current result across.</p></div>
+      </>}
+      <div><h3><a href={photo ? '/background-remover/' : '/photo-background-remover/'}>{photo ? 'Clean a handwritten signature' : 'Remove a portrait background'}</a></h3><p>{photo ? 'Use the paper and ink controls for writing on a scanned or photographed sheet.' : 'Use the portrait model for people, with white, transparent and custom-colour backgrounds.'}</p></div>
+    </div>
+  </section>
+  <section><h2>Questions about {photo ? 'photo' : 'signature'} background removal</h2>{faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</section>
+</div>
