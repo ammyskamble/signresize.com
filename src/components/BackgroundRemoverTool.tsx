@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import '../styles/background-remover.css';
+import FeedbackPrompt from './FeedbackPrompt';
 
 type Mode = 'signature' | 'photo' | 'document';
 type Source = { url: string; image: HTMLImageElement; name: string };
 
 export default function BackgroundRemoverTool() {
+  const [hasDownloaded, setHasDownloaded] = useState(false);
   const [mode, setMode] = useState<Mode>('signature');
   const [source, setSource] = useState<Source | null>(null);
   const [output, setOutput] = useState<string | null>(null);
@@ -133,7 +135,8 @@ export default function BackgroundRemoverTool() {
         <fieldset><legend>Output background</legend><div className="bg-editor-backgrounds">{['white', 'transparent', 'colour'].map(item => <button type="button" key={item} aria-pressed={background === item} onClick={() => { clearResult(); setBackground(item); }}>{item === 'colour' ? 'Custom colour' : item === 'white' ? 'White' : 'Transparent'}</button>)}</div>{background === 'colour' && <label className="bg-editor-colour">Choose colour <input type="color" value={colour} onChange={event => { clearResult(); setColour(event.target.value); }} /></label>}</fieldset>
         <div className="bg-editor-apply"><button type="button" className="bg-editor-primary" disabled={!source || busy} onClick={process}>{busy ? 'Removing background...' : output ? 'Apply again' : 'Remove background'}</button>{busy && <button type="button" onClick={() => { stop(); setBusy(false); setStatus('Cancelled. Original image retained.'); }}>Cancel</button>}</div>
         {status && <p role="status">{status}</p>}{error && <p className="bg-editor-error" role="alert">{error}</p>}
-        {output && <div className="bg-editor-download"><a href={output} download={`${filename}-background-removed.png`}>Download PNG</a>{background !== 'transparent' && jpeg?.source === output && <a href={jpeg.url} download={`${filename}-background-removed.jpg`}>Download JPG</a>}<small>{background === 'transparent' ? 'PNG keeps transparency.' : 'Original dimensions are retained.'}</small></div>}
+        {output && <div className="bg-editor-download" onClick={event => { if ((event.target as HTMLElement).closest('a[download]')) setHasDownloaded(true); }}><a href={output} download={`${filename}-background-removed.png`}>Download PNG</a>{background !== 'transparent' && jpeg?.source === output && <a href={jpeg.url} download={`${filename}-background-removed.jpg`}>Download JPG</a>}<small>{background === 'transparent' ? 'PNG keeps transparency.' : 'Original dimensions are retained.'}</small></div>}
+        <FeedbackPrompt downloaded={hasDownloaded} tool={`Background remover (${mode})`} />
         <details><summary>Tips for a better result</summary><p>Crop close to the paper before uploading. Use Signature or Document for writing; Portrait photo is for people. Lower cleanup strength if thin strokes disappear. Heavy shadows, patterned paper and blurry images may need a clearer scan. Documents with photos or shaded artwork can lose detail.</p></details>
         <a href="/#tool-workspace">Need exam dimensions or a KB limit? Open resizer →</a>
       </div>

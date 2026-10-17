@@ -106,6 +106,9 @@ export default defineConfig({
   },
 
   vite: {
+    define: {
+      __SIGNRESIZE_RELEASE__: JSON.stringify(process.env.CF_PAGES_COMMIT_SHA || new Date().toISOString()),
+    },
     plugins: [tailwindcss()],
     resolve: {
       dedupe: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime']
@@ -124,7 +127,7 @@ export default defineConfig({
     sitemap({
       filter(page) {
         const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
-        if (redirectedPaths.has(pathname) || ['/404', '/500', '/404.html', '/500.html', '/studio-preview', '/live-layout-preview'].includes(pathname)) return false;
+        if (redirectedPaths.has(pathname) || ['/404', '/500', '/404.html', '/500.html', '/studio-preview', '/live-layout-preview', '/feedback-admin'].includes(pathname)) return false;
         // Exclude untranslated /hi/blog/ posts
         const hiMatch = page.match(/\/hi\/blog\/([^/]+)\/?$/);
         if (hiMatch) {

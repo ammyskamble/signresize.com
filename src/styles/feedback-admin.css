@@ -1,0 +1,55 @@
+.fa-shell, .fa-login-wrap, .fa-loading { font-family: var(--font-sans); color: #172033; }
+.fa-shell { min-height: 100vh; background: #f6f7fb; }
+.fa-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; background: white; border-bottom: 1px solid #e5e7f0; padding: 18px max(24px, calc((100vw - 1180px) / 2)); }
+.fa-brand { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 750; text-decoration: none; }
+.fa-brand > span { display: grid; place-items: center; width: 34px; height: 34px; background: #4f46e5; color: white; border-radius: 10px; font-size: 24px; }
+.fa-brand small { font-size: 12px; font-weight: 500; color: #69748a; padding-left: 12px; border-left: 1px solid #e5e7f0; }
+.fa-header-actions, .fa-actions { display: flex; gap: 10px; align-items: center; }
+.fa-private { display: flex; align-items: center; gap: 5px; color: #7a8395; font-size: 10px; }
+.fa-main { max-width: 1180px; margin: 0 auto; padding: 40px 24px; }
+.fa-page-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
+.fa-eyebrow { font-size: 9px; letter-spacing: .15em; font-weight: 750; color: #6255cb; margin: 0 0 10px; }
+.fa-page-heading h1 { font-size: 31px; font-weight: 750; letter-spacing: -1.1px; margin-bottom: 8px; }
+.fa-page-heading p:not(.fa-eyebrow) { color: #69748a; font-size: 12px; }
+.fa-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 13px; min-height: 39px; border: 1px solid #dce0ec; border-radius: 9px; background: white; color: #39465b; font-size: 11px; font-weight: 650; cursor: pointer; white-space: nowrap; }
+.fa-button:disabled { opacity: .55; cursor: default; }
+.fa-primary { background: #4f46e5; border-color: #4f46e5; color: white; }
+.fa-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; margin-bottom: 24px; }
+.fa-stats > div { position: relative; display: flex; flex-direction: column; padding: 20px; border: 1px solid #e5e7f0; border-radius: 13px; background: white; }
+.fa-stats svg { position: absolute; right: 18px; top: 20px; color: #7970d1; }
+.fa-stats span { font-size: 11px; font-weight: 550; color: #69748a; margin-bottom: 15px; }
+.fa-stats strong { font-size: 28px; font-weight: 750; letter-spacing: -.7px; }
+.fa-stats small { color: #7a8395; font-size: 10px; margin-top: 6px; }
+.fa-filters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end; gap: 13px; background: white; border: 1px solid #e5e7f0; border-radius: 13px; padding: 19px; margin-bottom: 24px; }
+.fa-filters label, .fa-review-fields > label { display: flex; flex-direction: column; gap: 7px; text-transform: capitalize; font-size: 10px; font-weight: 650; color: #69748a; }
+.fa-filters input, .fa-filters select, .fa-review-fields select, .fa-review-fields textarea, .fa-login input { box-sizing: border-box; width: 100%; min-height: 39px; padding: 9px 10px; background: #fafbfe; border: 1px solid #dce0ec; border-radius: 7px; color: #39465b; font: 400 11px var(--font-sans); }
+.fa-filters select { text-transform: capitalize; }
+.fa-filters .fa-search { grid-column: span 2; }
+.fa-list-heading { display: flex; align-items: center; justify-content: space-between; margin: 24px 0 13px; }
+.fa-list-heading h2 { font-weight: 700; font-size: 14px; }
+.fa-list-heading > span { color: #7a8395; font-size: 11px; }
+.fa-records { display: grid; gap: 12px; }
+.fa-record { padding: 20px; background: white; border: 1px solid #e5e7f0; border-radius: 12px; }
+.fa-record-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.fa-pills { display: flex; gap: 7px; align-items: center; flex-wrap: wrap; }
+.fa-pills strong { margin-left: 4px; font-size: 11px; font-weight: 650; text-transform: capitalize; }
+.fa-pill { display: inline-flex; padding: 4px 8px; border-radius: 5px; background: #f1f2f7; color: #69748a; font-size: 9px; font-weight: 650; }
+.fa-good { background: #ecfdf5; color: #047857; }.fa-okay { background: #fff8e6; color: #92400e; }.fa-difficult, .fa-problem { background: #fff1f2; color: #be123c; }.fa-suggestion { background: #eef2ff; color: #4f46e5; }
+.fa-status-new { background: #eff6ff; color: #2563eb; }.fa-status-investigating { background: #fff8e6; color: #92400e; }.fa-status-fixed { background: #ecfdf5; color: #047857; }
+.fa-record time { color: #7a8395; font-size: 9px; white-space: nowrap; }
+.fa-record h3 { font-size: 12px; font-weight: 650; margin-top: 14px; }
+.fa-message { font-size: 12px; line-height: 1.8; margin: 13px 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.fa-record-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; color: #7a8395; font-size: 10px; overflow-wrap: anywhere; }
+.fa-review { border-top: 1px solid #f0f1f6; margin-top: 15px; padding-top: 12px; }
+.fa-review summary { color: #6255cb; font-size: 10px; font-weight: 650; cursor: pointer; }
+.fa-review-fields { display: grid; grid-template-columns: 1fr 160px 1fr; gap: 18px; margin-top: 16px; align-items: start; }
+.fa-review-fields dl { font-size: 10px; overflow-wrap: anywhere; }.fa-review-fields dl > div { margin-bottom: 9px; }.fa-review-fields dt { color: #7a8395; margin-bottom: 4px; }.fa-review-fields dd { color: #39465b; }
+.fa-review-fields textarea { resize: vertical; line-height: 1.7; }.fa-review-fields .fa-button { grid-column: -2 / -1; justify-self: end; }
+.fa-error { color: #b91c1c !important; font-size: 12px; line-height: 1.7; }.fa-banner { border: 1px solid #fecaca; border-radius: 9px; padding: 12px; background: #fff1f2; }
+.fa-empty { display: flex; align-items: center; flex-direction: column; text-align: center; border: 1px dashed #dce0ec; border-radius: 12px; padding: 55px 24px; color: #7a8395; background: white; }.fa-empty h3 { margin: 14px 0 8px; font-size: 15px; color: #39465b; font-weight: 650; }.fa-empty p { max-width: 380px; font-size: 12px; line-height: 1.8; }
+.fa-pagination { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 22px 0; }.fa-pagination span { font-size: 11px; color: #69748a; }
+.fa-footer { padding-top: 24px; color: #7a8395; font-size: 10px; line-height: 1.8; }
+.fa-trend { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 20px; background: white; border: 1px solid #e5e7f0; border-radius: 12px; }.fa-trend h2 { font-size: 12px; font-weight: 650; }.fa-trend p { max-width: 220px; color: #7a8395; font-size: 10px; line-height: 1.7; margin-top: 6px; }.fa-trend-bars { display: flex; align-items: end; gap: 7px; overflow-x: auto; }.fa-day { min-width: 20px; display: flex; flex-direction: column; justify-content: end; align-items: center; gap: 6px; height: 85px; }.fa-day > div { display: flex; flex-direction: column; justify-content: end; width: 16px; border-radius: 3px; background: #e5e7f0; overflow: hidden; }.fa-day span { background: #7970d1; }.fa-day small { color: #7a8395; font-size: 8px; }
+.fa-login-wrap { max-width: 430px; margin: 8vh auto; padding: 24px; }.fa-back { display: inline-flex; align-items: center; gap: 7px; color: #69748a; font-size: 12px; text-decoration: none; margin-bottom: 25px; }.fa-login { padding: 30px; background: white; border: 1px solid #e5e7f0; border-radius: 18px; box-shadow: 0 12px 60px #17255406; }.fa-lock { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; background: #eef2ff; color: #4f46e5; margin-bottom: 25px; }.fa-login h1 { font-size: 28px; font-weight: 750; letter-spacing: -.8px; line-height: 1.25; margin-bottom: 12px; }.fa-login > p:not(.fa-eyebrow) { font-size: 12px; color: #69748a; line-height: 1.8; }.fa-login form { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }.fa-login label { font-size: 11px; color: #39465b; font-weight: 600; }.fa-login input { min-height: 43px; font-size: 14px; }.fa-login small { display: block; margin-top: 17px; color: #7a8395; font-size: 10px; }.fa-loading { padding: 70px 24px; text-align: center; font-size: 14px; }
+.fa-shell button:focus-visible, .fa-shell input:focus-visible, .fa-shell select:focus-visible, .fa-shell textarea:focus-visible, .fa-login :focus-visible { outline: 3px solid #a5b4fc; outline-offset: 3px; }
+@media (max-width: 760px) { .fa-header { padding: 14px 18px; }.fa-private, .fa-brand small { display: none; }.fa-main { padding: 26px 18px; }.fa-page-heading { align-items: start; flex-direction: column; gap: 18px; }.fa-page-heading h1 { font-size: 27px; }.fa-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }.fa-stats > div { padding: 15px; }.fa-stats svg { right: 13px; top: 14px; width: 15px; }.fa-stats span { font-size: 10px; max-width: 115px; }.fa-stats small { line-height: 1.6; }.fa-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 14px; }.fa-filters input, .fa-filters select, .fa-review-fields textarea, .fa-review-fields select, .fa-login input { font-size: 16px; }.fa-record { padding: 15px; }.fa-record-heading { align-items: start; flex-direction: column; gap: 9px; }.fa-review-fields { grid-template-columns: 1fr; }.fa-review-fields .fa-button { grid-column: auto; }.fa-trend { align-items: start; flex-direction: column; }.fa-trend-bars { max-width: 100%; }.fa-button { min-height: 44px; } }

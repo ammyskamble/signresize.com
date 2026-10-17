@@ -3,6 +3,7 @@ import '../styles/resizer-layout.css';
 import '../styles/control-polish.css';
 import '../styles/mobile-conversion.css';
 import { presetMode } from '../utils/presetMode';
+import FeedbackPrompt from './FeedbackPrompt';
 import {
   Upload,
   RotateCw,
@@ -1431,6 +1432,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
+      setHasDownloaded(true);
     } catch (err) {
       console.error('Failed to create ZIP:', err);
       alert(`Failed to generate ZIP file. You can still download ${modeConfig.plural} individually.`);
@@ -1463,6 +1465,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    setHasDownloaded(true);
   };
 
   // Load a batch item into single mode for manual cropping
@@ -1601,6 +1604,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       setTimeout(() => URL.revokeObjectURL(pdfUrl), 10000);
 
       addToast(`Downloaded ${filename} (${Math.round(pdfBlob.size / 1024)} KB PDF)`, 'PDF Downloaded', 'success');
+      setHasDownloaded(true);
     } catch (err) {
       console.error('Failed to generate PDF', err);
       addToast('Failed to generate PDF document', 'PDF Error', 'warning');
@@ -2707,6 +2711,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
               </div>
             </div>
 
+            <FeedbackPrompt downloaded={hasDownloaded} tool={`${targetType} batch`} />
             {/* Master Toolbar: Grid of Dimensions, Transformations & Filters */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
 
@@ -4104,6 +4109,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                             : modeConfig.downloadEmpty)}
                     </span>
                   </button>
+
+                  <FeedbackPrompt downloaded={hasDownloaded} tool={targetType} />
 
                   {processedResult && (
                     <>

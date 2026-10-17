@@ -1,0 +1,10 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "noEmit": true,
+    "types": ["vite/client", "react"]
+  },
+  "include": ["src/components/FeedbackAdmin.tsx", "src/components/FeedbackPrompt.tsx", "src/utils/visitorFeedback.ts"]
+}

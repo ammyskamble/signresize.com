@@ -1,0 +1,73 @@
+/* Local visitor feedback preview. Scoped names keep the existing studio intact. */
+.vf-edge-tab { position: fixed; right: 0; top: 46%; z-index: 42; display: flex; align-items: center; gap: 9px; writing-mode: vertical-rl; padding: 17px 12px; border: 1px solid var(--border); border-right: 0; border-radius: 14px 0 0 14px; background: var(--card); color: var(--foreground); font: 600 12px var(--font-sans); box-shadow: 0 4px 20px #17255412; cursor: pointer; }
+.vf-edge-tab:hover { color: var(--primary); background: var(--muted); }
+.vf-dialog { position: fixed; inset: 0; width: min(430px, calc(100vw - 40px)); max-height: calc(100dvh - 48px); margin: auto 32px auto auto; padding: 0; border: 1px solid var(--border); border-radius: 24px; background: var(--card); color: var(--foreground); box-shadow: 0 28px 100px #0f172a33; overflow: auto; overscroll-behavior: contain; }
+.vf-dialog::backdrop { background: #0f172a3d; backdrop-filter: blur(3px); }
+.vf-dialog[open] { animation: vf-arrive 180ms ease-out; }
+.vf-panel { padding: 26px; }
+.vf-topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.vf-brand { display: flex; gap: 8px; align-items: center; font-size: 12px; font-weight: 700; }
+.vf-brand-mark { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 9px; color: white; background: #4f46e5; }
+.vf-close { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--border); background: transparent; color: var(--muted-foreground); border-radius: 50%; cursor: pointer; }
+.vf-dialog button, .vf-dialog input, .vf-dialog textarea, .vf-dialog select { font-family: inherit; }
+.vf-dialog button:focus-visible, .vf-dialog input:focus-visible, .vf-dialog textarea:focus-visible, .vf-dialog select:focus-visible, .visitor-feedback-inline button:focus-visible, .vf-edge-tab:focus-visible { outline: 3px solid #818cf8; outline-offset: 3px; }
+.vf-eyebrow { display: block; font-size: 10px; letter-spacing: .14em; color: var(--primary); font-weight: 750; margin-bottom: 8px; }
+.vf-title { font-size: 27px; line-height: 1.2; letter-spacing: -.9px; font-weight: 750; margin: 0; }
+.vf-subtitle { margin: 9px 0 21px; color: var(--muted-foreground); font-size: 12px; line-height: 1.65; }
+.vf-kind-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin: 0 0 20px; padding: 0; border: 0; }
+.vf-kind { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; min-height: 73px; padding: 10px 3px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); color: var(--muted-foreground); font-size: 10px; font-weight: 650; cursor: pointer; }
+.vf-kind[aria-pressed="true"] { border-color: #818cf8; background: color-mix(in srgb, var(--primary) 7%, var(--card)); color: var(--primary); box-shadow: 0 0 0 1px #818cf81a; }
+.vf-field { display: block; margin: 0 0 16px; }
+.vf-label { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 11px; font-weight: 650; }
+.vf-optional { color: var(--muted-foreground); font-size: 10px; font-weight: 400; }
+.vf-input { display: block; box-sizing: border-box; width: 100%; padding: 11px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--background); color: var(--foreground); font-size: 12px; line-height: 1.6; }
+textarea.vf-input { min-height: 99px; resize: vertical; }
+.vf-input::placeholder { color: var(--muted-foreground); opacity: .85; }
+.vf-character-count { display: block; text-align: right; color: var(--muted-foreground); font-size: 9px; margin-top: 5px; }
+.vf-experience { border: 0; padding: 0; margin: 0 0 17px; }
+.vf-experience legend { margin-bottom: 9px; }
+.vf-ratings { display: flex; gap: 8px; }
+.vf-ratings button { display: flex; flex: 1; align-items: center; justify-content: center; gap: 6px; min-height: 42px; padding: 8px 5px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); color: var(--muted-foreground); font-size: 11px; cursor: pointer; }
+.vf-ratings button[aria-pressed="true"] { border-color: var(--primary); color: var(--primary); background: color-mix(in srgb, var(--primary) 7%, var(--card)); }
+.vf-context { display: flex; align-items: flex-start; gap: 7px; padding: 11px 0 14px; color: var(--muted-foreground); font-size: 10px; line-height: 1.6; }
+.vf-context svg { flex-shrink: 0; margin-top: 1px; }
+.vf-submit { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; min-height: 45px; padding: 12px; border: 0; border-radius: 11px; background: #4f46e5; color: white; font-size: 12px; font-weight: 650; cursor: pointer; box-shadow: 0 4px 10px #4f46e51a; }
+.vf-submit:hover { background: #4338ca; }
+.vf-preview-note { margin: 12px 0 0; text-align: center; font-size: 9px; color: var(--muted-foreground); line-height: 1.6; }
+.vf-preview-note span { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #f59e0b; margin-right: 4px; vertical-align: 1px; }
+.vf-error { color: #dc2626; font-size: 11px; margin: 0 0 12px; }
+.vf-save-status { color: var(--primary); font-size: 11px; line-height: 1.6; margin: -5px 0 14px; }
+.vf-submit:disabled { opacity: .65; cursor: wait; }
+.vf-success { padding: 38px 0 25px; text-align: center; }
+.vf-success-icon { display: grid; place-items: center; width: 58px; height: 58px; margin: 0 auto 18px; border-radius: 20px; color: #059669; background: #10b98115; }
+.vf-success h3 { font-size: 23px; font-weight: 750; letter-spacing: -.6px; }
+.vf-success p { color: var(--muted-foreground); font-size: 12px; line-height: 1.8; margin: 12px 0 24px; }
+.vf-success .vf-submit { max-width: 180px; margin: 0 auto; }
+.vf-dialog [hidden] { display: none !important; }
+.vf-rating-card { position: relative; padding: 16px; border: 1px solid var(--border); border-radius: 13px; background: color-mix(in srgb, var(--primary) 3%, var(--card)); }
+.vf-rating-eyebrow { display: block; font-size: 8px; letter-spacing: .12em; color: var(--primary); font-weight: 700; }
+.vf-rating-card p { margin: 6px 0 12px; font-size: 12px; font-weight: 650; }
+.vf-rating-dismiss { position: absolute; right: 5px; top: 5px; display: grid; place-items: center; width: 28px; height: 28px; border: 0; border-radius: 6px; background: transparent; color: var(--muted-foreground); cursor: pointer; }
+.vf-inline-ratings { display: flex; gap: 8px; }
+.vf-inline-ratings button { display: flex; flex: 1; flex-direction: column; align-items: center; gap: 5px; min-height: 59px; padding: 8px; border: 1px solid var(--border); border-radius: 9px; background: var(--card); color: var(--muted-foreground); font-size: 10px; cursor: pointer; }
+.vf-inline-ratings button:hover { color: var(--primary); border-color: var(--primary); }
+.vf-inline-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 7px 0 0; color: var(--muted-foreground); }
+.vf-inline-links button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 32px; background: transparent; border: 0; padding: 0; font-size: 10px; cursor: pointer; }
+.vf-inline-links button:hover { color: var(--primary); text-decoration: underline; }
+@keyframes vf-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 640px) {
+  .vf-edge-tab { display: none; }
+  .vf-dialog { width: 100%; max-width: 100%; max-height: 94dvh; margin: auto 0 0; border-radius: 22px 22px 0 0; border-bottom: 0; }
+  .vf-panel { padding: 13px 22px max(22px, env(safe-area-inset-bottom)); }
+  .vf-panel::before { content: ''; display: block; width: 34px; height: 4px; background: var(--border); border-radius: 3px; margin: 0 auto 13px; }
+  .vf-topline { margin-bottom: 16px; }
+  .vf-title { font-size: 25px; }
+  .vf-subtitle { margin-bottom: 17px; }
+  .vf-input { font-size: 16px; padding: 10px 12px; }
+  .vf-kind { min-height: 67px; }
+  .vf-kind-grid { margin-bottom: 17px; }
+  .vf-inline-links button { min-height: 44px; }
+  .vf-close { width: 44px; height: 44px; }
+  .vf-ratings button { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { .vf-dialog[open] { animation: none; } }

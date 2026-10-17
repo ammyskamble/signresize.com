@@ -11,6 +11,7 @@ import {
   Sliders,
   Palette
 } from 'lucide-react';
+import FeedbackPrompt from './FeedbackPrompt';
 
 interface FontOption {
   id: string;
@@ -43,6 +44,7 @@ interface SignatureCreatorToolProps {
 }
 
 export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ initialTab = 'type' }) => {
+  const [hasDownloaded, setHasDownloaded] = useState(false);
   const [tab, setTab] = useState<'type' | 'draw'>(() => {
     if (typeof window !== 'undefined') {
       const modeParam = new URLSearchParams(window.location.search).get('mode');
@@ -243,6 +245,7 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    setHasDownloaded(true);
   };
 
   return (
@@ -446,6 +449,7 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
           )}
         </div>
 
+        <FeedbackPrompt downloaded={hasDownloaded} tool="Signature creator" />
         {/* Action Buttons */}
         <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
           <div class="text-xs text-muted-foreground">

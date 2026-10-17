@@ -12,6 +12,8 @@
     "build": "astro build && node scripts/copy-sitemap.mjs",
     "verify:indexing": "node scripts/verify-indexing.mjs",
     "verify:toolkit": "node scripts/verify-exam-day-tools.mjs",
+    "verify:feedback": "node scripts/verify-feedback.mjs",
+    "check:feedback": "tsc -p tsconfig.feedback.json && tsc -p tsconfig.feedback-client.json",
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "npm run build && wrangler pages deploy dist --project-name signresize --branch=main --commit-dirty=true",
@@ -38,6 +40,7 @@
   },
   "devDependencies": {
     "esbuild": "0.28.2",
+    "typescript": "^7.0.2",
     "wrangler": "^4.127.1"
   }
 }

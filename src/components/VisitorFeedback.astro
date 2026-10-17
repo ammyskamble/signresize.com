@@ -1,0 +1,205 @@
+---
+import '../styles/visitor-feedback.css';
+---
+
+<button type="button" class="vf-edge-tab" data-feedback-open="experience" aria-haspopup="dialog" aria-controls="visitor-feedback-dialog">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z" /></svg>
+  Feedback
+</button>
+
+<dialog id="visitor-feedback-dialog" class="vf-dialog" aria-labelledby="vf-title" aria-describedby="vf-subtitle">
+  <div class="vf-panel">
+    <div class="vf-topline">
+      <span class="vf-brand"><span class="vf-brand-mark" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m5 17 9-9 3 3-9 9H5v-3Z" /><path d="m14 8 2-2a2.1 2.1 0 0 1 3 3l-2 2M4 22h16" /></svg></span>SignResize<span class="vf-optional">/ Feedback</span></span>
+      <button type="button" class="vf-close" data-feedback-close aria-label="Close feedback"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
+    </div>
+
+    <div id="vf-form-content">
+      <span class="vf-eyebrow">BETTER WITH YOUR FEEDBACK</span>
+      <h2 id="vf-title" class="vf-title">A better SignResize<br />starts with you.</h2>
+      <p id="vf-subtitle" class="vf-subtitle">Something not working? Have an idea?<br />Tell us in a few words. It takes about 30 seconds.</p>
+      <form id="visitor-feedback-form">
+        <fieldset class="vf-kind-grid" aria-label="Feedback type">
+          <button type="button" class="vf-kind" data-feedback-kind="experience" aria-pressed="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M8 14s1.5 2 4 2 4-2 4-2M8.5 9h.01M15.5 9h.01" stroke-linecap="round" /></svg>My experience</button>
+          <button type="button" class="vf-kind" data-feedback-kind="problem" aria-pressed="false"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m10.3 4-8 14a2 2 0 0 0 1.7 3h16a2 2 0 0 0 1.7-3l-8-14a2 2 0 0 0-3.4 0Z" /><path d="M12 9v4m0 4h.01" stroke-linecap="round" /></svg>Report a problem</button>
+          <button type="button" class="vf-kind" data-feedback-kind="suggestion" aria-pressed="false"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14a6 6 0 1 1 8 0c-1 1-1 2-1 2H9s0-1-1-2Z" /></svg>Suggest an idea</button>
+        </fieldset>
+
+        <fieldset class="vf-experience" id="vf-experience-field">
+          <legend class="vf-label">How was your experience?</legend>
+          <div class="vf-ratings">
+            {([{ value: 'good', label: 'Good', mouth: 'M8 14s1.5 2 4 2 4-2 4-2' }, { value: 'okay', label: 'Okay', mouth: 'M8 15h8' }, { value: 'difficult', label: 'Difficult', mouth: 'M8 16s1.5-2 4-2 4 2 4 2' }]).map(({ value, label, mouth }) => <button type="button" data-feedback-rating={value} aria-pressed="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d={`M8.5 9h.01M15.5 9h.01 ${mouth}`} stroke-linecap="round" /></svg>{label}</button>)}
+          </div>
+        </fieldset>
+
+        <p id="vf-rating-save-status" class="vf-save-status" role="status" hidden></p>
+
+        <label class="vf-field" id="vf-problem-field" hidden>
+          <span class="vf-label">Where did you get stuck?</span>
+          <select class="vf-input" name="problem" id="vf-problem"><option value="">Choose a problem</option><option>Uploading a file</option><option>Cropping or resizing</option><option>Wrong file size or dimensions</option><option>Downloading the result</option><option>Page layout or buttons</option><option>Something else</option></select>
+        </label>
+
+        <label class="vf-field">
+          <span class="vf-label"><span id="vf-message-label">Anything you'd like us to know?</span><span class="vf-optional" id="vf-message-optional">Optional</span></span>
+          <textarea class="vf-input" id="vf-message" name="message" rows="3" maxlength="1000" placeholder="What worked well? What could be easier?"></textarea>
+          <span class="vf-character-count" id="vf-character-count">0 / 1000</span>
+        </label>
+
+        <label class="vf-field">
+          <span class="vf-label">Email for a reply<span class="vf-optional">Optional</span></span>
+          <input class="vf-input" id="vf-email" name="email" type="email" maxlength="254" autocomplete="email" placeholder="you@example.com" />
+        </label>
+
+        <div class="vf-context"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" /><path d="m8 12 3 3 5-6" /></svg><span>Your feedback, page and device details help us improve.<br />Your photos and signatures stay on your device.</span></div>
+        <p id="vf-error" class="vf-error" role="alert" hidden></p>
+        <button type="submit" class="vf-submit">Send feedback<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></button>
+        <p class="vf-preview-note">Ratings save when selected. Comments and email save when you send.<br />Please leave out personal document details. <a href="/privacy/#visitor-feedback" class="underline">Privacy</a></p>
+      </form>
+    </div>
+
+    <div id="vf-success" class="vf-success" role="status" hidden>
+      <span class="vf-success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg></span>
+      <h3>Thanks for sharing.</h3>
+      <p>Your feedback has reached the SignResize team.<br />Thanks for helping us improve the tools.</p>
+      <button type="button" class="vf-submit" data-feedback-close>Back to the tool</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  import { newFeedbackDraft, saveFeedback, type FeedbackDraft } from '../utils/visitorFeedback';
+  const dialog = document.getElementById('visitor-feedback-dialog') as HTMLDialogElement;
+  const form = document.getElementById('visitor-feedback-form') as HTMLFormElement;
+  const message = document.getElementById('vf-message') as HTMLTextAreaElement;
+  const email = document.getElementById('vf-email') as HTMLInputElement;
+  const problem = document.getElementById('vf-problem') as HTMLSelectElement;
+  const error = document.getElementById('vf-error')!;
+  const formContent = document.getElementById('vf-form-content')!;
+  const success = document.getElementById('vf-success')!;
+  const ratingStatus = document.getElementById('vf-rating-save-status')!;
+  const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+  let draft: FeedbackDraft;
+  let source = 'widget';
+  let opening = 0;
+  let submitting = false;
+  let kind = 'experience';
+  let rating = '';
+  let tool = '';
+  let previousOverflow = '';
+  let opener: HTMLElement | null = null;
+  const allowedKinds = new Set(['experience', 'problem', 'suggestion']);
+  const allowedRatings = new Set(['good', 'okay', 'difficult']);
+
+  function selectKind(value: string) {
+    kind = allowedKinds.has(value) ? value : 'experience';
+    dialog.querySelectorAll<HTMLButtonElement>('[data-feedback-kind]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.feedbackKind === kind)));
+    document.getElementById('vf-experience-field')!.hidden = kind !== 'experience';
+    document.getElementById('vf-problem-field')!.hidden = kind !== 'problem';
+    document.getElementById('vf-message-label')!.textContent = kind === 'problem' ? 'What happened?' : kind === 'suggestion' ? 'What would make the tool better?' : "Anything you'd like us to know?";
+    document.getElementById('vf-message-optional')!.hidden = kind !== 'experience';
+    message.required = kind !== 'experience';
+    message.placeholder = kind === 'problem' ? 'Tell us what you tried and what went wrong…' : kind === 'suggestion' ? 'A new tool, an exam preset, or a small improvement…' : 'What worked well? What could be easier?';
+    error.hidden = true;
+  }
+
+  function selectRating(value: string) {
+    rating = allowedRatings.has(value) ? value : '';
+    dialog.querySelectorAll<HTMLButtonElement>('[data-feedback-rating]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.feedbackRating === rating)));
+    error.hidden = true;
+  }
+
+  function markSaved() {
+    try { sessionStorage.setItem('signresize-feedback-dismissed', '1'); } catch {}
+    window.dispatchEvent(new CustomEvent('visitor-feedback-saved'));
+  }
+
+  async function saveRating() {
+    if (!rating || !draft) return;
+    const currentOpening = opening;
+    ratingStatus.hidden = false;
+    ratingStatus.textContent = 'Saving your rating…';
+    try {
+      // Typed details remain private until the visitor explicitly sends them.
+      await saveFeedback(draft, { kind: rating === 'difficult' ? 'problem' : 'experience', rating, tool, source });
+      markSaved();
+      if (currentOpening === opening) ratingStatus.textContent = 'Rating saved. Add a comment if you would like.';
+    } catch (failure) {
+      if (currentOpening === opening) ratingStatus.textContent = failure instanceof Error && failure.name !== 'AbortError' ? failure.message : 'Could not save the rating. Press Send feedback to retry.';
+    }
+  }
+
+  function openFeedback(detail: { kind?: string; rating?: string; tool?: string; source?: string; message?: string; email?: string } = {}) {
+    if (dialog.open) return;
+    opening++;
+    draft = newFeedbackDraft();
+    source = detail.source || 'widget';
+    opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    form.reset();
+    tool = detail.tool || document.querySelector<HTMLButtonElement>('[aria-label="Studio image type"] button[aria-pressed="true"]')?.dataset.mode || document.title.split('|')[0].trim().slice(0, 120);
+    selectKind(detail.kind || 'experience');
+    selectRating(detail.rating || '');
+    if (detail.message) message.value = detail.message.slice(0, 2000);
+    if (detail.email) email.value = detail.email.slice(0, 254);
+    ratingStatus.hidden = true;
+    submitting = false;
+    submit.disabled = false;
+    document.getElementById('vf-character-count')!.textContent = '0 / 1000';
+    formContent.hidden = false;
+    success.hidden = true;
+    dialog.setAttribute('aria-labelledby', 'vf-title');
+    dialog.setAttribute('aria-describedby', 'vf-subtitle');
+    previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    dialog.showModal();
+    dialog.scrollTop = 0;
+    if (rating) void saveRating();
+  }
+
+  document.addEventListener('click', event => {
+    const trigger = (event.target as Element).closest<HTMLElement>('[data-feedback-open]');
+    if (trigger) { event.preventDefault(); openFeedback({ kind: trigger.dataset.feedbackOpen }); }
+  });
+  window.addEventListener('open-visitor-feedback', event => openFeedback((event as CustomEvent).detail));
+  dialog.querySelectorAll<HTMLButtonElement>('[data-feedback-close]').forEach(button => button.addEventListener('click', () => dialog.close()));
+  dialog.addEventListener('click', event => { if (event.target === dialog) { const bounds = dialog.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close(); } });
+  dialog.addEventListener('close', () => { document.body.style.overflow = previousOverflow; opener?.focus({ preventScroll: true }); });
+  dialog.querySelectorAll<HTMLButtonElement>('[data-feedback-kind]').forEach(button => button.addEventListener('click', () => selectKind(button.dataset.feedbackKind!)));
+  dialog.querySelectorAll<HTMLButtonElement>('[data-feedback-rating]').forEach(button => button.addEventListener('click', () => { selectRating(button.dataset.feedbackRating!); void saveRating(); }));
+  message.addEventListener('input', () => { document.getElementById('vf-character-count')!.textContent = `${message.value.length} / 1000`; error.hidden = true; });
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (submitting) return;
+    if ((kind === 'experience' && !rating && !message.value.trim()) || (kind !== 'experience' && !message.value.trim())) {
+      error.textContent = kind === 'experience' ? 'Choose a rating or add a short message.' : 'Please add a few words so we can understand.';
+      error.hidden = false;
+      if (kind !== 'experience') message.focus();
+      return;
+    }
+    submitting = true;
+    submit.disabled = true;
+    submit.setAttribute('aria-busy', 'true');
+    const currentOpening = opening;
+    try {
+      await saveFeedback(draft, { kind, rating, category: kind === 'problem' ? problem.value : '', message: message.value.trim(), email: email.value.trim(), tool, source });
+      markSaved();
+      if (currentOpening !== opening) return;
+      formContent.hidden = true;
+      success.hidden = false;
+      const successTitle = success.querySelector('h3')!;
+      successTitle.id = 'vf-success-title';
+      dialog.setAttribute('aria-labelledby', 'vf-success-title');
+      dialog.removeAttribute('aria-describedby');
+      dialog.scrollTop = 0;
+      success.querySelector('button')?.focus({ preventScroll: true });
+    } catch (failure) {
+      if (currentOpening !== opening) return;
+      error.textContent = failure instanceof Error && failure.name !== 'AbortError' ? failure.message : 'Could not send feedback. Please check your connection and try again.';
+      error.hidden = false;
+    } finally {
+      if (currentOpening === opening) { submitting = false; submit.disabled = false; submit.removeAttribute('aria-busy'); }
+    }
+  });
+
+  if (import.meta.env.DEV && new URLSearchParams(location.search).get('feedback') === 'preview') openFeedback();
+</script>

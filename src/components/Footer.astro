@@ -5,6 +5,7 @@ import Logo from './Logo.astro';
 import SocialShare from './SocialShare.astro';
 import ChatLauncher from './ChatLauncher.astro';
 import ScrollToTop from './ScrollToTop.astro';
+import VisitorFeedback from './VisitorFeedback.astro';
 
 interface Props {
   topic?: 'exams' | 'standards' | 'tech';
@@ -570,6 +571,7 @@ if (currentPath.includes('osssc')) {
   </script>
   <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4 mt-4">
     <button id="footer-exam-help" type="button" class="rounded-lg border border-slate-700 px-3 py-2 font-semibold">Exam help</button>
+    <button type="button" data-feedback-open="experience" class="rounded-lg border border-slate-700 px-3 py-2 font-semibold">Give feedback</button>
     <a href="#" class="underline">Back to top</a>
   </div>
   <script>
@@ -582,3 +584,4 @@ if (currentPath.includes('osssc')) {
 
 {/* Client-Side AI Assistant Chatbot (Rendered outside footer so position:fixed binds to viewport window) */}
 <ChatLauncher />
+<VisitorFeedback />

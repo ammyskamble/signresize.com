@@ -12,11 +12,13 @@ import {
   Sparkles
 } from 'lucide-react';
 import type { OutputFormat } from '../types';
+import FeedbackPrompt from './FeedbackPrompt';
 import { formatFileSize, compressCanvasToTargetSize } from '../utils/imageProcessor';
 
 const KB_PRESETS = [10, 20, 50, 100, 200, 300, 500];
 
 export const ImageCompressorTool: React.FC = () => {
+  const [hasDownloaded, setHasDownloaded] = useState(false);
   const [sourceImage, setSourceImage] = useState<HTMLImageElement | null>(null);
   const [sourceFileName, setSourceFileName] = useState<string>('image');
   const [sourceOriginalSize, setSourceOriginalSize] = useState<number>(0);
@@ -161,6 +163,7 @@ export const ImageCompressorTool: React.FC = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    setHasDownloaded(true);
   };
 
   const handleCopy = async () => {
@@ -422,6 +425,7 @@ export const ImageCompressorTool: React.FC = () => {
               </div>
             </div>
 
+            <FeedbackPrompt downloaded={hasDownloaded} tool="Image compressor" />
             <div class="relative bg-muted/30 border border-border/60 rounded-xl p-4 flex items-center justify-center min-h-[250px] overflow-hidden">
               {compressedResult ? (
                 <img

@@ -1,8 +1,10 @@
 ﻿import { useCallback, useEffect, useRef, useState } from 'react';
 import { PHOTO_SHEET, photoSheetPositions, coverCrop } from '../utils/examDayTools';
 import { createPdfFromJpegBlob } from '../utils/pdfGenerator';
+import FeedbackPrompt from './FeedbackPrompt';
 
 export function PhotoPrintSheet() {
+  const [hasDownloaded, setHasDownloaded] = useState(false);
   const canvas = useRef<HTMLCanvasElement>(null);
   const input = useRef<HTMLInputElement>(null);
   const tile = useRef<HTMLCanvasElement | null>(null);
@@ -75,6 +77,7 @@ export function PhotoPrintSheet() {
       if (pdf) blob = await createPdfFromJpegBlob(blob, PHOTO_SHEET.width, PHOTO_SHEET.height, { pageSize: '4x6' });
       const url = URL.createObjectURL(blob); const a = document.createElement('a');
       a.href = url; a.download = `signresize-8-photos-6x4.${pdf ? 'pdf' : 'jpg'}`; a.click();
+      setHasDownloaded(true);
       window.setTimeout(() => URL.revokeObjectURL(url), 10_000);
     } catch { setError('Could not export the sheet. Try another photo or browser.'); }
     finally { setBusy(false); }
@@ -100,6 +103,7 @@ export function PhotoPrintSheet() {
         {[{ name: 'Zoom', value: zoom, min: 1, max: 2.5, step: .01, set: setZoom }, { name: 'Horizontal position', value: x, min: 0, max: 100, step: 1, set: setX }, { name: 'Vertical position', value: y, min: 0, max: 100, step: 1, set: setY }].map(control => <label key={control.name} className="block text-xs font-semibold">{control.name}<input aria-label={control.name} type="range" min={control.min} max={control.max} step={control.step} value={control.value} onChange={e => { control.set(Number(e.target.value)); setCheck(false); }} disabled={loading || busy} className="block w-full h-8 accent-indigo-600" /></label>)}
         <label className="flex items-start gap-2 text-xs leading-relaxed"><input type="checkbox" checked={check} onChange={e => setCheck(e.target.checked)} disabled={loading || busy} className="mt-0.5 w-4 h-4 shrink-0" /><span>I checked the crop and confirmed the photograph size in my admit card instructions.</span></label>
         <div className="flex flex-wrap gap-2"><button disabled={!check || busy || loading} onClick={() => void download(true)} className="bg-primary text-primary-foreground px-4 min-h-11 rounded-xl font-bold text-sm disabled:opacity-40">{busy ? 'Preparing…' : 'Download print PDF'}</button><button disabled={!check || busy || loading} onClick={() => void download(false)} className="border border-border px-4 min-h-11 rounded-xl font-bold text-sm disabled:opacity-40">Download JPG</button></div>
+        <FeedbackPrompt downloaded={hasDownloaded} tool="Photo print sheet" />
       </div>}
     <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 rounded-2xl border border-border bg-muted/50 p-3 sm:p-5 flex flex-col items-center gap-3 min-w-0"><div className="w-full flex justify-between text-xs font-semibold text-muted-foreground"><span>SHEET PREVIEW</span><span>1800 × 1200 px</span></div><canvas ref={canvas} width={PHOTO_SHEET.width} height={PHOTO_SHEET.height} className="w-full h-auto shadow-lg bg-white" aria-label="Preview of eight passport photographs" /><p className="text-xs text-muted-foreground text-center">Use the photograph from your application when instructed. This sheet is for printing.</p><p className="text-xs text-muted-foreground leading-relaxed">Print the PDF on 6 × 4 inch paper at <strong>Actual size / 100%</strong>. Turn off “Fit to page”. JPG print size depends on the print app settings.</p></div>
   </section>;
