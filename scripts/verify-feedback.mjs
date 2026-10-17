@@ -26,6 +26,9 @@ try {
   response = await request(`/api/feedback/${id}/`, 'PATCH', { ...input, message: 'Please make downloading clearer.' });
   assert.equal(response.status, 200, await response.text());
   assert.equal((await db.prepare('SELECT message FROM feedback WHERE id = ?').bind(id).first()).message, 'Please make downloading clearer.');
+  response = await request(`/api/feedback/${id}/`, 'PATCH', { id, token, kind: 'experience', rating: 'good', page: '/', device: 'mobile', tool: 'signature' });
+  assert.equal(response.status, 200, await response.text());
+  assert.equal((await db.prepare('SELECT message FROM feedback WHERE id = ?').bind(id).first()).message, 'Please make downloading clearer.', 'A delayed rating-only save must preserve submitted comments');
   assert.equal((await request(`/api/feedback/${id}/`, 'PATCH', { ...input, token: crypto.randomBytes(32).toString('base64url'), message: 'unauthorized overwrite' })).status, 403);
   assert.equal((await request('/api/feedback-admin/records/')).status, 401);
   assert.equal((await request('/api/feedback-admin/export/')).status, 401);
@@ -52,6 +55,9 @@ try {
   assert.match(csv, /'=HYPERLINK/); assert.ok(!csv.includes('edit_hash')); assert.ok(csv.includes('Made download clearer'));
   const filtered = await (await request('/api/feedback-admin/records/?days=all&version=verification-2', 'GET', undefined, cookie)).json();
   assert.equal(filtered.summary.total, 1); assert.equal(filtered.records[0].device, 'desktop');
+  await db.prepare('UPDATE feedback SET created_at = ? WHERE id = ?').bind('2026-10-16T20:00:00.000Z', feedback2.id).run();
+  const istTrend = await (await request('/api/feedback-admin/records/?days=all&version=verification-2', 'GET', undefined, cookie)).json();
+  assert.equal(istTrend.trend[0].date, '2026-10-17', 'Daily trends must use IST calendar dates');
   assert.equal((await request('/api/feedback/', 'POST', input, '', { Origin: 'https://untrusted.test' })).status, 403);
   assert.equal((await request('/api/feedback/', 'POST', { ...input, message: 'x'.repeat(9000) })).status, 413);
   assert.equal((await request('/api/feedback/', 'POST', { ...input, page: '//untrusted.test' })).status, 400);

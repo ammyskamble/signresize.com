@@ -144,8 +144,8 @@ export async function updateFeedback(context: FeedbackContext, id: string) {
   if (!validId(id) || !validToken(data.token)) throw new RequestError(400, 'Invalid feedback identifier.');
   const input = validateFeedback(data);
   await rateLimit(context, 'update', 100);
-  const result = await context.env.FEEDBACK_DB.prepare(`UPDATE feedback SET kind = ?, rating = ?, category = ?, message = ?, email = ?, updated_at = ?
-    WHERE id = ? AND edit_hash = ? AND edit_expires_at > ?`).bind(input.kind, input.rating, input.category, input.message, input.email, new Date().toISOString(), id, await hash(data.token), new Date().toISOString()).run();
+  const result = await context.env.FEEDBACK_DB.prepare(`UPDATE feedback SET kind = ?, rating = ?, category = CASE WHEN ? THEN ? ELSE category END, message = CASE WHEN ? THEN ? ELSE message END, email = CASE WHEN ? THEN ? ELSE email END, updated_at = ?
+    WHERE id = ? AND edit_hash = ? AND edit_expires_at > ?`).bind(input.kind, input.rating, Number(Object.hasOwn(data, 'category')), input.category, Number(Object.hasOwn(data, 'message')), input.message, Number(Object.hasOwn(data, 'email')), input.email, new Date().toISOString(), id, await hash(data.token), new Date().toISOString()).run();
   if (!result.meta.changes) throw new RequestError(403, 'This feedback can no longer be edited. Please reopen the form.');
   return json({ id, saved: true });
 }
@@ -218,7 +218,7 @@ export async function listFeedback(context: FeedbackContext) {
     context.env.FEEDBACK_DB.prepare(`SELECT COUNT(*) AS total, COALESCE(SUM(rating = 'good'), 0) AS good, COALESCE(SUM(rating = 'okay'), 0) AS okay, COALESCE(SUM(rating = 'difficult'), 0) AS difficult, COALESCE(SUM(kind = 'problem'), 0) AS problems FROM feedback ${where}`).bind(...bindings),
     context.env.FEEDBACK_DB.prepare(`SELECT tool, COUNT(*) AS count FROM feedback GROUP BY tool ORDER BY count DESC LIMIT 100`),
     context.env.FEEDBACK_DB.prepare(`SELECT version, COUNT(*) AS count FROM feedback GROUP BY version ORDER BY MAX(created_at) DESC LIMIT 100`),
-    context.env.FEEDBACK_DB.prepare(`SELECT substr(created_at, 1, 10) AS date, COUNT(*) AS total, COALESCE(SUM(rating = 'good'), 0) AS good, COALESCE(SUM(rating != ''), 0) AS rated FROM feedback ${where} GROUP BY date ORDER BY date DESC LIMIT 31`).bind(...bindings),
+    context.env.FEEDBACK_DB.prepare(`SELECT date(created_at, '+330 minutes') AS date, COUNT(*) AS total, COALESCE(SUM(rating = 'good'), 0) AS good, COALESCE(SUM(rating != ''), 0) AS rated FROM feedback ${where} GROUP BY date ORDER BY date DESC LIMIT 31`).bind(...bindings),
   ]);
   return json({ records: results[0].results, summary: results[1].results[0], tools: results[2].results, versions: results[3].results, trend: results[4].results.reverse(), page, pageSize: 50 });
 }
