@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { EXAM_PRESETS } from '../data/examPresets';
+import { EXAM_PRESETS, PHOTO_PRESETS, DOCUMENT_PRESETS } from '../data/examPresets';
 import { EXAM_PAGES_DATA } from '../data/examPagesData';
 import { BLOG_POSTS } from '../data/blogPostsData';
 import { PAN_INDIA_GOV_JOBS } from '../data/governmentJobsData';
@@ -142,6 +142,8 @@ const CORE_TOOLS = [
 const presetSlugMap = new Map([
   ['ssc-general', 'ssc-signature-resize'],
   ['upsc-civil-services', 'upsc-signature-resize'],
+  ['upsc-photo', 'upsc-photo-resize'],
+  ['ssc-photo', 'photo-resizer'],
   ['rrb-railway', 'rrb-signature-resize'],
   ['ibps-sbi', 'ibps-signature-resize'],
   ['pan-card-nsdl', 'pan-card-signature-resize'],
@@ -188,8 +190,16 @@ const presetSlugMap = new Map([
   ['lic-aao-ado', 'lic-signature-resize'],
   ['isro-drdo', 'isro-drdo-signature-resize'],
   ['pan-card-photo-nsdl', 'pan-card-photo-resize'],
+  ['pan-card-photo-nsdl-preset', 'pan-card-photo-resize'],
   ['india-post-gds-photo', 'india-post-gds-photo-resize'],
   ['kerala-psc-photo', 'kerala-psc-photo-resize'],
+  ['neet-photo', 'neet-photo-resize'],
+  ['neet-ug-photo', 'neet-photo-resize'],
+  ['ctet-photo', 'ctet-photo-resize'],
+  ['rrb-group-d-photo', 'rrb-group-d-photo-resize'],
+  ['bihar-police-photo', 'bihar-police-photo-resize'],
+  ['rajasthan-police-photo', 'rajasthan-police-photo-resize'],
+  ['mp-police-photo', 'mp-police-photo-resize'],
   ['teletalk-bd', 'teletalk-photo-signature-resize'],
   ['ppsc-pk', 'ppsc-signature-resize'],
   ['fpsc-pk', 'fpsc-photo-resize'],
@@ -223,7 +233,51 @@ const searchableExams = EXAM_PRESETS.map((p) => {
     minKb: p.minKb,
     maxKb: p.maxKb,
     inkRequirement: p.inkRequirement,
-    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} ${page ? page.keywords + ' ' + page.targetExams + ' ' + page.authority : ''}`
+    badge: 'EXAM',
+    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} signature resize sign compressor ${page ? page.keywords + ' ' + page.targetExams + ' ' + page.authority : ''}`
+  };
+});
+
+const searchablePhotos = PHOTO_PRESETS.map((p) => {
+  const page = examPageMap.get(p.id);
+  const slug = page?.slug || presetSlugMap.get(p.id) || null;
+  const url = slug ? getExamUrl(slug, p.id) : `/photo-resizer/?preset=${encodeURIComponent(p.id)}#tool-workspace`;
+  return {
+    type: 'exam',
+    id: p.id,
+    slug: slug,
+    url,
+    title: p.name,
+    shortCode: p.shortCode,
+    category: p.category,
+    widthPx: p.widthPx,
+    heightPx: p.heightPx,
+    minKb: p.minKb,
+    maxKb: p.maxKb,
+    inkRequirement: p.inkRequirement,
+    badge: 'PHOTO',
+    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} ${p.authority || ''} photo resize photo resizer photo size passport photo dimensions ${p.minKb} to ${p.maxKb} kb ${page ? page.keywords + ' ' + page.targetExams + ' ' + page.authority : ''}`
+  };
+});
+
+const searchableDocs = DOCUMENT_PRESETS.map((p) => {
+  const slug = presetSlugMap.get(p.id) || null;
+  const url = slug ? getExamUrl(slug, p.id) : `/document-resizer/?preset=${encodeURIComponent(p.id)}#tool-workspace`;
+  return {
+    type: 'tool',
+    id: p.id,
+    slug: slug,
+    url,
+    title: p.name,
+    shortCode: p.shortCode,
+    category: p.category,
+    widthPx: p.widthPx,
+    heightPx: p.heightPx,
+    minKb: p.minKb,
+    maxKb: p.maxKb,
+    inkRequirement: p.inkRequirement,
+    badge: 'DOC',
+    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} document marksheet certificate resize compress ${p.minKb} to ${p.maxKb} kb`
   };
 });
 
@@ -260,6 +314,8 @@ const searchableJobs = PAN_INDIA_GOV_JOBS.map((j) => ({
 const websiteSearchIndex = [
   ...CORE_TOOLS,
   ...searchableExams,
+  ...searchablePhotos,
+  ...searchableDocs,
   ...searchableBlogs,
   ...searchableJobs
 ];

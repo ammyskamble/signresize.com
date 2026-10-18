@@ -84,7 +84,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     presetId: 'upsc-civil-services',
     pageTitle: 'UPSC Signature Resize 20 to 300 KB (350x350 px) Online - SignResize',
     metaDescription: 'Free UPSC signature resize & cropper. Format signature to 350x350 px (3.5x3.5 cm), 20 to 300 KB file size for UPSC Civil Services (IAS, IFS), NDA, CDS, CMS, and IES portals.',
-    keywords: 'upsc signature resize, upsc signature size 20 to 300 kb, upsc signature dimensions 350x350, upsc cse signature resizer, upsc nda signature size, upsc cds signature cropper, ias exam signature resize',
+    keywords: 'upsc signature resize, upsc photo resize, upsc signature size 20 to 300 kb, upsc photo size 20 to 300 kb, upsc signature dimensions 350x350, upsc cse signature resizer, upsc nda signature size, upsc cds signature cropper, ias exam signature resize, upsc otr signature resize',
     h1: 'UPSC Signature Resize & Cropper (20 KB – 300 KB)',
     subheading: 'Precise 350×350 px square ratio with 20 KB to 300 KB file size limits compliant with UPSC Civil Services, NDA, CDS, and OTR registration.',
     authority: 'Union Public Service Commission (UPSC)',
@@ -100,6 +100,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Black Ballpoint Ink Only',
     aspectRatioLabel: '1:1 Square (350×350 px)',
     strictNotice: 'UPSC requires a square aspect ratio (minimum 350×350 px, maximum 1000×1000 px). Must be clearly legible on white background.',
+    relatedTools: ['upsc-photo-resize', 'photo-resizer', 'photo-with-name-and-date-maker'],
     tips: [
       'Keep the aspect ratio set to 1:1 square; do not stretch or compress non-proportionately.',
       'A file size between 40 KB and 80 KB ensures high sharpness while staying well within the 300 KB ceiling.',
@@ -122,6 +123,53 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'How to crop signature for UPSC OTR (One Time Registration)?',
         a: 'Upload your photo, select the UPSC preset on SignResize, center the square crop box over your signature, and download the portal-compliant JPG.'
+      }
+    ]
+  },
+  {
+    slug: 'upsc-photo-resize',
+    presetId: 'upsc-photo',
+    pageTitle: 'UPSC Photo Resize 20 to 300 KB (350x350 px) Online - SignResize',
+    metaDescription: 'Free UPSC photo resize & compressor tool. Resize passport photo to 350x350 px (min 350x350 to 1000x1000 px), 20 to 300 KB JPG with Name and Date stamp for UPSC Civil Services (IAS), NDA, CDS, and OTR registration.',
+    keywords: 'upsc photo resize, upsc photo size 20 to 300 kb, upsc photo dimensions 350x350, upsc otr photo resize, upsc photo with name and date, upsc cse photo resizer, upsc passport photo size, upsc photo compressor online, upsc civil services photo resize',
+    h1: 'UPSC Photo Resize & Compressor (20 KB – 300 KB)',
+    subheading: 'Official 1:1 square ratio (350×350 px to 1000×1000 px), 20–300 KB file limits, 75%+ face coverage, and Name & Date imprint compliant with UPSC OTR recruitment guidelines.',
+    authority: 'Union Public Service Commission (UPSC)',
+    targetExams: 'UPSC Civil Services (IAS, IPS, IFS), NDA & NA, CDS, CMS, IES/ISS, CAPF, EPFO, UPSC OTR Registration',
+    widthPx: 350,
+    heightPx: 350,
+    widthCm: 3.5,
+    heightCm: 3.5,
+    minKb: 20,
+    maxKb: 300,
+    recommendedKb: 50,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '1:1 Square (350×350 px)',
+    strictNotice: 'UPSC OTR portal mandates a recent color photo (captured within 10 days of application) with pure white background, candidate Name and Date of Photograph printed boldly at the bottom, and 3/4th (75%+) face coverage.',
+    relatedTools: ['upsc-signature-resize', 'photo-with-name-and-date-maker', 'photo-resizer'],
+    tips: [
+      'UPSC OTR rules require candidate full name and date of photo capture printed clearly at the bottom.',
+      'Ensure square aspect ratio (1:1) with minimum 350×350 pixels and file size between 20 KB and 300 KB.',
+      'Face should occupy at least 75% of the frame with both ears clearly visible against a light or white background.',
+      'Avoid dark glasses, hats, selfies, or shadows across your face to prevent automated OTR rejection.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required dimension and file size for UPSC photo upload?',
+        a: 'UPSC requires a square aspect ratio photograph (minimum 350 × 350 pixels, maximum 1000 × 1000 pixels) with a file size strictly between 20 KB and 300 KB in JPG format.'
+      },
+      {
+        q: 'Is Name and Date mandatory on UPSC photo?',
+        a: 'Yes. As per official UPSC OTR (One Time Registration) instructions, the candidate\'s full name and the date on which the photograph was taken must be clearly inscribed at the bottom of the photograph.'
+      },
+      {
+        q: 'What is the 10-day recency rule for UPSC photograph?',
+        a: 'The photograph must not be older than 10 days from the date of starting of the online application process. The candidate\'s appearance on the examination day must match the photograph uploaded.'
+      },
+      {
+        q: 'How do I resize photo and signature for UPSC online?',
+        a: 'Use SignResize\'s UPSC Photo Resizer for 350×350 px (20–300 KB) with optional Name and Date stamp, and switch to UPSC Signature Resizer for 350×350 px / 140×60 px (20–300 KB) with zero quality loss.'
       }
     ]
   },

@@ -192,9 +192,14 @@ Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks 
       <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
         <h4 class="text-base font-bold text-foreground">Preparing UPSC OTR Documents?</h4>
         <p class="text-sm text-muted-foreground mt-1">Ensure your UPSC passport photo and signature comply with official OTR specs before the registration portal closes.</p>
-        <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
-          Open UPSC Resizer Preset &rarr;
-        </a>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <a href="/upsc-photo-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+            📸 UPSC Photo Resizer (350×350) &rarr;
+          </a>
+          <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+            ✍️ UPSC Signature Resizer &rarr;
+          </a>
+        </div>
       </div>
     `,
     faqs: []
