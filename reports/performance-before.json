@@ -1,0 +1,51 @@
+{
+  "/": {
+    "javascriptFiles": 12,
+    "rawBytes": 487233,
+    "gzipBytes": 136513,
+    "files": [
+      "Header.astro_astro_type_script_index_0_lang.Bgr8wT-K.js",
+      "ClosingSoon.QjlTvUrN.js",
+      "react.C1ey7NV-.js",
+      "jsx-runtime.ByXpT_qf.js",
+      "client.bv5d6dOM.js",
+      "SignatureTool.ycDiKSiD.js",
+      "download.BA94Ev51.js",
+      "imageProcessor.dL_z1sbf.js",
+      "trash.3CEVecNt.js",
+      "x.WWs6ImOC.js",
+      "pdfGenerator.CsiWtAmg.js",
+      "ChatBot.SOCeDyt1.js"
+    ]
+  },
+  "/admit-card-photo-print-sheet/": {
+    "javascriptFiles": 10,
+    "rawBytes": 248259,
+    "gzipBytes": 79990,
+    "files": [
+      "ClosingSoon.QjlTvUrN.js",
+      "react.C1ey7NV-.js",
+      "jsx-runtime.ByXpT_qf.js",
+      "client.bv5d6dOM.js",
+      "Header.astro_astro_type_script_index_0_lang.Bgr8wT-K.js",
+      "PhotoPrintSheet.D1d__yfi.js",
+      "examDayTools.1_gnUiJc.js",
+      "pdfGenerator.CsiWtAmg.js",
+      "sampleImages.DBSCKhgD.js",
+      "ChatBot.SOCeDyt1.js"
+    ]
+  },
+  "/about/": {
+    "javascriptFiles": 6,
+    "rawBytes": 232965,
+    "gzipBytes": 73903,
+    "files": [
+      "ClosingSoon.QjlTvUrN.js",
+      "react.C1ey7NV-.js",
+      "jsx-runtime.ByXpT_qf.js",
+      "client.bv5d6dOM.js",
+      "Header.astro_astro_type_script_index_0_lang.Bgr8wT-K.js",
+      "ChatBot.SOCeDyt1.js"
+    ]
+  }
+}
