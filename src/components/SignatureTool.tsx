@@ -86,6 +86,7 @@ import { MobileOptions } from './tool/MobileOptions';
 import { UploadChecks } from './tool/UploadChecks';
 import { PortraitBackgroundFix } from './tool/PortraitBackgroundFix';
 import { ImageRuleChecks, ExportChecksDialog } from './tool/ImageRuleChecks';
+import { ComplianceRejectionAudit } from './tool/ComplianceRejectionAudit';
 import { fileIntakeError, inspectExport } from '../utils/uploadValidation';
 import { takeBackgroundTransfer, TRANSFER_HASH, type BackgroundTransfer, type BackgroundMode } from '../utils/backgroundTransfer';
 import { trackBackgroundEvent } from '../utils/backgroundEvents';
@@ -418,6 +419,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   // Mode state: 'single' or 'batch'
   const [toolMode, setToolMode] = useState<'single' | 'batch'>('single');
   const [studioAdvanced, setStudioAdvanced] = useState(false);
+  const [slateConfirmed, setSlateConfirmed] = useState(false);
 
 
   // Helper to reliably detect image files (including HEIC, JFIF, and cases where OS mime type is empty)
@@ -573,6 +575,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     setMaxKbInput(String(preset.maxKb));
     setLockAspect(true);
     setTargetFormat('image/jpeg');
+    setSlateConfirmed(false);
 
     if (preset.targetType) {
       setTargetType(preset.targetType);
@@ -4106,7 +4109,23 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 </div>
               </div>
 
-              {sourceImage && <ImageRuleChecks image={sourceImage} source={{ name: sourceFileName, type: sourceFileType, size: sourceOriginalSize, ...sourceDimensions }} preset={selectedPreset} mode={targetType} onClean={() => setFilters(prev => ({ ...prev, cleanPaper: true }))} onRemoveBackground={() => { const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null; if (fix) fix.open = true; document.getElementById('canvas-background-fix')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); document.getElementById('remove-canvas-background')?.focus({ preventScroll: true }); }} />}
+              {sourceImage && (
+                <ImageRuleChecks
+                  image={sourceImage}
+                  source={{ name: sourceFileName, type: sourceFileType, size: sourceOriginalSize, ...sourceDimensions }}
+                  preset={selectedPreset}
+                  mode={targetType}
+                  rule={exportRule}
+                  processedResult={processedResult}
+                  onClean={() => setFilters((prev) => ({ ...prev, cleanPaper: true }))}
+                  onRemoveBackground={() => {
+                    const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null;
+                    if (fix) fix.open = true;
+                    document.getElementById('canvas-background-fix')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    document.getElementById('remove-canvas-background')?.focus({ preventScroll: true });
+                  }}
+                />
+              )}
               {sourceImage && <PortraitBackgroundFix key={targetType} mode={targetType} image={sourceImage} isSample={isSampleImage} onApply={image => { setProcessedResult(null); setSourceImage(image); }} />}
 
               {targetType === 'photo' && <MobileOptions enabled={focusedWorkspace} title="Photo options: alignment, name & date">
@@ -4444,21 +4463,36 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Status</div>
                     <div className="pt-0.5">
                       {processedResult ? (
-                        isCoastGuardActive && targetType === 'photo' ? (
-                          <span className="inline-flex items-center gap-1 font-bold text-rose-700 dark:text-rose-400 bg-rose-500/15 border border-rose-500/40 px-2 py-0.5 rounded text-[10px]" title="Normal photos disqualified without physical slate">
-                            <AlertCircle className="w-3.5 h-3.5 text-rose-600" />
-                            <span>Missing Slate &amp; DoP</span>
-                          </span>
-                        ) : processedResult.withinTargetBounds && inspectExport(processedResult, exportRule).length === 0 ? (
-                          <span className="inline-flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-300 text-[11px]">
-                            <CheckCircle2 className="w-3.5 h-3.5" />
-                            <span>Ready</span>
-                          </span>
-                        ) : (
-                          <span className="inline-flex items-center gap-1 font-bold text-amber-900 dark:text-amber-300 text-[11px]">
-                            <AlertCircle className="w-3.5 h-3.5" />
+                        !processedResult.withinTargetBounds || inspectExport(processedResult, exportRule).length > 0 ? (
+                          <button
+                            type="button"
+                            onClick={() => setShowExportChecks(true)}
+                            className="inline-flex items-center gap-1 font-bold text-amber-900 dark:text-amber-300 bg-amber-500/15 border border-amber-500/40 px-2 py-0.5 rounded text-[10px] cursor-pointer hover:bg-amber-500/25 transition"
+                            title="Click to view file checks"
+                          >
+                            <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
                             <span>Fix Export</span>
-                          </span>
+                          </button>
+                        ) : isCoastGuardActive && targetType === 'photo' && !slateConfirmed ? (
+                          <button
+                            type="button"
+                            onClick={() => setShowExportChecks(true)}
+                            className="inline-flex items-center gap-1 font-bold text-amber-700 dark:text-amber-400 bg-amber-500/15 border border-amber-500/40 px-2 py-0.5 rounded text-[10px] cursor-pointer hover:bg-amber-500/25 transition"
+                            title="Indian Coast Guard requires physical slate with Name & Date"
+                          >
+                            <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
+                            <span>Confirm Slate</span>
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => setShowExportChecks(true)}
+                            className="inline-flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded text-[11px] cursor-pointer hover:bg-emerald-500/25 transition"
+                            title="Click to inspect compliance checklist"
+                          >
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                            <span>Ready</span>
+                          </button>
                         )
                       ) : (
                         <span className="text-[11px] text-muted-foreground font-mono">{compactStudio ? 'Awaiting image' : 'Ready to process'}</span>
@@ -4492,75 +4526,25 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   </div>
                 )}
 
-                {/* 🚨 INDIAN COAST GUARD PHOTO REJECTION AUDIT (BELOW PREVIEW IMAGE) */}
-                {isCoastGuardActive && targetType === 'photo' && (
-                  <div id="cg-photo-preview-audit" className="rounded-xl border-2 border-rose-500 bg-rose-500/10 dark:bg-rose-950/40 p-3.5 space-y-2 text-xs">
-                    <div className="flex items-center justify-between border-b border-rose-500/30 pb-2">
-                      <div className="font-extrabold text-rose-700 dark:text-rose-400 flex items-center gap-1.5 text-xs">
-                        <span className="text-base">🚨</span>
-                        <span>Coast Guard Photo Rejection Warning: What Is Missing?</span>
-                      </div>
-                      <span className="text-[10px] font-mono font-bold bg-rose-600 text-white px-2 py-0.5 rounded shadow-xs">
-                        DISQUALIFICATION RISK
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-foreground font-semibold leading-relaxed">
-                      If this is a normal portrait, <strong>it will be cancelled by Indian Coast Guard</strong> at Stage-I scrutiny. Check what is missing in your uploaded photo:
-                    </p>
-                    <div className="space-y-1.5 text-[11px]">
-                      <div className="flex items-start gap-1.5 p-2 rounded-lg bg-card/80 border border-rose-500/30">
-                        <span className="text-rose-600 dark:text-rose-400 font-bold shrink-0">❌</span>
-                        <div>
-                          <strong className="text-rose-700 dark:text-rose-300">1. Missing Physical Black Slate:</strong>
-                          <span className="text-muted-foreground block">You must hold a black chalkboard in front of your chest while the photo is taken.</span>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-1.5 p-2 rounded-lg bg-card/80 border border-rose-500/30">
-                        <span className="text-rose-600 dark:text-rose-400 font-bold shrink-0">❌</span>
-                        <div>
-                          <strong className="text-rose-700 dark:text-rose-300">2. Missing White Chalk Name &amp; Date (DoP):</strong>
-                          <span className="text-muted-foreground block">Candidate Name and Date of Photo must be written on the slate in white chalk in CAPITAL letters.</span>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-1.5 p-2 rounded-lg bg-card/80 border border-amber-500/30">
-                        <span className="text-amber-600 dark:text-amber-400 font-bold shrink-0">👓</span>
-                        <div>
-                          <strong className="text-amber-700 dark:text-amber-300">3. Spectacles / Glasses Prohibited:</strong>
-                          <span className="text-muted-foreground block">Candidates wearing spectacles/glasses are disqualified. Retake without glasses.</span>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-1.5 p-2 rounded-lg bg-card/80 border border-amber-500/30">
-                        <span className="text-amber-600 dark:text-amber-400 font-bold shrink-0">⚠️</span>
-                        <div>
-                          <strong className="text-amber-700 dark:text-amber-300">4. Plain Light / White Background:</strong>
-                          <span className="text-muted-foreground block">Must have a plain light/white background. Dark or gradient backgrounds are rejected.</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between gap-2 pt-1 border-t border-rose-500/20 text-[10px] text-muted-foreground">
-                      <a
-                        href="https://joinindiancoastguard.cdac.in/cgept/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold text-rose-700 dark:text-rose-400 hover:underline flex items-center gap-1"
-                        title="Official Join Indian Coast Guard CGEPT Notification"
-                      >
-                        <span>Official Source: CGEPT Notification Clause (aa)</span>
-                        <ExternalLink className="w-2.5 h-2.5" />
-                      </a>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null;
-                          if (fix) fix.open = true;
-                          document.getElementById('canvas-background-fix')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }}
-                        className="font-bold text-primary hover:underline cursor-pointer"
-                      >
-                        Make Background White →
-                      </button>
-                    </div>
-                  </div>
+                {/* 🚨 COMPLIANCE & REJECTION WARNING AUDIT (BELOW PREVIEW IMAGE FOR ALL TOOLS ACROSS THE WEBSITE) */}
+                {processedResult && (
+                  <ComplianceRejectionAudit
+                    preset={selectedPreset}
+                    mode={targetType}
+                    rule={exportRule}
+                    sourceImage={sourceImage}
+                    processedResult={processedResult}
+                    backgroundIssues={null}
+                    slateConfirmed={slateConfirmed}
+                    onConfirmSlate={setSlateConfirmed}
+                    onRemoveBackground={() => {
+                      const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null;
+                      if (fix) fix.open = true;
+                      document.getElementById('canvas-background-fix')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }}
+                    onClean={() => setFilters((prev) => ({ ...prev, cleanPaper: true }))}
+                    variant="previewCard"
+                  />
                 )}
 
                 {/* Primary Download & Copy Action Buttons */}
@@ -5065,7 +5049,31 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
       {/* Floating Toast Notification Stack */}
       {focusedWorkspace && toolMode === 'single' && sourceImage && <MobileConversionBar result={processedResult} busy={isProcessing || isDraggingCrop} error={uploadError} onReview={() => setShowExportChecks(true)} />}
-      <ExportChecksDialog open={showExportChecks} result={processedResult} preset={selectedPreset} rule={exportRule} busy={isProcessing} onClose={() => setShowExportChecks(false)} onDownload={() => { handleDownload(); setShowExportChecks(false); }} onRestore={() => { if (selectedPreset) applyPreset(selectedPreset); setShowExportChecks(false); }} />
+      <ExportChecksDialog
+        open={showExportChecks}
+        result={processedResult}
+        preset={selectedPreset}
+        rule={exportRule}
+        busy={isProcessing}
+        mode={targetType}
+        slateConfirmed={slateConfirmed}
+        onConfirmSlate={setSlateConfirmed}
+        onClose={() => setShowExportChecks(false)}
+        onDownload={() => {
+          handleDownload();
+          setShowExportChecks(false);
+        }}
+        onRestore={() => {
+          if (selectedPreset) applyPreset(selectedPreset);
+          setShowExportChecks(false);
+        }}
+        onRemoveBackground={() => {
+          const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null;
+          if (fix) fix.open = true;
+          document.getElementById('canvas-background-fix')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }}
+        onClean={() => setFilters((prev) => ({ ...prev, cleanPaper: true }))}
+      />
       <ToastNotification toasts={toasts} onDismiss={removeToast} />
 
     </div>
