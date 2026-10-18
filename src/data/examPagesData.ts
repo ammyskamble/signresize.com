@@ -1337,6 +1337,60 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       }
     ]
   },
+  // 17b. NICL AO (Scale I)
+  {
+    slug: 'nicl-ao-signature-resize',
+    presetId: 'nicl-ao',
+    pageTitle: 'NICL AO Signature & Photo Resize 10 to 20 KB Online - SignResize',
+    metaDescription: 'Resize signature, passport photo, left thumb impression, and handwritten declaration for NICL AO 2026. 100% compliant with official IBPS/NICL portal specs.',
+    keywords: 'nicl ao signature resize, nicl ao photo resize, nicl ao handwritten declaration resize, nicl ao thumb impression size, national insurance administrative officer photo size, nicl ao 2026 application',
+    h1: 'NICL AO Signature, Photo & Declaration Resizer',
+    subheading: 'Official 140×60 px signature (10–20 KB), 200×230 px photo (20–50 KB), 240×240 px thumb (20–50 KB), and 800×400 px handwritten declaration (50–100 KB) for National Insurance Company Limited (NICL) / IBPS recruitment.',
+    authority: 'National Insurance Company Limited (NICL / IBPS)',
+    targetExams: 'NICL AO (Scale I Generalist & Specialists), NIACL AO, UIIC AO, OICL AO, LIC AAO',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'Signatures and Handwritten Declarations in CAPITAL / BLOCK LETTERS will be rejected by the NICL / IBPS online scrutiny system. Both must be in candidate\'s own natural running handwriting in black ink.',
+    verifiedOn: '2026-10-16',
+    guidanceLabel: 'NICL AO (IBPS Portal) Official Upload Guidance',
+    sources: [
+      { label: 'NICL AO Official Online Application Portal (ibpsreg.ibps.in/niiclsep26/)', url: 'https://ibpsreg.ibps.in/niiclsep26/' },
+      { label: 'National Insurance Company Limited Official Portal (nationalinsurance.nic.co.in)', url: 'https://nationalinsurance.nic.co.in/' }
+    ],
+    relatedTools: ['handwritten-declaration-resizer', 'photo-resizer', 'document-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Sign with a black ballpoint pen on plain white paper in running handwriting (never use capital letters).',
+      'For Passport Photograph: 200×230 pixels, 20 KB to 50 KB JPG with a plain light or white background.',
+      'For Left Thumb Impression (LTI): 240×240 pixels (3×3 cm), 20 KB to 50 KB JPG stamped with black or blue ink pad.',
+      'For Handwritten Declaration: Write the exact IBPS/NICL declaration text in black ink on white paper, sized strictly between 50 KB and 100 KB JPG (800×400 pixels). Declarations in capital letters or typed font are disqualified.'
+    ],
+    faqs: [
+      {
+        q: 'What is the exact signature size for NICL AO recruitment?',
+        a: 'The NICL AO portal mandates a signature between 10 KB and 20 KB in JPG format, with pixel dimensions of 140×60 px (4×2 cm) signed in black ink. Capital letters are strictly rejected.'
+      },
+      {
+        q: 'What is the required wording for NICL AO Handwritten Declaration?',
+        a: 'The official text is: "I, _______ (Name of the candidate), hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required." It must be written by hand in black ink (no block letters) and sized between 50 KB and 100 KB.'
+      },
+      {
+        q: 'What are the photo dimensions and file size for NICL AO 2026?',
+        a: 'NICL AO requires a recent color passport photograph of 200×230 pixels (3.5×4.5 cm) with a file size between 20 KB and 50 KB in JPG format against a light/white background.'
+      },
+      {
+        q: 'What is the Left Thumb Impression specification for NICL AO?',
+        a: 'The left thumb impression must be stamped in black or blue ink on white paper, sized 240×240 pixels (3×3 cm) with a file size of 20 KB to 50 KB in JPG format.'
+      }
+    ]
+  },
   // 18. Agniveer
   {
     slug: 'agniveer-signature-resize',

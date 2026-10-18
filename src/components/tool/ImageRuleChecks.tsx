@@ -21,6 +21,12 @@ export function ImageRuleChecks({ image, source, preset, mode, onClean, onRemove
     preset?.name.toLowerCase().includes('coast guard') ||
     preset?.authority.toLowerCase().includes('coast guard')
   );
+  const isNicl = Boolean(
+    preset?.id.includes('nicl') ||
+    preset?.id === 'handwritten-declaration' ||
+    preset?.name.toLowerCase().includes('nicl') ||
+    preset?.authority.toLowerCase().includes('nicl')
+  );
 
   if (isCoastGuard && mode === 'photo') {
     return (
@@ -108,10 +114,10 @@ export function ImageRuleChecks({ image, source, preset, mode, onClean, onRemove
   }
 
   return <section aria-label="Image issues and exam rules" aria-live="polite" className="image-rule-notice rounded-lg border border-border">
-    <details key={`${source.name}-${preset.id}`} open={isCoastGuard || Boolean(backgroundIssues?.length)}>
+    <details key={`${source.name}-${preset.id}`} open={isCoastGuard || isNicl || Boolean(backgroundIssues?.length)}>
       <summary className="cursor-pointer">
         <span>Image checks · {preset.shortCode}</span>
-        <small className={isCoastGuard || backgroundIssues?.length ? 'text-rose-600 dark:text-rose-400 font-bold' : ''}>
+        <small className={isCoastGuard || isNicl || backgroundIssues?.length ? 'text-rose-600 dark:text-rose-400 font-bold' : ''}>
           {backgroundIssues?.length 
             ? 'Background needs review' 
             : sourceIssues.length 
@@ -163,6 +169,70 @@ export function ImageRuleChecks({ image, source, preset, mode, onClean, onRemove
                 <li><strong>Language:</strong> English or Hindi only. (If in regional language, merge certified English translation into the same file).</li>
                 <li><strong>File Limits:</strong> Strictly between <strong>50 KB and 150 KB</strong> in JPG/JPEG format.</li>
               </ul>
+            )}
+          </div>
+        )}
+
+        {/* DEDICATED NICL AO SIGNATURE AUDIT */}
+        {isNicl && mode === 'signature' && (
+          <div role="alert" className="rounded-xl border border-primary/40 bg-primary/10 p-3.5 text-xs space-y-2">
+            <div className="flex items-center justify-between gap-2 font-bold text-primary text-xs">
+              <span className="flex items-center gap-1.5"><span>🖋️</span> NICL AO Signature Rule Checklist (IBPS Portal)</span>
+              <span className="font-mono text-[10px] bg-primary/20 px-2 py-0.5 rounded">10 KB – 20 KB JPG</span>
+            </div>
+            <ul className="list-disc pl-4 space-y-1 text-muted-foreground text-[11px]">
+              <li><strong>Black Ink Only:</strong> Sign strictly with a black ballpoint ink pen on plain white paper. Blue ink is rejected.</li>
+              <li><strong>Running Natural Handwriting:</strong> Signatures in <strong>CAPITAL / BLOCK LETTERS</strong> are disqualified by IBPS portal scrutiny.</li>
+              <li><strong>File Specifications:</strong> 140 × 60 pixels (~4 × 2 cm), strictly 10.0 KB to 20.0 KB in JPG format.</li>
+            </ul>
+          </div>
+        )}
+
+        {/* DEDICATED NICL AO PHOTO AUDIT */}
+        {isNicl && mode === 'photo' && (
+          <div role="alert" className="rounded-xl border border-primary/40 bg-primary/10 p-3.5 text-xs space-y-2">
+            <div className="flex items-center justify-between gap-2 font-bold text-primary text-xs">
+              <span className="flex items-center gap-1.5"><span>📸</span> NICL AO Passport Photo Standards</span>
+              <span className="font-mono text-[10px] bg-primary/20 px-2 py-0.5 rounded">20 KB – 50 KB JPG</span>
+            </div>
+            <ul className="list-disc pl-4 space-y-1 text-muted-foreground text-[11px]">
+              <li><strong>Recent Color Picture:</strong> Passport photograph (200 × 230 px / ~3.5 × 4.5 cm) taken against a light or pure white background.</li>
+              <li><strong>Face &amp; Eyes Uncovered:</strong> Direct eye contact looking straight into camera with a relaxed face. No caps, hats, dark glasses, or tinted lenses.</li>
+              <li><strong>File Size Bounds:</strong> Strictly between 20.0 KB and 50.0 KB in JPG format.</li>
+            </ul>
+          </div>
+        )}
+
+        {/* DEDICATED NICL AO DOCUMENT / THUMB / DECLARATION AUDIT */}
+        {isNicl && mode === 'document' && (
+          <div role="alert" className="rounded-xl border border-primary/40 bg-primary/10 p-3.5 text-xs space-y-2">
+            <div className="flex items-center justify-between gap-2 font-bold text-primary text-xs">
+              <span className="flex items-center gap-1.5">
+                <span>{preset?.id.includes('thumb') ? '👆' : '📝'}</span> 
+                {preset?.id.includes('thumb') ? 'NICL AO Left Thumb Impression (LTI)' : 'NICL AO Handwritten Declaration Checklist'}
+              </span>
+              <span className="font-mono text-[10px] bg-primary/20 px-2 py-0.5 rounded">
+                {preset?.id.includes('thumb') ? '20 KB – 50 KB JPG' : '50 KB – 100 KB JPG'}
+              </span>
+            </div>
+            {preset?.id.includes('thumb') ? (
+              <ul className="list-disc pl-4 space-y-1 text-muted-foreground text-[11px]">
+                <li><strong>Left-Hand Thumb:</strong> Candidate's left thumb stamped using blue or black stamp pad ink on clean white paper.</li>
+                <li><strong>Sharp Ridge Detail:</strong> No smudged ink or double impressions. The fingerprint must have distinct biometric ridges.</li>
+                <li><strong>Dimensions &amp; Size:</strong> 240 × 240 px (3 × 3 cm), file size strictly between 20 KB and 50 KB JPG.</li>
+              </ul>
+            ) : (
+              <div className="space-y-1.5 text-[11px] text-muted-foreground">
+                <p><strong>Verbatim Declaration Text:</strong></p>
+                <blockquote className="p-2 rounded bg-card border border-border italic text-foreground font-serif text-[11px]">
+                  &ldquo;I, _______ (Name of the candidate), hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.&rdquo;
+                </blockquote>
+                <ul className="list-disc pl-4 space-y-0.5">
+                  <li><strong>Candidate's Own Hand:</strong> Must be written by the applicant in English using a <strong>Black Ink Pen</strong> on white paper.</li>
+                  <li><strong>Disqualification Trap:</strong> Declarations written in <strong>CAPITAL / BLOCK LETTERS</strong> or typed on computer will be rejected.</li>
+                  <li><strong>File Size:</strong> 800 × 400 pixels (10 × 5 cm), strictly between <strong>50 KB and 100 KB</strong> in JPG format.</li>
+                </ul>
+              </div>
             )}
           </div>
         )}

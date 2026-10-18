@@ -314,7 +314,13 @@ const PRESET_ALIASES: Record<string, string> = {
   paspor: 'id-passport',
   'id-cpns': 'id-cpns',
   'id-utbk': 'id-utbk',
-  'id-passport': 'id-passport'
+  'id-passport': 'id-passport',
+  // NICL AO & Insurance aliases
+  nicl: 'nicl-ao',
+  'nicl-ao': 'nicl-ao',
+  'nicl-photo': 'nicl-ao-photo',
+  'nicl-thumb': 'nicl-left-thumb',
+  declaration: 'handwritten-declaration'
 };
 
 const findPresetByKey = (key: string): ExamPreset | undefined => {
@@ -592,22 +598,123 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     setTargetType(newType);
     const presets = newType === 'photo' ? PHOTO_PRESETS : newType === 'document' ? DOCUMENT_PRESETS : SIGNATURE_PRESETS;
     
-    // Auto-map to current exam family (e.g. Indian Coast Guard, SSC, UPSC, RRB)
-    const curId = selectedPreset?.id || resolvedPreset?.id || initialPresetId || '';
+    // Auto-map to current exam family (e.g. NICL AO, Coast Guard, SSC, UPSC, RRB, Banking)
+    const curId = (selectedPreset?.id || resolvedPreset?.id || initialPresetId || '').toLowerCase();
     const curName = (selectedPreset?.name || resolvedPreset?.name || '').toLowerCase();
     const curAuth = (selectedPreset?.authority || resolvedPreset?.authority || '').toLowerCase();
-    const isCoastGuard = curId.includes('coast-guard') || curName.includes('coast guard') || curAuth.includes('coast guard');
-    
+
     let targetPreset: ExamPreset | undefined;
-    if (isCoastGuard) {
+
+    // 1. Indian Coast Guard
+    if (curId.includes('coast-guard') || curName.includes('coast guard') || curAuth.includes('coast guard')) {
       if (newType === 'signature') {
         targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'indian-coast-guard');
       } else if (newType === 'photo') {
         targetPreset = PHOTO_PRESETS.find(p => p.id === 'indian-coast-guard-photo');
       } else if (newType === 'document') {
-        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'indian-coast-guard-document' || p.id === 'indian-coast-guard-thumb-doc');
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'indian-coast-guard-thumb-doc' || p.id === 'indian-coast-guard-document');
       }
-    } else if (selectedPreset) {
+    }
+    // 2. NICL AO & Insurance
+    else if (curId.includes('nicl') || curId === 'handwritten-declaration' || curName.includes('nicl') || curAuth.includes('national insurance')) {
+      if (newType === 'signature') {
+        targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'nicl-ao') || SIGNATURE_PRESETS.find(p => p.id === 'ibps-sbi');
+      } else if (newType === 'photo') {
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'nicl-ao-photo') || PHOTO_PRESETS.find(p => p.id === 'ibps-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'handwritten-declaration') || DOCUMENT_PRESETS.find(p => p.id === 'nicl-left-thumb');
+      }
+    }
+    // 3. Banking: IBPS & SBI
+    else if (curId.startsWith('ibps') || curId.startsWith('sbi') || curName.includes('ibps') || curName.includes('sbi') || curAuth.includes('banking personnel')) {
+      if (newType === 'signature') {
+        if (curId.includes('po')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-po') || SIGNATURE_PRESETS.find(p => p.id === 'ibps-sbi');
+        else if (curId.includes('clerk')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-clerk') || SIGNATURE_PRESETS.find(p => p.id === 'ibps-clerk');
+        else targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'ibps-sbi');
+      } else if (newType === 'photo') {
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'ibps-photo') || PHOTO_PRESETS.find(p => p.id === 'ibps-sbi-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'handwritten-declaration') || DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc');
+      }
+    }
+    // 4. UPSC (Civil Services, CDS, NDA)
+    else if (curId.startsWith('upsc') || curName.includes('upsc') || curAuth.includes('union public service')) {
+      if (newType === 'signature') {
+        targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'upsc-civil-services');
+      } else if (newType === 'photo') {
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'upsc-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card' || p.id === 'degree-certificate');
+      }
+    }
+    // 5. Staff Selection Commission (SSC)
+    else if (curId.startsWith('ssc') || curName.includes('ssc') || curAuth.includes('staff selection')) {
+      if (newType === 'signature') {
+        targetPreset = SIGNATURE_PRESETS.find(p => p.id === curId) || SIGNATURE_PRESETS.find(p => p.id === 'ssc-general');
+      } else if (newType === 'photo') {
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'ssc-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th' || p.id === 'thumb-impression-doc');
+      }
+    }
+    // 6. Railway Recruitment Boards (RRB)
+    else if (curId.startsWith('rrb') || curName.includes('railway') || curAuth.includes('railway recruitment')) {
+      if (newType === 'signature') {
+        targetPreset = (curId.includes('alp') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-alp-technician') : undefined) || SIGNATURE_PRESETS.find(p => p.id === 'rrb-railway');
+      } else if (newType === 'photo') {
+        targetPreset = (curId.includes('group-d') ? PHOTO_PRESETS.find(p => p.id === 'rrb-group-d-photo') : undefined) || PHOTO_PRESETS.find(p => p.id === 'rrb-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'caste-certificate' || p.id === 'thumb-impression-doc');
+      }
+    }
+    // 7. AFCAT & Defence (IAF, Agniveer, CAPF)
+    else if (curId.includes('afcat') || curId.includes('agniveer') || curId.includes('capf') || curName.includes('air force') || curAuth.includes('air force')) {
+      if (newType === 'signature') {
+        targetPreset = SIGNATURE_PRESETS.find(p => p.id === curId) || SIGNATURE_PRESETS.find(p => p.id === 'afcat-iaf' || p.id === 'agniveer-recruitment');
+      } else if (newType === 'photo') {
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'defence-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc' || p.id === 'marksheet-10th');
+      }
+    }
+    // 8. State Police Bharti (Maharashtra, UP, Rajasthan, Bihar, MP)
+    else if (curId.includes('police')) {
+      if (curId.includes('maharashtra') || curId.includes('mahapolice')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'maharashtra-police');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'maharashtra-police-photo');
+        else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'domicile-certificate');
+      } else if (curId.includes('up-police')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'up-police');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'up-police-photo');
+        else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
+      } else if (curId.includes('rajasthan')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'rajasthan-police-sig');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'rajasthan-police-photo');
+        else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'domicile-certificate');
+      } else if (curId.includes('bihar')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'bihar-police-sig');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'bihar-police-photo');
+        else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
+      } else if (curId.includes('mp-police')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'mp-police-sig');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'mp-police-photo');
+        else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
+      }
+    }
+    // 9. NTA (NEET, JEE Main, CUET)
+    else if (curId.includes('neet') || curId.includes('jee') || curId.includes('nta')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'nta-neet-jee');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'neet-photo' || p.id === 'neet-ug-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc' || p.id === 'caste-certificate');
+    }
+    // 10. PAN Card
+    else if (curId.includes('pan-card') || curId.includes('pan')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'pan-card-nsdl');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'pan-card-photo-nsdl-preset');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card');
+    }
+    // Fallback: general baseKey matching
+    else if (selectedPreset) {
       const baseKey = selectedPreset.id.replace(/-photo|-sign|-thumb|-doc|-general|-recruitment/g, '');
       targetPreset = presets.find(p => p.id.startsWith(baseKey) || (p.authority && p.authority === selectedPreset.authority));
     }
