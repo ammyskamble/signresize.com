@@ -1,4 +1,4 @@
-// src/data/blogPostsData.ts
+﻿// src/data/blogPostsData.ts
 // Comprehensive, SEO-optimized Govt Examination & Document Preparation Master Blog Repository
 
 export interface QuickFact {
@@ -75,6 +75,576 @@ export function getBlogPostContent(post: BlogPost, lang?: string): string {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "upsc-cse-syllabus-2026-complete-guide-prelims-mains-pdf",
+    title: "UPSC CSE Syllabus 2026 – Complete Prelims & Mains Guide (PDF Download)",
+    title_hi: "UPSC CSE पाठ्यक्रम 2026 – प्रारंभिक और मुख्य परीक्षा संपूर्ण गाइड (PDF डाउनलोड)",
+    metaTitle: "UPSC Syllabus 2026 PDF Download – Complete Prelims & Mains Guide | SignResize",
+    metaTitle_hi: "UPSC पाठ्यक्रम 2026 PDF डाउनलोड – प्रारंभिक और मुख्य परीक्षा | SignResize",
+    metaDescription: "Download the complete UPSC CSE Syllabus 2026 PDF for Prelims (GS Paper I & CSAT) and Mains (GS I–IV, Essay, Optional). Includes syllabus in Hindi, topic-wise breakdown, recommended books, and UPSC OTR photo & signature requirements.",
+    metaDescription_hi: "UPSC CSE 2026 पाठ्यक्रम PDF डाउनलोड करें – प्रारंभिक परीक्षा (GS Paper I और CSAT) और मुख्य परीक्षा (GS I–IV, निबंध, वैकल्पिक) की विषयवार जानकारी। हिंदी में, पुस्तक सूची और OTR फोटो-हस्ताक्षर नियमों के साथ।",
+    excerpt: "Complete subject-wise, topic-wise UPSC CSE 2026 syllabus for Prelims and Mains. Covers all GS papers, CSAT, optional subjects list, how to download the official PDF, recommended books, and UPSC OTR application photo & signature size requirements.",
+    excerpt_hi: "UPSC CSE 2026 का संपूर्ण पाठ्यक्रम – प्रारंभिक (GS + CSAT) और मुख्य परीक्षा के लिए सभी GS पेपर, वैकल्पिक विषयों की सूची, आधिकारिक PDF डाउनलोड, पुस्तक सूची और OTR फोटो-हस्ताक्षर नियम।",
+    category: "Study Prep",
+    publishDate: "Oct 18, 2026",
+    lastUpdated: "Oct 18, 2026",
+    author: "SignResize Academic Research Desk",
+    authorRole: "Civil Services Methodology Team",
+    readTime: "14 min read",
+    readTime_hi: "14 मिनट पढ़ें",
+    featured: true,
+    tags: ["UPSC Syllabus","UPSC 2026","IAS Syllabus","Prelims Syllabus","Mains Syllabus","UPSC PDF","UPSC Hindi","CSAT","Optional Subjects","Sociology","Anthropology","UPSC OTR"],
+    relatedExamPreset: "upsc-civil-services",
+    guideTool: { href: "/upsc-photo-resize/", label: "Resize UPSC Photo (350×350 px)" },
+    quickFacts: [
+      { label: "Exam", value: "UPSC Civil Services Examination (CSE)" },
+      { label: "Stages", value: "Prelims → Mains → Interview" },
+      { label: "Total Marks", value: "2025 (Mains 1750 + Interview 275)" },
+      { label: "Prelims Papers", value: "2 (GS Paper I + CSAT)" },
+      { label: "Mains Papers", value: "9 (2 qualifying + 7 merit-counting)" },
+      { label: "Official Site", value: "upsc.gov.in" },
+    ],
+    quickFacts_hi: [
+      { label: "परीक्षा", value: "UPSC सिविल सेवा परीक्षा (CSE)" },
+      { label: "चरण", value: "प्रारंभिक → मुख्य → साक्षात्कार" },
+      { label: "कुल अंक", value: "2025 (मुख्य 1750 + साक्षात्कार 275)" },
+      { label: "प्रारंभिक पेपर", value: "2 (GS पेपर I + CSAT)" },
+      { label: "मुख्य पेपर", value: "9 (2 अर्हता + 7 मेरिट)" },
+      { label: "आधिकारिक वेबसाइट", value: "upsc.gov.in" },
+    ],
+    faqs: [
+      {
+        question: "What is the syllabus of UPSC?",
+        answer: "The UPSC Civil Services Examination (CSE) syllabus covers three stages: Prelims (GS Paper I with 7 subjects + CSAT qualifying paper), Mains (9 papers including 4 GS papers, Essay, Optional subject Papers I & II, and 2 qualifying language papers), and Interview (275 marks). The complete official syllabus PDF can be downloaded from upsc.gov.in."
+      },
+      {
+        question: "What is UPSC syllabus for Prelims?",
+        answer: "UPSC Prelims has two papers. Paper I (GS - 200 marks) covers Current Affairs, Indian History, Geography, Polity, Economy, Environment, and General Science. Paper II (CSAT - 200 marks) is qualifying (33% minimum) and tests Comprehension, Reasoning, Numeracy, and Data Interpretation."
+      },
+      {
+        question: "What is UPSC Mains syllabus?",
+        answer: "UPSC Mains has 9 papers: Paper A (Indian Language - qualifying), Paper B (English - qualifying), Paper I (Essay - 250 marks), Papers II-V (GS I, II, III, IV - 250 marks each), and Papers VI-VII (Optional Subject I & II - 250 marks each). Total merit marks: 1750."
+      },
+      {
+        question: "How to download UPSC syllabus PDF?",
+        answer: "Visit upsc.gov.in → Examinations → Active Examinations → Civil Services Examination. The official notification PDF contains the complete syllabus for all stages."
+      },
+      {
+        question: "UPSC ka syllabus kya hai?",
+        answer: "UPSC CSE ka syllabus teen charan mein vibhajit hai: (1) Prathamik Pariksha - GS Paper I (Itihas, Bhugol, Rajniti, Arthvyavastha, Paryavaran) aur CSAT (arhat pariksha - 33%); (2) Mukhya Pariksha - 9 papers jisme 4 GS papers, Nibandh aur 2 vaikalpik vishay papers; (3) Saakshatkaar - 275 ank."
+      },
+      {
+        question: "Does UPSC syllabus change every year?",
+        answer: "No, the core UPSC CSE syllabus has remained stable for many years. What changes annually is the exam notification dates, vacancies, and cut-off scores. Always verify with the latest official notification on upsc.gov.in."
+      },
+      {
+        question: "Is UPSC and SSC CGL syllabus same?",
+        answer: "No, they are significantly different. UPSC CSE is a three-stage descriptive exam testing deep analytical ability across 9 Mains papers. SSC CGL is an objective exam with Tier I (Reasoning, GK, Maths, English) and Tier II. UPSC is considerably more comprehensive."
+      },
+      {
+        question: "What is the UPSC optional subject syllabus for Sociology?",
+        answer: "Sociology UPSC optional Paper I covers Fundamentals of Sociology: sociological theory (Durkheim, Weber, Marx), Social Research Methods, Social Stratification. Paper II covers Indian Society: caste, class, religion, tribal communities, agrarian social structure, social movements."
+      },
+      {
+        question: "What is Anthropology optional syllabus for UPSC?",
+        answer: "Anthropology Paper I covers Physical Anthropology (human evolution, genetics, primate behavior) and Social-Cultural Anthropology. Paper II covers Indian Anthropology: pre-history, tribal communities, applied anthropology, and contemporary issues."
+      },
+      {
+        question: "What books are recommended for UPSC syllabus?",
+        answer: "History: Bipin Chandra Modern India, RS Sharma Ancient India. Polity: M. Laxmikanth. Geography: NCERT 11 & 12 + G.C. Leong. Economy: NCERT + Ramesh Singh. Environment: Shankar IAS. Ethics: Lexicon for Ethics. Current Affairs: The Hindu / Indian Express."
+      },
+      {
+        question: "What is the UPSC syllabus 2027?",
+        answer: "The UPSC CSE 2027 syllabus is expected to be the same as 2026. UPSC does not change the core syllabus between years. Prepare using the 2026 syllabus framework. Watch for the official 2027 notification on upsc.gov.in (typically January-February of the exam year)."
+      },
+    ],
+    faqs_hi: [
+      {
+        question: "UPSC ka syllabus kya hota hai?",
+        answer: "UPSC CSE ka syllabus teen charan mein hota hai: Prathamik Pariksha (GS Paper I + CSAT), Mukhya Pariksha (9 papers - 1750 merit ank) aur Saakshatkaar (275 ank). Poora syllabus upsc.gov.in se PDF mein download kiya ja sakta hai."
+      },
+      {
+        question: "UPSC Prelims mein kya aata hai?",
+        answer: "UPSC Prelims mein do paper hote hain. GS Paper I (200 ank): Vartaman Ghatnaen, Itihas, Bhugol, Rajvyavastha, Arthvyavastha, Paryavaran, Samanya Vigyan. CSAT Paper II (200 ank, arhat - 33%): Bodh, Tarkashakti, Manasik Yogyata, Sankhya Gyaan."
+      },
+      {
+        question: "UPSC Mains mein kitne paper hote hain?",
+        answer: "UPSC Mains mein kul 9 paper hote hain: Paper A aur B (arhat bhasha papers), Paper I (Nibandh), Papers II-V (GS I, II, III, IV), Papers VI-VII (Vaikalpik Vishay). Kul merit ank: 1750."
+      },
+    ],
+    contentHtml: `
+<p>Every year, lakhs of candidates begin their UPSC Civil Services Examination (CSE) journey by searching for the complete syllabus. This guide covers the <strong>full UPSC CSE Syllabus 2026</strong> — Prelims and Mains — in English and Hindi, with topic-wise breakdowns, the official PDF download method, recommended books, optional subject choices, and UPSC OTR photo &amp; signature requirements.</p>
+
+<div class="my-6 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-emerald-500/10 to-transparent border border-primary/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+  <div class="space-y-1.5">
+    <div class="flex items-center gap-2">
+      <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wide uppercase bg-primary text-primary-foreground shadow-sm">Official PDF Document</span>
+      <span class="text-xs text-muted-foreground font-mono">5 Pages • 27 KB • Updated for 2026</span>
+    </div>
+    <h4 class="font-bold text-base sm:text-lg text-foreground">Download UPSC CSE Syllabus 2026 PDF (Free Offline Copy)</h4>
+    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+      Printer-ready syllabus document containing Prelims GS-I, CSAT Paper-II, Mains GS I–IV micro-topics, complete 48 Optional Subjects list, OTR requirements, and standard reference booklist.
+    </p>
+  </div>
+  <div class="flex flex-wrap sm:flex-nowrap gap-2.5 w-full sm:w-auto shrink-0">
+    <a href="/downloads/upsc-cse-syllabus-2026-guide.pdf" download="upsc-cse-syllabus-2026-guide.pdf" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all">
+      <span>📥</span> Download PDF
+    </a>
+    <a href="/downloads/upsc-cse-syllabus-2026-guide.pdf" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all">
+      <span>👁️</span> Open in New Tab
+    </a>
+  </div>
+</div>
+
+<h2>UPSC CSE Exam Structure at a Glance</h2>
+<div class="my-6 overflow-x-auto">
+  <table class="w-full text-xs sm:text-sm text-left border border-border">
+    <thead class="bg-muted text-foreground font-semibold">
+      <tr>
+        <th class="p-3 border-b">Stage</th>
+        <th class="p-3 border-b">Papers</th>
+        <th class="p-3 border-b">Marks</th>
+        <th class="p-3 border-b">Type</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-border">
+      <tr><td class="p-3 font-semibold text-primary">Prelims</td><td class="p-3">GS Paper I + CSAT (Paper II)</td><td class="p-3 font-mono">200 + 200</td><td class="p-3">Objective MCQ (Qualifying for Mains)</td></tr>
+      <tr><td class="p-3 font-semibold text-primary">Mains</td><td class="p-3">9 Papers (2 qualifying + 7 merit)</td><td class="p-3 font-mono">1750 merit</td><td class="p-3">Descriptive / Written</td></tr>
+      <tr><td class="p-3 font-semibold text-primary">Interview</td><td class="p-3">Personality Test</td><td class="p-3 font-mono">275</td><td class="p-3">Oral / Face-to-face</td></tr>
+      <tr class="bg-primary/5 font-bold"><td class="p-3">Total (Merit)</td><td class="p-3">Mains + Interview</td><td class="p-3 font-mono">2025</td><td class="p-3">Final Rank</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>UPSC CSE 2026 Eligibility Criteria, Age Limits &amp; Attempts</h2>
+<p>Before beginning your preparation, ensure you satisfy the official eligibility requirements prescribed by the Union Public Service Commission:</p>
+
+<div class="my-4 overflow-x-auto">
+  <table class="w-full text-xs sm:text-sm text-left border border-border">
+    <thead class="bg-muted text-foreground font-semibold">
+      <tr>
+        <th class="p-3 border-b">Category</th>
+        <th class="p-3 border-b">Age Limit (as on Aug 1, 2026)</th>
+        <th class="p-3 border-b">Maximum Allowed Attempts</th>
+        <th class="p-3 border-b">Educational Qualification</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-border">
+      <tr>
+        <td class="p-3 font-semibold text-primary">General / EWS</td>
+        <td class="p-3">21 to 32 Years</td>
+        <td class="p-3 font-mono">6 Attempts</td>
+        <td class="p-3" rowspan="4">Graduation Degree in any discipline from a recognized central, state, or deemed university. Final-year students are eligible to apply provisionally for Prelims.</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-semibold text-primary">OBC (Non-Creamy Layer)</td>
+        <td class="p-3">21 to 35 Years (3 Years Relaxation)</td>
+        <td class="p-3 font-mono">9 Attempts</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-semibold text-primary">SC / ST</td>
+        <td class="p-3">21 to 37 Years (5 Years Relaxation)</td>
+        <td class="p-3 font-mono font-bold text-emerald-600">Unlimited (up to age limit)</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-semibold text-primary">PwBD (Benchmark Disabilities)</td>
+        <td class="p-3">21 to 42 Years (10 Years Relaxation)</td>
+        <td class="p-3 font-mono">9 (Gen/OBC) / Unlimited (SC/ST)</td>
+      </tr>
+      <tr class="bg-muted/30">
+        <td class="p-3 font-semibold">Ex-Servicemen (ECOs/SSCOs)</td>
+        <td class="p-3">Up to 37 Years (5 Years Relaxation)</td>
+        <td class="p-3 font-mono">Category Applicable</td>
+        <td class="p-3">Minimum 5 years military service + valid discharge certificate</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p class="text-xs text-muted-foreground italic">*Note: Appearing in any one paper of the Preliminary Examination (even GS Paper I alone) counts officially as one utilized attempt.</p>
+
+<h2>UPSC Prelims Syllabus 2026</h2>
+
+<h3>Paper I – General Studies (200 Marks)</h3>
+<p>Duration: 2 hours | Negative marking: 1/3 for wrong answers</p>
+<div class="my-4 overflow-x-auto">
+  <table class="w-full text-xs sm:text-sm text-left border border-border">
+    <thead class="bg-muted text-foreground font-semibold">
+      <tr><th class="p-3 border-b">Subject</th><th class="p-3 border-b">Key Topics</th></tr>
+    </thead>
+    <tbody class="divide-y divide-border">
+      <tr><td class="p-3 font-semibold">Current Affairs</td><td class="p-3">National &amp; international events, policies, summits, awards, defense, sports</td></tr>
+      <tr><td class="p-3 font-semibold">History</td><td class="p-3">Ancient, Medieval, Modern Indian history; National Movement; freedom struggle contributors</td></tr>
+      <tr><td class="p-3 font-semibold">Geography</td><td class="p-3">Physical, Social, Economic geography of India &amp; World; rivers, mountains, climate, demographics</td></tr>
+      <tr><td class="p-3 font-semibold">Indian Polity</td><td class="p-3">Constitution, Parliament, Judiciary, Panchayati Raj, Public Policy, Rights Issues</td></tr>
+      <tr><td class="p-3 font-semibold">Economy</td><td class="p-3">Sustainable Development, Poverty, Inclusion, Demographics, Social Sector Initiatives</td></tr>
+      <tr><td class="p-3 font-semibold">Environment</td><td class="p-3">Ecology, Biodiversity, Climate Change, Conservation</td></tr>
+      <tr><td class="p-3 font-semibold">General Science</td><td class="p-3">Biology, Space, IT, Biotechnology, everyday observations and Science in news</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Paper II – CSAT (200 Marks, Qualifying)</h3>
+<p>Minimum 33% (66.67 marks) required to qualify. Marks not counted for merit ranking.</p>
+<ul>
+  <li><strong>Comprehension</strong> – Reading passages, author intent, inference</li>
+  <li><strong>Interpersonal &amp; Communication Skills</strong></li>
+  <li><strong>Logical Reasoning &amp; Analytical Ability</strong></li>
+  <li><strong>Decision-Making &amp; Problem Solving</strong></li>
+  <li><strong>General Mental Ability</strong></li>
+  <li><strong>Basic Numeracy</strong> – Class X level: percentages, ratios, time &amp; work, data interpretation</li>
+</ul>
+
+<h2>UPSC Mains Syllabus 2026</h2>
+<p>Mains has 9 papers. Papers A &amp; B are qualifying only. Papers I through VII count for final merit (1750 marks total).</p>
+
+<div class="my-6 overflow-x-auto">
+  <table class="w-full text-xs sm:text-sm text-left border border-border">
+    <thead class="bg-muted text-foreground font-semibold">
+      <tr>
+        <th class="p-3 border-b">Paper</th>
+        <th class="p-3 border-b">Subject</th>
+        <th class="p-3 border-b">Marks</th>
+        <th class="p-3 border-b">Merit?</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-border">
+      <tr><td class="p-3 font-mono">Paper A</td><td class="p-3">Indian Language (8th Schedule)</td><td class="p-3 font-mono">300</td><td class="p-3">Qualifying</td></tr>
+      <tr><td class="p-3 font-mono">Paper B</td><td class="p-3">English</td><td class="p-3 font-mono">300</td><td class="p-3">Qualifying</td></tr>
+      <tr><td class="p-3 font-mono">Paper I</td><td class="p-3">Essay</td><td class="p-3 font-mono">250</td><td class="p-3">Merit</td></tr>
+      <tr><td class="p-3 font-mono">Paper II</td><td class="p-3">GS I – Heritage, Culture, History &amp; World Geography</td><td class="p-3 font-mono">250</td><td class="p-3">Merit</td></tr>
+      <tr><td class="p-3 font-mono">Paper III</td><td class="p-3">GS II – Governance, Constitution, Polity, Social Justice, IR</td><td class="p-3 font-mono">250</td><td class="p-3">Merit</td></tr>
+      <tr><td class="p-3 font-mono">Paper IV</td><td class="p-3">GS III – Technology, Economy, Biodiversity, Security, DM</td><td class="p-3 font-mono">250</td><td class="p-3">Merit</td></tr>
+      <tr><td class="p-3 font-mono">Paper V</td><td class="p-3">GS IV – Ethics, Integrity &amp; Aptitude</td><td class="p-3 font-mono">250</td><td class="p-3">Merit</td></tr>
+      <tr><td class="p-3 font-mono">Paper VI</td><td class="p-3">Optional Subject – Paper I</td><td class="p-3 font-mono">250</td><td class="p-3">Merit</td></tr>
+      <tr class="bg-primary/5"><td class="p-3 font-mono">Paper VII</td><td class="p-3">Optional Subject – Paper II</td><td class="p-3 font-mono">250</td><td class="p-3">Merit</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>GS Paper I – Indian Heritage, Culture, History &amp; World Geography</h3>
+<ul>
+  <li>Indian Culture: Art forms, Literature, Architecture (ancient to modern)</li>
+  <li>Modern Indian History: Mid-18th century to present; freedom struggle; significant events &amp; personalities</li>
+  <li>Post-independence consolidation and reorganization</li>
+  <li>World History: 18th century onwards – Industrial Revolution, World Wars, Colonization, Communism, Capitalism</li>
+  <li>Indian Society: Diversity, women, population, poverty, urbanization, globalization, secularism</li>
+  <li>World Geography: Physical geography, natural resource distribution, location of industries</li>
+</ul>
+
+<h3>GS Paper II – Governance, Constitution, Polity, Social Justice &amp; IR</h3>
+<ul>
+  <li>Indian Constitution: Historical underpinnings, evolution, amendments, significant provisions, basic structure</li>
+  <li>Parliament, State Legislatures, Judiciary, Executive structure and functioning</li>
+  <li>Representation of People's Act, statutory &amp; regulatory bodies, government policies</li>
+  <li>Social Justice: Welfare schemes, health, education, human resources for vulnerable sections</li>
+  <li>International Relations: India's bilateral relations, regional/global groupings</li>
+</ul>
+
+<h3>GS Paper III – Technology, Economy, Biodiversity, Security &amp; Disaster Management</h3>
+<ul>
+  <li>Indian Economy: Planning, growth, development, employment, inclusive growth, budgeting, food security, land reforms</li>
+  <li>Science &amp; Technology: Everyday applications, IT, Space, Robotics, Nano-technology, Bio-technology</li>
+  <li>Environment: Conservation, pollution, degradation, Environmental Impact Assessment (EIA)</li>
+  <li>Disaster Management: Disasters and DM frameworks</li>
+  <li>Internal Security: Extremism, cyber security, border management, external actors</li>
+</ul>
+
+<h3>GS Paper IV – Ethics, Integrity &amp; Aptitude</h3>
+<ul>
+  <li>Ethics and Human Interface: Determinants and consequences of ethics in human actions</li>
+  <li>Attitude, Moral &amp; Political attitudes, Social influence and persuasion</li>
+  <li>Integrity, Impartiality, Objectivity, Empathy, Tolerance (foundational values for civil servants)</li>
+  <li>Emotional Intelligence in administration and governance</li>
+  <li>Contributions of moral thinkers from India &amp; the world</li>
+  <li>Public/Civil Service Values, probity in governance, code of ethics, RTI, corruption challenges</li>
+  <li>Case Studies on all above issues</li>
+</ul>
+
+<h3>Essay Paper (Paper I – 250 Marks)</h3>
+<p>Candidates write essays on multiple topics spanning social, political, economic, philosophical, environmental, and cultural themes. Clarity, structured presentation, and precise expression are assessed.</p>
+
+<h2>UPSC Optional Subjects – Complete List (48 Subjects)</h2>
+<p>Choose <strong>one optional subject</strong> for Mains Papers VI &amp; VII (500 marks combined). Tested at honors-degree level.</p>
+
+<div class="my-4 overflow-x-auto">
+  <table class="w-full text-xs sm:text-sm text-left border border-border">
+    <thead class="bg-muted text-foreground font-semibold">
+      <tr><th class="p-3 border-b">Category</th><th class="p-3 border-b">Subjects</th></tr>
+    </thead>
+    <tbody class="divide-y divide-border">
+      <tr><td class="p-3 font-semibold">Popular Humanities</td><td class="p-3">Sociology, Anthropology, History, Political Science &amp; IR, Philosophy, Public Administration, Psychology, Geography</td></tr>
+      <tr><td class="p-3 font-semibold">Science &amp; Technical</td><td class="p-3">Mathematics, Statistics, Physics, Chemistry, Botany, Zoology, Agriculture, Civil Engineering, Electrical Engineering, Medical Science, Animal Husbandry</td></tr>
+      <tr><td class="p-3 font-semibold">Commerce &amp; Law</td><td class="p-3">Economics, Commerce &amp; Accountancy, Management, Law</td></tr>
+      <tr><td class="p-3 font-semibold">Indian Literature (22 languages)</td><td class="p-3">Assamese, Bengali, Bodo, Dogri, Gujarati, Hindi, Kannada, Kashmiri, Konkani, Maithili, Malayalam, Manipuri, Marathi, Nepali, Odia, Punjabi, Sanskrit, Santali, Sindhi, Tamil, Telugu, Urdu</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Sociology UPSC Optional Syllabus</h3>
+<p><strong>Paper I – Fundamentals of Sociology:</strong> Sociology as a science, sociological theory (Durkheim, Weber, Marx, Parsons), social research methods, social stratification and mobility, kinship, marriage and family, social change and development.</p>
+<p><strong>Paper II – Indian Society:</strong> Structure and change in Indian society, perspectives on the study of Indian society, rural &amp; agrarian social structure, caste system, tribals &amp; marginalization, urbanization, religion &amp; society, social movements in India.</p>
+
+
+<h2>Stage III: UPSC Personality Test / Interview (275 Marks)</h2>
+<p>Candidates who clear the Mains written examination cutoff are summoned for the <strong>Personality Test (Interview)</strong> at Dholpur House, New Delhi. The interview carries <strong>275 marks</strong> with no minimum qualifying cutoff mark.</p>
+
+<div class="my-4 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-3">
+  <h4 class="font-bold text-sm sm:text-base text-primary">What the UPSC Interview Board Evaluates:</h4>
+  <ul class="list-disc pl-5 text-xs sm:text-sm text-foreground/90 space-y-1.5 leading-relaxed">
+    <li><strong>Mental Alertness &amp; Quick Analytical Assimilation:</strong> Ability to grasp complex governance questions under real-time scrutiny.</li>
+    <li><strong>Balance of Judgment &amp; Impartiality:</strong> Objective, non-extreme, constitutional approach to contentious socio-political issues.</li>
+    <li><strong>Intellectual &amp; Moral Integrity:</strong> Honesty, ethical consistency, and transparency during cross-examination.</li>
+    <li><strong>Detailed Application Form (DAF) Scrutiny:</strong> In-depth questions based on your home state, university background, work experience, hobbies, service preferences (IAS, IPS, IFS, IRS), and cadre allocation preferences.</li>
+  </ul>
+</div>
+
+<h3>Anthropology UPSC Optional Syllabus</h3>
+<p><strong>Paper I:</strong> Physical &amp; Biological Anthropology (human evolution, genetics, primate behavior, human adaptation), Social-Cultural Anthropology (social organization, religion, kinship, culture theory, economic anthropology).</p>
+<p><strong>Paper II – Indian Anthropology:</strong> Pre-history of India, tribal communities &amp; scheduled areas, biological variation in India, applications of Anthropology in development, contemporary Indian society challenges.</p>
+
+<h2>How to Download UPSC Syllabus PDF 2026</h2>
+
+<div class="my-6 p-6 rounded-2xl bg-card border border-border shadow-sm space-y-4">
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-border">
+    <div>
+      <span class="text-xs font-bold text-primary font-mono uppercase tracking-wider">Direct Instant Access</span>
+      <h3 class="text-lg font-bold text-foreground mt-0.5">SignResize UPSC CSE 2026 Master Syllabus PDF</h3>
+      <p class="text-xs text-muted-foreground mt-1">Compiled strictly from official UPSC Gazette notifications. 5 comprehensive pages covering Prelims, CSAT, Mains GS I–IV, Optionals &amp; Books.</p>
+    </div>
+    <div class="flex flex-wrap gap-2 w-full sm:w-auto shrink-0">
+      <a href="/downloads/upsc-cse-syllabus-2026-guide.pdf" download="upsc-cse-syllabus-2026-guide.pdf" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-90 shadow-sm transition-all">
+        <span>📥</span> Download PDF (27 KB)
+      </a>
+      <a href="/downloads/upsc-cse-syllabus-2026-guide.pdf" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-xs sm:text-sm border border-border transition-all">
+        <span>👁️</span> Preview
+      </a>
+      <button onclick="window.print()" type="button" class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-xs sm:text-sm border border-border transition-all cursor-pointer">
+        <span>🖨️</span> Print / Save Page
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <h4 class="text-sm font-semibold text-foreground mb-2">Alternatively, Download Official UPSC Notification from Commission Portal:</h4>
+    <ol class="list-decimal pl-5 text-xs sm:text-sm text-muted-foreground space-y-1.5">
+      <li>Visit the official UPSC portal at <a href="https://upsc.gov.in" target="_blank" rel="noopener" class="text-primary font-medium underline">upsc.gov.in</a></li>
+      <li>Navigate to <strong>"Examinations"</strong> in the main navigation bar</li>
+      <li>Click on <strong>"Active Examinations"</strong> or <strong>"Revised Syllabus and Scheme"</strong></li>
+      <li>Locate <strong>Civil Services (Preliminary) Examination 2026</strong></li>
+      <li>Click the official notification PDF link to download the complete 150+ page gazette release</li>
+    </ol>
+  </div>
+</div>
+
+
+<h2>UPSC Prelims Cut-Off Trends (Last 5 Years GS-I Score Analysis)</h2>
+<p>Understanding official cut-off benchmarks helps calibrate your target attempts. In Prelims Paper I (GS), only 40–45% marks have historically been required to qualify for Mains (out of 200 marks):</p>
+
+<div class="my-4 overflow-x-auto">
+  <table class="w-full text-xs sm:text-sm text-left border border-border">
+    <thead class="bg-muted text-foreground font-semibold">
+      <tr>
+        <th class="p-3 border-b">Exam Year</th>
+        <th class="p-3 border-b">General</th>
+        <th class="p-3 border-b">EWS</th>
+        <th class="p-3 border-b">OBC</th>
+        <th class="p-3 border-b">SC</th>
+        <th class="p-3 border-b">ST</th>
+        <th class="p-3 border-b">CSAT Qualifying Threshold</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-border font-mono text-xs sm:text-sm">
+      <tr>
+        <td class="p-3 font-semibold text-primary">CSE 2024</td>
+        <td class="p-3 font-bold">75.41</td>
+        <td class="p-3">68.02</td>
+        <td class="p-3">74.75</td>
+        <td class="p-3">59.25</td>
+        <td class="p-3">47.82</td>
+        <td class="p-3 font-bold text-emerald-600">33.0% (66.67 Marks)</td>
+      </tr>
+      <tr class="bg-muted/30">
+        <td class="p-3 font-semibold text-primary">CSE 2023</td>
+        <td class="p-3 font-bold">75.41</td>
+        <td class="p-3">68.02</td>
+        <td class="p-3">74.75</td>
+        <td class="p-3">59.25</td>
+        <td class="p-3">47.82</td>
+        <td class="p-3 font-bold text-emerald-600">33.0% (66.67 Marks)</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-semibold text-primary">CSE 2022</td>
+        <td class="p-3 font-bold">88.22</td>
+        <td class="p-3">82.83</td>
+        <td class="p-3">87.54</td>
+        <td class="p-3">74.08</td>
+        <td class="p-3">69.35</td>
+        <td class="p-3 font-bold text-emerald-600">33.0% (66.67 Marks)</td>
+      </tr>
+      <tr class="bg-muted/30">
+        <td class="p-3 font-semibold text-primary">CSE 2021</td>
+        <td class="p-3 font-bold">87.54</td>
+        <td class="p-3">80.14</td>
+        <td class="p-3">84.85</td>
+        <td class="p-3">75.41</td>
+        <td class="p-3">70.71</td>
+        <td class="p-3 font-bold text-emerald-600">33.0% (66.67 Marks)</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-semibold text-primary">CSE 2020</td>
+        <td class="p-3 font-bold">92.51</td>
+        <td class="p-3">77.55</td>
+        <td class="p-3">89.12</td>
+        <td class="p-3">74.84</td>
+        <td class="p-3">68.71</td>
+        <td class="p-3 font-bold text-emerald-600">33.0% (66.67 Marks)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p class="text-xs text-muted-foreground"><em>Strategic Takeaway:</em> A net score of <strong>88 to 92 marks</strong> (45–46 accurate questions net of negative marking) in GS Paper I provides an almost 100% historical safety margin for General category candidates, provided CSAT is safely cleared.</p>
+
+<h2>UPSC Syllabus 2026 vs 2025 – Any Changes?</h2>
+<p>The core UPSC CSE syllabus has remained stable for many years. <strong>Does UPSC syllabus change every year?</strong> No ” the prescribed syllabus topics do not change annually. What changes is: the exam notification dates, number of vacancies, and cut-off scores. Always verify using the current year's official notification from upsc.gov.in.</p>
+
+<h2>Recommended Books for UPSC Syllabus 2026</h2>
+<div class="my-4 overflow-x-auto">
+  <table class="w-full text-xs sm:text-sm text-left border border-border">
+    <thead class="bg-muted text-foreground font-semibold">
+      <tr><th class="p-3 border-b">Subject</th><th class="p-3 border-b">Recommended Books</th></tr>
+    </thead>
+    <tbody class="divide-y divide-border">
+      <tr><td class="p-3 font-semibold">History</td><td class="p-3">Bipin Chandra – Modern India; RS Sharma – Ancient India; Spectrum Brief History</td></tr>
+      <tr><td class="p-3 font-semibold">Polity</td><td class="p-3">M. Laxmikanth – Indian Polity (must-read)</td></tr>
+      <tr><td class="p-3 font-semibold">Geography</td><td class="p-3">NCERT Class 11 &amp; 12 + G.C. Leong – Physical Geography</td></tr>
+      <tr><td class="p-3 font-semibold">Economy</td><td class="p-3">NCERT 11 &amp; 12 + Ramesh Singh – Indian Economy</td></tr>
+      <tr><td class="p-3 font-semibold">Environment</td><td class="p-3">Shankar IAS Environment (comprehensive &amp; concise)</td></tr>
+      <tr><td class="p-3 font-semibold">Ethics (GS IV)</td><td class="p-3">Lexicon for Ethics by Chronicle Publications</td></tr>
+      <tr><td class="p-3 font-semibold">Current Affairs</td><td class="p-3">The Hindu / Indian Express (daily) + government reports, PIB</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>UPSC Application: Photo &amp; Signature Requirements (OTR)</h2>
+<p>After studying the syllabus and applying, candidates must upload compliant photos and signatures on the UPSC OTR portal (upsconline.nic.in). Incorrect files lead to application rejection.</p>
+<ul>
+  <li><strong>Passport Photograph:</strong> Minimum 350 x 350 pixels (up to 1000 x 1000 px), 20 KB to 300 KB, JPEG format. Name and date of photo must be printed at the bottom.</li>
+  <li><strong>Signature:</strong> Square aspect ratio, 350 x 350 pixels minimum, 20 KB to 300 KB, black ink on white paper.</li>
+  <li><strong>Live Photo Capture:</strong> UPSC OTR also requires real-time webcam photo for identity verification.</li>
+</ul>
+
+<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+  <h4 class="text-base font-bold text-foreground">UPSC OTR Photo &amp; Signature Ready?</h4>
+  <p class="text-sm text-muted-foreground mt-1">Use SignResize.in free tools to resize your UPSC photo to 350x350 px (20-300 KB) and signature – fully compliant with UPSC OTR portal requirements. 100% browser-based, no uploads to servers.</p>
+  <div class="flex flex-wrap gap-2 mt-3">
+    <a href="/upsc-photo-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+      UPSC Photo Resizer (350x350 px)
+    </a>
+    <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      UPSC Signature Resizer
+    </a>
+  </div>
+</div>
+
+<h2>UPSC Syllabus in Hindi</h2>
+<p><strong>UPSC ka syllabus kya hai?</strong> UPSC CSE ka syllabus teen charan mein vibhajit hai:</p>
+<ul>
+  <li><strong>Prathamik Pariksha:</strong> GS Paper I (Vartaman Ghatnaen, Itihas, Bhugol, Rajvyavastha, Arthvyavastha, Paryavaran, Samanya Vigyan – 200 ank) + CSAT Paper II (arhat pariksha, nyuntam 33% – 200 ank)</li>
+  <li><strong>Mukhya Pariksha:</strong> 9 papers – 2 arhat papers (bhasha + angrezi) + 7 merit papers (Nibandh + GS I, II, III, IV + Vaikalpik Vishay I aur II) = 1750 merit ank</li>
+  <li><strong>Saakshatkaar:</strong> Vyaktitva Pariksha – 275 ank</li>
+</ul>
+<p>UPSC syllabus PDF in Hindi / UPSC syllabus in Hindi PDF: Aadharik pathyakram upsc.gov.in par available hai. Hindi madhyam ke umeedwaar Drishti IAS ya Vision IAS ke Hindi anuvadit sansikaran ka upyog kar sakte hain.</p>
+
+
+<h2>UPSC Civil Services 2026 Examination Schedule &amp; Calendar</h2>
+<div class="my-4 overflow-x-auto">
+  <table class="w-full text-xs sm:text-sm text-left border border-border">
+    <thead class="bg-muted text-foreground font-semibold">
+      <tr>
+        <th class="p-3 border-b">Event Milestone</th>
+        <th class="p-3 border-b">Expected Timeline</th>
+        <th class="p-3 border-b">Critical Action Required</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-border">
+      <tr>
+        <td class="p-3 font-semibold text-primary">Official Notification &amp; OTR Registration</td>
+        <td class="p-3 font-mono">February 2026</td>
+        <td class="p-3">Complete One-Time Registration (OTR), upload compliant photo &amp; signature, submit online application.</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-semibold text-primary">Admit Card Release (e-Admit Card)</td>
+        <td class="p-3 font-mono">May 2026 (3 Weeks before exam)</td>
+        <td class="p-3">Download hall ticket from upsc.gov.in; verify exam centre, roll number, and photograph legibility.</td>
+      </tr>
+      <tr class="bg-primary/5 font-semibold">
+        <td class="p-3 text-primary">Preliminary Examination (GS + CSAT)</td>
+        <td class="p-3 font-mono">May / June 2026</td>
+        <td class="p-3">Paper I (09:30 AM – 11:30 AM) &amp; Paper II CSAT (02:30 PM – 04:30 PM) on the same day.</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-semibold text-primary">Mains Written Examination (9 Papers)</td>
+        <td class="p-3 font-mono">September 2026 (5 Days)</td>
+        <td class="p-3">Fill DAF-I online; appear for Essay, GS I–IV, Optional I–II, and Language Papers A &amp; B.</td>
+      </tr>
+      <tr>
+        <td class="p-3 font-semibold text-primary">Personality Test (Interview)</td>
+        <td class="p-3 font-mono">January – April 2027</td>
+        <td class="p-3">Submit DAF-II (service &amp; cadre preferences); attend oral board interview at Dholpur House, New Delhi.</td>
+      </tr>
+      <tr class="bg-emerald-500/10 font-bold">
+        <td class="p-3 text-emerald-600">Final Merit List &amp; All India Ranks</td>
+        <td class="p-3 font-mono">April / May 2027</td>
+        <td class="p-3">UPSC announces final recommendations (Mains 1750 + Interview 275 = 2025 Marks total).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>UPSC Syllabus 2027 – What to Expect</h2>
+<p>For candidates targeting UPSC CSE 2027, the syllabus is expected to remain the same as 2026. UPSC does not announce syllabus changes ahead of the notification. Begin preparation using the 2026 syllabus ” all GS papers, CSAT, optional subjects, and essay remain the same framework. Watch for the official 2027 notification on upsc.gov.in (typically released in January-February of the exam year).</p>
+`,
+    contentHtml_hi: `
+<p>UPSC Civil Services Examination (CSE) 2026 ka sampoorna pathyakram yahan diya gaya hai – Prathamik Pariksha aur Mukhya Pariksha dono ke liye. Isme vishay-war jankari, PDF download karne ka tarika, anushansit pustaken aur OTR photo-hastakshar niyam shamil hain.</p>
+
+<h2>UPSC CSE Pariksha Sanrachna</h2>
+<ul>
+  <li><strong>Prathamik Pariksha (Prelims):</strong> GS Paper I + CSAT – vastunishtha prashn</li>
+  <li><strong>Mukhya Pariksha (Mains):</strong> 9 paper – 1750 merit ank</li>
+  <li><strong>Saakshatkaar (Interview):</strong> 275 ank</li>
+</ul>
+
+<h2>Prathamik Pariksha Pathyakram</h2>
+<p><strong>GS Paper I (200 ank):</strong> Vartaman Ghatnaen, Itihas, Bhugol, Bhartiya Rajvyavastha, Arthvyavastha, Paryavaran, Samanya Vigyan.</p>
+<p><strong>CSAT Paper II (200 ank, arhat – 33%):</strong> Bodh, Tarkik Kshamata, Manasik Yogyata, Aankik Gyaan.</p>
+
+<h2>Mukhya Pariksha Pathyakram</h2>
+<ul>
+  <li>Paper A: Bhartiya Bhasha (arhat)</li>
+  <li>Paper B: Angrezi (arhat)</li>
+  <li>Paper I: Nibandh – 250 ank</li>
+  <li>Paper II: GS I – Bhartiya Virasat, Sanskriti, Itihas, Vishwa Bhugol – 250 ank</li>
+  <li>Paper III: GS II – Shashan, Samvidhan, Rajvyavastha, Samajik Nyay, Antarrashtriya Sambandh – 250 ank</li>
+  <li>Paper IV: GS III – Praudyogiki, Arthvyavastha, Jaiwa Vividhata, Suraksha, Aapda Prabandhan – 250 ank</li>
+  <li>Paper V: GS IV – Naitikta, Satyanishttha, Abhivritti – 250 ank</li>
+  <li>Paper VI aur VII: Vaikalpik Vishay I aur II – pratek 250 ank</li>
+</ul>
+
+<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+  <h4 class="text-base font-bold text-foreground">UPSC OTR ke liye Photo aur Hastakshar Taiyaar Karein</h4>
+  <p class="text-sm text-muted-foreground mt-1">UPSC OTR portal par 350x350 px (20-300 KB) photo aur hastakshar upload karna anivarya hai. SignResize.in ke muft tool se kuch seconds mein sahi size mein badlein.</p>
+  <div class="flex flex-wrap gap-2 mt-3">
+    <a href="/upsc-photo-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+      UPSC Photo Resizer
+    </a>
+    <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      UPSC Hastakshar Resizer
+    </a>
+  </div>
+</div>
+`,
+  },
+
+  {
     slug: 'handwritten-signature-transparent-png-pdf-word',
     title: 'Make a Handwritten Signature Transparent for PDF and Word',
     metaTitle: 'Transparent Signature PNG for PDF & Word | SignResize',
@@ -121,292 +691,6 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>5. Download and inspect the final JPG</h2><p>Check the exported dimensions, format and actual file size. Open the downloaded JPG and inspect the face and outline. Test it in the intended upload field; this tool cannot guarantee acceptance by a third-party portal.</p>
 <h2>Need to remove the background first?</h2><p><a href="https://www.remove.bg/f/white-background-portrait">Remove.bg offers portrait background replacement</a>. You can also use our <a href="/photo-background-remover/">photo background remover</a> for a single-person portrait. Choose White, Transparent or Custom colour, inspect the edges, then select <strong>Resize Photo</strong> to carry a white-background copy into the resizer. This portrait workflow is not intended for product photographs, pets or group cutouts.</p><p>For handwriting on paper, use the separate <a href="/background-remover/">signature background remover</a>. Its paper and ink controls address a different kind of image.</p>`
   },
-  {
-    slug: "upsc-csat-paper-2-master-blueprint-comprehension-hacks",
-    title: "UPSC CSE Prelims: CSAT Paper-II Qualifying Blueprint, Reading Comprehension & Speed Logic Hacks",
-    excerpt: "Master the 33% CSAT qualifying cutoff with proven strategies for high-accuracy reading comprehension, critical reasoning, arithmetic problem selection, and UPSC OTR document rules.",
-    category: "Study Prep",
-    publishDate: "Oct 15, 2026",
-    lastUpdated: "Oct 15, 2026",
-    author: "SignResize Academic Research Desk",
-    authorRole: "Civil Services Methodology Team",
-    readTime: "8 min read",
-    featured: true,
-    tags: ["UPSC Prelims","CSAT Strategy","Reading Comprehension","Aptitude Speed","Civil Services","UPSC OTR"],
-    relatedExamPreset: "upsc-civil-services",
-    quickFacts: [],
-    contentHtml: `
-<h2>The Decisive Role of CSAT (Paper-II) in UPSC Prelims</h2>
-      <p>In recent Civil Services examinations, CSAT Paper-II has proven to be the major hurdle for thousands of aspirants. Despite scoring 100+ in General Studies Paper-I, failing to secure the mandatory qualifying threshold of <strong>33% (66.67 marks out of 200)</strong> results in immediate disqualification.</p>
-
-      <h2>CSAT Sectional Breakdown &amp; Target Matrix</h2>
-      <div class="my-6 overflow-x-auto">
-        <table class="w-full text-xs sm:text-sm text-left border border-border">
-          <thead class="bg-muted text-foreground font-semibold">
-            <tr>
-              <th class="p-3 border-b">Section</th>
-              <th class="p-3 border-b">Questions</th>
-              <th class="p-3 border-b">Target Attempt</th>
-              <th class="p-3 border-b">Scoring &amp; Accuracy Strategy</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-border">
-            <tr>
-              <td class="p-3 font-semibold text-primary">Reading Comprehension</td>
-              <td class="p-3 font-mono">25–28 Qs</td>
-              <td class="p-3 font-mono">20 Qs</td>
-              <td class="p-3">Identify author's central assumption, corollaries, and rational implications. Avoid extreme options.</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-semibold text-primary">Quantitative Aptitude</td>
-              <td class="p-3 font-mono">35–40 Qs</td>
-              <td class="p-3 font-mono">15 Qs</td>
-              <td class="p-3">Focus on Number Systems, Remainder Theorem, Percentages, Ratio, Work &amp; Time. Avoid complex P&amp;C.</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-semibold text-primary">Logical &amp; Analytical Reasoning</td>
-              <td class="p-3 font-mono">15–20 Qs</td>
-              <td class="p-3 font-mono">12 Qs</td>
-              <td class="p-3">Prioritize Syllogisms, Blood Relations, Direction Sense, and linear seating arrangements.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
-        <div class="flex items-center justify-between text-slate-400 text-[11px]">
-          <span>⚡ UPSC CSAT Safe Attempt &amp; Score Calculation Snippet</span>
-          <span>UPSC Marking Standard</span>
-        </div>
-        <pre class="overflow-x-auto text-emerald-400"><code>Target: Attempt 45 Questions with >= 80% Accuracy
-Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks (Comfortably clears 66.67)</code></pre>
-      </div>
-
-      <h2>UPSC OTR Document Upload Rules</h2>
-      <p>Candidates registering on the UPSC One Time Registration portal (upsconline.nic.in) must adhere to precise file specifications for photo and signature uploads:</p>
-      <ul>
-        <li><strong>Passport Photograph:</strong> 350 &times; 350 pixels, size strictly <strong>20 KB to 300 KB</strong>. Must state candidate's name and photo date at the bottom.</li>
-        <li><strong>Scanned Signature:</strong> 140 &times; 60 pixels, size strictly <strong>10 KB to 20 KB</strong> in black ink.</li>
-      </ul>
-
-      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
-        <h4 class="text-base font-bold text-foreground">Preparing UPSC OTR Documents?</h4>
-        <p class="text-sm text-muted-foreground mt-1">Ensure your UPSC passport photo and signature comply with official OTR specs before the registration portal closes.</p>
-        <div class="flex flex-wrap gap-2 mt-3">
-          <a href="/upsc-photo-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
-            📸 UPSC Photo Resizer (350×350) &rarr;
-          </a>
-          <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
-            ✍️ UPSC Signature Resizer &rarr;
-          </a>
-        </div>
-      </div>
-    `,
-    faqs: []
-  },
-
-  {
-    slug: "state-psc-otr-registration-photo-signature-guidelines",
-    title: "State PSC One-Time Registration (OTR): Mandatory Signature & Photo Guidelines for UPPSC, BPSC, MPSC & RPSC",
-    excerpt: "Detailed checklist for State Public Service Commission One-Time Registration portals: dimensions, dual-boundary compression, step-by-step navigation, and white background verification.",
-    category: "Guidelines & Tips",
-    publishDate: "Oct 14, 2026",
-    lastUpdated: "Oct 14, 2026",
-    author: "SignResize Technical Verification Team",
-    authorRole: "State Commission Standards Desk",
-    readTime: "7 min read",
-    featured: false,
-    tags: ["State PSC","OTR Registration","UPPSC","BPSC","MPSC","RPSC","Document Guidelines"],
-    relatedExamPreset: "uppsc-uttar-pradesh",
-    quickFacts: [],
-    contentHtml: `
-<h2>State PSC One-Time Registration (OTR) Mandate</h2>
-      <p>State Public Service Commissions across India—including <strong>UPPSC (Uttar Pradesh), BPSC (Bihar), MPSC (Maharashtra), and RPSC (Rajasthan)</strong>—have made OTR mandatory. Photographs and signatures uploaded during OTR are permanently locked to candidate profiles for all future competitive exam notices.</p>
-
-      <h2>State Commission Document Comparison Matrix</h2>
-      <div class="my-6 overflow-x-auto">
-        <table class="w-full text-xs sm:text-sm text-left border border-border">
-          <thead class="bg-muted text-foreground font-semibold">
-            <tr>
-              <th class="p-3 border-b">Commission</th>
-              <th class="p-3 border-b">Signature Size &amp; Specs</th>
-              <th class="p-3 border-b">Photo Dimensions &amp; Size</th>
-              <th class="p-3 border-b">Special Rules</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-border">
-            <tr>
-              <td class="p-3 font-semibold text-primary">UPPSC OTR</td>
-              <td class="p-3 font-mono">10 KB – 20 KB (140&times;60 px)</td>
-              <td class="p-3 font-mono">20 KB – 50 KB (3.5&times;4.5 cm)</td>
-              <td class="p-3">White background; Candidate name &amp; photo date beneath picture</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-semibold text-primary">BPSC (Bihar)</td>
-              <td class="p-3 font-mono">10 KB – 20 KB (Separate Files)</td>
-              <td class="p-3 font-mono">20 KB – 50 KB (3.5&times;4.5 cm)</td>
-              <td class="p-3">Requires two separate uploads for Hindi and English running signatures</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-semibold text-primary">MPSC (Maharashtra)</td>
-              <td class="p-3 font-mono">10 KB – 20 KB</td>
-              <td class="p-3 font-mono">20 KB – 50 KB (200&times;230 px)</td>
-              <td class="p-3">Black ballpoint pen on plain white sheet; Cursive running writing</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
-        <div class="flex items-center justify-between text-slate-400 text-[11px]">
-          <span>⚡ State OTR Portal Error Prevention Code Snippet</span>
-          <span>Portal Validation Standard</span>
-        </div>
-        <pre class="overflow-x-auto text-emerald-400"><code>If photo_background != "white" OR signature_casing == "BLOCK_CAPS":
-    Return Portal_Error: "Document failed OCR automated quality check"</code></pre>
-      </div>
-
-      <h2>Step-by-Step State OTR Navigation Workflow</h2>
-      <div class="my-8 space-y-4">
-        <div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-6">
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</div>
-            <h4 class="font-bold text-foreground text-sm">Register OTR Profile</h4>
-            <p class="text-xs text-muted-foreground mt-1">Enter Aadhar / Mobile / Email to generate permanent OTR Registration ID on your State PSC portal.</p>
-          </div>
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</div>
-            <h4 class="font-bold text-foreground text-sm">Upload High-Contrast Photos &amp; Signatures</h4>
-            <p class="text-xs text-muted-foreground mt-1">Use SignResize to remove background phone shadows and compress signatures precisely to the 10–20 KB bound.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
-        <h4 class="text-base font-bold text-foreground">Prepare Your OTR Files in 1 Click</h4>
-        <p class="text-sm text-muted-foreground mt-1">Select your state commission preset to automatically apply exact dimensions and compression limits directly in your browser.</p>
-        <a href="/#tool-workspace" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
-          Launch State PSC Resizer &rarr;
-        </a>
-      </div>
-    `,
-    faqs: []
-  },
-
-  {
-    slug: "rrb-ntpc-2026-master-document-rules-preparation-strategy",
-    title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
-    excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, step-by-step navigation, and speed calculation methods.",
-    category: "Study Prep",
-    publishDate: "Oct 13, 2026",
-    lastUpdated: "Oct 13, 2026",
-    author: "SignResize Academic Research Desk",
-    authorRole: "Railway Recruitment Strategy Desk",
-    readTime: "8 min read",
-    featured: false,
-    tags: ["RRB NTPC","Railway Exams","CBT 1 Prep","Signature 10-20KB","Maths Shortcuts","Document Guidelines"],
-    relatedExamPreset: "rrb-railway",
-    quickFacts: [],
-    contentHtml: `
-<h2>RRB NTPC 2026: Master Examination Overview &amp; Selection Stages</h2>
-      <p>The Railway Recruitment Boards (RRB) have activated the recruitment calendar for <strong>Non-Technical Popular Categories (NTPC)</strong>. Covering graduate posts like Goods Guard, Senior Clerk-cum-Typist, and Commercial Apprentice, as well as undergraduate roles like Junior Clerk and Train Clerk, competition across all Indian railway zones is exceptionally high.</p>
-
-      <p>Succeeding in CBT-1 and CBT-2 requires a structured study routine paired with strict document compliance during the online registration process.</p>
-
-      <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
-        <h4 class="font-bold text-primary mb-2">⚡ CBT-1 Exam Pattern &amp; Time Distribution</h4>
-        <ul class="space-y-1.5 text-sm text-foreground/90">
-          <li><strong>General Awareness:</strong> 40 Questions (Current Affairs, General Science, Indian History, Geography, Static GK)</li>
-          <li><strong>Mathematics:</strong> 30 Questions (Number Systems, Decimals, Fractions, LCM-HCF, Ratio, Percentages, Mensuration, Time &amp; Work)</li>
-          <li><strong>General Intelligence &amp; Reasoning:</strong> 30 Questions (Analogies, Coding, Syllogisms, Venn Diagrams, Mathematical Operations)</li>
-          <li><strong>Total Time:</strong> 90 Minutes (100 Questions with 1/3rd negative marking per incorrect response)</li>
-        </ul>
-      </div>
-
-      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
-        <div class="flex items-center justify-between text-slate-400 text-[11px]">
-          <span>⚡ Railway Exam Portal Rules &amp; Negative Marking Snippet</span>
-          <span>RRB Specification Standard</span>
-        </div>
-        <pre class="overflow-x-auto text-emerald-400"><code>CBT-1 Score = (Correct Attempts × 1.0) - (Incorrect Attempts × 0.333)
-Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</code></pre>
-      </div>
-
-      <h2>Document Upload Compliance for Railway Portals</h2>
-      <p>Railway recruitment notices explicitly enforce strict parameters for candidate photo and scanned signature uploads:</p>
-      <ul>
-        <li><strong>Scanned Passport Photo:</strong> Clear color photograph against a light white background taken within 3 months. File size must range between <strong>20 KB and 50 KB</strong> in JPG/JPEG format. Spectacles with tint or flash glare will be rejected.</li>
-        <li><strong>Candidate Signature:</strong> Must be signed in running handwriting on clean white unruled paper using a black ballpoint pen. File weight must be between <strong>10 KB and 20 KB</strong> (140 &times; 60 pixels). Capital letter signatures trigger immediate cancellation.</li>
-      </ul>
-
-      <div class="my-8 p-6 rounded-2xl bg-card border border-border shadow-sm">
-        <h3 class="text-base font-bold text-foreground mb-4 flex items-center gap-2">
-          <span>📐</span> RRB Document Formatting Workflow
-        </h3>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 text-center">
-          <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">1</div>
-            <span class="font-bold text-xs text-foreground">Sign on White Paper</span>
-            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Use dark black ballpoint pen</span>
-          </div>
-          <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">2</div>
-            <span class="font-bold text-xs text-foreground">Crop 140x60 Ratio</span>
-            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Remove surrounding excess paper</span>
-          </div>
-          <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">3</div>
-            <span class="font-bold text-xs text-foreground">Background White Filter</span>
-            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Clean phone shadows automatically</span>
-          </div>
-          <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">4</div>
-            <span class="font-bold text-xs text-foreground">Target 10-20 KB</span>
-            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Compress for zero portal error</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="my-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
-        <h4 class="text-base font-bold text-foreground">Need RRB Signature &amp; Photo Formatted?</h4>
-        <p class="text-xs sm:text-sm text-muted-foreground mt-1">Use our dedicated RRB Railway preset to crop, clean dark shadows, and compress into the exact 10–20 KB bound in seconds.</p>
-        <div class="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 mt-3">
-          <a href="/rrb-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition w-full sm:w-auto">
-            Open RRB Resizer &rarr;
-          </a>
-          <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition w-full sm:w-auto">
-            Resize Passport Photo &rarr;
-          </a>
-        </div>
-      </div>
-
-      <h2>Step-by-Step Railway Registration Workflow</h2>
-      <div class="my-8 space-y-4">
-        <div class="relative border-l-2 border-primary/30 ml-4 pl-6 space-y-6">
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</div>
-            <h4 class="font-bold text-foreground text-sm">Select Zonal RRB Portal</h4>
-            <p class="text-xs text-muted-foreground mt-1">Visit your chosen zonal portal (e.g. RRB Mumbai, RRB Chennai, RRB Chandigarh) and initiate candidate registration.</p>
-          </div>
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</div>
-            <h4 class="font-bold text-foreground text-sm">Upload Photo (20-50 KB) &amp; Signature (10-20 KB)</h4>
-            <p class="text-xs text-muted-foreground mt-1">Upload JPEG files formatted with SignResize. Verify that your signature image displays clearly without horizontal stretch.</p>
-          </div>
-          <div class="relative">
-            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">3</div>
-            <h4 class="font-bold text-foreground text-sm">Confirm Community Certificate Upload (SC/ST)</h4>
-            <p class="text-xs text-muted-foreground mt-1">If applying for free rail travel authority, upload your scanned caste certificate in PDF format under 500 KB.</p>
-          </div>
-        </div>
-      </div>
-
-      <h2>Recommended Daily Study Strategy</h2>
-      <p>Divide your daily preparation into 3 focused blocks: 2 hours for Arithmetic speed drills, 1.5 hours for Logical Reasoning puzzle practice, and 2 hours for General Science and Current Affairs revision.</p>
-    `,
-    faqs: []
-  },
-
   {
     "slug": "wbpsc-miscellaneous-clerkship-form-fill-up-photo-signature-resize-guide",
     "title": "WBPSC Form Fill Up 2026: Miscellaneous, Clerkship, Syllabus, Salary, Results & Photo/Signature Resizer",
@@ -4402,7 +4686,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         "answer": "An IAS Officer starts training at LBSNAA Mussoorie at Pay Level 10 (Basic ₹56,100). Adding DA, HRA, and allowances, gross monthly salary is ~₹95,000–₹1,05,000 alongside official accommodation."
       }
     ],
-    "contentHtml": "\n<h2 id=\"exam-pattern\" id=\"overview\">The Structured 90-Day Foundation Blueprint</h2>\n      <p>Succeeding in the Civil Services Examination (CSE) does not require studying 16 hours a day; it requires systematic consistency, sharp syllabus boundaries, and relentless revision of standard public academic sources. This comprehensive roadmap is designed to guide both full-time aspirants and working professionals through a step-by-step preparation cycle.</p>\n\n      <div class=\"my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20\">\n        <h3 class=\"text-base font-bold text-primary mb-2\">📌 The Golden Rules of High-Yield Preparation</h3>\n        <ul class=\"space-y-1.5 text-sm text-foreground/90\">\n          <li><strong>One Standard Source per Subject:</strong> Read one standard government or canonical academic reference five times rather than five different commercial coaching booklets once.</li>\n          <li><strong>Official PYQ-First Approach:</strong> Solve the last 10 years of official Previous Year Questions (PYQs) published by the Union Public Service Commission before taking mock tests.</li>\n          <li><strong>Active Recall over Passive Highlighting:</strong> Test yourself after every study session using short notes, flash summaries, and mental retrieval.</li>\n          <li><strong>Never Neglect Paper II (CSAT):</strong> Allocate at least 60 to 90 minutes daily from day one to comfortably clear the 33% (66 marks) qualifying benchmark.</li>\n        </ul>\n      </div>\n\n      <h2 id=\"strategy\">Daily Study Timetable: Realistic 8-Hour Master Routine</h2>\n      <div class=\"my-5 overflow-x-auto\">\n        <table class=\"w-full text-sm text-left border border-border\">\n          <thead class=\"bg-muted text-foreground font-semibold\">\n            <tr>\n              <th class=\"p-3 border-b border-border\">Time Slot</th>\n              <th class=\"p-3 border-b border-border\">Session Type</th>\n              <th class=\"p-3 border-b border-border\">Target Objective &amp; Activities</th>\n            </tr>\n          </thead>\n          <tbody class=\"divide-y divide-border text-xs sm:text-sm\">\n            <tr>\n              <td class=\"p-3 font-mono font-semibold text-primary\">06:00 AM – 08:30 AM</td>\n              <td class=\"p-3 font-semibold\">Slot 1: Core Static Subject</td>\n              <td class=\"p-3 text-muted-foreground\">Highest mental alertness window. Cover dense static subjects (Polity / Modern History / Economy).</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-mono font-semibold text-primary\">09:30 AM – 11:30 AM</td>\n              <td class=\"p-3 font-semibold\">Slot 2: Current Affairs &amp; PIB</td>\n              <td class=\"p-3 text-muted-foreground\">Standard national daily newspaper analysis + official Press Information Bureau (PIB.gov.in) releases.</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-mono font-semibold text-primary\">02:00 PM – 04:30 PM</td>\n              <td class=\"p-3 font-semibold\">Slot 3: CSAT &amp; Aptitude Drills</td>\n              <td class=\"p-3 text-muted-foreground\">Practice Reading Comprehension inferences and quantitative problem solving.</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-mono font-semibold text-primary\">07:00 PM – 09:00 PM</td>\n              <td class=\"p-3 font-semibold\">Slot 4: Revision &amp; PYQs</td>\n              <td class=\"p-3 text-muted-foreground\">Active recall, solving 30 PYQs, and summarizing today's key takeaways.</td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    \n<h2 id=\"document-specs\">UPSC CSE 2026 Daily Study Strategy: Official Document Upload Specifications</h2>\n<p>Strict compliance with portal dimensions, resolution, and file sizes is mandatory to clear preliminary automated portal verification.</p>\n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2\">\n  <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n    <span>⚠️</span> Critical Application Rejection Traps to Avoid\n  </h4>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">\n    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:\n  </p>\n  <ul class=\"list-disc pl-5 text-sm space-y-1 text-muted-foreground\">\n    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>\n    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>\n    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>\n    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>\n  </ul>\n</div>\n<div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20\">\n  <div class=\"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n    <div>\n      <h4 class=\"font-bold text-lg text-foreground\">Prepare Your UPSC CSE 2026 Daily Study Strategy Documents in Seconds</h4>\n      <p class=\"text-sm text-muted-foreground mt-1\">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>\n    </div>\n    <div class=\"flex flex-wrap gap-2 w-full sm:w-auto\">\n      <a href=\"/photo-resizer/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all\">\n        <span>📸</span> Resize Photo\n      </a>\n      <a href=\"/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all\">\n        <span>✍️</span> Resize Signature\n      </a>\n    </div>\n  </div>\n</div>\n    "
+    "contentHtml": "\n<h2 id=\"exam-pattern\" id=\"overview\">The Structured 90-Day Foundation Blueprint</h2>\n      <p>Succeeding in the Civil Services Examination (CSE) does not require studying 16 hours a day; it requires systematic consistency, sharp syllabus boundaries, and relentless revision of standard public academic sources. Before planning your timetable, review the complete topic-by-topic breakdown in our <a href=\"/blog/upsc-cse-syllabus-2026-complete-guide-prelims-mains-pdf/\" class=\"text-primary font-semibold underline\">UPSC CSE Syllabus 2026 Complete Prelims &amp; Mains Guide (with PDF Download)</a>.</p>\n\n      <div class=\"my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20\">\n        <h3 class=\"text-base font-bold text-primary mb-2\">📌 The Golden Rules of High-Yield Preparation</h3>\n        <ul class=\"space-y-1.5 text-sm text-foreground/90\">\n          <li><strong>One Standard Source per Subject:</strong> Read one standard government or canonical academic reference five times rather than five different commercial coaching booklets once.</li>\n          <li><strong>Official PYQ-First Approach:</strong> Solve the last 10 years of official Previous Year Questions (PYQs) published by the Union Public Service Commission before taking mock tests.</li>\n          <li><strong>Active Recall over Passive Highlighting:</strong> Test yourself after every study session using short notes, flash summaries, and mental retrieval.</li>\n          <li><strong>Never Neglect Paper II (CSAT):</strong> Allocate at least 60 to 90 minutes daily from day one to comfortably clear the 33% (66 marks) qualifying benchmark.</li>\n        </ul>\n      </div>\n\n      <h2 id=\"strategy\">Daily Study Timetable: Realistic 8-Hour Master Routine</h2>\n      <div class=\"my-5 overflow-x-auto\">\n        <table class=\"w-full text-sm text-left border border-border\">\n          <thead class=\"bg-muted text-foreground font-semibold\">\n            <tr>\n              <th class=\"p-3 border-b border-border\">Time Slot</th>\n              <th class=\"p-3 border-b border-border\">Session Type</th>\n              <th class=\"p-3 border-b border-border\">Target Objective &amp; Activities</th>\n            </tr>\n          </thead>\n          <tbody class=\"divide-y divide-border text-xs sm:text-sm\">\n            <tr>\n              <td class=\"p-3 font-mono font-semibold text-primary\">06:00 AM – 08:30 AM</td>\n              <td class=\"p-3 font-semibold\">Slot 1: Core Static Subject</td>\n              <td class=\"p-3 text-muted-foreground\">Highest mental alertness window. Cover dense static subjects (Polity / Modern History / Economy).</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-mono font-semibold text-primary\">09:30 AM – 11:30 AM</td>\n              <td class=\"p-3 font-semibold\">Slot 2: Current Affairs &amp; PIB</td>\n              <td class=\"p-3 text-muted-foreground\">Standard national daily newspaper analysis + official Press Information Bureau (PIB.gov.in) releases.</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-mono font-semibold text-primary\">02:00 PM – 04:30 PM</td>\n              <td class=\"p-3 font-semibold\">Slot 3: CSAT &amp; Aptitude Drills</td>\n              <td class=\"p-3 text-muted-foreground\">Practice Reading Comprehension inferences and quantitative problem solving.</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-mono font-semibold text-primary\">07:00 PM – 09:00 PM</td>\n              <td class=\"p-3 font-semibold\">Slot 4: Revision &amp; PYQs</td>\n              <td class=\"p-3 text-muted-foreground\">Active recall, solving 30 PYQs, and summarizing today's key takeaways.</td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    \n<h2 id=\"document-specs\">UPSC CSE 2026 Daily Study Strategy: Official Document Upload Specifications</h2>\n<p>Strict compliance with portal dimensions, resolution, and file sizes is mandatory to clear preliminary automated portal verification.</p>\n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2\">\n  <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n    <span>⚠️</span> Critical Application Rejection Traps to Avoid\n  </h4>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">\n    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:\n  </p>\n  <ul class=\"list-disc pl-5 text-sm space-y-1 text-muted-foreground\">\n    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>\n    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>\n    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>\n    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>\n  </ul>\n</div>\n<div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20\">\n  <div class=\"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n    <div>\n      <h4 class=\"font-bold text-lg text-foreground\">Prepare Your UPSC CSE 2026 Daily Study Strategy Documents in Seconds</h4>\n      <p class=\"text-sm text-muted-foreground mt-1\">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>\n    </div>\n    <div class=\"flex flex-wrap gap-2 w-full sm:w-auto\">\n      <a href=\"/photo-resizer/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all\">\n        <span>📸</span> Resize Photo\n      </a>\n      <a href=\"/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all\">\n        <span>✍️</span> Resize Signature\n      </a>\n    </div>\n  </div>\n</div>\n    "
   },
   {
     "slug": "ssc-cgl-2026-top-10-faq-aspirants-guide",
