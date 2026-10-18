@@ -1298,16 +1298,42 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black or Dark Blue Ink',
     aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'Signatures must be clear, without camera shadows or grey background. Capital letter signatures will be rejected.',
+    strictNotice: 'Signatures must be in running handwriting on white paper. Capital letters are strictly disqualified. Save file as Signature.jpg.',
+    verifiedOn: '2026-10-18',
+    guidanceLabel: 'Join Indian Coast Guard (CGEPT) Official Guidance',
+    sources: [
+      { label: 'Join Indian Coast Guard Official Portal (joinindiancoastguard.cdac.in)', url: 'https://joinindiancoastguard.cdac.in/' },
+      { label: 'CGEPT Detailed Advertisement & Document Upload Guidelines (Clause aa)', url: 'https://joinindiancoastguard.cdac.in/cgept/' },
+      { label: 'Ministry of Defence, Government of India (MoD)', url: 'https://mod.gov.in/' }
+    ],
     tips: [
-      'Sign with a black or dark blue pen in running handwriting.',
-      'Keep file size strictly between 10 KB and 50 KB.',
-      'Use the Clean Paper filter to produce a crisp white background.'
+      'Sign with a black or dark blue pen in running handwriting on unruled white paper.',
+      'Keep signature file size strictly between 10 KB and 50 KB in JPG format (recommended: 25 KB).',
+      'Mandatory File Naming: Save signature as Signature.jpg, chalkboard slate photo as Passport_Photograph.jpg, and left thumb impression as Thumb_Impression.jpg.',
+      'For Slate Photo: Take a recent color photo holding a black chalkboard/slate in front of chest with your Full Name and Date of Photograph (DD-MM-YYYY) written in white chalk (10–50 KB).',
+      'For Left Thumb Impression (LTI): Stamped with black or blue ink on white paper, smudge-free ridges (10–50 KB).',
+      'For Certificates & Marksheets: Scanned from ORIGINAL documents only, strictly between 50 KB and 150 KB in JPG/JPEG.'
     ],
     faqs: [
       {
-        q: 'What is the signature size for Coast Guard Navik recruitment?',
-        a: 'The Indian Coast Guard portal accepts signature images between 10 KB and 50 KB in JPG/JPEG format.'
+        q: 'What is the signature size for Coast Guard Navik & Yantrik recruitment?',
+        a: 'The Indian Coast Guard (CGEPT) portal accepts signature images between 10 KB and 50 KB in JPG/JPEG format, formatted to 140×60 px (~4×2 cm) in running handwriting.'
+      },
+      {
+        q: 'What is the mandatory file naming rule on the Join Indian Coast Guard portal?',
+        a: 'The portal requires strict file names: Signature.jpg for signature, Passport_Photograph.jpg for chalkboard slate photo, and Thumb_Impression.jpg for left thumb impression. Generic names with spaces or special characters can cause upload failures.'
+      },
+      {
+        q: 'What is the chalkboard slate photograph requirement for Coast Guard?',
+        a: 'Candidates must take a passport-size photo holding a black chalkboard/slate in front of their chest with their Full Name and Date of Photo capture written clearly in white chalk. Both ears must be visible with no spectacles or caps.'
+      },
+      {
+        q: 'What are the specifications for Coast Guard Left Thumb Impression (LTI)?',
+        a: 'Left-hand thumb impression must be stamped in blue or black ink on unruled white paper, sized strictly between 10 KB and 50 KB in JPG (recommended 240×240 px, 1:1 ratio) with clear ridge patterns.'
+      },
+      {
+        q: 'What is the file size limit for Coast Guard scanned documents and marksheets?',
+        a: 'All educational marksheets (10th, 12th, Engineering Diploma), category certificates, and photo ID proofs must be scanned from ORIGINAL documents and compressed between 50 KB and 150 KB in JPG/JPEG format.'
       }
     ]
   },

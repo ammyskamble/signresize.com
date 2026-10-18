@@ -61,6 +61,8 @@ export interface ExamPreset {
   requiresNameDate?: boolean;
   faceGuide?: boolean;
   docCategory?: string;
+  sourceUrl?: string;
+  sourceLabel?: string;
 }
 
 export type ToolTargetMode = 'signature' | 'photo' | 'document';

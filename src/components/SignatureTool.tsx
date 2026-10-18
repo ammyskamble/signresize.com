@@ -591,7 +591,28 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   const switchTargetType = useCallback(async (newType: ToolTargetMode) => {
     setTargetType(newType);
     const presets = newType === 'photo' ? PHOTO_PRESETS : newType === 'document' ? DOCUMENT_PRESETS : SIGNATURE_PRESETS;
-    const defaultPreset = (focusedWorkspace ? presets.find(p => !p.country || p.country === 'IN') : undefined) || presets[0];
+    
+    // Auto-map to current exam family (e.g. Indian Coast Guard, SSC, UPSC, RRB)
+    const curId = selectedPreset?.id || resolvedPreset?.id || initialPresetId || '';
+    const curName = (selectedPreset?.name || resolvedPreset?.name || '').toLowerCase();
+    const curAuth = (selectedPreset?.authority || resolvedPreset?.authority || '').toLowerCase();
+    const isCoastGuard = curId.includes('coast-guard') || curName.includes('coast guard') || curAuth.includes('coast guard');
+    
+    let targetPreset: ExamPreset | undefined;
+    if (isCoastGuard) {
+      if (newType === 'signature') {
+        targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'indian-coast-guard');
+      } else if (newType === 'photo') {
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'indian-coast-guard-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'indian-coast-guard-document' || p.id === 'indian-coast-guard-thumb-doc');
+      }
+    } else if (selectedPreset) {
+      const baseKey = selectedPreset.id.replace(/-photo|-sign|-thumb|-doc|-general|-recruitment/g, '');
+      targetPreset = presets.find(p => p.id.startsWith(baseKey) || (p.authority && p.authority === selectedPreset.authority));
+    }
+
+    const defaultPreset = targetPreset || (focusedWorkspace ? presets.find(p => !p.country || p.country === 'IN') : undefined) || presets[0];
     applyPreset(defaultPreset);
     if (newType === 'photo') {
       setLockAspect(true);
@@ -628,7 +649,35 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       // Retain real user uploaded photo/signature, just adjust crop to the new mode preset ratio
       initCropBox(sourceImage, defaultPreset.aspectRatio);
     }
-  }, [applyPreset, isSampleImage, sourceImage, loadSampleGenerators, focusedWorkspace]);
+  }, [applyPreset, isSampleImage, sourceImage, loadSampleGenerators, focusedWorkspace, selectedPreset, resolvedPreset, initialPresetId]);
+
+  const isCoastGuardActive = Boolean(
+    selectedPreset?.id.includes('coast-guard') ||
+    selectedPreset?.name.toLowerCase().includes('coast guard') ||
+    selectedPreset?.authority.toLowerCase().includes('coast guard') ||
+    resolvedPreset?.id.includes('coast-guard') ||
+    initialPresetId?.includes('coast-guard')
+  );
+
+  const selectCoastGuardSection = useCallback((section: 'signature' | 'photo' | 'thumb' | 'document') => {
+    if (section === 'signature') {
+      const p = SIGNATURE_PRESETS.find(x => x.id === 'indian-coast-guard');
+      setTargetType('signature');
+      if (p) applyPreset(p);
+    } else if (section === 'photo') {
+      const p = PHOTO_PRESETS.find(x => x.id === 'indian-coast-guard-photo');
+      setTargetType('photo');
+      if (p) applyPreset(p);
+    } else if (section === 'thumb') {
+      const p = DOCUMENT_PRESETS.find(x => x.id === 'indian-coast-guard-thumb-doc') || SIGNATURE_PRESETS.find(x => x.id === 'indian-coast-guard-thumb');
+      setTargetType('document');
+      if (p) applyPreset(p);
+    } else if (section === 'document') {
+      const p = DOCUMENT_PRESETS.find(x => x.id === 'indian-coast-guard-document');
+      setTargetType('document');
+      if (p) applyPreset(p);
+    }
+  }, [applyPreset]);
 
   // Apply page/URL defaults once per source, so later selections are retained.
   useEffect(() => {
@@ -1603,7 +1652,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     }
     const ext = targetFormat === 'image/jpeg' ? 'jpg' : targetFormat === 'image/png' ? 'png' : 'webp';
     const cleanExamTag = selectedPreset ? `${selectedPreset.shortCode.toLowerCase()}_` : '';
-    const filename = `${cleanExamTag}${modeConfig.filePrefix}${processedResult.width}x${processedResult.height}_${Math.round(processedResult.sizeKb)}kb.${ext}`;
+    let filename = `${cleanExamTag}${modeConfig.filePrefix}${processedResult.width}x${processedResult.height}_${Math.round(processedResult.sizeKb)}kb.${ext}`;
+
+    // Join Indian Coast Guard (CGEPT) portal strict file naming enforcement
+    if (selectedPreset?.id === 'indian-coast-guard-photo') {
+      filename = `Passport_Photograph.${ext}`;
+    } else if (selectedPreset?.id === 'indian-coast-guard') {
+      filename = `Signature.${ext}`;
+    } else if (selectedPreset?.id === 'indian-coast-guard-thumb' || selectedPreset?.id === 'indian-coast-guard-thumb-doc') {
+      filename = `Thumb_Impression.${ext}`;
+    }
 
     const link = document.createElement('a');
     link.href = processedResult.dataUrl;
@@ -2161,6 +2219,18 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 <span className="text-muted-foreground font-normal">({targetWidthPx}×{targetHeightPx}px, {minKb}–{maxKb}KB)</span>
               </span>
             )}
+            {selectedPreset?.sourceUrl && (
+              <a
+                href={selectedPreset.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 hover:underline transition"
+                title={selectedPreset.sourceLabel || 'Official Government / Examination Source'}
+              >
+                <span>Source: {selectedPreset.sourceLabel || new URL(selectedPreset.sourceUrl).hostname}</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            )}
           </div>
 
           <a
@@ -2543,6 +2613,103 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
           </span>
         </div>
 
+        {/* ⚓ INDIAN COAST GUARD 4-IN-1 SECTION SELECTOR */}
+        {isCoastGuardActive && (
+          <div className="p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-primary/10 to-emerald-500/10 border-2 border-primary/30 shadow-xs space-y-2.5 my-1">
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                <span className="text-xs font-bold text-foreground uppercase tracking-wider">
+                  Indian Coast Guard (CGEPT) All 4 Application Sections
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-mono font-bold bg-primary/20 text-primary px-2.5 py-0.5 rounded-full border border-primary/30">
+                  Active: {selectedPreset?.shortCode || 'Coast Guard'}
+                </span>
+                <a
+                  href="https://joinindiancoastguard.cdac.in/cgept/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 px-2.5 py-0.5 rounded-full border border-emerald-500/30 transition"
+                  title="Official CGEPT Recruitment & Upload Guidelines Portal"
+                >
+                  <span>Official Portal: joinindiancoastguard.cdac.in</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+            <p className="text-[11px] text-muted-foreground">
+              Click any section to automatically set official CGEPT dimensions, KB boundaries, and upload rules:
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <button
+                type="button"
+                onClick={() => selectCoastGuardSection('signature')}
+                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
+                  targetType === 'signature' && selectedPreset?.id === 'indian-coast-guard'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
+                    : 'bg-card border-border hover:bg-muted text-foreground'
+                }`}
+              >
+                <span className="text-xs font-bold flex items-center justify-between">
+                  <span>🖋️ Signature</span>
+                  {targetType === 'signature' && selectedPreset?.id === 'indian-coast-guard' && <Check className="w-3.5 h-3.5" />}
+                </span>
+                <span className="text-[10px] font-mono opacity-80">140×60 • 10–50 KB</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => selectCoastGuardSection('photo')}
+                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
+                  targetType === 'photo' && selectedPreset?.id === 'indian-coast-guard-photo'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
+                    : 'bg-card border-border hover:bg-muted text-foreground'
+                }`}
+              >
+                <span className="text-xs font-bold flex items-center justify-between">
+                  <span>📸 Slate Photo</span>
+                  {targetType === 'photo' && selectedPreset?.id === 'indian-coast-guard-photo' && <Check className="w-3.5 h-3.5" />}
+                </span>
+                <span className="text-[10px] font-mono opacity-80">3.5×4.5 • 10–50 KB</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => selectCoastGuardSection('thumb')}
+                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
+                  targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb')
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
+                    : 'bg-card border-border hover:bg-muted text-foreground'
+                }`}
+              >
+                <span className="text-xs font-bold flex items-center justify-between">
+                  <span>👆 Left Thumb</span>
+                  {targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb') && <Check className="w-3.5 h-3.5" />}
+                </span>
+                <span className="text-[10px] font-mono opacity-80">3×3 cm • 10–50 KB</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => selectCoastGuardSection('document')}
+                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
+                  targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
+                    : 'bg-card border-border hover:bg-muted text-foreground'
+                }`}
+              >
+                <span className="text-xs font-bold flex items-center justify-between">
+                  <span>📄 Documents</span>
+                  {targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document' && <Check className="w-3.5 h-3.5" />}
+                </span>
+                <span className="text-[10px] font-mono opacity-80">A4 • 50–150 KB</span>
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* 3 Large Mode Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
           <button
@@ -2559,9 +2726,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 <PenTool className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">{t.tool.signatureMode}</div>
+                <div className="font-bold text-xs">{isCoastGuardActive ? 'Coast Guard Signature' : t.tool.signatureMode}</div>
                 <div className={`text-[10px] ${targetType === 'signature' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {t.tool.signatureSub}
+                  {isCoastGuardActive ? '140×60 px • 10–50 KB • Signature.jpg' : t.tool.signatureSub}
                 </div>
               </div>
             </div>
@@ -2582,9 +2749,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 <Camera className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">{t.tool.photoMode}</div>
+                <div className="font-bold text-xs">{isCoastGuardActive ? 'Coast Guard Slate Photo' : t.tool.photoMode}</div>
                 <div className={`text-[10px] ${targetType === 'photo' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {t.tool.photoSub}
+                  {isCoastGuardActive ? '350×450 px • 10–50 KB • Slate + DoP' : t.tool.photoSub}
                 </div>
               </div>
             </div>
@@ -2605,9 +2772,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                 <FileText className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">{t.tool.documentMode}</div>
+                <div className="font-bold text-xs">{isCoastGuardActive ? 'Coast Guard Documents & Thumb' : t.tool.documentMode}</div>
                 <div className={`text-[10px] ${targetType === 'document' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {t.tool.documentSub}
+                  {isCoastGuardActive ? 'Marksheets (50–150 KB) & LTI (10–50 KB)' : t.tool.documentSub}
                 </div>
               </div>
             </div>
@@ -3207,6 +3374,74 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
 
               {/* Card 1: Interactive Cropper Canvas */}
               <div className="studio-source-card bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
+
+                {/* ⚓ INDIAN COAST GUARD 4-IN-1 STUDIO SECTION SELECTOR */}
+                {isCoastGuardActive && (
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-amber-500/10 via-primary/10 to-emerald-500/10 border border-primary/30 space-y-2">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-foreground">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>Coast Guard CGEPT Sections (Auto-Synced)</span>
+                      </div>
+                      <span className="text-[10px] font-mono font-bold bg-primary/20 text-primary px-2 py-0.5 rounded">
+                        Active: {selectedPreset?.shortCode || 'Coast Guard'}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => selectCoastGuardSection('signature')}
+                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
+                          targetType === 'signature' && selectedPreset?.id === 'indian-coast-guard'
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
+                            : 'bg-card border-border hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        <span className="truncate">🖋️ Sign (10–50 KB)</span>
+                        {targetType === 'signature' && selectedPreset?.id === 'indian-coast-guard' && <Check className="w-3 h-3 shrink-0" />}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => selectCoastGuardSection('photo')}
+                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
+                          targetType === 'photo' && selectedPreset?.id === 'indian-coast-guard-photo'
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
+                            : 'bg-card border-border hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        <span className="truncate">📸 Slate Photo (10–50 KB)</span>
+                        {targetType === 'photo' && selectedPreset?.id === 'indian-coast-guard-photo' && <Check className="w-3 h-3 shrink-0" />}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => selectCoastGuardSection('thumb')}
+                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
+                          targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb')
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
+                            : 'bg-card border-border hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        <span className="truncate">👆 Left Thumb (10–50 KB)</span>
+                        {targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb') && <Check className="w-3 h-3 shrink-0" />}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => selectCoastGuardSection('document')}
+                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
+                          targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document'
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
+                            : 'bg-card border-border hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        <span className="truncate">📄 Docs (50–150 KB)</span>
+                        {targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document' && <Check className="w-3 h-3 shrink-0" />}
+                      </button>
+                    </div>
+                  </div>
+                )}
 
                 <div className="studio-meta-bar studio-inline-controls flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-2">
                   <div className="flex flex-wrap items-center gap-2.5">
@@ -4088,7 +4323,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                     <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Status</div>
                     <div className="pt-0.5">
                       {processedResult ? (
-                        processedResult.withinTargetBounds && inspectExport(processedResult, exportRule).length === 0 ? (
+                        isCoastGuardActive && targetType === 'photo' ? (
+                          <span className="inline-flex items-center gap-1 font-bold text-rose-700 dark:text-rose-400 bg-rose-500/15 border border-rose-500/40 px-2 py-0.5 rounded text-[10px]" title="Normal photos disqualified without physical slate">
+                            <AlertCircle className="w-3.5 h-3.5 text-rose-600" />
+                            <span>Missing Slate &amp; DoP</span>
+                          </span>
+                        ) : processedResult.withinTargetBounds && inspectExport(processedResult, exportRule).length === 0 ? (
                           <span className="inline-flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-300 text-[11px]">
                             <CheckCircle2 className="w-3.5 h-3.5" />
                             <span>Ready</span>
@@ -4128,6 +4368,77 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
                         Auto-Fix Min KB Floor →
                       </button>
                     )}
+                  </div>
+                )}
+
+                {/* 🚨 INDIAN COAST GUARD PHOTO REJECTION AUDIT (BELOW PREVIEW IMAGE) */}
+                {isCoastGuardActive && targetType === 'photo' && (
+                  <div id="cg-photo-preview-audit" className="rounded-xl border-2 border-rose-500 bg-rose-500/10 dark:bg-rose-950/40 p-3.5 space-y-2 text-xs">
+                    <div className="flex items-center justify-between border-b border-rose-500/30 pb-2">
+                      <div className="font-extrabold text-rose-700 dark:text-rose-400 flex items-center gap-1.5 text-xs">
+                        <span className="text-base">🚨</span>
+                        <span>Coast Guard Photo Rejection Warning: What Is Missing?</span>
+                      </div>
+                      <span className="text-[10px] font-mono font-bold bg-rose-600 text-white px-2 py-0.5 rounded shadow-xs">
+                        DISQUALIFICATION RISK
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-foreground font-semibold leading-relaxed">
+                      If this is a normal portrait, <strong>it will be cancelled by Indian Coast Guard</strong> at Stage-I scrutiny. Check what is missing in your uploaded photo:
+                    </p>
+                    <div className="space-y-1.5 text-[11px]">
+                      <div className="flex items-start gap-1.5 p-2 rounded-lg bg-card/80 border border-rose-500/30">
+                        <span className="text-rose-600 dark:text-rose-400 font-bold shrink-0">❌</span>
+                        <div>
+                          <strong className="text-rose-700 dark:text-rose-300">1. Missing Physical Black Slate:</strong>
+                          <span className="text-muted-foreground block">You must hold a black chalkboard in front of your chest while the photo is taken.</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-1.5 p-2 rounded-lg bg-card/80 border border-rose-500/30">
+                        <span className="text-rose-600 dark:text-rose-400 font-bold shrink-0">❌</span>
+                        <div>
+                          <strong className="text-rose-700 dark:text-rose-300">2. Missing White Chalk Name &amp; Date (DoP):</strong>
+                          <span className="text-muted-foreground block">Candidate Name and Date of Photo must be written on the slate in white chalk in CAPITAL letters.</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-1.5 p-2 rounded-lg bg-card/80 border border-amber-500/30">
+                        <span className="text-amber-600 dark:text-amber-400 font-bold shrink-0">👓</span>
+                        <div>
+                          <strong className="text-amber-700 dark:text-amber-300">3. Spectacles / Glasses Prohibited:</strong>
+                          <span className="text-muted-foreground block">Candidates wearing spectacles/glasses are disqualified. Retake without glasses.</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-1.5 p-2 rounded-lg bg-card/80 border border-amber-500/30">
+                        <span className="text-amber-600 dark:text-amber-400 font-bold shrink-0">⚠️</span>
+                        <div>
+                          <strong className="text-amber-700 dark:text-amber-300">4. Plain Light / White Background:</strong>
+                          <span className="text-muted-foreground block">Must have a plain light/white background. Dark or gradient backgrounds are rejected.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between gap-2 pt-1 border-t border-rose-500/20 text-[10px] text-muted-foreground">
+                      <a
+                        href="https://joinindiancoastguard.cdac.in/cgept/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-rose-700 dark:text-rose-400 hover:underline flex items-center gap-1"
+                        title="Official Join Indian Coast Guard CGEPT Notification"
+                      >
+                        <span>Official Source: CGEPT Notification Clause (aa)</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null;
+                          if (fix) fix.open = true;
+                          document.getElementById('canvas-background-fix')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }}
+                        className="font-bold text-primary hover:underline cursor-pointer"
+                      >
+                        Make Background White →
+                      </button>
+                    </div>
                   </div>
                 )}
 
