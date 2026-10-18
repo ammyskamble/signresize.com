@@ -218,7 +218,16 @@ const presetSlugMap = new Map([
   ['ppsc-pk', 'ppsc-signature-resize'],
   ['fpsc-pk', 'fpsc-photo-resize'],
   ['prc-ph', 'prc-photo-signature-resize-philippines'],
-  ['loksewa-np', 'lok-sewa-photo-resize-nepal']
+  ['loksewa-np', 'lok-sewa-photo-resize-nepal'],
+  ['rrb-ntpc', 'rrb-ntpc-signature-resize'],
+  ['upsssc-pet', 'upsssc-pet-signature-resize'],
+  ['upsssc-pet-photo', 'upsssc-pet-signature-resize'],
+  ['bssc-inter-level', 'bssc-signature-resize'],
+  ['bssc-photo', 'bssc-signature-resize'],
+  ['cuet-ug', 'cuet-signature-resize'],
+  ['cuet-ug-photo', 'cuet-signature-resize'],
+  ['ssc-mts', 'ssc-mts-signature-resize'],
+  ['india-post-gds-signature', 'india-post-gds-signature-resize']
 ]);
 
 const examPageMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p]));
