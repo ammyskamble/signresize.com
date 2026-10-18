@@ -467,13 +467,13 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
 
               <!-- 4. Signature Creator & Maker -->
               <a
-                href="/ssc-signature-resize/"
+                href="/ssc-cgl-signature-resize/"
                 class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
               >
                 <span class="text-base p-1 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0">🎨</span>
                 <div>
-                  <div class="font-bold text-xs group-hover/item:text-primary">SSC Signature Resizer (140×60)</div>
-                  <div class="text-[10px] text-muted-foreground leading-tight">Official 10–20 KB preset for SSC CGL, CHSL, MTS</div>
+                  <div class="font-bold text-xs group-hover/item:text-primary">SSC CGL Photo &amp; Signature (10–20 KB)</div>
+                  <div class="text-[10px] text-muted-foreground leading-tight">Official 140×60 px &amp; 3.5×4.5 cm preset for SSC CGL 2026</div>
                 </div>
               </a>
 
@@ -543,8 +543,14 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
               </div>
               <ul class="space-y-0.5">
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="ssc">
-                    <span class="truncate font-medium">SSC (CGL, CHSL, MTS)</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="ssc-cgl" data-slug="ssc-cgl-signature-resize">
+                    <span class="truncate font-bold text-primary">★ SSC CGL (140×60)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-primary/10 text-primary font-bold shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="ssc" data-slug="ssc-signature-resize">
+                    <span class="truncate font-medium">SSC (CHSL, MTS, GD)</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">140×60</span>
                   </button>
                 </li>
@@ -1246,8 +1252,12 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
         <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Top Applied</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ssc-cgl" data-slug="ssc-cgl-signature-resize">
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">★ SSC CGL 2026</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
+        </button>
         <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="ssc" data-slug="ssc-signature-resize">
-          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">SSC (CGL, CHSL)</span>
+          <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">SSC (CHSL, MTS)</span>
           <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">140×60 • 10–20 KB</span>
         </button>
         <button type="button" class="preset-btn text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group cursor-pointer" data-exam="upsc" data-slug="upsc-signature-resize">

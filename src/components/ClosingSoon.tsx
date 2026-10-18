@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import windows from '../data/applicationWindows.json';
 import { activeApplications, daysUntilClose } from '../utils/applicationWindows';
 

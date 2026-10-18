@@ -33,7 +33,7 @@ export default defineConfig({
     '/appsc-tspsc': '/appsc-tspsc-signature-resize/',
     '/jobs': '/government-jobs/',
     '/govt-jobs': '/government-jobs/',
-    '/ssc-cgl': '/ssc-signature-resize/',
+    '/ssc-cgl': '/ssc-cgl-signature-resize/',
     '/ssc': '/ssc-signature-resize/',
     '/upsc': '/upsc-signature-resize/',
     '/upsc-civil-services': '/upsc-signature-resize/',

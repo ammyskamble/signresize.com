@@ -302,6 +302,52 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
           <!-- Exam Authority Knowledge & FAQ Section -->
           <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-6">
             
+            {examData.slug.includes('ssc') && (
+              <div class="p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-3">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
+                    <span>⚡</span> SSC CGL 2026 Document Matrix: Photo vs. Signature
+                  </h3>
+                  <span class="text-[11px] font-medium text-primary">Official ssc.gov.in Standards</span>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-border bg-card">
+                  <table class="w-full text-xs text-left">
+                    <thead class="bg-muted text-foreground font-semibold">
+                      <tr>
+                        <th class="p-2.5 border-b border-border">Document</th>
+                        <th class="p-2.5 border-b border-border">Format Mode</th>
+                        <th class="p-2.5 border-b border-border">File Size (KB)</th>
+                        <th class="p-2.5 border-b border-border">Dimensions / Ratio</th>
+                        <th class="p-2.5 border-b border-border">Key Verification Rules</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-border/60">
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">SSC Live Photo</td>
+                        <td class="p-2.5">Webcam / MySSC App (Live Capture)</td>
+                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">20 KB – 50 KB (if file upload)</td>
+                        <td class="p-2.5 font-mono">3.5 × 4.5 cm (240×320 px)</td>
+                        <td class="p-2.5 text-muted-foreground">Plain light background, 80% face coverage, <strong>no spectacles/glasses, no caps</strong>.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">SSC Signature</td>
+                        <td class="p-2.5">Scanned JPG / JPEG Upload</td>
+                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">10.0 KB – 20.0 KB</td>
+                        <td class="p-2.5 font-mono">140 × 60 px (4.0 × 2.0 cm)</td>
+                        <td class="p-2.5 text-muted-foreground">Black ballpoint ink, running handwriting (<strong>CAPITAL LETTERS REJECTED</strong>).</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 pt-1 text-xs">
+                  <span class="text-muted-foreground font-medium">Quick switch:</span>
+                  <a href="/ssc-cgl-signature-resize/" class="text-primary font-semibold hover:underline">SSC CGL Signature (10–20 KB) →</a>
+                  <a href="/ssc-photo-resize/" class="text-primary font-semibold hover:underline">SSC Photo Resizer (20–50 KB) →</a>
+                  <a href="/blog/ssc-cgl-photo-and-signature-size-2026-guidelines/" class="text-primary font-semibold hover:underline">Complete 2026 Rules &amp; Guide →</a>
+                </div>
+              </div>
+            )}
+
             <!-- Specifications Deep Dive Table -->
             <div class="space-y-3">
               <h2 class="text-base font-bold text-foreground flex items-center gap-2">

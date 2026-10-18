@@ -31,6 +31,18 @@ const CORE_TOOLS = [
   },
   {
     type: 'tool',
+    id: 'tool-ssc-cgl-resizer',
+    slug: 'ssc-cgl-signature-resize',
+    title: 'SSC CGL Photo & Signature Size 2026 Resizer',
+    shortCode: 'SSC CGL Tool',
+    desc: 'Official 140×60 px signature (10–20 KB) and 3.5×4.5 cm photo specs for SSC CGL 2026',
+    url: '/ssc-cgl-signature-resize/',
+    category: 'Govt Exam',
+    badge: 'POPULAR',
+    keywords: 'ssc cgl photo and signature size 2026 ssc cgl signature resize ssc cgl signature 10 to 20 kb ssc photo resize ssc cgl photo size'
+  },
+  {
+    type: 'tool',
     id: 'tool-photo-resizer',
     slug: 'photo-resizer',
     title: 'Passport Photo Resizer (3.5x4.5 cm / 20–50 KB)',
@@ -141,9 +153,11 @@ const CORE_TOOLS = [
 
 const presetSlugMap = new Map([
   ['ssc-general', 'ssc-signature-resize'],
+  ['ssc-cgl', 'ssc-cgl-signature-resize'],
+  ['ssc-cgl-photo', 'ssc-photo-resize'],
   ['upsc-civil-services', 'upsc-signature-resize'],
   ['upsc-photo', 'upsc-photo-resize'],
-  ['ssc-photo', 'photo-resizer'],
+  ['ssc-photo', 'ssc-photo-resize'],
   ['rrb-railway', 'rrb-signature-resize'],
   ['ibps-sbi', 'ibps-signature-resize'],
   ['pan-card-nsdl', 'pan-card-signature-resize'],

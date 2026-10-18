@@ -252,7 +252,17 @@ export const MODE_CONFIG: Record<ToolTargetMode, {
 };
 
 const PRESET_ALIASES: Record<string, string> = {
-  ssc: 'ssc-general',
+  ssc: 'ssc-cgl',
+  'ssc-cgl': 'ssc-cgl',
+  'ssc_cgl': 'ssc-cgl',
+  cgl: 'ssc-cgl',
+  'ssc-cgl-signature': 'ssc-cgl',
+  'ssc-cgl-sign': 'ssc-cgl',
+  'ssc-cgl-sig': 'ssc-cgl',
+  'ssc-cgl-photo': 'ssc-cgl-photo',
+  'ssc-photo': 'ssc-cgl-photo',
+  'ssc-photo-resize': 'ssc-cgl-photo',
+  'ssc-general': 'ssc-general',
   ibps: 'ibps-sbi',
   upsc: 'upsc-civil-services',
   rrb: 'rrb-railway',
@@ -335,6 +345,7 @@ const findPresetByKey = (key: string): ExamPreset | undefined => {
 
 export interface SignatureToolProps {
   initialPresetId?: string;
+  defaultPresetId?: string;
   initialMode?: ToolTargetMode;
   initialLang?: SupportedLang;
   initialNameDateStamp?: boolean;
@@ -343,7 +354,8 @@ export interface SignatureToolProps {
   focusedWorkspace?: boolean;
 }
 
-export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, initialMode = 'signature', initialLang, initialNameDateStamp = false, compactStudio = false, studioModeTabs = !compactStudio, focusedWorkspace = false }) => {
+export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, defaultPresetId, initialMode = 'signature', initialLang, initialNameDateStamp = false, compactStudio = false, studioModeTabs = !compactStudio, focusedWorkspace = false }) => {
+  const effectivePresetPropId = initialPresetId || defaultPresetId;
   // Multilingual Support ('en' | 'hi' | 'mr')
   const [lang, setLang] = useState<SupportedLang>(() => {
     if (initialLang) return initialLang;
@@ -378,7 +390,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
     if (!pId) return null;
     return findPresetByKey(pId) || ALL_COMBINED_PRESETS.find(p => p.id === pId || p.shortCode.toLowerCase() === pId.toLowerCase()) || null;
   };
-  const resolvedPreset = useMemo(() => (initialPresetId && findPresetByKey(initialPresetId)) || getPresetFromUrl(), [initialPresetId]);
+  const resolvedPreset = useMemo(() => (effectivePresetPropId && findPresetByKey(effectivePresetPropId)) || getPresetFromUrl(), [effectivePresetPropId]);
   const effectiveInitialMode = resolvedPreset?.targetType || initialMode;
 
   // Determine target tool mode: 'signature' | 'photo' | 'document'
@@ -790,7 +802,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
   useEffect(() => {
     const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     const urlPreset = urlParams?.get('preset');
-    const targetId = initialPresetId || urlPreset;
+    const targetId = effectivePresetPropId || urlPreset;
     const sourceKey = targetId || '';
     if (initializedPresetSourceRef.current === sourceKey) return;
     initializedPresetSourceRef.current = sourceKey;
@@ -813,7 +825,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       }
     }
 
-  }, [initialPresetId, applyPreset, selectedPreset?.id]);
+  }, [effectivePresetPropId, applyPreset, selectedPreset?.id]);
 
   useEffect(() => {
     const handleCustomPresetSelect = (e: Event) => {
@@ -2248,7 +2260,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
       ]
     : targetType === 'photo'
     ? [
-        { id: 'ssc-photo', short: 'SSC Photo', label: 'SSC Photo', specs: '200×230 • 20–50 KB' },
+        { id: 'ssc-cgl-photo', short: 'SSC CGL Photo', label: 'SSC CGL Photo', specs: '240×320 • 20–50 KB' },
+        { id: 'ssc-photo', short: 'SSC Photo', label: 'SSC Photo', specs: '240×320 • 20–50 KB' },
         { id: 'upsc-photo', short: 'UPSC Photo', label: 'UPSC Photo', specs: '350×350 • 20–300 KB' },
         { id: 'ibps-photo', short: 'IBPS Photo', label: 'IBPS Photo', specs: '200×230 • 20–50 KB' },
         { id: 'neet-photo', short: 'NEET Photo', label: 'NEET Photo', specs: '3.5×4.5 • 10–200 KB' }
@@ -2261,10 +2274,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, i
         { id: 'id-proof-card', short: 'ID Card (Aadhaar)', label: 'ID Proof', specs: 'Card • 50–200 KB' }
       ]
     : [
-        { id: 'ssc-general', short: 'SSC', label: 'SSC (CGL, CHSL)', specs: '140×60 • 10–20 KB' },
+        { id: 'ssc-cgl', short: 'SSC CGL', label: 'SSC CGL 2026', specs: '140×60 • 10–20 KB' },
+        { id: 'ssc-general', short: 'SSC All', label: 'SSC (CHSL, MTS, GD)', specs: '140×60 • 10–20 KB' },
         { id: 'upsc-civil-services', short: 'UPSC', label: 'UPSC (IAS, NDA)', specs: '350×350 • 20–300 KB' },
         { id: 'ibps-sbi', short: 'IBPS', label: 'IBPS (PO/Clerk)', specs: '140×60 • 10–20 KB' },
-        { id: 'cat-iim', short: 'CAT', label: 'CAT (IIMs)', specs: '300×132 • 10–80 KB' }
+        { id: 'rrb-railway', short: 'RRB', label: 'RRB Railways', specs: '140×60 • 10–20 KB' }
       ];
 
   const currentPresetList = targetType === 'photo'

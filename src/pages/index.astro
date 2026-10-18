@@ -269,6 +269,14 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
             <a class="hero-start" href="#tool-workspace">Resize my signature <span aria-hidden="true">↗</span></a>
             <a class="hero-presets" href="#exam-specs">Browse exam presets <span aria-hidden="true">→</span></a>
           </div>
+          <div class="hero-quick-presets flex flex-wrap items-center gap-1.5 pt-1 text-xs" aria-label="Popular exam shortcuts">
+            <span class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider shrink-0">Popular:</span>
+            <button type="button" data-hero-preset="ssc-cgl" class="px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-bold transition cursor-pointer shadow-2xs">★ SSC CGL 2026 (140×60)</button>
+            <button type="button" data-hero-preset="rrb-railway" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">RRB Railway</button>
+            <button type="button" data-hero-preset="upsc-civil-services" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">UPSC IAS</button>
+            <button type="button" data-hero-preset="ibps-sbi" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">IBPS / SBI</button>
+            <button type="button" data-hero-preset="pan-card-nsdl" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">PAN Card</button>
+          </div>
           <p class="hero-privacy"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2 16 5v5c0 4-6 7-6 7s-6-3-6-7V5l6-3Z" stroke="currentColor" stroke-width="1.4"/><path d="m7 9 2 2 4-4" stroke="currentColor" stroke-width="1.4"/></svg> Your images stay on your device <span>·</span> Free. No signup.</p>
         </div>
         <div class="hero-art" aria-label="Illustration of a paper signature becoming a resized JPG">
@@ -421,6 +429,18 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
           syncMotion();
         });
       }
+
+      // Hero Quick Preset Activator
+      document.querySelectorAll<HTMLButtonElement>('[data-hero-preset]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const preset = btn.getAttribute('data-hero-preset');
+          if (preset) {
+            window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: preset }));
+            const studio = document.getElementById('tool-workspace') || document.getElementById('studio-container');
+            studio?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
     </script>
 
   </body>

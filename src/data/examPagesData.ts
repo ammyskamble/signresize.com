@@ -54,6 +54,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Black Ballpoint Ink Only',
     aspectRatioLabel: '7:3 (~140×60 px)',
     strictNotice: 'Signatures in CAPITAL LETTERS or BLOCK LETTERS will be disqualified by SSC. Signatures must be in running natural handwriting.',
+    relatedTools: ['ssc-cgl-signature-resize', 'ssc-photo-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
     tips: [
       'Use a fresh black ballpoint pen on plain, unruled white paper (do not use ruled notebook sheets).',
       'Crop tight around your signature so it fills 75–85% of the frame without cutting edges.',
@@ -76,6 +77,104 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'Why does SSC reject signatures under 10 KB or over 20 KB?',
         a: 'Files under 10 KB suffer from severe compression artifacts making biometric verification impossible during exams. Files over 20 KB exceed the SSC server upload buffer.'
+      }
+    ]
+  },
+  {
+    slug: 'ssc-cgl-signature-resize',
+    presetId: 'ssc-cgl',
+    pageTitle: 'SSC CGL Photo and Signature Size 2026 - Online Resizer & Guidelines',
+    metaDescription: 'Official SSC CGL 2026 photo & signature resizer. Compress signature to 10-20 KB (140x60 px) & format passport photo to 20-50 KB (3.5x4.5 cm). Free ssc.gov.in tool.',
+    keywords: 'ssc cgl photo and signature size 2026, ssc cgl signature resize, ssc cgl photo size, ssc cgl signature size, ssc cgl signature resize 10 to 20 kb, ssc cgl photo and signature size in kb, ssc cgl signature dimensions, ssc cgl live photo webcam rules',
+    h1: 'SSC CGL Photo & Signature Size 2026 Resizer (10 KB – 20 KB)',
+    subheading: 'Official Staff Selection Commission standards: 140×60 px signature strictly compressed between 10 KB to 20 KB in black ink, plus complete ssc.gov.in live webcam photo capture and 3.5×4.5 cm specifications.',
+    authority: 'Staff Selection Commission (SSC CGL)',
+    targetExams: 'SSC CGL 2026 (Assistant Section Officer, Income Tax Inspector, GST Inspector, Sub-Inspector CBI, Auditor, Tax Assistant)',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Pen Only (No Capital Letters)',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'Signatures in CAPITAL / BLOCK LETTERS will be rejected automatically. Live photo must be taken against a plain light background without glasses or caps.',
+    relatedTools: ['ssc-photo-resize', 'ssc-signature-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Sign with a black ballpoint pen on unruled white paper. Black ink provides highest contrast for SSC biometric verification.',
+      'Crop closely leaving 2–3 mm margins around signature strokes so it fills at least 80% of the horizontal frame.',
+      'For the live photo on ssc.gov.in: sit directly facing a light source against a plain white wall; remove all spectacles and caps.',
+      'If uploading an offline photo for admit card or verification: format to 3.5×4.5 cm and 20 KB to 50 KB in JPG.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official SSC CGL photo and signature size for 2026?',
+        a: 'For SSC CGL 2026: Signature must be scanned and resized to 140 × 60 pixels (4.0 cm × 2.0 cm) with a file size strictly between 10 KB and 20 KB in JPG format. For photograph, the portal captures a live photo via webcam/MySSC app, or requires a 3.5 × 4.5 cm (20 KB to 50 KB) JPG for offline verification and admit card records.'
+      },
+      {
+        q: 'Does SSC CGL allow uploading a saved photo file on ssc.gov.in?',
+        a: 'No. On the new official portal (ssc.gov.in), the Staff Selection Commission requires candidates to capture a live photograph in real-time using their webcam or the official MySSC mobile application. However, physical admit cards and document verification still require passport photos meeting 3.5 × 4.5 cm and 20–50 KB.'
+      },
+      {
+        q: 'Can I use blue ink for SSC CGL signature?',
+        a: 'SSC guidelines strongly recommend black ballpoint pen on plain white paper. Blue ink is prone to fading during high-speed monochrome scanning at examination centres, which can cause rejection.'
+      },
+      {
+        q: 'Why does the SSC portal reject signatures written in capital letters?',
+        a: 'Writing your full name in capital or block letters (e.g., RAHUL SHARMA) is considered printing, not an authentic legal cursive signature. The SSC automated scrutiny software automatically flags and disqualifies capital-letter signatures.'
+      },
+      {
+        q: 'How to resize signature to 10 to 20 KB for SSC CGL online?',
+        a: 'Upload your photo or signature scan to SignResize. The SSC CGL preset automatically sets the 140×60 px canvas and compresses the image precisely between 10.0 KB and 19.9 KB. Click download to get your portal-ready JPG instantly.'
+      }
+    ]
+  },
+  {
+    slug: 'ssc-photo-resize',
+    presetId: 'ssc-photo',
+    pageTitle: 'SSC Photo Resize 20 to 50 KB (3.5x4.5 cm) Online - SignResize',
+    metaDescription: 'Free SSC photo resizer for SSC CGL, CHSL, MTS, and GD Constable. Format passport photo to 3.5x4.5 cm (240x320 px), 20 to 50 KB in JPG format with white background & live webcam guidelines.',
+    keywords: 'ssc photo resize, ssc photo resize 20 to 50 kb, ssc photo size 3.5x4.5, ssc cgl photo resize, ssc chsl photo size, ssc gd photo resizer, staff selection commission photo resizer online',
+    h1: 'SSC Photo Resize & Compressor (20 KB – 50 KB)',
+    subheading: 'Official 3.5×4.5 cm (240×320 px) passport photo format with strict 20 KB to 50 KB dual-boundary compression for SSC CGL, CHSL, MTS, and GD applications.',
+    authority: 'Staff Selection Commission (SSC)',
+    targetExams: 'SSC CGL, SSC CHSL, SSC MTS, SSC GD Constable, SSC CPO, SSC Selection Posts',
+    widthPx: 240,
+    heightPx: 320,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '7:9 (~3.5×4.5 cm)',
+    strictNotice: 'Photograph must have a plain light/white background. Spectacles (glasses), caps, masks, and selfies are strictly prohibited on all SSC portals.',
+    relatedTools: ['ssc-cgl-signature-resize', 'ssc-signature-resize', 'photo-resizer', 'photo-with-name-and-date-maker'],
+    tips: [
+      'Ensure the face occupies 75% to 80% of the frame, showing both ears and forehead clearly.',
+      'Background must be plain white or off-white. Avoid patterns, door frames, or shadows behind your head.',
+      'Do not wear reading spectacles or sunglasses. Lens reflection causes instant rejection.',
+      'Use SignResize to ensure the photo stays securely between 20.0 KB and 49.9 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required photo size for SSC exams in 2026?',
+        a: 'The standard photograph size for SSC applications is 3.5 cm in width by 4.5 cm in height (approximately 240 × 320 pixels) with a file size between 20 KB and 50 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'How does live photo capture work on the new ssc.gov.in portal?',
+        a: 'The candidate opens the application on ssc.gov.in or the MySSC Android app, grants camera permission, aligns their face within the on-screen green oval in a well-lit room with a plain white background, and captures the image directly.'
+      },
+      {
+        q: 'Is Name and Date of Photo mandatory on SSC photos?',
+        a: 'Currently, the general SSC guidelines do not mandate printing Name and Date on the photo unless explicitly specified in an individual recruitment notification. A clean, recent photo is accepted.'
+      },
+      {
+        q: 'Can I wear spectacles during SSC photo capture?',
+        a: 'No. SSC guidelines strictly forbid wearing spectacles or glasses of any kind during photo capture or upload. Even clear prescription glasses can cause glare that obscures the eyes.'
       }
     ]
   },

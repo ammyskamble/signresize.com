@@ -10,6 +10,7 @@ import ExamDayToolkit from '../../components/ExamDayToolkit.astro';
 import ApplicationPreparationCards from '../../components/ApplicationPreparationCards.astro';
 import { BLOG_POSTS } from '../../data/blogPostsData';
 import { EXAM_PAGES_DATA } from '../../data/examPagesData';
+import { PAN_INDIA_GOV_JOBS } from '../../data/governmentJobsData';
 import SocialShare from '../../components/SocialShare.astro';
 
 const pageTitle = "Exam Study Guides, Preparation Tips & Document Guidelines | SignResize Blog";
@@ -41,11 +42,37 @@ const regularPosts = sortedPosts.filter(p => p.slug !== featuredPost.slug);
 // Categories
 const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Career Opportunity'];
 
-// Static deadline reminders (editorial summary — full directory is at /government-jobs/)
-const quickDeadlines = [
-  { label: 'SSC CGL 2026', date: 'Sept 24', urgent: true },
-  { label: 'RRB NTPC 2026', date: 'Oct 15', urgent: false },
-  { label: 'IBPS PO 2026', date: 'Oct 20', urgent: false },
+const categoryCounts: Record<string, number> = {
+  All: sortedPosts.length,
+  'Exam Alerts': sortedPosts.filter(p => p.category === 'Exam Alerts').length,
+  'Study Prep': sortedPosts.filter(p => p.category === 'Study Prep').length,
+  'Guidelines & Tips': sortedPosts.filter(p => p.category === 'Guidelines & Tips').length,
+  'Career Opportunity': sortedPosts.filter(p => p.category === 'Career Opportunity').length,
+};
+
+// Dynamic upcoming deadlines from live governmentJobsData
+const todayIso = new Date().toISOString().slice(0, 10);
+const activeDeadlines = PAN_INDIA_GOV_JOBS
+  .filter(j => j.lastDate >= todayIso)
+  .sort((a, b) => a.lastDate.localeCompare(b.lastDate))
+  .slice(0, 3)
+  .map(j => {
+    const dateObj = new Date(j.lastDate + 'T00:00:00Z');
+    const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+    const diffDays = Math.ceil((new Date(j.lastDate).getTime() - new Date(todayIso).getTime()) / (1000 * 60 * 60 * 24));
+    return {
+      label: j.shortCode || j.title,
+      date: formattedDate,
+      urgent: diffDays <= 5,
+      vacancies: j.vacancies,
+      url: j.toolPresetSlug ? `/${j.toolPresetSlug}/` : `/government-jobs/#${j.id}`
+    };
+  });
+
+const quickDeadlines = activeDeadlines.length > 0 ? activeDeadlines : [
+  { label: 'UPPSC PCS 2026', date: 'Oct 20', urgent: true, vacancies: '620 Posts', url: '/uppsc-signature-resize/' },
+  { label: 'Odisha Govt', date: 'Oct 22', urgent: false, vacancies: '3,028 Posts', url: '/osssc-signature-resize/' },
+  { label: 'UPSSSC Lekhpal', date: 'Oct 25', urgent: false, vacancies: '8,085 Posts', url: '/up-police-signature-resize/' },
 ];
 ---
 
@@ -229,21 +256,36 @@ const quickDeadlines = [
             <button
               type="button"
               class:list={[
-                "category-filter-btn px-3.5 py-1.5 min-h-[38px] rounded-xl text-xs font-semibold transition cursor-pointer shrink-0 inline-flex items-center justify-center whitespace-nowrap active:scale-95",
+                "category-filter-btn px-3.5 py-1.5 min-h-[38px] rounded-xl text-xs font-semibold transition cursor-pointer shrink-0 inline-flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95",
                 idx === 0
                   ? "bg-primary text-primary-foreground shadow-xs"
                   : "bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground border border-border"
               ]}
               data-category={cat}
             >
-              {cat}
+              <span>{cat}</span>
+              <span class:list={[
+                "px-1.5 py-0.5 rounded-full text-[10px] font-mono",
+                idx === 0
+                  ? "bg-primary-foreground/20 text-primary-foreground"
+                  : "bg-background/80 text-muted-foreground border border-border"
+              ]}>
+                {categoryCounts[cat] || 0}
+              </span>
             </button>
           ))}
         </div>
       </div>
 
-      <!-- Featured Article Banner -->
-      <section class="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card via-card/90 to-primary/10 p-4 sm:p-6 lg:p-8 shadow-md">
+      <!-- Featured Article Banner (Synchronized with Search & Filter) -->
+      <section
+        id="featured-post-section"
+        class="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card via-card/90 to-primary/10 p-4 sm:p-6 lg:p-8 shadow-md transition-all duration-200"
+        data-category={featuredPost.category}
+        data-title={featuredPost.title.toLowerCase()}
+        data-excerpt={featuredPost.excerpt.toLowerCase()}
+        data-tags={featuredPost.tags.join(' ').toLowerCase()}
+      >
         <div class="flex flex-col lg:flex-row gap-5 lg:gap-6 items-start justify-between">
           <div class="space-y-3 flex-1 min-w-0">
             <div class="flex flex-wrap items-center gap-2">
@@ -407,6 +449,7 @@ const quickDeadlines = [
       (() => {
         const buttons = document.querySelectorAll('.category-filter-btn');
         const cards = document.querySelectorAll('.post-card');
+        const featuredSection = document.getElementById('featured-post-section');
         const blogSearchInput = document.getElementById('blog-search-input');
         const searchClear = document.getElementById('blog-search-clear');
         const countEl = document.getElementById('blog-search-count');
@@ -425,7 +468,7 @@ const quickDeadlines = [
             }
           }
 
-          let visibleCount = 0;
+          let gridCount = 0;
           cards.forEach(card => {
             const cardCat = card.getAttribute('data-category') || '';
             const cardTitle = card.getAttribute('data-title') || '';
@@ -437,18 +480,40 @@ const quickDeadlines = [
 
             if (matchesCat && matchesQuery) {
               card.style.display = 'flex';
-              visibleCount++;
+              gridCount++;
             } else {
               card.style.display = 'none';
             }
           });
 
+          // Check if featured post matches active filters
+          let featuredVisible = false;
+          if (featuredSection) {
+            const featCat = featuredSection.getAttribute('data-category') || '';
+            const featTitle = featuredSection.getAttribute('data-title') || '';
+            const featExcerpt = featuredSection.getAttribute('data-excerpt') || '';
+            const featTags = featuredSection.getAttribute('data-tags') || '';
+
+            const matchesCat = currentCategory === 'All' || featCat === currentCategory;
+            const matchesQuery = !query || featTitle.includes(query) || featExcerpt.includes(query) || featTags.includes(query);
+
+            if (matchesCat && matchesQuery) {
+              featuredSection.style.display = '';
+              featuredVisible = true;
+            } else {
+              featuredSection.style.display = 'none';
+              featuredVisible = false;
+            }
+          }
+
+          const totalVisible = gridCount + (featuredVisible ? 1 : 0);
+
           if (countEl) {
-            countEl.textContent = String(visibleCount);
+            countEl.textContent = String(totalVisible);
           }
 
           if (noResultsEl) {
-            if (visibleCount === 0) {
+            if (totalVisible === 0) {
               noResultsEl.classList.remove('hidden');
             } else {
               noResultsEl.classList.add('hidden');
@@ -461,9 +526,19 @@ const quickDeadlines = [
             buttons.forEach(b => {
               b.classList.remove('bg-primary', 'text-primary-foreground', 'shadow-xs');
               b.classList.add('bg-muted', 'text-muted-foreground');
+              const countBadge = b.querySelector('span:last-child');
+              if (countBadge) {
+                countBadge.classList.remove('bg-primary-foreground/20', 'text-primary-foreground');
+                countBadge.classList.add('bg-background/80', 'text-muted-foreground');
+              }
             });
             btn.classList.remove('bg-muted', 'text-muted-foreground');
             btn.classList.add('bg-primary', 'text-primary-foreground', 'shadow-xs');
+            const activeBadge = btn.querySelector('span:last-child');
+            if (activeBadge) {
+              activeBadge.classList.remove('bg-background/80', 'text-muted-foreground');
+              activeBadge.classList.add('bg-primary-foreground/20', 'text-primary-foreground');
+            }
 
             currentCategory = btn.getAttribute('data-category') || 'All';
             filterBlogPosts();
