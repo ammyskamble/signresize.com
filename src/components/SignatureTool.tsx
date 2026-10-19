@@ -87,7 +87,7 @@ import { UploadChecks } from './tool/UploadChecks';
 import { PortraitBackgroundFix } from './tool/PortraitBackgroundFix';
 import { ImageRuleChecks, ExportChecksDialog } from './tool/ImageRuleChecks';
 import { ComplianceRejectionAudit } from './tool/ComplianceRejectionAudit';
-import { fileIntakeError, inspectExport } from '../utils/uploadValidation';
+import { fileIntakeError, inspectExport, inspectBackground, inspectRuledPaper, type UploadIssue } from '../utils/uploadValidation';
 import { takeBackgroundTransfer, TRANSFER_HASH, type BackgroundTransfer, type BackgroundMode } from '../utils/backgroundTransfer';
 import { trackBackgroundEvent } from '../utils/backgroundEvents';
 
@@ -269,6 +269,28 @@ const PRESET_ALIASES: Record<string, string> = {
   rrb: 'rrb-railway',
   neet: 'nta-neet-jee',
   pan: 'pan-card-nsdl',
+  'pan-card-photo': 'pan-card-photo-nsdl',
+  'pan-card-photo-nsdl-preset': 'pan-card-photo-nsdl',
+  'pan-photo': 'pan-card-photo-nsdl',
+  sarathi: 'sarathi-dl',
+  'sarathi-dl': 'sarathi-dl',
+  'sarathi-photo': 'sarathi-photo',
+  parivahan: 'sarathi-dl',
+  'parivahan-photo': 'sarathi-photo',
+  ib: 'ib-acio',
+  'ib-acio': 'ib-acio',
+  'ib-acio-photo': 'ib-acio-photo',
+  gds: 'india-post-gds-signature',
+  'india-post': 'india-post-gds-signature',
+  'india-post-gds': 'india-post-gds-signature',
+  'india-post-gds-photo': 'india-post-gds-photo',
+  'dsssb': 'dsssb-preset',
+  'dsssb-preset': 'dsssb-preset',
+  'dsssb-photo': 'dsssb-photo',
+  'kerala-psc': 'kerala-psc-signature',
+  'kerala-psc-sign': 'kerala-psc-signature',
+  'kerala-psc-signature': 'kerala-psc-signature',
+  'kerala-psc-photo': 'kerala-psc-photo',
   gate: 'gate-jam',
   'gate-signature': 'gate-jam',
   'gate-photo': 'gate-photo',
@@ -276,6 +298,22 @@ const PRESET_ALIASES: Record<string, string> = {
   jam: 'iit-jam',
   'iit-jam': 'iit-jam',
   'iit-jam-photo': 'iit-jam-photo',
+  'cuet': 'cuet-ug',
+  'cuet-ug': 'cuet-ug',
+  'cuet-photo': 'cuet-ug-photo',
+  'cuet-ug-photo': 'cuet-ug-photo',
+  'upsssc': 'upsssc-pet',
+  'upsssc-pet': 'upsssc-pet',
+  'upsssc-photo': 'upsssc-pet-photo',
+  'upsssc-pet-photo': 'upsssc-pet-photo',
+  'bssc': 'bssc-inter-level',
+  'bssc-inter-level': 'bssc-inter-level',
+  'bssc-photo': 'bssc-photo',
+  'ctet': 'ctet-exam',
+  'ctet-exam': 'ctet-exam',
+  'ctet-signature': 'ctet-exam',
+  'ctet-photo': 'ctet-photo',
+  'ssc-mts': 'ssc-mts',
   thumb: 'thumb-impression-general',
   afcat: 'afcat-iaf',
   agniveer: 'agniveer-recruitment',
@@ -407,7 +445,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     return findPresetByKey(pId) || ALL_COMBINED_PRESETS.find(p => p.id === pId || p.shortCode.toLowerCase() === pId.toLowerCase()) || null;
   };
   const resolvedPreset = useMemo(() => (effectivePresetPropId && findPresetByKey(effectivePresetPropId)) || getPresetFromUrl(), [effectivePresetPropId]);
-  const effectiveInitialMode = resolvedPreset?.targetType || initialMode;
+  const effectiveInitialMode = resolvedPreset?.targetType || (resolvedPreset ? presetMode(resolvedPreset) : initialMode);
 
   // Determine target tool mode: 'signature' | 'photo' | 'document'
   const [targetType, setTargetType] = useState<ToolTargetMode>(effectiveInitialMode);
@@ -435,6 +473,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const [toolMode, setToolMode] = useState<'single' | 'batch'>('single');
   const [studioAdvanced, setStudioAdvanced] = useState(false);
   const [slateConfirmed, setSlateConfirmed] = useState(false);
+  const [upssscConfirmed, setUpssscConfirmed] = useState(false);
+  const [backgroundIssues, setBackgroundIssues] = useState<UploadIssue[] | null>(null);
 
 
   // Helper to reliably detect image files (including HEIC, JFIF, and cases where OS mime type is empty)
@@ -597,18 +637,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     setLockAspect(true);
     setTargetFormat('image/jpeg');
     setSlateConfirmed(false);
+    setUpssscConfirmed(false);
+    setBackgroundIssues(null);
 
-    if (preset.targetType) {
-      setTargetType(preset.targetType);
-      if (backgroundTransferMode.current) {
-        setFilters({ cleanPaper: false, brightness: 0, contrast: 0, blackAndWhite: false, threshold: 160 });
-      } else if (preset.targetType === 'photo') {
-        setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 10 }));
-      } else if (preset.targetType === 'document') {
-        setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 20 }));
-      } else {
-        setFilters(prev => ({ ...prev, cleanPaper: true, contrast: 15 }));
-      }
+    const effectiveMode = preset.targetType || presetMode(preset);
+    setTargetType(effectiveMode);
+    if (backgroundTransferMode.current) {
+      setFilters({ cleanPaper: false, brightness: 0, contrast: 0, blackAndWhite: false, threshold: 160 });
+    } else if (effectiveMode === 'photo') {
+      setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 10 }));
+    } else if (effectiveMode === 'document') {
+      setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 20 }));
+    } else {
+      setFilters(prev => ({ ...prev, cleanPaper: true, contrast: 15 }));
     }
 
     if (preset.requiresNameDate) {
@@ -727,8 +768,68 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card' || p.id === 'degree-certificate');
       }
     }
-    // 7. Staff Selection Commission (SSC)
-    else if (matchesExam('ssc', 'staff selection')) {
+    // 7. BSSC (Bihar Staff Selection Commission)
+    else if (matchesExam('bssc')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'bssc-inter-level' || p.id.includes('bssc'));
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'bssc-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
+    }
+    // 8. UPSSSC (PET / Lekhpal / VDO)
+    else if (matchesExam('upsssc')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'upsssc-pet');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'upsssc-pet-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
+    }
+    // 9. DSSSB (Delhi Subordinate Services)
+    else if (matchesExam('dsssb')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'dsssb-preset' || p.id.includes('dsssb'));
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'dsssb-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'degree-certificate' || p.id === 'marksheet-10th');
+    }
+    // 10. Kerala PSC (Thulasi OTR)
+    else if (matchesExam('kerala-psc', 'kerala psc', 'thulasi')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'kerala-psc-signature');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'kerala-psc-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th' || p.id === 'caste-certificate');
+    }
+    // 11. CUET (Common University Entrance Test - NTA)
+    else if (matchesExam('cuet')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'cuet-ug' || p.id.includes('cuet'));
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'cuet-ug-photo' || p.id.includes('cuet'));
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th' || p.id === 'caste-certificate');
+    }
+    // 12. CTET / Teacher Eligibility Test
+    else if (matchesExam('ctet', 'tet')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'ctet-exam' || p.id === 'ctet-signature' || p.id === 'ctet');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'ctet-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th' || p.id === 'degree-certificate');
+    }
+    // 13. Sarathi Parivahan (Driving Licence & Learner Licence)
+    else if (matchesExam('sarathi', 'parivahan', 'driving licence', 'learner licence', 'driving license')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sarathi-dl');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'sarathi-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card' || p.id === 'domicile-certificate');
+    }
+    // 14. Intelligence Bureau (IB ACIO / Security Assistant)
+    else if (matchesExam('ib-acio', 'intelligence bureau', 'mha ib', 'acio')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'ib-acio');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'ib-acio-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'caste-certificate' || p.id === 'degree-certificate');
+    }
+    // 15. India Post GDS (Gramin Dak Sevak)
+    else if (matchesExam('india-post', 'indiapost', 'gds', 'gramin dak')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'india-post-gds-signature' || p.id.includes('gds'));
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'india-post-gds-photo' || p.id.includes('gds'));
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
+    }
+    // 16. PAN Card
+    else if (matchesExam('pan-card', 'pan card', 'utiitsl', 'nsdl')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'pan-card-nsdl');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'pan-card-photo-nsdl' || p.id === 'pan-card-photo-nsdl-preset');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card');
+    }
+    // 17. Staff Selection Commission (Central SSC)
+    else if (!matchesExam('bssc', 'upsssc', 'osssc', 'hssc', 'jssc') && (matchesExam('staff selection commission') || examAnchor.startsWith('ssc') || rawCurId.startsWith('ssc') || curName.toLowerCase().startsWith('ssc'))) {
       if (newType === 'signature') {
         targetPreset = (examAnchor.startsWith('ssc') ? SIGNATURE_PRESETS.find(p => p.id === examAnchor) : undefined) || SIGNATURE_PRESETS.find(p => p.id === 'ssc-cgl') || SIGNATURE_PRESETS.find(p => p.id === 'ssc-general');
       } else if (newType === 'photo') {
@@ -737,7 +838,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th' || p.id === 'thumb-impression-doc');
       }
     }
-    // 8. Railway Recruitment Boards (RRB)
+    // 18. Railway Recruitment Boards (RRB)
     else if (matchesExam('rrb', 'railway recruitment', 'railway')) {
       if (newType === 'signature') {
         targetPreset = (examAnchor.includes('alp') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-alp-technician') : undefined) || SIGNATURE_PRESETS.find(p => p.id === 'rrb-railway');
@@ -747,7 +848,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'caste-certificate' || p.id === 'thumb-impression-doc');
       }
     }
-    // 9. AFCAT & Defence (IAF, Agniveer, CAPF)
+    // 19. AFCAT & Defence (IAF, Agniveer, CAPF)
     else if (matchesExam('afcat', 'agniveer', 'capf', 'air force')) {
       if (newType === 'signature') {
         targetPreset = SIGNATURE_PRESETS.find(p => p.id === examAnchor) || SIGNATURE_PRESETS.find(p => p.id === 'afcat-iaf' || p.id === 'agniveer-recruitment');
@@ -757,7 +858,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc' || p.id === 'marksheet-10th');
       }
     }
-    // 10. State Police Bharti (Maharashtra, UP, Rajasthan, Bihar, MP)
+    // 20. State Police Bharti (Maharashtra, UP, Rajasthan, Bihar, MP)
     else if (matchesExam('police')) {
       if (examAnchor.includes('maharashtra') || examAnchor.includes('mahapolice')) {
         if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'maharashtra-police');
@@ -781,28 +882,28 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
       }
     }
-    // 11. NTA (NEET, JEE Main, CUET)
-    else if (matchesExam('neet', 'jee', 'nta', 'cuet')) {
+    // 21. NTA (NEET & JEE Main)
+    else if (matchesExam('neet', 'jee', 'nta')) {
       if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'nta-neet-jee');
       else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'neet-photo' || p.id === 'neet-ug-photo');
       else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc' || p.id === 'caste-certificate');
     }
-    // 12. PAN Card
-    else if (matchesExam('pan-card', 'pan card', 'utiitsl', 'nsdl')) {
-      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'pan-card-nsdl');
-      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'pan-card-photo-nsdl-preset' || p.id === 'pan-card-photo-nsdl');
-      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card');
+    // 22. State Public Service Commissions (UPPSC, BPSC, MPSC, TNPSC, RPSC, KPSC, OPSC, GPSC, etc.)
+    else if (matchesExam('state-psc', 'uppsc', 'bpsc', 'mpsc', 'tnpsc', 'kpsc', 'wbpsc', 'rpsc', 'gpsc', 'opsc', 'hpsc', 'appsc', 'tspsc', 'apsc', 'mppsc')) {
+      if (newType === 'signature') {
+        targetPreset = SIGNATURE_PRESETS.find(p => p.id === examAnchor || p.id.includes(examAnchor.replace(/-photo|-sign/g, ''))) ||
+          SIGNATURE_PRESETS.find(p => p.id === 'uppsc' || p.id === 'bpsc' || p.id === 'mpsc' || p.id === 'tnpsc');
+      } else if (newType === 'photo') {
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'state-psc-photo') || PHOTO_PRESETS.find(p => p.id === 'bssc-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'degree-certificate' || p.id === 'domicile-certificate');
+      }
     }
-    // 13. CTET / Teacher Eligibility Test
-    else if (matchesExam('ctet', 'tet')) {
-      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'ctet-signature' || p.id === 'ctet');
-      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'ctet-photo');
-      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th' || p.id === 'degree-certificate');
-    }
-    // Fallback: general baseKey matching
+    // Fallback: general baseKey and authority matching across active exam context
     else if (examAnchor) {
-      const baseKey = examAnchor.replace(/-photo|-sign|-thumb|-doc|-general|-recruitment/g, '');
-      targetPreset = presets.find(p => p.id.startsWith(baseKey) || (p.authority && curAuth && p.authority.toLowerCase() === curAuth));
+      const baseKey = examAnchor.replace(/-photo|-sign|-signature|-thumb|-doc|-general|-recruitment|-preset|-dl/g, '');
+      targetPreset = presets.find(p => p.id.includes(baseKey) || baseKey.includes(p.id.replace(/-photo|-sign|-signature|-thumb|-doc|-general|-recruitment|-preset|-dl/g, ''))) ||
+        (curAuth ? presets.find(p => p.authority && p.authority.toLowerCase() === curAuth) : undefined);
     }
 
     // Default fallback: Never fall back to UK Visa photo for Indian/general users!
@@ -857,6 +958,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     selectedPreset?.authority.toLowerCase().includes('coast guard') ||
     resolvedPreset?.id.includes('coast-guard') ||
     initialPresetId?.includes('coast-guard')
+  );
+
+  const isUpssscActive = Boolean(
+    selectedPreset?.id.includes('upsssc') ||
+    selectedPreset?.name.toLowerCase().includes('upsssc') ||
+    selectedPreset?.authority.toLowerCase().includes('upsssc') ||
+    resolvedPreset?.id.includes('upsssc') ||
+    initialPresetId?.includes('upsssc') ||
+    selectedPreset?.id.includes('pet')
   );
 
   const selectCoastGuardSection = useCallback((section: 'signature' | 'photo' | 'thumb' | 'document') => {
@@ -1380,6 +1490,23 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         }
       }
 
+      // Inspect background and notebook ruled lines directly on the processed canvas
+      let detectedBgIssues: UploadIssue[] = [];
+      try {
+        const rCtx = renderedCanvas.getContext('2d', { willReadFrequently: true });
+        if (rCtx && selectedPreset) {
+          const imgData = rCtx.getImageData(0, 0, targetWidthPx, targetHeightPx);
+          const bgCheck = inspectBackground(imgData.data, targetWidthPx, targetHeightPx, selectedPreset.notes);
+          detectedBgIssues.push(...bgCheck);
+          if (targetType === 'signature') {
+            const ruledCheck = inspectRuledPaper(imgData.data, targetWidthPx, targetHeightPx);
+            detectedBgIssues.push(...ruledCheck);
+          }
+        }
+      } catch (e) {
+        console.warn('Canvas pixel inspection error:', e);
+      }
+
       const sweetspotKb = selectedPreset?.recommendedKb || (minKb + maxKb) / 2;
       const result = await compressCanvasToTargetSize(
         renderedCanvas,
@@ -1391,6 +1518,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       );
 
       if (sequence !== processingSequenceRef.current) { URL.revokeObjectURL(result.dataUrl); return; }
+      setBackgroundIssues(detectedBgIssues);
       setProcessedResult((prev) => {
         if (prev?.dataUrl) {
           URL.revokeObjectURL(prev.dataUrl);
@@ -1420,7 +1548,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     candidateName,
     dateOfPhoto,
     documentHighContrast,
-    selectedPreset?.recommendedKb
+    selectedPreset
   ]);
 
   // Trigger processing on settings change in single mode (debounced, skips while actively dragging)
@@ -2915,7 +3043,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         {/* 3 Large Mode Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
           <button
+            id="mode-tab-signature"
             type="button"
+            aria-label="Switch to Signature Resizer Mode"
             onClick={() => switchTargetType('signature')}
             className={`p-3 rounded-xl border text-left transition flex items-center justify-between group cursor-pointer ${
               targetType === 'signature'
@@ -2938,7 +3068,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           </button>
 
           <button
+            id="mode-tab-photo"
             type="button"
+            aria-label="Switch to Passport Photo Resizer Mode"
             onClick={() => switchTargetType('photo')}
             className={`p-3 rounded-xl border text-left transition flex items-center justify-between group cursor-pointer ${
               targetType === 'photo'
@@ -2961,7 +3093,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           </button>
 
           <button
+            id="mode-tab-document"
             type="button"
+            aria-label="Switch to Document Resizer Mode"
             onClick={() => switchTargetType('document')}
             className={`p-3 rounded-xl border text-left transition flex items-center justify-between group cursor-pointer ${
               targetType === 'document'
@@ -4551,6 +4685,26 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                             <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
                             <span>Fix Export</span>
                           </button>
+                        ) : backgroundIssues?.some((i) => i.code === 'ruled_paper') ? (
+                          <button
+                            type="button"
+                            onClick={() => setShowExportChecks(true)}
+                            className="inline-flex items-center gap-1 font-bold text-rose-700 dark:text-rose-400 bg-rose-500/15 border border-rose-500/40 px-2 py-0.5 rounded text-[10px] cursor-pointer hover:bg-rose-500/25 transition"
+                            title="Ruled notebook lines detected. UPSSSC and exams require plain unruled white paper."
+                          >
+                            <AlertCircle className="w-3.5 h-3.5 text-rose-600" />
+                            <span>Notebook Lines</span>
+                          </button>
+                        ) : backgroundIssues?.some((i) => i.code === 'background') ? (
+                          <button
+                            type="button"
+                            onClick={() => setShowExportChecks(true)}
+                            className="inline-flex items-center gap-1 font-bold text-amber-700 dark:text-amber-400 bg-amber-500/15 border border-amber-500/40 px-2 py-0.5 rounded text-[10px] cursor-pointer hover:bg-amber-500/25 transition"
+                            title="Non-white or shadowed background detected"
+                          >
+                            <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
+                            <span>Check Background</span>
+                          </button>
                         ) : isCoastGuardActive && targetType === 'photo' && !slateConfirmed ? (
                           <button
                             type="button"
@@ -4560,6 +4714,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           >
                             <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
                             <span>Confirm Slate</span>
+                          </button>
+                        ) : isUpssscActive && targetType === 'signature' && !upssscConfirmed ? (
+                          <button
+                            type="button"
+                            onClick={() => setShowExportChecks(true)}
+                            className="inline-flex items-center gap-1 font-bold text-amber-700 dark:text-amber-400 bg-amber-500/15 border border-amber-500/40 px-2 py-0.5 rounded text-[10px] cursor-pointer hover:bg-amber-500/25 transition"
+                            title="UPSSSC PET Clause 9.3: English Sign + Hindi Name on Unruled White Paper"
+                          >
+                            <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
+                            <span>Clause 9.3 Check</span>
                           </button>
                         ) : (
                           <button
@@ -4612,9 +4776,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     rule={exportRule}
                     sourceImage={sourceImage}
                     processedResult={processedResult}
-                    backgroundIssues={null}
+                    backgroundIssues={backgroundIssues}
                     slateConfirmed={slateConfirmed}
                     onConfirmSlate={setSlateConfirmed}
+                    upssscConfirmed={upssscConfirmed}
+                    onConfirmUpsssc={setUpssscConfirmed}
                     onRemoveBackground={() => {
                       const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null;
                       if (fix) fix.open = true;
@@ -5136,6 +5302,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         mode={targetType}
         slateConfirmed={slateConfirmed}
         onConfirmSlate={setSlateConfirmed}
+        upssscConfirmed={upssscConfirmed}
+        onConfirmUpsssc={setUpssscConfirmed}
         onClose={() => setShowExportChecks(false)}
         onDownload={() => {
           handleDownload();

@@ -17,6 +17,8 @@ interface ComplianceAuditProps {
   variant?: 'previewCard' | 'studioNotice' | 'modalAudit';
   slateConfirmed?: boolean;
   onConfirmSlate?: (confirmed: boolean) => void;
+  upssscConfirmed?: boolean;
+  onConfirmUpsssc?: (confirmed: boolean) => void;
 }
 
 export function ComplianceRejectionAudit({
@@ -30,18 +32,27 @@ export function ComplianceRejectionAudit({
   variant = 'previewCard',
   slateConfirmed: propSlateConfirmed,
   onConfirmSlate,
+  upssscConfirmed: propUpssscConfirmed,
+  onConfirmUpsssc,
 }: ComplianceAuditProps) {
   const audit = getComplianceAudit(preset, mode);
   const [internalSlate, setInternalSlate] = useState(false);
   const slateConfirmed = propSlateConfirmed !== undefined ? propSlateConfirmed : internalSlate;
   const setSlateConfirmed = onConfirmSlate || setInternalSlate;
 
+  const [internalUpsssc, setInternalUpsssc] = useState(false);
+  const upssscConfirmed = propUpssscConfirmed !== undefined ? propUpssscConfirmed : internalUpsssc;
+  const setUpssscConfirmed = onConfirmUpsssc || setInternalUpsssc;
+
   // Check if all technical and portal requirements are completed
   const exportIssues = processedResult && rule ? inspectExport(processedResult, rule) : [];
   const isOutOfBounds = Boolean(processedResult && !processedResult.withinTargetBounds);
+  const hasBgIssues = Boolean(backgroundIssues && backgroundIssues.length > 0);
+  const ruledPaperIssue = backgroundIssues?.find((i) => i.code === 'ruled_paper');
+  const genericBgIssue = backgroundIssues?.find((i) => i.code === 'background' || i.code === 'bg');
 
-  // File is fully completed when processed within target bounds with 0 export issues
-  const hasErrors = isOutOfBounds || exportIssues.length > 0;
+  // File is fully completed when processed within target bounds with 0 export issues AND 0 background/ruled line issues
+  const hasErrors = isOutOfBounds || exportIssues.length > 0 || hasBgIssues;
   const isAllCompleted = Boolean(processedResult && !hasErrors);
 
   const isCoastGuardPhoto = Boolean(
@@ -49,22 +60,27 @@ export function ComplianceRejectionAudit({
     (preset?.id.includes('coast-guard') || preset?.name.toLowerCase().includes('coast guard'))
   );
 
+  const isUpssscSignature = Boolean(
+    mode === 'signature' &&
+    (preset?.id.includes('upsssc') || preset?.name.toLowerCase().includes('upsssc') || preset?.id.includes('pet'))
+  );
+
   // 1. ALL REQUIREMENTS COMPLETED STATE (Error is GONE!)
   if (isAllCompleted) {
     return (
       <div
         role="status"
-        aria-label="All requirements completed"
+        aria-label="Technical requirements completed"
         className="rounded-xl border-2 border-emerald-500/80 bg-emerald-500/10 dark:bg-emerald-950/30 p-3.5 space-y-2.5 text-xs shadow-xs transition-all duration-200 animate-in fade-in"
       >
         {/* Header bar: Green Verified */}
         <div className="flex items-center justify-between border-b border-emerald-500/30 pb-2 gap-2 flex-wrap">
           <div className="font-extrabold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5 text-xs sm:text-sm">
             <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-            <span>All Requirements Completed · Ready for Upload</span>
+            <span>Technical Specifications Met · Ready for Upload</span>
           </div>
           <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow-xs bg-emerald-600 text-white whitespace-nowrap">
-            100% VERIFIED
+            SPECS VERIFIED
           </span>
         </div>
 
@@ -88,7 +104,7 @@ export function ComplianceRejectionAudit({
             <span className="text-emerald-400">•</span>
             <span className="inline-flex items-center gap-1">
               <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-              <span><strong>Background:</strong> Verified Clean</span>
+              <span><strong>Background:</strong> Clean Paper</span>
             </span>
           </div>
         </div>
@@ -113,10 +129,30 @@ export function ComplianceRejectionAudit({
           </label>
         )}
 
+        {/* UPSSSC PET Special Confirmation Checkbox */}
+        {isUpssscSignature && (
+          <label className="flex items-start gap-2 p-2 rounded-lg bg-emerald-500/15 border border-emerald-500/40 cursor-pointer text-[11px] text-foreground">
+            <input
+              type="checkbox"
+              checked={upssscConfirmed}
+              onChange={(e) => setUpssscConfirmed(e.target.checked)}
+              className="mt-0.5 rounded border-emerald-500 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+            />
+            <div>
+              <span className="font-bold text-emerald-900 dark:text-emerald-200 block">
+                Confirmed: Signature in English with full Name in Hindi directly below on plain unruled paper
+              </span>
+              <span className="text-muted-foreground text-[10px]">
+                UPSSSC PET Clause 9.3 cancels forms if Hindi name is missing or if signed on notebook lines.
+              </span>
+            </div>
+          </label>
+        )}
+
         {/* Collapsible Rules Checklist (Clean & Non-Intrusive) */}
         <details className="text-[11px] text-muted-foreground pt-1 border-t border-emerald-500/20">
           <summary className="cursor-pointer font-semibold text-emerald-800 dark:text-emerald-300 hover:underline flex items-center justify-between">
-            <span>Review {audit.examName} verification checklist ({audit.items.length} checks passed)</span>
+            <span>Review {audit.examName} verification checklist ({audit.items.length} checks)</span>
             <span className="text-[10px] font-mono">View Norms ▾</span>
           </summary>
           <div className="mt-2 space-y-1.5 pt-1">
@@ -227,8 +263,34 @@ export function ComplianceRejectionAudit({
         ))}
       </div>
 
-      {/* Dynamic Background Warning Banner if detected */}
-      {!!backgroundIssues?.length && (
+      {/* Ruled Notebook Paper Warning Banner if detected */}
+      {ruledPaperIssue && (
+        <div className="p-2.5 rounded-lg bg-rose-500/15 border-2 border-rose-500/60 text-rose-900 dark:text-rose-200 space-y-1.5">
+          <div className="flex items-center gap-1.5 text-xs font-bold text-rose-700 dark:text-rose-300">
+            <AlertTriangle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
+            <span>Notebook Ruled Lines Detected (High Disqualification Risk)</span>
+          </div>
+          <p className="text-[11px] leading-relaxed">
+            {ruledPaperIssue.message}
+          </p>
+          <div className="flex items-center gap-2 pt-1 flex-wrap">
+            {onClean && (
+              <button
+                type="button"
+                onClick={onClean}
+                className="px-2.5 py-1 rounded bg-rose-600 hover:bg-rose-700 text-white font-bold text-[11px] shrink-0 cursor-pointer transition shadow-xs flex items-center gap-1"
+              >
+                <Sparkles className="w-3 h-3" />
+                <span>Apply Clean White Paper Filter</span>
+              </button>
+            )}
+            <span className="text-[10px] text-muted-foreground">Or retake on plain unruled white paper.</span>
+          </div>
+        </div>
+      )}
+
+      {/* Dynamic Background Warning Banner if regular non-white background detected */}
+      {!ruledPaperIssue && genericBgIssue && (
         <div className="p-2.5 rounded-lg bg-amber-500/15 border border-amber-500/40 text-amber-900 dark:text-amber-200 flex items-center justify-between gap-2 flex-wrap">
           <div className="flex items-center gap-1.5 text-xs">
             <AlertTriangle className="w-3.5 h-3.5 text-amber-600 shrink-0" />

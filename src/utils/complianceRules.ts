@@ -135,8 +135,91 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
     }
   }
 
-  // 2. STAFF SELECTION COMMISSION (SSC - CGL, CHSL, MTS, CPO, GD)
-  const isSsc = category === 'SSC' || presetId.includes('ssc') || presetName.includes('ssc') || authority.includes('staff selection');
+  // 2. UPSSSC (PET, Lekhpal, VDO, Junior Assistant)
+  const isUpsssc = presetId.includes('upsssc') || presetName.includes('upsssc') || authority.includes('upsssc') || presetId.includes('pet');
+  if (isUpsssc) {
+    if (mode === 'photo') {
+      return {
+        examName: 'UPSSSC PET',
+        title: 'UPSSSC PET Photo Compliance Audit: What Is Missing?',
+        badge: 'PORTAL SCRUTINY',
+        badgeColor: 'amber',
+        description: 'UPSSSC PET portal strictly validates passport photographs. Blurred photos, dark backgrounds, or side profiles cause rejection during document scrutiny:',
+        statusWarning: 'White/Light Grey BG · 50–100 KB',
+        items: [
+          {
+            icon: '🎨',
+            title: '1. Plain White or Light Grey Background',
+            description: 'Photo must be taken against a plain white or light grey background (सादा सफेद या हल्के ग्रे रंग की पृष्ठभूमि). No outdoor or patterned backgrounds.',
+            severity: 'danger',
+          },
+          {
+            icon: '👤',
+            title: '2. 70% Face Coverage & Frontal Look',
+            description: 'Candidate face must cover at least 70% of the canvas looking straight at the camera. Both eyes and both ears must be clearly visible.',
+            severity: 'warning',
+          },
+          {
+            icon: '👓',
+            title: '3. Spectacles & Headwear Restrictions',
+            description: 'Eyes must be clear without glare or tinted lenses. Caps, hats, and dark goggles are strictly prohibited.',
+            severity: 'danger',
+          },
+          {
+            icon: '📏',
+            title: '4. File Limits: 50 KB to 100 KB (240 × 320 px)',
+            description: 'Strictly 50.0 KB to 100.0 KB in JPG format (3.5 × 4.5 cm). Files below 50 KB or over 100 KB are rejected by upsssc.gov.in.',
+            severity: 'info',
+          },
+        ],
+        officialSource: 'UPSSSC PET Official Advertisement Clause 9.2',
+        officialUrl: 'https://upsssc.gov.in',
+        actionType: 'makeBackgroundWhite',
+      };
+    } else {
+      return {
+        examName: 'UPSSSC PET',
+        title: 'UPSSSC PET Signature Compliance Audit: What Is Missing?',
+        badge: 'STRICT CLAUSE 9.3',
+        badgeColor: 'rose',
+        description: 'UPSSSC PET Advertisement Clause 9.3 strictly rejects signatures that lack the candidate name in Hindi or are signed on lined notebook paper. Verify your uploaded signature:',
+        statusWarning: 'Hindi Name Underneath · Unruled Paper',
+        items: [
+          {
+            icon: '✍️',
+            title: '1. Dual-Format: English Sign + Full Hindi Name Below',
+            description: 'Candidate must sign in English at the top, and write their full name in Hindi script (देवनागरी लिपि में अपना पूरा नाम) clearly underneath inside the box.',
+            severity: 'danger',
+          },
+          {
+            icon: '📄',
+            title: '2. Plain White Unruled Paper Only (No Notebook Lines)',
+            description: 'Must be signed on clean, plain white unruled paper (कागज सादा और सफेद बिना लाइन वाला). Using lined notebook or checked register paper causes instant form cancellation during scrutiny.',
+            severity: 'danger',
+          },
+          {
+            icon: '🖊️',
+            title: '3. Black or Dark Blue Ballpoint Ink Only',
+            description: 'Sign with a clear dark blue or black ballpoint pen. Red ink, green ink, pencil, or faint gel pen strokes are rejected.',
+            severity: 'warning',
+          },
+          {
+            icon: '📏',
+            title: '4. 140 × 60 px (Strictly 30.0 KB – 50.0 KB JPG)',
+            description: 'UPSSSC PET portal enforces a 30 KB minimum floor and 50 KB maximum ceiling. Files under 30 KB or over 50 KB are rejected.',
+            severity: 'info',
+          },
+        ],
+        officialSource: 'UPSSSC PET Notification Clause 9.3',
+        officialUrl: 'https://upsssc.gov.in',
+        actionType: 'cleanPaper',
+      };
+    }
+  }
+
+  // 3. STAFF SELECTION COMMISSION (SSC - CGL, CHSL, MTS, CPO, GD)
+  const isBssc = presetId.includes('bssc') || presetName.includes('bssc') || authority.includes('bssc');
+  const isSsc = !isUpsssc && !isBssc && (category === 'SSC' || presetId.includes('ssc') || presetName.includes('ssc') || authority.includes('staff selection'));
   if (isSsc) {
     if (mode === 'photo') {
       return {

@@ -293,6 +293,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Black Ink Ballpoint Pen',
     aspectRatioLabel: '7:3 (~140×60 px)',
     strictNotice: 'Signatures in CAPITAL LETTERS or signed on behalf of candidate are strictly rejected by Railway Recruitment Boards.',
+    relatedTools: ['rrb-photo-resize', 'rrb-ntpc-signature-resize', 'rrb-alp-signature-resize', 'photo-resizer'],
     tips: [
       'Draw signature in dark black ink in running hand on pure white paper.',
       'Crop out any table shadows or paper borders around the signature.',
@@ -895,10 +896,50 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       'Ensure the final file is between 10 KB and 20 KB.',
       'The Clean Paper filter removes phone shadows for clean printing on the smart card.'
     ],
+    relatedTools: ['sarathi-dl-photo-resize', 'resize-signature-to-10kb-20kb', 'photo-resizer'],
     faqs: [
       {
         q: 'What is the signature size for Sarathi Parivahan portal?',
         a: 'The Sarathi portal accepts JPG signatures sized between 10 KB and 20 KB with approximate 2:1 aspect ratio (200 × 100 px).'
+      }
+    ]
+  },
+  // Sarathi Driving Licence Photo
+  {
+    slug: 'sarathi-dl-photo-resize',
+    presetId: 'sarathi-photo',
+    pageTitle: 'Sarathi Driving Licence Photo Resize 10 to 20 KB (35x45 mm) - SignResize',
+    metaDescription: 'Official Sarathi Parivahan photo resize & compressor tool. Resize passport photo to 10 to 20 KB, 35x45 mm (420x540 px) for Learner and Driving Licence on Parivahan Sewa.',
+    keywords: 'sarathi photo resize, driving licence photo resize 10 to 20 kb, parivahan photo size 10 to 20 kb, learner licence photo compressor, sarathi dl photo upload',
+    h1: 'Sarathi Driving Licence Photo Resize (10 KB – 20 KB)',
+    subheading: 'Official 35×45 mm passport photo format compressed strictly between 10 KB and 20 KB adhering to Ministry of Road Transport & Highways (MoRTH) Parivahan portal rules.',
+    authority: 'Ministry of Road Transport & Highways (Parivahan)',
+    targetExams: 'Learner Licence (LL), Permanent Driving Licence (DL), DL Renewal, Conductor Licence, Commercial DL',
+    widthPx: 420,
+    heightPx: 540,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Color Photograph',
+    aspectRatioLabel: '7:9 (35×45 mm)',
+    strictNotice: 'Parivahan Sewa strictly enforces a 10 KB to 20 KB file limit for passport photos. Background must be plain white or off-white with face clearly visible.',
+    relatedTools: ['sarathi-dl-signature-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Use a recent color passport photo with clean white background.',
+      'Ensure both ears and face are clearly visible without sunglasses or hats.',
+      'Check that the downloaded file is strictly between 10.0 KB and 20.0 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo size limit for Sarathi Parivahan portal?',
+        a: 'The Sarathi Parivahan portal requires passport photographs to be between 10 KB and 20 KB in JPEG/JPG format with 35 mm × 45 mm proportions.'
+      },
+      {
+        q: 'How do I fix the "Photo and Signature size should be between 10KB to 20KB" error?',
+        a: 'Use our calibrated Sarathi photo and signature tools to compress your images into the exact 10–20 KB corridor before uploading.'
       }
     ]
   },
@@ -1675,6 +1716,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Black Ballpoint Pen Only',
     aspectRatioLabel: '7:3 (~140×60 px)',
     strictNotice: 'CBSE guidelines declare that signatures in CAPITAL / BLOCK LETTERS will be rejected. Signatures must be in running natural handwriting.',
+    relatedTools: ['ctet-photo-resize', 'state-tet-signature-resize', 'photo-resizer'],
     tips: [
       'Sign with a black ballpoint pen on spotless white paper.',
       'Strictly maintain file size between 4.0 KB and 30.0 KB.',
@@ -2057,6 +2099,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Dark Black Ink Only',
     aspectRatioLabel: '14:11 (140×110 px)',
     strictNotice: 'DSSSB OARS portal requires a specific 140×110 pixel resolution in dark black ink. File size must not exceed 40 KB.',
+    relatedTools: ['dsssb-photo-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
     tips: [
       'Draw a 3.5 cm × 2.75 cm box on plain white paper and sign inside with a black pen.',
       'Crop neatly to the edges of the box.',
@@ -2129,6 +2172,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Color Photo with Name/Date',
     aspectRatioLabel: '3:4 (150×200 px)',
     strictNotice: 'Kerala PSC Thulasi strictly mandates candidate name and date of photo taken printed in black font on a white strip at the bottom of the photo.',
+    relatedTools: ['kerala-psc-signature-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
     tips: [
       'Enter your full name and recent photo date in the Name & Date on Photo section.',
       'Ensure the background is light colored or white.',
@@ -2472,6 +2516,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Any (Passport Photo)',
     aspectRatioLabel: '7:9 (3.5×4.5 cm)',
     strictNotice: 'CTET requires a recent passport-size photograph (taken within the last 6 months) with a white or light-coloured background. The photograph must be without dark glasses and in formal attire.',
+    relatedTools: ['ctet-signature-resize', 'photo-resizer'],
     tips: [
       'Use a plain white or off-white background — no patterns, colours, or studio gradients.',
       'The photograph must have been taken within the last 6 months from the application date.',
@@ -3163,7 +3208,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Black or Blue Ink (English Sign + Hindi Name)',
     aspectRatioLabel: '7:3 (~3.5×1.5 cm)',
     strictNotice: 'CRITICAL UPSSSC RULE: You must sign in running handwriting in English AND clearly write your full name in HINDI (देवनागरी) directly below the signature inside the same 3.5×1.5 cm frame.',
-    relatedTools: ['uppsc-signature-resize', 'up-police-signature-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    relatedTools: ['upsssc-pet-photo-resize', 'uppsc-signature-resize', 'up-police-signature-resize', 'photo-resizer'],
     tips: [
       'Draw a 3.5 cm × 1.5 cm box on plain white paper. Sign in running English at the top half, and write your full legal name in Hindi script directly underneath.',
       'Sign with a clear black or dark blue ballpoint pen; avoid faint strokes or smudged ink.',
@@ -3210,7 +3255,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Black or Blue Ballpoint Pen',
     aspectRatioLabel: '7:3 (~3.5×1.5 cm)',
     strictNotice: 'BSSC mandates uploading TWO SEPARATE signature files: one in running English handwriting and one in clear Hindi script (देवनागरी). Both must be strictly between 10 KB and 20 KB.',
-    relatedTools: ['bpsc-signature-resize', 'bihar-police-signature-resize', 'bihar-police-photo-resize', 'photo-resizer'],
+    relatedTools: ['bssc-photo-resize', 'bpsc-signature-resize', 'bihar-police-signature-resize', 'photo-resizer'],
     tips: [
       'Write your signature once in running English and once in Hindi on a blank white sheet.',
       'Crop them into two separate image files using SignResize to get exact 10–20 KB outputs for both.',
@@ -3257,7 +3302,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Black or Dark Blue Ink Pen',
     aspectRatioLabel: '7:3 (~3.5×1.5 cm)',
     strictNotice: 'Signatures in CAPITAL LETTERS or initials only are invalid. NTA portals reject signature files smaller than 10 KB or larger than 50 KB.',
-    relatedTools: ['nta-neet-jee-signature-resize', 'neet-photo-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    relatedTools: ['cuet-photo-resize', 'nta-neet-jee-signature-resize', 'neet-photo-resize', 'photo-resizer'],
     tips: [
       'Sign inside a 3.5×1.5 cm rectangle on pure white paper using a dark blue or black pen.',
       'Crop cleanly around the strokes without chopping off the top or bottom loops.',
@@ -3374,6 +3419,311 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'Why was my GDS signature rejected?',
         a: 'Common reasons include file size outside the 10–20 KB range, illegible signature, phone shadows on paper, or signing in block capital letters.'
+      }
+    ]
+  },
+  // Intelligence Bureau (IB ACIO) Signature
+  {
+    slug: 'ib-acio-signature-resize',
+    presetId: 'ib-acio',
+    pageTitle: 'IB ACIO Signature Resize 10 to 50 KB (140x60 px) Online - SignResize',
+    metaDescription: 'Official Intelligence Bureau ACIO Grade-II signature resizer & cropper. Format signature to 10 to 50 KB, 140x60 px (4x2 cm) at 200 DPI for MHA IB ACIO portal.',
+    keywords: 'ib acio signature resize, ib acio signature size 10 to 50 kb, intelligence bureau acio signature resizer, mha ib acio photo and signature 2026, ib acio online form signature upload',
+    h1: 'IB ACIO Signature Resizer & Compressor (10 KB – 50 KB)',
+    subheading: 'Official Ministry of Home Affairs format: 140×60 px (4.0×2.0 cm) signature strictly calibrated between 10 KB to 50 KB for IB ACIO-II/Executive recruitment.',
+    authority: 'Ministry of Home Affairs (MHA / Intelligence Bureau)',
+    targetExams: 'IB ACIO Grade-II / Executive, IB SA / MT (Security Assistant), Intelligence Bureau Recruitment',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 50,
+    recommendedKb: 25,
+    dpi: 200,
+    ink: 'Dark Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'Signatures in capital or block letters will be disqualified by MHA. The signature must be in natural cursive handwriting on plain white paper.',
+    relatedTools: ['ib-acio-photo-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Sign with a black ballpoint pen on plain white paper.',
+      'Crop tight around the signature strokes, eliminating dark edges.',
+      'Ensure the final file size is strictly between 10 KB and 50 KB in JPG format.',
+      'Check the preview on the MHA application portal before final fee payment.'
+    ],
+    faqs: [
+      {
+        q: 'What is the signature size for IB ACIO Grade-II recruitment?',
+        a: 'The MHA IB ACIO application portal requires scanned signatures in JPG/JPEG format, sized between 10 KB and 50 KB with 140 × 60 pixel resolution.'
+      },
+      {
+        q: 'Can I use blue ink for the IB ACIO signature?',
+        a: 'No. Ministry of Home Affairs guidelines specify black ink only on clear white paper. Signatures with blue ink or low contrast may be rejected.'
+      }
+    ]
+  },
+  // Intelligence Bureau (IB ACIO) Photo
+  {
+    slug: 'ib-acio-photo-resize',
+    presetId: 'ib-acio-photo',
+    pageTitle: 'IB ACIO Photo Resize 20 to 50 KB (35x45 mm) Online - SignResize',
+    metaDescription: 'Free IB ACIO photo resizer & compressor. Format passport photo to 20 to 50 KB, 35x45 mm (200x230 px) with clean white background for MHA Intelligence Bureau online portal.',
+    keywords: 'ib acio photo resize, ib acio photo size 20 to 50 kb, intelligence bureau passport photo resizer, ib acio photo dimensions, mha ib photo upload 2026',
+    h1: 'IB ACIO Photo Resizer (20 KB – 50 KB)',
+    subheading: 'Official 35×45 mm passport photo format compressed strictly between 20 KB and 50 KB adhering to Intelligence Bureau (MHA) recruitment portal rules.',
+    authority: 'Ministry of Home Affairs (MHA / Intelligence Bureau)',
+    targetExams: 'IB ACIO Grade-II / Executive, IB Security Assistant, Multi-Tasking Staff (MHA)',
+    widthPx: 200,
+    heightPx: 230,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Color Photograph',
+    aspectRatioLabel: '20:23 (35×45 mm)',
+    strictNotice: 'Photograph must be recent (taken within 12 weeks) against a light/white background. Caps, goggles, or heavy shadows on face will lead to application cancellation.',
+    relatedTools: ['ib-acio-signature-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Use a recent color passport photo with clean white background.',
+      'Face should cover 70-80% of the image area looking directly at the camera.',
+      'Ensure the final file size is strictly between 20 KB and 50 KB in JPG format.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official photo size for IB ACIO 2026?',
+        a: 'The official IB ACIO portal requires a color passport photo with dimensions of 35 mm × 45 mm (approx 200 × 230 pixels) and a file size strictly between 20 KB and 50 KB in JPG format.'
+      },
+      {
+        q: 'Can spectacles be worn in the IB ACIO photo?',
+        a: 'Clear prescription glasses are allowed only if eyes are visible and there is no glare/reflection on the lenses. Tinted or dark glasses are strictly prohibited.'
+      }
+    ]
+  },
+  // CUET UG / PG Photo
+  {
+    slug: 'cuet-photo-resize',
+    presetId: 'cuet-ug-photo',
+    pageTitle: 'CUET Photo Resize 10 to 200 KB (200x230 px) Online - SignResize',
+    metaDescription: 'Official CUET UG/PG photo resizer & compressor. Format passport photo to 10 to 200 KB, 200x230 px (35x45 mm) with 80% face coverage & white background for NTA CUET portal.',
+    keywords: 'cuet photo resize, cuet photo size 10 to 200 kb, nta cuet photo resizer, cuet ug photo dimensions, cuet passport photo upload 2026',
+    h1: 'CUET Photo Resizer & Compressor (10 KB – 200 KB)',
+    subheading: 'Official National Testing Agency specifications: 200×230 px (35×45 mm) passport photo with 80% face coverage strictly calibrated between 10 KB to 200 KB.',
+    authority: 'National Testing Agency (NTA)',
+    targetExams: 'CUET UG, CUET PG, Central Universities Common Entrance Test',
+    widthPx: 200,
+    heightPx: 230,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 10,
+    maxKb: 200,
+    recommendedKb: 50,
+    dpi: 200,
+    ink: 'Color Photograph (White Background)',
+    aspectRatioLabel: '20:23 (35×45 mm)',
+    strictNotice: 'NTA mandates 80% face coverage against a clean white background. Masks, dark glasses, or polaroid photos will lead to immediate rejection.',
+    relatedTools: ['cuet-signature-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Take photo facing direct soft light against a clean white wall.',
+      'Ensure 80% face coverage showing forehead, nose, chin and both ears clearly.',
+      'Check that the final downloaded file is securely between 10 KB and 200 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required photo size for CUET 2026?',
+        a: 'NTA specifies that CUET passport photographs must be in JPG format, with dimensions of approx 200 × 230 pixels (3.5 × 4.5 cm) and a file size between 10 KB and 200 KB.'
+      },
+      {
+        q: 'Does CUET require name and date printed on the photo?',
+        a: 'While name and date printing is strictly mandatory for NEET, CUET guidelines state it is preferable but not strictly mandatory. However, plain white background with 80% face coverage is mandatory.'
+      }
+    ]
+  },
+  // UPSSSC PET Photo
+  {
+    slug: 'upsssc-pet-photo-resize',
+    presetId: 'upsssc-pet-photo',
+    pageTitle: 'UPSSSC PET Photo Resize 50 to 100 KB (3.5x4.5 cm) Online - SignResize',
+    metaDescription: 'Free UPSSSC PET photo resizer. Format passport photo to 3.5x4.5 cm (240x320 px), strictly 50 to 100 KB JPG on plain white or light grey background for upsssc.gov.in.',
+    keywords: 'upsssc pet photo resize, upsssc photo size 50 to 100 kb, upsssc pet photo resizer, upsssc photo dimensions, upsssc photo upload 2026',
+    h1: 'UPSSSC PET Photo Resizer (50 KB – 100 KB)',
+    subheading: 'Official UPSSSC standards: 3.5×4.5 cm (240×320 px) passport photo strictly compressed between 50 KB and 100 KB with clean white background.',
+    authority: 'Uttar Pradesh Subordinate Services Selection Commission (UPSSSC)',
+    targetExams: 'UPSSSC Preliminary Eligibility Test (PET), Lekhpal, VDO, Junior Assistant',
+    widthPx: 240,
+    heightPx: 320,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 50,
+    maxKb: 100,
+    recommendedKb: 75,
+    dpi: 200,
+    ink: 'Color Photograph',
+    aspectRatioLabel: '3:4 (3.5×4.5 cm)',
+    strictNotice: 'UPSSSC strictly enforces the 50 KB minimum bound. Files below 50 KB are rejected by the portal. SignResize automatically maintains compliance.',
+    relatedTools: ['upsssc-pet-signature-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Use a recent colour passport photo with plain white or light grey background.',
+      'Ensure file size is strictly between 50 KB and 100 KB in JPG format.',
+      'Do not wear caps, mufflers, or tinted glasses.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required photo size for UPSSSC PET?',
+        a: 'The UPSSSC online portal requires candidate photos in JPG format, sized strictly between 50 KB and 100 KB with 3.5 × 4.5 cm (240 × 320 px) dimensions.'
+      },
+      {
+        q: 'Why was my UPSSSC photo rejected for being under 50 KB?',
+        a: 'The UPSSSC portal enforces a hard minimum size limit of 50 KB to prevent blurry, low-resolution uploads. SignResize automatically pads and compresses your photo so it never falls below 50 KB.'
+      }
+    ]
+  },
+  // BSSC Inter-Level Photo
+  {
+    slug: 'bssc-photo-resize',
+    presetId: 'bssc-photo',
+    pageTitle: 'BSSC Photo Resize 20 to 50 KB (200x230 px) Online - SignResize',
+    metaDescription: 'Free BSSC Inter-Level passport photo resizer. Format photo to 20 to 50 KB, 200x230 px (3.5x4.5 cm) JPG with clear white/light background for bssc.bihar.gov.in.',
+    keywords: 'bssc photo resize, bssc inter level photo size 20 to 50 kb, bssc photo resizer, bssc photo dimensions, bihar ssc photo upload 2026',
+    h1: 'BSSC Inter-Level Photo Resizer (20 KB – 50 KB)',
+    subheading: 'Calibrated 200×230 px (35×45 mm) passport photo compressor strictly adhering to Bihar Staff Selection Commission portal guidelines.',
+    authority: 'Bihar Staff Selection Commission (BSSC)',
+    targetExams: 'BSSC 2nd Inter-Level Combined Competitive Exam, BSSC 4th CGL, Revenue Employee, Panchayat Secretary',
+    widthPx: 200,
+    heightPx: 230,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Color Photograph',
+    aspectRatioLabel: '20:23 (35×45 mm)',
+    strictNotice: 'Front view of face with both ears clearly visible on a plain light background. Caps or sunglasses are strictly prohibited.',
+    relatedTools: ['bssc-signature-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Take passport photo against a plain, light-colored background.',
+      'Ensure eyes and ears are clearly visible without glare on lenses.',
+      'File size must strictly sit between 20 KB and 50 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official photo size for BSSC Inter-Level recruitment?',
+        a: 'BSSC requires passport photos to be in JPG format, sized between 20 KB and 50 KB with dimensions of 200 × 230 pixels (approx 3.5 × 4.5 cm).'
+      }
+    ]
+  },
+  // DSSSB Postcard Photo
+  {
+    slug: 'dsssb-photo-resize',
+    presetId: 'dsssb-photo',
+    pageTitle: 'DSSSB Postcard Photo Resize 50 to 300 KB (4x6 Inch, 480x672 px) - SignResize',
+    metaDescription: 'Free DSSSB OARS postcard photo resizer. Format postcard photo to 4x6 inches (480x672 px) and 50 to 300 KB JPG with clean white background showing both ears clearly.',
+    keywords: 'dsssb photo resize, dsssb postcard photo size 50 to 300 kb, dsssb 4x6 photo resize, dsssb photo dimensions, dsssb oars photo upload 2026',
+    h1: 'DSSSB Postcard Photo Resizer (50 KB – 300 KB)',
+    subheading: 'Official DSSSB OARS format: 4×6 inch postcard size (480×672 px) strictly compressed between 50 KB and 300 KB showing face and both ears.',
+    authority: 'Delhi Subordinate Services Selection Board (DSSSB)',
+    targetExams: 'DSSSB PRT, TGT, PGT, Non-Teaching, Nursing Officer, MTS Recruitment',
+    widthPx: 480,
+    heightPx: 672,
+    widthCm: 10.16,
+    heightCm: 15.24,
+    minKb: 50,
+    maxKb: 300,
+    recommendedKb: 150,
+    dpi: 200,
+    ink: 'Color Postcard Photograph',
+    aspectRatioLabel: '4:6 Postcard (~480×672 px)',
+    strictNotice: 'DSSSB strictly mandates a large 4×6 inch postcard photograph showing the candidate\'s upper body with both ears completely visible against a white background.',
+    relatedTools: ['dsssb-signature-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'DSSSB mandates a 4×6 inch postcard format (not regular passport size).',
+      'Both ears, neck and upper shoulders must be clearly visible against a white background.',
+      'Output size must be between 50 KB and 300 KB in JPG format.'
+    ],
+    faqs: [
+      {
+        q: 'Why does DSSSB require a postcard size photo instead of passport size?',
+        a: 'The Delhi Subordinate Services Selection Board (DSSSB) OARS system specifically requires a 4×6 inch postcard photo (480 × 672 pixels) for digital identity verification at examination centres to prevent impersonation.'
+      },
+      {
+        q: 'What is the required file size for DSSSB postcard photo?',
+        a: 'The file size must be strictly between 50 KB and 300 KB in JPG/JPEG format.'
+      }
+    ]
+  },
+  // Kerala PSC Signature
+  {
+    slug: 'kerala-psc-signature-resize',
+    presetId: 'kerala-psc-signature',
+    pageTitle: 'Kerala PSC Signature Resize 150x100 px (under 30 KB) Online - SignResize',
+    metaDescription: 'Official Kerala PSC Thulasi OTR signature resizer & cropper. Format signature to 150x100 px (3.5x1.5 cm) and under 30 KB JPG in black/blue ink for thulasi.psc.kerala.gov.in.',
+    keywords: 'kerala psc signature resize, kerala psc thulasi signature size, kerala psc signature 150x100, thulasi otr signature resizer, kerala psc signature upload 2026',
+    h1: 'Kerala PSC Signature Resizer (10 KB – 30 KB)',
+    subheading: 'Official Kerala Public Service Commission Thulasi OTR standard: 150×100 px (3.5×1.5 cm) signature strictly under 30 KB in JPG format.',
+    authority: 'Kerala Public Service Commission (Thulasi OTR)',
+    targetExams: 'Kerala PSC (KAS, Secretariat Assistant, Police Constable, LDC, VFA, University Assistant)',
+    widthPx: 150,
+    heightPx: 100,
+    widthCm: 3.5,
+    heightCm: 1.5,
+    minKb: 10,
+    maxKb: 30,
+    recommendedKb: 20,
+    dpi: 200,
+    ink: 'Black or Blue Ballpoint Ink',
+    aspectRatioLabel: '3:2 (150×100 px)',
+    strictNotice: 'Kerala PSC Thulasi OTR rejects signatures over 30 KB or in capital letters. Signatures must be in running natural handwriting on white paper.',
+    relatedTools: ['kerala-psc-photo-resize', 'photo-resizer', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Sign with a black or dark blue ballpoint pen on plain white paper.',
+      'Crop tightly to 150×100 pixels keeping strokes sharp and bold.',
+      'Ensure the final file size is strictly under 30 KB (between 10 KB and 30 KB).'
+    ],
+    faqs: [
+      {
+        q: 'What is the official signature size for Kerala PSC Thulasi OTR?',
+        a: 'Kerala PSC specifies that scanned signatures must have dimensions of 150 pixels width by 100 pixels height and a file size not exceeding 30 KB (strictly between 10 KB and 30 KB) in JPG format.'
+      },
+      {
+        q: 'Can I upload a signature with name underneath for Kerala PSC?',
+        a: 'No. Unlike Kerala PSC photographs which require candidate name and date printed at the bottom, the signature file should only contain your authentic signature without any extra text.'
+      }
+    ]
+  },
+  // Railway RRB Photo
+  {
+    slug: 'rrb-photo-resize',
+    presetId: 'rrb-photo',
+    pageTitle: 'RRB Photo Resize 20 to 50 KB (3.5x4.5 cm) Online - SignResize',
+    metaDescription: 'Free Railway RRB photo resizer for RRB NTPC, ALP, Technician, and Group D. Format passport photo to 3.5x4.5 cm (240x320 px) and 20 to 50 KB JPG with plain light background.',
+    keywords: 'rrb photo resize, rrb photo size 20 to 50 kb, rrb ntpc photo resize, rrb alp photo size, rrb group d photo resizer, railway recruitment board photo upload 2026',
+    h1: 'Railway RRB Photo Resizer (20 KB – 50 KB)',
+    subheading: 'Official Railway Recruitment Board specifications: 3.5×4.5 cm (240×320 px) passport photo calibrated between 20 KB and 50 KB for CEN recruitments.',
+    authority: 'Railway Recruitment Boards (RRB)',
+    targetExams: 'RRB NTPC, RRB ALP, RRB Technician, RRB Group D (Level 1), RRB JE',
+    widthPx: 240,
+    heightPx: 320,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Color Photograph',
+    aspectRatioLabel: '3.5:4.5 (240×320 px)',
+    strictNotice: 'Color photograph taken against a light/white background. Spectacles with dark or tinted lenses and caps are strictly prohibited.',
+    relatedTools: ['rrb-signature-resize', 'rrb-ntpc-signature-resize', 'rrb-alp-signature-resize', 'photo-resizer'],
+    tips: [
+      'Take photo in clear lighting facing forward with both ears visible.',
+      'Background must be plain light or white without shadows.',
+      'Final file must be in JPG format sized strictly between 20 KB and 50 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required passport photo size for Railway RRB exams?',
+        a: 'Railway Recruitment Boards require a color passport photograph with dimensions of 3.5 × 4.5 cm (240 × 320 px) and a file size strictly between 20 KB and 50 KB in JPG/JPEG format.'
       }
     ]
   }

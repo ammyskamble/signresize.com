@@ -32,7 +32,21 @@ const canonicalUrl = propCanonicalUrl || `https://signresize.in/${examData.slug}
 const ogImageUrl = 'https://signresize.in/og-image.png';
 const currentYear = 2026;
 const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
-const hasDocumentSuite = examData.slug.includes('iit-jam') || examData.slug.includes('gate');
+const isJam = examData.slug.includes('iit-jam');
+const isGate = examData.slug.includes('gate');
+const isSarathi = examData.slug.includes('sarathi');
+const isPan = examData.slug.includes('pan-card');
+const isIbAcio = examData.slug.includes('ib-acio');
+const isGds = examData.slug.includes('india-post-gds');
+const isSscMts = examData.slug === 'ssc-mts-signature-resize';
+const isCuet = examData.slug.includes('cuet');
+const isUpsssc = examData.slug.includes('upsssc');
+const isBssc = examData.slug.includes('bssc');
+const isDsssb = examData.slug.includes('dsssb');
+const isKeralaPsc = examData.slug.includes('kerala-psc');
+const isCtet = examData.slug.includes('ctet');
+const isRrb = examData.slug === 'rrb-signature-resize' || examData.slug === 'rrb-photo-resize';
+const hasDocumentSuite = isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb;
 const relatedTools = (examData.relatedTools || [])
   .filter(slug => slug !== examData.slug)
   .map(slug => {
@@ -388,6 +402,408 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                 class="px-3 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border"
               >
                 IIT JAM Resizer →
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isSarathi && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="Sarathi Parivahan Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🚗</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">Sarathi Parivahan Document Suite (MoRTH)</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">10–20 KB Dual Boundary</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Parivahan Sewa strictly mandates both documents to be sized between 10 KB and 20 KB. Switch between tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/sarathi-dl-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'sarathi-dl-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (10–20 KB)</span>
+              </a>
+              <a
+                href="/sarathi-dl-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'sarathi-dl-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (10–20 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isPan && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="PAN Card Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">💳</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">PAN Card (NSDL / UTIITSL) Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">200 DPI Standards</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Income Tax Department requires 200 DPI resolution for sharp PVC card thermal printing. Select your document below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/pan-card-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'pan-card-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (&le; 20 KB)</span>
+              </a>
+              <a
+                href="/pan-card-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'pan-card-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (&le; 50 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isIbAcio && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="IB ACIO Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🛡️</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">Intelligence Bureau (IB ACIO) Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">MHA Recruitment Portal</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                MHA online portal requires candidate photo (20–50 KB) and signature in black ink (10–50 KB). Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/ib-acio-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'ib-acio-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (10–50 KB)</span>
+              </a>
+              <a
+                href="/ib-acio-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'ib-acio-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (20–50 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isGds && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="India Post GDS Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">📮</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">India Post GDS Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">GDS Online Engagement</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Department of Posts mandates photo (20–50 KB) and signature (10–20 KB). Switch between tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/india-post-gds-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'india-post-gds-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (10–20 KB)</span>
+              </a>
+              <a
+                href="/india-post-gds-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'india-post-gds-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (20–50 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isSscMts && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="SSC MTS Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">⚡</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">SSC MTS &amp; Havaldar Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official ssc.gov.in Specs</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Staff Selection Commission requires 10–20 KB signature and live webcam capture test. Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/ssc-mts-signature-resize/"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border bg-primary text-primary-foreground border-primary shadow-xs"
+              >
+                <span>✍️</span>
+                <span>MTS Signature (10–20 KB)</span>
+              </a>
+              <a
+                href="/live-webcam-photo-checker/"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border bg-card text-foreground border-border hover:border-primary/50"
+              >
+                <span>📸</span>
+                <span>Test Live Webcam Photo</span>
+              </a>
+              <a
+                href="/ssc-signature-resize/"
+                class="px-3 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border"
+              >
+                All SSC Tools →
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isCuet && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="CUET Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🎓</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">CUET UG &amp; PG Document Suite (NTA)</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official NTA Specs</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                NTA requires candidate signature (10–50 KB, 140×60 px) and photograph with 80% face coverage (10–200 KB). Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/cuet-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'cuet-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (10–50 KB)</span>
+              </a>
+              <a
+                href="/cuet-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'cuet-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (10–200 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isUpsssc && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="UPSSSC PET Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">📜</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">UPSSSC PET &amp; OTR Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official UPSSSC Specs</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                UPSSSC mandates signature with Hindi name underneath (30–50 KB) and passport photograph (50–100 KB). Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/upsssc-pet-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'upsssc-pet-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature + Hindi Name (30–50 KB)</span>
+              </a>
+              <a
+                href="/upsssc-pet-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'upsssc-pet-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (50–100 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isBssc && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="BSSC Inter-Level Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🏛️</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">Bihar BSSC Inter-Level Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Dual Signature Format</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                BSSC mandates dual signatures (one Hindi, one English, 10–20 KB each) and candidate photograph (20–50 KB). Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/bssc-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'bssc-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signatures (Hindi &amp; English 10–20 KB)</span>
+              </a>
+              <a
+                href="/bssc-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'bssc-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (20–50 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isDsssb && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="DSSSB OARS Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">⚡</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">DSSSB OARS Document Suite (Govt of NCT Delhi)</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Postcard &amp; Signature</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                DSSSB OARS requires a 4×6 inch postcard photograph (480×672 px, 50–300 KB) and dark ink signature (140×110 px, 10–40 KB). Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/dsssb-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'dsssb-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (140×110 px, 10–40 KB)</span>
+              </a>
+              <a
+                href="/dsssb-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'dsssb-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Postcard Photo (480×672 px, 50–300 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isKeralaPsc && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="Kerala PSC Thulasi Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🌴</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">Kerala PSC Thulasi OTR Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Name &amp; Date Spec</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Kerala PSC Thulasi OTR requires signature (150×100 px, 10–30 KB) and photo with Name &amp; Date stamp (150×200 px, 20–30 KB). Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/kerala-psc-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'kerala-psc-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (150×100 px, 10–30 KB)</span>
+              </a>
+              <a
+                href="/kerala-psc-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'kerala-psc-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo + Name &amp; Date (20–30 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isCtet && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="CTET Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">📚</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">CTET Document Suite (CBSE)</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official CBSE Specs</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                CBSE CTET requires running handwriting signature in black ink (4–30 KB) and passport photograph (10–100 KB). Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/ctet-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'ctet-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (4–30 KB)</span>
+              </a>
+              <a
+                href="/ctet-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'ctet-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (10–100 KB)</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
+
+      {isRrb && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="Railway RRB Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🚆</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">Railway RRB Document Suite (CEN Recruitments)</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official RRB Standards</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Railway Recruitment Boards mandate running handwriting signature (10–20 KB, 140×60 px) and color photograph (20–50 KB, 240×320 px). Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/rrb-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'rrb-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (10–20 KB)</span>
+              </a>
+              <a
+                href="/rrb-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'rrb-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (20–50 KB)</span>
               </a>
             </div>
           </div>

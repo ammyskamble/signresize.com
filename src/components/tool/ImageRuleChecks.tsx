@@ -1,6 +1,6 @@
 import { useMemo, useRef, useEffect, useState } from 'react';
 import type { ExamPreset, ProcessedImageResult, ToolTargetMode } from '../../types';
-import { inspectBackground, inspectSource, inspectExport, type FileFacts, type ExportRule } from '../../utils/uploadValidation';
+import { inspectBackground, inspectRuledPaper, inspectSource, inspectExport, type FileFacts, type ExportRule } from '../../utils/uploadValidation';
 import { ComplianceRejectionAudit } from './ComplianceRejectionAudit';
 
 export function ImageRuleChecks({
@@ -30,18 +30,25 @@ export function ImageRuleChecks({
       const ctx = canvas.getContext('2d', { willReadFrequently: true });
       if (!ctx) return null;
       ctx.drawImage(image, 0, 0, 96, 96);
-      return inspectBackground(ctx.getImageData(0, 0, 96, 96).data, 96, 96, preset.notes);
+      const imgData = ctx.getImageData(0, 0, 96, 96).data;
+      const bg = inspectBackground(imgData, 96, 96, preset.notes);
+      if (mode === 'signature') {
+        const ruled = inspectRuledPaper(imgData, 96, 96);
+        return [...bg, ...ruled];
+      }
+      return bg;
     } catch {
       return null;
     }
-  }, [image, preset]);
+  }, [image, preset, mode]);
 
   const sourceIssues = preset ? inspectSource(source, preset) : [];
 
   const isCompleted = Boolean(
     processedResult &&
     processedResult.withinTargetBounds &&
-    (!rule || inspectExport(processedResult, rule).length === 0)
+    (!rule || inspectExport(processedResult, rule).length === 0) &&
+    (!backgroundIssues || backgroundIssues.length === 0)
   );
 
   return (
@@ -111,6 +118,8 @@ export function ExportChecksDialog({
   onClean,
   slateConfirmed,
   onConfirmSlate,
+  upssscConfirmed,
+  onConfirmUpsssc,
 }: {
   open: boolean;
   result: ProcessedImageResult | null;
@@ -125,6 +134,8 @@ export function ExportChecksDialog({
   onClean?: () => void;
   slateConfirmed?: boolean;
   onConfirmSlate?: (confirmed: boolean) => void;
+  upssscConfirmed?: boolean;
+  onConfirmUpsssc?: (confirmed: boolean) => void;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [backgroundMessage, setBackgroundMessage] = useState('');
@@ -142,7 +153,11 @@ export function ExportChecksDialog({
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
         if (!ctx) return;
         ctx.drawImage(image, 0, 0, 96, 96);
-        setBackgroundMessage(inspectBackground(ctx.getImageData(0, 0, 96, 96).data, 96, 96, preset.notes)[0]?.message || '');
+        const imgData = ctx.getImageData(0, 0, 96, 96).data;
+        const bgIssues = inspectBackground(imgData, 96, 96, preset.notes);
+        const ruledIssues = mode === 'signature' ? inspectRuledPaper(imgData, 96, 96) : [];
+        const allIssues = [...bgIssues, ...ruledIssues];
+        setBackgroundMessage(allIssues[0]?.message || '');
       } catch {
         setBackgroundMessage('Background analysis unavailable. Inspect the processed preview yourself.');
       }
@@ -265,11 +280,23 @@ export function ExportChecksDialog({
           mode={mode}
           rule={rule}
           processedResult={result}
-          backgroundIssues={backgroundMessage ? [{ code: 'bg', message: backgroundMessage, fix: 'Check background' }] : null}
+          backgroundIssues={
+            backgroundMessage
+              ? [
+                  {
+                    code: backgroundMessage.includes('Ruled notebook lines') ? 'ruled_paper' : 'bg',
+                    message: backgroundMessage,
+                    fix: 'Check background or paper'
+                  }
+                ]
+              : null
+          }
           onRemoveBackground={onRemoveBackground}
           onClean={onClean}
           slateConfirmed={slateConfirmed}
           onConfirmSlate={onConfirmSlate}
+          upssscConfirmed={upssscConfirmed}
+          onConfirmUpsssc={onConfirmUpsssc}
           variant="modalAudit"
         />
       </div>

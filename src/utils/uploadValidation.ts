@@ -17,6 +17,73 @@ export function inspectBackground(pixels: ArrayLike<number>, width: number, heig
   if (!total || unsuitable / total < .25) return [];
   return [{ code: 'background', message: `Possible background problem: the image edges look coloured, dark, shadowed, or transparent. This preset calls for ${lightAllowed ? 'a plain light background' : 'a white background'}.`, fix: 'Check the background around the subject. Retake the photo against the required plain background, or upload a corrected image. For a signature or paper scan, try Clean White Paper and inspect the result.' }];
 }
+
+export function inspectRuledPaper(pixels: ArrayLike<number>, width: number, height: number): UploadIssue[] {
+  if (width < 30 || height < 20) return [];
+  const startY = Math.floor(height * 0.08);
+  const endY = Math.floor(height * 0.92);
+  const minRun = Math.floor(width * 0.42);
+  const ruledRows: number[] = [];
+
+  for (let y = startY; y <= endY; y++) {
+    let consecutiveLinePixels = 0;
+    let maxConsecutive = 0;
+    let totalLinePixels = 0;
+
+    for (let x = 0; x < width; x++) {
+      const idx = (y * width + x) * 4;
+      const r = pixels[idx];
+      const g = pixels[idx + 1];
+      const b = pixels[idx + 2];
+      const a = pixels[idx + 3];
+
+      if (a < 200) {
+        consecutiveLinePixels = 0;
+        continue;
+      }
+
+      const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+
+      // Blue/cyan notebook ruled line
+      const isBlueTint = b > r + 15 && b > g + 8 && lum < 235;
+
+      // Grey/black notebook line with local vertical contrast against paper above or below
+      let isGreyLine = false;
+      if (lum < 215) {
+        const step = Math.min(3, Math.max(1, Math.floor(height * 0.05)));
+        const idxAbove = (Math.max(0, y - step) * width + x) * 4;
+        const idxBelow = (Math.min(height - 1, y + step) * width + x) * 4;
+        const lumAbove = 0.299 * pixels[idxAbove] + 0.587 * pixels[idxAbove + 1] + 0.114 * pixels[idxAbove + 2];
+        const lumBelow = 0.299 * pixels[idxBelow] + 0.587 * pixels[idxBelow + 1] + 0.114 * pixels[idxBelow + 2];
+        if (lumAbove - lum > 25 || lumBelow - lum > 25) {
+          isGreyLine = true;
+        }
+      }
+
+      if (isBlueTint || isGreyLine) {
+        consecutiveLinePixels++;
+        totalLinePixels++;
+        if (consecutiveLinePixels > maxConsecutive) maxConsecutive = consecutiveLinePixels;
+      } else {
+        consecutiveLinePixels = 0;
+      }
+    }
+
+    if (maxConsecutive >= minRun || totalLinePixels >= width * 0.60) {
+      ruledRows.push(y);
+    }
+  }
+
+  if (ruledRows.length > 0) {
+    return [{
+      code: 'ruled_paper',
+      message: 'Ruled notebook lines detected across signature. Official exam portals (including UPSSSC PET Clause 9.3) strictly reject signatures on lined or checked notebook paper.',
+      fix: 'Retake or crop your signature on clean, plain white unruled paper (कागज सादा और सफेद बिना लाइन वाला) using a black or blue pen.'
+    }];
+  }
+
+  return [];
+}
 export const MAX_UPLOAD_BYTES = 15 * 1024 * 1024;
 export function fileIntakeError(file: Pick<FileFacts, 'size' | 'type' | 'name'>): string | null {
   if (file.size === 0) return 'This file is empty. Choose a saved JPG, PNG, or WebP image.';

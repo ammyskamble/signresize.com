@@ -225,11 +225,14 @@ const presetSlugMap = new Map([
   ['loksewa-np', 'lok-sewa-photo-resize-nepal'],
   ['rrb-ntpc', 'rrb-ntpc-signature-resize'],
   ['upsssc-pet', 'upsssc-pet-signature-resize'],
-  ['upsssc-pet-photo', 'upsssc-pet-signature-resize'],
+  ['upsssc-pet-photo', 'upsssc-pet-photo-resize'],
   ['bssc-inter-level', 'bssc-signature-resize'],
-  ['bssc-photo', 'bssc-signature-resize'],
+  ['bssc-photo', 'bssc-photo-resize'],
   ['cuet-ug', 'cuet-signature-resize'],
-  ['cuet-ug-photo', 'cuet-signature-resize'],
+  ['cuet-ug-photo', 'cuet-photo-resize'],
+  ['dsssb-photo', 'dsssb-photo-resize'],
+  ['kerala-psc-signature', 'kerala-psc-signature-resize'],
+  ['rrb-photo', 'rrb-photo-resize'],
   ['ssc-mts', 'ssc-mts-signature-resize'],
   ['india-post-gds-signature', 'india-post-gds-signature-resize']
 ]);

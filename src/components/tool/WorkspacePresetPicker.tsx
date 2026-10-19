@@ -27,10 +27,10 @@ export function WorkspacePresetPicker({ presets, selected, mode, width, height, 
 
   // Popular quick chips for the active tool mode
   const quickPresetIds = mode === 'photo'
-    ? ['ssc-cgl-photo', 'ssc-photo', 'upsc-photo', 'ibps-photo', 'neet-photo']
+    ? ['ssc-cgl-photo', 'ssc-photo', 'upsc-photo', 'ibps-photo', 'pan-card-photo-nsdl', 'sarathi-photo', 'ib-acio-photo', 'india-post-gds-photo', 'cuet-ug-photo', 'upsssc-pet-photo', 'bssc-photo', 'dsssb-photo', 'kerala-psc-photo', 'neet-photo', 'gate-photo', 'iit-jam-photo']
     : mode === 'document'
-    ? ['marksheet-10th', 'marksheet-12th', 'caste-certificate', 'id-proof-card']
-    : ['ssc-cgl', 'ssc-general', 'rrb-railway', 'ibps-sbi', 'upsc-civil-services', 'pan-card-nsdl'];
+    ? ['marksheet-10th', 'marksheet-12th', 'caste-certificate', 'domicile-certificate', 'id-proof-card', 'degree-certificate', 'handwritten-declaration', 'thumb-impression-doc']
+    : ['ssc-cgl', 'ssc-mts', 'ssc-general', 'pan-card-nsdl', 'sarathi-dl', 'ib-acio', 'india-post-gds-signature', 'cuet-ug', 'upsssc-pet', 'bssc-inter-level', 'dsssb-preset', 'kerala-psc-signature', 'rrb-railway', 'ibps-sbi', 'upsc-civil-services', 'gate-jam', 'iit-jam'];
 
   const quickPresets = quickPresetIds
     .map(id => presets.find(p => p.id === id))
