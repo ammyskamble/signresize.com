@@ -32,9 +32,18 @@ const canonicalUrl = propCanonicalUrl || `https://signresize.in/${examData.slug}
 const ogImageUrl = 'https://signresize.in/og-image.png';
 const currentYear = 2026;
 const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
-const relatedTools = (examData.relatedTools || []).map(slug => ({
-  slug, label: EXAM_PAGES_DATA.find(page => page.slug === slug)?.h1 || 'Photo Resizer',
-}));
+const hasDocumentSuite = examData.slug.includes('iit-jam') || examData.slug.includes('gate');
+const relatedTools = (examData.relatedTools || [])
+  .filter(slug => slug !== examData.slug)
+  .map(slug => {
+    if (slug === 'photo-resizer') {
+      return { slug, label: 'Passport Photo Resizer' };
+    }
+    const target = EXAM_PAGES_DATA.find(page => page.slug === slug);
+    let label = target?.h1 || slug;
+    label = label.replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s*Online\s*-\s*SignResize\s*/gi, '').replace(/–\s*GOAPS Resizer.*$/i, '').trim();
+    return { slug, label };
+  });
 
 // Find relevant blog posts for this specific exam tool
 const relevantBlogPosts = BLOG_POSTS.map(post => {
@@ -213,7 +222,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
   <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
     <Header />
 
-    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8">
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-6 space-y-5 sm:space-y-6">
       
       <!-- Breadcrumb Bar -->
       <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
@@ -238,6 +247,17 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-mono text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20">
                 {examData.authority}
               </span>
+              {examData.sources && examData.sources[0] && (
+                <a
+                  href={examData.sources[0].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-primary bg-primary/10 border border-primary/20 hover:bg-primary/20 transition"
+                  title={`Official authority reference: ${examData.sources[0].label}`}
+                >
+                  <span>Official Source ↗</span>
+                </a>
+              )}
             </div>
 
             <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
@@ -275,16 +295,104 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
         </div>
       </section>
 
-      {examData.sources && <section class="bg-card border border-border rounded-2xl p-4 sm:p-5 text-xs sm:text-sm space-y-2" aria-label="Sources and upload guidance">
-        <p class="font-semibold">Source references · checked {examData.verifiedOn}</p>
-        <ul class="space-y-1 break-words">
-          {examData.sources.map(source => <li><a href={source.url} target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2">{source.label} ↗</a></li>)}
-        </ul>
-        <p class="text-muted-foreground">SignResize is an independent tool. Follow the instructions for your exact exam cycle and inspect the downloaded image and application preview. For exam applications, upload a scan or photograph of your physical handwritten signature; typing and drawing tools serve other uses.</p>
-      </section>}
-      {relatedTools.length > 0 && <nav class="flex flex-wrap gap-2 text-xs" aria-label="Related signature tools">
-        {relatedTools.map(tool => <a href={`/${tool.slug}/`} class="px-3 py-2 rounded-xl bg-card border border-border text-primary hover:bg-primary/10 transition">{tool.label} →</a>)}
-      </nav>}
+      {relatedTools.length > 0 && !hasDocumentSuite && (
+        <nav class="flex flex-wrap gap-2 text-xs" aria-label="Related signature tools">
+          {relatedTools.map(tool => (
+            <a href={`/${tool.slug}/`} class="px-3 py-2 rounded-xl bg-card border border-border text-primary hover:bg-primary/10 transition">
+              {tool.label} →
+            </a>
+          ))}
+        </nav>
+      )}
+
+      {examData.slug.includes('iit-jam') && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="IIT JAM Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🎓</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">IIT JAM 2027 (JOAPS) Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official JOAPS Specs</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                JOAPS requires both documents to be uploaded. Select the tool below to calibrate exact dimensions and avoid rejection.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/iit-jam-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'iit-jam-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (50–150 KB)</span>
+              </a>
+              <a
+                href="/iit-jam-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'iit-jam-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (20–200 KB)</span>
+              </a>
+              <a
+                href="/gate-signature-resize/"
+                class="px-3 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border"
+              >
+                GATE 2027 Resizer →
+              </a>
+            </div>
+          </div>
+          {examData.slug === 'iit-jam-signature-resize' ? (
+            <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-[11px] text-amber-900 dark:text-amber-200 flex items-center gap-2">
+              <span>🛡️</span>
+              <span><strong>Anti-Rejection Floor:</strong> JOAPS strictly rejects signatures below 50 KB. SignResize automatically applies lossless padding so your file remains within 50–150 KB without quality loss.</span>
+            </div>
+          ) : (
+            <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-[11px] text-emerald-900 dark:text-emerald-200 flex items-center gap-2">
+              <span>📸</span>
+              <span><strong>JOAPS Photo Compliance:</strong> Official 480×640 px (3.5×4.5 cm), 20 KB to 200 KB JPG on plain light/white background with 50–70% face coverage.</span>
+            </div>
+          )}
+        </aside>
+      )}
+
+      {examData.slug.includes('gate') && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="GATE Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">⚙️</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">GATE 2027 (GOAPS) Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">IIT Madras Standards</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                GOAPS requires Signature (3–300 KB, 480×160 px) and Candidate Photograph (5–200 KB, 480×640 px). For M.Sc. admissions, use the separate JAM tool.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/gate-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'gate-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (3–300 KB)</span>
+              </a>
+              <a
+                href="/gate-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'gate-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (5–200 KB)</span>
+              </a>
+              <a
+                href="/iit-jam-signature-resize/"
+                class="px-3 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border"
+              >
+                IIT JAM Resizer →
+              </a>
+            </div>
+          </div>
+        </aside>
+      )}
 
       <!-- Main Interactive Resizer Tool Workspace -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -348,6 +456,106 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               </div>
             )}
 
+            {examData.slug.includes('iit-jam') && (
+              <div class="p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-3">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
+                    <span>⚡</span> IIT JAM 2027 Official JOAPS Document Matrix
+                  </h3>
+                  <span class="text-[11px] font-medium text-primary">IIT Kharagpur JAM Portal Standards</span>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-border bg-card">
+                  <table class="w-full text-xs text-left">
+                    <thead class="bg-muted text-foreground font-semibold">
+                      <tr>
+                        <th class="p-2.5 border-b border-border">Document</th>
+                        <th class="p-2.5 border-b border-border">File Size (KB)</th>
+                        <th class="p-2.5 border-b border-border">Pixel Bounds (Min–Max)</th>
+                        <th class="p-2.5 border-b border-border">Physical Size</th>
+                        <th class="p-2.5 border-b border-border">JOAPS Rejection Rules</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-border/60">
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">Candidate Photograph</td>
+                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">20 KB – 200 KB</td>
+                        <td class="p-2.5 font-mono">240×320 to 480×640 px</td>
+                        <td class="p-2.5 text-muted-foreground">3.5 × 4.5 cm (3:4 ratio)</td>
+                        <td class="p-2.5 text-muted-foreground">White/light background, 50–70% face coverage, no glare on spectacles, no caps.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">Candidate Signature</td>
+                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">50.0 KB – 150.0 KB</td>
+                        <td class="p-2.5 font-mono">280×80 to 560×160 px</td>
+                        <td class="p-2.5 text-muted-foreground">7.0 × 2.0 cm (3.5:1 ratio)</td>
+                        <td class="p-2.5 text-muted-foreground">Signed in box with black/dark blue ink. <strong>CAPITAL letters, initials, or files &lt; 50 KB rejected</strong>.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 pt-1 text-xs">
+                  <span class="text-muted-foreground font-medium">Quick switch:</span>
+                  {examData.slug !== 'iit-jam-signature-resize' && (
+                    <a href="/iit-jam-signature-resize/" class="text-primary font-semibold hover:underline">JAM Signature Resizer (50–150 KB) →</a>
+                  )}
+                  {examData.slug !== 'iit-jam-photo-resize' && (
+                    <a href="/iit-jam-photo-resize/" class="text-primary font-semibold hover:underline">JAM Photo Resizer (20–200 KB) →</a>
+                  )}
+                  <a href="/gate-signature-resize/" class="text-primary font-semibold hover:underline">GATE Resizer →</a>
+                </div>
+              </div>
+            )}
+
+            {examData.slug.includes('gate') && (
+              <div class="p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-3">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
+                    <span>⚡</span> GATE 2027 Official GOAPS Document Matrix
+                  </h3>
+                  <span class="text-[11px] font-medium text-primary">IIT Madras GOAPS Portal Standards</span>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-border bg-card">
+                  <table class="w-full text-xs text-left">
+                    <thead class="bg-muted text-foreground font-semibold">
+                      <tr>
+                        <th class="p-2.5 border-b border-border">Document</th>
+                        <th class="p-2.5 border-b border-border">File Size (KB)</th>
+                        <th class="p-2.5 border-b border-border">Pixel Dimensions</th>
+                        <th class="p-2.5 border-b border-border">Aspect Ratio</th>
+                        <th class="p-2.5 border-b border-border">GOAPS Rules</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-border/60">
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">GATE Photograph</td>
+                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">5 KB – 200 KB</td>
+                        <td class="p-2.5 font-mono">240×320 to 480×640 px</td>
+                        <td class="p-2.5 text-muted-foreground">3.5 × 4.5 cm</td>
+                        <td class="p-2.5 text-muted-foreground">White background, studio portrait, 60–70% face coverage.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">GATE Signature</td>
+                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">3.0 KB – 300.0 KB</td>
+                        <td class="p-2.5 font-mono">250×80 to 580×180 px (Preset: 480×160)</td>
+                        <td class="p-2.5 text-muted-foreground">Ratio 2.75 to 3.75</td>
+                        <td class="p-2.5 text-muted-foreground">Must cover 70–80% of box. Dark blue or black ink. <strong>No CAPITAL letters</strong>.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 pt-1 text-xs">
+                  <span class="text-muted-foreground font-medium">Quick switch:</span>
+                  {examData.slug !== 'gate-signature-resize' && (
+                    <a href="/gate-signature-resize/" class="text-primary font-semibold hover:underline">GATE Signature Resizer (3–300 KB) →</a>
+                  )}
+                  {examData.slug !== 'gate-photo-resize' && (
+                    <a href="/gate-photo-resize/" class="text-primary font-semibold hover:underline">GATE Photo Resizer (5–200 KB) →</a>
+                  )}
+                  <a href="/iit-jam-signature-resize/" class="text-primary font-semibold hover:underline">IIT JAM Resizer →</a>
+                </div>
+              </div>
+            )}
+
             <!-- Specifications Deep Dive Table -->
             <div class="space-y-3">
               <h2 class="text-base font-bold text-foreground flex items-center gap-2">
@@ -380,9 +588,9 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                       <td class="px-4 py-2 text-muted-foreground">Recommended target ~{examData.recommendedKb} KB</td>
                     </tr>
                     <tr>
-                      <td class="px-4 py-2 font-medium text-foreground">Mandatory Ink Requirement</td>
+                      <td class="px-4 py-2 font-medium text-foreground">{examData.slug.includes('photo') ? 'Background & Face Requirement' : 'Mandatory Ink Requirement'}</td>
                       <td class="px-4 py-2 font-medium text-foreground">{examData.ink}</td>
-                      <td class="px-4 py-2 text-muted-foreground">Unruled white paper (no notebook lines)</td>
+                      <td class="px-4 py-2 text-muted-foreground">{examData.slug.includes('photo') ? 'Plain studio lighting without shadows or tinted glasses' : 'Unruled white paper (no notebook lines)'}</td>
                     </tr>
                     <tr>
                       <td class="px-4 py-2 font-medium text-foreground">Supported File Formats</td>
@@ -392,13 +600,35 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                   </tbody>
                 </table>
               </div>
+
+              {examData.sources && (
+                <div class="mt-3 p-3.5 rounded-xl bg-muted/40 border border-border text-xs space-y-2">
+                  <div class="flex items-center justify-between flex-wrap gap-2">
+                    <span class="font-semibold text-foreground">Verified Official Source References · Checked {examData.verifiedOn}</span>
+                    <span class="text-[10px] text-muted-foreground">Official Examination Authorities</span>
+                  </div>
+                  <ul class="space-y-1">
+                    {examData.sources.map(source => (
+                      <li>
+                        <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline inline-flex items-center gap-1 font-medium">
+                          <span>{source.label}</span>
+                          <span>↗</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed pt-1 border-t border-border/50">
+                    SignResize is an independent browser tool. Follow the instructions for your exact exam cycle and inspect the downloaded image and application preview. For exam applications, upload a scan or photograph of your physical handwritten signature; typing and drawing tools serve other uses.
+                  </p>
+                </div>
+              )}
             </div>
 
             <!-- Tailored Pro Tips for Rejection-Proof Uploads -->
             {examData.sources && <SignatureCropExamples />}
             <div class="space-y-3 pt-4 border-t border-border">
               <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
-                <span>🛡️</span> 4 Rules to Avoid Signature Rejection for {examData.authority}
+                <span>🛡️</span> 4 Rules to Avoid {examData.slug.includes('photo') ? 'Photo' : 'Signature'} Rejection for {examData.authority}
               </h3>
               <ul class="space-y-2 text-xs text-muted-foreground">
                 {examData.tips.map((tip, idx) => (

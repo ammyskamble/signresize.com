@@ -405,42 +405,119 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'gate-signature-resize',
     presetId: 'gate-jam',
-    pageTitle: 'GATE Signature Resize (5x2 cm, 5 to 200 KB) Online - SignResize',
-    metaDescription: 'Resize signature for GATE & IIT JAM exam applications. Format to 3:1 aspect ratio (480x160 px / 5x2 cm), 5 KB to 200 KB JPG. Ensure signature covers 70-80% of bounding box.',
-    keywords: 'gate signature resize, gate signature size 5 to 200 kb, gate signature dimensions 5x2 cm, iit jam signature resize, gate exam signature resizer, gate 2026 signature requirements',
-    h1: 'GATE & IIT JAM Signature Resize (5 cm × 2 cm)',
-    subheading: 'Official 3:1 aspect ratio (480×160 px / 5.0×2.0 cm) with 5 KB to 200 KB size tolerance for IIT & IISc postgraduate exam portals.',
-    authority: 'Indian Institutes of Technology (IITs / IISc)',
-    targetExams: 'GATE 2026, IIT JAM, CEED, UCEED, CSIR NET, UGC NET',
+    pageTitle: 'GATE Signature Resize 2027 (3–300 KB, 480x160 px) Online - SignResize',
+    metaDescription: 'Official GATE 2027 signature resizer & compressor. Format handwritten signature to 480×160 px (3:1 ratio) and 3 KB to 300 KB JPG for IIT Madras GOAPS portal. 100% private.',
+    keywords: 'gate signature resize, gate signature size 2027, gate 2027 signature requirements, goaps signature resizer, gate signature 3 to 300 kb',
+    h1: 'GATE 2027 Signature Resizer (3 KB – 300 KB)',
+    subheading: 'Format handwritten signature for GATE 2027 to 480×160 px (3:1 aspect ratio) and 3–300 KB JPG corridor strictly conforming to IIT Madras GOAPS guidelines.',
+    authority: 'IIT Madras · GATE 2027',
+    targetExams: 'GATE 2027 (IITs & IISc M.Tech / PSU Recruitment)',
     widthPx: 480,
     heightPx: 160,
-    widthCm: 5.0,
+    widthCm: 6.0,
     heightCm: 2.0,
-    minKb: 5,
-    maxKb: 200,
-    recommendedKb: 30,
+    minKb: 3,
+    maxKb: 300,
+    recommendedKb: 50,
     dpi: 200,
     ink: 'Dark Blue or Black Ink Pen',
-    aspectRatioLabel: '3:1 (~480×160 px)',
-    strictNotice: 'The signature must occupy between 70% and 80% of the cropped rectangle and must not touch the borders.',
+    aspectRatioLabel: '3:1 (480×160 px)',
+    strictNotice: 'The signature must occupy between 70% and 80% of the cropped rectangle. Signatures in CAPITAL LETTERS or initials are disqualified.',
+    relatedTools: ['gate-photo-resize', 'iit-jam-signature-resize'],
     tips: [
-      'Draw a 5 cm × 2 cm box with light pencil on plain white paper and sign comfortably inside.',
-      'Dark blue or black ink is accepted by GATE committee.',
-      'Keep the file size above 5 KB and below 200 KB (around 30–50 KB is ideal).',
-      'Avoid scanning with low-res webcams; use a sharp smartphone camera photo with SignResize shadow removal.'
+      'Draw a rectangular box with light pencil on plain white paper and sign comfortably inside.',
+      'Use dark blue or black ink pen only. Do not sign on ruled notebook pages.',
+      'Ensure the final file is between 3 KB and 300 KB in JPG/JPEG format.',
+      'For M.Sc. admissions under IIT JAM, use the separate IIT JAM signature tool.'
     ],
     faqs: [
       {
-        q: 'What are the GATE signature dimensions and aspect ratio?',
-        a: 'The GATE signature aspect ratio is 3:1 (5.0 cm width by 2.0 cm height), which corresponds to approximately 480 × 160 pixels at 200 DPI.'
+        q: 'What are the GATE 2027 signature dimensions and file size?',
+        a: 'The official GATE 2027 guidelines specify a width-to-height ratio between 2.75 and 3.75 (SignResize defaults to 480 × 160 px, 3:1 ratio), and a file size strictly between 3 KB and 300 KB in JPG format.'
       },
       {
-        q: 'What is the allowed file size for GATE 2026 signature?',
-        a: 'The file size must be between 5 KB and 200 KB in JPG or JPEG format.'
+        q: 'Can I use the GATE signature tool for IIT JAM?',
+        a: 'No. IIT JAM specifies a 7×2 cm box (560×160 px) and a strict 50 KB to 150 KB file size. Use our dedicated IIT JAM Signature Resizer for JAM applications.'
       },
       {
-        q: 'Can I use blue ink for GATE application?',
-        a: 'Yes, GATE rules allow either dark blue or black ink on unruled white paper.'
+        q: 'Can I sign with blue ink for GATE 2027?',
+        a: 'Yes, GATE guidelines accept either dark blue or black ink on unruled white paper.'
+      }
+    ]
+  },
+  {
+    slug: 'gate-photo-resize',
+    presetId: 'gate-photo',
+    pageTitle: 'GATE Photo Resize 2027 (5 to 200 KB, 3.5x4.5 cm) Online - SignResize',
+    metaDescription: 'Resize candidate photograph for GATE 2027 exam registration. Format to 480×640 px (3.5×4.5 cm), 5 KB to 200 KB JPG for GOAPS portal. 100% free and private in-browser tool.',
+    keywords: 'gate photo resize 2027, gate photo resizer, gate photo size 5 to 200 kb, goaps photo resizer, gate candidate photo specifications',
+    h1: 'GATE 2027 Photo Resizer (5 KB – 200 KB)',
+    subheading: 'Resize and crop candidate photograph for GATE 2027 to 480×640 px (3.5×4.5 cm) and 5–200 KB JPG complying with IIT Madras GOAPS portal standards.',
+    authority: 'IIT Madras · GATE 2027',
+    targetExams: 'GATE 2027',
+    widthPx: 480,
+    heightPx: 640,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 5,
+    maxKb: 200,
+    recommendedKb: 50,
+    dpi: 200,
+    ink: 'Clear White Background',
+    aspectRatioLabel: '3.5:4.5 (480×640 px)',
+    strictNotice: 'Photograph must be taken in a professional studio against a clean white background. Face should occupy 60–70% of the area. No caps, sunglasses, or colored spectacles.',
+    relatedTools: ['gate-signature-resize', 'iit-jam-photo-resize'],
+    tips: [
+      'Take a passport-size photo with even lighting on face and zero background shadow.',
+      'Maintain 60–70% face coverage from forehead to chin with both ears visible.',
+      'Format to JPG between 5 KB and 200 KB; ensure aspect ratio is 3.5:4.5 (480×640 px).'
+    ],
+    faqs: [
+      {
+        q: 'What is the required photo size for GATE 2027?',
+        a: 'The photograph must be in JPG/JPEG format, with dimensions of 480 × 640 pixels (or min 240 × 320 px) and a file size strictly between 5 KB and 200 KB.'
+      },
+      {
+        q: 'Can I wear spectacles in my GATE 2027 photo?',
+        a: 'Standard clear vision spectacles are allowed only if there is no glare or reflection obscuring the eyes. Sunglasses, dark glasses, and tinted lenses are strictly rejected.'
+      }
+    ]
+  },
+  {
+    slug: 'iit-jam-photo-resize',
+    presetId: 'iit-jam-photo',
+    pageTitle: 'IIT JAM Photo Resize 2027 (20 to 200 KB, 3.5x4.5 cm) – JOAPS Resizer | SignResize',
+    metaDescription: 'Resize candidate photograph for IIT JAM 2027 JOAPS portal to 480×640 px (3.5×4.5 cm) and 20–200 KB JPG. 100% private client-side processing without quality loss.',
+    keywords: 'iit jam photo resize 2027, iit jam photo resizer, iit jam photo size 20 to 200 kb, joaps photo resizer, iit jam photo specifications',
+    h1: 'IIT JAM 2027 Photo Resizer (20 KB – 200 KB)',
+    subheading: 'Crop and resize candidate passport-style photo for IIT JAM 2027 to 480×640 px (3.5×4.5 cm) and 20–200 KB JPG adhering strictly to JOAPS guidelines.',
+    authority: 'IIT Kharagpur · JAM 2027',
+    targetExams: 'IIT JAM 2027',
+    widthPx: 480,
+    heightPx: 640,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 200,
+    recommendedKb: 100,
+    dpi: 200,
+    ink: 'Plain Light / White Background',
+    aspectRatioLabel: '3.5:4.5 (480×640 px)',
+    strictNotice: 'Photograph must show clear frontal view of face (50–70% coverage) with both ears visible against a plain white/light background. No flash reflections on glasses. Photos in selfie orientation are rejected.',
+    relatedTools: ['iit-jam-signature-resize', 'gate-photo-resize'],
+    tips: [
+      'Capture photo in bright, diffused light against a white wall with no shadow behind your head.',
+      'Look straight into the lens with a neutral expression and open eyes.',
+      'Ensure the file size is between 20 KB and 200 KB in JPEG format.'
+    ],
+    faqs: [
+      {
+        q: 'What are the photo dimensions for IIT JAM 2027 JOAPS?',
+        a: 'The photo must have an aspect ratio of 3.5 cm width by 4.5 cm height (pixel bounds: minimum 240 × 320 px, maximum 480 × 640 px) and a file size between 20 KB and 200 KB.'
+      },
+      {
+        q: 'What background color is required for IIT JAM photo?',
+        a: 'The background must be plain white or very light color without any pattern or textures.'
       }
     ]
   },

@@ -410,25 +410,109 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
     }
   }
 
-  // 6. ENTRANCE EXAMS (GATE, NEET, JEE MAIN, NTA)
-  const isEntrance = category === 'Engineering' || category === 'Teaching' || presetId.includes('gate') || presetId.includes('neet') || presetId.includes('jee') || presetId.includes('nta');
+  // 5b. IIT JAM (JOAPS - IIT KHARAGPUR)
+  const isJam = presetId.includes('jam') || presetName.includes('jam') || authority.includes('jam');
+  if (isJam) {
+    if (mode === 'photo') {
+      return {
+        examName: 'IIT JAM 2027',
+        title: 'IIT JAM Photo Compliance: What Is Missing?',
+        badge: 'JOAPS SPECIFICATIONS',
+        badgeColor: 'emerald',
+        description: 'IIT Kharagpur JOAPS portal strictly checks facial framing and aspect ratio before approving your application. Verify requirements:',
+        statusWarning: 'White BG / 50–70% Face / 20–200 KB',
+        items: [
+          { icon: '👤', title: '1. 50% to 70% Face Coverage', description: 'Clear frontal view of face with both ears visible and eyes open. Selfie photos are rejected.', severity: 'danger' },
+          { icon: '🎨', title: '2. Plain White or Light Background', description: 'Clean white or light solid background without patterns, shadows, or textures.', severity: 'danger' },
+          { icon: '👓', title: '3. Spectacles & Glare Rules', description: 'Clear spectacles allowed only without flash reflections obscuring eyes. Sunglasses or tinted glasses are disqualified.', severity: 'warning' },
+          { icon: '📏', title: '4. Prescribed File Limits (20 KB – 200 KB)', description: 'Strict 480 × 640 px (3.5 × 4.5 cm, aspect ratio 3:4) in JPEG/JPG format.', severity: 'info' },
+        ],
+        officialSource: 'IIT Kharagpur · JAM 2027 Information Brochure (JOAPS)',
+        officialUrl: 'https://jam.iitkgp.ac.in/',
+        actionType: 'makeBackgroundWhite',
+      };
+    } else {
+      return {
+        examName: 'IIT JAM 2027',
+        title: 'IIT JAM Signature Compliance: What Is Missing?',
+        badge: 'STRICT 50–150 KB CORRIDOR',
+        badgeColor: 'rose',
+        description: 'JOAPS strictly enforces the 50 KB lower bound and 7×2 cm box dimensions. Signatures outside 50–150 KB or in block letters are rejected. Verify compliance:',
+        statusWarning: '50–150 KB / Running Handwriting',
+        items: [
+          { icon: '🖋️', title: '1. Continuous Running Handwriting (No Capital Letters)', description: 'Must be signed in natural cursive handwriting. Full signature in CAPITAL LETTERS or initials is disqualified.', severity: 'danger' },
+          { icon: '🖊️', title: '2. Black or Dark Blue Ink Mandate', description: 'Sign in a 7 cm × 2 cm box on spotless white paper using black or dark blue ink pen.', severity: 'danger' },
+          { icon: '📏', title: '3. Strict File Corridor: 50 KB to 150 KB (Anti-Rejection)', description: 'JOAPS rejects signatures below 50 KB. SignResize applies lossless padding to guarantee 50–150 KB bounds at 560×160 px.', severity: 'danger' },
+          { icon: '🔍', title: '4. Clean White Background & No Shadows', description: 'Ensure no paper shadows, notebook lines, or creases around the signature stroke area.', severity: 'warning' },
+        ],
+        officialSource: 'IIT Kharagpur · JAM 2027 Information Brochure (JOAPS)',
+        officialUrl: 'https://jam.iitkgp.ac.in/',
+        actionType: 'cleanPaper',
+      };
+    }
+  }
+
+  // 5c. GATE (GOAPS - IIT MADRAS)
+  const isGate = presetId.includes('gate') || presetName.includes('gate') || authority.includes('gate');
+  if (isGate) {
+    if (mode === 'photo') {
+      return {
+        examName: 'GATE 2027',
+        title: 'GATE Photo Compliance: What Is Missing?',
+        badge: 'GOAPS SPECIFICATIONS',
+        badgeColor: 'emerald',
+        description: 'IIT Madras GOAPS portal requires passport-size portrait photos adhering to strict dimensions and clean white background:',
+        statusWarning: 'White Studio BG / 60–70% Face / 5–200 KB',
+        items: [
+          { icon: '👤', title: '1. 60% to 70% Face Coverage', description: 'Professional studio portrait with full frontal view and both ears visible. No tilted angles or informal selfies.', severity: 'danger' },
+          { icon: '🎨', title: '2. Pure White Background', description: 'Background must be plain white. Dark, patterned, or shadowed backgrounds are rejected.', severity: 'danger' },
+          { icon: '👓', title: '3. No Sunglasses, Caps or Flash Glare', description: 'Spectacles permitted only if eyes are completely visible without reflections. Caps and tinted lenses are prohibited.', severity: 'warning' },
+          { icon: '📏', title: '4. Prescribed File Limits (5 KB – 200 KB)', description: 'Strict 480 × 640 px (3.5 × 4.5 cm, 3:4 ratio) in JPG format.', severity: 'info' },
+        ],
+        officialSource: 'IIT Madras · GATE 2027 Information Brochure (GOAPS)',
+        officialUrl: 'https://gate2027.iitm.ac.in/',
+        actionType: 'makeBackgroundWhite',
+      };
+    } else {
+      return {
+        examName: 'GATE 2027',
+        title: 'GATE Signature Compliance: What Is Missing?',
+        badge: 'GOAPS SPECIFICATIONS',
+        badgeColor: 'rose',
+        description: 'Candidate signatures are verified biometrically at examination centers. Ensure full compliance with IIT Madras GOAPS rules:',
+        statusWarning: '3–300 KB / 70–80% Box Coverage',
+        items: [
+          { icon: '🖋️', title: '1. Continuous Running Handwriting (No Block Letters)', description: 'Signatures in ALL CAPITAL LETTERS or using only initials will be disqualified without refund.', severity: 'danger' },
+          { icon: '🖊️', title: '2. Dark Blue or Black Ink Pen', description: 'Sign on unruled clean white paper using dark blue or black ink. Pencil or faint ink is not accepted.', severity: 'danger' },
+          { icon: '📏', title: '3. Official File Bounds: 3 KB to 300 KB (480×160 px)', description: 'Ratio between 2.75 and 3.75. Signature must occupy 70% to 80% of the cropped rectangular area.', severity: 'info' },
+          { icon: '🔍', title: '4. High Contrast & Clean Background', description: 'No grey shading, smudges, mobile shadows, or notebook grid lines.', severity: 'warning' },
+        ],
+        officialSource: 'IIT Madras · GATE 2027 Information Brochure (GOAPS)',
+        officialUrl: 'https://gate2027.iitm.ac.in/',
+        actionType: 'cleanPaper',
+      };
+    }
+  }
+
+  // 6. ENTRANCE EXAMS (NEET, JEE MAIN, NTA)
+  const isEntrance = (category === 'Engineering' || category === 'Teaching' || presetId.includes('gate') || presetId.includes('neet') || presetId.includes('jee') || presetId.includes('nta')) && !isJam && !isGate;
   if (isEntrance) {
     if (mode === 'photo') {
       const isNeet = presetId.includes('neet');
       return {
         examName: preset?.shortCode || 'Entrance Exam',
         title: `${preset?.shortCode || 'Entrance'} Photo Compliance Warning: What Is Missing?`,
-        badge: 'NTA / GOAPS NORMS',
+        badge: 'NTA NORMS',
         badgeColor: 'rose',
-        description: 'National entrance portals (NTA NEET / JEE / GATE GOAPS) maintain stringent biometric scrutiny. Verify what is missing:',
+        description: 'National entrance portals (NTA NEET / JEE) maintain stringent biometric scrutiny. Verify what is missing:',
         statusWarning: isNeet ? 'Name & Date / 80% Face' : 'White BG / 70% Face',
         items: [
           { icon: '👤', title: '1. 80% Face Coverage (Both Ears Visible)', description: 'Face must occupy 70–80% of canvas area against a pure white background.', severity: 'danger' },
           { icon: isNeet ? '🏷️' : '🎨', title: isNeet ? '2. Name & Date of Photo Mandate' : '2. Pure White Background', description: isNeet ? 'Name of candidate and date of photo taking must be printed below photo.' : 'Light or white background only. Dark backgrounds cause instant rejection.', severity: 'danger' },
           { icon: '👓', title: '3. No Polaroid, Caps or Tinted Glasses', description: 'Regular vision spectacles allowed only without glare/reflection. No caps or sunglasses.', severity: 'warning' },
-          { icon: '📏', title: '4. Exact KB Range (10 KB – 200 KB)', description: 'Passport and Postcard (4×6") sizes must match prescribed NTA/GATE boundaries.', severity: 'info' },
+          { icon: '📏', title: '4. Exact KB Range (10 KB – 200 KB)', description: 'Passport and Postcard (4×6") sizes must match prescribed NTA boundaries.', severity: 'info' },
         ],
-        officialSource: isNeet ? 'NTA NEET UG Information Bulletin' : 'GATE Information Brochure (GOAPS)',
+        officialSource: isNeet ? 'NTA NEET UG Information Bulletin' : 'NTA Information Brochure',
         actionType: 'makeBackgroundWhite',
       };
     } else {
@@ -445,7 +529,7 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
           { icon: '📏', title: '3. Prescribed KB Limits (4 KB – 30 KB)', description: 'Exact pixel dimensions and KB floor/ceiling enforced by portal upload validator.', severity: 'info' },
           { icon: '🔍', title: '4. Sharp High Contrast', description: 'No grey background, lined paper marks, or blurred strokes.', severity: 'warning' },
         ],
-        officialSource: 'NTA / GATE Candidate Instructions',
+        officialSource: 'NTA Candidate Instructions',
         actionType: 'cleanPaper',
       };
     }
