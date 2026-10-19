@@ -234,7 +234,22 @@ const presetSlugMap = new Map([
   ['kerala-psc-signature', 'kerala-psc-signature-resize'],
   ['rrb-photo', 'rrb-photo-resize'],
   ['ssc-mts', 'ssc-mts-signature-resize'],
-  ['india-post-gds-signature', 'india-post-gds-signature-resize']
+  ['india-post-gds-signature', 'india-post-gds-signature-resize'],
+  ['sarathi-photo', 'sarathi-dl-photo-resize'],
+  ['nicl-ao', 'nicl-ao-signature-resize'],
+  ['rrb-alp-technician', 'rrb-alp-signature-resize'],
+  ['ssc-gd-constable', 'ssc-gd-signature-resize'],
+  ['ssc-chsl', 'ssc-chsl-signature-resize'],
+  ['ibps-clerk', 'ibps-clerk-signature-resize'],
+  ['sbi-po', 'sbi-po-signature-resize'],
+  ['sbi-clerk', 'sbi-clerk-signature-resize'],
+  ['sbi-signature', 'sbi-signature-resize'],
+  ['mahapolice', 'maharashtra-police-signature-resize'],
+  ['rajasthan-police-sig', 'rajasthan-police-signature-resize'],
+  ['bihar-police-sig', 'bihar-police-signature-resize'],
+  ['mp-police-sig', 'mp-police-signature-resize'],
+  ['ib-acio', 'ib-acio-signature-resize'],
+  ['ib-acio-photo', 'ib-acio-photo-resize']
 ]);
 
 const examPageMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p]));

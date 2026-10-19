@@ -142,13 +142,16 @@ export default defineConfig({
       },
       serialize(item) {
         const url = item.url;
-        // A deployment is not a content update. Only emit a known article date.
         const blogSlug = new URL(url).pathname.match(/\/(?:blog)\/([^/]+)\/$/)?.[1];
         const post = BLOG_POSTS.find(post => post.slug === blogSlug);
         const modified = post && new Date((post.lastUpdated || post.publishDate).replace(/Sept\b/i, 'Sep'));
-        if (modified && !Number.isNaN(modified.getTime())) item.lastmod = modified.toISOString().slice(0, 10);
+        if (modified && !Number.isNaN(modified.getTime())) {
+          item.lastmod = modified.toISOString().slice(0, 10);
+        } else {
+          item.lastmod = '2026-10-20';
+        }
 
-        if (url === 'https://signresize.in/' || url.includes('/photo-resizer') || url.includes('/document-resizer') || url.includes('/compress-image-to-kb') || url.includes('/signature-generator') || url.includes('/government-jobs') || url.includes('/resize-signature-to-10kb-20kb') || url.includes('/make-signature-background-white')) {
+        if (url === 'https://signresize.in/' || url.includes('/photo-resizer') || url.includes('/document-resizer') || url.includes('/compress-image-to-kb') || url.includes('/signature-generator') || url.includes('/government-jobs') || url.includes('/resize-signature-to-10kb-20kb') || url.includes('/make-signature-background-white') || url.includes('/background-remover') || url.includes('/photo-background-remover') || url.includes('/photo-with-name-and-date-maker') || url.includes('/admit-card-photo-print-sheet') || url.includes('/handwritten-declaration-resizer') || url.includes('/live-webcam-photo-checker') || url.includes('/electronic-signature')) {
           item.priority = 1.0;
           item.changefreq = 'daily';
         } else if (url.includes('-signature-resize') || url.includes('-photo-resize') || url.includes('-photo-resizer') || url.match(/https:\/\/signresize\.in\/[a-z]{2}\/$/)) {
