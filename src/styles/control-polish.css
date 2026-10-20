@@ -200,8 +200,10 @@ body:has(#tool-workspace:not(.compact-studio)) #tool-workspace .output-canvas { 
 .background-fix { border: 1px solid color-mix(in oklab, var(--primary) 25%, var(--border)); border-radius: 10px; padding: 12px; background: color-mix(in oklab, var(--primary) 4%, var(--card)); font-size: 12px; }
 .background-fix p { margin: 6px 0; color: var(--muted-foreground); }
 .background-fix-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-.background-fix button { min-height: 36px; padding: 7px 12px; border: 1px solid var(--border); border-radius: 7px; cursor: pointer; }
-.background-fix button:first-child { background: var(--primary); color: var(--primary-foreground); }
+.background-fix button { min-height: 36px; padding: 7px 12px; border: 1px solid var(--border); border-radius: 7px; cursor: pointer; transition: all 0.15s ease; }
+.background-fix #remove-canvas-background { background: var(--primary); color: var(--primary-foreground); font-weight: 700; border-color: var(--primary); box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+.background-fix #remove-canvas-background:hover:not(:disabled) { opacity: 0.92; filter: brightness(1.05); }
+.paper-cleanup-strength button[aria-pressed="true"] { background: var(--primary) !important; color: var(--primary-foreground) !important; font-weight: 700; border-color: var(--primary) !important; }
 .background-fix button:disabled { opacity: .55; cursor: wait; }
 .background-fix [role="alert"] { color: #b93848; }
 @media (max-width: 640px) {

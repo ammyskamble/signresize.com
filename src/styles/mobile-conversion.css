@@ -12,8 +12,8 @@
 .background-fix:not([open]) .background-fix-close-label, .background-fix[open] .background-fix-open-label { display: none; }
 .background-fix-body { padding: 0 10px 10px; }
 .background-fix:not([open]) > .background-fix-body { display: none; }
-#tool-workspace .paper-cleanup-strength button { min-height: 36px; border: 1px solid var(--border); border-radius: 6px; padding: 4px 9px; background: var(--card); color: var(--foreground); font-size: 12px; font-weight: 500; }
-#tool-workspace .paper-cleanup-strength button[aria-pressed="true"] { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 10%, var(--card)); color: var(--primary); }
+.paper-cleanup-strength button { min-height: 36px; border: 1px solid var(--border); border-radius: 8px; padding: 4px 10px; background: var(--card); color: var(--foreground); font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.15s ease; }
+.paper-cleanup-strength button[aria-pressed="true"] { border-color: var(--primary) !important; background: var(--primary) !important; color: var(--primary-foreground) !important; font-weight: 700; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); }
 .background-fix-editor-link { display: inline-block; margin-top: 8px; font-size: 12px; color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
 .background-ink-choice { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; font-size: 12px; line-height: 1.4; }
 .background-ink-choice input { flex-shrink: 0; width: 16px; height: 16px; }

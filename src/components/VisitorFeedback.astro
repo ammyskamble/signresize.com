@@ -152,7 +152,9 @@ import '../styles/visitor-feedback.css';
     document.body.style.overflow = 'hidden';
     dialog.showModal();
     dialog.scrollTop = 0;
-    if (rating) void saveRating();
+    // A difficult rating is a problem report. Wait for the visitor to provide
+    // the mandatory detail instead of storing an unactionable empty report.
+    if (rating && kind === 'experience') void saveRating();
   }
 
   document.addEventListener('click', event => {
@@ -174,6 +176,12 @@ import '../styles/visitor-feedback.css';
       error.textContent = kind === 'experience' ? 'Choose a rating or add a short message.' : 'Please add a few words so we can understand.';
       error.hidden = false;
       if (kind !== 'experience') message.focus();
+      return;
+    }
+    if (kind === 'problem' && !problem.value) {
+      error.textContent = 'Choose where you got stuck so we can investigate it.';
+      error.hidden = false;
+      problem.focus();
       return;
     }
     submitting = true;

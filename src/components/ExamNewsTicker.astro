@@ -1,12 +1,24 @@
-﻿---
 ---
-<div class="exam-alert-bar w-full border-t border-primary/15 bg-card/95">
-  <div class="max-w-[1480px] mx-auto px-3 py-2">
-    <section data-deadline-strip aria-label="Application deadlines" class="flex items-center gap-3 text-xs min-w-0">
-      <span data-deadline-heading class="shrink-0 font-bold text-primary">Application dates</span>
-      <div data-deadline-links class="flex gap-3 overflow-x-auto flex-1 min-w-0 pb-1 min-h-7"><span class="text-muted-foreground whitespace-nowrap">Checking calendar…</span></div>
-      <a href="/blog/" class="hidden sm:inline shrink-0 text-primary font-semibold">Guides ↗</a>
-      <button type="button" aria-label="Dismiss application deadlines" class="shrink-0 px-2 py-1 rounded hover:bg-muted">✕</button>
+---
+<div class="exam-alert-bar w-full border-t border-border/60 bg-muted/30 backdrop-blur-xs">
+  <div class="max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-1.5">
+    <section data-deadline-strip aria-label="Application deadlines" class="flex items-center justify-between gap-3 text-xs min-w-0">
+      <div class="flex items-center gap-2.5 min-w-0 flex-1">
+        <span data-deadline-heading class="shrink-0 font-bold text-primary flex items-center gap-1.5 whitespace-nowrap text-[11px] sm:text-xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          Application dates
+        </span>
+        <div data-deadline-links class="flex items-center gap-2 overflow-x-auto flex-1 min-w-0 py-0.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <span class="text-muted-foreground whitespace-nowrap text-[11px]">Checking calendar…</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="/government-jobs/" class="hidden sm:inline-flex items-center gap-1 text-[11px] text-primary hover:underline font-semibold whitespace-nowrap">
+          <span>Job Calendar</span>
+          <span>↗</span>
+        </a>
+        <button type="button" aria-label="Dismiss application deadlines" class="shrink-0 w-6 h-6 rounded-md hover:bg-muted text-muted-foreground hover:text-foreground flex items-center justify-center text-xs transition cursor-pointer">✕</button>
+      </div>
     </section>
   </div>
 </div>
@@ -27,11 +39,11 @@
       for (const item of (soon.length ? soon : active).slice(0, 3)) {
         const link = document.createElement('a'), count = document.createElement('span');
         link.href = item.toolUrl;
-        link.className = 'rounded-full border border-primary/20 bg-primary/5 px-3 py-1 whitespace-nowrap font-semibold';
+        link.className = 'inline-flex items-center gap-1 text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/20 bg-background hover:bg-primary/10 text-foreground transition whitespace-nowrap shadow-2xs';
         link.append(item.label + ' ');
-        count.className = 'text-muted-foreground font-normal';
+        count.className = 'text-primary font-semibold';
         const days = daysUntilClose(item, now);
-        count.textContent = `· ${days === 0 ? 'closes today' : `${days} days left`}`;
+        count.textContent = `· ${days === 0 ? 'closes today' : `${days}d left`}`;
         link.append(count, ' →'); fragment.append(link);
       }
       if (!active.length) {

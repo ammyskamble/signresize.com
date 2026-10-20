@@ -278,10 +278,19 @@ export function ComplianceRejectionAudit({
               <button
                 type="button"
                 onClick={onClean}
-                className="px-2.5 py-1 rounded bg-rose-600 hover:bg-rose-700 text-white font-bold text-[11px] shrink-0 cursor-pointer transition shadow-xs flex items-center gap-1"
+                className="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold text-[11px] shrink-0 cursor-pointer transition shadow-xs flex items-center gap-1.5 active:scale-98"
               >
-                <Sparkles className="w-3 h-3" />
+                <Sparkles className="w-3.5 h-3.5" />
                 <span>Apply Clean White Paper Filter</span>
+              </button>
+            )}
+            {onRemoveBackground && (
+              <button
+                type="button"
+                onClick={onRemoveBackground}
+                className="px-3 py-1.5 rounded-lg bg-card hover:bg-muted text-foreground border border-border/80 font-semibold text-[11px] shrink-0 cursor-pointer transition flex items-center gap-1 shadow-2xs"
+              >
+                <span>⚡ Paper Quick Fix →</span>
               </button>
             )}
             <span className="text-[10px] text-muted-foreground">Or retake on plain unruled white paper.</span>

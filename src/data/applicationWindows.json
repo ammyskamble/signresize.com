@@ -23,5 +23,17 @@
     "evidenceUrl": "https://indianexpress.com/article/education/rrb-ntpc-ug-notification-2026-out-rrb-indianrailways-gov-in-applications-open-1688-posts-10922540/",
     "verifiedOn": "2026-10-16",
     "verification": "RRB notice listing and published report"
+  },
+  {
+    "id": "icg-cgept-2026",
+    "title": "Coast Guard CGEPT · Navik & Yantrik",
+    "label": "Coast Guard Navik",
+    "opensOn": "2026-10-10",
+    "closesOn": "2026-11-05",
+    "closingTime": "17:30:00",
+    "toolUrl": "/indian-coast-guard-signature-resize/",
+    "sourceUrl": "https://joinindiancoastguard.cdac.in/",
+    "verifiedOn": "2026-10-18",
+    "verification": "Join Indian Coast Guard Portal"
   }
 ]

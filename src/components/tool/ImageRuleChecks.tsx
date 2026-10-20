@@ -4,103 +4,28 @@ import { inspectBackground, inspectRuledPaper, inspectSource, inspectExport, typ
 import { ComplianceRejectionAudit } from './ComplianceRejectionAudit';
 
 export function ImageRuleChecks({
-  image,
   source,
   preset,
-  mode,
-  rule,
-  processedResult,
-  onClean,
-  onRemoveBackground,
 }: {
-  image: HTMLImageElement;
+  image?: HTMLImageElement;
   source: FileFacts;
   preset: ExamPreset | null;
-  mode: ToolTargetMode;
+  mode?: ToolTargetMode;
   rule?: ExportRule;
   processedResult?: ProcessedImageResult | null;
-  onClean: () => void;
+  onClean?: () => void;
   onRemoveBackground?: () => void;
 }) {
-  const backgroundIssues = useMemo(() => {
-    if (!preset) return [];
-    try {
-      const canvas = document.createElement('canvas');
-      canvas.width = canvas.height = 96;
-      const ctx = canvas.getContext('2d', { willReadFrequently: true });
-      if (!ctx) return null;
-      ctx.drawImage(image, 0, 0, 96, 96);
-      const imgData = ctx.getImageData(0, 0, 96, 96).data;
-      const bg = inspectBackground(imgData, 96, 96, preset.notes);
-      if (mode === 'signature') {
-        const ruled = inspectRuledPaper(imgData, 96, 96);
-        return [...bg, ...ruled];
-      }
-      return bg;
-    } catch {
-      return null;
-    }
-  }, [image, preset, mode]);
-
   const sourceIssues = preset ? inspectSource(source, preset) : [];
+  const lowRes = sourceIssues.find((i) => i.code === 'resolution');
 
-  const isCompleted = Boolean(
-    processedResult &&
-    processedResult.withinTargetBounds &&
-    (!rule || inspectExport(processedResult, rule).length === 0) &&
-    (!backgroundIssues || backgroundIssues.length === 0)
-  );
+  if (!lowRes) return null;
 
   return (
-    <section aria-label="Image Compliance Audit and Portal Norms" aria-live="polite" className="image-rule-notice space-y-3">
-      {/* When all requirements are completed, the red error is GONE! */}
-      {isCompleted ? (
-        <div className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3 text-xs flex items-center justify-between gap-2 text-emerald-800 dark:text-emerald-300 font-semibold shadow-xs">
-          <div className="flex items-center gap-2">
-            <span className="text-base">✅</span>
-            <span>Canvas Studio: All {preset?.shortCode || 'Exam'} Requirements Completed</span>
-          </div>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-600 text-white font-bold">
-            VERIFIED
-          </span>
-        </div>
-      ) : (
-        <ComplianceRejectionAudit
-          preset={preset}
-          mode={mode}
-          rule={rule}
-          processedResult={processedResult}
-          backgroundIssues={backgroundIssues}
-          onRemoveBackground={onRemoveBackground}
-          onClean={onClean}
-          variant="studioNotice"
-        />
-      )}
-
-      {/* Additional Technical Details Accordion */}
-      {preset && (
-        <details className="rounded-xl border border-border bg-card p-3 text-xs">
-          <summary className="font-semibold text-foreground cursor-pointer flex items-center justify-between">
-            <span>Detailed File Intake Analysis ({preset.shortCode})</span>
-            <span className="text-[10px] text-muted-foreground font-mono">
-              {sourceIssues.length ? `${sourceIssues.length} adjustments applied` : 'Dimensions & Format Verified'}
-            </span>
-          </summary>
-          <div className="pt-2.5 space-y-2 text-muted-foreground border-t border-border/60 mt-2">
-            <p><strong>Official Specification:</strong> {preset.notes}</p>
-            {mode === 'signature' && <p><strong>Ink Specification:</strong> {preset.inkRequirement}.</p>}
-            {sourceIssues.some((i) => i.code === 'resolution') && (
-              <p role="alert" className="text-amber-700 dark:text-amber-300 font-semibold">
-                ⚠️ Low source resolution: The uploaded file is smaller than target dimensions. Resizing cannot restore missing pixel detail.
-              </p>
-            )}
-            <p className="text-[10px]">
-              Our canvas editor automatically scales and compresses files into strict target boundaries. Always visually verify face position, handwriting strokes, and background contrast.
-            </p>
-          </div>
-        </details>
-      )}
-    </section>
+    <div role="alert" className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-2.5 text-xs flex items-center gap-2 text-amber-900 dark:text-amber-200 shadow-2xs">
+      <span className="text-base leading-none">⚠️</span>
+      <span className="leading-snug text-[11px] font-medium">{lowRes.message} {lowRes.fix}</span>
+    </div>
   );
 }
 
@@ -302,11 +227,11 @@ export function ExportChecksDialog({
       </div>
 
       {/* Action Buttons */}
-      <div className="flex flex-wrap items-center justify-end gap-3 pt-3 border-t border-border">
+      <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-2.5 pt-3 border-t border-border">
         <button
           type="button"
           onClick={onClose}
-          className="border border-border hover:bg-muted text-foreground rounded-xl px-4 py-2 text-xs font-semibold cursor-pointer transition"
+          className="w-full sm:w-auto border border-border hover:bg-muted text-foreground rounded-xl px-4 py-2.5 text-xs font-semibold cursor-pointer transition text-center"
         >
           Back to Edit Image
         </button>
@@ -314,7 +239,7 @@ export function ExportChecksDialog({
           <button
             type="button"
             onClick={onRestore}
-            className="border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 rounded-xl px-4 py-2 text-xs font-bold cursor-pointer transition"
+            className="w-full sm:w-auto border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 rounded-xl px-4 py-2.5 text-xs font-bold cursor-pointer transition text-center"
           >
             Restore Preset Settings
           </button>
@@ -323,7 +248,7 @@ export function ExportChecksDialog({
           type="button"
           disabled={blocked}
           onClick={onDownload}
-          className="bg-primary text-primary-foreground font-bold rounded-xl px-5 py-2 text-xs shadow-md shadow-primary/25 hover:opacity-95 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          className="w-full sm:w-auto bg-primary text-primary-foreground font-bold rounded-xl px-5 py-2.5 text-xs shadow-md shadow-primary/25 hover:opacity-95 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-center"
         >
           Download Verified File
         </button>

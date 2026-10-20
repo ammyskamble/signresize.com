@@ -592,6 +592,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const [isExamDropdownOpen, setIsExamDropdownOpen] = useState<boolean>(false);
   const [comboboxSearch, setComboboxSearch] = useState<string>('');
   const [hasDownloaded, setHasDownloaded] = useState<boolean>(false);
+  const [downloadedFileName, setDownloadedFileName] = useState('');
   const [showCtetStrategyTip, setShowCtetStrategyTip] = useState<boolean>(true);
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
     'International & Passports': true,
@@ -1031,8 +1032,20 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     };
 
     window.addEventListener('select-exam-preset', handleCustomPresetSelect);
-    return () => window.removeEventListener('select-exam-preset', handleCustomPresetSelect);
-  }, [applyPreset]);
+
+    const handleCoastGuardSection = (e: Event) => {
+      const event = e as CustomEvent<'signature' | 'photo' | 'thumb' | 'document'>;
+      if (event.detail) {
+        selectCoastGuardSection(event.detail);
+      }
+    };
+    window.addEventListener('select-coast-guard-section', handleCoastGuardSection);
+
+    return () => {
+      window.removeEventListener('select-exam-preset', handleCustomPresetSelect);
+      window.removeEventListener('select-coast-guard-section', handleCoastGuardSection);
+    };
+  }, [applyPreset, selectCoastGuardSection]);
 
   // Initialize crop box to centered aspect ratio
   const initCropBox = (img: HTMLImageElement, targetAspect: number) => {
@@ -1554,6 +1567,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   // Trigger processing on settings change in single mode (debounced, skips while actively dragging)
   useEffect(() => {
     if (sourceImage && toolMode === 'single' && !isDraggingCrop) {
+      setHasDownloaded(false);
+      setDownloadedFileName('');
       setProcessedResult(prev => { if (prev?.dataUrl) URL.revokeObjectURL(prev.dataUrl); return null; });
       setIsProcessing(true);
       const timer = setTimeout(() => {
@@ -1942,6 +1957,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     setSourceFileName(modeConfig.filePrefix.replace('_', ''));
     setSourceOriginalSize(0);
     setSourceDimensions({ width: 0, height: 0 });
+    setHasDownloaded(false);
+    setDownloadedFileName('');
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
@@ -1998,6 +2015,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     link.click();
     document.body.removeChild(link);
     setHasDownloaded(true);
+    setDownloadedFileName(filename);
 
     addToast(`Downloaded ${filename} (${Math.round(processedResult.sizeKb)} KB)`, modeConfig.downloadToast, 'success');
   };
@@ -2466,6 +2484,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'id-utbk', short: 'UTBK-SNBT', label: 'UTBK-SNBT 4×6', specs: '400×600 • 80–300 KB' },
         { id: 'id-passport', short: 'Paspor RI', label: 'Paspor / eVisa Imigrasi', specs: '350×450 • 100–1000 KB' },
         { id: 'us-ds160', short: 'US DS-160', label: 'US Visa DS-160', specs: '600×600 • 20–240 KB' }
+      ]
+    : isCoastGuardActive
+    ? [
+        { id: 'indian-coast-guard', short: 'Coast Guard Sign', label: 'Coast Guard Sign', specs: '140×60 • 10–50 KB' },
+        { id: 'indian-coast-guard-photo', short: 'Slate Photo', label: 'Coast Guard Slate Photo', specs: '350×450 • 10–50 KB' },
+        { id: 'indian-coast-guard-thumb-doc', short: 'Left Thumb', label: 'Coast Guard Left Thumb', specs: '240×240 • 10–50 KB' },
+        { id: 'indian-coast-guard-document', short: 'Doc Marksheet', label: 'Coast Guard Marksheet', specs: '700×990 • 50–150 KB' }
       ]
     : targetType === 'photo'
     ? [
@@ -4783,10 +4808,21 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     onConfirmUpsssc={setUpssscConfirmed}
                     onRemoveBackground={() => {
                       const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null;
-                      if (fix) fix.open = true;
-                      document.getElementById('canvas-background-fix')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      if (fix) {
+                        fix.open = true;
+                        fix.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        document.getElementById('remove-canvas-background')?.focus({ preventScroll: true });
+                      }
                     }}
-                    onClean={() => setFilters((prev) => ({ ...prev, cleanPaper: true }))}
+                    onClean={() => {
+                      setFilters((prev) => ({
+                        ...prev,
+                        cleanPaper: true,
+                        blackAndWhite: true,
+                        contrast: Math.max(prev.contrast, 20),
+                      }));
+                      addToast('Clean White Paper & Pure Ink Filter applied. Ruled lines bleached.', 'Filter Applied', 'success');
+                    }}
                     variant="previewCard"
                   />
                 )}
@@ -4821,6 +4857,25 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                             : modeConfig.downloadEmpty)}
                     </span>
                   </button>
+
+                  {hasDownloaded && processedResult && downloadedFileName && (
+                    <div role="status" className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3 text-xs space-y-2">
+                      <div className="flex items-center gap-2 font-bold text-emerald-800 dark:text-emerald-200">
+                        <CheckCircle2 className="w-4 h-4 shrink-0" />
+                        <span>Download started: {downloadedFileName}</span>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">
+                        In Chrome, open <strong>⋮ → Downloads</strong> to find the file, then upload it to the application form. This {processedResult.format} is {processedResult.width} × {processedResult.height} px and {processedResult.sizeKb} KB.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={handleDownload}
+                        className="min-h-[40px] rounded-lg border border-emerald-600/40 bg-card px-3 py-2 font-semibold text-emerald-800 dark:text-emerald-200 transition hover:bg-emerald-500/10"
+                      >
+                        Download again
+                      </button>
+                    </div>
+                  )}
 
                   <FeedbackPrompt downloaded={hasDownloaded} tool={targetType} />
 
@@ -4866,8 +4921,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                         </span>
                       </button>
 
-                      {/* Automated Verification Routing Pathway (Direct jump to official portal) */}
-                      {(selectedPreset?.id === 'ctet-exam' || selectedPreset?.id === 'ctet-photo' || hasDownloaded) && (
+                      {/* Send applicants only to the selected preset's official destination. */}
+                      {(selectedPreset?.id === 'ctet-exam' || selectedPreset?.id === 'ctet-photo' || (hasDownloaded && Boolean(selectedPreset?.sourceUrl))) && (
                         <div className="pt-3 border-t border-border/80 space-y-2">
                           <div className="p-3 rounded-xl bg-primary/10 border border-primary/25 space-y-2">
                             <div className="flex items-center justify-between">
@@ -4882,14 +4937,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                             <p className="text-[11px] text-muted-foreground leading-relaxed">
                               {selectedPreset?.id === 'ctet-exam' || selectedPreset?.id === 'ctet-photo'
                                 ? 'CBSE discrepancy notifications require re-uploading corrected images within 48 to 72 hours. Jump straight to the login portal below.'
-                                : 'Upload your prepared file directly on the official commission portal before registration closes.'}
+                                : 'After checking the file in Downloads, upload it only on the official portal for this selected exam.'}
                             </p>
                             <a
-                              href={
-                                selectedPreset?.id === 'ctet-exam' || selectedPreset?.id === 'ctet-photo'
-                                  ? 'https://ctet.nic.in'
-                                  : 'https://ctet.nic.in'
-                              }
+                              href={selectedPreset?.sourceUrl || 'https://ctet.nic.in'}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs transition shadow-2xs"
@@ -4897,7 +4948,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                               <span>
                                 {selectedPreset?.id === 'ctet-exam' || selectedPreset?.id === 'ctet-photo'
                                   ? 'Open ctet.nic.in Candidate Login'
-                                  : 'Open Official Application Portal'}
+                                  : `Open ${selectedPreset?.sourceLabel || 'official application portal'}`}
                               </span>
                               <ExternalLink className="w-3.5 h-3.5" />
                             </a>
@@ -5250,19 +5301,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             </div>
 
             {/* Modal Actions */}
-            <div className="p-4 border-t border-border bg-card flex items-center justify-between gap-3">
+            <div className="p-3 sm:p-4 border-t border-border bg-card flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-2.5">
               <button
                 type="button"
                 onClick={() => setIsInspectModalOpen(false)}
-                className="px-4 py-2 rounded-xl border border-border bg-card hover:bg-muted text-xs font-semibold transition"
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-border bg-card hover:bg-muted text-xs font-semibold transition text-center cursor-pointer"
               >
                 Close Inspector
               </button>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="px-4 py-2 rounded-xl border border-border bg-card hover:bg-muted text-xs font-semibold transition flex items-center gap-1.5"
+                  className="flex-1 sm:flex-none px-3.5 py-2.5 rounded-xl border border-border bg-card hover:bg-muted text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{copied ? 'Copied' : 'Copy'}</span>
@@ -5271,18 +5322,18 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   type="button"
                   onClick={handleDownloadPdf}
                   disabled={isGeneratingPdf}
-                  className="px-4 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                  className="flex-1 sm:flex-none px-3.5 py-2.5 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
                   title="Download as single-page PDF document"
                 >
                   <FileText className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                  <span>{isGeneratingPdf ? 'Generating PDF...' : 'Download PDF'}</span>
+                  <span>{isGeneratingPdf ? 'PDF...' : 'Download PDF'}</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowExportChecks(true)}
-                  className="px-5 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-md shadow-primary/25 hover:opacity-95 transition flex items-center gap-1.5 cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-md shadow-primary/25 hover:opacity-95 transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <Download className="w-3.5 h-3.5" />
+                  <Download className="w-4 h-4" />
                   <span>Download File</span>
                 </button>
               </div>
@@ -5314,11 +5365,26 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           setShowExportChecks(false);
         }}
         onRemoveBackground={() => {
-          const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null;
-          if (fix) fix.open = true;
-          document.getElementById('canvas-background-fix')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setShowExportChecks(false);
+          setTimeout(() => {
+            const fix = document.getElementById('canvas-background-fix') as HTMLDetailsElement | null;
+            if (fix) {
+              fix.open = true;
+              fix.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              document.getElementById('remove-canvas-background')?.focus({ preventScroll: true });
+            }
+          }, 120);
         }}
-        onClean={() => setFilters((prev) => ({ ...prev, cleanPaper: true }))}
+        onClean={() => {
+          setShowExportChecks(false);
+          setFilters((prev) => ({
+            ...prev,
+            cleanPaper: true,
+            blackAndWhite: true,
+            contrast: Math.max(prev.contrast, 20),
+          }));
+          addToast('Clean White Paper & Pure Ink Filter applied. Ruled lines bleached.', 'Filter Applied', 'success');
+        }}
       />
       <ToastNotification toasts={toasts} onDismiss={removeToast} />
 
