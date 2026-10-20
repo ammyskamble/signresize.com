@@ -318,6 +318,18 @@ const PRESET_ALIASES: Record<string, string> = {
   afcat: 'afcat-iaf',
   agniveer: 'agniveer-recruitment',
   coastguard: 'indian-coast-guard',
+  wbpsc: 'wbpsc-west-bengal',
+  'wbpsc-west-bengal': 'wbpsc-west-bengal',
+  'wbpsc-signature': 'wbpsc-west-bengal',
+  'wbpsc-sign': 'wbpsc-west-bengal',
+  wbcs: 'wbpsc-west-bengal',
+  'wbcs-signature': 'wbpsc-west-bengal',
+  'wbpsc-photo': 'wbpsc-photo',
+  'wbcs-photo': 'wbpsc-photo',
+  'wbpsc-doc': 'wbpsc-document',
+  'wbpsc-document': 'wbpsc-document',
+  'wbpsc-138x59': 'wbpsc-signature-138x59',
+  'wbpsc-signature-138x59': 'wbpsc-signature-138x59',
   cat: 'cat-iim',
   clat: 'clat-law',
   uppsc: 'uppsc',
@@ -889,8 +901,18 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'neet-photo' || p.id === 'neet-ug-photo');
       else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc' || p.id === 'caste-certificate');
     }
-    // 22. State Public Service Commissions (UPPSC, BPSC, MPSC, TNPSC, RPSC, KPSC, OPSC, GPSC, etc.)
-    else if (matchesExam('state-psc', 'uppsc', 'bpsc', 'mpsc', 'tnpsc', 'kpsc', 'wbpsc', 'rpsc', 'gpsc', 'opsc', 'hpsc', 'appsc', 'tspsc', 'apsc', 'mppsc')) {
+    // 22. WBPSC (West Bengal Public Service Commission - WBCS, Clerkship, Miscellaneous)
+    else if (matchesExam('wbpsc', 'wbcs', 'west bengal public service') || examAnchor.includes('wbpsc') || examAnchor.includes('wbcs')) {
+      if (newType === 'signature') {
+        targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'wbpsc-west-bengal') || SIGNATURE_PRESETS.find(p => p.id === 'wbpsc-signature-138x59');
+      } else if (newType === 'photo') {
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'wbpsc-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'wbpsc-document') || DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
+      }
+    }
+    // 23. State Public Service Commissions (UPPSC, BPSC, MPSC, TNPSC, RPSC, KPSC, OPSC, GPSC, etc.)
+    else if (matchesExam('state-psc', 'uppsc', 'bpsc', 'mpsc', 'tnpsc', 'kpsc', 'rpsc', 'gpsc', 'opsc', 'hpsc', 'appsc', 'tspsc', 'apsc', 'mppsc')) {
       if (newType === 'signature') {
         targetPreset = SIGNATURE_PRESETS.find(p => p.id === examAnchor || p.id.includes(examAnchor.replace(/-photo|-sign/g, ''))) ||
           SIGNATURE_PRESETS.find(p => p.id === 'uppsc' || p.id === 'bpsc' || p.id === 'mpsc' || p.id === 'tnpsc');
@@ -961,6 +983,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     initialPresetId?.includes('coast-guard')
   );
 
+  const isWbpscActive = Boolean(
+    selectedPreset?.id.includes('wbpsc') ||
+    selectedPreset?.name.toLowerCase().includes('wbpsc') ||
+    selectedPreset?.authority.toLowerCase().includes('wbpsc') ||
+    selectedPreset?.name.toLowerCase().includes('wbcs') ||
+    resolvedPreset?.id.includes('wbpsc') ||
+    initialPresetId?.includes('wbpsc') ||
+    initialPresetId?.includes('wbcs')
+  );
+
   const isUpssscActive = Boolean(
     selectedPreset?.id.includes('upsssc') ||
     selectedPreset?.name.toLowerCase().includes('upsssc') ||
@@ -986,6 +1018,26 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     } else if (section === 'document') {
       const p = DOCUMENT_PRESETS.find(x => x.id === 'indian-coast-guard-document');
       setTargetType('document');
+      if (p) applyPreset(p);
+    }
+  }, [applyPreset]);
+
+  const selectWbpscSection = useCallback((section: 'signature' | 'photo' | 'document' | 'variant') => {
+    if (section === 'signature') {
+      const p = SIGNATURE_PRESETS.find(x => x.id === 'wbpsc-west-bengal');
+      setTargetType('signature');
+      if (p) applyPreset(p);
+    } else if (section === 'photo') {
+      const p = PHOTO_PRESETS.find(x => x.id === 'wbpsc-photo');
+      setTargetType('photo');
+      if (p) applyPreset(p);
+    } else if (section === 'document') {
+      const p = DOCUMENT_PRESETS.find(x => x.id === 'wbpsc-document') || DOCUMENT_PRESETS.find(x => x.id === 'marksheet-10th');
+      setTargetType('document');
+      if (p) applyPreset(p);
+    } else if (section === 'variant') {
+      const p = SIGNATURE_PRESETS.find(x => x.id === 'wbpsc-signature-138x59');
+      setTargetType('signature');
       if (p) applyPreset(p);
     }
   }, [applyPreset]);
@@ -1041,11 +1093,20 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     };
     window.addEventListener('select-coast-guard-section', handleCoastGuardSection);
 
+    const handleWbpscSection = (e: Event) => {
+      const event = e as CustomEvent<'signature' | 'photo' | 'document' | 'variant'>;
+      if (event.detail) {
+        selectWbpscSection(event.detail);
+      }
+    };
+    window.addEventListener('select-wbpsc-section', handleWbpscSection);
+
     return () => {
       window.removeEventListener('select-exam-preset', handleCustomPresetSelect);
       window.removeEventListener('select-coast-guard-section', handleCoastGuardSection);
+      window.removeEventListener('select-wbpsc-section', handleWbpscSection);
     };
-  }, [applyPreset, selectCoastGuardSection]);
+  }, [applyPreset, selectCoastGuardSection, selectWbpscSection]);
 
   // Initialize crop box to centered aspect ratio
   const initCropBox = (img: HTMLImageElement, targetAspect: number) => {
@@ -2006,6 +2067,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       filename = `Signature.${ext}`;
     } else if (selectedPreset?.id === 'indian-coast-guard-thumb' || selectedPreset?.id === 'indian-coast-guard-thumb-doc') {
       filename = `Thumb_Impression.${ext}`;
+    } else if (selectedPreset?.id === 'wbpsc-photo') {
+      filename = `wbpsc_photo.${ext}`;
+    } else if (selectedPreset?.id === 'wbpsc-west-bengal' || selectedPreset?.id === 'wbpsc-signature-138x59') {
+      filename = `wbpsc_signature.${ext}`;
+    } else if (selectedPreset?.id === 'wbpsc-document') {
+      filename = `wbpsc_admit_doc.${ext}`;
     }
 
     const link = document.createElement('a');
@@ -2491,6 +2558,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'indian-coast-guard-photo', short: 'Slate Photo', label: 'Coast Guard Slate Photo', specs: '350×450 • 10–50 KB' },
         { id: 'indian-coast-guard-thumb-doc', short: 'Left Thumb', label: 'Coast Guard Left Thumb', specs: '240×240 • 10–50 KB' },
         { id: 'indian-coast-guard-document', short: 'Doc Marksheet', label: 'Coast Guard Marksheet', specs: '700×990 • 50–150 KB' }
+      ]
+    : isWbpscActive
+    ? [
+        { id: 'wbpsc-west-bengal', short: 'WBPSC Sign', label: 'WBPSC Sign (140×60)', specs: '140×60 • 10–20 KB' },
+        { id: 'wbpsc-photo', short: 'WBPSC Photo', label: 'WBPSC Photo (138×177)', specs: '138×177 • 20–100 KB' },
+        { id: 'wbpsc-document', short: 'WBPSC Admit / Doc', label: 'WBPSC Madhyamik Admit / Doc', specs: '700×990 • 100–300 KB' },
+        { id: 'wbpsc-signature-138x59', short: '138×59 Sign', label: 'WBPSC Sign (138×59)', specs: '138×59 • 10–20 KB' }
       ]
     : targetType === 'photo'
     ? [
@@ -3065,6 +3139,103 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           </div>
         )}
 
+        {/* 🏛️ WBPSC 4-IN-1 SECTION SELECTOR */}
+        {isWbpscActive && (
+          <div className="p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-500/10 via-primary/10 to-emerald-500/10 border-2 border-primary/30 shadow-xs space-y-2.5 my-1">
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                <span className="text-xs font-bold text-foreground uppercase tracking-wider">
+                  WBPSC (WBCS, Clerkship, Miscellaneous) All Application Sections
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-mono font-bold bg-primary/20 text-primary px-2.5 py-0.5 rounded-full border border-primary/30">
+                  Active: {selectedPreset?.shortCode || 'WBPSC'}
+                </span>
+                <a
+                  href="https://psc.wb.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-bold text-primary bg-primary/10 hover:bg-primary/20 px-2.5 py-0.5 rounded-full border border-primary/30 transition"
+                  title="Official WBPSC Portal (psc.wb.gov.in)"
+                >
+                  <span>Official Portal: psc.wb.gov.in</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+            <p className="text-[11px] text-muted-foreground">
+              Click any section to automatically set official WBPSC dimensions, 10–20 KB signature, 138×177 px photo, or 100–300 KB admit card:
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <button
+                type="button"
+                onClick={() => selectWbpscSection('signature')}
+                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
+                  targetType === 'signature' && selectedPreset?.id === 'wbpsc-west-bengal'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
+                    : 'bg-card border-border hover:bg-muted text-foreground'
+                }`}
+              >
+                <span className="text-xs font-bold flex items-center justify-between">
+                  <span>🖋️ Signature</span>
+                  {targetType === 'signature' && selectedPreset?.id === 'wbpsc-west-bengal' && <Check className="w-3.5 h-3.5" />}
+                </span>
+                <span className="text-[10px] font-mono opacity-80">140×60 • 10–20 KB</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => selectWbpscSection('photo')}
+                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
+                  targetType === 'photo' && selectedPreset?.id === 'wbpsc-photo'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
+                    : 'bg-card border-border hover:bg-muted text-foreground'
+                }`}
+              >
+                <span className="text-xs font-bold flex items-center justify-between">
+                  <span>📸 Passport Photo</span>
+                  {targetType === 'photo' && selectedPreset?.id === 'wbpsc-photo' && <Check className="w-3.5 h-3.5" />}
+                </span>
+                <span className="text-[10px] font-mono opacity-80">138×177 • 20–100 KB</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => selectWbpscSection('document')}
+                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
+                  targetType === 'document' && selectedPreset?.id === 'wbpsc-document'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
+                    : 'bg-card border-border hover:bg-muted text-foreground'
+                }`}
+              >
+                <span className="text-xs font-bold flex items-center justify-between">
+                  <span>📄 Madhyamik Admit</span>
+                  {targetType === 'document' && selectedPreset?.id === 'wbpsc-document' && <Check className="w-3.5 h-3.5" />}
+                </span>
+                <span className="text-[10px] font-mono opacity-80">Age Proof • 100–300 KB</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => selectWbpscSection('variant')}
+                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
+                  targetType === 'signature' && selectedPreset?.id === 'wbpsc-signature-138x59'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
+                    : 'bg-card border-border hover:bg-muted text-foreground'
+                }`}
+              >
+                <span className="text-xs font-bold flex items-center justify-between">
+                  <span>🖋️ 138×59 Sign</span>
+                  {targetType === 'signature' && selectedPreset?.id === 'wbpsc-signature-138x59' && <Check className="w-3.5 h-3.5" />}
+                </span>
+                <span className="text-[10px] font-mono opacity-80">138×59 • 10–20 KB</span>
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* 3 Large Mode Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
           <button
@@ -3083,9 +3254,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <PenTool className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">{isCoastGuardActive ? 'Coast Guard Signature' : t.tool.signatureMode}</div>
+                <div className="font-bold text-xs">{isCoastGuardActive ? 'Coast Guard Signature' : isWbpscActive ? 'WBPSC Signature' : t.tool.signatureMode}</div>
                 <div className={`text-[10px] ${targetType === 'signature' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {isCoastGuardActive ? '140×60 px • 10–50 KB • Signature.jpg' : t.tool.signatureSub}
+                  {isCoastGuardActive ? '140×60 px • 10–50 KB • Signature.jpg' : isWbpscActive ? '140×60 px • 10–20 KB • Cursive Black Ink' : t.tool.signatureSub}
                 </div>
               </div>
             </div>
@@ -3108,9 +3279,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <Camera className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">{isCoastGuardActive ? 'Coast Guard Slate Photo' : t.tool.photoMode}</div>
+                <div className="font-bold text-xs">{isCoastGuardActive ? 'Coast Guard Slate Photo' : isWbpscActive ? 'WBPSC Passport Photo' : t.tool.photoMode}</div>
                 <div className={`text-[10px] ${targetType === 'photo' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {isCoastGuardActive ? '350×450 px • 10–50 KB • Slate + DoP' : t.tool.photoSub}
+                  {isCoastGuardActive ? '350×450 px • 10–50 KB • Slate + DoP' : isWbpscActive ? '138×177 px • 20–100 KB • White Background' : t.tool.photoSub}
                 </div>
               </div>
             </div>
@@ -3133,9 +3304,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <FileText className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">{isCoastGuardActive ? 'Coast Guard Documents & Thumb' : t.tool.documentMode}</div>
+                <div className="font-bold text-xs">{isCoastGuardActive ? 'Coast Guard Documents & Thumb' : isWbpscActive ? 'WBPSC Admit Card & Docs' : t.tool.documentMode}</div>
                 <div className={`text-[10px] ${targetType === 'document' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {isCoastGuardActive ? 'Marksheets (50–150 KB) & LTI (10–50 KB)' : t.tool.documentSub}
+                  {isCoastGuardActive ? 'Marksheets (50–150 KB) & LTI (10–50 KB)' : isWbpscActive ? 'Madhyamik Age Proof / Caste (100–300 KB)' : t.tool.documentSub}
                 </div>
               </div>
             </div>
@@ -3799,6 +3970,74 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                       >
                         <span className="truncate">📄 Docs (50–150 KB)</span>
                         {targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document' && <Check className="w-3 h-3 shrink-0" />}
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* 🏛️ WBPSC 4-IN-1 STUDIO SECTION SELECTOR */}
+                {isWbpscActive && (
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-blue-500/10 via-primary/10 to-emerald-500/10 border border-primary/30 space-y-2">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-foreground">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>WBPSC Application Sections (Auto-Synced)</span>
+                      </div>
+                      <span className="text-[10px] font-mono font-bold bg-primary/20 text-primary px-2 py-0.5 rounded">
+                        Active: {selectedPreset?.shortCode || 'WBPSC'}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => selectWbpscSection('signature')}
+                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
+                          targetType === 'signature' && selectedPreset?.id === 'wbpsc-west-bengal'
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
+                            : 'bg-card border-border hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        <span className="truncate">🖋️ Sign (140×60)</span>
+                        {targetType === 'signature' && selectedPreset?.id === 'wbpsc-west-bengal' && <Check className="w-3 h-3 shrink-0" />}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => selectWbpscSection('photo')}
+                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
+                          targetType === 'photo' && selectedPreset?.id === 'wbpsc-photo'
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
+                            : 'bg-card border-border hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        <span className="truncate">📸 Photo (138×177)</span>
+                        {targetType === 'photo' && selectedPreset?.id === 'wbpsc-photo' && <Check className="w-3 h-3 shrink-0" />}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => selectWbpscSection('document')}
+                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
+                          targetType === 'document' && selectedPreset?.id === 'wbpsc-document'
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
+                            : 'bg-card border-border hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        <span className="truncate">📄 Madhyamik Admit</span>
+                        {targetType === 'document' && selectedPreset?.id === 'wbpsc-document' && <Check className="w-3 h-3 shrink-0" />}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => selectWbpscSection('variant')}
+                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
+                          targetType === 'signature' && selectedPreset?.id === 'wbpsc-signature-138x59'
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
+                            : 'bg-card border-border hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        <span className="truncate">🖋️ 138×59 Sign</span>
+                        {targetType === 'signature' && selectedPreset?.id === 'wbpsc-signature-138x59' && <Check className="w-3 h-3 shrink-0" />}
                       </button>
                     </div>
                   </div>

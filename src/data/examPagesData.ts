@@ -1278,11 +1278,20 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black Ink Ballpoint Pen Only',
     aspectRatioLabel: '7:3 (~140×60 px / 138×59 px)',
-    strictNotice: 'WBPSC portal strictly disallows files under 10 KB and above 20 KB. Must be running handwriting in black ink.',
+    strictNotice: 'WBPSC portal strictly disallows files under 10 KB and above 20 KB. Must be running cursive handwriting in black ink (BLOCK CAPITALS are disqualified).',
+    verifiedOn: '2026-10-20',
+    guidanceLabel: 'West Bengal Public Service Commission (WBPSC) Official Upload Norms',
+    sources: [
+      { label: 'West Bengal Public Service Commission Official Portal (psc.wb.gov.in)', url: 'https://psc.wb.gov.in/' },
+      { label: 'WBPSC Online Application & OTR Engine (wbpsc.ucanapply.com)', url: 'https://wbpsc.ucanapply.com/' },
+      { label: 'WBPSC Miscellaneous & Clerkship Examination Guidelines', url: 'https://psc.wb.gov.in/' }
+    ],
+    relatedTools: ['wbpsc-photo-resize', 'photo-resizer'],
     tips: [
-      'Sign in black ballpoint ink on spotless white paper in running cursive handwriting.',
+      'Sign in black or dark blue ballpoint ink on spotless white paper in running cursive handwriting.',
+      'Signatures written in BLOCK or CAPITAL letters are strictly disqualified by the Commission.',
       'Crop cleanly around the text without leaving excessive blank margins.',
-      'Ensure the final file size shows between 10.0 KB and 19.9 KB.',
+      'Ensure the final file size shows strictly between 10.0 KB and 19.9 KB.',
       'Upload file in authentic JPG / JPEG format (avoid renaming PNG directly to JPG).'
     ],
     faqs: [
@@ -1292,11 +1301,62 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       },
       {
         q: 'What are the photo dimensions for WBPSC Miscellaneous & Clerkship?',
-        a: 'The photograph must be in JPEG format, sized between 20 KB and 100 KB with pixel dimensions of 138 × 177 pixels (3.5 × 4.5 cm) against a white background.'
+        a: 'The photograph must be in JPEG format, sized strictly between 20 KB and 100 KB with exact pixel dimensions of 138 × 177 pixels (3.5 × 4.5 cm) against a white background.'
       },
       {
         q: 'Why does the WBPSC portal show "Invalid dimensions or file size" error?',
         a: 'This occurs if your signature is smaller than 10 KB or larger than 20 KB, or if the pixel width and height deviate from the required 140×60 px / 138×59 px standard. Use SignResize to lock within the exact required bounds.'
+      }
+    ]
+  },
+  // 9b. WBPSC Photo
+  {
+    slug: 'wbpsc-photo-resize',
+    presetId: 'wbpsc-photo',
+    pageTitle: 'WBPSC Photo Resize 20 to 100 KB (138x177 px) - SignResize',
+    metaDescription: 'Resize photo for West Bengal PSC (WBCS, Clerkship, Miscellaneous, Food SI). Format to 138x177 px (3.5x4.5 cm), strictly 20 to 100 KB JPG online.',
+    keywords: 'wbpsc photo resize, wbpsc photo size 20 to 100 kb, wbpsc clerkship photo resizer, wbcs photo format 138x177, wbpsc miscellaneous photo size, wbpsc signature resize',
+    h1: 'WBPSC Photo Resize & Compressor (20 KB – 100 KB)',
+    subheading: 'Exact 138×177 px (3.5×4.5 cm) format with strict 20 KB to 100 KB file bounds compliant with WBPSC OTR portal (psc.wb.gov.in & wbpsc.ucanapply.com).',
+    authority: 'West Bengal Public Service Commission (WBPSC)',
+    targetExams: 'WBCS (Exe), WBPSC Clerkship, Miscellaneous Services 2026, Food SI, ICDS Supervisor',
+    widthPx: 138,
+    heightPx: 177,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 100,
+    recommendedKb: 50,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '138:177 (~3.5×4.5 cm)',
+    strictNotice: 'WBPSC portal strictly disallows photographs deviating from 138×177 pixels or outside 20 KB to 100 KB. Clean white/light background mandatory.',
+    verifiedOn: '2026-10-20',
+    guidanceLabel: 'West Bengal Public Service Commission (WBPSC) Official Upload Norms',
+    sources: [
+      { label: 'West Bengal Public Service Commission Official Portal (psc.wb.gov.in)', url: 'https://psc.wb.gov.in/' },
+      { label: 'WBPSC Online Application & OTR Engine (wbpsc.ucanapply.com)', url: 'https://wbpsc.ucanapply.com/' },
+      { label: 'WBPSC Miscellaneous & Clerkship Examination Guidelines', url: 'https://psc.wb.gov.in/' }
+    ],
+    relatedTools: ['wbpsc-signature-resize', 'photo-resizer'],
+    tips: [
+      'Take or upload a recent color passport photo taken against a clean white or light background.',
+      'Ensure the face occupies 75% to 80% of the frame with both ears clearly visible.',
+      'Do not wear dark sunglasses, tinted glasses, or caps/hats.',
+      'Compress within 30 KB to 80 KB for instantaneous portal acceptance within the 20–100 KB limit.'
+    ],
+    faqs: [
+      {
+        q: 'What is the exact photo size for WBPSC Miscellaneous & Clerkship 2026?',
+        a: 'The WBPSC portal requires a passport photograph with exact pixel dimensions of 138 × 177 pixels (3.5 cm × 4.5 cm) and file size strictly between 20 KB and 100 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'Can I upload a 200x200 or 240x320 photo to the WBPSC application portal?',
+        a: 'No. The WBPSC OTR portal (wbpsc.ucanapply.com) validates pixel dimensions programmatically and rejects photos that do not match the 138×177 px specification with "Invalid Image Dimensions" error. Use SignResize to lock into exact 138×177 px.'
+      },
+      {
+        q: 'What are the photo and signature specifications for WBPSC together?',
+        a: 'Photo: 138 × 177 px, 20 KB to 100 KB JPG. Signature: 140 × 60 px (or 138 × 59 px), 10 KB to 20 KB JPG in running cursive handwriting.'
       }
     ]
   },

@@ -135,7 +135,126 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
     }
   }
 
-  // 2. UPSSSC (PET, Lekhpal, VDO, Junior Assistant)
+  // 2. WBPSC (West Bengal Public Service Commission - WBCS, Clerkship, Miscellaneous)
+  const isWbpsc = presetId.includes('wbpsc') || presetName.includes('wbpsc') || authority.includes('wbpsc') || presetId.includes('wbcs') || presetName.includes('wbcs');
+  if (isWbpsc) {
+    if (mode === 'photo') {
+      return {
+        examName: 'WBPSC (West Bengal PSC)',
+        title: 'WBPSC Photo Rejection Warning: What Is Missing?',
+        badge: 'PORTAL VALIDATION RISK',
+        badgeColor: 'rose',
+        description: 'WBPSC portal (psc.wb.gov.in & wbpsc.ucanapply.com) automatically rejects photographs that deviate from 138×177 pixels or 20–100 KB file bounds. Verify below:',
+        statusWarning: 'Check Dimensions & Background',
+        items: [
+          {
+            icon: '📏',
+            title: '1. Exact 138 × 177 Pixels (3.5 × 4.5 cm)',
+            description: 'WBPSC OTR validation strictly enforces 138 × 177 px. Deviating pixel dimensions trigger "Invalid Image Resolution" portal errors.',
+            severity: 'danger',
+          },
+          {
+            icon: '⚖️',
+            title: '2. Strict File Bounds (20 KB – 100 KB)',
+            description: 'Must be between 20.0 KB and 100.0 KB in JPG/JPEG format. Files under 20 KB are blocked by the upload validator.',
+            severity: 'danger',
+          },
+          {
+            icon: '🎨',
+            title: '3. Spotless White or Light Plain Background',
+            description: 'Backdrop must be spotless white or uniform light colored. Dark shadows, textured wallpapers, or domestic backgrounds cause rejection.',
+            severity: 'warning',
+          },
+          {
+            icon: '👓',
+            title: '4. Full Facial View (75–80% Face)',
+            description: 'Both eyes, ears, and forehead clearly visible with neutral expression. No sunglasses, tinted glasses, or caps.',
+            severity: 'warning',
+          },
+        ],
+        officialSource: 'WBPSC OTR & Application Guidelines',
+        officialUrl: 'https://psc.wb.gov.in/',
+        actionType: 'makeBackgroundWhite',
+      };
+    } else if (mode === 'signature') {
+      return {
+        examName: 'WBPSC (West Bengal PSC)',
+        title: 'WBPSC Signature Rejection Warning: What Is Missing?',
+        badge: 'DISQUALIFICATION RISK',
+        badgeColor: 'rose',
+        description: 'The WBPSC application engine enforces strict 10 KB to 20 KB file bounds and immediately cancels signatures written in BLOCK/CAPITAL letters. Verify below:',
+        statusWarning: 'Check 10–20 KB & Running Handwriting',
+        items: [
+          {
+            icon: '🖋️',
+            title: '1. Running Cursive Handwriting Only (NO CAPITALS)',
+            description: 'Must be signed in running handwriting. Signing in BLOCK / CAPITAL letters causes immediate cancellation of candidature.',
+            severity: 'danger',
+          },
+          {
+            icon: '⚖️',
+            title: '2. Strict 10 KB to 20 KB Clamping',
+            description: 'The WBPSC server strictly rejects files below 10.0 KB and above 20.0 KB. Ensure export shows between 10.0 KB and 19.9 KB.',
+            severity: 'danger',
+          },
+          {
+            icon: '📏',
+            title: '3. 140 × 60 px (or 138 × 59 px) Ratio',
+            description: 'Dimensions must conform to 140 × 60 px (~4.0 × 2.0 cm) or 138 × 59 px in JPG/JPEG format.',
+            severity: 'info',
+          },
+          {
+            icon: '🖊️',
+            title: '4. Black or Dark Blue Ballpoint Ink on Plain Paper',
+            description: 'Sign on unruled clean white paper. Ruled notebook lines or faint pencil marks trigger portal rejection.',
+            severity: 'warning',
+          },
+        ],
+        officialSource: 'WBPSC Online Application Upload Guidelines',
+        officialUrl: 'https://wbpsc.ucanapply.com/',
+        actionType: 'cleanPaper',
+      };
+    } else {
+      return {
+        examName: 'WBPSC (West Bengal PSC)',
+        title: 'WBPSC Document & Madhyamik Admit Card Verification',
+        badge: 'PORTAL NORMS',
+        badgeColor: 'blue',
+        description: 'WBPSC mandates clear scans of Madhyamik (10th) Admit Card / Pass Certificate for mandatory Date of Birth proof, and category certificates for reservation quota.',
+        statusWarning: '100–300 KB Clear Scan',
+        items: [
+          {
+            icon: '📄',
+            title: '1. Madhyamik (10th) Admit Card for Age Proof',
+            description: 'WBPSC strictly requires Madhyamik Admit Card or 10th Board Certificate as sole proof of Date of Birth (DoB).',
+            severity: 'danger',
+          },
+          {
+            icon: '🏛️',
+            title: '2. West Bengal Competent Authority Caste Certificate',
+            description: 'SC/ST/OBC-A/OBC-B certificates must be issued by a Sub-Divisional Officer (SDO) or Kolkata DWO in West Bengal.',
+            severity: 'warning',
+          },
+          {
+            icon: '📏',
+            title: '3. File Limits: 100 KB to 300 KB',
+            description: 'Upload file size must be between 100.0 KB and 300.0 KB in JPG or PDF format.',
+            severity: 'info',
+          },
+          {
+            icon: '🔍',
+            title: '4. All 4 Corners & Official Seals Visible',
+            description: 'Full document border, official signature, government emblem, and registration numbers must be 100% legible.',
+            severity: 'info',
+          },
+        ],
+        officialSource: 'WBPSC Document Verification Norms',
+        officialUrl: 'https://psc.wb.gov.in/',
+      };
+    }
+  }
+
+  // 3. UPSSSC (PET, Lekhpal, VDO, Junior Assistant)
   const isUpsssc = presetId.includes('upsssc') || presetName.includes('upsssc') || authority.includes('upsssc') || presetId.includes('pet');
   if (isUpsssc) {
     if (mode === 'photo') {
