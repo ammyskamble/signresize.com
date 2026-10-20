@@ -44,8 +44,10 @@ export function ComplianceRejectionAudit({
   const upssscConfirmed = propUpssscConfirmed !== undefined ? propUpssscConfirmed : internalUpsssc;
   const setUpssscConfirmed = onConfirmUpsssc || setInternalUpsssc;
 
-  // Check if all technical and portal requirements are completed
-  const exportIssues = processedResult && rule ? inspectExport(processedResult, rule) : [];
+  // A selected preset is the compliance baseline. Editable controls must not
+  // make a divergent export look compliant with that recruitment preset.
+  const verificationRule = preset ?? rule;
+  const exportIssues = processedResult && verificationRule ? inspectExport(processedResult, verificationRule) : [];
   const isOutOfBounds = Boolean(processedResult && !processedResult.withinTargetBounds);
   const hasBgIssues = Boolean(backgroundIssues && backgroundIssues.length > 0);
   const ruledPaperIssue = backgroundIssues?.find((i) => i.code === 'ruled_paper');
@@ -54,6 +56,7 @@ export function ComplianceRejectionAudit({
   // File is fully completed when processed within target bounds with 0 export issues AND 0 background/ruled line issues
   const hasErrors = isOutOfBounds || exportIssues.length > 0 || hasBgIssues;
   const isAllCompleted = Boolean(processedResult && !hasErrors);
+  const requiresAdvertisementVerification = preset?.portalExactSpecsVerified === false;
 
   const isCoastGuardPhoto = Boolean(
     mode === 'photo' &&
@@ -70,19 +73,28 @@ export function ComplianceRejectionAudit({
     return (
       <div
         role="status"
-        aria-label="Technical requirements completed"
-        className="rounded-xl border-2 border-emerald-500/80 bg-emerald-500/10 dark:bg-emerald-950/30 p-3.5 space-y-2.5 text-xs shadow-xs transition-all duration-200 animate-in fade-in"
+        aria-label={requiresAdvertisementVerification ? 'Export checks passed; advertisement verification required' : 'Technical requirements completed'}
+        className={`rounded-xl border-2 p-3.5 space-y-2.5 text-xs shadow-xs transition-all duration-200 animate-in fade-in ${
+          requiresAdvertisementVerification
+            ? 'border-amber-500/80 bg-amber-500/10 dark:bg-amber-950/30'
+            : 'border-emerald-500/80 bg-emerald-500/10 dark:bg-emerald-950/30'
+        }`}
       >
-        {/* Header bar: Green Verified */}
-        <div className="flex items-center justify-between border-b border-emerald-500/30 pb-2 gap-2 flex-wrap">
-          <div className="font-extrabold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5 text-xs sm:text-sm">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-            <span>Technical Specifications Met · Ready for Upload</span>
+        <div className={`flex items-center justify-between border-b pb-2 gap-2 flex-wrap ${requiresAdvertisementVerification ? 'border-amber-500/30' : 'border-emerald-500/30'}`}>
+          <div className={`font-extrabold flex items-center gap-1.5 text-xs sm:text-sm ${requiresAdvertisementVerification ? 'text-amber-800 dark:text-amber-300' : 'text-emerald-800 dark:text-emerald-300'}`}>
+            <CheckCircle2 className={`w-4 h-4 shrink-0 ${requiresAdvertisementVerification ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-600 dark:text-emerald-400'}`} />
+            <span>{requiresAdvertisementVerification ? 'File Checks Passed — Verify Active Advertisement' : 'Technical Specifications Met — Ready for Upload'}</span>
           </div>
-          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow-xs bg-emerald-600 text-white whitespace-nowrap">
-            SPECS VERIFIED
+          <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow-xs text-white whitespace-nowrap ${requiresAdvertisementVerification ? 'bg-amber-600' : 'bg-emerald-600'}`}>
+            {requiresAdvertisementVerification ? 'PORTAL CHECK REQUIRED' : 'SPECS VERIFIED'}
           </span>
         </div>
+
+        {requiresAdvertisementVerification && (
+          <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-2 text-[11px] font-semibold text-amber-950 dark:text-amber-100">
+            This file matches the selected preparation preset. Confirm the notice for your exact exam cycle and upload field before submitting; pixel defaults and local checks cannot certify portal acceptance.
+          </p>
+        )}
 
         {/* Verification Summary */}
         <div className="flex items-center justify-between gap-3 text-[11px] text-emerald-900 dark:text-emerald-200 flex-wrap font-semibold">
@@ -158,7 +170,7 @@ export function ComplianceRejectionAudit({
           <div className="mt-2 space-y-1.5 pt-1">
             {audit.items.map((item, idx) => (
               <div key={idx} className="flex items-start gap-2 p-1.5 rounded-lg bg-card/70 border border-emerald-500/20 text-[11px]">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold shrink-0">✓</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold shrink-0">{requiresAdvertisementVerification ? '•' : '✓'}</span>
                 <div>
                   <strong className="text-foreground">{item.title}: </strong>
                   <span className="text-muted-foreground">{item.description}</span>
@@ -226,6 +238,15 @@ export function ComplianceRejectionAudit({
           <span>
             File size ({processedResult?.sizeKb} KB) is outside required {rule?.minKb}–{rule?.maxKb} KB bounds. Adjust quality or crop to resolve.
           </span>
+        </div>
+      )}
+
+      {exportIssues.length > 0 && (
+        <div className="p-2 rounded-lg bg-rose-500/20 border border-rose-500/50 text-rose-900 dark:text-rose-200 text-xs font-semibold space-y-1.5">
+          <div>Selected preset requirements are not met:</div>
+          <ul className="list-disc pl-4 space-y-1 font-normal">
+            {exportIssues.map((issue) => <li key={issue.code}>{issue.message}</li>)}
+          </ul>
         </div>
       )}
 

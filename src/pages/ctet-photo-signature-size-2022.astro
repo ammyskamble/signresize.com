@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import { EXAM_SOURCES, GUIDANCE_REVIEWED_ON } from '../data/examGuidance';
+const title = 'CTET Photo and Signature Size 2022 | December Bulletin Archive';
+const description = 'Historical CTET December 2022 upload rules: photo 10–100 KB, signature 3–30 KB, JPG/JPEG and published cm dimensions, with the original CBSE bulletin.';
+const canonical = 'https://signresize.in/ctet-photo-signature-size-2022/';
+const faqs = [
+  { q: 'What was the CTET December 2022 photo size?', a: 'The bulletin specified JPG/JPEG, 10–100 KB and dimensions of 3.5 × 4.5 cm.' },
+  { q: 'What was the CTET December 2022 signature size?', a: 'The bulletin specified JPG/JPEG, 3–30 KB and dimensions of 3.5 × 1.5 cm.' },
+  { q: 'Should I use these rules for a new CTET application?', a: 'Use the bulletin for your own session. This page preserves the December 2022 instructions for historical reference; it is not a current application notice.' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="article" />
+    <GoogleFonts /><ThemeScript /><GoogleAnalytics />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } })),
+    })} />
+  </head>
+  <body class="bg-background text-foreground">
+    <Header />
+    <main class="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-6">
+      <nav aria-label="Breadcrumb" class="text-sm text-muted-foreground"><a href="/">Home</a> / <a href="/ctet-signature-resize/">CTET tools</a> / December 2022 archive</nav>
+      <header class="space-y-4">
+        <p class="text-sm font-semibold text-primary">Historical reference · December 2022 session</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">CTET photo and signature size 2022</h1>
+        <p class="text-muted-foreground">The December 2022 CBSE bulletin required two separate image uploads. This archive answers questions about that session without presenting its instructions as a new application notice.</p>
+      </header>
+      <aside class="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 space-y-2">
+        <h2 class="font-bold">Applying for a different session?</h2>
+        <p class="text-sm">Check that session’s official bulletin first. Our <a href="/ctet-signature-resize/" class="text-primary underline">CTET signature guide</a> and <a href="/ctet-photo-resize/" class="text-primary underline">CTET photo guide</a> identify the September 2026 source they currently cover.</p>
+      </aside>
+      <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4">
+        <h2 class="text-xl font-bold">December 2022 upload requirements</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left">
+            <caption class="sr-only">CTET December 2022 photograph and signature specifications</caption>
+            <thead class="bg-muted"><tr><th scope="col" class="p-3">Image</th><th scope="col" class="p-3">Format</th><th scope="col" class="p-3">File size</th><th scope="col" class="p-3">Dimensions</th></tr></thead>
+            <tbody class="divide-y divide-border">
+              <tr><th scope="row" class="p-3">Photograph</th><td class="p-3">JPG/JPEG</td><td class="p-3">10–100 KB</td><td class="p-3">3.5 × 4.5 cm</td></tr>
+              <tr><th scope="row" class="p-3">Signature</th><td class="p-3">JPG/JPEG</td><td class="p-3">3–30 KB</td><td class="p-3">3.5 × 1.5 cm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-muted-foreground">The cited instructions do not supply a mandatory pixel count or scanning DPI. A pixel-to-centimeter conversion depends on the image resolution; a tool’s default canvas is not an extra government rule.</p>
+        <p class="text-sm"><strong>Source:</strong> <a href={EXAM_SOURCES.ctet2022} class="text-primary underline" target="_blank" rel="noopener noreferrer">CBSE CTET December 2022 bulletin, Important Notes (c), PDF page 4, and Step 3, PDF page 32 ↗</a></p>
+        <p class="text-xs text-muted-foreground">Source reviewed <time datetime={GUIDANCE_REVIEWED_ON}>{GUIDANCE_REVIEWED_ON}</time>. The 2022 session is closed. SignResize is an independent preparation service.</p>
+      </section>
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold">How to use this archive</h2>
+        <p class="text-sm text-muted-foreground">Use this page to check an old instruction or compare sessions. For a new application, match the notice date and session before preparing files. Retain the original image, avoid stretching it and inspect the final upload preview yourself.</p>
+        <p class="text-sm text-muted-foreground">The September 2026 bulletin lists the same KB ranges and centimeter sizes for these two images. That comparison does not establish requirements for later sessions or other teacher eligibility tests.</p>
+      </section>
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold">Frequently asked questions</h2>
+        {faqs.map(faq => <details class="rounded-xl border border-border bg-card p-4"><summary class="cursor-pointer font-semibold min-h-11 flex items-center">{faq.q}</summary><p class="pt-3 text-sm text-muted-foreground">{faq.a}</p></details>)}
+      </section>
+      <nav aria-label="CTET resources" class="flex flex-wrap gap-3">
+        <a href="/ctet-signature-resize/" class="min-h-11 inline-flex items-center rounded-lg bg-primary text-primary-foreground px-4 font-semibold text-sm">CTET signature tool →</a>
+        <a href="/ctet-photo-resize/" class="min-h-11 inline-flex items-center rounded-lg border border-border px-4 font-semibold text-sm">CTET photo tool →</a>
+        <a href="https://ctet.nic.in/previous-year-information-bulletin/" class="min-h-11 inline-flex items-center px-2 text-primary underline text-sm">Official bulletin archive ↗</a>
+      </nav>
+    </main>
+    <Footer />
+  </body>
+</html>

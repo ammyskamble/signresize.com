@@ -102,7 +102,9 @@ export default defineConfig({
   },
 
   build: {
-    inlineStylesheets: 'auto',
+    // The homepage's complete stylesheet is small enough to fit comfortably in
+    // the document. Inline it to remove CSS requests from the LCP render path.
+    inlineStylesheets: 'always',
   },
 
   vite: {

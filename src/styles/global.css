@@ -288,6 +288,18 @@ footer[role="contentinfo"] {
   contain-intrinsic-size: 1px 700px;
 }
 
+/* The footer sits on slate-950 even in the light theme. Keep its compact
+   metadata and links above the WCAG AA contrast threshold independently of
+   the page theme tokens. */
+footer[role="contentinfo"] .text-slate-300,
+footer[role="contentinfo"] .text-muted-foreground {
+  color: #e2e8f0;
+}
+
+footer[role="contentinfo"] .text-primary {
+  color: #c4b5fd;
+}
+
 /* Optimize image and media rendering */
 img, svg {
   shape-rendering: auto;

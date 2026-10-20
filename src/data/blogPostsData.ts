@@ -2364,17 +2364,17 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "osssc-cre-2026-master-guide-ri-ari-amin-peo-photo-signature-rules",
-    "title": "OSSSC Recruitment 2026 Master Guide: Apply Online, Admit Card & Photo Rules",
-    "metaTitle": "OSSSC 2026 Guide: Apply Online, Admit Card & Photo Resizer",
-    "metaDescription": "OSSSC 2026 Master Guide: How to apply online, download admit cards for RI & Amin, fix login errors, and resize photos & signatures to strict 10–20 KB rules.",
-    "excerpt": "Authoritative candidate intelligence for OSSSC recruitments: Step-by-step online application (OTR), hall ticket download links, fixing 'why OSSSC site is not working', Employment Exchange requirements, SFS & PEO cadre pay scales, and 10–20 KB photo/signature resizing.",
+    "title": "OSSSC Upload Guide: Advertisement-Specific Photo & Signature Rules",
+    "metaTitle": "OSSSC Photo & Signature Upload Guide | Check Your Advertisement",
+    "metaDescription": "OSSSC upload requirements vary by recruitment. Check the current advertisement, prepare a Radiographer-2026 photo at 20-100 KB or signature at 20-50 KB, and verify the application preview.",
+    "excerpt": "OSSSC photo and signature rules are post-specific. This guide explains the application sections, common upload buckets, and the current Radiographer-2026 photo and signature file ranges with official source links.",
     "category": "Career Opportunity",
     "country": "IN",
     "publishDate": "Oct 09, 2026",
     "publishTime": "08:15 PM IST",
-    "lastUpdated": "Oct 13, 2026",
-    "author": "SignResize Odisha Subordinate Selection Research Desk",
-    "authorRole": "Senior State Recruitment & Document Verification Specialist",
+    "lastUpdated": "Oct 20, 2026",
+    "author": "SignResize Editorial Team",
+    "authorRole": "Independent application-documentation editors",
     "readTime": "14 min read",
     "featured": true,
     "relatedExamPreset": "osssc-signature-resize",
@@ -2419,11 +2419,11 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       },
       {
         "label": "Photo Specification",
-        "value": "JPG/JPEG, 3.5×4.5 cm (200×230 px), 20 KB – 100 KB, Light Background"
+        "value": "Radiographer-2026: JPG/JPEG/PNG, 20 KB to 100 KB. Other OSSSC posts may differ."
       },
       {
         "label": "Signature Specification",
-        "value": "Black Ballpoint Pen, 3.5×1.5 cm (140×60 px), 10 KB – 20 KB strictly (Hard Portal Cutoff)"
+        "value": "Radiographer-2026: JPG/JPEG/PNG, 20 KB to 50 KB. Check your recruitment notice."
       },
       {
         "label": "Employment Exchange",
@@ -2436,48 +2436,17 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     ],
     "contentHtml": `
     <p class="text-base sm:text-lg leading-relaxed text-foreground font-medium mb-6">
-      The <strong>Odisha Sub-Ordinate Staff Selection Commission (OSSSC)</strong> serves as the premier recruitment body administering competitive examinations for Group-C and non-gazetted Group-B district cadre posts under the Government of Odisha. Managing major employment drives such as the <strong>Combined Recruitment Examination (CRE for RI, ARI, Amin, SFS, and ICDS Supervisor)</strong>, <strong>Nursing Officer Recruitment (5,989+ Vacancies)</strong>, <strong>Panchayat Executive Officer (PEO)</strong>, and <strong>Forest Guard / Forester</strong>, OSSSC mandates an automated candidate screening mechanism on its central portal <code>osssc.gov.in</code>. Whether you need to navigate the <strong>OSSSC One Time Registration (OTR)</strong> system, download the latest <strong>OSSSC Admit Card</strong>, diagnose <strong>why the OSSSC site is not working or throwing 504 errors</strong>, clarify <strong>Employment Exchange registration rules</strong>, or format digital files to the strict <strong>10–20 KB signature and 20–100 KB photo limits</strong>, this master guide provides exhaustive, candidate-first intelligence.
+      <strong>OSSSC upload requirements are advertisement-specific.</strong> Do not reuse a photo or signature setting from a different post. This guide separates the Commission's common application flow from the current <strong>Radiographer-2026</strong> upload range and points candidates back to the active OSSSC notice before submission.
     </p>
 
-    <!-- Key Callout Tool Card with Visual Bounding Box Diagram -->
-    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-card border-2 border-primary/30 shadow-sm space-y-6">
-      <!-- Visual Bounding Box Diagram -->
-      <div class="p-4 rounded-xl bg-background border border-border flex flex-col md:flex-row items-center gap-6 justify-around">
-        <div class="w-48 shrink-0 bg-card border-2 border-dashed border-primary/60 rounded-xl p-3 shadow-sm flex flex-col items-center justify-between gap-2 text-center h-[220px]">
-          <div class="w-full h-[140px] bg-muted/50 rounded-lg flex flex-col items-center justify-center border border-border p-1">
-            <span class="text-xl">👤</span>
-            <span class="text-[11px] font-bold text-foreground mt-0.5">Passport Photograph</span>
-            <span class="text-[10px] text-muted-foreground">3.5 × 4.5 cm (200×230 px)</span>
-            <span class="text-[9px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">20 KB – 100 KB</span>
-          </div>
-          <div class="w-full h-[50px] bg-primary/10 rounded-lg flex flex-col items-center justify-center border border-primary/30">
-            <span class="text-[10px] font-bold text-primary font-serif italic">Candidate Signature</span>
-            <span class="text-[8px] text-muted-foreground">140 × 60 px | 10–20 KB (Black Pen)</span>
-          </div>
-        </div>
-        <div class="space-y-2 text-xs sm:text-sm text-muted-foreground max-w-md">
-          <strong class="text-foreground font-bold text-sm block flex items-center gap-2">
-            <span>📌</span> OSSSC Official Bounding Box Proportions & Strict Formatting Notice
-          </strong>
-          <p class="leading-relaxed">
-            Ensure your photograph features a plain white/light background with both ears unobstructed. Your signature must be written in <strong>BLACK BALLPOINT INK</strong> in running cursive script inside the <strong>140×60 px</strong> frame. ==Signatures uploaded in BLOCK / CAPITAL LETTERS or files exceeding 20 KB are automatically rejected by the OSSSC portal upload engine.==
-          </p>
-        </div>
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-card border-2 border-primary/30 shadow-sm space-y-4">
+      <h2 class="text-lg sm:text-xl font-extrabold text-foreground m-0">Radiographer-2026: verified upload baseline</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+        <div class="rounded-xl bg-background border border-border p-4"><strong class="block text-foreground">Recent photograph</strong><span class="text-muted-foreground">JPG/JPEG/PNG, 20 KB to 100 KB. The official source does not establish one universal pixel canvas.</span></div>
+        <div class="rounded-xl bg-background border border-border p-4"><strong class="block text-foreground">Full specimen signature</strong><span class="text-muted-foreground">JPG/JPEG/PNG, 20 KB to 50 KB for this advertisement.</span></div>
       </div>
-
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div class="space-y-1">
-          <h4 class="text-base sm:text-lg font-extrabold text-foreground flex items-center gap-2">
-            <span>⚡</span> Official OSSSC Signature (10–20 KB) & Photo Resizer Tool
-          </h4>
-          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Compress and crop your photo to 200×230 px (20–100 KB) and signature to 140×60 px (10–20 KB) in seconds without losing sharpness.
-          </p>
-        </div>
-        <a href="/osssc-signature-resize/?preset=osssc&photoW=3.5&photoH=4.5&photoMin=20&photoMax=100&signW=3.5&signH=1.5&signMin=10&signMax=20" class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition shrink-0">
-          Resize for OSSSC Online &rarr;
-        </a>
-      </div>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">The OSSSC guide lists eight form sections: personal details, physical measurement details, address details, qualification details, employment-exchange details, payment details, upload-document details, and undertaking. The documents required within those sections vary by post.</p>
+      <div class="flex flex-wrap gap-3"><a href="/osssc-photo-resizer/" class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:opacity-90 transition">Open OSSSC Photo Resizer</a><a href="/osssc-signature-resize/" class="px-5 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-bold text-sm hover:opacity-90 transition">Open OSSSC Signature Resizer</a></div>
     </div>
 
     <!-- 1. Executive Quick Facts & Important Recruitment Dates -->
@@ -2568,7 +2537,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         <span class="w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">3</span>
         <div>
           <h4 class="font-bold text-sm text-foreground">Step 3: Document Upload (Photo, Signature & Thumb Impression)</h4>
-          <p class="text-xs sm:text-sm text-muted-foreground mt-1">Upload your recent passport photo (200×230 px, 20–100 KB) and running signature in black ink (140×60 px, 10–20 KB). Ensure the cropped signature image does not include excessive white margins. Set your permanent password to generate your <strong>OSSSC User ID / Registration Number</strong>.</p>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-1">Upload only the photo and signature files required for your selected advertisement. For Radiographer-2026, the file ranges are 20–100 KB for the photo and 20–50 KB for the signature; the official source does not establish universal pixel dimensions. Set your permanent password to generate your <strong>OSSSC User ID / Registration Number</strong>.</p>
         </div>
       </div>
       <div class="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
@@ -2915,7 +2884,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
           If your admit card prints with a blurred or missing photograph, automated entry at the test center will be barred. You must immediately:
         </p>
         <ul class="list-disc list-inside space-y-1 text-muted-foreground">
-          <li>Paste two recent color passport photos (formatted to 200×230 px) on the printed admission letter.</li>
+           <li>Follow the instructions printed on your own admission letter and the relevant recruitment notice before carrying any additional photographs.</li>
           <li>Have the photos self-attested or attested by a Gazetted Officer.</li>
           <li>Carry the original Aadhaar Card / Voter ID plus two photocopies and your OSSSC Registration Acknowledgment Slip.</li>
         </ul>
@@ -2954,65 +2923,30 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         <span class="text-xl">📐</span>
         <div>
           <h4 class="font-bold text-sm text-foreground">Strategy 4: Pre-Compress Upload Files to Prevent Session Expiration</h4>
-          <p class="text-xs sm:text-sm text-muted-foreground mt-1">Uploading large, uncompressed image files forces the government server to perform server-side image processing. If this takes longer than 30 seconds under heavy traffic, the server throws an automatic timeout error. Use the <a href="/osssc-signature-resize/" class="text-primary font-bold hover:underline">SignResize OSSSC Resizer</a> to compress your signature to exactly 10–20 KB before opening the portal.</p>
+           <p class="text-xs sm:text-sm text-muted-foreground mt-1">Prepare your files before opening the application, but do not infer a portal error from the file size alone. For Radiographer-2026, use the <a href="/osssc-signature-resize/" class="text-primary font-bold hover:underline">OSSSC signature tool</a> for a 20–50 KB signature or the <a href="/osssc-photo-resizer/" class="text-primary font-bold hover:underline">OSSSC photo tool</a> for a 20–100 KB photograph. Check the active notice for every other post.</p>
         </div>
       </div>
     </div>
 
-    <!-- 11. Official Photo & Signature Technical Upload Specifications -->
-    <h2 id="11-official-photo--signature-technical-upload-specifications" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">11. Official Photo & Signature Technical Upload Specifications</h2>
-    <p class="text-sm leading-relaxed text-muted-foreground mb-4">
-      Adhering to exact byte boundaries and pixel dimensions prevents form rejection during preliminary validation. Review the official specification matrix below:
-    </p>
+    <!-- 11. Advertisement-specific photo and signature rules -->
+    <h2 id="11-advertisement-specific-photo-signature-rules" class="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2">11. Advertisement-Specific Photo & Signature Rules</h2>
+    <p class="text-sm leading-relaxed text-muted-foreground mb-4">OSSSC's own upload guide says the file rules are shown as applicable against each post. Treat any requirement below as scoped to the named advertisement, never as a permanent rule for all OSSSC vacancies.</p>
 
     <div class="my-6 p-5 rounded-2xl bg-card border border-border space-y-4">
-      <h3 class="text-base font-bold text-foreground">Official Image Dimension & File Size Matrix</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-muted-foreground">
-        <div class="p-4 rounded-xl bg-muted/30 border border-border space-y-2">
-          <strong class="text-foreground text-sm block">1. Passport Photograph Specifications</strong>
-          <ul class="space-y-1">
-            <li><strong>Physical Dimensions:</strong> 3.5 cm × 4.5 cm</li>
-            <li><strong>Pixel Resolution:</strong> <strong>200 × 230 pixels</strong> (Portal validation standard)</li>
-            <li><strong>File Size Boundary:</strong> <strong>20 KB to 100 KB strictly</strong></li>
-            <li><strong>Image Format:</strong> JPG / JPEG format only</li>
-            <li><strong>Composition:</strong> Light/white background, frontal view, both ears visible</li>
-            <li><strong>Aspect Ratio Note:</strong> Mathematically, 3.5 × 4.5 cm maintains a 7:9 ratio (~1:1.2857), which converts to approx. 200 × 257 px at standard print DPI. However, the commission's portal validator explicitly overrides standard photographic proportions with a fixed 200 × 230 px canvas (~1:1.15 ratio). Our preset tool pre-crops and fits your image to this exact 200 × 230 px canvas so you pass automated validation without portal distortion or dimension errors.</li>
-            <li><strong>Prohibitions:</strong> No sunglasses, caps, masks, or shadows</li>
-          </ul>
-        </div>
-        <div class="p-4 rounded-xl bg-muted/30 border border-border space-y-2">
-          <strong class="text-foreground text-sm block">2. Scanned Signature Specifications</strong>
-          <ul class="space-y-1">
-            <li><strong>Physical Dimensions:</strong> 3.5 cm × 1.5 cm</li>
-            <li><strong>Pixel Resolution:</strong> <strong>140 × 60 pixels</strong> (Aspect Ratio 7:3)</li>
-            <li><strong>File Size Boundary:</strong> <strong>10 KB to 20 KB strictly</strong> (Active 2026 portal validation cutoff; files exceeding 20.0 KB are rejected)</li>
-            <li><strong>Ink Mandate:</strong> <strong>Black Ballpoint Pen strictly</strong></li>
-            <li><strong>Surface:</strong> Clean, unruled plain white paper</li>
-            <li><strong>Prohibition:</strong> Signatures in CAPITAL / BLOCK letters are invalid</li>
-          </ul>
-        </div>
-      </div>
+      <h3 class="text-base font-bold text-foreground">Radiographer-2026 upload matrix</h3>
+      <div class="overflow-x-auto"><table class="w-full text-xs sm:text-sm text-left"><thead class="bg-muted"><tr><th class="p-3">Upload</th><th class="p-3">File type</th><th class="p-3">File range</th><th class="p-3">Rule</th></tr></thead><tbody class="divide-y divide-border"><tr><td class="p-3 font-semibold">Recent colour photograph</td><td class="p-3">JPG / JPEG / PNG</td><td class="p-3">20 KB - 100 KB</td><td class="p-3">Use a clear, identifiable recent image. The linked official material does not prescribe a universal pixel canvas.</td></tr><tr><td class="p-3 font-semibold">Full specimen signature</td><td class="p-3">JPG / JPEG / PNG</td><td class="p-3">20 KB - 50 KB</td><td class="p-3">Use the presentation requirements in the Radiographer-2026 advertisement and inspect the portal preview.</td></tr></tbody></table></div>
+      <p class="text-xs text-muted-foreground">For other recruitments, the OSSSC guide shows common upload buckets for signature, photo, treasury challan/employment exchange, and other documents; it does not make every bucket mandatory for every post.</p>
     </div>
 
-    <!-- Direct Deep-Linked CTA Button -->
     <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-card border-2 border-primary/30 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <div class="space-y-1">
-        <h4 class="text-base sm:text-lg font-extrabold text-foreground flex items-center gap-2">
-          <span>⚙️</span> Preset OSSSC Signature (10–20 KB) & Photo Resizer Canvas
-        </h4>
-        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-          Instantly optimize your photo to 200×230 px and signature to 10–20 KB in your browser with zero data uploads to external servers.
-        </p>
-      </div>
-      <a href="/osssc-signature-resize/?preset=osssc&photoW=3.5&photoH=4.5&photoMin=20&photoMax=100&signW=3.5&signH=1.5&signMin=10&signMax=20" class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition shrink-0">
-        Resize Documents for OSSSC Online &rarr;
-      </a>
+      <div class="space-y-1"><h4 class="text-base sm:text-lg font-extrabold text-foreground">Prepare Radiographer-2026 uploads privately in your browser</h4><p class="text-xs sm:text-sm text-muted-foreground">Choose the exact tool for the file you are preparing, then verify the downloaded file against the active OSSSC application instructions.</p></div>
+      <div class="flex flex-wrap gap-2 shrink-0"><a href="/osssc-photo-resizer/" class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">OSSSC Photo Resizer</a><a href="/osssc-signature-resize/" class="px-5 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition">OSSSC Signature Resizer</a></div>
     </div>
   `,
     "faqs": [
       {
         "question": "How do I apply online for OSSSC recruitments on osssc.gov.in step-by-step?",
-        "answer": "To apply online: 1. Visit osssc.gov.in and click on 'Apply Online'. 2. New users must click 'New User' to complete One Time Registration (OTR) with mobile number, email ID, Aadhaar number, and 10th Roll Number. 3. Upload your scanned photograph (20–100 KB) and black ink signature (10–20 KB). 4. For registered users, log in using your User ID/Registration Number, click 'Re-registration' for the active post, fill in department choices, and submit your final application acknowledgment."
+        "answer": "Use the active advertisement on osssc.gov.in and complete the sections shown for your post. The OSSSC guide describes personal details, physical measurement details, address details, qualification details, employment-exchange details, payment details, upload-document details, and undertaking. Upload ranges and required documents differ by recruitment."
       },
       {
         "question": "Why is the OSSSC site not working, and how do I fix login errors or gateway timeouts?",
@@ -3035,8 +2969,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         "answer": "To download your admit card: 1. Visit osssc.gov.in. 2. Click on 'Download Admission Letter'. 3. Select your exam advertisement (e.g., CRE 2026 or Forest Guard PET/PST). 4. Enter your User ID / Registration Number / Mobile Number and Password / Date of Birth. 5. Enter the Captcha and click Login. Download the PDF and print at least 2 clear copies to carry to the examination center."
       },
       {
-        "question": "What are the exact photo and signature size limits for OSSSC online forms?",
-        "answer": "OSSSC mandates: Passport photograph must be 3.5 cm × 4.5 cm (200 × 230 pixels), JPG/JPEG format, sized strictly between 20 KB and 100 KB on a light/white background. Signature must be 3.5 cm × 1.5 cm (140 × 60 pixels), JPG/JPEG format, sized strictly between 10 KB and 20 KB (the active OSSSC portal validator enforces a hard 20.0 KB cutoff; any file exceeding 20 KB is rejected automatically), signed strictly using a BLACK BALLPOINT PEN on plain white paper. Signatures in capital letters will be rejected."
+        "question": "What are the photo and signature requirements for OSSSC Radiographer-2026?",
+        "answer": "For Radiographer-2026, use a recent photograph in JPG/JPEG/PNG format from 20 KB to 100 KB and a full specimen signature in JPG/JPEG/PNG format from 20 KB to 50 KB. These settings are not universal across OSSSC posts: check the active advertisement and the application screen before submitting."
       },
       {
         "question": "What is the negative marking penalty in OSSSC written and CBT exams?",
@@ -3052,22 +2986,22 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       },
       {
         "question": "What should I do if my photo or signature is missing or blurry on the OSSSC Admit Card?",
-        "answer": "If your photo is distorted or missing on your downloaded admit card, immediately affix two recent passport-size photographs (formatted to 200×230 px) on the printed admit card and self-attest them. Carry your original Aadhaar Card or Voter ID, two self-attested photocopies of your ID, and your OSSSC Application Acknowledgment Slip to the exam center superintendent."
+        "answer": "Follow the directions printed on your own admission letter and contact OSSSC through its official support channel if the photograph is missing or distorted. Do not assume a standard photo size or additional-document procedure applies to every recruitment."
       },
       {
         "question": "What original documents are required during OSSSC Document Verification (DV)?",
         "answer": "Shortlisted candidates must produce: 1. HSC / 10th Board Certificate & Marksheet (for DOB verification), 2. +2 / Intermediate & Graduation Certificates, 3. Odia language pass certificate (Middle School / Matriculation), 4. Valid Resident / Domicile Certificate issued by Tahasildar, 5. Active Employment Exchange Registration Card, 6. Caste Certificate (SC/ST/SEBC) if applicable, 7. Valid Govt Photo ID and OSSSC Application Printout."
       }
     ],
-    "title_hi": "OSSSC भर्ती 2026 मास्टर गाइड: ऑनलाइन आवेदन, एडमिट कार्ड डाउनलोड, साइट एरर समाधान, सिलेबस और फोटो-हस्ताक्षर नियम",
-    "metaTitle_hi": "OSSSC 2026 मास्टर गाइड: ऑनलाइन आवेदन, एडमिट कार्ड व फोटो रिसाइज़र",
-    "metaDescription_hi": "OSSSC भर्ती 2026 की संपूर्ण जानकारी: ऑनलाइन आवेदन (OTR) चरण, RI, ARI, Amin व Forest Guard एडमिट कार्ड डाउनलोड, साइट एरर समाधान, SFS/PEO वेतनमान, और 10-20KB हस्ताक्षर रिसाइज़र।",
-    "excerpt_hi": "ओडिशा OSSSC 2026 भर्ती मास्टर गाइड: OTR रजिस्ट्रेशन, एडमिट कार्ड डाउनलोड लिंक, साइट ना चलने की समस्या के समाधान, Employment Exchange नियम, SFS व PEO वेतनमान और 10–20 KB हस्ताक्षर रिसाइज नियम।",
+    "title_hi": "OSSSC फोटो और हस्ताक्षर अपलोड गाइड: विज्ञापन के अनुसार नियम",
+    "metaTitle_hi": "OSSSC फोटो और हस्ताक्षर अपलोड गाइड | अपना विज्ञापन जांचें",
+    "metaDescription_hi": "OSSSC में दस्तावेज अपलोड नियम भर्ती के अनुसार बदलते हैं। Radiographer-2026 के फोटो और हस्ताक्षर की फाइल-सीमा देखें और आवेदन से पहले आधिकारिक विज्ञापन जांचें।",
+    "excerpt_hi": "OSSSC के फोटो और हस्ताक्षर नियम पद के अनुसार अलग हैं। यह गाइड आवेदन के आठ भाग, सामान्य अपलोड श्रेणियां और Radiographer-2026 की सत्यापित फाइल-सीमा बताती है।",
     "contentHtml_hi": `
 <div class="mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
   <h4 class="font-bold text-primary mb-2">⚡ त्वरित सारांश: OSSSC 2026 चयन, एडमिट कार्ड एवं दस्तावेज अपलोड नियम</h4>
   <p class="text-sm text-foreground/90 leading-relaxed">
-    ओडिशा अधीनस्थ कर्मचारी चयन आयोग (OSSSC) द्वारा <strong>Combined Recruitment Examination (CRE: RI, ARI, Amin, SFS, ICDS)</strong>, <strong>Nursing Officer (5,989 पद)</strong>, <strong>Panchayat Executive Officer (PEO)</strong> और <strong>Forest Guard</strong> के पदों पर भर्ती की जाती है। आयोग के पोर्टल <code>osssc.gov.in</code> पर आवेदन करते समय <strong>20 KB से 100 KB के बीच रंगीन पासपोर्ट फोटो</strong> और <strong>140 × 60 पिक्सल का हस्ताक्षर (10 KB से 20 KB)</strong> अपलोड करना अनिवार्य है।
+    <strong>OSSSC में फोटो और हस्ताक्षर के नियम हर विज्ञापन के अनुसार अलग होते हैं।</strong> Radiographer-2026 के लिए रंगीन फोटो JPG/JPEG/PNG में <strong>20 KB से 100 KB</strong> और पूरे नमूना हस्ताक्षर JPG/JPEG/PNG में <strong>20 KB से 50 KB</strong> हैं। किसी अन्य पद के लिए यही सेटिंग दोबारा न इस्तेमाल करें; उसका सक्रिय विज्ञापन और आवेदन स्क्रीन जरूर देखें।
   </p>
 </div>
 
@@ -3141,28 +3075,28 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
 <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-muted-foreground my-4">
   <li><strong>ऑफ-पीक समय (रात 12:00 से सुबह 5:30 बजे):</strong> इस समय ट्रैफिक कम होता है और फॉर्म बिना एरर सबमिट होता है।</li>
   <li><strong>ब्राउज़र कैशे साफ़ करें / Incognito मोड:</strong> कुकीज की वजह से लॉगिन लूप होने पर <code>Ctrl + Shift + N</code> दबाकर प्राइवेट विंडो में खोलें।</li>
-  <li><strong>फाइलों को पहले से रिसाइज करें:</strong> पोर्टल पर सर्वर-साइड टाइमआउट से बचने के लिए हस्ताक्षर को पहले ही 10-20 KB में रिसाइज करके रखें।</li>
+  <li><strong>फाइलों को पहले से तैयार करें:</strong> Radiographer-2026 के लिए फोटो 20-100 KB और हस्ताक्षर 20-50 KB रखें। अन्य पदों के लिए अपने विज्ञापन की सीमा का पालन करें।</li>
 </ul>
 
-<h2>📐 3. OSSSC ऑनलाइन पोर्टल हेतु फोटो एवं हस्ताक्षर विनिर्देश</h2>
+<h2>📐 3. OSSSC Radiographer-2026 फोटो एवं हस्ताक्षर विनिर्देश</h2>
 <div class="my-6 p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4">
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
     <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
       <h4 class="font-bold text-primary">पासपोर्ट फोटो मानक (Photo)</h4>
       <ul class="space-y-1.5 text-muted-foreground">
-        <li>आकार: <strong>20 KB से 100 KB</strong> के बीच (JPG/JPEG प्रारूप)</li>
-        <li>आयाम: <strong>3.5 सेमी × 4.5 सेमी</strong> (200 × 230 पिक्सल)</li>
-        <li>पृष्ठभूमि: हल्के रंग या सफेद बैकग्राउंड, दोनों कान साफ दिखाई दें</li>
-        <li>प्रतिबंध: चश्मा या टोपी पहनने पर फोटो स्वतः निरस्त होगी</li>
+        <li>फाइल सीमा: <strong>20 KB से 100 KB</strong> (JPG/JPEG/PNG)</li>
+        <li>आयाम: आधिकारिक स्रोत में एक सार्वभौमिक पिक्सल आकार नहीं दिया गया है।</li>
+        <li>स्पष्ट, हाल का और पहचान योग्य रंगीन फोटो उपयोग करें।</li>
+        <li>दूसरी OSSSC भर्ती के लिए उसका अलग विज्ञापन देखें।</li>
       </ul>
     </div>
     <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
       <h4 class="font-bold text-primary">हस्ताक्षर विनिर्देश (Signature)</h4>
       <ul class="space-y-1.5 text-muted-foreground">
-        <li>आकार: <strong>10 KB से 20 KB</strong> (कड़ाई से अनिवार्य सीमा)</li>
-        <li>आयाम: <strong>140 × 60 पिक्सल</strong> (पहलू अनुपात 7:3)</li>
-        <li>स्याही: साफ सफेद कागज पर <strong>काली बॉलपॉइंट स्याही</strong> से रनिंग राइटिंग</li>
-        <li>चेतावनी: बड़े अक्षरों (BLOCK/CAPITAL) में किए गए हस्ताक्षर अमान्य हैं</li>
+        <li>फाइल सीमा: <strong>20 KB से 50 KB</strong> (JPG/JPEG/PNG)</li>
+        <li>140 × 60 पिक्सल इस टूल का डिफॉल्ट क्रॉप है, सार्वभौमिक OSSSC नियम नहीं।</li>
+        <li>सही प्रस्तुति और स्याही के लिए सक्रिय विज्ञापन देखें।</li>
+        <li>अंतिम फाइल को आवेदन के प्रीव्यू में जांचें।</li>
       </ul>
     </div>
   </div>
@@ -3170,10 +3104,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
 
 <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
   <h4 class="text-base font-bold text-foreground">OSSSC हस्ताक्षर एवं फोटो 1 क्लिक में रिसाइज करें</h4>
-  <p class="text-sm text-muted-foreground mt-1">SignResize टूल से अपने हस्ताक्षर को बिना किसी गुणवत्ता हानि के तुरंत 10-20 KB में बदलें।</p>
-  <a href="/osssc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
-    OSSSC रिसाइज़र टूल खोलें &rarr;
-  </a>
+  <p class="text-sm text-muted-foreground mt-1">Radiographer-2026 के लिए फोटो को 20-100 KB और हस्ताक्षर को 20-50 KB में तैयार करें।</p>
+  <div class="flex flex-wrap gap-2 mt-3"><a href="/osssc-photo-resizer/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">OSSSC फोटो रिसाइज़र &rarr;</a><a href="/osssc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-95 transition">OSSSC हस्ताक्षर रिसाइज़र &rarr;</a></div>
 </div>
 `
   },

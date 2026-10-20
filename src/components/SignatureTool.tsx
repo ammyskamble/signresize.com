@@ -77,6 +77,8 @@ import {
   applyDocumentFilters
 } from '../utils/imageProcessor';
 import { createPdfFromJpegBlob } from '../utils/pdfGenerator';
+import { canProcessImagesOffThread, processImageOffThread } from '../utils/imageProcessorWorker';
+import { createPdfOffThread } from '../utils/pdfGeneratorWorker';
 import { ToastNotification, type ToastItem } from './tool/ToastNotification';
 import { StepIndicator } from './tool/StepIndicator';
 import { PresetBanner } from './tool/PresetBanner';
@@ -161,7 +163,7 @@ export const MODE_CONFIG: Record<ToolTargetMode, {
     inspectorTitle: 'Signature Quality & Pixel Inspector',
     inspectorDesc: 'Inspect ink edge definition, stroke contrast, and portal compliance at magnified zoom.',
     ratios: [
-      { ratio: 140 / 60, label: '7:3', title: '7:3 Standard (SSC / Banking / Railway)' },
+      { ratio: 140 / 60, label: '7:3', title: '7:3 crop ratio (use your selected exam preset when required)' },
       { ratio: 1, label: '1:1', title: 'Square 1:1 (UPSC / Thumb Impression)' },
       { ratio: 'free', label: 'Freeform', title: 'Freeform Crop' }
     ],
@@ -582,6 +584,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const containerRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const dragRafRef = useRef<number | null>(null);
+  const dragBoundsRef = useRef<DOMRect | null>(null);
   const sourceObjectUrlRef = useRef<string | null>(null);
   const uploadSequenceRef = useRef(0);
   const processingSequenceRef = useRef(0);
@@ -1538,6 +1541,32 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     const sequence = ++processingSequenceRef.current;
     setIsProcessing(true);
     try {
+      // Let React commit the pending state before starting a transform. Prefer
+      // the browser scheduler when available, then fall back for older clients.
+      const scheduler = (window as Window & { scheduler?: { yield?: () => Promise<void> } }).scheduler;
+      if (scheduler?.yield) await scheduler.yield();
+      else await new Promise<void>((resolve) => setTimeout(resolve, 0));
+      // On modern browsers, the full canvas pipeline then runs in a dedicated worker.
+      if (canProcessImagesOffThread()) {
+        try {
+          const offThread = await processImageOffThread(sourceImage, {
+            crop, targetWidth: targetWidthPx, targetHeight: targetHeightPx, rotation, flipH, flipV, filters,
+            format: targetFormat, minKb, maxKb, targetKb: selectedPreset?.recommendedKb || (minKb + maxKb) / 2,
+            targetType, candidateName, dateOfPhoto, addNameDateStamp, documentHighContrast, presetNotes: selectedPreset?.notes,
+          });
+          if (sequence !== processingSequenceRef.current) { URL.revokeObjectURL(offThread.result.dataUrl); return; }
+          setBackgroundIssues(offThread.issues);
+          setProcessedResult((prev) => {
+            if (prev?.dataUrl) URL.revokeObjectURL(prev.dataUrl);
+            return offThread.result;
+          });
+          return;
+        } catch (workerError) {
+          // Safari and older Android WebViews can expose part of the worker API
+          // without supporting all canvas operations. Keep the compatible path.
+          console.warn('Off-thread image processing unavailable; using compatible canvas path.', workerError);
+        }
+      }
       const renderedCanvas = renderProcessedCanvas(
         sourceImage,
         sourceImage.naturalWidth,
@@ -2052,7 +2081,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   // Handle Single Download
   const handleDownload = () => {
     if (!processedResult) return;
-    if (isProcessing || !processedResult.withinTargetBounds || inspectExport(processedResult, exportRule).length) {
+    if (isProcessing || !processedResult.withinTargetBounds || inspectExport(processedResult, exportRule).length || (selectedPreset && inspectExport(processedResult, selectedPreset).length)) {
       addToast('Fix the export checks before downloading. Restore the preset settings and inspect the crop.', 'Export needs attention', 'warning');
       return;
     }
@@ -2109,9 +2138,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         });
       }
 
-      const pdfBlob = await createPdfFromJpegBlob(jpegBlob, targetWidthPx, targetHeightPx, {
-        pageSize: targetType === 'document' ? 'A4' : 'fit'
-      });
+      const pdfOptions = { pageSize: targetType === 'document' ? 'A4' as const : 'fit' as const };
+      const pdfBlob = await createPdfOffThread(jpegBlob, targetWidthPx, targetHeightPx, pdfOptions)
+        .catch(() => createPdfFromJpegBlob(jpegBlob, targetWidthPx, targetHeightPx, pdfOptions));
 
       const cleanExamTag = selectedPreset ? `${selectedPreset.shortCode.toLowerCase()}_` : '';
       const filename = `${cleanExamTag}${modeConfig.filePrefix}${targetWidthPx}x${targetHeightPx}_${Math.round(pdfBlob.size / 1024)}kb.pdf`;
@@ -2163,6 +2192,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   // Cropper interaction handlers (Single Mode)
   const handleCropMouseDown = (e: React.MouseEvent | React.TouchEvent, handle: string) => {
     e.stopPropagation();
+    // Read layout once before React writes crop styles. Subsequent move events
+    // use this snapshot, avoiding a forced reflow for every pointer update.
+    dragBoundsRef.current = containerRef.current?.getBoundingClientRect() ?? null;
     setIsDraggingCrop(true);
     setActiveHandle(handle);
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
@@ -2181,8 +2213,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     }
 
     dragRafRef.current = requestAnimationFrame(() => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
+      const rect = dragBoundsRef.current;
+      if (!rect || !rect.width || !rect.height) return;
       const scaleX = naturalW / rect.width;
       const scaleY = naturalH / rect.height;
 
@@ -2324,6 +2356,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       cancelAnimationFrame(dragRafRef.current);
       dragRafRef.current = null;
     }
+    dragBoundsRef.current = null;
     setIsDraggingCrop(false);
     setActiveHandle(null);
   };
@@ -2583,7 +2616,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       ]
     : [
         { id: 'ssc-cgl', short: 'SSC CGL', label: 'SSC CGL 2026', specs: '140×60 • 10–20 KB' },
-        { id: 'ssc-general', short: 'SSC All', label: 'SSC (CHSL, MTS, GD)', specs: '140×60 • 10–20 KB' },
+        { id: 'ssc-general', short: 'SSC Guide', label: 'SSC preparation preset', specs: '600×200 • 10–20 KB' },
         { id: 'upsc-civil-services', short: 'UPSC', label: 'UPSC (IAS, NDA)', specs: '350×350 • 20–300 KB' },
         { id: 'ibps-sbi', short: 'IBPS', label: 'IBPS (PO/Clerk)', specs: '140×60 • 10–20 KB' },
         { id: 'rrb-railway', short: 'RRB', label: 'RRB Railways', specs: '140×60 • 10–20 KB' }
@@ -2681,6 +2714,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           <div className="flex flex-wrap items-center gap-2 max-w-full">
             {PINNED_TOP_EXAMS.map((item) => {
               const isSelected = selectedPreset?.id === item.id;
+              const pinnedPreset = ALL_COMBINED_PRESETS.find(preset => preset.id === item.id);
               return (
                 <button
                   key={item.id}
@@ -2698,7 +2732,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 >
                   <span>{item.short}</span>
                   <span className={`text-[10px] font-mono font-normal opacity-80 ${isSelected ? 'text-primary-foreground' : 'text-muted-foreground'}`}>
-                    {item.specs.split('•')[0]}
+                    {pinnedPreset ? `${pinnedPreset.widthPx}×${pinnedPreset.heightPx}` : item.specs.split('•')[0]}
                   </span>
                 </button>
               );
@@ -2937,14 +2971,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             <div className="space-y-1 text-xs">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-2 py-0.5 rounded bg-amber-500 dark:bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase tracking-wider shadow-2xs">
-                  Official Rule
+                  {selectedPreset.portalExactSpecsVerified === false ? 'Preset guidance' : 'Official Rule'}
                 </span>
                 <span className="font-bold text-amber-950 dark:text-amber-200">
                   {selectedPreset.name} Upload Guidelines
                 </span>
               </div>
               <p className="leading-relaxed text-amber-900/90 dark:text-amber-100/90">
-                {selectedPreset.notes} • <strong className="text-amber-950 dark:text-amber-50 font-semibold">Ink:</strong> {selectedPreset.inkRequirement}
+                {selectedPreset.notes}
+                {selectedPreset.portalExactSpecsVerified !== false && <> • <strong className="text-amber-950 dark:text-amber-50 font-semibold">Ink:</strong> {selectedPreset.inkRequirement}</>}
               </p>
             </div>
           </div>
@@ -4939,7 +4974,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Status</div>
                     <div className="pt-0.5">
                       {processedResult ? (
-                        !processedResult.withinTargetBounds || inspectExport(processedResult, exportRule).length > 0 ? (
+                        !processedResult.withinTargetBounds || inspectExport(processedResult, exportRule).length > 0 || (selectedPreset && inspectExport(processedResult, selectedPreset).length > 0) ? (
                           <button
                             type="button"
                             onClick={() => setShowExportChecks(true)}
@@ -5532,9 +5567,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
               </div>
               <div className="p-2 rounded-lg bg-card border border-border/60">
                 <div className="text-[10px] text-muted-foreground uppercase font-semibold">Portal Status</div>
-                <div className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-1">
+                <div className={`font-bold flex items-center justify-center gap-1 ${selectedPreset?.portalExactSpecsVerified === false || (selectedPreset && inspectExport(processedResult, selectedPreset).length > 0) ? 'text-amber-700 dark:text-amber-300' : 'text-emerald-600 dark:text-emerald-400'}`}>
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Verified OK</span>
+                  <span>{selectedPreset?.portalExactSpecsVerified === false ? 'Check advertisement' : selectedPreset && inspectExport(processedResult, selectedPreset).length > 0 ? 'Preset mismatch' : 'Verified OK'}</span>
                 </div>
               </div>
             </div>

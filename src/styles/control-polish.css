@@ -137,7 +137,7 @@ body:has(#tool-workspace:not(.compact-studio)) :is([data-directory-tab], [data-d
   align-items: center;
   justify-content: center;
   gap: 7px;
-  min-height: 38px;
+  min-height: 44px;
   padding: 8px 14px;
   border: 1px solid var(--border);
   border-radius: 7px 14px 7px 7px;

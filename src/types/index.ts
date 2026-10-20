@@ -63,6 +63,8 @@ export interface ExamPreset {
   docCategory?: string;
   sourceUrl?: string;
   sourceLabel?: string;
+  /** False when a source omits universal exact pixel requirements for this post. */
+  portalExactSpecsVerified?: boolean;
 }
 
 export type ToolTargetMode = 'signature' | 'photo' | 'document';

@@ -1,6 +1,7 @@
 import type { ExamPreset } from '../types';
+import { GUIDANCE_PRESET_UPDATES } from './examGuidance';
 
-export const EXAM_PRESETS: ExamPreset[] = [
+const BASE_EXAM_PRESETS: ExamPreset[] = [
   {
     id: 'ssc-cgl',
     name: 'SSC CGL (Combined Graduate Level) Signature',
@@ -1076,7 +1077,7 @@ export const EXAM_PRESETS: ExamPreset[] = [
   },
   {
     id: 'osssc-preset',
-    name: 'OSSSC (Odisha Sub-ordinate Staff Selection Commission)',
+    name: 'OSSSC Radiographer 2026 Signature',
     shortCode: 'OSSSC',
     authority: 'Odisha Sub-ordinate Staff Selection Commission',
     category: 'State PSC',
@@ -1084,15 +1085,19 @@ export const EXAM_PRESETS: ExamPreset[] = [
     heightPx: 60,
     widthCm: 3.5,
     heightCm: 1.5,
-    minKb: 10,
-    maxKb: 20,
-    recommendedKb: 15,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
     dpi: 200,
     format: 'JPG',
     aspectRatio: 140 / 60,
-    notes: 'OSSSC CRE recruitment: 10 KB to 20 KB signature in black ballpoint pen.',
-    inkRequirement: 'Black Ink Only',
+    notes: 'OSSSC Radiographer-2026: full specimen signature in JPG/JPEG/PNG, 20 KB to 50 KB. Requirements differ by advertisement; verify the active notice before upload.',
+    inkRequirement: 'Use the ink and signature presentation specified in the active advertisement',
     isPopular: false,
+    targetType: 'signature',
+    sourceUrl: 'https://www.osssc.gov.in/Docs/WHATSNEW_How_do_I_OSSSC.pdf',
+    sourceLabel: 'OSSSC upload guidance (requirements are post-specific)',
+    portalExactSpecsVerified: false,
   },
   // --- 4. Defense & Paramilitary ---
   {
@@ -1746,7 +1751,36 @@ export const EXAM_PRESETS: ExamPreset[] = [
   }
 ];
 
-export const PHOTO_PRESETS: ExamPreset[] = [
+export const EXAM_PRESETS: ExamPreset[] = BASE_EXAM_PRESETS.map(preset => ({ ...preset, ...GUIDANCE_PRESET_UPDATES[preset.id] }));
+
+const BASE_PHOTO_PRESETS: ExamPreset[] = [
+  {
+    id: 'osssc-radiographer-photo',
+    name: 'OSSSC Radiographer 2026 Photo',
+    shortCode: 'OSSSC Photo',
+    authority: 'Odisha Sub-ordinate Staff Selection Commission (OSSSC)',
+    category: 'State PSC',
+    // The active notice gives file bounds, not a required pixel canvas. This is a 7:9 tool default.
+    widthPx: 350,
+    heightPx: 450,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 100,
+    recommendedKb: 60,
+    dpi: 100,
+    format: 'JPG',
+    aspectRatio: 350 / 450,
+    notes: 'Radiographer-2026: recent colour photograph in JPG/JPEG/PNG, 20 KB to 100 KB. OSSSC upload requirements vary by advertisement; 350×450 is a SignResize crop default, not an OSSSC-mandated pixel size.',
+    inkRequirement: 'Recent colour passport-style photograph',
+    isPopular: false,
+    targetType: 'photo',
+    requiresNameDate: false,
+    faceGuide: true,
+    sourceUrl: 'https://www.osssc.gov.in/Public/OSSSC/Default.aspx',
+    sourceLabel: 'OSSSC official recruitment portal',
+    portalExactSpecsVerified: false,
+  },
   {
     id: 'sarathi-photo',
     name: 'Sarathi Driving Licence Photo (Parivahan)',
@@ -3008,6 +3042,8 @@ export const PHOTO_PRESETS: ExamPreset[] = [
     sourceLabel: 'DSSSB OARS Official Photo Upload Notice',
   }
 ];
+
+export const PHOTO_PRESETS: ExamPreset[] = BASE_PHOTO_PRESETS.map(preset => ({ ...preset, ...GUIDANCE_PRESET_UPDATES[preset.id] }));
 
 export const DOCUMENT_PRESETS: ExamPreset[] = [
   {

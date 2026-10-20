@@ -5,6 +5,68 @@ const sbiSources = [
   { label: 'SBI Careers: choose your current PO or Clerk notification', url: 'https://sbi.co.in/web/careers/current-openings' },
   { label: 'SBI signature guidance example (specialist recruitment, January 2026)', url: 'https://home.sbi.bank.in/documents/77530/52947104/12012026_FINAL%2BDETAILED%2BADVT%2BSCO%2B20%2BAVP%2BHR%2B%281%29.pdf/12012026_FINAL%20DETAILED%20ADVT%20SCO%2020%20AVP%20HR%20%281%295c0e.pdf?t=1768197915210' },
 ];
+const ossscSources = [
+  { label: 'OSSSC official recruitment portal - Radiographer-2026 listed under Advertisement No. IIE-60/2026-2630/OSSSC', url: 'https://www.osssc.gov.in/Public/OSSSC/Default.aspx' },
+  { label: 'OSSSC official upload guide - requirements are applicable by post', url: 'https://www.osssc.gov.in/Docs/WHATSNEW_How_do_I_OSSSC.pdf' },
+];
+const ossscSignature: ExamPageInfo = {
+  slug: 'osssc-signature-resize', presetId: 'osssc-preset',
+  pageTitle: 'OSSSC Radiographer Signature Resizer (20 to 50 KB) - SignResize',
+  metaDescription: 'Prepare a Radiographer-2026 OSSSC signature between 20 KB and 50 KB. Private browser tool with official OSSSC source links and an advertisement-specific checklist.',
+  keywords: 'osssc radiographer signature resize, osssc signature size 20 to 50 kb, osssc radiographer 2026 signature upload, odisha subordinate signature compressor',
+  h1: 'OSSSC Radiographer Signature Resizer (20 KB - 50 KB)',
+  subheading: 'For OSSSC Radiographer-2026: prepare a 20-50 KB signature file, then confirm the active-advertisement requirements before submitting.',
+  authority: 'Odisha Sub-ordinate Staff Selection Commission (OSSSC)',
+  targetExams: 'OSSSC Radiographer-2026 (Advertisement No. IIE-60/2026-2630/OSSSC only)',
+  widthPx: 140, heightPx: 60, widthCm: 3.5, heightCm: 1.5,
+  minKb: 20, maxKb: 50, recommendedKb: 35, dpi: 200,
+  ink: 'Use the signature presentation required by the current advertisement',
+  aspectRatioLabel: '7:3 tool default (not a universal OSSSC pixel rule)',
+  hidePhysicalSize: true,
+  pixelNote: 'The official OSSSC upload guide gives file bounds and says requirements apply by post. 140x60 px is this tool default, not a claimed universal OSSSC requirement.',
+  guidanceLabel: 'OSSSC Radiographer-2026 upload guidance', verifiedOn: '2026-10-20', sources: ossscSources,
+  strictNotice: 'This page is calibrated for Radiographer-2026, not every OSSSC recruitment. Check the active advertisement and application screen before upload.',
+  relatedTools: ['osssc-photo-resizer', 'photo-resizer'],
+  tips: [
+    'Use the same signature format and ink presentation required by the Radiographer-2026 advertisement.',
+    'Use the Clean White Paper filter only when it preserves the clarity of the signature.',
+    'Confirm the downloaded file is between 20 KB and 50 KB before upload.',
+    'For CRE, RI, ARI, Amin, PEO, Nursing Officer, or other vacancies, use that recruitment notice instead of this preset.',
+  ],
+  faqs: [
+    { q: 'What signature size does this OSSSC tool use?', a: 'This page is for OSSSC Radiographer-2026 and targets 20 KB to 50 KB. OSSSC requirements vary by post, so confirm the active advertisement and application screen for a different recruitment.' },
+    { q: 'Is 140x60 px mandatory for every OSSSC signature?', a: 'No. The official upload guide used here does not establish one universal OSSSC pixel rule. This tool uses 140x60 px only as a practical crop default.' },
+  ],
+};
+const ossscPhoto: ExamPageInfo = {
+  slug: 'osssc-photo-resizer', presetId: 'osssc-radiographer-photo',
+  pageTitle: 'OSSSC Radiographer Photo Resizer (20 to 100 KB) - SignResize',
+  metaDescription: 'Prepare a recent passport-style photo for OSSSC Radiographer-2026 between 20 KB and 100 KB. Private browser photo resizer with official-source links and an advertisement-specific checklist.',
+  keywords: 'osssc photo resizer, osssc radiographer photo size 20 to 100 kb, osssc photo compressor, osssc radiographer 2026 photo upload, odisha subordinate photo resize',
+  h1: 'OSSSC Radiographer Photo Resizer (20 KB - 100 KB)',
+  subheading: 'Prepare a recent photo for OSSSC Radiographer-2026 within the 20-100 KB file range. Check the active advertisement before upload because OSSSC requirements differ by post.',
+  authority: 'Odisha Sub-ordinate Staff Selection Commission (OSSSC)',
+  targetExams: 'OSSSC Radiographer-2026 (Advertisement No. IIE-60/2026-2630/OSSSC only)',
+  widthPx: 350, heightPx: 450, widthCm: 3.5, heightCm: 4.5,
+  minKb: 20, maxKb: 100, recommendedKb: 60, dpi: 100,
+  ink: 'Recent colour passport-style photograph', aspectRatioLabel: '7:9 SignResize crop default',
+  hidePhysicalSize: true,
+  pixelNote: 'The available official OSSSC source states the file range and format, not a mandatory pixel canvas. This tool defaults to a 7:9, 350x450 px crop; do not treat that as an OSSSC-mandated pixel rule.',
+  guidanceLabel: 'OSSSC Radiographer-2026 upload guidance', verifiedOn: '2026-10-20', sources: ossscSources,
+  strictNotice: 'Use this preset only for Radiographer-2026. For every other OSSSC recruitment, follow the current advertisement and application screen rather than reusing this photo setting.',
+  relatedTools: ['osssc-signature-resize', 'photo-resizer'],
+  tips: [
+    'Start with a clear, recent colour photograph that visibly identifies the candidate.',
+    'Use a clean, plain background and ensure the face is sharply focused before compression.',
+    'Download JPG and verify that the actual file is between 20 KB and 100 KB.',
+    'Open the Radiographer-2026 application instructions again before submitting; do not assume this setting applies to CRE or another post.',
+  ],
+  faqs: [
+    { q: 'What photo file size does OSSSC Radiographer-2026 require?', a: 'The Radiographer-2026 source used for this page specifies a recent photograph in JPG/JPEG/PNG format from 20 KB to 100 KB. Check the active OSSSC advertisement before submission.' },
+    { q: 'What pixel size should I use for an OSSSC photo?', a: 'The official source linked here specifies file size and format, not one mandatory pixel value. This tool uses a 350x450 px, 7:9 crop default so you can produce a clear file, but it is not presented as an official OSSSC pixel requirement.' },
+    { q: 'Can I use this OSSSC photo preset for CRE, RI, ARI, Amin or PEO?', a: 'No. OSSSC states that upload rules are applicable by post. Use the current advertisement and application screen for that recruitment.' },
+  ],
+};
 const sbi: ExamPageInfo = {
   slug: 'sbi-signature-resize', presetId: 'sbi-signature',
   pageTitle: 'SBI Signature Resizer – 10–20 KB, 140×60 px | SignResize',
@@ -34,7 +96,7 @@ const sbi: ExamPageInfo = {
   relatedTools: ['sbi-po-signature-resize', 'sbi-clerk-signature-resize', 'ibps-signature-resize'],
 };
 
-export const FOCUSED_EXAM_PAGES: ExamPageInfo[] = [sbi, {
+export const FOCUSED_EXAM_PAGES: ExamPageInfo[] = [ossscPhoto, sbi, {
   slug: 'iit-jam-signature-resize', presetId: 'iit-jam',
   pageTitle: 'IIT JAM Signature Resize 2027 (50–150 KB) – JOAPS Resizer | SignResize',
   metaDescription: 'Free IIT JAM 2027 signature resizer & compressor. Format to official 560×160 px (7×2 cm) and 50–150 KB JPG for JOAPS portal. Automated padding prevents rejection.',
@@ -69,6 +131,7 @@ export const FOCUSED_EXAM_PAGES: ExamPageInfo[] = [sbi, {
 }];
 
 export const EXAM_PAGE_UPDATES: Record<string, Partial<ExamPageInfo>> = {
+  'osssc-signature-resize': ossscSignature,
   'ibps-signature-resize': {
     pageTitle: 'IBPS Signature Resizer – 10–20 KB, 140×60 px | SignResize',
     metaDescription: 'Resize your handwritten IBPS signature to 140×60 pixels and 10–20 KB JPG. Private online tool; check the current PO, Clerk, SO or RRB notification.',

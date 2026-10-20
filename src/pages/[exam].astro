@@ -7,6 +7,8 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
 import ThemeScript from '../components/ThemeScript.astro';
 import SignatureCropExamples from '../components/SignatureCropExamples.astro';
+import ExamRequirements from '../components/ExamRequirements.astro';
+import { EXAM_GUIDANCE } from '../data/examGuidance';
 import { SignatureTool } from '../components/SignatureTool';
 import { EXAM_PAGES_DATA, type ExamPageInfo } from '../data/examPagesData';
 import { BLOG_POSTS } from '../data/blogPostsData';
@@ -27,6 +29,7 @@ export async function getStaticPaths() {
 }
 
 const { examData, canonicalUrl: propCanonicalUrl } = Astro.props as { examData: ExamPageInfo; canonicalUrl?: string };
+const examGuidance = EXAM_GUIDANCE[examData.slug];
 
 const canonicalUrl = propCanonicalUrl || `https://signresize.in/${examData.slug}/`;
 const ogImageUrl = 'https://signresize.in/og-image.png';
@@ -38,13 +41,13 @@ const isSarathi = examData.slug.includes('sarathi');
 const isPan = examData.slug.includes('pan-card');
 const isIbAcio = examData.slug.includes('ib-acio');
 const isGds = examData.slug.includes('india-post-gds');
-const isSscMts = examData.slug === 'ssc-mts-signature-resize';
+const isSscMts = examData.slug === 'ssc-mts-signature-resize' && !examGuidance;
 const isCuet = examData.slug.includes('cuet');
 const isUpsssc = examData.slug.includes('upsssc');
 const isBssc = examData.slug.includes('bssc');
 const isDsssb = examData.slug.includes('dsssb');
 const isKeralaPsc = examData.slug.includes('kerala-psc');
-const isCtet = examData.slug.includes('ctet');
+const isCtet = examData.slug.includes('ctet') && !examGuidance;
 const isRrb = examData.slug === 'rrb-signature-resize' || examData.slug === 'rrb-photo-resize';
 const isCoastGuard = examData.slug.includes('coast-guard');
 const isWbpsc = examData.slug.includes('wbpsc') || examData.slug.includes('wbcs');
@@ -288,7 +291,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
           <!-- Quick Matrix Badges -->
           <div class="flex items-center gap-2 flex-wrap shrink-0">
             <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
-              <div class="text-[9px] uppercase font-bold text-muted-foreground">Dimensions</div>
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">{examData.pixelNote ? 'Tool canvas' : 'Dimensions'}</div>
               <div class="text-xs font-bold text-foreground font-mono">{examData.widthPx} × {examData.heightPx} PX</div>
             </div>
             <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
@@ -303,7 +306,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
         </div>
 
         <!-- Strict Warning Alert -->
-        {!hasDocumentSuite && (
+        {!hasDocumentSuite && !examGuidance && (
           <div class="mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2.5">
             <span class="text-base leading-none">⚠️</span>
             <div>
@@ -313,7 +316,9 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
         )}
       </section>
 
-      {relatedTools.length > 0 && !hasDocumentSuite && (
+      {examGuidance && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
+
+      {relatedTools.length > 0 && !hasDocumentSuite && !examGuidance && (
         <nav class="flex flex-wrap gap-2 text-xs" aria-label="Related signature tools">
           {relatedTools.map(tool => (
             <a href={`/${tool.slug}/`} class="px-3 py-2 rounded-xl bg-card border border-border text-primary hover:bg-primary/10 transition">
@@ -929,7 +934,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
         
         <!-- Left Side: Interactive Tool -->
         <div class="lg:col-span-8 space-y-6">
-          <div class="bg-card border border-border rounded-2xl p-4 sm:p-6 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
+          <div id="exam-tool" class="scroll-mt-20 bg-card border border-border rounded-2xl p-4 sm:p-6 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
             <SignatureTool 
               client:load
               initialPresetId={examData.presetId} 
@@ -940,7 +945,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
           <!-- Exam Authority Knowledge & FAQ Section -->
           <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-6">
             
-            {examData.slug.includes('ssc') && (
+            {examData.slug.startsWith('ssc-') && !examGuidance && (
               <div class="p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-3">
                 <div class="flex items-center justify-between flex-wrap gap-2">
                   <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
@@ -1087,6 +1092,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
             )}
 
             <!-- Specifications Deep Dive Table -->
+            {!examGuidance && (
             <div class="space-y-3">
               <h2 class="text-base font-bold text-foreground flex items-center gap-2">
                 <span>📋</span> {examData.authority} Official Dimension &amp; Upload Standards
@@ -1155,6 +1161,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
             </div>
 
             <!-- Tailored Pro Tips for Rejection-Proof Uploads -->
+            )}
             {examData.sources && <SignatureCropExamples />}
             <div class="space-y-3 pt-4 border-t border-border">
               <h3 class="text-sm font-bold text-foreground flex items-center gap-2">

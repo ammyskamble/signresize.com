@@ -11,6 +11,7 @@ import SocialShare from '../../components/SocialShare.astro';
 import { BLOG_POSTS, type BlogPost } from '../../data/blogPostsData';
 import { EXAM_PRESETS, ALL_COMBINED_PRESETS } from '../../data/examPresets';
 import { EXAM_PAGES_DATA } from '../../data/examPagesData';
+import { EXAM_GUIDANCE } from '../../data/examGuidance';
 
 export function getStaticPaths() {
   return BLOG_POSTS.map((post) => ({
@@ -60,6 +61,15 @@ if (post.country === 'BD') {
 const isPkiCompliancePost = post.country === 'US' || (post.tags && post.tags.some(t => /pki|nist|digital signature|esign|cryptograph/i.test(t)));
 const isWbpscPost = Boolean(post.tags && post.tags.some(t => /wbpsc|wbcs/i.test(t)));
 const isOssscPost = Boolean(post.slug?.includes("osssc") || (post.tags && post.tags.some(t => /osssc/i.test(t))));
+// Route exam-specific articles to their own guidance instead of a generic SSC CTA.
+const guidanceSlug = post.slug.startsWith('ssc-cgl-') ? 'ssc-cgl-signature-resize'
+  : post.slug.startsWith('ssc-chsl-') ? 'ssc-chsl-signature-resize'
+  : post.slug.startsWith('ssc-mts-') ? 'ssc-mts-signature-resize'
+  : post.slug.startsWith('ctet-') ? 'ctet-signature-resize'
+  : post.slug.startsWith('ssc-live-photo-') ? 'ssc-photo-resize'
+  : null;
+const sourceGuide = guidanceSlug ? EXAM_PAGES_DATA.find(page => page.slug === guidanceSlug) : null;
+if (guidanceSlug) relatedExamSlug = guidanceSlug;
 
 // Intelligent Related Posts selection:
 // Calculate relevance score for all other posts based on category, tags, and cluster overlap
@@ -485,6 +495,14 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           )}
 
 <!-- Main Article Prose Content (with Enhanced Headline, Code, Stepper & Table Responsiveness) -->
+      {sourceGuide && guidanceSlug && (
+        <aside class="my-5 rounded-xl border border-primary/30 bg-primary/5 p-4 space-y-2" aria-label="Source-checked upload guidance">
+          <h2 class="font-bold">Check the source notice before preparing your files</h2>
+          <p class="text-sm text-muted-foreground">{EXAM_GUIDANCE[guidanceSlug].caution}</p>
+          <a href={`/${guidanceSlug}/`} class="inline-flex min-h-11 items-center font-semibold text-primary underline">{sourceGuide.h1} →</a>
+          <p class="text-xs text-muted-foreground">Source scope: {sourceGuide.guidanceLabel}. Reviewed {sourceGuide.verifiedOn}. Older preparation advice in this article may use different presets; compare it with the cited notice.</p>
+        </aside>
+      )}
       <article class="article-prose prose prose-slate dark:prose-invert max-w-none w-full min-w-0 break-words prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
         {post.slug === 'ssc-live-photo-webcam-guidelines-troubleshooting-2026' && <section class="mb-6 space-y-3"><h2 class="text-xl font-bold">Try your webcam before opening SSC</h2><WebcamChecker client:visible /></section>}
         <Fragment set:html={processedHtml} />

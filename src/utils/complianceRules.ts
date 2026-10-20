@@ -21,6 +21,25 @@ export interface ComplianceAudit {
 }
 
 export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMode): ComplianceAudit {
+  // Source-scoped presets must not inherit an older authority-wide rule set.
+  if (preset?.portalExactSpecsVerified === false) {
+    return {
+      examName: preset.shortCode,
+      title: 'Review file settings and the active notice',
+      badge: 'NOTICE CHECK REQUIRED',
+      badgeColor: 'amber',
+      description: 'Local checks compare this export with your selected preparation preset. They do not determine government-portal acceptance.',
+      statusWarning: 'Verify the active notice',
+      items: [
+        { icon: '📄', title: 'Source and cycle', description: preset.notes, severity: 'warning' },
+        { icon: '📏', title: 'Tool settings', description: `${preset.widthPx} × ${preset.heightPx} px, ${preset.minKb}–${preset.maxKb} KB, ${preset.format}. Pixel defaults are not an official mandate unless the source says so.`, severity: 'info' },
+        { icon: '🔎', title: 'Manual image review', description: 'Inspect the complete image, readability and application preview yourself. Local checks do not verify identity or authenticity.', severity: 'info' },
+      ],
+      officialSource: preset.sourceLabel,
+      officialUrl: preset.sourceUrl,
+      actionType: 'inspectCrop',
+    };
+  }
   const presetId = preset?.id?.toLowerCase() || '';
   const presetName = preset?.name?.toLowerCase() || '';
   const authority = preset?.authority?.toLowerCase() || '';

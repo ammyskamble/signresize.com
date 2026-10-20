@@ -1,4 +1,5 @@
 import { EXAM_PAGE_UPDATES, FOCUSED_EXAM_PAGES } from './focusedExamPages';
+import { GUIDANCE_PAGE_UPDATES } from './examGuidance';
 
 export interface ExamPageInfo {
   guidanceLabel?: string;
@@ -3791,6 +3792,6 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
 
 // Focused, source-backed guidance overrides the historical shared exam entries.
 export const EXAM_PAGES_DATA: ExamPageInfo[] = [
-  ...BASE_EXAM_PAGES_DATA.map(page => ({ ...page, ...EXAM_PAGE_UPDATES[page.slug] })),
+  ...BASE_EXAM_PAGES_DATA.map(page => ({ ...page, ...EXAM_PAGE_UPDATES[page.slug], ...GUIDANCE_PAGE_UPDATES[page.slug] })),
   ...FOCUSED_EXAM_PAGES,
 ];

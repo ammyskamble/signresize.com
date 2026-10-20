@@ -107,7 +107,9 @@ export function ExportChecksDialog({
 
   const issues = result ? inspectExport(result, rule) : [];
   const presetIssues = result && preset ? inspectExport(result, preset) : [];
-  const blocked = busy || !result || !result.withinTargetBounds || issues.length > 0;
+  const complianceRule = preset ?? rule;
+  const complianceIssues = result ? inspectExport(result, complianceRule) : [];
+  const blocked = busy || !result || !result.withinTargetBounds || issues.length > 0 || presetIssues.length > 0;
 
   return (
     <dialog
@@ -124,7 +126,7 @@ export function ExportChecksDialog({
             <span>🛡️ Export Compliance Checks</span>
             {preset && <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono">{preset.shortCode}</span>}
           </h2>
-          <p className="text-[11px] text-muted-foreground mt-0.5">Pre-download verification against official portal criteria</p>
+          <p className="text-[11px] text-muted-foreground mt-0.5">Pre-download verification against the selected preset</p>
         </div>
         <button
           type="button"
@@ -149,7 +151,7 @@ export function ExportChecksDialog({
               {result.width} × {result.height} px · {(result.sizeBytes / 1024).toFixed(2)} KB · {result.format}
             </div>
             <p className="text-muted-foreground text-[11px]">
-              Target Bounds: {rule.minKb} KB – {rule.maxKb} KB ({rule.widthPx} × {rule.heightPx} px)
+              Selected preset bounds: {complianceRule.minKb} KB – {complianceRule.maxKb} KB ({complianceRule.widthPx} × {complianceRule.heightPx} px)
             </p>
             <div className="pt-1">
               {blocked ? (
@@ -180,11 +182,20 @@ export function ExportChecksDialog({
         </div>
       )}
 
+      {presetIssues.length > 0 && !issues.length && (
+        <div role="alert" className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/40 text-rose-700 dark:text-rose-300 text-xs space-y-1.5">
+          <div className="font-bold">Selected Preset Requirements Not Met:</div>
+          <ul className="space-y-1 pl-4 list-disc text-[11px]">
+            {complianceIssues.map((issue) => <li key={issue.code}><strong>{issue.message}</strong> {issue.fix}</li>)}
+          </ul>
+        </div>
+      )}
+
       {/* Custom Divergence Notice */}
       {!!presetIssues.length && (
         <div role="alert" className="text-xs rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 space-y-1">
           <strong className="text-amber-800 dark:text-amber-300">Custom export differs from {preset?.shortCode} requirements</strong>
-          <p className="text-[11px] text-muted-foreground">The file matches your manual settings, but does not match official preset dimensions.</p>
+          <p className="text-[11px] text-muted-foreground">The file matches your manual settings, but does not match the selected preset settings.</p>
           <button type="button" onClick={onRestore} className="text-xs font-bold text-primary underline cursor-pointer mt-1 block">
             Restore preset settings →
           </button>

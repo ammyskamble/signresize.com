@@ -312,7 +312,7 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
           <div class="hero-art-caption"><span>01 Scan <i>→</i> 02 Refine <i>→</i> 03 Resize <small>Illustration</small></span><button type="button" id="hero-motion" aria-label="Pause hero animation" aria-pressed="false">Pause Ⅱ</button></div>
         </div>
       </section>
-      <ClosingSoon planner client:load />
+      <ClosingSoon planner client:idle />
       <!-- Main Interactive Resizer Studio (Full-Width Studio Command Center) -->
       <section class="bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
         <SignatureTool focusedWorkspace client:load />

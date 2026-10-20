@@ -5,6 +5,13 @@ import { BLOG_POSTS } from '../data/blogPostsData';
 import { PAN_INDIA_GOV_JOBS } from '../data/governmentJobsData';
 
 const CORE_TOOLS = [
+  {
+    type: 'guide', id: 'ctet-2022-archive', slug: 'ctet-photo-signature-size-2022',
+    title: 'CTET Photo and Signature Size 2022 — Historical Reference',
+    shortCode: 'CTET 2022', desc: 'December 2022 bulletin: photo 10–100 KB, signature 3–30 KB; not a current application notice.',
+    url: '/ctet-photo-signature-size-2022/', category: 'Exam Guides', badge: 'ARCHIVE',
+    keywords: 'ctet photo signature size 2022 december historical bulletin',
+  },
   ...[
     ['background-remover', 'Signature Background Remover', 'Remove paper shadows; download a transparent PNG or white JPG'],
     ['photo-background-remover', 'Photo Background Remover', 'Remove a portrait background; choose white, transparent or custom colour'],
@@ -35,7 +42,7 @@ const CORE_TOOLS = [
     slug: 'ssc-cgl-signature-resize',
     title: 'SSC CGL Photo & Signature Size 2026 Resizer',
     shortCode: 'SSC CGL Tool',
-    desc: 'Official 140×60 px signature (10–20 KB) and 3.5×4.5 cm photo specs for SSC CGL 2026',
+    desc: 'CGL 2026: 10–20 KB signature JPEG, live photo capture and a source-notice dimension conflict to check',
     url: '/ssc-cgl-signature-resize/',
     category: 'Govt Exam',
     badge: 'POPULAR',
@@ -194,6 +201,7 @@ const presetSlugMap = new Map([
   ['dsssb-preset', 'dsssb-signature-resize'],
   ['mppsc-preset', 'mppsc-signature-resize'],
   ['osssc-preset', 'osssc-signature-resize'],
+  ['osssc-radiographer-photo', 'osssc-photo-resizer'],
   ['rpsc-ras', 'rpsc-signature-resize'],
   ['opsc-odisha', 'opsc-signature-resize'],
   ['gpsc-ojas', 'gpsc-signature-resize'],

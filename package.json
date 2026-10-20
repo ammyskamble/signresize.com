@@ -11,6 +11,7 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/copy-sitemap.mjs",
     "verify:indexing": "node scripts/verify-indexing.mjs",
+    "verify:exam-guidance": "node scripts/verify-exam-guidance.mjs",
     "verify:background": "node scripts/verify-paper-background.mjs && node scripts/verify-portrait-background.mjs && node scripts/verify-upload-checks.mjs && node scripts/verify-background-pages.mjs && node scripts/check-background-types.mjs",
     "verify:toolkit": "node scripts/verify-exam-day-tools.mjs",
     "verify:feedback": "node scripts/verify-feedback.mjs",
