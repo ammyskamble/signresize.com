@@ -280,3 +280,88 @@ body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inlin
   body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button { flex-direction: column; gap: 4px; padding: 6px 2px; min-height: 60px; font-size: 11px; }
   body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button > svg { width: 18px; height: 18px; padding: 2px; flex-shrink: 0; }
 }
+
+/* Indian Coast Guard 4-in-1 document suite matching main page canvas tabs */
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs.coast-guard-mode-tabs {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  flex: 1 1 420px;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs.coast-guard-mode-tabs::before {
+  content: none;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs.coast-guard-mode-tabs button {
+  min-height: 36px;
+  padding: 5px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs.coast-guard-mode-tabs button[aria-pressed="true"] {
+  background: var(--card);
+  color: var(--primary);
+  font-weight: 700;
+  border: 1px solid color-mix(in oklab, var(--primary) 35%, var(--border));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs.coast-guard-mode-tabs button[aria-pressed="true"] > svg {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+@media (max-width: 640px) {
+  body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs.coast-guard-mode-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile UI Space Optimization: Fix left and right side padding squeeze */
+@media (max-width: 640px) {
+  #exam-tool {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  #tool-workspace {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #tool-workspace .studio-editor > .studio-source-card,
+  #tool-workspace .studio-export > div,
+  #tool-workspace .enhancement-options {
+    padding: 12px 10px !important;
+    border-radius: 16px !important;
+  }
+
+  #tool-workspace #crop-workspace {
+    padding: 6px !important;
+    border-radius: 12px !important;
+  }
+
+  #tool-workspace #upload-dropzone {
+    padding: 16px 10px !important;
+  }
+
+  #tool-workspace .transform-options {
+    gap: 6px !important;
+    padding-top: 4px !important;
+  }
+
+  #tool-workspace .canvas-file-actions {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  #tool-workspace .canvas-file-actions button {
+    flex: 1 1 auto !important;
+    min-height: 36px !important;
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    justify-content: center !important;
+  }
+}
+

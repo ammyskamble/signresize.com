@@ -480,6 +480,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     return `${day}/${month}/${year}`;
   });
 
+  // Collapsible tool card visibility state
+  const [showComplianceTools, setShowComplianceTools] = useState<boolean>(true);
+  const [showEnhancementFilters, setShowEnhancementFilters] = useState<boolean>(true);
+  const [showDocScannerTools, setShowDocScannerTools] = useState<boolean>(true);
+
   // Document-specific configuration
   const [documentHighContrast, setDocumentHighContrast] = useState<boolean>(true);
 
@@ -982,8 +987,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     selectedPreset?.id.includes('coast-guard') ||
     selectedPreset?.name.toLowerCase().includes('coast guard') ||
     selectedPreset?.authority.toLowerCase().includes('coast guard') ||
-    resolvedPreset?.id.includes('coast-guard') ||
-    initialPresetId?.includes('coast-guard')
+    (!selectedPreset && (resolvedPreset?.id.includes('coast-guard') || initialPresetId?.includes('coast-guard')))
   );
 
   const isWbpscActive = Boolean(
@@ -2096,6 +2100,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       filename = `Signature.${ext}`;
     } else if (selectedPreset?.id === 'indian-coast-guard-thumb' || selectedPreset?.id === 'indian-coast-guard-thumb-doc') {
       filename = `Thumb_Impression.${ext}`;
+    } else if (selectedPreset?.id === 'indian-coast-guard-document') {
+      filename = `Certificate.${ext}`;
     } else if (selectedPreset?.id === 'wbpsc-photo') {
       filename = `wbpsc_photo.${ext}`;
     } else if (selectedPreset?.id === 'wbpsc-west-bengal' || selectedPreset?.id === 'wbpsc-signature-138x59') {
@@ -2585,13 +2591,6 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'id-passport', short: 'Paspor RI', label: 'Paspor / eVisa Imigrasi', specs: '350×450 • 100–1000 KB' },
         { id: 'us-ds160', short: 'US DS-160', label: 'US Visa DS-160', specs: '600×600 • 20–240 KB' }
       ]
-    : isCoastGuardActive
-    ? [
-        { id: 'indian-coast-guard', short: 'Coast Guard Sign', label: 'Coast Guard Sign', specs: '140×60 • 10–50 KB' },
-        { id: 'indian-coast-guard-photo', short: 'Slate Photo', label: 'Coast Guard Slate Photo', specs: '350×450 • 10–50 KB' },
-        { id: 'indian-coast-guard-thumb-doc', short: 'Left Thumb', label: 'Coast Guard Left Thumb', specs: '240×240 • 10–50 KB' },
-        { id: 'indian-coast-guard-document', short: 'Doc Marksheet', label: 'Coast Guard Marksheet', specs: '700×990 • 50–150 KB' }
-      ]
     : isWbpscActive
     ? [
         { id: 'wbpsc-west-bengal', short: 'WBPSC Sign', label: 'WBPSC Sign (140×60)', specs: '140×60 • 10–20 KB' },
@@ -2659,6 +2658,198 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       [catName]: !prev[catName]
     }));
   };
+
+  // Reusable Exam Selector Dropdown Combobox Popover (used in primary preset selector & dedicated suites like Coast Guard)
+  const renderExamDropdownPopover = () => (
+    <div id="exam-preset-options" role="region" aria-label="Exam preset search" className="mt-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 shadow-[0_16px_40px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.8)] space-y-2 sm:space-y-2.5 z-30 animate-in fade-in slide-in-from-top-2 duration-150 ring-1 ring-black/5 dark:ring-white/10">
+
+      {/* Combobox Search Toolbar - Compact */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/80 pb-2">
+        <div className="relative flex-1">
+          <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+          <input
+            type="text"
+            placeholder={lang === 'hi' ? '40+ परीक्षा प्रारूप खोजें (UPSC, SSC, UPPSC, BPSC, PAN)...' : lang === 'mr' ? '40+ परीक्षा फॉरमॅट शोधा (MPSC, पोलीस भरती, तलाठी, SSC)...' : modeConfig.searchPlaceholder}
+            aria-label="Search presets by exam or authority"
+            value={comboboxSearch}
+            onChange={(e) => setComboboxSearch(e.target.value)}
+            className="w-full pl-8 pr-8 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+          />
+          {comboboxSearch && (
+            <button
+              type="button"
+              onClick={() => setComboboxSearch('')}
+              className="absolute right-1.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground w-6 h-6 flex items-center justify-center rounded hover:bg-muted/60 cursor-pointer"
+              title="Clear search"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          )}
+        </div>
+
+        <div className="flex items-center justify-between sm:justify-end gap-2 text-xs">
+          <span className="text-muted-foreground font-mono text-[10px]">
+            {comboboxFilteredPresets.length} {t.tool.presetsFound}
+          </span>
+          <button
+            type="button"
+            onClick={() => setIsExamDropdownOpen(false)}
+            className="px-2.5 py-1 min-h-[30px] rounded-lg border border-border hover:bg-muted text-xs font-semibold text-muted-foreground hover:text-foreground transition cursor-pointer flex items-center gap-1"
+          >
+            {t.tool.close}
+          </button>
+        </div>
+      </div>
+
+      {/* When Searching: Flat Search Results Grid */}
+      {comboboxSearch.trim() ? (
+        <div className="space-y-1.5 max-h-[280px] sm:max-h-[320px] overflow-y-auto pr-1">
+          {comboboxFilteredPresets.length === 0 ? (
+            <div className="p-6 text-center text-xs text-muted-foreground">
+              No matching presets found for &ldquo;{comboboxSearch}&rdquo;. Try another search term.
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5">
+              {comboboxFilteredPresets.map((preset) => {
+                const isSelected = selectedPreset?.id === preset.id;
+                return (
+                  <button
+                    key={preset.id}
+                    type="button"
+                    onClick={() => {
+                      applyPreset(preset);
+                      setIsExamDropdownOpen(false);
+                    }}
+                    aria-pressed={isSelected}
+                    className={`text-left p-2 rounded-lg border transition text-xs flex flex-col justify-between cursor-pointer ${
+                      isSelected
+                        ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
+                        : 'border-border/70 bg-card hover:border-primary/40 hover:bg-muted/40'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="font-bold text-xs text-foreground truncate">{preset.shortCode}</span>
+                        <span className="text-[10px] font-mono font-bold text-primary shrink-0">
+                          {preset.minKb}–{preset.maxKb}KB
+                        </span>
+                      </div>
+                      <div className="text-[11px] text-muted-foreground truncate mt-0.5">{preset.name}</div>
+                    </div>
+                    <div className="pt-1 flex items-center justify-between gap-1 text-[9px] font-mono border-t border-border/40 mt-1 text-muted-foreground">
+                      <span>{preset.widthPx}×{preset.heightPx}px</span>
+                      <span className="text-primary font-medium truncate">{preset.category}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      ) : (
+        /* When Not Searching: Category Accordions */
+        <div className="space-y-1.5 max-h-[280px] sm:max-h-[320px] overflow-y-auto pr-1">
+          {(targetType === 'document'
+            ? [
+                { name: 'Education & Marksheets', match: (p: ExamPreset) => p.docCategory === 'Education' || p.category === 'General', description: '10th, 12th & Certificates' },
+                { name: 'Identity & Address Proofs', match: (p: ExamPreset) => p.docCategory === 'Identity' || p.category === 'Identity', description: 'Aadhaar, PAN & Voter ID' },
+                { name: 'Category & Reservation', match: (p: ExamPreset) => p.docCategory === 'Reservation', description: 'Caste, EWS, NCL' },
+                { name: 'Biometric & Thumb Scans', match: (p: ExamPreset) => p.docCategory === 'Biometric', description: 'Left Thumb, Medical & PwD' }
+              ]
+            : CATEGORY_GROUPS.map(g => ({
+                name: g.name,
+                match: (p: ExamPreset) => g.categories.includes(p.category),
+                description: g.description
+              }))
+          ).map((group) => {
+            const groupPresets = currentPresetList.filter(group.match);
+            if (groupPresets.length === 0) return null;
+
+            const isExpanded = expandedCategories[group.name] ?? false;
+
+            return (
+              <div key={group.name} className="border border-border/70 rounded-lg overflow-hidden bg-muted/15">
+                <button
+                  type="button"
+                  onClick={() => toggleCategoryAccordion(group.name)}
+                  aria-expanded={isExpanded}
+                  className="w-full py-1.5 px-2.5 flex items-center justify-between text-left hover:bg-muted/40 transition select-none cursor-pointer"
+                >
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-bold text-xs text-foreground">{group.name}</span>
+                    <span className="text-[10px] text-muted-foreground hidden sm:inline">• {group.description}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-muted text-muted-foreground border border-border">
+                      {groupPresets.length}
+                    </span>
+                    {isExpanded ? (
+                      <ChevronUp className="w-3 h-3 text-muted-foreground" />
+                    ) : (
+                      <ChevronDown className="w-3 h-3 text-muted-foreground" />
+                    )}
+                  </div>
+                </button>
+
+                {isExpanded && (
+                  <div className="p-2 pt-1 border-t border-border/50 bg-card">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5">
+                      {groupPresets.map((preset) => {
+                        const isSelected = selectedPreset?.id === preset.id;
+                        return (
+                          <button
+                            key={preset.id}
+                            type="button"
+                            onClick={() => {
+                              applyPreset(preset);
+                              setIsExamDropdownOpen(false);
+                            }}
+                            aria-pressed={isSelected}
+                            className={`text-left p-2 rounded-lg border transition text-xs flex flex-col justify-between cursor-pointer ${
+                              isSelected
+                                ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
+                                : 'border-border/70 bg-card hover:border-primary/40 hover:bg-muted/40'
+                            }`}
+                          >
+                            <div>
+                              <div className="flex items-center justify-between gap-1">
+                                <span className="font-bold text-xs text-foreground truncate">{preset.shortCode}</span>
+                                <span className="text-[10px] font-mono font-bold text-primary shrink-0">{preset.minKb}–{preset.maxKb}KB</span>
+                              </div>
+                              <div className="text-[11px] text-muted-foreground truncate mt-0.5">{preset.name}</div>
+                            </div>
+                            <div className="pt-1 flex items-center justify-between gap-1 text-[9px] font-mono text-muted-foreground border-t border-border/40 mt-1">
+                              <span>{preset.widthPx}×{preset.heightPx}px</span>
+                              <span className="text-primary font-medium truncate">
+                                {targetType === 'photo' ? 'White BG' : targetType === 'document' ? 'Seal' : preset.inkRequirement}
+                              </span>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Bottom Reference Link - Compact */}
+      <div className="pt-1.5 border-t border-border/60 flex items-center justify-between text-[11px]">
+        <span className="text-muted-foreground text-[10px]">Looking for official print size rules?</span>
+        <a
+          href="/#exam-specs"
+          onClick={() => setIsExamDropdownOpen(false)}
+          className="font-bold text-primary hover:underline flex items-center gap-1 text-[11px]"
+        >
+          <span>Browse Full Exam Dimensions Matrix (30+ Guidelines)</span>
+          <span>↓</span>
+        </a>
+      </div>
+    </div>
+  );
 
   // Consolidated Exam Selector Dropdown & Search System
   const renderPresetSelector = () => {
@@ -2770,197 +2961,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         </div>
 
         {/* Consolidated Exam Selector Dropdown Combobox Popover (Compressed & Compact) */}
-        {isExamDropdownOpen && (
-          <div id="exam-preset-options" role="region" aria-label="Exam preset search" className="mt-2 p-2.5 sm:p-3 rounded-xl bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 shadow-[0_16px_40px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.8)] space-y-2 sm:space-y-2.5 z-30 animate-in fade-in slide-in-from-top-2 duration-150 ring-1 ring-black/5 dark:ring-white/10">
-
-            {/* Combobox Search Toolbar - Compact */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/80 pb-2">
-              <div className="relative flex-1">
-                <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
-                <input
-                  type="text"
-                  placeholder={lang === 'hi' ? '40+ परीक्षा प्रारूप खोजें (UPSC, SSC, UPPSC, BPSC, PAN)...' : lang === 'mr' ? '40+ परीक्षा फॉरमॅट शोधा (MPSC, पोलीस भरती, तलाठी, SSC)...' : modeConfig.searchPlaceholder}
-                  aria-label="Search presets by exam or authority"
-                  value={comboboxSearch}
-                  onChange={(e) => setComboboxSearch(e.target.value)}
-                  className="w-full pl-8 pr-8 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
-                />
-                {comboboxSearch && (
-                  <button
-                    type="button"
-                    onClick={() => setComboboxSearch('')}
-                    className="absolute right-1.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground w-6 h-6 flex items-center justify-center rounded hover:bg-muted/60 cursor-pointer"
-                    title="Clear search"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                )}
-              </div>
-
-              <div className="flex items-center justify-between sm:justify-end gap-2 text-xs">
-                <span className="text-muted-foreground font-mono text-[10px]">
-                  {comboboxFilteredPresets.length} {t.tool.presetsFound}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setIsExamDropdownOpen(false)}
-                  className="px-2.5 py-1 min-h-[30px] rounded-lg border border-border hover:bg-muted text-xs font-semibold text-muted-foreground hover:text-foreground transition cursor-pointer flex items-center gap-1"
-                >
-                  {t.tool.close}
-                </button>
-              </div>
-            </div>
-
-            {/* When Searching: Flat Search Results Grid */}
-            {comboboxSearch.trim() ? (
-              <div className="space-y-1.5 max-h-[280px] sm:max-h-[320px] overflow-y-auto pr-1">
-                {comboboxFilteredPresets.length === 0 ? (
-                  <div className="p-6 text-center text-xs text-muted-foreground">
-                    No matching presets found for &ldquo;{comboboxSearch}&rdquo;. Try another search term.
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5">
-                    {comboboxFilteredPresets.map((preset) => {
-                      const isSelected = selectedPreset?.id === preset.id;
-                      return (
-                        <button
-                          key={preset.id}
-                          type="button"
-                          onClick={() => {
-                            applyPreset(preset);
-                            setIsExamDropdownOpen(false);
-                          }}
-                          aria-pressed={isSelected}
-                          className={`text-left p-2 rounded-lg border transition text-xs flex flex-col justify-between cursor-pointer ${
-                            isSelected
-                              ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
-                              : 'border-border/70 bg-card hover:border-primary/40 hover:bg-muted/40'
-                          }`}
-                        >
-                          <div>
-                            <div className="flex items-center justify-between gap-1">
-                              <span className="font-bold text-xs text-foreground truncate">{preset.shortCode}</span>
-                              <span className="text-[10px] font-mono font-bold text-primary shrink-0">
-                                {preset.minKb}–{preset.maxKb}KB
-                              </span>
-                            </div>
-                            <div className="text-[11px] text-muted-foreground truncate mt-0.5">{preset.name}</div>
-                          </div>
-                          <div className="pt-1 flex items-center justify-between gap-1 text-[9px] font-mono border-t border-border/40 mt-1 text-muted-foreground">
-                            <span>{preset.widthPx}×{preset.heightPx}px</span>
-                            <span className="text-primary font-medium truncate">{preset.category}</span>
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            ) : (
-              /* When Not Searching: Category Accordions */
-              <div className="space-y-1.5 max-h-[280px] sm:max-h-[320px] overflow-y-auto pr-1">
-                {(targetType === 'document'
-                  ? [
-                      { name: 'Education & Marksheets', match: (p: ExamPreset) => p.docCategory === 'Education' || p.category === 'General', description: '10th, 12th & Certificates' },
-                      { name: 'Identity & Address Proofs', match: (p: ExamPreset) => p.docCategory === 'Identity' || p.category === 'Identity', description: 'Aadhaar, PAN & Voter ID' },
-                      { name: 'Category & Reservation', match: (p: ExamPreset) => p.docCategory === 'Reservation', description: 'Caste, EWS, NCL' },
-                      { name: 'Biometric & Thumb Scans', match: (p: ExamPreset) => p.docCategory === 'Biometric', description: 'Left Thumb, Medical & PwD' }
-                    ]
-                  : CATEGORY_GROUPS.map(g => ({
-                      name: g.name,
-                      match: (p: ExamPreset) => g.categories.includes(p.category),
-                      description: g.description
-                    }))
-                ).map((group) => {
-                  const groupPresets = currentPresetList.filter(group.match);
-                  if (groupPresets.length === 0) return null;
-
-                  const isExpanded = expandedCategories[group.name] ?? false;
-
-                  return (
-                    <div key={group.name} className="border border-border/70 rounded-lg overflow-hidden bg-muted/15">
-                      <button
-                        type="button"
-                        onClick={() => toggleCategoryAccordion(group.name)}
-                        aria-expanded={isExpanded}
-                        className="w-full py-1.5 px-2.5 flex items-center justify-between text-left hover:bg-muted/40 transition select-none cursor-pointer"
-                      >
-                        <div className="flex items-center gap-1.5">
-                          <span className="font-bold text-xs text-foreground">{group.name}</span>
-                          <span className="text-[10px] text-muted-foreground hidden sm:inline">• {group.description}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <span className="px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-muted text-muted-foreground border border-border">
-                            {groupPresets.length}
-                          </span>
-                          {isExpanded ? (
-                            <ChevronUp className="w-3 h-3 text-muted-foreground" />
-                          ) : (
-                            <ChevronDown className="w-3 h-3 text-muted-foreground" />
-                          )}
-                        </div>
-                      </button>
-
-                      {isExpanded && (
-                        <div className="p-2 pt-1 border-t border-border/50 bg-card">
-                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5">
-                            {groupPresets.map((preset) => {
-                              const isSelected = selectedPreset?.id === preset.id;
-                              return (
-                                <button
-                                  key={preset.id}
-                                  type="button"
-                                  onClick={() => {
-                                    applyPreset(preset);
-                                    setIsExamDropdownOpen(false);
-                                  }}
-                                  aria-pressed={isSelected}
-                                  className={`text-left p-2 rounded-lg border transition text-xs flex flex-col justify-between cursor-pointer ${
-                                    isSelected
-                                      ? 'border-primary bg-primary/10 shadow-xs ring-1 ring-primary'
-                                      : 'border-border/70 bg-card hover:border-primary/40 hover:bg-muted/40'
-                                  }`}
-                                >
-                                  <div>
-                                    <div className="flex items-center justify-between gap-1">
-                                      <span className="font-bold text-xs text-foreground truncate">{preset.shortCode}</span>
-                                      <span className="text-[10px] font-mono font-bold text-primary shrink-0">{preset.minKb}–{preset.maxKb}KB</span>
-                                    </div>
-                                    <div className="text-[11px] text-muted-foreground truncate mt-0.5">{preset.name}</div>
-                                  </div>
-                                  <div className="pt-1 flex items-center justify-between gap-1 text-[9px] font-mono text-muted-foreground border-t border-border/40 mt-1">
-                                    <span>{preset.widthPx}×{preset.heightPx}px</span>
-                                    <span className="text-primary font-medium truncate">
-                                      {targetType === 'photo' ? 'White BG' : targetType === 'document' ? 'Seal' : preset.inkRequirement}
-                                    </span>
-                                  </div>
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-
-            {/* Bottom Reference Link - Compact */}
-            <div className="pt-1.5 border-t border-border/60 flex items-center justify-between text-[11px]">
-              <span className="text-muted-foreground text-[10px]">Looking for official print size rules?</span>
-              <a
-                href="/#exam-specs"
-                onClick={() => setIsExamDropdownOpen(false)}
-                className="font-bold text-primary hover:underline flex items-center gap-1 text-[11px]"
-              >
-                <span>Browse Full Exam Dimensions Matrix (30+ Guidelines)</span>
-                <span>↓</span>
-              </a>
-            </div>
-
-          </div>
-        )}
+        {isExamDropdownOpen && renderExamDropdownPopover()}
 
         {/* Official Guidance Alert for Active Preset - High Contrast Theme-Safe */}
         {selectedPreset && (
@@ -3037,7 +3038,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         aria-label="Upload signature or photo files"
         type="file"
         multiple
-        accept="image/*,.heic,.heif,.jfif,.webp,.png,.jpg,.jpeg"
+        accept="image/*"
         className="hidden"
         onClick={(e) => {
           (e.target as HTMLInputElement).value = '';
@@ -3053,7 +3054,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       {/* ========================================================================= */}
       {/* 🚀 PRIMARY DEDICATED EXAM RESIZER SELECTOR (Signature / Photo / Documents) */}
       {/* ========================================================================= */}
-      {!studioModeTabs && <div className="mode-selector p-3 sm:p-4 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-3 min-h-[185px] sm:min-h-[110px]">
+      {!studioModeTabs && !isCoastGuardActive && <div className="mode-selector p-3 sm:p-4 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-3 min-h-[185px] sm:min-h-[110px]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-2.5">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
@@ -3076,103 +3077,6 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             Active Mode: <strong className="text-primary capitalize">{targetType} Resizer</strong>
           </span>
         </div>
-
-        {/* ⚓ INDIAN COAST GUARD 4-IN-1 SECTION SELECTOR */}
-        {isCoastGuardActive && (
-          <div className="p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-primary/10 to-emerald-500/10 border-2 border-primary/30 shadow-xs space-y-2.5 my-1">
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
-                <span className="text-xs font-bold text-foreground uppercase tracking-wider">
-                  Indian Coast Guard (CGEPT) All 4 Application Sections
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold bg-primary/20 text-primary px-2.5 py-0.5 rounded-full border border-primary/30">
-                  Active: {selectedPreset?.shortCode || 'Coast Guard'}
-                </span>
-                <a
-                  href="https://joinindiancoastguard.cdac.in/cgept/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 px-2.5 py-0.5 rounded-full border border-emerald-500/30 transition"
-                  title="Official CGEPT Recruitment & Upload Guidelines Portal"
-                >
-                  <span>Official Portal: joinindiancoastguard.cdac.in</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-            </div>
-            <p className="text-[11px] text-muted-foreground">
-              Click any section to automatically set official CGEPT dimensions, KB boundaries, and upload rules:
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              <button
-                type="button"
-                onClick={() => selectCoastGuardSection('signature')}
-                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
-                  targetType === 'signature' && selectedPreset?.id === 'indian-coast-guard'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
-                    : 'bg-card border-border hover:bg-muted text-foreground'
-                }`}
-              >
-                <span className="text-xs font-bold flex items-center justify-between">
-                  <span>🖋️ Signature</span>
-                  {targetType === 'signature' && selectedPreset?.id === 'indian-coast-guard' && <Check className="w-3.5 h-3.5" />}
-                </span>
-                <span className="text-[10px] font-mono opacity-80">140×60 • 10–50 KB</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => selectCoastGuardSection('photo')}
-                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
-                  targetType === 'photo' && selectedPreset?.id === 'indian-coast-guard-photo'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
-                    : 'bg-card border-border hover:bg-muted text-foreground'
-                }`}
-              >
-                <span className="text-xs font-bold flex items-center justify-between">
-                  <span>📸 Slate Photo</span>
-                  {targetType === 'photo' && selectedPreset?.id === 'indian-coast-guard-photo' && <Check className="w-3.5 h-3.5" />}
-                </span>
-                <span className="text-[10px] font-mono opacity-80">3.5×4.5 • 10–50 KB</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => selectCoastGuardSection('thumb')}
-                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
-                  targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb')
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
-                    : 'bg-card border-border hover:bg-muted text-foreground'
-                }`}
-              >
-                <span className="text-xs font-bold flex items-center justify-between">
-                  <span>👆 Left Thumb</span>
-                  {targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb') && <Check className="w-3.5 h-3.5" />}
-                </span>
-                <span className="text-[10px] font-mono opacity-80">3×3 cm • 10–50 KB</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => selectCoastGuardSection('document')}
-                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
-                  targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
-                    : 'bg-card border-border hover:bg-muted text-foreground'
-                }`}
-              >
-                <span className="text-xs font-bold flex items-center justify-between">
-                  <span>📄 Documents</span>
-                  {targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document' && <Check className="w-3.5 h-3.5" />}
-                </span>
-                <span className="text-[10px] font-mono opacity-80">A4 • 50–150 KB</span>
-              </button>
-            </div>
-          </div>
-        )}
 
         {/* 🏛️ WBPSC 4-IN-1 SECTION SELECTOR */}
         {isWbpscActive && (
@@ -3351,8 +3255,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       </div>
 
       }
-      {/* Primary Exam Preset Selector & Guidance Alert */}
-      {!compactStudio && !focusedWorkspace && presetSelector}
+      {/* Primary Exam Preset Selector & Guidance Alert (Hidden for dedicated single-suite workflows like Indian Coast Guard) */}
+      {!compactStudio && !focusedWorkspace && !isCoastGuardActive && presetSelector}
 
 
       {/* ========================================================================= */}
@@ -3364,13 +3268,62 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
           {/* Mode Switcher Bar in Batch Mode */}
           <div className="batch-toolbar flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-card border border-border shadow-xs">
-            {studioModeTabs && <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
-            {(['signature', 'photo', 'document'] as const).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
-              {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
-              <span>{lang === 'hi' ? (type === 'signature' ? 'हस्ताक्षर' : type === 'photo' ? 'फोटो' : 'दस्तावेज़') : lang === 'mr' ? (type === 'signature' ? 'स्वाक्षरी' : type === 'photo' ? 'फोटो' : 'कागदपत्रे') : (type === 'signature' ? 'Signature' : type === 'photo' ? 'Photo' : 'Documents')}</span>
-              {lang === 'en' && <small className="studio-mode-description">{type === 'signature' ? 'Crop & clean' : type === 'photo' ? 'Portrait sizing' : 'Scan & compress'}</small>}
-            </button>)}
-          </div>}
+            {isCoastGuardActive ? (
+              <div className="studio-mode-tabs coast-guard-mode-tabs" role="group" aria-label="Coast Guard Document Type">
+                <button
+                  type="button"
+                  data-mode="signature"
+                  data-step="01"
+                  aria-pressed={targetType === 'signature' && (selectedPreset?.id === 'indian-coast-guard' || (!selectedPreset?.id.includes('-photo') && !selectedPreset?.id.includes('-thumb') && !selectedPreset?.id.includes('-document')))}
+                  onClick={() => selectCoastGuardSection('signature')}
+                  title="Signature.jpg • 140×60 px • 10–50 KB"
+                >
+                  <PenTool className="w-3.5 h-3.5 shrink-0" />
+                  <span>1. Signature</span>
+                </button>
+                <button
+                  type="button"
+                  data-mode="photo"
+                  data-step="02"
+                  aria-pressed={targetType === 'photo' || selectedPreset?.id === 'indian-coast-guard-photo'}
+                  onClick={() => selectCoastGuardSection('photo')}
+                  title="Passport_Photograph.jpg • 350×450 px • 10–50 KB (Chalk Slate)"
+                >
+                  <Camera className="w-3.5 h-3.5 shrink-0" />
+                  <span>2. Slate Photo</span>
+                </button>
+                <button
+                  type="button"
+                  data-mode="document"
+                  data-step="03"
+                  aria-pressed={targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb')}
+                  onClick={() => selectCoastGuardSection('thumb')}
+                  title="Thumb_Impression.jpg • 240×240 px • 10–50 KB (Left Thumb)"
+                >
+                  <span className="text-sm shrink-0 leading-none">👆</span>
+                  <span>3. Left Thumb</span>
+                </button>
+                <button
+                  type="button"
+                  data-mode="document"
+                  data-step="04"
+                  aria-pressed={targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document'}
+                  onClick={() => selectCoastGuardSection('document')}
+                  title="Certificate.jpg • 700×990 px • 50–150 KB (Marksheets)"
+                >
+                  <FileText className="w-3.5 h-3.5 shrink-0" />
+                  <span>4. Certificate</span>
+                </button>
+              </div>
+            ) : studioModeTabs && (
+              <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
+                {(['signature', 'photo', 'document'] as const).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
+                  {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
+                  <span>{lang === 'hi' ? (type === 'signature' ? 'हस्ताक्षर' : type === 'photo' ? 'फोटो' : 'दस्तावेज़') : lang === 'mr' ? (type === 'signature' ? 'स्वाक्षरी' : type === 'photo' ? 'फोटो' : 'कागदपत्रे') : (type === 'signature' ? 'Signature' : type === 'photo' ? 'Photo' : 'Documents')}</span>
+                  {lang === 'en' && <small className="studio-mode-description">{type === 'signature' ? 'Crop & clean' : type === 'photo' ? 'Portrait sizing' : 'Scan & compress'}</small>}
+                </button>)}
+              </div>
+            )}
             <div className="editor-mode-toggle inline-flex items-center gap-1 p-0.5 rounded-lg bg-muted/60 border border-border shrink-0">
               <button
                 type="button"
@@ -3940,72 +3893,94 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             <div className="studio-editor lg:col-span-7 space-y-5">
 
               {/* Card 1: Interactive Cropper Canvas */}
-              <div className="studio-source-card bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
+              <div className="studio-source-card bg-card border border-border rounded-2xl p-2.5 sm:p-5 shadow-xs space-y-4">
 
-                {/* ⚓ INDIAN COAST GUARD 4-IN-1 STUDIO SECTION SELECTOR */}
+                {/* ⚓ INDIAN COAST GUARD (CGEPT) CANVAS HEADER & SPEC STATUS */}
                 {isCoastGuardActive && (
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-amber-500/10 via-primary/10 to-emerald-500/10 border border-primary/30 space-y-2">
-                    <div className="flex items-center justify-between flex-wrap gap-2">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-foreground">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span>Coast Guard CGEPT Sections (Auto-Synced)</span>
+                  <div className="space-y-2 relative">
+                    {/* Compact Header: Portal badge, Authority link, Other Exams */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-border/50 text-xs">
+                      <div className="flex items-center gap-2">
+                        <span className="w-6 h-6 rounded-lg bg-primary/15 text-primary flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs">
+                          ⚓
+                        </span>
+                        <span className="text-xs sm:text-sm font-extrabold text-foreground tracking-tight">
+                          Indian Coast Guard (CGEPT) Tool Suite
+                        </span>
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 hidden sm:inline">
+                          01/2026 Batch
+                        </span>
                       </div>
-                      <span className="text-[10px] font-mono font-bold bg-primary/20 text-primary px-2 py-0.5 rounded">
-                        Active: {selectedPreset?.shortCode || 'Coast Guard'}
-                      </span>
+
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <a
+                          href="https://joinindiancoastguard.cdac.in/cgept/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 px-2.5 py-1 rounded-full border border-emerald-500/30 transition shadow-2xs"
+                          title="Official CGEPT Recruitment & Upload Guidelines Portal"
+                        >
+                          <span>joinindiancoastguard.cdac.in</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                        <button
+                          type="button"
+                          onClick={() => setIsExamDropdownOpen((open) => !open)}
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground bg-card hover:bg-muted px-2.5 py-1 rounded-full border border-border transition cursor-pointer"
+                          title="Switch to another exam or job preset"
+                        >
+                          <Search className="w-3 h-3 text-primary" />
+                          <span>Other Exams</span>
+                          {isExamDropdownOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                        </button>
+                      </div>
                     </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-xs">
-                      <button
-                        type="button"
-                        onClick={() => selectCoastGuardSection('signature')}
-                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
-                          targetType === 'signature' && selectedPreset?.id === 'indian-coast-guard'
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
-                            : 'bg-card border-border hover:bg-muted text-foreground'
-                        }`}
-                      >
-                        <span className="truncate">🖋️ Sign (10–50 KB)</span>
-                        {targetType === 'signature' && selectedPreset?.id === 'indian-coast-guard' && <Check className="w-3 h-3 shrink-0" />}
-                      </button>
 
-                      <button
-                        type="button"
-                        onClick={() => selectCoastGuardSection('photo')}
-                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
-                          targetType === 'photo' && selectedPreset?.id === 'indian-coast-guard-photo'
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
-                            : 'bg-card border-border hover:bg-muted text-foreground'
-                        }`}
-                      >
-                        <span className="truncate">📸 Slate Photo (10–50 KB)</span>
-                        {targetType === 'photo' && selectedPreset?.id === 'indian-coast-guard-photo' && <Check className="w-3 h-3 shrink-0" />}
-                      </button>
+                    {/* Floating Dropdown Popover for Other Exams */}
+                    {isExamDropdownOpen && (
+                      <div className="relative z-40">
+                        <div className="absolute top-1 left-0 right-0 z-50 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150">
+                          {renderExamDropdownPopover()}
+                        </div>
+                      </div>
+                    )}
 
-                      <button
-                        type="button"
-                        onClick={() => selectCoastGuardSection('thumb')}
-                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
-                          targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb')
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
-                            : 'bg-card border-border hover:bg-muted text-foreground'
-                        }`}
-                      >
-                        <span className="truncate">👆 Left Thumb (10–50 KB)</span>
-                        {targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb') && <Check className="w-3 h-3 shrink-0" />}
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => selectCoastGuardSection('document')}
-                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
-                          targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document'
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
-                            : 'bg-card border-border hover:bg-muted text-foreground'
-                        }`}
-                      >
-                        <span className="truncate">📄 Docs (50–150 KB)</span>
-                        {targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document' && <Check className="w-3 h-3 shrink-0" />}
-                      </button>
+                    {/* Compact Requirement & Target Filename Indicator */}
+                    <div className="p-2.5 rounded-xl bg-amber-500/10 dark:bg-amber-950/30 border border-amber-500/30 text-xs text-amber-950 dark:text-amber-200 flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="text-sm shrink-0">⚠️</span>
+                        <span className="text-[11px] leading-tight">
+                          {targetType === 'photo' || selectedPreset?.id === 'indian-coast-guard-photo' ? (
+                            <span>Hold black chalkboard with <strong>Name &amp; Date in white chalk</strong>. Auto-saved as <strong>Passport_Photograph.jpg</strong>.</span>
+                          ) : targetType === 'signature' ? (
+                            <span>Running cursive handwriting on plain white paper (no capital letters). Auto-saved as <strong>Signature.jpg</strong>.</span>
+                          ) : selectedPreset?.id === 'indian-coast-guard-document' ? (
+                            <span>Scanned from <strong>ORIGINAL</strong> certificate/marksheet (no photocopies). Auto-saved as <strong>Certificate.jpg</strong>.</span>
+                          ) : (
+                            <span>Clear left thumb impression ridge lines on plain white paper. Auto-saved as <strong>Thumb_Impression.jpg</strong>.</span>
+                          )}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1.5 shrink-0 text-[10px] font-mono font-bold">
+                        <span className="bg-amber-500/20 px-2 py-0.5 rounded">
+                          {targetType === 'photo' || selectedPreset?.id === 'indian-coast-guard-photo'
+                            ? '350×450 px • 10–50 KB'
+                            : targetType === 'signature'
+                            ? '140×60 px • 10–50 KB'
+                            : selectedPreset?.id === 'indian-coast-guard-document'
+                            ? '700×990 px • 50–150 KB'
+                            : '240×240 px • 10–50 KB'}
+                        </span>
+                        <span className="bg-black/10 dark:bg-white/10 px-2 py-0.5 rounded">
+                          {targetType === 'photo' || selectedPreset?.id === 'indian-coast-guard-photo'
+                            ? 'Passport_Photograph.jpg'
+                            : targetType === 'signature'
+                            ? 'Signature.jpg'
+                            : selectedPreset?.id === 'indian-coast-guard-document'
+                            ? 'Certificate.jpg'
+                            : 'Thumb_Impression.jpg'}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -4080,14 +4055,63 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
                 <div className="studio-meta-bar studio-inline-controls flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-2">
                   <div className="flex flex-wrap items-center gap-2.5">
-                    {/* Image type and editing mode share one compact toolbar. */}
-                    {studioModeTabs && <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
-                  {(['signature', 'photo', 'document'] as const).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
-                    {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
-                    <span>{lang === 'hi' ? (type === 'signature' ? 'हस्ताक्षर' : type === 'photo' ? 'फोटो' : 'दस्तावेज़') : lang === 'mr' ? (type === 'signature' ? 'स्वाक्षरी' : type === 'photo' ? 'फोटो' : 'कागदपत्रे') : (type === 'signature' ? 'Signature' : type === 'photo' ? 'Photo' : 'Documents')}</span>
-                    {lang === 'en' && <small className="studio-mode-description">{type === 'signature' ? 'Crop & clean' : type === 'photo' ? 'Portrait sizing' : 'Scan & compress'}</small>}
-                  </button>)}
-                </div>}
+                    {/* Image type and editing mode share one compact toolbar (exact same size as main page canvas tool) */}
+                    {isCoastGuardActive ? (
+                      <div className="studio-mode-tabs coast-guard-mode-tabs" role="group" aria-label="Coast Guard Document Type">
+                        <button
+                          type="button"
+                          data-mode="signature"
+                          data-step="01"
+                          aria-pressed={targetType === 'signature' && (selectedPreset?.id === 'indian-coast-guard' || (!selectedPreset?.id.includes('-photo') && !selectedPreset?.id.includes('-thumb') && !selectedPreset?.id.includes('-document')))}
+                          onClick={() => selectCoastGuardSection('signature')}
+                          title="Signature.jpg • 140×60 px • 10–50 KB"
+                        >
+                          <PenTool className="w-3.5 h-3.5 shrink-0" />
+                          <span>1. Signature</span>
+                        </button>
+                        <button
+                          type="button"
+                          data-mode="photo"
+                          data-step="02"
+                          aria-pressed={targetType === 'photo' || selectedPreset?.id === 'indian-coast-guard-photo'}
+                          onClick={() => selectCoastGuardSection('photo')}
+                          title="Passport_Photograph.jpg • 350×450 px • 10–50 KB (Chalk Slate)"
+                        >
+                          <Camera className="w-3.5 h-3.5 shrink-0" />
+                          <span>2. Slate Photo</span>
+                        </button>
+                        <button
+                          type="button"
+                          data-mode="document"
+                          data-step="03"
+                          aria-pressed={targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb')}
+                          onClick={() => selectCoastGuardSection('thumb')}
+                          title="Thumb_Impression.jpg • 240×240 px • 10–50 KB (Left Thumb)"
+                        >
+                          <span className="text-sm shrink-0 leading-none">👆</span>
+                          <span>3. Left Thumb</span>
+                        </button>
+                        <button
+                          type="button"
+                          data-mode="document"
+                          data-step="04"
+                          aria-pressed={targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document'}
+                          onClick={() => selectCoastGuardSection('document')}
+                          title="Certificate.jpg • 700×990 px • 50–150 KB (Marksheets)"
+                        >
+                          <FileText className="w-3.5 h-3.5 shrink-0" />
+                          <span>4. Certificate</span>
+                        </button>
+                      </div>
+                    ) : studioModeTabs && (
+                      <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
+                        {(['signature', 'photo', 'document'] as const).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
+                          {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
+                          <span>{lang === 'hi' ? (type === 'signature' ? 'हस्ताक्षर' : type === 'photo' ? 'फोटो' : 'दस्तावेज़') : lang === 'mr' ? (type === 'signature' ? 'स्वाक्षरी' : type === 'photo' ? 'फोटो' : 'कागदपत्रे') : (type === 'signature' ? 'Signature' : type === 'photo' ? 'Photo' : 'Documents')}</span>
+                          {lang === 'en' && <small className="studio-mode-description">{type === 'signature' ? 'Crop & clean' : type === 'photo' ? 'Portrait sizing' : 'Scan & compress'}</small>}
+                        </button>)}
+                      </div>
+                    )}
                     <div className="editor-mode-toggle inline-flex items-center gap-1 p-0.5 rounded-lg bg-muted/60 border border-border shrink-0">
                       <button
                         type="button"
@@ -4292,7 +4316,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 {/* Cropper Container Stage or Embedded Dropzone */}
                 <div
                   id="crop-workspace"
-                  className="relative overflow-hidden rounded-xl bg-muted/40 border border-border select-none min-h-[350px] sm:min-h-[400px] flex items-center justify-center p-3"
+                  className="relative overflow-hidden rounded-xl bg-muted/40 border border-border select-none min-h-[320px] sm:min-h-[400px] flex items-center justify-center p-1.5 sm:p-3"
                 >
                   {sourceImage ? (
                     <div
@@ -4478,7 +4502,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                       }}
                       onDragLeave={() => setIsDragOver(false)}
                       onDrop={handleDrop}
-                      className={`w-full h-full min-h-[340px] p-6 text-center flex flex-col items-center justify-center rounded-xl border-2 border-dashed transition-all cursor-pointer ${
+                      className={`w-full h-full min-h-[340px] p-3.5 sm:p-6 text-center flex flex-col items-center justify-center rounded-xl border-2 border-dashed transition-all cursor-pointer ${
                         isDragOver ? 'border-primary bg-primary/10' : 'border-border/80 bg-card/60 hover:border-primary/40'
                       }`}
                     >
@@ -4574,7 +4598,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     </button>
                   </div>
 
-                  <div className="canvas-file-actions flex items-center gap-2">
+                  <div className="canvas-file-actions flex flex-wrap items-center gap-1.5 sm:gap-2">
                     <button
                       type="button"
                       onClick={() => setLockAspect(!lockAspect)}
@@ -4639,164 +4663,214 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
               )}
               {sourceImage && <PortraitBackgroundFix key={targetType} mode={targetType} image={sourceImage} isSample={isSampleImage} onApply={image => { setProcessedResult(null); setSourceImage(image); }} />}
 
-              {targetType === 'photo' && <MobileOptions enabled={focusedWorkspace} title="Photo options: alignment, name & date">
               {/* PHOTO-SPECIFIC CONTROLS (FACE GUIDE & NAME/DATE ON PHOTO DOP) */}
               {targetType === 'photo' && (
-                <div className="rounded-2xl border-2 border-primary/25 bg-card p-4 sm:p-5 shadow-xs space-y-4">
+                <div className="rounded-2xl border-2 border-primary/25 bg-card p-3 sm:p-5 shadow-xs space-y-3 transition-all">
                   <div className="flex items-center justify-between border-b border-border/60 pb-2.5">
-                    <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
-                      <Camera className="w-3.5 h-3.5 text-primary" />
-                      <span>Passport Photo Compliance Tools</span>
-                    </h3>
-                    <span className="text-[10px] font-mono font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-md border border-primary/20">
-                      Govt Norms
-                    </span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
+                        <Camera className="w-3.5 h-3.5 text-primary" />
+                        <span>Passport Photo Compliance Tools</span>
+                      </h3>
+                      <span className="text-[10px] font-mono font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-md border border-primary/20">
+                        Govt Norms
+                      </span>
+                      {!showComplianceTools && (showFaceGuide || addNameDateStamp) && (
+                        <span className="text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/30">
+                          Active
+                        </span>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setShowComplianceTools(prev => !prev)}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-muted/60 hover:bg-muted text-foreground border border-border/70 hover:border-border transition cursor-pointer"
+                      aria-expanded={showComplianceTools}
+                      title={showComplianceTools ? "Hide photo compliance tools" : "Show photo compliance tools"}
+                    >
+                      <span>{showComplianceTools ? 'Hide' : 'Show'}</span>
+                      <ChevronDown className={`w-3.5 h-3.5 text-muted-foreground transition-transform duration-200 ${showComplianceTools ? 'rotate-180' : ''}`} />
+                    </button>
                   </div>
 
-                  {/* Face Guide Toggle */}
-                  <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
-                    <div>
-                      <span className="text-xs font-semibold text-foreground block">Face &amp; Shoulder Alignment Guide</span>
-                      <span className="text-[10px] text-muted-foreground">Displays passport alignment oval &amp; eye level line</span>
-                    </div>
-                    <input
-                      type="checkbox"
-                      checked={showFaceGuide}
-                      onChange={(e) => setShowFaceGuide(e.target.checked)}
-                      className="w-4 h-4 rounded text-primary focus:ring-primary"
-                    />
-                  </label>
+                  {showComplianceTools && (
+                    <div className="space-y-4 pt-1">
+                      {/* Face Guide Toggle */}
+                      <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
+                        <div>
+                          <span className="text-xs font-semibold text-foreground block">Face &amp; Shoulder Alignment Guide</span>
+                          <span className="text-[10px] text-muted-foreground">Displays passport alignment oval &amp; eye level line</span>
+                        </div>
+                        <input
+                          type="checkbox"
+                          checked={showFaceGuide}
+                          onChange={(e) => setShowFaceGuide(e.target.checked)}
+                          className="w-4 h-4 rounded text-primary focus:ring-primary"
+                        />
+                      </label>
 
-                  {/* Name & Date on Photo (DoP) Stamp */}
-                  <div className="p-3.5 rounded-xl border border-primary/20 bg-primary/5 space-y-3">
-                    <label className="flex items-center justify-between cursor-pointer">
+                      {/* Name & Date on Photo (DoP) Stamp */}
+                      <div className="p-3.5 rounded-xl border border-primary/20 bg-primary/5 space-y-3">
+                        <label className="flex items-center justify-between cursor-pointer">
+                          <div>
+                            <span className="text-xs font-bold text-foreground flex items-center gap-1.5">
+                              <User className="w-3.5 h-3.5 text-primary" />
+                              <span>Add Name &amp; Date of Photo (DoP)</span>
+                            </span>
+                            <span className="text-[10px] text-muted-foreground">
+                              Strictly required for SSC, UPPSC, NEET &amp; BPSC uploads
+                            </span>
+                          </div>
+                          <input
+                            type="checkbox"
+                            checked={addNameDateStamp}
+                            onChange={(e) => setAddNameDateStamp(e.target.checked)}
+                            className="w-4 h-4 rounded text-primary focus:ring-primary"
+                          />
+                        </label>
+
+                        {addNameDateStamp && (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 border-t border-primary/10">
+                            <div className="space-y-1">
+                              <label htmlFor="candidate-name-input" className="text-[10px] uppercase font-bold text-muted-foreground">Candidate Full Name:</label>
+                              <input
+                                id="candidate-name-input"
+                                type="text"
+                                placeholder="e.g. RAHUL SHARMA"
+                                aria-label="Candidate Full Name"
+                                value={candidateName}
+                                onChange={(e) => setCandidateName(e.target.value)}
+                                className="w-full px-3 py-1.5 text-xs rounded-lg border border-border bg-background text-foreground font-semibold"
+                              />
+                            </div>
+                            <div className="space-y-1">
+                              <label htmlFor="date-of-photo-input" className="text-[10px] uppercase font-bold text-muted-foreground">Date of Photo (DoP):</label>
+                              <input
+                                id="date-of-photo-input"
+                                type="text"
+                                placeholder="DD/MM/YYYY"
+                                aria-label="Date of Photo"
+                                value={dateOfPhoto}
+                                onChange={(e) => setDateOfPhoto(e.target.value)}
+                                className="w-full px-3 py-1.5 text-xs rounded-lg border border-border bg-background text-foreground font-mono font-semibold"
+                              />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* DOCUMENT-SPECIFIC CONTROLS (TEXT CLARITY & SCAN ENHANCER) */}
+              {targetType === 'document' && (
+                <div className="rounded-2xl border-2 border-primary/25 bg-card p-3 sm:p-5 shadow-xs space-y-3 transition-all">
+                  <div className="flex items-center justify-between border-b border-border/60 pb-2.5">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
+                        <FileText className="w-3.5 h-3.5 text-primary" />
+                        <span>Document &amp; Certificate Scanner Tools</span>
+                      </h3>
+                      <span className="text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/30">
+                        OCR Legibility
+                      </span>
+                      {!showDocScannerTools && documentHighContrast && (
+                        <span className="text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/30">
+                          Active
+                        </span>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setShowDocScannerTools(prev => !prev)}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-muted/60 hover:bg-muted text-foreground border border-border/70 hover:border-border transition cursor-pointer"
+                      aria-expanded={showDocScannerTools}
+                      title={showDocScannerTools ? "Hide document scanner tools" : "Show document scanner tools"}
+                    >
+                      <span>{showDocScannerTools ? 'Hide' : 'Show'}</span>
+                      <ChevronDown className={`w-3.5 h-3.5 text-muted-foreground transition-transform duration-200 ${showDocScannerTools ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
+
+                  {showDocScannerTools && (
+                    <div className="pt-1">
+                      <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
+                        <div>
+                          <span className="text-xs font-semibold text-foreground block">High-Clarity Document Text Booster</span>
+                          <span className="text-[10px] text-muted-foreground">Prevents blur on marksheet roll numbers, seal stamps &amp; signatures</span>
+                        </div>
+                        <input
+                          type="checkbox"
+                          checked={documentHighContrast}
+                          onChange={(e) => setDocumentHighContrast(e.target.checked)}
+                          className="w-4 h-4 rounded text-primary focus:ring-primary"
+                        />
+                      </label>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* IMAGE ENHANCEMENT FILTERS */}
+              <div className="enhancement-options rounded-2xl border border-border bg-card p-3 sm:p-5 shadow-xs space-y-3 transition-all">
+                <div className={`flex items-center justify-between ${showEnhancementFilters ? 'border-b border-border/60 pb-2.5' : ''}`}>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-primary" />
+                      <span>Image Enhancement Filters</span>
+                    </h3>
+                    <span className="text-[11px] text-muted-foreground font-mono hidden sm:inline">{modeConfig.filtersSubtitle}</span>
+                    {!showEnhancementFilters && (filters.cleanPaper || filters.blackAndWhite) && (
+                      <span className="text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/30">
+                        {filters.cleanPaper && filters.blackAndWhite ? 'Clean + B&W' : filters.cleanPaper ? 'Clean Paper' : 'B&W Mode'}
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowEnhancementFilters(prev => !prev)}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-muted/60 hover:bg-muted text-foreground border border-border/70 hover:border-border transition cursor-pointer"
+                    aria-expanded={showEnhancementFilters}
+                    title={showEnhancementFilters ? "Hide image enhancement filters" : "Show image enhancement filters"}
+                  >
+                    <span>{showEnhancementFilters ? 'Hide' : 'Show'}</span>
+                    <ChevronDown className={`w-3.5 h-3.5 text-muted-foreground transition-transform duration-200 ${showEnhancementFilters ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+
+                {showEnhancementFilters && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs pt-1">
+                    <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
                       <div>
-                        <span className="text-xs font-bold text-foreground flex items-center gap-1.5">
-                          <User className="w-3.5 h-3.5 text-primary" />
-                          <span>Add Name &amp; Date of Photo (DoP)</span>
-                        </span>
-                        <span className="text-[10px] text-muted-foreground">
-                          Strictly required for SSC, UPPSC, NEET &amp; BPSC uploads
-                        </span>
+                        <span className="text-foreground font-semibold block">{modeConfig.cleanFilterTitle}</span>
+                        <span className="text-[10px] text-muted-foreground">{modeConfig.cleanFilterSub}</span>
                       </div>
                       <input
                         type="checkbox"
-                        checked={addNameDateStamp}
-                        onChange={(e) => setAddNameDateStamp(e.target.checked)}
+                        id="clean-paper-filter"
+                        checked={filters.cleanPaper}
+                        onChange={(e) => setFilters({ ...filters, cleanPaper: e.target.checked })}
                         className="w-4 h-4 rounded text-primary focus:ring-primary"
                       />
                     </label>
 
-                    {addNameDateStamp && (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 border-t border-primary/10">
-                        <div className="space-y-1">
-                          <label htmlFor="candidate-name-input" className="text-[10px] uppercase font-bold text-muted-foreground">Candidate Full Name:</label>
-                          <input
-                            id="candidate-name-input"
-                            type="text"
-                            placeholder="e.g. RAHUL SHARMA"
-                            aria-label="Candidate Full Name"
-                            value={candidateName}
-                            onChange={(e) => setCandidateName(e.target.value)}
-                            className="w-full px-3 py-1.5 text-xs rounded-lg border border-border bg-background text-foreground font-semibold"
-                          />
-                        </div>
-                        <div className="space-y-1">
-                          <label htmlFor="date-of-photo-input" className="text-[10px] uppercase font-bold text-muted-foreground">Date of Photo (DoP):</label>
-                          <input
-                            id="date-of-photo-input"
-                            type="text"
-                            placeholder="DD/MM/YYYY"
-                            aria-label="Date of Photo"
-                            value={dateOfPhoto}
-                            onChange={(e) => setDateOfPhoto(e.target.value)}
-                            className="w-full px-3 py-1.5 text-xs rounded-lg border border-border bg-background text-foreground font-mono font-semibold"
-                          />
-                        </div>
+                    <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
+                      <div>
+                        <span className="text-foreground font-semibold block">{modeConfig.bwFilterTitle}</span>
+                        <span className="text-[10px] text-muted-foreground">{modeConfig.bwFilterSub}</span>
                       </div>
-                    )}
+                      <input
+                        type="checkbox"
+                        id="bw-mode-filter"
+                        checked={filters.blackAndWhite}
+                        onChange={(e) => setFilters({ ...filters, blackAndWhite: e.target.checked })}
+                        className="w-4 h-4 rounded text-primary focus:ring-primary"
+                      />
+                    </label>
                   </div>
-                </div>
-              )}
-
-              </MobileOptions>}
-
-              {targetType === 'document' && <MobileOptions enabled={focusedWorkspace} title="Document text clarity">
-              {/* DOCUMENT-SPECIFIC CONTROLS (TEXT CLARITY & SCAN ENHANCER) */}
-              {targetType === 'document' && (
-                <div className="rounded-2xl border-2 border-primary/25 bg-card p-4 sm:p-5 shadow-xs space-y-3">
-                  <div className="flex items-center justify-between border-b border-border/60 pb-2.5">
-                    <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
-                      <FileText className="w-3.5 h-3.5 text-primary" />
-                      <span>Document &amp; Certificate Scanner Tools</span>
-                    </h3>
-                    <span className="text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/30">
-                      OCR Legibility
-                    </span>
-                  </div>
-
-                  <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
-                    <div>
-                      <span className="text-xs font-semibold text-foreground block">High-Clarity Document Text Booster</span>
-                      <span className="text-[10px] text-muted-foreground">Prevents blur on marksheet roll numbers, seal stamps &amp; signatures</span>
-                    </div>
-                    <input
-                      type="checkbox"
-                      checked={documentHighContrast}
-                      onChange={(e) => setDocumentHighContrast(e.target.checked)}
-                      className="w-4 h-4 rounded text-primary focus:ring-primary"
-                    />
-                  </label>
-                </div>
-              )}
-
-              </MobileOptions>}
-
-              <MobileOptions enabled={focusedWorkspace} title="Enhance image (optional)">
-              {/* IMAGE ENHANCEMENT FILTERS */}
-              <div className="enhancement-options rounded-2xl border border-border bg-card p-4 sm:p-5 shadow-xs space-y-3">
-
-
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-primary" />
-                    <span>Image Enhancement Filters</span>
-                  </h3>
-                  <span className="text-[11px] text-muted-foreground font-mono">{modeConfig.filtersSubtitle}</span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                  <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
-                    <div>
-                      <span className="text-foreground font-semibold block">{modeConfig.cleanFilterTitle}</span>
-                      <span className="text-[10px] text-muted-foreground">{modeConfig.cleanFilterSub}</span>
-                    </div>
-                    <input
-                      type="checkbox"
-                      id="clean-paper-filter"
-                      checked={filters.cleanPaper}
-                      onChange={(e) => setFilters({ ...filters, cleanPaper: e.target.checked })}
-                      className="w-4 h-4 rounded text-primary focus:ring-primary"
-                    />
-                  </label>
-
-                  <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
-                    <div>
-                      <span className="text-foreground font-semibold block">{modeConfig.bwFilterTitle}</span>
-                      <span className="text-[10px] text-muted-foreground">{modeConfig.bwFilterSub}</span>
-                    </div>
-                    <input
-                      type="checkbox"
-                      id="bw-mode-filter"
-                      checked={filters.blackAndWhite}
-                      onChange={(e) => setFilters({ ...filters, blackAndWhite: e.target.checked })}
-                      className="w-4 h-4 rounded text-primary focus:ring-primary"
-                    />
-                  </label>
-                </div>
+                )}
               </div>
-
-              </MobileOptions>
 
             </div>
 
