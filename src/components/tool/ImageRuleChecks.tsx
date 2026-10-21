@@ -78,7 +78,14 @@ export function ExportChecksDialog({
         canvas.width = canvas.height = 96;
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
         if (!ctx) return;
-        ctx.drawImage(image, 0, 0, 96, 96);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, 96, 96);
+        const scale = Math.min(96 / (image.naturalWidth || 96), 96 / (image.naturalHeight || 96));
+        const dw = Math.round((image.naturalWidth || 96) * scale);
+        const dh = Math.round((image.naturalHeight || 96) * scale);
+        const dx = Math.round((96 - dw) / 2);
+        const dy = Math.round((96 - dh) / 2);
+        ctx.drawImage(image, dx, dy, dw, dh);
         const imgData = ctx.getImageData(0, 0, 96, 96).data;
         const bgIssues = inspectBackground(imgData, 96, 96, preset.notes);
         const ruledIssues = mode === 'signature' ? inspectRuledPaper(imgData, 96, 96) : [];

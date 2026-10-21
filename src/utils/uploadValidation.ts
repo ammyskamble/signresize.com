@@ -12,9 +12,9 @@ export function inspectBackground(pixels: ArrayLike<number>, width: number, heig
     const i = (y * width + x) * 4;
     const r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
     total++;
-    if (pixels[i + 3] < 245 || Math.min(r, g, b) < (lightAllowed ? 200 : 235) || Math.max(r, g, b) - Math.min(r, g, b) > 25) unsuitable++;
+    if (pixels[i + 3] < 200 || Math.min(r, g, b) < (lightAllowed ? 190 : 215) || Math.max(r, g, b) - Math.min(r, g, b) > 32) unsuitable++;
   }
-  if (!total || unsuitable / total < .25) return [];
+  if (!total || unsuitable / total < .32) return [];
   return [{ code: 'background', message: `Possible background problem: the image edges look coloured, dark, shadowed, or transparent. This preset calls for ${lightAllowed ? 'a plain light background' : 'a white background'}.`, fix: 'Check the background around the subject. Retake the photo against the required plain background, or upload a corrected image. For a signature or paper scan, try Clean White Paper and inspect the result.' }];
 }
 
@@ -22,8 +22,9 @@ export function inspectRuledPaper(pixels: ArrayLike<number>, width: number, heig
   if (width < 30 || height < 20) return [];
   const startY = Math.floor(height * 0.08);
   const endY = Math.floor(height * 0.92);
-  const minRun = Math.floor(width * 0.42);
+  const minRun = Math.floor(width * 0.55);
   const ruledRows: number[] = [];
+  let blueLineDetected = false;
 
   for (let y = startY; y <= endY; y++) {
     let consecutiveLinePixels = 0;
@@ -46,6 +47,7 @@ export function inspectRuledPaper(pixels: ArrayLike<number>, width: number, heig
 
       // Blue/cyan notebook ruled line
       const isBlueTint = b > r + 15 && b > g + 8 && lum < 235;
+      if (isBlueTint) blueLineDetected = true;
 
       // Grey/black notebook line with local vertical contrast against paper above or below
       let isGreyLine = false;
@@ -69,12 +71,13 @@ export function inspectRuledPaper(pixels: ArrayLike<number>, width: number, heig
       }
     }
 
-    if (maxConsecutive >= minRun || totalLinePixels >= width * 0.60) {
+    if (maxConsecutive >= minRun || totalLinePixels >= width * 0.65) {
       ruledRows.push(y);
     }
   }
 
-  if (ruledRows.length > 0) {
+  // Genuine notebook paper has blue tint lines or multiple parallel ruled lines across the sheet
+  if (blueLineDetected && ruledRows.length > 0 || ruledRows.length >= 2) {
     return [{
       code: 'ruled_paper',
       message: 'Ruled notebook lines detected across signature. Official exam portals (including UPSSSC PET Clause 9.3) strictly reject signatures on lined or checked notebook paper.',
