@@ -1,4 +1,5 @@
 import { useMemo, useRef, useEffect, useState } from 'react';
+import { Download } from 'lucide-react';
 import type { ExamPreset, ProcessedImageResult, ToolTargetMode } from '../../types';
 import { inspectBackground, inspectRuledPaper, inspectSource, inspectExport, type FileFacts, type ExportRule } from '../../utils/uploadValidation';
 import { ComplianceRejectionAudit } from './ComplianceRejectionAudit';
@@ -117,7 +118,7 @@ export function ExportChecksDialog({
       onCancel={onClose}
       onClose={onClose}
       aria-labelledby="export-checks-title"
-      className="m-auto w-[min(94vw,560px)] max-h-[88vh] overflow-y-auto rounded-2xl border-2 border-border bg-card text-foreground p-5 sm:p-6 backdrop:bg-black/65 shadow-2xl space-y-4"
+      className="m-auto w-[min(94vw,560px)] max-h-[88vh] overflow-y-auto overscroll-contain rounded-2xl border-2 border-border bg-card text-foreground p-5 sm:p-6 backdrop:bg-black/65 shadow-2xl space-y-4"
     >
       {/* Dialog Header */}
       <div className="flex items-center justify-between gap-3 border-b border-border pb-3">
@@ -238,11 +239,11 @@ export function ExportChecksDialog({
       </div>
 
       {/* Action Buttons */}
-      <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-2.5 pt-3 border-t border-border">
+      <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-2 pt-3 border-t border-border">
         <button
           type="button"
           onClick={onClose}
-          className="w-full sm:w-auto border border-border hover:bg-muted text-foreground rounded-xl px-4 py-2.5 text-xs font-semibold cursor-pointer transition text-center"
+          className="w-full sm:w-auto border border-border hover:bg-muted text-foreground rounded-xl px-4 py-2.5 text-xs font-semibold cursor-pointer transition text-center flex items-center justify-center min-h-[44px]"
         >
           Back to Edit Image
         </button>
@@ -250,7 +251,7 @@ export function ExportChecksDialog({
           <button
             type="button"
             onClick={onRestore}
-            className="w-full sm:w-auto border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 rounded-xl px-4 py-2.5 text-xs font-bold cursor-pointer transition text-center"
+            className="w-full sm:w-auto border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 rounded-xl px-4 py-2.5 text-xs font-bold cursor-pointer transition text-center flex items-center justify-center min-h-[44px]"
           >
             Restore Preset Settings
           </button>
@@ -259,9 +260,10 @@ export function ExportChecksDialog({
           type="button"
           disabled={blocked}
           onClick={onDownload}
-          className="w-full sm:w-auto bg-primary text-primary-foreground font-bold rounded-xl px-5 py-2.5 text-xs shadow-md shadow-primary/25 hover:opacity-95 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-center"
+          className="w-full sm:w-auto bg-primary text-primary-foreground font-bold rounded-xl px-5 py-2.5 text-xs shadow-md shadow-primary/25 hover:opacity-95 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-center flex items-center justify-center gap-2 min-h-[44px]"
         >
-          Download Verified File
+          <Download className="w-4 h-4 shrink-0" />
+          <span>Download Verified File {result ? `(${(result.sizeBytes / 1024).toFixed(1)} KB)` : ''}</span>
         </button>
       </div>
     </dialog>

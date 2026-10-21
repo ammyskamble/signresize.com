@@ -65,10 +65,53 @@
   body.home-workspace:has(#tool-workspace[data-has-image="true"]) { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
   body.home-workspace:has(.mobile-conversion-bar:not([hidden])) .copilot-launcher { bottom: calc(84px + env(safe-area-inset-bottom)); }
   body.home-workspace:has(.mobile-conversion-bar:not([hidden])) .copilot-launcher:has(button[aria-expanded="false"]) { display: none; }
-  body.home-workspace:has(dialog[open]) #tool-workspace .mobile-conversion-bar { display: none; }
-  body.home-workspace #tool-workspace :is(.transform-options, .crop-options) button { min-height: 44px; min-width: 44px; }
-  body.home-workspace #tool-workspace dialog { padding: 14px; max-height: 90dvh; }
-  body.home-workspace #tool-workspace dialog button { min-height: 44px; }
-  body.home-workspace #tool-workspace dialog > div:last-child { position: sticky; bottom: -14px; padding: 12px 0; background: var(--card); border-top: 1px solid var(--border); }
-  body.home-workspace #tool-workspace dialog > div:last-child button { flex: 1 1 120px; }
+  body:has(dialog[open]) .mobile-conversion-bar { display: none !important; }
+  #tool-workspace :is(.transform-options, .crop-options) button { min-height: 44px; min-width: 44px; }
+  #tool-workspace dialog {
+    padding: 16px;
+    max-height: 88dvh;
+    border-radius: 20px;
+    box-sizing: border-box;
+  }
+  #tool-workspace dialog button { min-height: 44px; }
+  #tool-workspace dialog > div:last-child {
+    position: sticky;
+    bottom: -16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-top: 14px;
+    padding: 10px 16px max(10px, env(safe-area-inset-bottom));
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+    z-index: 10;
+  }
+  #tool-workspace dialog > div:last-child button {
+    flex: 0 0 auto;
+    min-height: 44px;
+    height: 44px;
+    width: 100%;
+  }
+  #tool-workspace details.compliance-rules-details > summary {
+    min-height: 0 !important;
+    padding: 6px 0 !important;
+    font-size: 11px !important;
+  }
+  #tool-workspace details.compliance-rules-details > summary::after {
+    content: none !important;
+    display: none !important;
+  }
+  @media (min-width: 640px) {
+    #tool-workspace dialog > div:last-child {
+      position: static;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 12px 0 0;
+      box-shadow: none;
+    }
+    #tool-workspace dialog > div:last-child button {
+      width: auto;
+      flex: 0 1 auto;
+    }
+  }
 }

@@ -97,25 +97,22 @@ export function ComplianceRejectionAudit({
         )}
 
         {/* Verification Summary */}
-        <div className="flex items-center justify-between gap-3 text-[11px] text-emerald-900 dark:text-emerald-200 flex-wrap font-semibold">
-          <div className="flex items-center gap-2 flex-wrap">
+        <div className="text-[11px] text-emerald-900 dark:text-emerald-200 font-semibold">
+          <div className="flex items-center gap-x-3 gap-y-1.5 flex-wrap">
             <span className="inline-flex items-center gap-1">
-              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span><strong>Dimensions:</strong> {processedResult.width} × {processedResult.height} px</span>
             </span>
-            <span className="text-emerald-400">•</span>
             <span className="inline-flex items-center gap-1">
-              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span><strong>Size:</strong> {processedResult.sizeKb} KB {rule ? `(${rule.minKb}–${rule.maxKb} KB target)` : ''}</span>
             </span>
-            <span className="text-emerald-400">•</span>
             <span className="inline-flex items-center gap-1">
-              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span><strong>Format:</strong> {processedResult.format}</span>
             </span>
-            <span className="text-emerald-400">•</span>
             <span className="inline-flex items-center gap-1">
-              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span><strong>Background:</strong> Clean Paper</span>
             </span>
           </div>
@@ -162,10 +159,15 @@ export function ComplianceRejectionAudit({
         )}
 
         {/* Collapsible Rules Checklist (Clean & Non-Intrusive) */}
-        <details className="text-[11px] text-muted-foreground pt-1 border-t border-emerald-500/20">
-          <summary className="cursor-pointer font-semibold text-emerald-800 dark:text-emerald-300 hover:underline flex items-center justify-between">
-            <span>Review {audit.examName} verification checklist ({audit.items.length} checks)</span>
-            <span className="text-[10px] font-mono">View Norms ▾</span>
+        <details className="group text-[11px] text-muted-foreground pt-1 border-t border-emerald-500/20 compliance-rules-details">
+          <summary className="cursor-pointer font-semibold text-emerald-800 dark:text-emerald-300 hover:text-emerald-900 dark:hover:text-emerald-200 flex items-center justify-between gap-2 py-1 list-none [&::-webkit-details-marker]:hidden">
+            <span className="truncate">Review {audit.examName} verification checklist ({audit.items.length} checks)</span>
+            <span className="text-[11px] font-medium text-emerald-700 dark:text-emerald-300 shrink-0 inline-flex items-center gap-1 group-open:hidden">
+              View Norms ▾
+            </span>
+            <span className="text-[11px] font-medium text-emerald-700 dark:text-emerald-300 shrink-0 hidden group-open:inline-flex items-center gap-1">
+              Hide Norms ▴
+            </span>
           </summary>
           <div className="mt-2 space-y-1.5 pt-1">
             {audit.items.map((item, idx) => (
