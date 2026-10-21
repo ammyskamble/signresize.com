@@ -267,14 +267,14 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
   html = html.replace(/sticky top-4/g, 'sticky top-28');
 
   // 5. Highlight syntax ==...==
-  html = html.replace(/==(.*?)==/g, '<mark class="bg-primary/15 text-foreground font-semibold px-1.5 py-0.5 rounded-sm selection:bg-primary/30">$1</mark>');
+  html = html.replace(/==(.*?)==/g, '<mark class="bg-amber-200/90 dark:bg-amber-900/60 text-amber-950 dark:text-amber-100 font-bold px-1.5 py-0.5 rounded border border-amber-400/40 dark:border-amber-600/40 selection:bg-amber-300 dark:selection:bg-amber-800">$1</mark>');
 
   return { processedHtml: html, navItems };
 }
 
 function formatHighlightMarkup(html: string): string {
   if (!html) return '';
-  return html.replace(/==(.*?)==/g, '<mark class="bg-primary/15 text-foreground font-semibold px-1.5 py-0.5 rounded-sm selection:bg-primary/30">$1</mark>');
+  return html.replace(/==(.*?)==/g, '<mark class="bg-amber-200/90 dark:bg-amber-900/60 text-amber-950 dark:text-amber-100 font-bold px-1.5 py-0.5 rounded border border-amber-400/40 dark:border-amber-600/40 selection:bg-amber-300 dark:selection:bg-amber-800">$1</mark>');
 }
 
 const { processedHtml, navItems } = processArticleContent(post.contentHtml, post.faqs);
@@ -349,31 +349,31 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
       
       <!-- Breadcrumbs & Language Switcher Bar -->
       <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-3">
-        <nav class="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
-          <a href="/" class="hover:text-primary transition flex items-center gap-1">
+        <nav class="flex flex-wrap items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 font-medium" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition flex items-center gap-1 text-slate-700 dark:text-slate-300">
             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
             Home
           </a>
           <span>/</span>
-          <a href="/blog/" class="hover:text-primary transition">Blog</a>
+          <a href="/blog/" class="hover:text-primary transition text-slate-700 dark:text-slate-300">Blog</a>
           <span>/</span>
-          <span class="text-foreground font-medium truncate max-w-[150px] sm:max-w-xs md:max-w-md">{post.title}</span>
+          <span class="text-foreground font-semibold truncate max-w-[150px] sm:max-w-xs md:max-w-md">{post.title}</span>
         </nav>
 
         <!-- Language Switcher Bar / Edition Tag -->
         {post.country === 'US' ? (
-          <div class="flex items-center gap-1.5 text-xs bg-muted/60 px-3 py-1 rounded-xl border border-border/60 text-muted-foreground">
+          <div class="flex items-center gap-1.5 text-xs bg-slate-100 dark:bg-slate-800/80 px-3 py-1 rounded-xl border border-border text-slate-700 dark:text-slate-300">
             <span class="text-[10px] font-bold uppercase tracking-wider text-primary">🇺🇸 US Edition:</span>
-            <span class="font-medium text-foreground">Federal ESIGN & PKI Standards</span>
+            <span class="font-semibold text-foreground">Federal ESIGN & PKI Standards</span>
           </div>
         ) : (
-          <div class="flex items-center gap-1.5 text-xs bg-muted/60 p-1 rounded-xl border border-border/60">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-2">📖 Read In:</span>
+          <div class="flex items-center gap-1.5 text-xs bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl border border-border">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 px-2">📖 Read In:</span>
             <a href={`/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇬🇧 English</a>
-            <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🇮🇳 हिंदी</a>
-            <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🚩 मराठी</a>
+            <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-slate-700 dark:text-slate-300 hover:text-foreground font-semibold transition">🇮🇳 हिंदी</a>
+            <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-slate-700 dark:text-slate-300 hover:text-foreground font-semibold transition">🚩 मराठी</a>
           </div>
         )}
       </div>
@@ -388,14 +388,14 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
             </span>
             <span>{post.category}</span>
           </span>
-          <span class="px-2.5 py-1 rounded-md text-muted-foreground font-mono bg-muted/60 border border-border flex items-center gap-1 shrink-0">
+          <span class="px-2.5 py-1 rounded-md text-slate-700 dark:text-slate-300 font-mono font-medium bg-slate-100 dark:bg-slate-800/80 border border-border flex items-center gap-1 shrink-0">
             <span>📅</span> {post.publishDate}
           </span>
           <span class="px-2.5 py-1 rounded-md font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 flex items-center gap-1.5 font-mono shadow-xs shrink-0">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>Verified: {post.deployedAt || `${post.lastUpdated || post.publishDate} • 09:00 AM IST`}</span>
           </span>
-          <span class="px-2.5 py-1 rounded-md text-muted-foreground font-mono bg-muted/60 border border-border flex items-center gap-1 shrink-0">
+          <span class="px-2.5 py-1 rounded-md text-slate-700 dark:text-slate-300 font-mono font-medium bg-slate-100 dark:bg-slate-800/80 border border-border flex items-center gap-1 shrink-0">
             ⏱️ {post.readTime}
           </span>
         </div>
@@ -423,7 +423,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
             </div>
             <div class="text-xs min-w-0">
               <div class="font-bold text-foreground truncate">{post.author}</div>
-              <div class="text-muted-foreground truncate">{post.authorRole} • Official Standards</div>
+              <div class="text-slate-600 dark:text-slate-400 font-medium truncate">{post.authorRole} • Official Standards</div>
             </div>
           </div>
 
@@ -447,12 +447,12 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
               <span>⚡</span>
               <span>Quick Facts &amp; Executive Summary</span>
             </div>
-            <span class="text-[11px] text-muted-foreground font-mono">Official Benchmarks</span>
+            <span class="text-[11px] text-slate-600 dark:text-slate-300 font-mono font-medium">Official Benchmarks</span>
           </div>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
             {post.quickFacts.map((fact) => (
-              <div class="p-2.5 sm:p-3 rounded-xl bg-card border border-border/70 space-y-1 min-w-0">
-                <div class="text-[10px] sm:text-[11px] font-semibold text-muted-foreground uppercase tracking-wide truncate">
+              <div class="p-2.5 sm:p-3 rounded-xl bg-card border border-border space-y-1 min-w-0 shadow-2xs">
+                <div class="text-[10px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide truncate">
                   {fact.label}
                 </div>
                 <div class="text-xs sm:text-sm font-bold text-foreground break-words">
@@ -486,11 +486,11 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
                     class:list={[
                       "px-2.5 py-1.5 min-h-[34px] inline-flex items-center gap-1.5 rounded-lg border transition font-medium text-xs shadow-2xs",
                       item.id === 'faqs'
-                        ? "bg-primary/10 text-primary border-primary/30 hover:bg-primary/20 font-bold"
-                        : "bg-card border-border hover:border-primary/50 hover:text-primary"
+                        ? "bg-blue-100/80 dark:bg-cyan-950/60 text-blue-800 dark:text-cyan-300 border-blue-300 dark:border-cyan-700/60 hover:bg-blue-200/80 dark:hover:bg-cyan-900/60 font-bold"
+                        : "bg-card border-border text-slate-800 dark:text-slate-200 hover:border-blue-500 hover:text-blue-700 dark:hover:text-cyan-300"
                     ]}
                   >
-                    <span class="text-[10px] font-bold text-muted-foreground">{idx + 1}.</span>
+                    <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400">{idx + 1}.</span>
                     <span>{item.title}</span>
                   </a>
                 ))}
@@ -571,12 +571,12 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
       )}
 
       <!-- Educational & Fair Use Disclaimer Box -->
-      <section class="rounded-xl border border-border/80 bg-muted/40 p-3.5 sm:p-4 text-xs text-muted-foreground space-y-1.5">
-        <div class="flex items-center gap-1.5 font-semibold text-foreground text-[11px] uppercase tracking-wider">
+      <section class="rounded-xl border border-border bg-slate-100/70 dark:bg-slate-900/50 p-3.5 sm:p-4 text-xs space-y-1.5 shadow-2xs">
+        <div class="flex items-center gap-1.5 font-bold text-foreground text-[11px] uppercase tracking-wider">
           <span>⚖️</span>
           <span>Educational Disclaimer &amp; Fair Use Notice</span>
         </div>
-        <p class="leading-relaxed text-[11px] break-words">
+        <p class="leading-relaxed text-[11px] text-slate-700 dark:text-slate-300 break-words font-medium">
           SignResize.in is an independent, non-governmental document utility and candidate educational guidance platform. All references to public examinations (including SSC, UPSC, RRB, IBPS, and State PSCs), syllabus topics, and government portals are made strictly under nominative fair use for descriptive, identification, and educational assistance. SignResize is neither affiliated with, nor endorsed, sponsored, or certified by any government commission or commercial coaching entity.
         </p>
       </section>
@@ -682,12 +682,12 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
                     <a
                       href={`#${item.id}`}
                       class:list={[
-                        "toc-desktop-link group flex items-start gap-2 px-2.5 py-1.5 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 transition text-xs leading-snug",
-                        item.id === 'faqs' ? "font-semibold text-primary/90" : ""
+                        "toc-desktop-link group flex items-start gap-2 px-2.5 py-1.5 rounded-lg text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-cyan-300 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition text-xs leading-snug font-medium",
+                        item.id === 'faqs' ? "font-semibold text-blue-700 dark:text-cyan-300" : ""
                       ]}
                       data-target={item.id}
                     >
-                      <span class="text-[10px] font-mono font-bold text-muted-foreground/60 group-hover:text-primary shrink-0 mt-0.5">
+                      <span class="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 group-hover:text-blue-700 dark:group-hover:text-cyan-300 shrink-0 mt-0.5">
                         {idx + 1}.
                       </span>
                       <span class="line-clamp-2">{item.title}</span>
@@ -798,13 +798,13 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         color: #cbd5e1 !important;
       }
       :global(.article-prose table) {
-        color: var(--color-foreground);
+        color: inherit;
       }
       :global(.article-prose th) {
-        color: var(--color-foreground);
+        color: inherit;
       }
       :global(.article-prose td) {
-        color: var(--color-foreground);
+        color: inherit;
       }
       :global(.article-prose h2) {
         position: relative;
@@ -812,7 +812,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         line-height: 1.35;
         font-weight: 800;
         letter-spacing: -0.02em;
-        color: var(--color-foreground);
+        color: var(--color-foreground) !important;
         margin-top: 2rem;
         margin-bottom: 1rem;
         padding: 0.6rem 0.85rem 0.6rem 0.95rem;
@@ -979,11 +979,31 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
               tocLinks.forEach(link => {
                 const isMatch = link.getAttribute('data-target') === currentId;
                 if (isMatch) {
-                  link.classList.add('text-primary', 'font-bold', 'bg-primary/10', 'border-l-2', 'border-primary');
-                  link.classList.remove('text-muted-foreground');
+                  link.classList.add(
+                    'text-blue-900',
+                    'dark:text-cyan-200',
+                    'font-bold',
+                    'bg-blue-100',
+                    'dark:bg-cyan-950/70',
+                    'border-l-[3px]',
+                    'border-blue-600',
+                    'dark:border-cyan-400',
+                    'shadow-2xs'
+                  );
+                  link.classList.remove('text-slate-700', 'dark:text-slate-300', 'font-medium');
                 } else {
-                  link.classList.remove('text-primary', 'font-bold', 'bg-primary/10', 'border-l-2', 'border-primary');
-                  link.classList.add('text-muted-foreground');
+                  link.classList.remove(
+                    'text-blue-900',
+                    'dark:text-cyan-200',
+                    'font-bold',
+                    'bg-blue-100',
+                    'dark:bg-cyan-950/70',
+                    'border-l-[3px]',
+                    'border-blue-600',
+                    'dark:border-cyan-400',
+                    'shadow-2xs'
+                  );
+                  link.classList.add('text-slate-700', 'dark:text-slate-300', 'font-medium');
                 }
               });
             }
