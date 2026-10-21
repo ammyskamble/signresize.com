@@ -1,0 +1,611 @@
+
+--- 2026-10-21T10:33:11.559Z debug
+🪵  Writing logs to "C:\Users\Admin\AppData\Roaming\xdg.config\.wrangler\logs\wrangler-2026-10-21_10-33-10_825.log"
+---
+
+--- 2026-10-21T10:33:11.558Z debug
+.env file not found at "D:\Testing\Tools\sign resize\signresize.in\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-10-21T10:33:11.561Z debug
+.env file not found at "D:\Testing\Tools\sign resize\signresize.in\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-10-21T10:33:11.594Z log
+
+ ⛅️ wrangler 4.129.0 (update available 4.151.3)
+───────────────────────────────────────────────
+---
+
+--- 2026-10-21T10:33:11.700Z debug
+Configuration file belonging to ⚡️ Pages ⚡️ project detected.
+---
+
+--- 2026-10-21T10:33:11.709Z debug
+Metrics dispatcher: Posting data {"deviceId":"81d4af4e-bdb5-4e8a-b643-43b125a86383","event":"wrangler command started","timestamp":1792578791708,"properties":{"amplitude_session_id":1792578791601,"amplitude_event_id":0,"wranglerVersion":"4.129.0","wranglerMajorVersion":4,"wranglerMinorVersion":129,"wranglerPatchVersion":0,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":26,"packageManager":"npm","isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":false,"agent":"antigravity","argsUsed":["projectName"],"argsCombination":"projectName","sanitizedCommand":"pages deploy","sanitizedArgs":{},"currentAgentSkillsInstalled":null}}
+---
+
+--- 2026-10-21T10:33:11.776Z debug
+-- START CF API REQUEST: GET https://api.cloudflare.com/client/v4/accounts/fb7ecfb7162660660dc20e4146419c71/pages/projects/signresize
+---
+
+--- 2026-10-21T10:33:11.777Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:11.779Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:11.780Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:11.780Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:33:13.474Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2026-10-21T10:33:13.474Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:13.475Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:13.475Z debug
+-- END CF API RESPONSE
+---
+
+--- 2026-10-21T10:33:13.485Z debug
+Pages-to-Workers delegation skipped: unsupported args: --branch, --commit-dirty
+---
+
+--- 2026-10-21T10:33:13.486Z debug
+pages deploy: Detecting git repository information...
+---
+
+--- 2026-10-21T10:33:13.681Z debug
+pages deploy: Git repository detected
+---
+
+--- 2026-10-21T10:33:13.885Z debug
+pages deploy: Working directory dirty status: true
+---
+
+--- 2026-10-21T10:33:13.886Z debug
+pages deploy: Using provided branch: "main"
+---
+
+--- 2026-10-21T10:33:14.059Z debug
+pages deploy: Detected commit hash: "b905b368188c02012cdb6ca71ae64c7f310270e5"
+---
+
+--- 2026-10-21T10:33:14.189Z debug
+pages deploy: Detected commit message: "feat(blog): add IBPS RRB PO strategy guide with fu..."
+---
+
+--- 2026-10-21T10:33:14.190Z debug
+pages deploy: Git information summary - branch: main, commitHash: b905b368188c02012cdb6ca71ae64c7f310270e5, commitDirty: true
+---
+
+--- 2026-10-21T10:33:14.198Z debug
+-- START CF API REQUEST: GET https://api.cloudflare.com/client/v4/accounts/fb7ecfb7162660660dc20e4146419c71/pages/projects/signresize
+---
+
+--- 2026-10-21T10:33:14.198Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:14.199Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:14.200Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:14.200Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:33:15.453Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2026-10-21T10:33:15.453Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:15.454Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:15.454Z debug
+-- END CF API RESPONSE
+---
+
+--- 2026-10-21T10:33:15.463Z debug
+Configuration file belonging to ⚡️ Pages ⚡️ project detected.
+---
+
+--- 2026-10-21T10:33:15.857Z log
+✨ Compiled Worker successfully
+---
+
+--- 2026-10-21T10:33:15.947Z debug
+-- START CF API REQUEST: GET https://api.cloudflare.com/client/v4/accounts/fb7ecfb7162660660dc20e4146419c71/pages/projects/signresize/upload-token
+---
+
+--- 2026-10-21T10:33:15.948Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:15.948Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:15.948Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:15.949Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:33:18.520Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2026-10-21T10:33:18.521Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:18.521Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:18.521Z debug
+-- END CF API RESPONSE
+---
+
+--- 2026-10-21T10:33:21.363Z debug
+-- START CF API REQUEST: GET https://api.cloudflare.com/client/v4/accounts/fb7ecfb7162660660dc20e4146419c71/pages/projects/signresize/upload-token
+---
+
+--- 2026-10-21T10:33:21.363Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:21.364Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:21.364Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:21.365Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:33:23.004Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2026-10-21T10:33:23.004Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:23.004Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:23.005Z debug
+-- END CF API RESPONSE
+---
+
+--- 2026-10-21T10:33:23.012Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/check-missing
+---
+
+--- 2026-10-21T10:33:23.013Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:23.013Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:23.014Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:23.014Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:33:24.883Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2026-10-21T10:33:24.883Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:24.884Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:24.884Z debug
+-- END CF API RESPONSE
+---
+
+--- 2026-10-21T10:33:24.901Z log
+Uploading... (132/489)
+---
+
+--- 2026-10-21T10:33:25.201Z debug
+POST /pages/assets/upload
+---
+
+--- 2026-10-21T10:33:25.451Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/upload
+---
+
+--- 2026-10-21T10:33:25.451Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:25.451Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:25.696Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:25.697Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:33:25.748Z debug
+POST /pages/assets/upload
+---
+
+--- 2026-10-21T10:33:26.048Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/upload
+---
+
+--- 2026-10-21T10:33:26.048Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:26.049Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:26.314Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:26.314Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:33:26.376Z debug
+POST /pages/assets/upload
+---
+
+--- 2026-10-21T10:33:26.607Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/upload
+---
+
+--- 2026-10-21T10:33:26.607Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:26.608Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:26.836Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:33:26.836Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:36:12.415Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2026-10-21T10:36:12.415Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:12.415Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:12.416Z debug
+-- END CF API RESPONSE
+---
+
+--- 2026-10-21T10:36:12.419Z debug
+result: { successful_key_count: 95, unsuccessful_keys: [] }
+---
+
+--- 2026-10-21T10:36:12.419Z log
+Uploading... (227/489)
+---
+
+--- 2026-10-21T10:36:12.462Z debug
+POST /pages/assets/upload
+---
+
+--- 2026-10-21T10:36:12.576Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/upload
+---
+
+--- 2026-10-21T10:36:12.577Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:12.577Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:12.694Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:12.694Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:36:20.129Z debug
+failed: TypeError: fetch failed
+    at Object.processResponse (D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50428:21)
+    at D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50814:23
+    at node:internal/process/task_queues:151:7
+    at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+    at AsyncResource.runMicrotask (node:internal/process/task_queues:148:8) {
+  [cause]: Error: read ECONNRESET
+      at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20) {
+    errno: -4077,
+    code: 'ECONNRESET',
+    syscall: 'read'
+  }
+} retrying...
+---
+
+--- 2026-10-21T10:36:21.222Z debug
+POST /pages/assets/upload
+---
+
+--- 2026-10-21T10:36:21.453Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/upload
+---
+
+--- 2026-10-21T10:36:21.453Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:21.454Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:21.729Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:21.729Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:36:26.451Z debug
+failed: TypeError: fetch failed
+    at Object.processResponse (D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50428:21)
+    at D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50814:23
+    at node:internal/process/task_queues:151:7
+    at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+    at AsyncResource.runMicrotask (node:internal/process/task_queues:148:8) {
+  [cause]: Error: read ECONNRESET
+      at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20) {
+    errno: -4077,
+    code: 'ECONNRESET',
+    syscall: 'read'
+  }
+} retrying...
+---
+
+--- 2026-10-21T10:36:28.511Z debug
+POST /pages/assets/upload
+---
+
+--- 2026-10-21T10:36:28.686Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/upload
+---
+
+--- 2026-10-21T10:36:28.686Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:28.686Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:28.932Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:28.932Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:36:31.995Z debug
+failed: TypeError: fetch failed
+    at Object.processResponse (D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50428:21)
+    at D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50814:23
+    at node:internal/process/task_queues:151:7
+    at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+    at AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  [cause]: ConnectTimeoutError: Connect Timeout Error (attempted addresses: 2606:4700:300a::6813:c0b0:443, 104.19.192.174:443, 2606:4700:300a::6813:c01d:443, 104.19.192.176:443, 2606:4700:300a::6813:c0ae:443, 104.19.192.177:443, timeout: 10000ms)
+      at onConnectTimeout (D:\Testing\Tools\sign resize\signresize.in\node_modules\miniflare\node_modules\undici\lib\core\util.js:891:19)
+      at Immediate._onImmediate (D:\Testing\Tools\sign resize\signresize.in\node_modules\miniflare\node_modules\undici\lib\core\util.js:842:35)
+      at process.processImmediate (node:internal/timers:574:21) {
+    code: 'UND_ERR_CONNECT_TIMEOUT'
+  }
+} retrying...
+---
+
+--- 2026-10-21T10:36:36.050Z debug
+POST /pages/assets/upload
+---
+
+--- 2026-10-21T10:36:36.205Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/upload
+---
+
+--- 2026-10-21T10:36:36.206Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:36.206Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:36.418Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:36.418Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:36:39.084Z debug
+failed: TypeError: fetch failed
+    at Object.processResponse (D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50428:21)
+    at D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50814:23
+    at node:internal/process/task_queues:151:7
+    at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+    at AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  [cause]: ConnectTimeoutError: Connect Timeout Error (attempted addresses: 2606:4700:300a::6813:c0b0:443, 104.19.192.174:443, 2606:4700:300a::6813:c01d:443, 104.19.192.176:443, 2606:4700:300a::6813:c0ae:443, 104.19.192.177:443, 2606:4700:300a::6813:c0af:443, 104.19.193.29:443, 2606:4700:300a::6813:c11d:443, 104.19.192.29:443, 2606:4700:300a::6813:c0b1:443, 104.19.192.175:443, timeout: 10000ms)
+      at onConnectTimeout (D:\Testing\Tools\sign resize\signresize.in\node_modules\miniflare\node_modules\undici\lib\core\util.js:891:19)
+      at Immediate._onImmediate (D:\Testing\Tools\sign resize\signresize.in\node_modules\miniflare\node_modules\undici\lib\core\util.js:842:35)
+      at process.processImmediate (node:internal/timers:574:21) {
+    code: 'UND_ERR_CONNECT_TIMEOUT'
+  }
+} retrying...
+---
+
+--- 2026-10-21T10:36:46.673Z debug
+failed: TypeError: fetch failed
+    at Object.processResponse (D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50428:21)
+    at D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50814:23
+    at node:internal/process/task_queues:151:7
+    at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+    at AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  [cause]: ConnectTimeoutError: Connect Timeout Error (attempted addresses: 2606:4700:300a::6813:c0b0:443, 104.19.192.174:443, 2606:4700:300a::6813:c01d:443, 104.19.192.176:443, 2606:4700:300a::6813:c0ae:443, 104.19.192.177:443, 2606:4700:300a::6813:c0af:443, 104.19.193.29:443, 2606:4700:300a::6813:c11d:443, 104.19.192.29:443, 2606:4700:300a::6813:c0b1:443, 104.19.192.175:443, timeout: 10000ms)
+      at onConnectTimeout (D:\Testing\Tools\sign resize\signresize.in\node_modules\miniflare\node_modules\undici\lib\core\util.js:891:19)
+      at Immediate._onImmediate (D:\Testing\Tools\sign resize\signresize.in\node_modules\miniflare\node_modules\undici\lib\core\util.js:842:35)
+      at process.processImmediate (node:internal/timers:574:21) {
+    code: 'UND_ERR_CONNECT_TIMEOUT'
+  }
+} retrying...
+---
+
+--- 2026-10-21T10:36:47.136Z debug
+POST /pages/assets/upload
+---
+
+--- 2026-10-21T10:36:47.283Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/upload
+---
+
+--- 2026-10-21T10:36:47.283Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:47.283Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:47.436Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:47.436Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:36:54.746Z debug
+POST /pages/assets/upload
+---
+
+--- 2026-10-21T10:36:54.900Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/pages/assets/upload
+---
+
+--- 2026-10-21T10:36:54.900Z debug
+QUERY STRING: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:54.900Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:55.063Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2026-10-21T10:36:55.063Z debug
+-- END CF API REQUEST
+---
+
+--- 2026-10-21T10:36:57.619Z debug
+failed: TypeError: fetch failed
+    at Object.processResponse (D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50428:21)
+    at D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:50814:23
+    at node:internal/process/task_queues:151:7
+    at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+    at AsyncResource.runMicrotask (node:internal/process/task_queues:148:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  [cause]: ConnectTimeoutError: Connect Timeout Error (attempted addresses: 2606:4700:300a::6813:c0b0:443, 104.19.192.174:443, 2606:4700:300a::6813:c01d:443, 104.19.192.176:443, 2606:4700:300a::6813:c0ae:443, 104.19.192.177:443, 2606:4700:300a::6813:c0af:443, 104.19.193.29:443, 2606:4700:300a::6813:c11d:443, 104.19.192.29:443, 2606:4700:300a::6813:c0b1:443, 104.19.192.175:443, timeout: 10000ms)
+      at onConnectTimeout (D:\Testing\Tools\sign resize\signresize.in\node_modules\miniflare\node_modules\undici\lib\core\util.js:891:19)
+      at Immediate._onImmediate (D:\Testing\Tools\sign resize\signresize.in\node_modules\miniflare\node_modules\undici\lib\core\util.js:842:35)
+      at process.processImmediate (node:internal/timers:574:21) {
+    code: 'UND_ERR_CONNECT_TIMEOUT'
+  }
+}
+---
+
+--- 2026-10-21T10:36:57.623Z log
+
+---
+
+--- 2026-10-21T10:36:57.750Z error
+X [ERROR] Failed to upload files. Please try again. Error: {})
+
+
+---
+
+--- 2026-10-21T10:36:57.751Z debug
+Error: Failed to upload files. Please try again. Error: {})
+    at D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:291274:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async D:\Testing\Tools\sign resize\signresize.in\node_modules\wrangler\wrangler-dist\cli.js:147631:30
+---
+
+--- 2026-10-21T10:36:57.753Z debug
+Metrics dispatcher: Posting data {"deviceId":"81d4af4e-bdb5-4e8a-b643-43b125a86383","event":"wrangler command errored","timestamp":1792579017752,"properties":{"amplitude_session_id":1792578791601,"amplitude_event_id":1,"wranglerVersion":"4.129.0","wranglerMajorVersion":4,"wranglerMinorVersion":129,"wranglerPatchVersion":0,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":26,"packageManager":"npm","isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":false,"agent":"antigravity","argsUsed":["projectName"],"argsCombination":"projectName","sanitizedCommand":"pages deploy","sanitizedArgs":{},"durationMs":226053,"errorType":"FatalError","errorMessage":"pages upload files failed","currentAgentSkillsInstalled":null}}
+---
