@@ -519,9 +519,10 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
       </div>
 
       <!-- 5. EXAMS & JOBS MERGED MEGA MENU -->
-      <div class="relative group py-2">
+      <div class="relative group py-2" id="exams-nav-group">
         <button
           type="button"
+          id="exams-menu-btn"
           class="px-2 lg:px-2.5 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
           aria-expanded="false"
           aria-haspopup="true"
@@ -532,49 +533,53 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           </svg>
         </button>
 
-        <!-- Dropdown Panel (Compact High-Density Mega Menu) -->
-        <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-1/2 -translate-x-1/2 mt-1 w-[680px] max-w-[94vw] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_45px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_50px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-800 p-3 sm:p-3.5 z-50 ring-1 ring-black/5 dark:ring-white/10">
+        <!-- Dropdown Panel (High-Density Mega Menu) -->
+        <div
+          id="exams-dropdown-panel"
+          class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-1/2 -translate-x-1/2 mt-1 w-[820px] max-w-[96vw] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_45px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_50px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-800 p-3 sm:p-3.5 z-50 ring-1 ring-black/5 dark:ring-white/10 pointer-events-none group-hover:pointer-events-auto"
+        >
           <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 text-xs">
             
             <!-- Column 1: Central & Banking -->
             <div class="space-y-1">
-              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center gap-1">
+              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
                 <span>Central &amp; Banking</span>
+                <span class="font-mono text-[9px] text-muted-foreground">6 Exams</span>
               </div>
               <ul class="space-y-0.5">
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="ssc-cgl" data-slug="ssc-cgl-signature-resize">
-                    <span class="truncate font-bold text-primary">★ SSC CGL (140×60)</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ssc-cgl" data-slug="ssc-cgl-signature-resize">
+                    <span class="font-bold text-primary leading-snug">★ SSC CGL (140×60)</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-primary/10 text-primary font-bold shrink-0">10–20K</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="ssc" data-slug="ssc-signature-resize">
-                    <span class="truncate font-medium">SSC (CHSL, MTS, GD)</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ssc" data-slug="ssc-signature-resize">
+                    <span class="font-medium leading-snug">SSC (CHSL, MTS, GD)</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">140×60</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="ibps">
-                    <span class="truncate font-medium">IBPS PO &amp; Clerk</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ibps" data-slug="ibps-signature-resize">
+                    <span class="font-medium leading-snug">IBPS PO &amp; Clerk</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
                   </button>
                 </li>
                 <li>
-                  <a href="/sbi-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 text-[11px]">
-                    <span class="truncate font-medium">SBI Signature Resizer</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20 KB</span>
-                  </a>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="sbi-signature" data-slug="sbi-signature-resize">
+                    <span class="font-medium leading-snug">SBI PO &amp; Clerk</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="upsc">
-                    <span class="truncate font-medium">UPSC (IAS, NDA, CDS)</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="upsc" data-slug="upsc-signature-resize">
+                    <span class="font-medium leading-snug">UPSC (IAS, NDA, CDS)</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">350×350</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="rbi">
-                    <span class="truncate font-medium">RBI Grade B &amp; Asst</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="rbi" data-slug="rbi-signature-resize">
+                    <span class="font-medium leading-snug">RBI Grade B &amp; Asst</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
                   </button>
                 </li>
@@ -583,32 +588,45 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
 
             <!-- Column 2: Railways & Defense -->
             <div class="space-y-1">
-              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center gap-1">
+              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
                 <span>Railways &amp; Defense</span>
+                <span class="font-mono text-[9px] text-muted-foreground">6 Exams</span>
               </div>
               <ul class="space-y-0.5">
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="rrb">
-                    <span class="truncate font-medium">RRB (NTPC, ALP, D)</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="rrb" data-slug="rrb-signature-resize">
+                    <span class="font-medium leading-snug">RRB (NTPC, ALP, Tech)</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">140×60</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="afcat">
-                    <span class="truncate font-medium">AFCAT (Air Force)</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="afcat" data-slug="afcat-signature-resize">
+                    <span class="font-medium leading-snug">AFCAT (Air Force)</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="agniveer">
-                    <span class="truncate font-medium">Agniveer Rally</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="agniveer" data-slug="agniveer-signature-resize">
+                    <span class="font-medium leading-snug">Agniveer Army Rally</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="coastguard" data-slug="indian-coast-guard-signature-resize">
-                    <span class="truncate font-medium">Coast Guard (Navik &amp; Yantrik)</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="coastguard" data-slug="indian-coast-guard-signature-resize">
+                    <span class="font-medium leading-snug">Coast Guard (Navik &amp; Yantrik)</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="capf-ac" data-slug="capf-signature-resize">
+                    <span class="font-medium leading-snug">CAPF (BSF, CISF, CRPF)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ctet-exam" data-slug="ctet-signature-resize">
+                    <span class="font-medium leading-snug">CTET &amp; State TET</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–30K</span>
                   </button>
                 </li>
               </ul>
@@ -616,37 +634,44 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
 
             <!-- Column 3: Entrance & Law -->
             <div class="space-y-1">
-              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center gap-1">
+              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
                 <span>Entrance &amp; Law</span>
+                <span class="font-mono text-[9px] text-muted-foreground">6 Exams</span>
               </div>
               <ul class="space-y-0.5">
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="neet">
-                    <span class="truncate font-medium">NEET / JEE Main</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="neet" data-slug="nta-neet-jee-signature-resize">
+                    <span class="font-medium leading-snug">NEET / JEE Main</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">4–30K</span>
                   </button>
                 </li>
                 <li>
-                  <a href="/gate-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 text-[11px]">
-                    <span class="truncate font-medium">GATE 2027</span>
+                  <a href="/gate-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
+                    <span class="font-medium leading-snug">GATE 2027</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">3–300 KB</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/iit-jam-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 text-[11px]">
-                    <span class="truncate font-medium">IIT JAM 2027</span>
+                  <a href="/iit-jam-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
+                    <span class="font-medium leading-snug">IIT JAM 2027</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">50–150 KB</span>
                   </a>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="cat">
-                    <span class="truncate font-medium">CAT (IIMs)</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="cat" data-slug="cat-signature-resize">
+                    <span class="font-medium leading-snug">CAT (IIMs)</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–80K</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="clat">
-                    <span class="truncate font-medium">CLAT &amp; AILET Law</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="clat" data-slug="clat-signature-resize">
+                    <span class="font-medium leading-snug">CLAT &amp; AILET Law</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="cuet-ug" data-slug="cuet-signature-resize">
+                    <span class="font-medium leading-snug">CUET UG Entrance</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
                   </button>
                 </li>
@@ -655,44 +680,45 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
 
             <!-- Column 4: Police & State PSC -->
             <div class="space-y-1">
-              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center gap-1">
+              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
                 <span>Police &amp; State PSC</span>
+                <span class="font-mono text-[9px] text-muted-foreground">6 Portals</span>
               </div>
               <ul class="space-y-0.5">
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="pan">
-                    <span class="truncate font-medium">PAN Card (NSDL/UTI)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">400×200</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="up-police" data-slug="up-police-signature-resize">
+                    <span class="font-medium leading-snug">UP Police Constable &amp; SI</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="thumb">
-                    <span class="truncate font-medium">Thumb Impression</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="maharashtra-police" data-slug="maharashtra-police-signature-resize">
+                    <span class="font-medium leading-snug">Maharashtra Police Bharti</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">5–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="bpsc" data-slug="bpsc-signature-resize">
+                    <span class="font-medium leading-snug">BPSC (Bihar PSC)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="mppsc-preset" data-slug="mppsc-signature-resize">
+                    <span class="font-medium leading-snug">MPPSC &amp; MP Police</span>
                     <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="teletalk-bd">
-                    <span class="truncate font-medium">Teletalk BD (All Jobs)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 group-hover/item:text-primary shrink-0">BD 🇧🇩</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="wbpsc-west-bengal" data-slug="wbpsc-signature-resize">
+                    <span class="font-medium leading-snug">WBPSC (West Bengal)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">138×59</span>
                   </button>
                 </li>
                 <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="ppsc-pk">
-                    <span class="truncate font-medium">PPSC / FPSC Pakistan</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover/item:text-primary shrink-0">PK 🇵🇰</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="prc-ph">
-                    <span class="truncate font-medium">PRC Philippines 2×2</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover/item:text-primary shrink-0">PH 🇵🇭</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1 group/item cursor-pointer text-[11px]" data-exam="loksewa-np">
-                    <span class="truncate font-medium">Lok Sewa Nepal</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-red-500/10 text-red-600 dark:text-red-400 group-hover/item:text-primary shrink-0">NP 🇳🇵</span>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="rpsc-ras" data-slug="rpsc-signature-resize">
+                    <span class="font-medium leading-snug">RPSC &amp; Rajasthan Police</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">20–50K</span>
                   </button>
                 </li>
               </ul>
@@ -700,7 +726,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
 
           </div>
 
-          <!-- Compact Mega Menu Footer -->
+          <!-- Mega Menu Footer -->
           <div class="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-muted-foreground px-1">
             <a href="/government-jobs/" class:list={["text-primary font-bold hover:underline flex items-center gap-1", isJobs ? "text-primary" : ""]}>
               <span>🏛️ Govt Jobs Calendar 2026</span>
@@ -861,34 +887,34 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
   <!-- Mobile Navigation Ultra-Compact Squeezed Dropdown Menu -->
   <div
     id="mobile-menu-drawer"
-    class="hidden lg:hidden relative z-50 border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-2.5 py-2 shadow-xl rounded-b-2xl transition-all"
+    class="hidden lg:hidden relative z-50 border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-2.5 py-2.5 shadow-xl rounded-b-2xl transition-all max-h-[calc(100dvh-4.25rem)] overflow-y-auto overscroll-contain"
   >
-    <!-- Top Row: Home + Lang Pills + Search (all tiny) -->
-    <div class="flex items-center gap-1.5 pb-1.5 border-b border-slate-100 dark:border-slate-800/80">
+    <!-- Top Row: Home + Lang Pills + Blog + Jobs + Search (All Accessible Hit Areas) -->
+    <div class="flex items-center gap-1.5 pb-2 border-b border-slate-100 dark:border-slate-800/80 flex-wrap sm:flex-nowrap">
       <a
         href="/"
         class:list={[
-          "inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[11px] font-bold transition shrink-0",
+          "inline-flex items-center gap-1 px-2.5 py-1.5 min-h-[32px] rounded-lg text-xs font-bold transition shrink-0",
           isHome
-            ? "bg-primary/10 text-primary border border-primary/20"
-            : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+            ? "bg-primary/10 text-primary border border-primary/25"
+            : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-transparent"
         ]}
       >
-        <span class="text-[10px]">🏠</span>
+        <span class="text-xs">🏠</span>
         <span>Home</span>
       </a>
 
-      <!-- Mini Language Pills -->
-      <div class="flex items-center gap-px bg-slate-100 dark:bg-slate-800/80 p-px rounded-md border border-slate-200/80 dark:border-slate-700/80 shrink-0">
-        <a href="/" data-lang="en" class="mobile-lang-pill px-1.5 py-px rounded font-bold text-[10px] transition bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs leading-none">EN</a>
-        <a href="/hi/" data-lang="hi" class="mobile-lang-pill px-1.5 py-px rounded font-medium text-[10px] text-muted-foreground hover:text-foreground transition leading-none">हि</a>
-        <a href="/mr/" data-lang="mr" class="mobile-lang-pill px-1.5 py-px rounded font-medium text-[10px] text-muted-foreground hover:text-foreground transition leading-none">मर</a>
+      <!-- Language Switcher Touch-Optimized Pills -->
+      <div class="flex items-center gap-0.5 bg-slate-100 dark:bg-slate-800/80 p-0.5 rounded-lg border border-slate-200/80 dark:border-slate-700/80 shrink-0">
+        <a href="/" data-lang="en" class="mobile-lang-pill px-2.5 py-1 min-h-[30px] min-w-[32px] flex items-center justify-center rounded-md font-bold text-xs transition bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs leading-none">EN</a>
+        <a href="/hi/" data-lang="hi" class="mobile-lang-pill px-2.5 py-1 min-h-[30px] min-w-[32px] flex items-center justify-center rounded-md font-medium text-xs text-muted-foreground hover:text-foreground transition leading-none">हि</a>
+        <a href="/mr/" data-lang="mr" class="mobile-lang-pill px-2.5 py-1 min-h-[30px] min-w-[32px] flex items-center justify-center rounded-md font-medium text-xs text-muted-foreground hover:text-foreground transition leading-none">मर</a>
       </div>
 
       <!-- Blog Quick Link -->
       <a
         href="/blog/"
-        class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md text-[10px] font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-400 hover:bg-amber-500/20 transition shrink-0"
+        class="inline-flex items-center gap-1 px-2.5 py-1.5 min-h-[32px] rounded-lg text-xs font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-400 hover:bg-amber-500/20 transition shrink-0"
       >
         <span>📢</span>
         <span>Blog</span>
@@ -897,76 +923,81 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
       <!-- Govt Jobs Quick Link -->
       <a
         href="/government-jobs/"
-        class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md text-[10px] font-semibold bg-rose-500/10 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition shrink-0"
+        class="inline-flex items-center gap-1 px-2 py-1.5 min-h-[32px] rounded-lg text-xs font-semibold bg-rose-500/10 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition shrink-0"
       >
         <span>🏛️</span>
         <span>Jobs</span>
-        <span class="text-[7px] px-0.5 rounded bg-rose-600 text-white font-bold uppercase leading-none">Live</span>
+        <span class="text-[8px] px-1 py-0.2 rounded bg-rose-600 text-white font-bold uppercase leading-none">Live</span>
       </a>
 
       <!-- Search Button pushed to far right -->
       <button
         type="button"
         id="mobile-search-exam-btn"
-        class="ml-auto inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-primary/10 hover:bg-primary/15 text-primary text-[10px] font-bold transition cursor-pointer shrink-0"
+        class="ml-auto inline-flex items-center gap-1 px-2.5 py-1.5 min-h-[32px] rounded-lg bg-primary/10 hover:bg-primary/20 text-primary text-xs font-bold transition cursor-pointer shrink-0"
         aria-label="Search all tools and exams"
       >
-        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
         <span>Search</span>
       </button>
     </div>
 
-    <!-- Quick Tools: 4-Column Micro Chip Grid -->
-    <div class="grid grid-cols-4 gap-1 py-1.5">
-      <a href="/resize-signature-to-10kb-20kb/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+    <!-- Quick Tools: Balanced 3×3 Grid (9 Distinct Studio Tools) -->
+    <div class="grid grid-cols-3 gap-1.5 py-2">
+      <a href="/resize-signature-to-10kb-20kb/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
         <span class="text-base leading-none">✍️</span>
-        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Sign</span>
-        <span class="text-[8px] text-muted-foreground leading-none">10–20 KB</span>
+        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Sign Resizer</span>
+        <span class="text-[8px] font-mono text-muted-foreground leading-none">10–20 KB</span>
       </a>
 
-      <a href="/photo-resizer/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+      <a href="/photo-resizer/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
         <span class="text-base leading-none">📷</span>
-        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Photo</span>
-        <span class="text-[8px] text-muted-foreground leading-none">20–50 KB</span>
+        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Photo Resizer</span>
+        <span class="text-[8px] font-mono text-muted-foreground leading-none">20–50 KB</span>
       </a>
 
-      <a href="/document-resizer/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+      <a href="/document-resizer/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
         <span class="text-base leading-none">📄</span>
-        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Doc</span>
-        <span class="text-[8px] text-muted-foreground leading-none">100–300 KB</span>
+        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Doc Resizer</span>
+        <span class="text-[8px] font-mono text-muted-foreground leading-none">100–300 KB</span>
       </a>
 
-      <a href="/compress-image-to-kb/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+      <a href="/compress-image-to-kb/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
         <span class="text-base leading-none">⚡</span>
-        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Compress</span>
-        <span class="text-[8px] text-muted-foreground leading-none">Custom KB</span>
+        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Compress Image</span>
+        <span class="text-[8px] font-mono text-muted-foreground leading-none">Custom Target</span>
       </a>
 
-      <a href="/signature-generator/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+      <a href="/signature-generator/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
         <span class="text-base leading-none">✨</span>
-        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">Generator</span>
-        <span class="text-[8px] text-muted-foreground leading-none">Cursive</span>
+        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Sign Generator</span>
+        <span class="text-[8px] font-mono text-muted-foreground leading-none">Cursive Fonts</span>
       </a>
 
-      <a href="/electronic-signature/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+      <a href="/electronic-signature/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
         <span class="text-base leading-none">🖋️</span>
-        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">eSign</span>
-        <span class="text-[8px] text-muted-foreground leading-none">Draw pad</span>
+        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">eSign Pad</span>
+        <span class="text-[8px] font-mono text-muted-foreground leading-none">Draw Digital</span>
       </a>
 
-      <a href="/ssc-signature-resize/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+      <a href="/ssc-cgl-signature-resize/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
         <span class="text-base leading-none">🎨</span>
-        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">SSC</span>
-        <span class="text-[8px] text-muted-foreground leading-none">140×60 px</span>
+        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">SSC Preset</span>
+        <span class="text-[8px] font-mono text-muted-foreground leading-none">140×60 px</span>
       </a>
 
-      <a href="/background-remover/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group"><span aria-hidden="true">◐</span><span class="text-[10px] font-semibold">Background Remover</span></a>
-      <a href="/make-signature-background-white/" class="flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group">
+      <a href="/background-remover/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
+        <span class="text-base leading-none">🪄</span>
+        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">BG Remover</span>
+        <span class="text-[8px] font-mono text-muted-foreground leading-none">Transparent</span>
+      </a>
+
+      <a href="/make-signature-background-white/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
         <span class="text-base leading-none">🧹</span>
-        <span class="text-[9px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary leading-tight">White BG</span>
-        <span class="text-[8px] text-muted-foreground leading-none">Clean bg</span>
+        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">White BG</span>
+        <span class="text-[8px] font-mono text-muted-foreground leading-none">Clean 100%</span>
       </a>
     </div>
 
@@ -2041,6 +2072,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
     mobileToggle?.setAttribute('aria-expanded', 'true');
     hamburgerIcon?.classList.add('hidden');
     closeIcon?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeMobileMenu() {
@@ -2049,6 +2081,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
     mobileToggle?.setAttribute('aria-expanded', 'false');
     hamburgerIcon?.classList.remove('hidden');
     closeIcon?.classList.add('hidden');
+    document.body.style.overflow = '';
   }
 
   function toggleMobileMenu() {
@@ -2082,46 +2115,112 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
     openSearchPopover();
   });
 
-  // International Dropdown Click & Touch Handler
+  // -------------------------------------------------------------------------
+  // 🌐 Desktop Navigation Dropdowns (International, Signature, Exams & Jobs)
+  // -------------------------------------------------------------------------
   const intlBtn = document.getElementById('international-menu-btn');
   const intlPanel = document.getElementById('international-dropdown-panel');
   const intlGroup = document.getElementById('international-nav-group');
 
-  function toggleIntlDropdown(show) {
-    if (show) {
+  const signBtn = document.getElementById('signature-menu-btn');
+  const signPanel = document.getElementById('signature-dropdown-panel');
+  const signGroup = document.getElementById('signature-nav-group');
+
+  const examsBtn = document.getElementById('exams-menu-btn');
+  const examsPanel = document.getElementById('exams-dropdown-panel');
+  const examsGroup = document.getElementById('exams-nav-group');
+
+  let activePinnedDropdown = null; // 'intl' | 'sign' | 'exams' | null
+
+  function closeAllDropdowns(returnFocus = false) {
+    if (intlPanel) {
+      intlPanel.classList.remove('!visible', '!opacity-100', '!pointer-events-auto');
+      intlBtn?.setAttribute('aria-expanded', 'false');
+    }
+    if (signPanel) {
+      signPanel.classList.remove('!visible', '!opacity-100', '!pointer-events-auto');
+      signBtn?.setAttribute('aria-expanded', 'false');
+    }
+    if (examsPanel) {
+      examsPanel.classList.remove('!visible', '!opacity-100', '!pointer-events-auto');
+      examsBtn?.setAttribute('aria-expanded', 'false');
+    }
+    if (returnFocus) {
+      if (activePinnedDropdown === 'intl') intlBtn?.focus();
+      else if (activePinnedDropdown === 'sign') signBtn?.focus();
+      else if (activePinnedDropdown === 'exams') examsBtn?.focus();
+    }
+    activePinnedDropdown = null;
+  }
+
+  function openDropdown(name) {
+    closeAllDropdowns(false);
+    if (name === 'intl') {
       intlPanel?.classList.add('!visible', '!opacity-100', '!pointer-events-auto');
       intlBtn?.setAttribute('aria-expanded', 'true');
-    } else {
-      intlPanel?.classList.remove('!visible', '!opacity-100', '!pointer-events-auto');
-      intlBtn?.setAttribute('aria-expanded', 'false');
+      activePinnedDropdown = 'intl';
+    } else if (name === 'sign') {
+      signPanel?.classList.add('!visible', '!opacity-100', '!pointer-events-auto');
+      signBtn?.setAttribute('aria-expanded', 'true');
+      activePinnedDropdown = 'sign';
+    } else if (name === 'exams') {
+      examsPanel?.classList.add('!visible', '!opacity-100', '!pointer-events-auto');
+      examsBtn?.setAttribute('aria-expanded', 'true');
+      activePinnedDropdown = 'exams';
     }
   }
 
   intlBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    const isCurrentlyOpen = intlPanel?.classList.contains('!visible');
-    toggleIntlDropdown(!isCurrentlyOpen);
-  });
-
-  // Signature Dropdown Click & Touch Handler
-  const signBtn = document.getElementById('signature-menu-btn');
-  const signPanel = document.getElementById('signature-dropdown-panel');
-  const signGroup = document.getElementById('signature-nav-group');
-
-  function toggleSignDropdown(show) {
-    if (show) {
-      signPanel?.classList.add('!visible', '!opacity-100', '!pointer-events-auto');
-      signBtn?.setAttribute('aria-expanded', 'true');
+    if (activePinnedDropdown === 'intl') {
+      closeAllDropdowns(false);
     } else {
-      signPanel?.classList.remove('!visible', '!opacity-100', '!pointer-events-auto');
-      signBtn?.setAttribute('aria-expanded', 'false');
+      openDropdown('intl');
     }
-  }
+  });
 
   signBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    const isCurrentlyOpen = signPanel?.classList.contains('!visible');
-    toggleSignDropdown(!isCurrentlyOpen);
+    if (activePinnedDropdown === 'sign') {
+      closeAllDropdowns(false);
+    } else {
+      openDropdown('sign');
+    }
+  });
+
+  examsBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (activePinnedDropdown === 'exams') {
+      closeAllDropdowns(false);
+    } else {
+      openDropdown('exams');
+    }
+  });
+
+  // When hovering on a different dropdown group, dismiss any click-pinned other dropdown
+  intlGroup?.addEventListener('mouseenter', () => {
+    if (activePinnedDropdown && activePinnedDropdown !== 'intl') {
+      closeAllDropdowns(false);
+    }
+  });
+  signGroup?.addEventListener('mouseenter', () => {
+    if (activePinnedDropdown && activePinnedDropdown !== 'sign') {
+      closeAllDropdowns(false);
+    }
+  });
+  examsGroup?.addEventListener('mouseenter', () => {
+    if (activePinnedDropdown && activePinnedDropdown !== 'exams') {
+      closeAllDropdowns(false);
+    }
+  });
+
+  // Clicking any link or preset button inside dropdowns closes them
+  [intlPanel, signPanel, examsPanel].forEach((panel) => {
+    panel?.querySelectorAll('a, button').forEach((clickable) => {
+      clickable.addEventListener('click', () => {
+        closeAllDropdowns(false);
+      });
+    });
   });
 
   // Close mobile menu or dropdowns if clicked outside
@@ -2135,20 +2234,25 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
       closeMobileMenu();
     }
 
-    if (intlGroup && !intlGroup.contains(e.target)) {
-      toggleIntlDropdown(false);
-    }
-
-    if (signGroup && !signGroup.contains(e.target)) {
-      toggleSignDropdown(false);
+    if (
+      activePinnedDropdown &&
+      !intlGroup?.contains(e.target) &&
+      !signGroup?.contains(e.target) &&
+      !examsGroup?.contains(e.target)
+    ) {
+      closeAllDropdowns(false);
     }
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      toggleIntlDropdown(false);
-      toggleSignDropdown(false);
-      closeMobileMenu();
+      if (activePinnedDropdown) {
+        closeAllDropdowns(true);
+      }
+      if (mobileDrawer && !mobileDrawer.classList.contains('hidden')) {
+        closeMobileMenu();
+        mobileToggle?.focus();
+      }
     }
   });
 })();
