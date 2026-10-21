@@ -5,7 +5,6 @@ User-agent: *
 Allow: /
 
 Sitemap: ${new URL('sitemap-index.xml', siteUrl).href}
-Sitemap: ${new URL('sitemap.xml', siteUrl).href}
 `.trim();
 
 export const GET: APIRoute = ({ site }) => {

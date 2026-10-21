@@ -21,7 +21,7 @@ export function inspectBackground(pixels: ArrayLike<number>, width: number, heig
     const i = (y * width + x) * 4;
     const r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
     total++;
-    if (pixels[i + 3] < 200 || Math.min(r, g, b) < (lightAllowed ? 180 : 210) || Math.max(r, g, b) - Math.min(r, g, b) > 36) unsuitable++;
+    if (pixels[i + 3] < 200 || Math.min(r, g, b) < (lightAllowed ? 200 : 235) || Math.max(r, g, b) - Math.min(r, g, b) > 36) unsuitable++;
   }
   if (!total || unsuitable / total < 0.32) return [];
   return [{ code: 'background', message: `Possible background problem: the image background looks coloured, dark, or shadowed. This preset calls for ${lightAllowed ? 'a plain light background' : 'a white background'}.`, fix: 'Check the background around the subject. Retake against the required plain background, or use Make Background White.' }];

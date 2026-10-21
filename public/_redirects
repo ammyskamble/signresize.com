@@ -40,8 +40,10 @@
 /lok-sewa-photo-resize-nepal/ /np/lok-sewa-photo-resize-nepal/ 301
 /ppsc-signature-resize /pk/ppsc-signature-resize/ 301
 /ppsc-signature-resize/ /pk/ppsc-signature-resize/ 301
-/fpsc-photo-resize /pk/fpsc-photo-resize/ 301
-/fpsc-photo-resize/ /pk/fpsc-photo-resize/ 301
+/fpsc-photo-resize /pk/fpsc-photo-resizer/ 301
+/fpsc-photo-resize/ /pk/fpsc-photo-resizer/ 301
+/pk/fpsc-photo-resize /pk/fpsc-photo-resizer/ 301
+/pk/fpsc-photo-resize/ /pk/fpsc-photo-resizer/ 301
 
 # 2. Renamed & Historical Blog Articles (Fixes GSC 404 & Hash Duplicates)
 # Explicit 301 redirects for all GSC-reported hash duplicate URLs
@@ -155,6 +157,29 @@
 /blog/ssc-rrb-quantitative-aptitude-reasoning-speed-strategy/ /blog/ 301
 /blog/mega-railway-banking-recruitment-2026-opportunities /government-jobs/ 301
 /blog/mega-railway-banking-recruitment-2026-opportunities/ /government-jobs/ 301
+
+/blog/how-to-change-signature-in-outlook /signature-generator/ 301
+/blog/how-to-change-signature-in-outlook/ /signature-generator/ 301
+/blog/rrb-ntpc-2026-top-10-faq-complete-guide /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/rrb-ntpc-2026-top-10-faq-complete-guide/ /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/rrb-ntpc-cen-06-2026-photo-signature-guidelines /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/rrb-ntpc-cen-06-2026-photo-signature-guidelines/ /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/rrb-ntpc-exam-date-2026-city-intimation-slip-admit-card /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/rrb-ntpc-exam-date-2026-city-intimation-slip-admit-card/ /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/rrb-ntpc-syllabus-exam-pattern-cbt-1-cbt-2 /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/rrb-ntpc-syllabus-exam-pattern-cbt-1-cbt-2/ /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/ssc-cgl-2026-top-10-faq-aspirants-guide /blog/ssc-cgl-2026-master-application-preparation-guide/ 301
+/blog/ssc-cgl-2026-top-10-faq-aspirants-guide/ /blog/ssc-cgl-2026-master-application-preparation-guide/ 301
+/blog/ssc-cgl-photo-and-signature-size-2026-guidelines /blog/ssc-cgl-2026-master-application-preparation-guide/ 301
+/blog/ssc-cgl-photo-and-signature-size-2026-guidelines/ /blog/ssc-cgl-2026-master-application-preparation-guide/ 301
+/blog/india-post-gds-2026-top-10-faq-complete-guide /blog/india-post-gds-2026-bpm-abpm-merit-salary-photo-signature-rules/ 301
+/blog/india-post-gds-2026-top-10-faq-complete-guide/ /blog/india-post-gds-2026-bpm-abpm-merit-salary-photo-signature-rules/ 301
+/mr/blog/appsc-group-1-2-2026-master-guide-otpr-photo-signature-rules /mr/blog/ 301
+/mr/blog/appsc-group-1-2-2026-master-guide-otpr-photo-signature-rules/ /mr/blog/ 301
+/mr/blog/dsssb-tgt-pgt-prt-2026-master-guide-postcard-photo-signature-rules /mr/blog/ 301
+/mr/blog/dsssb-tgt-pgt-prt-2026-master-guide-postcard-photo-signature-rules/ /mr/blog/ 301
+/mr/blog/ppsc-online-apply-guide-photo-resizer-25kb-roll-no-slip-challan-2026 /mr/blog/ 301
+/mr/blog/ppsc-online-apply-guide-photo-resizer-25kb-roll-no-slip-challan-2026/ /mr/blog/ 301
 
 # 3. Canonical trailing-slash redirects (GSC "Page with redirect" is expected for these source URLs)
 /contact /contact/ 301

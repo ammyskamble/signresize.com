@@ -229,7 +229,7 @@ const presetSlugMap = new Map([
   ['mp-police-photo', 'mp-police-photo-resize'],
   ['teletalk-bd', 'teletalk-photo-signature-resize'],
   ['ppsc-pk', 'ppsc-signature-resize'],
-  ['fpsc-pk', 'fpsc-photo-resize'],
+  ['fpsc-pk', 'fpsc-photo-resizer'],
   ['prc-ph', 'prc-photo-signature-resize-philippines'],
   ['loksewa-np', 'lok-sewa-photo-resize-nepal'],
   ['rrb-ntpc', 'rrb-ntpc-signature-resize'],
@@ -267,7 +267,7 @@ const getExamUrl = (slug: string | null, presetId: string) => {
   if (!slug) return `/?preset=${encodeURIComponent(presetId)}#tool-workspace`;
   if (slug === 'prc-photo-signature-resize-philippines') return `/ph/${slug}/`;
   if (slug === 'lok-sewa-photo-resize-nepal') return `/np/${slug}/`;
-  if (slug === 'ppsc-signature-resize' || slug === 'fpsc-photo-resize') return `/pk/${slug}/`;
+  if (slug === 'ppsc-signature-resize' || slug === 'fpsc-photo-resizer' || slug === 'fpsc-photo-resize') return `/pk/${slug}/`;
   return `/${slug}/`;
 };
 

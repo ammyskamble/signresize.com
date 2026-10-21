@@ -69,10 +69,15 @@ const relatedPosts = scoredPosts.slice(0, 3).map(s => s.post);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    {!hasTranslation && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="en" href={`https://signresize.in/blog/${post.slug}/`} />
-    <link rel="alternate" hreflang="hi" href={`https://signresize.in/hi/blog/${post.slug}/`} />
-    <link rel="alternate" hreflang="mr" href={`https://signresize.in/mr/blog/${post.slug}/`} />
+    {Boolean(post.contentHtml_hi) && (
+      <link rel="alternate" hreflang="hi" href={`https://signresize.in/hi/blog/${post.slug}/`} />
+    )}
+    {hasTranslation && (
+      <link rel="alternate" hreflang="mr" href={`https://signresize.in/mr/blog/${post.slug}/`} />
+    )}
     <link rel="alternate" hreflang="x-default" href={`https://signresize.in/blog/${post.slug}/`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
