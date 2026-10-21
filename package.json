@@ -44,6 +44,6 @@
   "devDependencies": {
     "esbuild": "0.28.2",
     "typescript": "^7.0.2",
-    "wrangler": "^4.127.1"
+    "wrangler": "^4.151.3"
   }
 }
