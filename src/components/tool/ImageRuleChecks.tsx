@@ -117,7 +117,25 @@ export function ExportChecksDialog({
   const presetIssues = result && preset ? inspectExport(result, preset) : [];
   const complianceRule = preset ?? rule;
   const complianceIssues = result ? inspectExport(result, complianceRule) : [];
-  const blocked = busy || !result || !result.withinTargetBounds || issues.length > 0 || presetIssues.length > 0;
+
+  const isCoastGuardPhoto = Boolean(
+    mode === 'photo' &&
+    (preset?.id.includes('coast-guard') ||
+     preset?.name.toLowerCase().includes('coast guard') ||
+     preset?.authority.toLowerCase().includes('coast guard'))
+  );
+
+  const isUpssscSignature = Boolean(
+    mode === 'signature' &&
+    (preset?.id.includes('upsssc') ||
+     preset?.name.toLowerCase().includes('upsssc') ||
+     preset?.authority.toLowerCase().includes('upsssc') ||
+     preset?.id.includes('pet'))
+  );
+
+  const isSlatePending = Boolean(isCoastGuardPhoto && !slateConfirmed);
+  const isUpssscPending = Boolean(isUpssscSignature && !upssscConfirmed);
+  const blocked = busy || !result || !result.withinTargetBounds || issues.length > 0 || presetIssues.length > 0 || isSlatePending || isUpssscPending;
 
   return (
     <dialog
@@ -164,7 +182,7 @@ export function ExportChecksDialog({
             <div className="pt-1">
               {blocked ? (
                 <span className="inline-flex items-center gap-1 font-bold text-rose-600 dark:text-rose-400 text-xs bg-rose-500/10 px-2 py-0.5 rounded">
-                  ⚠️ File needs attention before download
+                  ⚠️ {isSlatePending ? 'Coast Guard slate confirmation required' : isUpssscPending ? 'UPSSSC Clause 9.3 check required' : 'File needs attention before download'}
                 </span>
               ) : (
                 <span className="inline-flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-400 text-xs bg-emerald-500/10 px-2 py-0.5 rounded">
@@ -173,6 +191,30 @@ export function ExportChecksDialog({
               )}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Coast Guard Pending Slate Warning */}
+      {isSlatePending && (
+        <div role="alert" className="p-3 rounded-xl bg-amber-500/15 border-2 border-amber-500/50 text-amber-950 dark:text-amber-100 text-xs space-y-1">
+          <div className="font-extrabold flex items-center gap-1.5 text-amber-900 dark:text-amber-200">
+            <span>⚠️ Indian Coast Guard (CGEPT) Mandatory Slate Required</span>
+          </div>
+          <p className="text-[11px] leading-relaxed text-muted-foreground">
+            Candidates must hold a physical black chalkboard/slate in front of chest with Name &amp; Date written in white chalk. Normal photos or digital overlays are disqualified at Stage-I. Confirm the requirement in the audit below to enable download.
+          </p>
+        </div>
+      )}
+
+      {/* UPSSSC Pending Clause 9.3 Warning */}
+      {isUpssscPending && (
+        <div role="alert" className="p-3 rounded-xl bg-amber-500/15 border-2 border-amber-500/50 text-amber-950 dark:text-amber-100 text-xs space-y-1">
+          <div className="font-extrabold flex items-center gap-1.5 text-amber-900 dark:text-amber-200">
+            <span>⚠️ UPSSSC PET Clause 9.3 Confirmation Required</span>
+          </div>
+          <p className="text-[11px] leading-relaxed text-muted-foreground">
+            Signatures must be signed in English with candidate full Name written in Hindi directly below on plain unruled white paper. Confirm the requirement in the audit below to enable download.
+          </p>
         </div>
       )}
 

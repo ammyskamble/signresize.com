@@ -5,17 +5,26 @@ export type ExportRule = Pick<ExamPreset, 'widthPx' | 'heightPx' | 'minKb' | 'ma
 export function inspectBackground(pixels: ArrayLike<number>, width: number, height: number, notes: string): UploadIssue[] {
   const lightAllowed = /light|gr[ae]y|off-white/i.test(notes);
   if (!/white|light.*background|background.*light|gr[ae]y.*background/i.test(notes)) return [];
+  const isPhoto = /photo|portrait|passport|face/i.test(notes);
   let total = 0, unsuitable = 0;
-  // The outer edge is a background estimate, not a subject/face segmentation.
+  // For photos:
+  // The background is around the head and upper shoulders. The bottom region (y > 50%) is the candidate's torso, suit, collar, or Coast Guard slate.
+  // For signatures and documents:
+  // All 4 outer perimeter margins are paper borders.
   for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
-    if (x > width * .08 && x < width * .92 && y > height * .08 && y < height * .92) continue;
+    if (isPhoto) {
+      if (y > height * 0.50) continue; // Skip bottom half where clothes, chest, and slate sit
+      if (x > width * 0.15 && x < width * 0.85 && y > height * 0.12) continue; // Skip central face area
+    } else {
+      if (x > width * 0.08 && x < width * 0.92 && y > height * 0.08 && y < height * 0.92) continue;
+    }
     const i = (y * width + x) * 4;
     const r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
     total++;
-    if (pixels[i + 3] < 200 || Math.min(r, g, b) < (lightAllowed ? 190 : 215) || Math.max(r, g, b) - Math.min(r, g, b) > 32) unsuitable++;
+    if (pixels[i + 3] < 200 || Math.min(r, g, b) < (lightAllowed ? 180 : 210) || Math.max(r, g, b) - Math.min(r, g, b) > 36) unsuitable++;
   }
-  if (!total || unsuitable / total < .32) return [];
-  return [{ code: 'background', message: `Possible background problem: the image edges look coloured, dark, shadowed, or transparent. This preset calls for ${lightAllowed ? 'a plain light background' : 'a white background'}.`, fix: 'Check the background around the subject. Retake the photo against the required plain background, or upload a corrected image. For a signature or paper scan, try Clean White Paper and inspect the result.' }];
+  if (!total || unsuitable / total < 0.32) return [];
+  return [{ code: 'background', message: `Possible background problem: the image background looks coloured, dark, or shadowed. This preset calls for ${lightAllowed ? 'a plain light background' : 'a white background'}.`, fix: 'Check the background around the subject. Retake against the required plain background, or use Make Background White.' }];
 }
 
 export function inspectRuledPaper(pixels: ArrayLike<number>, width: number, height: number): UploadIssue[] {

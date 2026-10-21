@@ -1201,6 +1201,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       }
       sourceObjectUrlRef.current = objectUrl;
       setSourceImage(img);
+      setSlateConfirmed(false);
+      setUpssscConfirmed(false);
+      setBackgroundIssues(null);
       setSourceDimensions({ width: img.naturalWidth, height: img.naturalHeight });
       backgroundTransferMode.current = transferredMode || null;
       setBackgroundTransferNotice('');
@@ -1352,6 +1355,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         sourceObjectUrlRef.current = null;
       }
       setSourceImage(img);
+      setSlateConfirmed(false);
+      setUpssscConfirmed(false);
+      setBackgroundIssues(null);
       setSourceDimensions({ width: sample.width, height: sample.height });
       const targetAspect = selectedPreset ? selectedPreset.aspectRatio : targetWidthPx / targetHeightPx;
       initCropBox(img, targetAspect);
@@ -2053,6 +2059,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     setSourceDimensions({ width: 0, height: 0 });
     setHasDownloaded(false);
     setDownloadedFileName('');
+    setSlateConfirmed(false);
+    setUpssscConfirmed(false);
+    setBackgroundIssues(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
@@ -2087,6 +2096,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     if (!processedResult) return;
     if (isProcessing || !processedResult.withinTargetBounds || inspectExport(processedResult, exportRule).length || (selectedPreset && inspectExport(processedResult, selectedPreset).length)) {
       addToast('Fix the export checks before downloading. Restore the preset settings and inspect the crop.', 'Export needs attention', 'warning');
+      return;
+    }
+    if (isCoastGuardActive && targetType === 'photo' && !slateConfirmed) {
+      setShowExportChecks(true);
+      addToast('Indian Coast Guard requires physical slate with Name & Date. Confirm slate requirement before downloading.', 'Slate Confirmation Required', 'warning');
+      return;
+    }
+    if (isUpssscActive && targetType === 'signature' && !upssscConfirmed) {
+      setShowExportChecks(true);
+      addToast('UPSSSC PET Clause 9.3 requires candidate Hindi name below signature. Confirm requirement before downloading.', 'Clause 9.3 Check Required', 'warning');
       return;
     }
     const ext = targetFormat === 'image/jpeg' ? 'jpg' : targetFormat === 'image/png' ? 'png' : 'webp';

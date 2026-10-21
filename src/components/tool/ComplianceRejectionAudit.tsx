@@ -53,20 +53,35 @@ export function ComplianceRejectionAudit({
   const ruledPaperIssue = backgroundIssues?.find((i) => i.code === 'ruled_paper');
   const genericBgIssue = backgroundIssues?.find((i) => i.code === 'background' || i.code === 'bg');
 
-  // File is fully completed when processed within target bounds with 0 export issues AND 0 background/ruled line issues
-  const hasErrors = isOutOfBounds || exportIssues.length > 0 || hasBgIssues;
-  const isAllCompleted = Boolean(processedResult && !hasErrors);
-  const requiresAdvertisementVerification = preset?.portalExactSpecsVerified === false;
-
   const isCoastGuardPhoto = Boolean(
     mode === 'photo' &&
-    (preset?.id.includes('coast-guard') || preset?.name.toLowerCase().includes('coast guard'))
+    (preset?.id.includes('coast-guard') ||
+     preset?.name.toLowerCase().includes('coast guard') ||
+     preset?.authority.toLowerCase().includes('coast guard') ||
+     audit.examName === 'Indian Coast Guard')
   );
 
   const isUpssscSignature = Boolean(
     mode === 'signature' &&
-    (preset?.id.includes('upsssc') || preset?.name.toLowerCase().includes('upsssc') || preset?.id.includes('pet'))
+    (preset?.id.includes('upsssc') ||
+     preset?.name.toLowerCase().includes('upsssc') ||
+     preset?.authority.toLowerCase().includes('upsssc') ||
+     preset?.id.includes('pet') ||
+     audit.examName === 'UPSSSC')
   );
+
+  const isSlatePending = Boolean(isCoastGuardPhoto && !slateConfirmed);
+  const isUpssscPending = Boolean(isUpssscSignature && !upssscConfirmed);
+
+  // File is fully completed when:
+  // 1. Processed within target bounds
+  // 2. 0 export issues
+  // 3. 0 background/ruled line issues
+  // 4. Coast Guard slate confirmed (if Coast Guard photo)
+  // 5. UPSSSC Clause 9.3 confirmed (if UPSSSC signature)
+  const hasErrors = isOutOfBounds || exportIssues.length > 0 || hasBgIssues || isSlatePending || isUpssscPending;
+  const isAllCompleted = Boolean(processedResult && !hasErrors);
+  const requiresAdvertisementVerification = preset?.portalExactSpecsVerified === false;
 
   // 1. ALL REQUIREMENTS COMPLETED STATE (Clean Green Success)
   if (isAllCompleted) {
@@ -126,10 +141,10 @@ export function ComplianceRejectionAudit({
             />
             <div>
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block">
-                Confirmed: Photo taken holding physical chalkboard with white chalk Name &amp; Date
+                ✓ Confirmed: Photo taken holding physical chalkboard with white chalk Name &amp; Date
               </span>
               <span className="text-muted-foreground text-[10px]">
-                Indian Coast Guard (CGEPT) disqualifies photos missing the slate at Stage-I scrutiny.
+                Indian Coast Guard (CGEPT) Stage-I scrutiny verified by candidate. Click to unconfirm.
               </span>
             </div>
           </label>
@@ -146,10 +161,10 @@ export function ComplianceRejectionAudit({
             />
             <div>
               <span className="font-bold text-emerald-900 dark:text-emerald-200 block">
-                Confirmed: Signature in English with full Name in Hindi directly below on plain unruled paper
+                ✓ Confirmed: Signature in English with full Name in Hindi directly below on plain unruled paper
               </span>
               <span className="text-muted-foreground text-[10px]">
-                UPSSSC PET Clause 9.3 cancels forms if Hindi name is missing or if signed on notebook lines.
+                UPSSSC PET Clause 9.3 verified by candidate. Click to unconfirm.
               </span>
             </div>
           </label>
@@ -196,8 +211,16 @@ export function ComplianceRejectionAudit({
   }
 
   // 2. ERROR / INCOMPLETE REQUIREMENTS STATE (Showed error informs candidate what is missing)
+  const badgeText = isSlatePending
+    ? 'SLATE CONFIRMATION REQUIRED'
+    : isUpssscPending
+    ? 'CLAUSE 9.3 CHECK REQUIRED'
+    : audit.badge;
+
   const badgeColorClasses =
-    audit.badgeColor === 'rose'
+    isSlatePending || isUpssscPending
+      ? 'bg-amber-600 text-white'
+      : audit.badgeColor === 'rose'
       ? 'bg-rose-600 text-white'
       : audit.badgeColor === 'amber'
       ? 'bg-amber-600 text-white'
@@ -207,21 +230,33 @@ export function ComplianceRejectionAudit({
 
   const containerClasses =
     variant === 'previewCard'
-      ? 'rounded-xl border-2 border-rose-500/80 bg-rose-500/10 dark:bg-rose-950/30 p-3.5 space-y-2.5 text-xs shadow-xs'
+      ? `rounded-xl border-2 ${isSlatePending || isUpssscPending ? 'border-amber-500/80 bg-amber-500/10 dark:bg-amber-950/30' : 'border-rose-500/80 bg-rose-500/10 dark:bg-rose-950/30'} p-3.5 space-y-2.5 text-xs shadow-xs transition-all`
       : variant === 'modalAudit'
-      ? 'rounded-xl border border-rose-500/40 bg-rose-500/5 p-3.5 space-y-2.5 text-xs'
-      : 'rounded-xl border-2 border-rose-500/80 bg-rose-500/10 dark:bg-rose-950/25 p-4 text-xs space-y-3 shadow-xs';
+      ? `rounded-xl border ${isSlatePending || isUpssscPending ? 'border-amber-500/50 bg-amber-500/5' : 'border-rose-500/40 bg-rose-500/5'} p-3.5 space-y-2.5 text-xs`
+      : `rounded-xl border-2 ${isSlatePending || isUpssscPending ? 'border-amber-500/80 bg-amber-500/10 dark:bg-amber-950/25' : 'border-rose-500/80 bg-rose-500/10 dark:bg-rose-950/25'} p-4 text-xs space-y-3 shadow-xs`;
 
   return (
     <div role="alert" aria-label={audit.title} className={containerClasses}>
-      {/* Header bar: Red Alert */}
+      {/* Header bar: Alert */}
       <div className="flex items-center justify-between border-b border-rose-500/30 pb-2 gap-2 flex-wrap">
-        <div className="font-extrabold text-rose-700 dark:text-rose-400 flex items-center gap-1.5 text-xs sm:text-sm">
-          <ShieldAlert className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
-          <span>{audit.title}</span>
+        <div className={`font-extrabold flex items-center gap-1.5 text-xs sm:text-sm ${
+          isSlatePending || isUpssscPending ? 'text-amber-800 dark:text-amber-300' : 'text-rose-700 dark:text-rose-400'
+        }`}>
+          {isSlatePending || isUpssscPending ? (
+            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+          ) : (
+            <ShieldAlert className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
+          )}
+          <span>
+            {isSlatePending
+              ? 'Indian Coast Guard Stage-I Scrutiny: Slate Required'
+              : isUpssscPending
+              ? 'UPSSSC PET Clause 9.3 Scrutiny: Hindi Name Required'
+              : audit.title}
+          </span>
         </div>
         <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow-xs whitespace-nowrap ${badgeColorClasses}`}>
-          {audit.badge}
+          {badgeText}
         </span>
       </div>
 
@@ -229,6 +264,54 @@ export function ComplianceRejectionAudit({
       <p className="text-[11px] sm:text-xs text-foreground font-semibold leading-relaxed">
         {audit.description}
       </p>
+
+      {/* Coast Guard Mandatory Slate Confirmation Banner with Interactive Checkbox */}
+      {isCoastGuardPhoto && (
+        <label className={`flex items-start gap-2.5 p-3 rounded-xl border cursor-pointer text-xs transition ${
+          slateConfirmed
+            ? 'bg-emerald-500/15 border-emerald-500/40 text-foreground'
+            : 'bg-amber-500/20 border-2 border-amber-500/70 text-amber-950 dark:text-amber-100 shadow-sm'
+        }`}>
+          <input
+            type="checkbox"
+            checked={slateConfirmed}
+            onChange={(e) => setSlateConfirmed(e.target.checked)}
+            className="mt-0.5 h-4 w-4 rounded border-amber-500 text-amber-600 focus:ring-amber-500 cursor-pointer shrink-0"
+          />
+          <div className="space-y-1">
+            <span className="font-extrabold block text-amber-900 dark:text-amber-200">
+              {slateConfirmed ? '✓ Confirmed: ' : '⚠️ Candidate Confirmation Required: '}Photo taken holding physical chalkboard with white chalk Name &amp; Date
+            </span>
+            <span className="text-[11px] text-muted-foreground block leading-relaxed">
+              Join Indian Coast Guard (CGEPT) strictly disqualifies photos missing the physical chalkboard at Stage-I document scrutiny. Digital text overlays or normal photos are rejected. Click to confirm your photo complies.
+            </span>
+          </div>
+        </label>
+      )}
+
+      {/* UPSSSC PET Special Confirmation Banner with Interactive Checkbox */}
+      {isUpssscSignature && (
+        <label className={`flex items-start gap-2.5 p-3 rounded-xl border cursor-pointer text-xs transition ${
+          upssscConfirmed
+            ? 'bg-emerald-500/15 border-emerald-500/40 text-foreground'
+            : 'bg-amber-500/20 border-2 border-amber-500/70 text-amber-950 dark:text-amber-100 shadow-sm'
+        }`}>
+          <input
+            type="checkbox"
+            checked={upssscConfirmed}
+            onChange={(e) => setUpssscConfirmed(e.target.checked)}
+            className="mt-0.5 h-4 w-4 rounded border-amber-500 text-amber-600 focus:ring-amber-500 cursor-pointer shrink-0"
+          />
+          <div className="space-y-1">
+            <span className="font-extrabold block text-amber-900 dark:text-amber-200">
+              {upssscConfirmed ? '✓ Confirmed: ' : '⚠️ Candidate Confirmation Required: '}Signature in English with full Name in Hindi directly below on plain unruled paper
+            </span>
+            <span className="text-[11px] text-muted-foreground block leading-relaxed">
+              UPSSSC PET Clause 9.3 automatically cancels applications if Hindi name is missing below English signature or if signed on ruled notebook lines. Click to confirm your signature complies.
+            </span>
+          </div>
+        </label>
+      )}
 
       {/* Active Export Error Callout if out of bounds */}
       {isOutOfBounds && (
