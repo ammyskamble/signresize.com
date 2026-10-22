@@ -10,6 +10,7 @@ import SocialShare from '../../../components/SocialShare.astro';
 import { BLOG_POSTS, type BlogPost, getBlogPostTitle, getBlogPostExcerpt, getBlogPostContent } from '../../../data/blogPostsData';
 import { EXAM_PRESETS } from '../../../data/examPresets';
 import { EXAM_PAGES_DATA } from '../../../data/examPagesData';
+import { getExamPageUrl } from '../../../utils/examPageUrls';
 
 export function getStaticPaths() {
   return BLOG_POSTS.map((post) => ({
@@ -221,7 +222,7 @@ const faqSchema = (faqs && faqs.length > 0) ? {
           <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-2">📖 भाषा बदले:</span>
           <a href={`/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🇬🇧 English</a>
           <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇮🇳 हिंदी</a>
-          <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🚩 मराठी</a>
+          {post.contentHtml_mr && <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🚩 मराठी</a>}
         </div>
       </div>
 
@@ -282,7 +283,7 @@ const faqSchema = (faqs && faqs.length > 0) ? {
             <h3 class="font-bold text-sm text-foreground">क्या आपको फोटो या हस्ताक्षर रिसाइझ करना है?</h3>
             <p class="text-xs text-muted-foreground">100% मुफ्त और सुरक्षित - बिना किसी सर्वर अपलोड के तुरंत आकार बदलें।</p>
           </div>
-          <a href={`/${relatedExamSlug}/`} class="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition whitespace-nowrap shadow-2xs">
+          <a           href={getExamPageUrl(relatedExamSlug)} class="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition whitespace-nowrap shadow-2xs">
             रिसाइझर टूल खोलें &rarr;
           </a>
         </div>

@@ -459,7 +459,7 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
     },
     toolPresetSlug: 'india-post-gds-photo-resize',
     toolLabel: 'Resize for India Post GDS',
-    guideSlug: 'india-post-gds-2026-top-10-faq-complete-guide'
+    guideSlug: 'india-post-gds-2026-bpm-abpm-merit-salary-photo-signature-rules'
   },
   {
     id: 'iaf-afcat-agniveer-2026',

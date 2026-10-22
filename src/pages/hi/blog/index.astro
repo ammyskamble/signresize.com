@@ -21,7 +21,7 @@ function parseBlogDate(dateStr: string): number {
   return isNaN(timestamp) ? 0 : timestamp;
 }
 
-const sortedPosts = [...BLOG_POSTS].sort((a, b) => {
+const sortedPosts = BLOG_POSTS.filter((post) => Boolean(post.contentHtml_hi)).sort((a, b) => {
   const timeA = parseBlogDate(a.publishDate);
   const timeB = parseBlogDate(b.publishDate);
   return timeB - timeA;

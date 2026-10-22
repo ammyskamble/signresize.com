@@ -2,6 +2,7 @@
 // ExamSpecsTable.astro
 import { EXAM_PRESETS, CATEGORIES } from '../data/examPresets';
 import { EXAM_PAGES_DATA } from '../data/examPagesData';
+import { getExamPageUrl } from '../utils/examPageUrls';
 
 interface Props {
   country?: 'PK' | 'PH' | 'BD' | 'NP' | 'IN' | 'ALL';
@@ -92,7 +93,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
               <tr class="hover:bg-muted/40 transition">
                 <td class="py-3 px-3.5">
                   {dedicatedSlug ? (
-                    <a href={`/${dedicatedSlug}/`} class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                    <a href={getExamPageUrl(dedicatedSlug)} class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
                       <span>{preset.name}</span>
                       <span class="text-[10px] text-primary">→</span>
                     </a>
@@ -174,7 +175,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
               <td class="py-3 px-4">
                 {dedicatedSlug ? (
                   <a
-                    href={`/${dedicatedSlug}/`}
+                    href={getExamPageUrl(dedicatedSlug)}
                     aria-label={`View dedicated page for ${preset.name} specifications`}
                     class="font-semibold text-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 group"
                   >

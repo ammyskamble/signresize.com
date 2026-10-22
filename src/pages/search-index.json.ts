@@ -378,7 +378,8 @@ export const GET: APIRoute = () => {
   return new Response(JSON.stringify(websiteSearchIndex), {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000'
+      'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000',
+      'X-Robots-Tag': 'noindex'
     }
   });
 };

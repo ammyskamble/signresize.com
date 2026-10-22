@@ -432,7 +432,7 @@ export const ONGOING_EXAMS_DATA: ExamNewsItem[] = [
     notificationTitle: 'Gramin Dak Sevaks (Branch Postmaster & Assistant Branch Postmaster) Recruitment',
     badgeText: 'No Exam (Merit)',
     toolSlug: 'ssc-signature-resize',
-    articleSlug: 'india-post-gds-2026-top-10-faq-complete-guide',
+    articleSlug: 'india-post-gds-2026-bpm-abpm-merit-salary-photo-signature-rules',
     officialUrl: 'https://indiapostgdsonline.gov.in',
     isHot: true,
     notificationDetails: {

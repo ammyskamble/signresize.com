@@ -12,6 +12,7 @@ import { EXAM_GUIDANCE } from '../data/examGuidance';
 import { SignatureTool } from '../components/SignatureTool';
 import { EXAM_PAGES_DATA, type ExamPageInfo } from '../data/examPagesData';
 import { BLOG_POSTS } from '../data/blogPostsData';
+import { getExamPageUrl } from '../utils/examPageUrls';
 
 export async function getStaticPaths() {
   const INTERNATIONAL_COUNTRY_SLUGS = [
@@ -321,7 +322,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
       {relatedTools.length > 0 && !hasDocumentSuite && !examGuidance && (
         <nav class="flex flex-wrap gap-2 text-xs" aria-label="Related signature tools">
           {relatedTools.map(tool => (
-            <a href={`/${tool.slug}/`} class="px-3 py-2 rounded-xl bg-card border border-border text-primary hover:bg-primary/10 transition">
+            <a href={getExamPageUrl(tool.slug)} class="px-3 py-2 rounded-xl bg-card border border-border text-primary hover:bg-primary/10 transition">
               {tool.label} →
             </a>
           ))}
@@ -990,7 +991,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                   <span class="text-muted-foreground font-medium">Quick switch:</span>
                   <a href="/ssc-cgl-signature-resize/" class="text-primary font-semibold hover:underline">SSC CGL Signature (10–20 KB) →</a>
                   <a href="/ssc-photo-resize/" class="text-primary font-semibold hover:underline">SSC Photo Resizer (20–50 KB) →</a>
-                  <a href="/blog/ssc-cgl-photo-and-signature-size-2026-guidelines/" class="text-primary font-semibold hover:underline">Complete 2026 Rules &amp; Guide →</a>
+                  <a href="/blog/ssc-cgl-2026-master-application-preparation-guide/" class="text-primary font-semibold hover:underline">Complete 2026 Rules &amp; Guide →</a>
                 </div>
               </div>
             )}

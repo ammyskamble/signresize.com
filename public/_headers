@@ -26,6 +26,7 @@
 /search-index.json
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
   Access-Control-Allow-Origin: *
+  X-Robots-Tag: noindex
 
 # HTML and root documents: enable Cloudflare edge caching (s-maxage) for ultra-fast TTFB for AI crawlers and search bots
 /*
