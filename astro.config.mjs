@@ -51,7 +51,6 @@ export default defineConfig({
     '/fpsc-photo-resize': '/pk/fpsc-photo-resizer/',
     '/pk/fpsc-photo-resize': '/pk/fpsc-photo-resizer/',
     // Blog Redirects & Hash Cleanup
-    '/blog/how-to-change-signature-in-outlook': '/signature-generator/',
     '/blog/rrb-ntpc-2026-top-10-faq-complete-guide': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
     '/blog/rrb-ntpc-cen-06-2026-photo-signature-guidelines': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
     '/blog/rrb-ntpc-exam-date-2026-city-intimation-slip-admit-card': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
@@ -59,8 +58,6 @@ export default defineConfig({
     '/blog/ssc-cgl-2026-top-10-faq-aspirants-guide': '/blog/ssc-cgl-2026-master-application-preparation-guide/',
     '/blog/ssc-cgl-photo-and-signature-size-2026-guidelines': '/blog/ssc-cgl-2026-master-application-preparation-guide/',
     '/blog/india-post-gds-2026-top-10-faq-complete-guide': '/blog/india-post-gds-2026-bpm-abpm-merit-salary-photo-signature-rules/',
-    '/hi/blog/how-to-change-signature-in-outlook': '/signature-generator/',
-    '/mr/blog/how-to-change-signature-in-outlook': '/signature-generator/',
     '/hi/blog/rrb-ntpc-2026-top-10-faq-complete-guide': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
     '/mr/blog/rrb-ntpc-2026-top-10-faq-complete-guide': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
     '/hi/blog/rrb-ntpc-cen-06-2026-photo-signature-guidelines': '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/',
