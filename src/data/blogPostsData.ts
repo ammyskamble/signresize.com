@@ -8508,7 +8508,11 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       "BPSC Negative Marking",
       "Bihar Civil Services"
     ],
-    "relatedExamPreset": "bpsc-services",
+    "relatedExamPreset": "bpsc",
+    "guideTool": {
+      "href": "/bpsc-signature-resize/",
+      "label": "BPSC Dual Signature Resizer (Hindi & English 10-25 KB)"
+    },
     "quickFacts": [
       {
         "label": "Conducting Body",
