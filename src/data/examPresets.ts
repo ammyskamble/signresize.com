@@ -1417,8 +1417,8 @@ const BASE_EXAM_PRESETS: ExamPreset[] = [
   // --- Banking & Insurance Sub-Exam Presets ---
   {
     id: 'nicl-ao',
-    name: 'NICL AO (Administrative Officer Scale I)',
-    shortCode: 'NICL AO',
+    name: 'NICL AO & Assistant (Class I & Class III)',
+    shortCode: 'NICL AO / Assistant',
     authority: 'National Insurance Company Limited (NICL) / IBPS',
     category: 'Banking',
     widthPx: 140,
@@ -1431,7 +1431,7 @@ const BASE_EXAM_PRESETS: ExamPreset[] = [
     dpi: 200,
     format: 'JPG',
     aspectRatio: 140 / 60,
-    notes: 'NICL AO 2026: 140×60 px, 10 to 20 KB JPG, running handwriting in black ink pen on plain white paper. Signatures in CAPITAL / BLOCK letters are 100% rejected.',
+    notes: 'NICL Assistant & AO 2026: 140×60 px, 10 to 20 KB JPG, running handwriting in black ink pen on plain white paper. Signatures in CAPITAL / BLOCK letters are 100% rejected.',
     inkRequirement: 'Black Ink Only',
     isPopular: true,
     targetType: 'signature',

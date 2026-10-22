@@ -422,6 +422,43 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
     toolPresetSlug: 'rbi-signature-resize',
     toolLabel: 'Resize for RBI Grade B'
   },
+  {
+    id: 'nicl-assistant-2026',
+    title: 'NICL Assistant Recruitment 2026 (500 Class-III Vacancies)',
+    shortCode: 'NICL Assistant',
+    organization: 'National Insurance Company Limited (NICL / IBPS)',
+    category: 'Banking',
+    state: 'Pan-India',
+    region: 'Pan-India',
+    vacancies: '500 Posts',
+    qualification: 'Graduate',
+    qualificationDetail: 'Bachelor’s Degree in any discipline from a recognized University with regional language proficiency',
+    ageLimit: '21 to 30 Years (as on 01/07/2026; OBC +3 yrs, SC/ST +5 yrs, PwBD +10 yrs)',
+    lastDate: '2026-08-07',
+    examDate: 'Phase-I Prelims: August 27, 2026 | Phase-II Mains: October 30, 2026',
+    status: 'Ongoing',
+    badge: 'Mains Oct 30',
+    officialUrl: 'https://nationalinsurance.nic.co.in',
+    applicationFee: '₹850 (₹100 for SC/ST/PwBD/Ex-Servicemen)',
+    notificationSummary: 'National Insurance Company Limited hiring 500 Assistants (Class-III) across states. Revised starting basic pay ₹36,290 with ~₹63,000 monthly gross emoluments.',
+    keyPosts: ['Assistant (Class-III Cadre)', 'Regional Office Support Assistant'],
+    selectionSteps: ['Phase-I Preliminary Online Exam', 'Phase-II Main Online Exam (200 MCQs, 250 Marks)', 'Regional Language Proficiency Test (RLT)'],
+    photoSpecs: {
+      dimensions: '200 × 230 pixels (3.5 cm × 4.5 cm)',
+      fileSize: '20 KB – 50 KB',
+      format: 'JPG / JPEG',
+      note: 'Recent color passport photo against a light/white background. Neutral expression.'
+    },
+    signatureSpecs: {
+      dimensions: '140 × 60 pixels (4.0 cm × 2.0 cm)',
+      fileSize: '10 KB – 20 KB',
+      format: 'JPG / JPEG',
+      note: 'Black ink on white paper. Capital / BLOCK letters rejected. Left Thumb: 20–50 KB; Declaration: 50–100 KB.'
+    },
+    toolPresetSlug: 'nicl-ao-signature-resize',
+    toolLabel: 'Resize Photo & Sign for NICL Assistant',
+    guideSlug: 'nicl-assistant-recruitment-2026-notification-syllabus-photo-signature-guide'
+  },
 
   // --- Central: Postal & Defence ---
   {

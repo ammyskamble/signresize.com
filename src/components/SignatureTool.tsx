@@ -385,6 +385,7 @@ const PRESET_ALIASES: Record<string, string> = {
   // NICL AO & Insurance aliases
   nicl: 'nicl-ao',
   'nicl-ao': 'nicl-ao',
+  'nicl-assistant': 'nicl-ao',
   'nicl-photo': 'nicl-ao-photo',
   'nicl-thumb': 'nicl-left-thumb',
   declaration: 'handwritten-declaration'

@@ -394,7 +394,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           </span>
           <span class="px-2.5 py-1 rounded-md font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 flex items-center gap-1.5 font-mono shadow-xs shrink-0">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Verified: {post.deployedAt || `${post.lastUpdated || post.publishDate} • 09:00 AM IST`}</span>
+            <span>Updated: {post.lastUpdated || post.publishDate}</span>
           </span>
           <span class="px-2.5 py-1 rounded-md text-slate-700 dark:text-slate-300 font-mono font-medium bg-slate-100 dark:bg-slate-800/80 border border-border flex items-center gap-1 shrink-0">
             ⏱️ {post.readTime}
@@ -424,7 +424,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
             </div>
             <div class="text-xs min-w-0">
               <div class="font-bold text-foreground truncate">{post.author}</div>
-              <div class="text-slate-600 dark:text-slate-400 font-medium truncate">{post.authorRole} • Official Standards</div>
+              <div class="text-slate-600 dark:text-slate-400 font-medium truncate">{post.authorRole}</div>
             </div>
           </div>
 
@@ -530,7 +530,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <span id="section-6" class="scroll-mt-24 block -mt-6 pt-6"></span>
           <div class="space-y-1">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
-              <span>❓</span> {post.guideTool ? 'Image preparation FAQs' : isPkiCompliancePost ? 'Technical & Regulatory FAQs' : 'Official Candidate FAQs'}
+              <span>❓</span> {post.guideTool ? 'Image preparation FAQs' : isPkiCompliancePost ? 'Technical & Regulatory FAQs' : 'Candidate FAQs'}
             </div>
             <h2 class="text-xl sm:text-3xl font-extrabold text-foreground tracking-tight break-words">
               Frequently Asked Questions ({post.faqs.length} Clarified)
@@ -540,7 +540,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
                 ? 'Authoritative answers verified against technical RFC specifications, NIST standards, and legal compliance frameworks.'
                 : isWbpscPost
                   ? 'Authoritative answers verified against official WBPSC recruitment notifications and commission portal upload benchmarks.'
-                  : 'Direct, authoritative answers verified against official commission gazettes, application instructions, and scrutiny standards.'}
+                  : 'Use the official sources referenced in this article to confirm current requirements.'}
             </p>
           </div>
 

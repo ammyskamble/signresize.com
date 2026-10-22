@@ -86,6 +86,562 @@ const redirectedBlogPostSlugs = new Set([
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'nicl-assistant-recruitment-2026-notification-syllabus-photo-signature-guide',
+    title: 'NICL Assistant Recruitment 2026: 500 Vacancies, Mains Exam Date, Salary, Syllabus & Document Upload Guide',
+    title_hi: 'NICL Assistant Recruitment 2026: 500 पद, मेन्स परीक्षा तिथि, वेतन, सिलेबस और फोटो-हस्ताक्षर गाइड',
+    title_mr: 'NICL Assistant Recruitment 2026: 500 पदे, मुख्य परीक्षा तारीख, पगार, अभ्यासक्रम आणि कागदपत्रे मार्गदर्शक',
+    metaTitle: 'NICL Assistant Recruitment 2026: Mains Date, Salary & Upload Guide',
+    metaTitle_hi: 'NICL Assistant Recruitment 2026: मेन्स तिथि, वेतन और अपलोड गाइड',
+    metaTitle_mr: 'NICL Assistant Recruitment 2026: मुख्य परीक्षा, पगार आणि मार्गदर्शक',
+    metaDescription: 'Complete NICL Assistant Recruitment 2026 guide: 500 vacancies, Oct 30 Mains schedule, revised ₹63,000 salary, syllabus, and photo/signature upload rules.',
+    metaDescription_hi: 'NICL असिस्टेंट भर्ती 2026: 500 पद, 30 अक्टूबर मेन्स परीक्षा, ₹63,000 वेतन, एग्जाम पैटर्न और फोटो व हस्ताक्षर अपलोड नियम।',
+    metaDescription_mr: 'NICL असिस्टंट भरती 2026: 500 पदे, 30 ऑक्टोबर मुख्य परीक्षा, ₹63,000 पगार आणि फोटो-स्वाक्षरी मार्गदर्शक.',
+    excerpt: 'Comprehensive breakdown of NICL Assistant Recruitment 2026 for 500 Class-III vacancies: Phase-II Mains schedule, revised ₹63,000 in-hand salary, state-wise regional language test, and official pixel/KB requirements for photo, signature, left thumb, and handwritten declaration.',
+    excerpt_hi: '500 पदों के लिए NICL असिस्टेंट भर्ती 2026 का पूरा विवरण: मेन्स परीक्षा कार्यक्रम, ₹63,000 वेतन, क्षेत्रीय भाषा परीक्षा और फोटो, हस्ताक्षर, अंगूठा व स्वघोषणा पत्र के आधिकारिक नियम।',
+    excerpt_mr: 'NICL असिस्टंट भरती 2026 चे संपूर्ण विश्लेषण: 500 पदे, मुख्य परीक्षा वेळापत्रक, ₹63,000 पगार, प्रादेशिक भाषा चाचणी आणि फोटो-स्वाक्षरीचे अचूक नियम.',
+    category: 'Exam Alerts',
+    country: 'IN',
+    publishDate: 'Oct 22, 2026',
+    publishTime: '10:30 PM IST',
+    lastUpdated: 'Oct 22, 2026',
+    deployedAt: 'Oct 22, 2026 • 10:30 PM IST',
+    author: 'SignResize Examination Standards Desk',
+    authorRole: 'Public Sector Insurance Recruitment Research Desk',
+    readTime: '9 min read',
+    featured: true,
+    tags: [
+      'NICL Assistant Recruitment 2026',
+      'NICL Assistant 2026 Notification PDF',
+      'NICL Assistant Vacancy State Wise',
+      'NICL Assistant Salary 2026 In Hand',
+      'NICL Assistant Pay Scale',
+      'NICL Assistant Eligibility Criteria 2026',
+      'NICL Assistant Mains Exam Date 2026',
+      'NICL Assistant Mains Syllabus',
+      'NICL Assistant Admit Card 2026',
+      'NICL Assistant Photo and Signature Size',
+      'NICL Assistant Handwritten Declaration',
+      'NICL Assistant Left Thumb Impression',
+      'NICL Assistant Regional Language Test',
+      'National Insurance Assistant Recruitment 2026 Apply Online',
+      'Insurance Exam Preparation'
+    ],
+    relatedExamPreset: 'nicl-ao',
+    guideTool: {
+      href: '/nicl-ao-signature-resize/',
+      label: 'NICL Photo, Signature & Declaration Resizer'
+    },
+    quickFacts: [
+      { label: 'Recruitment Authority', value: 'National Insurance Company Limited (NICL)' },
+      { label: 'Post Cadre', value: 'Assistant (Class-III Cadre)' },
+      { label: 'Total Vacancies', value: '500 Posts (State/UT Allocated)' },
+      { label: 'Phase-II Mains Exam Date', value: 'October 30, 2026' },
+      { label: 'Revised Starting Basic Pay', value: '₹36,290 per month (~₹63,000 Gross)' },
+      { label: 'Selection Process', value: 'Prelims (Online) + Mains (Online) + Regional Language Test' },
+      { label: 'Photograph Specs', value: '200 × 230 px | 20 KB to 50 KB JPG' },
+      { label: 'Signature Specs', value: '140 × 60 px | 10 KB to 20 KB JPG (Black Ink Only)' },
+      { label: 'Left Thumb Impression', value: '240 × 240 px | 20 KB to 50 KB JPG' },
+      { label: 'Handwritten Declaration', value: '800 × 400 px | 50 KB to 100 KB JPG (Running Script)' }
+    ],
+    quickFacts_hi: [
+      { label: 'भर्ती प्राधिकरण', value: 'नेशनल इंश्योरेंस कंपनी लिमिटेड (NICL)' },
+      { label: 'पद संवर्ग', value: 'असिस्टेंट (Class-III Cadre)' },
+      { label: 'कुल रिक्तियां', value: '500 पद (राज्य/केंद्र शासित प्रदेश वार)' },
+      { label: 'मेन्स परीक्षा तिथि', value: '30 अक्टूबर 2026' },
+      { label: 'संशोधित प्रारंभिक मूल वेतन', value: '₹36,290 प्रति माह (सकल वेतन ~₹63,000)' },
+      { label: 'चयन प्रक्रिया', value: 'प्रीलिम्स + मेन्स (ऑनलाइन) + क्षेत्रीय भाषा परीक्षा' },
+      { label: 'फोटो माप', value: '200 × 230 पिक्सल | 20 KB से 50 KB JPG' },
+      { label: 'हस्ताक्षर माप', value: '140 × 60 पिक्सल | 10 KB से 20 KB JPG (काली स्याही)' },
+      { label: 'बायां अंगूठा निशान', value: '240 × 240 पिक्सल | 20 KB से 50 KB JPG' },
+      { label: 'हस्तलिखित घोषणा', value: '800 × 400 पिक्सल | 50 KB से 100 KB JPG' }
+    ],
+    faqs: [
+      {
+        question: 'What is the official NICL Assistant Mains exam date 2026?',
+        answer: 'The National Insurance Company Limited has officially scheduled the Phase-II (Mains) Computer-Based Examination for ==October 30, 2026== across designated online test centers nationwide.'
+      },
+      {
+        question: 'What is the revised monthly in-hand salary of an NICL Assistant in 2026?',
+        answer: 'Under the revised wage settlement for public sector general insurance companies, an NICL Assistant starts at a basic pay of ==₹36,290 per month==. Total monthly gross emoluments reach approximately ==₹63,000 per month== in metropolitan centers, resulting in an in-hand net salary of ==₹52,000 to ₹55,000 per month== after standard pension and tax deductions.'
+      },
+      {
+        question: 'What are the required photo and signature dimensions for NICL Assistant application?',
+        answer: 'The NICL application portal enforces strict dimensions: passport photograph must be ==200 × 230 pixels (20 KB to 50 KB JPG)== against a light background, and scanned signature must be ==140 × 60 pixels (10 KB to 20 KB JPG)== written in black ink on white paper. Signatures in block capital letters lead to immediate rejection.'
+      },
+      {
+        question: 'What is the exact text required for the NICL Assistant handwritten declaration?',
+        answer: 'Candidates must handwrite the following statement in black ink on plain white paper in natural running handwriting, replacing the bracketed text with their own full name (do not write underscores or draw a blank line): ==“I, [Your Full Name], hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.”== The scanned image must be sized ==800 × 400 pixels between 50 KB and 100 KB JPG==.'
+      },
+      {
+        question: 'What are the specifications for the NICL Assistant left thumb impression?',
+        answer: 'The left thumb impression must be stamped on plain white paper using a black or blue ink pad and scanned at ==240 × 240 pixels (3 × 3 cm)== with a file size strictly between ==20 KB and 50 KB JPG==.'
+      },
+      {
+        question: 'How does the NICL Assistant Regional Language Test (RLT) affect final selection?',
+        answer: 'The Regional Language Test is a ==compulsory qualifying test==. Candidates who did not study the official language of the state applied for in their 10th or 12th standard must pass this test demonstrating reading, writing, and speaking ability. Failing the RLT disqualifies the candidate even if they score above the Mains cutoff.'
+      },
+      {
+        question: 'What is the negative marking scheme in the NICL Assistant Mains examination?',
+        answer: 'For every incorrect answer in the Phase-II Mains examination, ==0.25 (one-fourth) of the marks allocated to that question== will be deducted. Questions left unanswered carry zero penalty.'
+      },
+      {
+        question: 'Where can shortlisted candidates download their NICL Assistant Phase-II Mains Call Letter?',
+        answer: 'Candidates can download their Phase-II Mains Call Letter by visiting the official portal at ==nationalinsurance.nic.co.in== under the Careers/Recruitment section or via the active IBPS hosting link using their Registration Number and Password or Date of Birth.'
+      }
+    ],
+    faqs_hi: [
+      {
+        question: 'NICL असिस्टेंट मेन्स परीक्षा 2026 की आधिकारिक तिथि क्या है?',
+        answer: 'नेशनल इंश्योरेंस कंपनी लिमिटेड ने फेज-II (मेन्स) ऑनलाइन परीक्षा की तारीख ==30 अक्टूबर 2026== निर्धारित की है।'
+      },
+      {
+        question: 'NICL असिस्टेंट का संशोधित इन-हैंड वेतन 2026 में कितना है?',
+        answer: 'वेतन संशोधन के बाद, NICL असिस्टेंट का प्रारंभिक बेसिक पे ==₹36,290 प्रति माह== है। मेट्रो शहरों में सकल मासिक वेतन ==लगभग ₹63,000== होता है, जिससे सभी कटौतियों के बाद इन-हैंड नेट वेतन ==₹52,000 से ₹55,000 प्रति माह== बनता है।'
+      },
+      {
+        question: 'NICL असिस्टेंट फॉर्म के लिए फोटो और हस्ताक्षर का सही साइज क्या है?',
+        answer: 'पासपोर्ट फोटो का साइज ==200 × 230 पिक्सल (20 KB से 50 KB JPG)== और हस्ताक्षर का साइज ==140 × 60 पिक्सल (10 KB से 20 KB JPG)== काली स्याही में होना अनिवार्य है। कैपिटल अक्षरों में हस्ताक्षर अस्वीकृत कर दिया जाता है।'
+      },
+      {
+        question: 'NICL असिस्टेंट हस्तलिखित घोषणा (Handwritten Declaration) का प्रारूप क्या है?',
+        answer: 'उम्मीदवार को सफेद कागज पर काली स्याही से अपनी स्वाभाविक लिखावट में लिखना होता है (खाली लाइन या अंडरस्कोर न खींचें, अपना वास्तविक नाम लिखें): ==“I, [आपका पूरा नाम], hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.”== फाइल साइज ==800 × 400 पिक्सल (50 KB से 100 KB JPG)== होना चाहिए।'
+      }
+    ],
+    contentHtml: `
+<div class="space-y-6 text-foreground leading-relaxed">
+
+  <!-- Direct Answer Box (Snippet / AI Overview Hook) -->
+  <div class="p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground space-y-3">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">🏛️</span>
+      <h3 class="text-base font-bold text-foreground">Direct Answer: NICL Assistant Recruitment 2026 Master Summary</h3>
+    </div>
+    <p class="text-sm text-foreground/90 leading-relaxed font-medium">
+      The <strong>National Insurance Company Limited (NICL)</strong> released the official notification for <strong>500 Assistant (Class-III) vacancies</strong> across Indian States and Union Territories. Following the preliminary exam in August 2026, the <strong>Phase-II (Mains) Computer-Based Examination is scheduled for October 30, 2026</strong>. Selected candidates receive a revised starting basic pay of <strong>₹36,290 per month</strong> with gross monthly emoluments of approximately <strong>₹63,000 in metropolitan cities</strong>. Final appointment requires clearing the qualifying <strong>Regional Language Test (RLT)</strong> and uploading compliant documents: passport photograph (200 × 230 px, 20 to 50 KB), black ink signature (140 × 60 px, 10 to 20 KB), left thumb impression (240 × 240 px, 20 to 50 KB), and handwritten declaration (800 × 400 px, 50 to 100 KB) on <a href="https://nationalinsurance.nic.co.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">nationalinsurance.nic.co.in</a>.
+    </p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Total Vacancies</span>
+        <strong class="text-foreground text-sm font-extrabold">500 Class-III Posts</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Phase-II Mains Date</span>
+        <strong class="text-foreground text-sm font-extrabold">October 30, 2026</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Revised Gross Pay</span>
+        <strong class="text-foreground text-sm font-extrabold">~₹63,000 / Month</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Exam Pattern</span>
+        <strong class="text-foreground text-sm font-extrabold">200 MCQs (250 Marks)</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Status Banner -->
+  <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-foreground flex items-start sm:items-center gap-3 shadow-xs">
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-600 text-white shrink-0">
+      <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> ACTIVE STATUS
+    </span>
+    <p class="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
+      <strong>NICL Assistant Phase-II Mains Call Letters:</strong> Prelims qualified candidates can access their Mains admit cards and venue details on the official NICL recruitment portal at <a href="https://nationalinsurance.nic.co.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-bold">nationalinsurance.nic.co.in</a>. Carry two identical passport photographs matching your online upload.
+    </p>
+  </div>
+
+  <p class="text-base text-slate-800 dark:text-slate-200 font-medium">
+    Securing a clerical cadred position in a premier Public Sector General Insurance Company offers tremendous job security, structured promotion paths to Administrative Officer (Scale-I), and revised compensation packages comparable to commercial banking associates. Understanding the recruitment milestones, pay scale components, Mains syllabus, and portal upload guidelines ensures you navigate the selection pipeline without administrative hurdles.
+  </p>
+
+  <!-- Section 1: Overview & Crucial Recruitment Dates -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3">⚡ 1. NICL Assistant Recruitment 2026: Crucial Dates & Event Timeline</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    The National Insurance Company Limited manages the selection timeline in collaboration with the Institute of Banking Personnel Selection (IBPS). Below is the official milestone schedule for the 2026 recruitment drive:
+  </p>
+
+  <!-- Mobile-Responsive Table Container 1 -->
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📅</span> NICL Assistant Recruitment 2026 Timeline</span>
+      <span class="text-[11px] text-slate-600 dark:text-slate-400 font-bold sm:hidden flex items-center gap-1"><span>👉</span> Scroll table</span>
+    </div>
+    <div class="overflow-x-auto scrollbar-thin">
+      <table class="w-full min-w-[580px] text-xs sm:text-sm text-left border-collapse">
+        <thead class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-bold border-b border-border">
+          <tr>
+            <th class="p-3 border-r border-border/70">Recruitment Milestone</th>
+            <th class="p-3 border-r border-border/70">Official Dates</th>
+            <th class="p-3">Status / Instructions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/70 text-slate-800 dark:text-slate-200">
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Official Notification PDF Release</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">July 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Released on nationalinsurance.nic.co.in (500 State Posts)</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Online Application & Fee Window</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">July 18 – August 7, 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Completed via IBPS dedicated registration portal</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Phase-I Preliminary Exam Date</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">August 27, 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Online Objective Test (100 Marks, 60 Minutes)</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Phase-I Prelims Result Announcement</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">October 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Merit list published; qualified candidates shortlisted for Mains</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Phase-II Mains Call Letter Release</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">October 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Download available on candidate portal with registration credentials</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Phase-II Mains Exam Date</td>
+            <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400 font-extrabold border-r border-border/70">October 30, 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">200 MCQs (250 Marks), 120 Minutes Composite Duration</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Regional Language Test (RLT)</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">November – December 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Qualifying test conducted at state office headquarters</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 2: Revised Salary Structure & In-Hand Pay Scale Breakdown -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3">💰 2. Revised NICL Assistant Salary Structure & In-Hand Pay Scale</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    One of the highest-searched aspects is the <strong>NICL Assistant salary in hand</strong>. Following recent wage settlements in public sector general insurance corporations (GIC, NICL, NIACL, UIIC, OICL), the pay scale has received a substantial hike.
+  </p>
+
+  <!-- Mobile-Responsive Table Container 2 -->
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>💵</span> Monthly Emoluments Breakdown (Class-A Metro City)</span>
+      <span class="text-[11px] text-slate-600 dark:text-slate-400 font-bold sm:hidden flex items-center gap-1"><span>👉</span> Scroll table</span>
+    </div>
+    <div class="overflow-x-auto scrollbar-thin">
+      <table class="w-full min-w-[540px] text-xs sm:text-sm text-left border-collapse">
+        <thead class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-bold border-b border-border">
+          <tr>
+            <th class="p-3 border-r border-border/70">Salary Component</th>
+            <th class="p-3 border-r border-border/70">Monthly Amount (Approx.)</th>
+            <th class="p-3">Description & Calculation</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/70 text-slate-800 dark:text-slate-200">
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Starting Basic Pay</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">₹36,290</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Entry scale: ₹36,290 - ₹2,115(1) - ₹38,405...</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Dearness Allowance (DA)</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">₹18,000 – ₹19,500</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Indexed quarterly according to Consumer Price Index (CPI)</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">House Rent Allowance (HRA)</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">₹3,500 – ₹4,200</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Varies by city classification (Class A: 10%, Class B/C: 7-9%)</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">City Compensatory & Transport Perks</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">₹2,500 – ₹3,500</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Includes conveyance, lunch allowance, and newspaper stipend</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-emerald-700 dark:text-emerald-300 border-r border-border/70">Total Gross Monthly Salary</td>
+            <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400 font-extrabold border-r border-border/70">₹62,500 – ₹64,000</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Total monthly earnings before statutory deductions</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Approx. Net In-Hand Salary</td>
+            <td class="p-3 font-mono text-blue-700 dark:text-cyan-300 font-extrabold border-r border-border/70">₹52,000 – ₹55,000</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Credited to bank after NPS contribution, PF, and tax deductions</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 3: Eligibility Criteria & Regional Requirements -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3">🎓 3. Eligibility Criteria & Age Limit Rules</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Candidates must verify their qualifications against the official notification cutoff dates:
+  </p>
+
+  <ul class="my-4 space-y-2 text-sm text-slate-800 dark:text-slate-200 list-disc pl-5 font-medium">
+    <li>
+      <strong>Educational Qualification:</strong> Must hold a Bachelor’s Degree (Graduation) in any discipline from a recognized University or equivalent qualification recognized by the Central Government.
+    </li>
+    <li>
+      <strong>Age Limit:</strong> 21 to 30 years as of the cutoff date (minimum born not earlier than 02/07/1996 and not later than 01/07/2005). Standard relaxations apply: OBC (Non-Creamy Layer) gets 3 years (up to 33 years), SC/ST gets 5 years (up to 35 years), and PwBD candidates receive 10 years.
+    </li>
+    <li>
+      <strong>Regional Language Proficiency:</strong> Candidates can apply for vacancies in only one State or Union Territory. Knowledge of reading, writing, and speaking the regional language of the chosen State/UT is mandatory.
+    </li>
+  </ul>
+
+  <!-- Section 4: Mains Examination Pattern & Sectional Blueprint -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3">📚 4. NICL Assistant Phase-II Mains Exam Pattern</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    The Phase-II Mains examination determines final selection merit. The exam comprises <strong>200 objective questions carrying 250 total marks with a composite duration of 120 minutes</strong>. Each wrong response attracts a penalty of 0.25 marks.
+  </p>
+
+  <!-- Mobile-Responsive Table Container 3 -->
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📊</span> Mains Sectional Weightage & Marks Blueprint</span>
+      <span class="text-[11px] text-slate-600 dark:text-slate-400 font-bold sm:hidden flex items-center gap-1"><span>👉</span> Scroll table</span>
+    </div>
+    <div class="overflow-x-auto scrollbar-thin">
+      <table class="w-full min-w-[560px] text-xs sm:text-sm text-left border-collapse">
+        <thead class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-bold border-b border-border">
+          <tr>
+            <th class="p-3 border-r border-border/70">Test Section</th>
+            <th class="p-3 border-r border-border/70">Number of Questions</th>
+            <th class="p-3 border-r border-border/70">Maximum Marks</th>
+            <th class="p-3">Key Focus Areas</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/70 text-slate-800 dark:text-slate-200">
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Test of Reasoning</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">40</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">50</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Puzzles, seating arrangements, syllogisms, input-output, data sufficiency</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Test of English Language</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">40</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">50</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Reading comprehension, cloze test, error detection, sentence rearrangement</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Test of Numerical Ability</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">40</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">50</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Data interpretation (charts/caselets), arithmetic word problems, number series</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Test of General Awareness</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">40</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">50</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">Banking & Insurance awareness, recent RBI/IRDAI guidelines, current affairs</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Test of Computer Knowledge</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">40</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">50</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">MS Office shortcuts, hardware/networking basics, cyber security, internet protocols</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition bg-slate-100/50 dark:bg-slate-800/50">
+            <td class="p-3 font-extrabold text-foreground border-r border-border/70">Total Composite Blueprint</td>
+            <td class="p-3 font-mono font-extrabold text-foreground border-r border-border/70">200 Questions</td>
+            <td class="p-3 font-mono font-extrabold text-foreground border-r border-border/70">250 Marks</td>
+            <td class="p-3 font-bold text-foreground">120 Minutes Composite Time</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 5: Official Document Upload Guidelines -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3">📸 5. NICL Assistant Document Upload Specifications (Photo, Signature, Thumb & Declaration)</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Whether completing the initial online registration or preparing verification dossiers, uploaded files must strictly conform to the IBPS portal scanning engine. Standard phone pictures without pre-formatting trigger portal rejection errors:
+  </p>
+
+  <!-- Mobile-Responsive Table Container 4 -->
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📐</span> Official Portal Scanning Specifications</span>
+      <span class="text-[11px] text-slate-600 dark:text-slate-400 font-bold sm:hidden flex items-center gap-1"><span>👉</span> Scroll table</span>
+    </div>
+    <div class="overflow-x-auto scrollbar-thin">
+      <table class="w-full min-w-[620px] text-xs sm:text-sm text-left border-collapse">
+        <thead class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-bold border-b border-border">
+          <tr>
+            <th class="p-3 border-r border-border/70">Document Type</th>
+            <th class="p-3 border-r border-border/70">Pixel Dimensions</th>
+            <th class="p-3 border-r border-border/70">File Size Range</th>
+            <th class="p-3 border-r border-border/70">Format & Ink Rule</th>
+            <th class="p-3">Disqualification Trap</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/70 text-slate-800 dark:text-slate-200">
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Passport Photograph</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">200 × 230 px (3.5 × 4.5 cm)</td>
+            <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400 font-bold border-r border-border/70">20 KB – 50 KB</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium border-r border-border/70">JPG/JPEG, Light background</td>
+            <td class="p-3 text-rose-600 dark:text-rose-400 font-medium">Caps, sunglasses, tinted glasses, shadow across face</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Candidate Signature</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">140 × 60 px (4 × 2 cm)</td>
+            <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400 font-bold border-r border-border/70">10 KB – 20 KB</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium border-r border-border/70">JPG/JPEG, Black ink pen only</td>
+            <td class="p-3 text-rose-600 dark:text-rose-400 font-medium">CAPITAL / BLOCK letters lead to 100% rejection</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Left Thumb Impression</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">240 × 240 px (3 × 3 cm)</td>
+            <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400 font-bold border-r border-border/70">20 KB – 50 KB</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium border-r border-border/70">JPG/JPEG, Black/Blue stamp pad</td>
+            <td class="p-3 text-rose-600 dark:text-rose-400 font-medium">Smudged ridge lines, wrong thumb without affidavit</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold text-blue-700 dark:text-cyan-300 border-r border-border/70">Handwritten Declaration</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">800 × 400 px (10 × 5 cm)</td>
+            <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400 font-bold border-r border-border/70">50 KB – 100 KB</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium border-r border-border/70">JPG/JPEG, Black ink on white sheet</td>
+            <td class="p-3 text-rose-600 dark:text-rose-400 font-medium">Typed text or writing in CAPITAL letters is disqualified</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Warning Box: Strict Handwriting Rules -->
+  <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-slate-800 dark:text-slate-200 space-y-2">
+    <h4 class="font-extrabold text-amber-900 dark:text-amber-300 text-base flex items-center gap-2">
+      <span>⚠️</span> Official Handwritten Declaration Text Wording
+    </h4>
+    <p class="text-sm text-amber-950/90 dark:text-slate-200 leading-relaxed font-medium">
+      You must write the exact sentence in your own natural running handwriting using a black ballpoint pen on plain unruled white paper. <strong>Important:</strong> Do not draw a line, write underscores, or leave a blank space. Write your actual full name where indicated:
+    </p>
+    <blockquote class="p-3 my-2 rounded-xl bg-card border border-border font-serif italic text-sm text-foreground">
+      “I, <strong>[Write Your Full Name Here]</strong>, hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.”
+    </blockquote>
+    <p class="text-xs text-muted-foreground mt-1 font-medium">
+      <em>Example for candidate Rahul Sharma:</em> “I, Rahul Sharma, hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.”
+    </p>
+  </div>
+
+  <!-- Contextual Tool Conversion Banner -->
+  <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-card via-card to-primary/10 border-2 border-primary/30 space-y-3 shadow-xs">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <h4 class="font-bold text-base sm:text-lg text-foreground">Format Your NICL Assistant Documents in Seconds</h4>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 font-medium">
+          Resize your scanned signature (140×60 px, 10–20 KB), passport photo (200×230 px, 20–50 KB), thumb impression, and handwritten declaration with 100% portal compliance.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-2 w-full sm:w-auto">
+        <a href="/nicl-ao-signature-resize/" class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
+          <span>✍️ Resize NICL Signature & Photo</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="/handwritten-declaration-resizer/" class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs border border-border transition">
+          <span>📝 Declaration Resizer</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: Exam Hall Instructions & Call Letter Protocol -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3">📋 6. Mains Exam Day Checklist & Hall Ticket Rules</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Candidates appearing for the Phase-II Mains examination on October 30, 2026, must carry the following items to the test center:
+  </p>
+
+  <ul class="my-4 space-y-2 text-sm text-slate-800 dark:text-slate-200 list-disc pl-5 font-medium">
+    <li>
+      <strong>Printed NICL Mains Call Letter:</strong> Downloaded from the official portal with legible photograph and barcode.
+    </li>
+    <li>
+      <strong>Original Valid Photo Identification:</strong> Aadhaar Card, Passport, PAN Card, Voter ID, or Driving License. Photocopies and digital phone images are strictly barred.
+    </li>
+    <li>
+      <strong>Clear Photocopy of Photo ID:</strong> Stapled to your call letter to be submitted to the test center invigilator.
+    </li>
+    <li>
+      <strong>Two Additional Passport Photographs:</strong> Exactly identical to the photo uploaded during your online registration.
+    </li>
+    <li>
+      <strong>Personal Blue/Black Ballpoint Pen:</strong> Required for rough sheets and biometric attendance signing.
+    </li>
+  </ul>
+
+</div>
+`,
+    contentHtml_hi: `
+<div class="space-y-6 text-foreground leading-relaxed">
+
+  <div class="p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground space-y-3">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">🏛️</span>
+      <h3 class="text-base font-bold text-foreground">त्वरित सारांश: NICL असिस्टेंट भर्ती 2026 महत्वपूर्ण जानकारी</h3>
+    </div>
+    <p class="text-sm text-foreground/90 leading-relaxed font-medium">
+      <strong>नेशनल इंश्योरेंस कंपनी लिमिटेड (NICL)</strong> ने देश भर के राज्य कार्यालयों में <strong>500 असिस्टेंट (Class-III Cadre)</strong> पदों के लिए आधिकारिक भर्ती अधिसूचना जारी की है। अगस्त 2026 में आयोजित प्रीलिम्स परीक्षा के बाद <strong>फेज-II (मेन्स) ऑनलाइन परीक्षा 30 अक्टूबर 2026</strong> को आयोजित की जा रही है। चयनित उम्मीदवारों को संशोधित वेतन समझौते के तहत <strong>₹36,290 का मूल वेतन</strong> तथा महानगरों में लगभग <strong>₹63,000 सकल मासिक वेतन</strong> प्राप्त होता है। अंतिम चयन के लिए <strong>क्षेत्रीय भाषा परीक्षा (RLT)</strong> उत्तीर्ण करना और पोर्टल के दिशा-निर्देशों के अनुसार फोटो (200 × 230 px, 20–50 KB), हस्ताक्षर (140 × 60 px, 10–20 KB काली स्याही), बायां अंगूठा (240 × 240 px, 20–50 KB) और हस्तलिखित घोषणा (800 × 400 px, 50–100 KB) अपलोड करना अनिवार्य है।
+    </p>
+  </div>
+
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3">⚡ 1. भर्ती कार्यक्रम और महत्वपूर्ण तिथियां</h2>
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs">
+    <div class="overflow-x-auto scrollbar-thin">
+      <table class="w-full min-w-[540px] text-xs sm:text-sm text-left border-collapse">
+        <thead class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-bold border-b border-border">
+          <tr>
+            <th class="p-3 border-r border-border/70">कार्यक्रम</th>
+            <th class="p-3 border-r border-border/70">आधिकारिक तिथि</th>
+            <th class="p-3">विवरण</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/70 text-slate-800 dark:text-slate-200">
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold border-r border-border/70">कुल रिक्तियां</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">500 पद</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">राज्य एवं केंद्र शासित प्रदेश वार आवंटन</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold border-r border-border/70">फेज-I प्रीलिम्स परीक्षा</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">27 अगस्त 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">ऑनलाइन ऑब्जेक्टिव टेस्ट (सफलतापूर्वक संपन्न)</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold border-r border-border/70">फेज-II मेन्स परीक्षा तिथि</td>
+            <td class="p-3 font-mono text-emerald-600 dark:text-emerald-400 font-extrabold border-r border-border/70">30 अक्टूबर 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">200 प्रश्न, 250 अंक, 120 मिनट समय</td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
+            <td class="p-3 font-bold border-r border-border/70">क्षेत्रीय भाषा परीक्षा (RLT)</td>
+            <td class="p-3 font-mono font-semibold border-r border-border/70">नवंबर – दिसंबर 2026</td>
+            <td class="p-3 text-slate-700 dark:text-slate-300 font-medium">राज्य मुख्यालय पर अर्हक भाषा दक्षता परीक्षा</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3">📸 2. फोटो, हस्ताक्षर और दस्तावेज़ अपलोड नियम</h2>
+  <ul class="my-4 space-y-2 text-sm text-slate-800 dark:text-slate-200 list-disc pl-5 font-medium">
+    <li><strong>पासपोर्ट फोटो:</strong> 200 × 230 पिक्सल, 20 KB से 50 KB JPG प्रारूप, हल्का या सफेद बैकग्राउंड।</li>
+    <li><strong>हस्ताक्षर:</strong> 140 × 60 पिक्सल, 10 KB से 20 KB JPG, सफेद कागज पर काली स्याही से सामान्य लिखावट में। कैपिटल अक्षरों में हस्ताक्षर वर्जित है।</li>
+    <li><strong>बायां अंगूठा निशान:</strong> 240 × 240 पिक्सल, 20 KB से 50 KB JPG, नीली या काली स्याही पैड से।</li>
+    <li><strong>हस्तलिखित घोषणा:</strong> 800 × 400 पिक्सल, 50 KB से 100 KB JPG, काली स्याही से उम्मीदवार की स्वयं की लिखावट में।</li>
+  </ul>
+
+  <div class="my-6 p-4 rounded-xl bg-card border border-border shadow-xs">
+    <p class="text-sm font-semibold text-foreground">
+      दस्तावेज़ों को आधिकारिक माप में तैयार करने के लिए हमारे <a href="/nicl-ao-signature-resize/" class="text-primary underline font-bold">NICL फोटो एवं हस्ताक्षर रीसाइजर टूल</a> का उपयोग करें।
+    </p>
+  </div>
+
+</div>
+`,
+  },
+  {
     "slug": "ssc-gd-exam-date-2026-cbt-shift-timings-schedule-guide",
     "title": "SSC GD Exam Date 2026: Shift Timings, CBT Schedule and Exam Center Guidelines",
     "title_hi": "SSC GD Exam Date 2026: परीक्षा तिथि, 4 शिफ्ट टाइमिंग और सेंटर के जरूरी नियम",
@@ -8624,3 +9180,245 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   "contentHtml": "\n    <div class=\"mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20\">\n      <h4 class=\"font-bold text-primary mb-2\">⚡ Direct Answer: Official SSC CGL 2026 Photo & Signature Requirements</h4>\n      <p class=\"text-sm text-foreground/90 leading-relaxed\">\n        The Staff Selection Commission Combined Graduate Level (SSC CGL 2026) mandates a strict two-part document submission protocol on <strong>ssc.gov.in</strong>:\n      </p>\n      <ul class=\"list-disc pl-5 text-xs sm:text-sm text-foreground/90 mt-2 space-y-1\">\n        <li><strong>SSC CGL Scanned Signature:</strong> Dimensions of <strong>140 × 60 pixels (4.0 cm × 2.0 cm)</strong> with a file size strictly between <strong>10.0 KB and 20.0 KB</strong> in JPG/JPEG format, written in natural running handwriting with black ballpoint ink on plain white paper. Full names in <em>CAPITAL LETTERS</em> are categorically disqualified.</li>\n        <li><strong>SSC CGL Photograph:</strong> Must be captured <strong>live in real-time</strong> using your computer webcam or the official <em>MySSC</em> Android app against a plain white/light background. <strong>Zero spectacles (glasses) or caps</strong> are permitted. Offline / admit card records require <strong>3.5 × 4.5 cm (240×320 px)</strong> between <strong>20.0 KB and 50.0 KB</strong>.</li>\n      </ul>\n    </div>\n\n    <!-- Official SSC CGL Document Comparison Matrix -->\n    <h2 id=\"official-matrix\" class=\"text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2\">\n      📊 SSC CGL 2026 Official Specification Matrix (Photo vs. Signature)\n    </h2>\n    <p class=\"text-sm text-muted-foreground leading-relaxed mb-4\">\n      Below is the official technical breakdown prescribed in the Staff Selection Commission Combined Graduate Level examination notice:\n    </p>\n\n    <div class=\"my-6 overflow-x-auto\">\n      <table class=\"w-full text-left border-collapse border border-border text-xs sm:text-sm\">\n        <thead>\n          <tr class=\"bg-muted text-foreground font-semibold\">\n            <th class=\"p-3 border border-border\">Parameter</th>\n            <th class=\"p-3 border border-border\">SSC CGL Scanned Signature</th>\n            <th class=\"p-3 border border-border\">SSC CGL Live Webcam Photo</th>\n            <th class=\"p-3 border border-border\">Physical / Admit Card Photo</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr class=\"border-b border-border/50\">\n            <td class=\"p-3 border border-border font-semibold text-foreground\">Submission Mode</td>\n            <td class=\"p-3 border border-border font-mono text-emerald-600 dark:text-emerald-400 font-bold\">Scanned File Upload (JPG)</td>\n            <td class=\"p-3 border border-border font-mono text-primary font-bold\">Live Camera Stream</td>\n            <td class=\"p-3 border border-border font-mono\">Offline / Print Paste</td>\n          </tr>\n          <tr class=\"border-b border-border/50 bg-muted/20\">\n            <td class=\"p-3 border border-border font-semibold text-foreground\">File Size Bounds</td>\n            <td class=\"p-3 border border-border font-mono text-emerald-600 dark:text-emerald-400 font-bold\">10.0 KB to 20.0 KB (Strict)</td>\n            <td class=\"p-3 border border-border font-mono\">Real-time Stream (~20–50 KB)</td>\n            <td class=\"p-3 border border-border font-mono text-emerald-600 dark:text-emerald-400 font-bold\">20.0 KB to 50.0 KB</td>\n          </tr>\n          <tr class=\"border-b border-border/50\">\n            <td class=\"p-3 border border-border font-semibold text-foreground\">Pixel Dimensions</td>\n            <td class=\"p-3 border border-border font-mono\">140 × 60 Pixels (Aspect 7:3)</td>\n            <td class=\"p-3 border border-border font-mono\">Digital Oval (~80% Frame)</td>\n            <td class=\"p-3 border border-border font-mono\">240 × 320 Pixels</td>\n          </tr>\n          <tr class=\"border-b border-border/50 bg-muted/20\">\n            <td class=\"p-3 border border-border font-semibold text-foreground\">Physical Size</td>\n            <td class=\"p-3 border border-border font-mono\">4.0 cm Width × 2.0 cm Height</td>\n            <td class=\"p-3 border border-border font-mono\">Full Face & Shoulders</td>\n            <td class=\"p-3 border border-border font-mono\">3.5 cm Width × 4.5 cm Height</td>\n          </tr>\n          <tr class=\"border-b border-border/50\">\n            <td class=\"p-3 border border-border font-semibold text-foreground\">Ink / Background</td>\n            <td class=\"p-3 border border-border\">Dark Black Ballpoint Ink on White Paper</td>\n            <td class=\"p-3 border border-border\">Plain White / Off-White Wall</td>\n            <td class=\"p-3 border border-border\">Clean White Studio Background</td>\n          </tr>\n          <tr class=\"border-b border-border/50 bg-muted/20\">\n            <td class=\"p-3 border border-border font-semibold text-foreground\">Rejection Triggers</td>\n            <td class=\"p-3 border border-border text-rose-600 dark:text-rose-400 font-medium\">CAPITAL LETTERS, under 10 KB, over 20 KB, shadows</td>\n            <td class=\"p-3 border border-border text-rose-600 dark:text-rose-400 font-medium\">Wearing spectacles/caps, bad lighting, side pose</td>\n            <td class=\"p-3 border border-border text-rose-600 dark:text-rose-400 font-medium\">Blurry print, colored background, selfies</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n\n    <!-- Quick Tool Action CTA Banner -->\n    <div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-card border-2 border-primary/30 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n      <div class=\"space-y-1\">\n        <h4 class=\"text-base sm:text-lg font-extrabold text-foreground flex items-center gap-2\">\n          <span>✍️</span> SSC CGL Signature Resizer (10–20 KB) &amp; Photo Resizer\n        </h4>\n        <p class=\"text-xs sm:text-sm text-muted-foreground leading-relaxed\">\n          Compress your scanned signature to exactly 140×60 px and 10–20 KB in seconds. 100% private in-browser tool.\n        </p>\n      </div>\n      <div class=\"flex flex-wrap gap-2 shrink-0\">\n        <a href=\"/ssc-cgl-signature-resize/\" class=\"px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition\">\n          Resize SSC Signature &rarr;\n        </a>\n        <a href=\"/ssc-photo-resize/\" class=\"px-5 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition\">\n          SSC Photo Resizer &rarr;\n        </a>\n      </div>\n    </div>\n\n    <!-- Detailed Section 1: Signature Rules -->\n    <h2 id=\"signature-rules\" class=\"text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2\">\n      ✍️ 1. SSC CGL Signature Upload Rules &amp; Strict Rejection Guidelines\n    </h2>\n    <p class=\"text-sm leading-relaxed text-muted-foreground mb-4\">\n      The Staff Selection Commission uses automated image validation software to screen all scanned signatures uploaded during the One-Time Registration (OTR) and exam application stages. Adhering to these four strict technical parameters ensures your application passes preliminary scrutiny:\n    </p>\n\n    <div class=\"grid grid-cols-1 md:grid-cols-2 gap-4 my-6\">\n      <div class=\"p-5 rounded-2xl bg-card border border-border space-y-3\">\n        <h4 class=\"font-bold text-sm text-foreground flex items-center gap-2\">\n          <span class=\"text-primary font-mono font-bold\">01.</span> Exact 140 × 60 Pixel Dimensions\n        </h4>\n        <p class=\"text-xs text-muted-foreground leading-relaxed\">\n          The designated signature canvas is 140 pixels wide by 60 pixels high (a 7:3 aspect ratio). Resizing to irregular aspect ratios (e.g., 1:1 square or 4:3) distorts your signature lines on the generated admit card and attendance sheets, prompting invigilator verification challenges.\n        </p>\n      </div>\n\n      <div class=\"p-5 rounded-2xl bg-card border border-border space-y-3\">\n        <h4 class=\"font-bold text-sm text-foreground flex items-center gap-2\">\n          <span class=\"text-primary font-mono font-bold\">02.</span> Strict 10.0 KB to 20.0 KB File Weight\n        </h4>\n        <p class=\"text-xs text-muted-foreground leading-relaxed\">\n          Files below 10.0 KB are blocked or pixelated beyond recognition. Files exceeding 20.0 KB trigger an automated upload rejection error on <code>ssc.gov.in</code>. Use SignResize to lock compression safely at <strong>14–16 KB</strong>.\n        </p>\n      </div>\n\n      <div class=\"p-5 rounded-2xl bg-card border border-border space-y-3\">\n        <h4 class=\"font-bold text-sm text-foreground flex items-center gap-2\">\n          <span class=\"text-primary font-mono font-bold\">03.</span> Black Ballpoint Ink on Unruled White Paper\n        </h4>\n        <p class=\"text-xs text-muted-foreground leading-relaxed\">\n          Always sign with a black ballpoint pen on pure white unruled printer paper. Avoid ruled notebook sheets (blue lines interfere with automated OCR) and avoid fountain or gel pens that bleed into paper fibers.\n        </p>\n      </div>\n\n      <div class=\"p-5 rounded-2xl bg-card border border-border space-y-3\">\n        <h4 class=\"font-bold text-sm text-foreground flex items-center gap-2\">\n          <span class=\"text-primary font-mono font-bold\">04.</span> Prohibition of Capital / Block Letters\n        </h4>\n        <p class=\"text-xs text-muted-foreground leading-relaxed\">\n          The SSC explicitly states that candidate names written in CAPITAL LETTERS (e.g., <code class=\"text-rose-600 font-bold\">KUMAR SAURABH</code>) will not be accepted as signatures. Signatures must be in continuous, running cursive handwriting.\n        </p>\n      </div>\n    </div>\n\n    <!-- Detailed Section 2: Live Webcam Photo Rules -->\n    <h2 id=\"live-photo-rules\" class=\"text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2\">\n      📸 2. SSC CGL Live Webcam Photo Capture on ssc.gov.in &amp; MySSC App\n    </h2>\n    <p class=\"text-sm leading-relaxed text-muted-foreground mb-4\">\n      With the rollout of the upgraded Staff Selection Commission portal (<code>ssc.gov.in</code>), candidates no longer upload pre-existing saved photograph files during primary application submission. Instead, a real-time live webcam photograph is captured:\n    </p>\n\n    <div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-3\">\n      <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n        <span>⚠️</span> Critical Checklist for ssc.gov.in Live Photo Approval\n      </h4>\n      <ul class=\"list-disc pl-5 text-sm space-y-2 text-foreground/90\">\n        <li><strong>Completely Remove Spectacles &amp; Glasses:</strong> Even if you wear prescription glasses daily, you MUST remove them. Any flash reflection or frame shadow over your eyes causes instant AI rejection.</li>\n        <li><strong>Plain Light Background:</strong> Sit in front of a clean, plain white or cream wall. Ensure there are no doors, calendars, window grilles, or background shadows behind you.</li>\n        <li><strong>Position at Exact Eye Level:</strong> Place your mobile phone or laptop webcam directly at eye level. Tilting your head upward or downward will fail the biometric alignment frame.</li>\n        <li><strong>80% Face Coverage:</strong> Ensure your face, neck, and upper collar occupy at least 80% of the on-screen oval. Step closer or adjust zoom until the framing oval turns green.</li>\n        <li><strong>Uniform Frontal Lighting:</strong> Sit facing a bright light source (e.g., an LED tube or window). Never sit with a window or bulb behind you (backlighting casts heavy shadows across your facial features).</li>\n      </ul>\n    </div>\n\n    <!-- Troubleshooting MySSC Mobile App -->\n    <h3 class=\"text-base sm:text-lg font-bold text-foreground mt-6 mb-3\">Capturing via the 'MySSC' Mobile App</h3>\n    <p class=\"text-sm leading-relaxed text-muted-foreground mb-3\">\n      If your laptop webcam has grainy resolution or cannot capture clear colors, use the official <strong>MySSC</strong> app from Google Play Store:\n    </p>\n    <ol class=\"list-decimal pl-5 space-y-2 text-xs sm:text-sm text-foreground/90 my-3\">\n      <li>Log in with your 13-digit One-Time Registration (OTR) number and password.</li>\n      <li>Open your active SSC CGL application form and tap <strong>'Capture Live Photo'</strong>.</li>\n      <li>Stand against a white wall with good natural lighting.</li>\n      <li>Hold your phone steady until the oval frame aligns around your face and turns <strong>green</strong>.</li>\n      <li>Tap the shutter button. Preview the image to confirm zero blur, no spectacles, and visible ears, then confirm upload.</li>\n    </ol>\n\n    <!-- Detailed Section 3: Physical & Admit Card Photo -->\n    <h2 id=\"physical-photo-rules\" class=\"text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2\">\n      🪪 3. SSC CGL Physical Passport Photo Specs for Examination Centres (3.5 × 4.5 cm)\n    </h2>\n    <p class=\"text-sm leading-relaxed text-muted-foreground mb-4\">\n      Even after completing the live photo capture on the portal, candidates must bring <strong>two identical physical passport photographs</strong> to the examination venue on Tier-1 and Tier-2 exam days for pasting onto the biometric commission attendance sheet:\n    </p>\n\n    <div class=\"my-6 p-5 rounded-2xl bg-card border border-border space-y-3\">\n      <ul class=\"space-y-2 text-xs sm:text-sm text-muted-foreground\">\n        <li><strong class=\"text-foreground\">Standard Dimensions:</strong> 3.5 cm width by 4.5 cm height (240 × 320 pixels at standard DPI).</li>\n        <li><strong class=\"text-foreground\">Recency Rule:</strong> Photograph must have been taken within the last 3 months and closely match your current facial appearance.</li>\n        <li><strong class=\"text-foreground\">Background &amp; Quality:</strong> Plain white background printed on high-gloss or semi-gloss photographic paper without ink smudges or folds.</li>\n        <li><strong class=\"text-foreground\">Headwear:</strong> Caps, hats, and sunglasses are strictly prohibited. Religious turbans / hijabs are allowed provided the complete facial oval from forehead to chin is unobscured.</li>\n      </ul>\n    </div>\n\n    <!-- Detailed Section 4: Step-by-Step Resizing Protocol -->\n    <h2 id=\"how-to-resize\" class=\"text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2\">\n      📐 4. Step-by-Step: How to Resize SSC CGL Signature in 60 Seconds\n    </h2>\n    <p class=\"text-sm leading-relaxed text-muted-foreground mb-4\">\n      Follow this simple 5-step process on your smartphone or computer using SignResize's free in-browser resizer:\n    </p>\n\n    <div class=\"my-6 space-y-4\">\n      <div class=\"p-4 rounded-xl bg-card border border-border flex items-start gap-3\">\n        <span class=\"w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm\">1</span>\n        <div>\n          <h4 class=\"font-bold text-sm text-foreground\">Sign on Clean Paper</h4>\n          <p class=\"text-xs sm:text-sm text-muted-foreground mt-1\">Use a dark black ballpoint pen to sign in running cursive on an unruled, spotless white paper sheet.</p>\n        </div>\n      </div>\n\n      <div class=\"p-4 rounded-xl bg-card border border-border flex items-start gap-3\">\n        <span class=\"w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm\">2</span>\n        <div>\n          <h4 class=\"font-bold text-sm text-foreground\">Photograph in Bright Lighting</h4>\n          <p class=\"text-xs sm:text-sm text-muted-foreground mt-1\">Hold your phone directly above the paper to avoid casting phone shadows across your signature strokes.</p>\n        </div>\n      </div>\n\n      <div class=\"p-4 rounded-xl bg-card border border-border flex items-start gap-3\">\n        <span class=\"w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm\">3</span>\n        <div>\n          <h4 class=\"font-bold text-sm text-foreground\">Open SignResize SSC CGL Resizer</h4>\n          <p class=\"text-xs sm:text-sm text-muted-foreground mt-1\">Navigate to the <a href=\"/ssc-cgl-signature-resize/\" class=\"text-primary font-semibold underline\">SSC CGL Signature Resizer</a>. The 140×60 px (7:3) canvas and 10–20 KB limits are pre-configured automatically.</p>\n        </div>\n      </div>\n\n      <div class=\"p-4 rounded-xl bg-card border border-border flex items-start gap-3\">\n        <span class=\"w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm\">4</span>\n        <div>\n          <h4 class=\"font-bold text-sm text-foreground\">Turn on Clean White Paper Filter</h4>\n          <p class=\"text-xs sm:text-sm text-muted-foreground mt-1\">Enable the automated background cleaning filter to eliminate grey phone shadows and whiten yellow paper tints.</p>\n        </div>\n      </div>\n\n      <div class=\"p-4 rounded-xl bg-card border border-border flex items-start gap-3\">\n        <span class=\"w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm\">5</span>\n        <div>\n          <h4 class=\"font-bold text-sm text-foreground\">Download Portal-Ready JPG</h4>\n          <p class=\"text-xs sm:text-sm text-muted-foreground mt-1\">Verify that your final file size displays around 14.5 KB (safely within the 10.0–20.0 KB window) and click <strong>Download JPG</strong>.</p>\n        </div>\n      </div>\n    </div>\n\n    <!-- Detailed Section 5: Top 5 Mistakes and Solutions -->\n    <h2 id=\"top-mistakes\" class=\"text-xl sm:text-2xl font-bold text-foreground mt-8 mb-4 border-b border-border pb-2\">\n      🚫 5. Top 5 Reasons SSC CGL Applications Are Rejected (And How to Prevent Them)\n    </h2>\n\n    <div class=\"grid grid-cols-1 md:grid-cols-2 gap-4 my-6\">\n      <div class=\"p-5 rounded-2xl border-2 border-rose-500/20 bg-rose-500/5 space-y-2\">\n        <h4 class=\"font-bold text-sm text-rose-600 dark:text-rose-400 flex items-center gap-1.5\">\n          <span>❌</span> Mistake 1: Wearing Spectacles during Live Photo\n        </h4>\n        <p class=\"text-xs text-muted-foreground leading-relaxed\">\n          <strong>The Rejection Reason:</strong> Lens glare obscures iris patterns. Even high-end anti-glare lenses reflect LED light, failing automated biometrics.<br />\n          <strong class=\"text-foreground\">Solution:</strong> Take off all glasses before clicking the live capture button on ssc.gov.in.\n        </p>\n      </div>\n\n      <div class=\"p-5 rounded-2xl border-2 border-rose-500/20 bg-rose-500/5 space-y-2\">\n        <h4 class=\"font-bold text-sm text-rose-600 dark:text-rose-400 flex items-center gap-1.5\">\n          <span>❌</span> Mistake 2: Signatures in CAPITAL / BLOCK LETTERS\n        </h4>\n        <p class=\"text-xs text-muted-foreground leading-relaxed\">\n          <strong>The Rejection Reason:</strong> Block letters fail legal signature verification under Staff Selection Commission regulations.<br />\n          <strong class=\"text-foreground\">Solution:</strong> Sign in natural, flowing cursive handwriting just as you normally do on bank forms.\n        </p>\n      </div>\n\n      <div class=\"p-5 rounded-2xl border-2 border-rose-500/20 bg-rose-500/5 space-y-2\">\n        <h4 class=\"font-bold text-sm text-rose-600 dark:text-rose-400 flex items-center gap-1.5\">\n          <span>❌</span> Mistake 3: File Under 10 KB or Over 20 KB\n        </h4>\n        <p class=\"text-xs text-muted-foreground leading-relaxed\">\n          <strong>The Rejection Reason:</strong> The SSC server upload script throws an error <em>\"File size must be between 10 KB and 20 KB\"</em> and aborts form saving.<br />\n          <strong class=\"text-foreground\">Solution:</strong> Use SignResize's dual-boundary compression to ensure the file hits ~15 KB every time.\n        </p>\n      </div>\n\n      <div class=\"p-5 rounded-2xl border-2 border-rose-500/20 bg-rose-500/5 space-y-2\">\n        <h4 class=\"font-bold text-sm text-rose-600 dark:text-rose-400 flex items-center gap-1.5\">\n          <span>❌</span> Mistake 4: Dim Room Lighting or Shadowed Background\n        </h4>\n        <p class=\"text-xs text-muted-foreground leading-relaxed\">\n          <strong>The Rejection Reason:</strong> Overhanging lights cast dark shadows under the chin and nose, preventing facial contour recognition.<br />\n          <strong class=\"text-foreground\">Solution:</strong> Face a window during daylight or use direct frontal lamp lighting against a plain white wall.\n        </p>\n      </div>\n    </div>\n\n    <!-- Final CTA Box -->\n    <div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-card border-2 border-primary/30 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n      <div class=\"space-y-1\">\n        <h4 class=\"text-base sm:text-lg font-extrabold text-foreground flex items-center gap-2\">\n          <span>🚀</span> Ready to Format Your SSC CGL 2026 Documents?\n        </h4>\n        <p class=\"text-xs sm:text-sm text-muted-foreground leading-relaxed\">\n          Open our free, private online tools to resize your signature to 10–20 KB and format passport photos with zero hassle.\n        </p>\n      </div>\n      <div class=\"flex flex-wrap gap-2 shrink-0\">\n        <a href=\"/ssc-cgl-signature-resize/\" class=\"px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition\">\n          SSC CGL Signature (10–20 KB) &rarr;\n        </a>\n        <a href=\"/ssc-photo-resize/\" class=\"px-5 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition\">\n          SSC Photo Resizer (20–50 KB) &rarr;\n        </a>\n      </div>\n    </div>\n  "
 }
 ].filter((post) => !redirectedBlogPostSlugs.has(post.slug));
+
+const verifiedPoliceArticleUpdates: Record<string, Partial<BlogPost>> = {
+  'maharashtra-police-bharti-2026-top-10-faq-guide': {
+    title: 'Maharashtra Police Bharti: Official Notices, PET & Application Guide',
+    title_hi: 'महाराष्ट्र पुलिस भर्ती: आधिकारिक नोटिस, PET और आवेदन गाइड',
+    title_mr: 'महाराष्ट्र पोलीस भरती: अधिकृत जाहिराती, PET आणि अर्ज मार्गदर्शक',
+    metaTitle: 'Maharashtra Police Bharti: Official Notices & PET Guide',
+    metaTitle_hi: 'महाराष्ट्र पुलिस भर्ती: आधिकारिक नोटिस और PET गाइड',
+    metaTitle_mr: 'महाराष्ट्र पोलीस भरती: अधिकृत जाहिराती आणि PET मार्गदर्शक',
+    metaDescription: 'Find the official Maharashtra Police recruitment notices and learn how to verify district, post, PET, eligibility and upload rules. Do not rely on unsourced dates or image specifications.',
+    metaDescription_hi: 'महाराष्ट्र पुलिस भर्ती की आधिकारिक सूचनाएं देखें और जिला, पद, PET, पात्रता व अपलोड नियमों की पुष्टि करें। बिना स्रोत वाली तारीखों या इमेज नियमों पर भरोसा न करें।',
+    metaDescription_mr: 'महाराष्ट्र पोलीस भरतीच्या अधिकृत जाहिराती पाहा आणि जिल्हा, पद, PET, पात्रता व अपलोड नियम तपासा. स्रोत नसलेल्या तारखा किंवा फोटो नियमांवर अवलंबून राहू नका.',
+    excerpt: 'A source-first guide to Maharashtra Police recruitment. Check the official district notice for current vacancy status, eligibility, physical-test marks, exam rules and document specifications.',
+    excerpt_hi: 'महाराष्ट्र पुलिस भर्ती के लिए स्रोत-आधारित गाइड। रिक्तियों, पात्रता, शारीरिक परीक्षा, लिखित परीक्षा और दस्तावेज़ नियमों की पुष्टि आधिकारिक जिला सूचना से करें।',
+    excerpt_mr: 'महाराष्ट्र पोलीस भरतीसाठी अधिकृत स्रोतांवर आधारित मार्गदर्शक. रिक्त पदे, पात्रता, मैदानी चाचणी, लेखी परीक्षा आणि कागदपत्रांचे नियम जिल्ह्याच्या जाहिरातीत तपासा.',
+    author: 'SignResize Editorial Team',
+    authorRole: 'Independent guide; verify requirements in the official recruitment notice',
+    publishDate: 'Sept 20, 2026',
+    lastUpdated: 'Oct 22, 2026',
+    readTime: '4 min read',
+    tags: [
+      'Maharashtra Police Bharti',
+      'Maharashtra Police Recruitment Notice',
+      'Police Bharti PET',
+      'Maharashtra Police Eligibility',
+      'Maharashtra Police Application',
+    ],
+    quickFacts: [
+      { label: 'Recruitment authority', value: 'Maharashtra State Police; use its official recruitment page' },
+      { label: 'Latest listing checked', value: 'The official page showed 2024–25 recruitment notices/results on Oct 22, 2026' },
+      { label: 'Vacancies and dates', value: 'Check the latest district/unit notice; this guide does not claim a new 2026 application window' },
+      { label: 'PET, written exam and eligibility', value: 'Use the notice for the exact post and recruitment cycle' },
+      { label: 'Photo and signature rules', value: 'Use the dimensions, format and file limits stated in the application notice' },
+    ],
+    faqs: [
+      {
+        question: 'Where can I check the current Maharashtra Police Bharti notice?',
+        answer: 'Use the Maharashtra Police official recruitment page linked in this guide. Check the notice for your district or unit and confirm its date, post and application status before applying.',
+      },
+      {
+        question: 'Does this article confirm that a 2026 application is open?',
+        answer: 'No. The official recruitment page showed 2024–25 recruitment notices and results when checked on October 22, 2026. This article does not announce a new 2026 application window.',
+      },
+      {
+        question: 'What are the exact PET marks, age limits and document upload sizes?',
+        answer: 'These can depend on the post, unit and recruitment notice. Follow the applicable official notice; do not treat an older cycle or a resizer preset as the official requirement.',
+      },
+      {
+        question: 'Can I use the SignResize Maharashtra preset?',
+        answer: 'The preset can help prepare an image, but its dimensions and file-size settings are tool defaults. Compare the downloaded file with the specifications in your current official application notice.',
+      },
+    ],
+    faqs_mr: [
+      {
+        question: 'महाराष्ट्र पोलीस भरतीची सध्याची जाहिरात कुठे पाहू?',
+        answer: 'या लेखातील महाराष्ट्र पोलीस अधिकृत भरती पान उघडा. आपल्या जिल्हा किंवा घटकाची जाहिरात निवडून तारीख, पद आणि अर्जाची स्थिती तपासा.',
+      },
+      {
+        question: 'हा लेख २०२६ ची अर्ज प्रक्रिया सुरू असल्याची पुष्टी करतो का?',
+        answer: 'नाही. २२ ऑक्टोबर २०२६ रोजी तपासलेल्या अधिकृत भरती पानावर २०२४–२५ भरतीच्या जाहिराती व निकाल दिसत होते. हा लेख नवीन २०२६ अर्ज सुरू झाल्याचा दावा करत नाही.',
+      },
+      {
+        question: 'PET गुण, वयोमर्यादा आणि फोटो/स्वाक्षरीचे अचूक नियम कोणते?',
+        answer: 'हे पद, घटक आणि भरतीच्या जाहिरातीनुसार बदलू शकतात. लागू अधिकृत जाहिरातच अंतिम माना; जुन्या भरतीचे नियम किंवा रीसायझरची preset मांडणी अधिकृत समजू नका.',
+      },
+    ],
+    quickFacts_mr: [
+      { label: 'भरती प्राधिकरण', value: 'महाराष्ट्र राज्य पोलीस; अधिकृत भरती पान तपासा' },
+      { label: 'तपासलेली नोंद', value: '२२ ऑक्टोबर २०२६ रोजी अधिकृत पानावर २०२४–२५ भरतीच्या जाहिराती/निकाल दिसले' },
+      { label: 'रिक्त पदे व तारखा', value: 'जिल्हा/घटकाची नवीन जाहिरात तपासा; हा लेख नवीन २०२६ अर्ज सुरू असल्याचा दावा करत नाही' },
+      { label: 'PET, लेखी परीक्षा व पात्रता', value: 'संबंधित पदाच्या अधिकृत जाहिरातीनुसार तपासा' },
+      { label: 'फोटो व स्वाक्षरी', value: 'अर्जातील अधिकृत माप, स्वरूप आणि फाइल आकार वापरा' },
+    ],
+    quickFacts_hi: [
+      { label: 'भर्ती प्राधिकरण', value: 'महाराष्ट्र राज्य पुलिस; आधिकारिक भर्ती पेज देखें' },
+      { label: 'जांच की गई सूची', value: '22 अक्टूबर 2026 को आधिकारिक पेज पर 2024–25 भर्ती अपडेट दिखा' },
+      { label: 'रिक्तियां और तिथियां', value: 'नवीनतम जिला/यूनिट सूचना देखें; यह लेख नया 2026 आवेदन शुरू होने का दावा नहीं करता' },
+      { label: 'PET, लिखित परीक्षा और पात्रता', value: 'संबंधित पद और भर्ती चक्र की आधिकारिक सूचना देखें' },
+      { label: 'फोटो और हस्ताक्षर', value: 'आवेदन में दिए गए आधिकारिक माप, प्रारूप और फाइल आकार का पालन करें' },
+    ],
+    contentHtml: `
+      <section class="space-y-4">
+        <div class="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4">
+          <h2 class="font-bold">Important: check the notice for your district and post</h2>
+          <p>The Maharashtra Police recruitment page was showing 2024–25 recruitment notices and results when checked on October 22, 2026. This page does not announce a new 2026 application window. Recruitment status and rules can differ by district, unit, post and cycle.</p>
+        </div>
+        <p>Use the <a href="https://mahapolice.gov.in/police-recruitment/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">Maharashtra Police official recruitment page</a> as the starting point. Open the applicable notice and confirm its publication date, recruiting unit, post, application dates and any corrigendum. The notice and application portal—not a coaching page or image tool—control the requirements.</p>
+        <h2>How to verify the recruitment details</h2>
+        <ol class="list-decimal space-y-2 pl-5">
+          <li>Find the latest notice for your district/unit and the exact post you want.</li>
+          <li>Check the notice and amendments for vacancy count, age cut-off, education, category relaxations and required certificates.</li>
+          <li>Use the official selection scheme for the PET events, marks, qualifying conditions and written-exam format. Do not reuse a chart from another district or recruitment cycle.</li>
+          <li>Before uploading a photo or signature, read the current application instructions for dimensions, file type, file-size limits and any live-capture requirements.</li>
+          <li>Use only the official application link referenced by Maharashtra Police. Do not enter personal details on an unverified site.</li>
+        </ol>
+        <h2>Image resizer: tool settings are not official rules</h2>
+        <p>The <a href="/maharashtra-police-signature-resize/" class="text-primary underline font-semibold">Maharashtra Police signature tool</a> and <a href="/?preset=mahapolice&amp;photoW=160&amp;photoH=200&amp;photoMin=5&amp;photoMax=20&amp;signW=256&amp;signH=64&amp;signMin=5&amp;signMax=20" class="text-primary underline font-semibold">photo and signature workspace</a> can prepare image files using selected settings. Those settings are not proof of the current recruitment specification. Check the final image against the exact notice before submission.</p>
+        <h2>Official source</h2>
+        <p><a href="https://mahapolice.gov.in/police-recruitment/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">Maharashtra Police — Recruitment notices and results</a> (checked October 22, 2026; the listing included a 2024–25 recruitment update dated February 28, 2026).</p>
+      </section>
+    `,
+    contentHtml_mr: `
+      <section class="space-y-4">
+        <div class="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4">
+          <h2 class="font-bold">महत्त्वाचे: आपल्या जिल्हा आणि पदाची जाहिरात तपासा</h2>
+          <p>२२ ऑक्टोबर २०२६ रोजी महाराष्ट्र पोलीसच्या भरती पानावर २०२४–२५ भरतीच्या जाहिराती आणि निकाल दिसत होते. या पानावरून नवीन २०२६ अर्ज सुरू असल्याची पुष्टी होत नाही. भरतीची स्थिती आणि नियम जिल्हा, घटक, पद आणि भरतीच्या चक्रानुसार बदलू शकतात.</p>
+        </div>
+        <p>सुरुवात <a href="https://mahapolice.gov.in/police-recruitment/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">महाराष्ट्र पोलीसच्या अधिकृत भरती पानावरून</a> करा. लागू जाहिरात उघडून तिची तारीख, भरती करणारा घटक, पद, अर्जाच्या तारखा आणि शुद्धिपत्रक तपासा. अटींसाठी अधिकृत जाहिरात आणि अर्ज पोर्टलच अंतिम आहेत.</p>
+        <h2>भरतीची माहिती कशी पडताळावी</h2>
+        <ol class="list-decimal space-y-2 pl-5">
+          <li>आपल्या जिल्हा/घटकासाठी आणि पदासाठीची नवीनतम जाहिरात शोधा.</li>
+          <li>रिक्त पदे, वयोमर्यादेची निर्णायक तारीख, शिक्षण, आरक्षण सवलती आणि प्रमाणपत्रे जाहिरातीतून तपासा.</li>
+          <li>PET मधील चाचण्या, गुण, पात्रता अटी आणि लेखी परीक्षेचे स्वरूप लागू अधिकृत निवड प्रक्रियेतून पाहा. दुसऱ्या जिल्ह्याचा किंवा जुन्या भरतीचा तक्ता वापरू नका.</li>
+          <li>फोटो/स्वाक्षरी अपलोड करण्यापूर्वी माप, फाइल प्रकार, आकार मर्यादा आणि थेट फोटो घेण्याची अट आहे का ते अर्जाच्या सूचनांत तपासा.</li>
+          <li>महाराष्ट्र पोलीसने दिलेली अधिकृत अर्ज लिंकच वापरा. अप्रमाणित संकेतस्थळावर वैयक्तिक माहिती देऊ नका.</li>
+        </ol>
+        <h2>फोटो रीसायझर: टूलची सेटिंग म्हणजे अधिकृत नियम नव्हे</h2>
+        <p><a href="/maharashtra-police-signature-resize/" class="text-primary underline font-semibold">महाराष्ट्र पोलीस स्वाक्षरी टूल</a> आणि <a href="/?preset=mahapolice&amp;photoW=160&amp;photoH=200&amp;photoMin=5&amp;photoMax=20&amp;signW=256&amp;signH=64&amp;signMin=5&amp;signMax=20" class="text-primary underline font-semibold">फोटो व स्वाक्षरी कार्यक्षेत्र</a> निवडलेल्या सेटिंगनुसार फाइल तयार करू शकतात. या सेटिंगमुळे सध्याचे अधिकृत माप सिद्ध होत नाही. अर्जापूर्वी तयार केलेली फाइल लागू जाहिरातीशी पडताळा.</p>
+        <h2>अधिकृत स्रोत</h2>
+        <p><a href="https://mahapolice.gov.in/police-recruitment/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">महाराष्ट्र पोलीस — भरती जाहिराती व निकाल</a> (२२ ऑक्टोबर २०२६ रोजी तपासले).</p>
+      </section>
+    `,
+  },
+  'mp-police-constable-2026-vacancy-syllabus-physical-chart-salary': {
+    title: 'MP Police Constable Recruitment: Official Notice, Exam & Physical Test Guide',
+    title_hi: 'MP पुलिस कांस्टेबल भर्ती: आधिकारिक सूचना, परीक्षा और शारीरिक परीक्षा गाइड',
+    metaTitle: 'MP Police Constable Recruitment: Official Notice & Exam Guide',
+    metaTitle_hi: 'MP पुलिस कांस्टेबल भर्ती: आधिकारिक नोटिस और परीक्षा गाइड',
+    metaDescription: 'Learn how to verify MP Police Constable vacancies, eligibility, exam pattern, PET and document rules in the current MPESB notification. No unsourced 2026 figures or score charts.',
+    metaDescription_hi: 'वर्तमान MPESB सूचना से MP पुलिस कांस्टेबल रिक्तियों, पात्रता, परीक्षा, PET और दस्तावेज़ नियमों की पुष्टि करें। बिना स्रोत वाले 2026 आंकड़ों या स्कोर चार्ट पर भरोसा न करें।',
+    excerpt: 'A source-first guide to MP Police Constable recruitment. Check the current MPESB notice for the exact post, cycle, eligibility, written exam, PET scoring and document upload rules.',
+    excerpt_hi: 'MP पुलिस कांस्टेबल भर्ती के लिए स्रोत-आधारित गाइड। पद, भर्ती चक्र, पात्रता, लिखित परीक्षा, PET और दस्तावेज़ नियम वर्तमान MPESB सूचना में जांचें।',
+    author: 'SignResize Editorial Team',
+    authorRole: 'Independent guide; verify requirements in the official MPESB notification',
+    lastUpdated: 'Oct 22, 2026',
+    readTime: '4 min read',
+    tags: [
+      'MP Police Constable Recruitment',
+      'MPESB Official Notification',
+      'MP Police Eligibility',
+      'MP Police Exam Pattern',
+      'MP Police PET',
+    ],
+    quickFacts: [
+      { label: 'Recruitment authority', value: 'Madhya Pradesh Employees Selection Board (MPESB)' },
+      { label: 'Vacancy and application dates', value: 'Check the current dated MPESB notification; not stated as confirmed here' },
+      { label: 'Written exam and PET', value: 'Use the rulebook for the exact post and recruitment cycle; do not rely on a generic score chart' },
+      { label: 'Eligibility and pay', value: 'Confirm category, age cut-off and service conditions in the applicable notice' },
+      { label: 'Photo and signature rules', value: 'Use the current application instructions; the resizer preset is not an official specification' },
+    ],
+    faqs: [
+      {
+        question: 'Has a 2026 MP Police Constable recruitment been announced?',
+        answer: 'Check the current MPESB notifications and exam calendar for a dated notice. This guide does not confirm an announcement, vacancy count or application date.',
+      },
+      {
+        question: 'Does the MP Police Constable PET carry 100 marks?',
+        answer: 'Do not rely on the 100-mark chart previously shown here. The applicable MPESB notification and rulebook for the exact recruitment cycle determine whether PET is qualifying or scored and how selection marks are calculated.',
+      },
+      {
+        question: 'What are the exam syllabus, height, running and document requirements?',
+        answer: 'Requirements can differ by post, category and cycle. Read the current MPESB rulebook and application instructions; this guide intentionally does not publish unverified cut-offs or measurements.',
+      },
+      {
+        question: 'Where do I check the admit card and results?',
+        answer: 'Use the admit-card, result and notice links on the official MPESB website. Confirm that the link is for your exact recruitment test and year.',
+      },
+    ],
+    faqs_hi: [
+      {
+        question: 'क्या MP पुलिस कांस्टेबल भर्ती 2026 की घोषणा हुई है?',
+        answer: 'तारीख वाली सूचना के लिए MPESB के वर्तमान नोटिस और परीक्षा कैलेंडर देखें। यह गाइड किसी घोषणा, पद संख्या या आवेदन तिथि की पुष्टि नहीं करती।',
+      },
+      {
+        question: 'क्या MP पुलिस कांस्टेबल PET 100 अंकों की होती है?',
+        answer: 'यहां पहले दिया गया 100 अंकों का चार्ट भरोसेमंद न मानें। PET केवल qualifying है या उसमें अंक मिलते हैं, यह संबंधित भर्ती चक्र की MPESB सूचना और नियम पुस्तिका तय करती है।',
+      },
+      {
+        question: 'परीक्षा, लंबाई, दौड़ और दस्तावेज़ के नियम कहां देखें?',
+        answer: 'नियम पद, श्रेणी और भर्ती चक्र के अनुसार बदल सकते हैं। वर्तमान MPESB नियम पुस्तिका और आवेदन निर्देश पढ़ें; यह गाइड अपुष्ट कट-ऑफ या माप नहीं देती।',
+      },
+    ],
+    quickFacts_hi: [
+      { label: 'भर्ती प्राधिकरण', value: 'मध्य प्रदेश कर्मचारी चयन मंडल (MPESB)' },
+      { label: 'पद और आवेदन तिथि', value: 'तारीख वाली वर्तमान MPESB सूचना देखें; यहां पुष्टि नहीं की गई है' },
+      { label: 'लिखित परीक्षा और PET', value: 'सटीक पद व भर्ती चक्र की नियम पुस्तिका देखें; सामान्य स्कोर चार्ट पर भरोसा न करें' },
+      { label: 'पात्रता और वेतन', value: 'श्रेणी, आयु-गणना की तारीख और सेवा शर्तें लागू सूचना में जांचें' },
+      { label: 'फोटो और हस्ताक्षर', value: 'वर्तमान आवेदन निर्देश मानें; रीसाइजर preset आधिकारिक माप नहीं है' },
+    ],
+    contentHtml: `
+      <section class="space-y-4">
+        <div class="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4">
+          <h2 class="font-bold">Important: use the rulebook for the exact recruitment cycle</h2>
+          <p>This guide does not confirm a 2026 vacancy, application date, exam schedule, salary or selection formula. MP Police requirements are set by the dated MPESB notification and rulebook for the specific post and cycle. Do not use the generic 100-mark PET chart or exact figures previously shown on this page.</p>
+        </div>
+        <p>Start at the <a href="https://esb.mp.gov.in/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">official Madhya Pradesh Employees Selection Board (MPESB) website</a>. Open the current notification and rulebook whose title and year match the post you are applying for. Read amendments and corrigenda as well as the original notice.</p>
+        <h2>What to verify in the official notice</h2>
+        <ol class="list-decimal space-y-2 pl-5">
+          <li>Whether a recruitment notice is published, its application dates and the number/type of posts.</li>
+          <li>Post-specific education, age cut-off, category relaxations and required certificates.</li>
+          <li>Written-test subjects, duration, marks and negative-marking rules.</li>
+          <li>Whether PET/PST is qualifying or scored, the events and measurements, and how it affects the merit list.</li>
+          <li>Photo, signature and other document formats, dimensions and file-size limits in the application portal.</li>
+          <li>Admit-card, examination, result and objection dates from the official MPESB notice pages.</li>
+        </ol>
+        <p>Do not use a prior recruitment's details as current rules. If a requirement is not stated in the current notice or rulebook, confirm it with MPESB before submitting your application.</p>
+        <h2>Preparing an image file</h2>
+        <p>The <a href="/mp-police-photo-resize/" class="text-primary underline font-semibold">MP Police photo tool</a> and <a href="/mp-police-signature-resize/" class="text-primary underline font-semibold">signature tool</a> can prepare files using their selected settings. These presets are not an MPESB approval or an official specification. Match your output to the exact instructions for your recruitment cycle.</p>
+        <h2>Official source</h2>
+        <p><a href="https://esb.mp.gov.in/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">MPESB — notifications, rulebooks, admit cards and results</a>.</p>
+      </section>
+    `,
+    contentHtml_hi: `
+      <section class="space-y-4">
+        <div class="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4">
+          <h2 class="font-bold">महत्त्वपूर्ण: संबंधित भर्ती चक्र की नियम पुस्तिका देखें</h2>
+          <p>यह गाइड 2026 की रिक्तियों, आवेदन तिथि, परीक्षा कार्यक्रम, वेतन या चयन प्रक्रिया की पुष्टि नहीं करती। MP पुलिस के नियम संबंधित पद और भर्ती चक्र की तारीख वाली MPESB सूचना व नियम पुस्तिका से तय होते हैं। इस पेज पर पहले दिखाए गए सामान्य 100-अंकों के PET चार्ट या सटीक आंकड़ों का उपयोग न करें।</p>
+        </div>
+        <p><a href="https://esb.mp.gov.in/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">मध्य प्रदेश कर्मचारी चयन मंडल (MPESB) की आधिकारिक वेबसाइट</a> से शुरू करें। जिस पद के लिए आवेदन कर रहे हैं, उसी पद और वर्ष की वर्तमान सूचना व नियम पुस्तिका खोलें। संशोधन और शुद्धिपत्र भी पढ़ें।</p>
+        <h2>आधिकारिक सूचना में क्या जांचें</h2>
+        <ol class="list-decimal space-y-2 pl-5">
+          <li>भर्ती सूचना प्रकाशित हुई है या नहीं, आवेदन की तारीखें और पदों का विवरण।</li>
+          <li>पद के अनुसार शिक्षा, आयु-गणना की तारीख, श्रेणी छूट और प्रमाणपत्र।</li>
+          <li>लिखित परीक्षा के विषय, अवधि, अंक और नकारात्मक अंकन।</li>
+          <li>PET/PST केवल qualifying है या उसमें अंक मिलते हैं; इसके इवेंट, माप और मेरिट पर प्रभाव।</li>
+          <li>आवेदन पोर्टल में फोटो, हस्ताक्षर और अन्य दस्तावेज़ों का प्रारूप, माप और फाइल आकार।</li>
+          <li>आधिकारिक MPESB पेज से प्रवेश पत्र, परीक्षा, परिणाम और आपत्ति की तारीखें।</li>
+        </ol>
+        <p>पिछली भर्ती के नियमों को वर्तमान नियम न मानें। यदि वर्तमान सूचना या नियम पुस्तिका में कोई बात स्पष्ट न हो, तो आवेदन से पहले MPESB से पुष्टि करें।</p>
+        <h2>फोटो फाइल तैयार करना</h2>
+        <p><a href="/mp-police-photo-resize/" class="text-primary underline font-semibold">MP पुलिस फोटो टूल</a> और <a href="/mp-police-signature-resize/" class="text-primary underline font-semibold">हस्ताक्षर टूल</a> चुनी गई सेटिंग के अनुसार फाइल तैयार कर सकते हैं। ये preset MPESB की मंजूरी या आधिकारिक माप नहीं हैं। तैयार फाइल को अपने भर्ती चक्र के निर्देशों से मिलाएं।</p>
+        <h2>आधिकारिक स्रोत</h2>
+        <p><a href="https://esb.mp.gov.in/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">MPESB — सूचनाएं, नियम पुस्तिकाएं, प्रवेश पत्र और परिणाम</a> (22 अक्टूबर 2026 को जांचा गया)।</p>
+      </section>
+    `,
+  },
+};
+
+for (const post of BLOG_POSTS) {
+  const updates = verifiedPoliceArticleUpdates[post.slug];
+  if (updates) Object.assign(post, updates);
+}
