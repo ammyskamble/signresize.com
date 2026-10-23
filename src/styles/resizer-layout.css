@@ -253,11 +253,13 @@ body:has(#tool-workspace:not(.compact-studio)) #exam-preset-selector > div:last-
 body:has(#tool-workspace:not(.compact-studio)) #exam-preset-selector > div:last-child:not(#exam-preset-options) p {
   margin: 0;
 }
-body:has(#tool-workspace:not(.compact-studio)) #studio-container > div:first-child,
+body:has(#tool-workspace:not(.compact-studio)) #studio-container > .resizer-step-guide,
 body:has(#tool-workspace:not(.compact-studio)) #studio-container > div:has(button[title="Share Preset Link"]) {
   display: none;
 }
+body:has(#tool-workspace:not(.compact-studio)) #studio-container > .studio-grid,
 body:has(#tool-workspace:not(.compact-studio)) .studio-grid {
+  display: grid !important;
   gap: 16px;
 }
 body:has(#tool-workspace:not(.compact-studio)) .studio-export {

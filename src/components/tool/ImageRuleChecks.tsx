@@ -46,6 +46,10 @@ export function ExportChecksDialog({
   onConfirmSlate,
   upssscConfirmed,
   onConfirmUpsssc,
+  tnpscPhotoConfirmed,
+  onConfirmTnpscPhoto,
+  tnpscSignConfirmed,
+  onConfirmTnpscSign,
 }: {
   open: boolean;
   result: ProcessedImageResult | null;
@@ -62,6 +66,10 @@ export function ExportChecksDialog({
   onConfirmSlate?: (confirmed: boolean) => void;
   upssscConfirmed?: boolean;
   onConfirmUpsssc?: (confirmed: boolean) => void;
+  tnpscPhotoConfirmed?: boolean;
+  onConfirmTnpscPhoto?: (confirmed: boolean) => void;
+  tnpscSignConfirmed?: boolean;
+  onConfirmTnpscSign?: (confirmed: boolean) => void;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [backgroundMessage, setBackgroundMessage] = useState('');
@@ -133,9 +141,25 @@ export function ExportChecksDialog({
      preset?.id.includes('pet'))
   );
 
+  const isTnpscPhoto = Boolean(
+    mode === 'photo' &&
+    (preset?.id.includes('tnpsc') ||
+     preset?.name.toLowerCase().includes('tnpsc') ||
+     preset?.authority.toLowerCase().includes('tnpsc'))
+  );
+
+  const isTnpscSignature = Boolean(
+    mode === 'signature' &&
+    (preset?.id.includes('tnpsc') ||
+     preset?.name.toLowerCase().includes('tnpsc') ||
+     preset?.authority.toLowerCase().includes('tnpsc'))
+  );
+
   const isSlatePending = Boolean(isCoastGuardPhoto && !slateConfirmed);
   const isUpssscPending = Boolean(isUpssscSignature && !upssscConfirmed);
-  const blocked = busy || !result || !result.withinTargetBounds || issues.length > 0 || presetIssues.length > 0 || isSlatePending || isUpssscPending;
+  const isTnpscPhotoPending = Boolean(isTnpscPhoto && !tnpscPhotoConfirmed);
+  const isTnpscSignPending = Boolean(isTnpscSignature && !tnpscSignConfirmed);
+  const blocked = busy || !result || !result.withinTargetBounds || issues.length > 0 || presetIssues.length > 0 || isSlatePending || isUpssscPending || isTnpscPhotoPending || isTnpscSignPending;
 
   return (
     <dialog
@@ -283,6 +307,10 @@ export function ExportChecksDialog({
           onConfirmSlate={onConfirmSlate}
           upssscConfirmed={upssscConfirmed}
           onConfirmUpsssc={onConfirmUpsssc}
+          tnpscPhotoConfirmed={tnpscPhotoConfirmed}
+          onConfirmTnpscPhoto={onConfirmTnpscPhoto}
+          tnpscSignConfirmed={tnpscSignConfirmed}
+          onConfirmTnpscSign={onConfirmTnpscSign}
           variant="modalAudit"
         />
       </div>

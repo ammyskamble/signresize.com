@@ -37,8 +37,8 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'ssc-signature-resize',
     presetId: 'ssc-general',
-    pageTitle: 'SSC Signature Resize 10 to 20 KB (140x60 px) Online - SignResize',
-    metaDescription: 'Official SSC signature resize & compressor tool. Resize signature to 10 to 20 kb, 140x60 px (4x2 cm) at 200 DPI for SSC CGL, CHSL, MTS, GD Constable, and CPO portals. 100% free & private.',
+    pageTitle: 'SSC Signature Resizer (10 to 20 KB) — 140×60 px CGL, CHSL, MTS, GD - SignResize',
+    metaDescription: 'Official SSC signature resizer & compressor tool. Compress signature to 10 to 20 KB (exact 140x60 px, 4x2 cm) at 200 DPI in black ink. 100% accepted on ssc.gov.in portal.',
     keywords: 'ssc signature resize, ssc signature resize 10 to 20 kb, ssc signature size 140x60, ssc signature in cm, ssc cgl signature resize, ssc chsl signature size, ssc gd signature resize, staff selection commission signature resizer',
     h1: 'SSC Signature Resize & Compressor (10 KB – 20 KB)',
     subheading: 'Exact 140×60 px (4.0×2.0 cm) dimensions with dual-boundary 10–20 KB compression strictly adhering to official Staff Selection Commission guidelines.',
@@ -84,8 +84,8 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'ssc-cgl-signature-resize',
     presetId: 'ssc-cgl',
-    pageTitle: 'SSC CGL Photo and Signature Size 2026 - Online Resizer & Guidelines',
-    metaDescription: 'Official SSC CGL 2026 photo & signature resizer. Compress signature to 10-20 KB (140x60 px) & format passport photo to 20-50 KB (3.5x4.5 cm). Free ssc.gov.in tool.',
+    pageTitle: 'SSC CGL Photo and Signature Size 2026: 10–20 KB Resizer (140×60 px) - SignResize',
+    metaDescription: 'Official SSC CGL 2026 photo & signature resizer. Resize signature to 10–20 KB (140x60 px) and verify ssc.gov.in live webcam photo capture rules. Free instant download.',
     keywords: 'ssc cgl photo and signature size 2026, ssc cgl signature resize, ssc cgl photo size, ssc cgl signature size, ssc cgl signature resize 10 to 20 kb, ssc cgl photo and signature size in kb, ssc cgl signature dimensions, ssc cgl live photo webcam rules',
     h1: 'SSC CGL Photo & Signature Size 2026 Resizer (10 KB – 20 KB)',
     subheading: 'Official Staff Selection Commission standards: 140×60 px signature strictly compressed between 10 KB to 20 KB in black ink, plus complete ssc.gov.in live webcam photo capture and 3.5×4.5 cm specifications.',
@@ -765,13 +765,13 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'tnpsc-signature-resize',
     presetId: 'tnpsc',
-    pageTitle: 'TNPSC Signature Resize 10 to 20 KB (140x60 px) - SignResize',
-    metaDescription: 'Resize signature for Tamil Nadu Public Service Commission (TNPSC Group 1, 2, 4). Format to 140x60 px (3.5x1.5 cm), strictly 10 to 20 KB JPG.',
-    keywords: 'tnpsc signature resize, tnpsc signature 10 to 20 kb, tnpsc group 4 signature size, tnpsc group 2 signature resize, tamil nadu psc signature resizer',
+    pageTitle: 'TNPSC Signature Resize 10 to 20 KB (140x60 px) — Group 4, 2, 1 OTR - SignResize',
+    metaDescription: 'Official TNPSC signature resizer. Resize signature to 10 to 20 KB, 140x60 px (3.5x1.5 cm) at 200 DPI in blue/black ink for TNPSC Group 4 VAO, Group 2 & 1 OTR portal.',
+    keywords: 'tnpsc signature resize, tnpsc signature 10 to 20 kb, tnpsc group 4 signature size, tnpsc group 2 signature resize, tnpsc signature dimensions 140x60, tamil nadu psc signature resizer, tnpsc otr signature upload',
     h1: 'TNPSC Signature Resize & Compressor (10 KB – 20 KB)',
-    subheading: 'Strict 10 KB to 20 KB boundary and 3.5×1.5 cm (140×60 px) dimensions compliant with TNPSC One Time Registration (OTR).',
+    subheading: 'Strict 10 KB to 20 KB boundary and 3.5×1.5 cm (140×60 px) dimensions compliant with TNPSC One Time Registration (OTR) and online application portal.',
     authority: 'Tamil Nadu Public Service Commission (TNPSC)',
-    targetExams: 'TNPSC Group 1, Group 2 & 2A, Group 4 (VAO), Combined Engineering Services, Forest Apprentice',
+    targetExams: 'TNPSC Group 1, Group 2 & 2A, Group 4 (VAO, Junior Assistant, Typist), Combined Engineering Services, Forest Apprentice',
     widthPx: 140,
     heightPx: 60,
     widthCm: 3.5,
@@ -780,18 +780,79 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     maxKb: 20,
     recommendedKb: 15,
     dpi: 200,
-    ink: 'Blue or Black Ballpoint Pen',
+    ink: 'Blue or Black Ballpoint Pen (Running Handwriting)',
     aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'TNPSC portal rejects files under 10 KB and over 20 KB automatically during upload validation.',
+    strictNotice: 'TNPSC portal rejects files under 10 KB and over 20 KB automatically during upload validation. Signatures in ALL CAPITAL LETTERS are disqualified.',
+    relatedTools: [],
     tips: [
-      'Signature must be clearly legible and centered in the frame.',
-      'Keep the file size within 10.0 KB and 19.9 KB.',
-      'Avoid faint gel pens; use a bold ballpoint pen.'
+      'Sign with a bold blue or black ballpoint pen on plain, unruled white paper.',
+      'Crop tight with 2 mm margins so the signature occupies 80% of the horizontal 140×60 box.',
+      'Keep the file size strictly between 10.0 KB and 19.9 KB in JPG format before uploading to apply.tnpscexams.in.',
+      'Avoid typing names in block letters; use your natural running handwriting.'
     ],
     faqs: [
       {
-        q: 'What is the TNPSC signature upload size limit?',
-        a: 'The allowed file size is strictly between 10 KB and 20 KB in JPG/JPEG format.'
+        q: 'What is the official TNPSC signature upload size limit for 2026?',
+        a: 'The allowed file size is strictly between 10 KB and 20 KB in JPG/JPEG format, with pixel dimensions of 140 × 60 pixels (approximately 3.5 cm × 1.5 cm).'
+      },
+      {
+        q: 'Which pen color is approved for TNPSC signature upload?',
+        a: 'TNPSC accepts both blue and black ballpoint ink on unruled white paper. Signatures using gel pens, glitter pens, or faint pencils are prone to scanner rejection.'
+      },
+      {
+        q: 'Can I sign in capital letters for TNPSC Group 4 or Group 2?',
+        a: 'No. TNPSC guidelines explicitly state that signatures in capital or block letters will be rejected. You must sign in natural cursive running handwriting.'
+      },
+      {
+        q: 'Why does the TNPSC portal display an upload error for my signature?',
+        a: 'The portal rejects signatures if the file is smaller than 10 KB, exceeds 20 KB, is saved in PNG/PDF format instead of JPG, or deviates from the 7:3 aspect ratio.'
+      }
+    ]
+  },
+  {
+    slug: 'tnpsc-photo-resize',
+    presetId: 'tnpsc-photo',
+    pageTitle: 'TNPSC Photo Resize 20 to 50 KB (200x230 px with Name & Date) - SignResize',
+    metaDescription: 'Official TNPSC photo resizer for Group 4, 2, 1 & OTR. Resize passport photo to 20 to 50 KB (200x230 px) with mandatory candidate Name and Date of Photo. 100% accepted.',
+    keywords: 'tnpsc photo resize, tnpsc photo size 20 to 50 kb, tnpsc photo with name and date, tnpsc photo dimensions 200x230, tnpsc group 4 photo size, tnpsc otr photo upload, tamil nadu psc photo compressor',
+    h1: 'TNPSC Photo Resizer with Name & Date (20 KB – 50 KB)',
+    subheading: 'Exact 200×230 px (3.5×4.5 cm) dimensions with mandatory candidate Name and Date of Photograph (DOP) printed at bottom for TNPSC One Time Registration (OTR).',
+    authority: 'Tamil Nadu Public Service Commission (TNPSC)',
+    targetExams: 'TNPSC Group 4 (VAO, Junior Assistant), Group 2 & 2A, Group 1, Combined Technical Services',
+    widthPx: 200,
+    heightPx: 230,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Light/White Background (Name & Date at Bottom)',
+    aspectRatioLabel: '200:230 (~3.5×4.5 cm)',
+    strictNotice: 'TNPSC mandates that the applicant Name and Date of Photograph must be printed at the bottom of the photo. Plain photos without this stamp are subject to rejection.',
+    relatedTools: [],
+    tips: [
+      'Sit straight against a plain white or light-coloured background with both ears visible.',
+      'Ensure the candidate name and photo capture date are clearly legible in a white strip at the bottom.',
+      'Maintain the compressed file size strictly between 20.0 KB and 49.9 KB in JPG format.',
+      'Do not wear caps, hats, or dark tinted sunglasses.'
+    ],
+    faqs: [
+      {
+        q: 'What is the official TNPSC photo size requirement for 2026?',
+        a: 'The photograph must be formatted to 200 pixels width by 230 pixels height (3.5 cm × 4.5 cm), with a file size strictly between 20 KB and 50 KB in JPG format.'
+      },
+      {
+        q: 'Is candidate Name and Date of Photo mandatory on TNPSC photographs?',
+        a: 'Yes. TNPSC Commission instructions mandate that the candidate Name and the Date on which the photo was captured must be printed in clear text in a box at the bottom of the photograph.'
+      },
+      {
+        q: 'How do I add Name and Date to my photo for TNPSC?',
+        a: 'You can use our integrated "Add Name & Date" tool above to type your full name and date, which automatically generates an official TNPSC-compliant stamped photo in seconds.'
+      },
+      {
+        q: 'What certificates need to be uploaded on TNPSC OTR and what size?',
+        a: 'Community certificate, SSLC marksheet, Degree certificates, and PSTM (Tamil Medium) certificates must be uploaded in PDF format with file size under 200 KB each.'
       }
     ]
   },

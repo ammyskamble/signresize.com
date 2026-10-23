@@ -273,6 +273,126 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
     }
   }
 
+  // 2.1 TNPSC (Tamil Nadu Public Service Commission - Group 1, 2, 4 VAO & OTR)
+  const isTnpsc = presetId.includes('tnpsc') || presetName.includes('tnpsc') || authority.includes('tnpsc');
+  if (isTnpsc) {
+    if (mode === 'photo') {
+      return {
+        examName: 'Tamil Nadu PSC (TNPSC)',
+        title: 'TNPSC Photo Rejection Warning: Mandatory Name & Date Rule',
+        badge: 'NAME & DATE MANDATORY',
+        badgeColor: 'rose',
+        description: 'The TNPSC Commission (apply.tnpscexams.in) strictly rejects plain photographs. The candidate full Name and Date of Photograph (DOP within 3 months) must be clearly printed in a white box at the bottom. Verify below:',
+        statusWarning: 'Missing Name & DOP Stamp',
+        items: [
+          {
+            icon: '🪪',
+            title: '1. Candidate Name & Date of Photo (DOP) Printed at Bottom',
+            description: 'TNPSC Commission instructions Clause 3 mandate: Name of the applicant and Date of photograph must be printed at the bottom of the photo box. Plain photos trigger verification rejection.',
+            severity: 'danger',
+          },
+          {
+            icon: '📏',
+            title: '2. Exact 200 × 230 Pixels (3.5 × 4.5 cm)',
+            description: 'TNPSC OTR requires 200 × 230 pixels in JPG format. Non-standard aspect ratios distort your face on generated hall tickets.',
+            severity: 'danger',
+          },
+          {
+            icon: '⚖️',
+            title: '3. Strict File Bounds (20.0 KB – 50.0 KB)',
+            description: 'The TNPSC portal upload gateway blocks images smaller than 20 KB and larger than 50 KB.',
+            severity: 'danger',
+          },
+          {
+            icon: '🎨',
+            title: '4. Light / White Plain Background with Visible Ears',
+            description: 'Face must cover 75% of the frame looking straight at the camera with both ears visible. No caps, dark glasses, or shadows.',
+            severity: 'warning',
+          },
+        ],
+        officialSource: 'TNPSC Instructions to Applicants (Annexure II)',
+        officialUrl: 'https://apply.tnpscexams.in/',
+        actionType: 'makeBackgroundWhite',
+      };
+    } else if (mode === 'signature') {
+      return {
+        examName: 'Tamil Nadu PSC (TNPSC)',
+        title: 'TNPSC Signature Rejection Warning: Running Cursive Standard',
+        badge: 'CURSIVE INK ONLY',
+        badgeColor: 'rose',
+        description: 'The TNPSC portal strictly enforces 10 KB to 20 KB file bounds and automatically disqualifies signatures written in CAPITAL / BLOCK letters. Verify below:',
+        statusWarning: 'No Capital Letters • 10–20 KB',
+        items: [
+          {
+            icon: '🖋️',
+            title: '1. Natural Running Cursive Handwriting (NO CAPITALS)',
+            description: 'Must be signed in natural running handwriting. Signatures written in BLOCK / CAPITAL letters will be rejected summarily.',
+            severity: 'danger',
+          },
+          {
+            icon: '⚖️',
+            title: '2. Strictly 10.0 KB to 20.0 KB JPG',
+            description: 'The TNPSC server upload validator blocks files below 10.0 KB and above 20.0 KB.',
+            severity: 'danger',
+          },
+          {
+            icon: '📏',
+            title: '3. 140 × 60 Pixels (3.5 × 1.5 cm Ratio)',
+            description: 'Dimensions must conform to 140 × 60 px with a clean horizontal 7:3 aspect ratio.',
+            severity: 'info',
+          },
+          {
+            icon: '🖊️',
+            title: '4. Blue or Black Ballpoint Ink on Plain White Paper',
+            description: 'Sign with dark blue or black ballpoint pen on unruled white paper. Faint gel ink or lined paper lines are disqualified.',
+            severity: 'warning',
+          },
+        ],
+        officialSource: 'TNPSC Commission Guidelines for Scanning & Upload',
+        officialUrl: 'https://apply.tnpscexams.in/',
+        actionType: 'cleanPaper',
+      };
+    } else {
+      return {
+        examName: 'Tamil Nadu PSC (TNPSC)',
+        title: 'TNPSC OTR Certificate Verification (SSLC / Community / PSTM)',
+        badge: 'SIZE UNDER 200 KB',
+        badgeColor: 'blue',
+        description: 'TNPSC One Time Registration (OTR) certificate upload standards for Group 1, Group 2, and Group 4 VAO applications:',
+        statusWarning: 'PDF/JPG Under 200 KB',
+        items: [
+          {
+            icon: '📄',
+            title: '1. SSLC Marksheet / 10th Certificate (DOB Proof)',
+            description: 'Must show student name, father name, and complete Date of Birth (DD/MM/YYYY) matching your OTR profile.',
+            severity: 'danger',
+          },
+          {
+            icon: '📜',
+            title: '2. Community / Caste Certificate',
+            description: 'Permanent Community Certificate Card issued by Revenue Authorities (Tahsildar / Sub-Collector) in Tamil Nadu.',
+            severity: 'danger',
+          },
+          {
+            icon: '🎓',
+            title: '3. PSTM Certificate (Tamil Medium 20% Quota)',
+            description: 'Persons Studied in Tamil Medium certificate must cover 1st standard to prescribed degree from recognized institutions.',
+            severity: 'warning',
+          },
+          {
+            icon: '⚖️',
+            title: '4. File Size Strictly Under 200 KB',
+            description: 'Each certificate must be uploaded as a clean scanned PDF or JPG with file size strictly below 200 KB.',
+            severity: 'info',
+          },
+        ],
+        officialSource: 'TNPSC OTR Certificate Verification Protocol',
+        officialUrl: 'https://apply.tnpscexams.in/',
+        actionType: 'inspectCrop',
+      };
+    }
+  }
+
   // 3. UPSSSC (PET, Lekhpal, VDO, Junior Assistant)
   const isUpsssc = presetId.includes('upsssc') || presetName.includes('upsssc') || authority.includes('upsssc') || presetId.includes('pet');
   if (isUpsssc) {

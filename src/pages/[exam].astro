@@ -52,6 +52,7 @@ const isCtet = examData.slug.includes('ctet') && !examGuidance;
 const isRrb = examData.slug === 'rrb-signature-resize' || examData.slug === 'rrb-photo-resize';
 const isCoastGuard = examData.slug.includes('coast-guard');
 const isWbpsc = examData.slug.includes('wbpsc') || examData.slug.includes('wbcs');
+const isTnpsc = examData.slug.includes('tnpsc');
 const hasDocumentSuite = isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc;
 const relatedTools = (examData.relatedTools || [])
   .filter(slug => slug !== examData.slug)
@@ -319,7 +320,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
 
       {examGuidance && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
 
-      {relatedTools.length > 0 && !hasDocumentSuite && !examGuidance && (
+      {relatedTools.length > 0 && !hasDocumentSuite && !examGuidance && !isCoastGuard && !isTnpsc && (
         <nav class="flex flex-wrap gap-2 text-xs" aria-label="Related signature tools">
           {relatedTools.map(tool => (
             <a href={getExamPageUrl(tool.slug)} class="px-3 py-2 rounded-xl bg-card border border-border text-primary hover:bg-primary/10 transition">
@@ -879,7 +880,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
         <!-- Left Side: Interactive Tool Workspace -->
-        <div class={isCoastGuard ? "lg:col-span-12 space-y-6" : "lg:col-span-8 space-y-6"}>
+        <div class={(isCoastGuard || isTnpsc) ? "lg:col-span-12 space-y-6" : "lg:col-span-8 space-y-6"}>
           <div id="exam-tool" class="scroll-mt-20 bg-transparent sm:bg-card border-0 sm:border border-border rounded-2xl p-0 sm:p-6 shadow-none sm:shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
             <SignatureTool 
               client:load
@@ -888,7 +889,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
             />
           </div>
 
-          {isCoastGuard && relevantBlogPosts.length > 0 && (
+          {(isCoastGuard || isTnpsc) && relevantBlogPosts.length > 0 && (
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="bg-card border border-primary/25 rounded-2xl p-4 sm:p-5 shadow-sm space-y-2.5 bg-gradient-to-br from-primary/5 via-card to-card">
                 <div class="flex items-center justify-between">
@@ -931,15 +932,23 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                   <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
                     <span class="text-emerald-500 font-bold">✓</span>
                     <div>
-                      <div class="font-medium text-foreground">Target Size: 10–50 KB (Docs: 50–150 KB)</div>
-                      <div class="text-[11px] text-muted-foreground">Automatic dual-boundary enforcement for Coast Guard portal.</div>
+                      <div class="font-medium text-foreground">
+                        {isTnpsc ? 'Target Size: 10–20 KB Sign (Photo: 20–50 KB, Docs: 50–200 KB)' : 'Target Size: 10–50 KB (Docs: 50–150 KB)'}
+                      </div>
+                      <div class="text-[11px] text-muted-foreground">
+                        {isTnpsc ? 'Automatic strict boundary enforcement for TNPSC OTR portal.' : 'Automatic dual-boundary enforcement for Coast Guard portal.'}
+                      </div>
                     </div>
                   </div>
                   <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
                     <span class="text-emerald-500 font-bold">✓</span>
                     <div>
-                      <div class="font-medium text-foreground">Mandatory CGEPT Filenames</div>
-                      <div class="text-[11px] text-muted-foreground">Signature.jpg, Passport_Photograph.jpg, Thumb_Impression.jpg, Certificate.jpg</div>
+                      <div class="font-medium text-foreground">
+                        {isTnpsc ? 'Mandatory TNPSC OTR Filenames' : 'Mandatory CGEPT Filenames'}
+                      </div>
+                      <div class="text-[11px] text-muted-foreground">
+                        {isTnpsc ? 'tnpsc_photo.jpg, tnpsc_signature.jpg, tnpsc_certificate.jpg' : 'Signature.jpg, Passport_Photograph.jpg, Thumb_Impression.jpg, Certificate.jpg'}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -991,6 +1000,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                   <span class="text-muted-foreground font-medium">Quick switch:</span>
                   <a href="/ssc-cgl-signature-resize/" class="text-primary font-semibold hover:underline">SSC CGL Signature (10–20 KB) →</a>
                   <a href="/ssc-photo-resize/" class="text-primary font-semibold hover:underline">SSC Photo Resizer (20–50 KB) →</a>
+                  <a href="/live-webcam-photo-checker/" class="text-primary font-semibold hover:underline">Test Live Webcam Photo →</a>
                   <a href="/blog/ssc-cgl-2026-master-application-preparation-guide/" class="text-primary font-semibold hover:underline">Complete 2026 Rules &amp; Guide →</a>
                 </div>
               </div>
@@ -1245,8 +1255,8 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
           </div>
         </div>
 
-        <!-- Right Side: Sticky Assistant & Portal Shortcuts (Hidden on full-width suites like Coast Guard) -->
-        {!isCoastGuard && (
+        <!-- Right Side: Sticky Assistant & Portal Shortcuts (Hidden on full-width suites like Coast Guard & TNPSC) -->
+        {!isCoastGuard && !isTnpsc && (
         <aside class="lg:col-span-4 space-y-4 sticky top-16">
           
           <!-- Card 1: Recommended Master Guide -->

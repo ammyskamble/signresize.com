@@ -19,6 +19,10 @@ interface ComplianceAuditProps {
   onConfirmSlate?: (confirmed: boolean) => void;
   upssscConfirmed?: boolean;
   onConfirmUpsssc?: (confirmed: boolean) => void;
+  tnpscPhotoConfirmed?: boolean;
+  onConfirmTnpscPhoto?: (confirmed: boolean) => void;
+  tnpscSignConfirmed?: boolean;
+  onConfirmTnpscSign?: (confirmed: boolean) => void;
 }
 
 export function ComplianceRejectionAudit({
@@ -34,6 +38,10 @@ export function ComplianceRejectionAudit({
   onConfirmSlate,
   upssscConfirmed: propUpssscConfirmed,
   onConfirmUpsssc,
+  tnpscPhotoConfirmed: propTnpscPhotoConfirmed,
+  onConfirmTnpscPhoto,
+  tnpscSignConfirmed: propTnpscSignConfirmed,
+  onConfirmTnpscSign,
 }: ComplianceAuditProps) {
   const audit = getComplianceAudit(preset, mode);
   const [internalSlate, setInternalSlate] = useState(false);
@@ -43,6 +51,14 @@ export function ComplianceRejectionAudit({
   const [internalUpsssc, setInternalUpsssc] = useState(false);
   const upssscConfirmed = propUpssscConfirmed !== undefined ? propUpssscConfirmed : internalUpsssc;
   const setUpssscConfirmed = onConfirmUpsssc || setInternalUpsssc;
+
+  const [internalTnpscPhoto, setInternalTnpscPhoto] = useState(false);
+  const tnpscPhotoConfirmed = propTnpscPhotoConfirmed !== undefined ? propTnpscPhotoConfirmed : internalTnpscPhoto;
+  const setTnpscPhotoConfirmed = onConfirmTnpscPhoto || setInternalTnpscPhoto;
+
+  const [internalTnpscSign, setInternalTnpscSign] = useState(false);
+  const tnpscSignConfirmed = propTnpscSignConfirmed !== undefined ? propTnpscSignConfirmed : internalTnpscSign;
+  const setTnpscSignConfirmed = onConfirmTnpscSign || setInternalTnpscSign;
 
   // A selected preset is the compliance baseline. Editable controls must not
   // make a divergent export look compliant with that recruitment preset.
@@ -70,8 +86,28 @@ export function ComplianceRejectionAudit({
      audit.examName === 'UPSSSC')
   );
 
+  const isTnpscPhoto = Boolean(
+    mode === 'photo' &&
+    (preset?.id.includes('tnpsc') ||
+     preset?.name.toLowerCase().includes('tnpsc') ||
+     preset?.authority.toLowerCase().includes('tnpsc') ||
+     audit.examName.includes('TNPSC') ||
+     audit.examName.includes('Tamil Nadu PSC'))
+  );
+
+  const isTnpscSignature = Boolean(
+    mode === 'signature' &&
+    (preset?.id.includes('tnpsc') ||
+     preset?.name.toLowerCase().includes('tnpsc') ||
+     preset?.authority.toLowerCase().includes('tnpsc') ||
+     audit.examName.includes('TNPSC') ||
+     audit.examName.includes('Tamil Nadu PSC'))
+  );
+
   const isSlatePending = Boolean(isCoastGuardPhoto && !slateConfirmed);
   const isUpssscPending = Boolean(isUpssscSignature && !upssscConfirmed);
+  const isTnpscPhotoPending = Boolean(isTnpscPhoto && !tnpscPhotoConfirmed);
+  const isTnpscSignPending = Boolean(isTnpscSignature && !tnpscSignConfirmed);
 
   // File is fully completed when:
   // 1. Processed within target bounds
@@ -79,7 +115,9 @@ export function ComplianceRejectionAudit({
   // 3. 0 background/ruled line issues
   // 4. Coast Guard slate confirmed (if Coast Guard photo)
   // 5. UPSSSC Clause 9.3 confirmed (if UPSSSC signature)
-  const hasErrors = isOutOfBounds || exportIssues.length > 0 || hasBgIssues || isSlatePending || isUpssscPending;
+  // 6. TNPSC Name & Date confirmed (if TNPSC photo)
+  // 7. TNPSC Cursive signature confirmed (if TNPSC signature)
+  const hasErrors = isOutOfBounds || exportIssues.length > 0 || hasBgIssues || isSlatePending || isUpssscPending || isTnpscPhotoPending || isTnpscSignPending;
   const isAllCompleted = Boolean(processedResult && !hasErrors);
   const requiresAdvertisementVerification = preset?.portalExactSpecsVerified === false;
 
@@ -165,6 +203,46 @@ export function ComplianceRejectionAudit({
               </span>
               <span className="text-muted-foreground text-[10px]">
                 UPSSSC PET Clause 9.3 verified by candidate. Click to unconfirm.
+              </span>
+            </div>
+          </label>
+        )}
+
+        {/* TNPSC Mandatory Photo Name & Date Confirmation Checkbox */}
+        {isTnpscPhoto && (
+          <label className="flex items-start gap-2 p-2 rounded-lg bg-emerald-500/15 border border-emerald-500/40 cursor-pointer text-[11px] text-foreground">
+            <input
+              type="checkbox"
+              checked={tnpscPhotoConfirmed}
+              onChange={(e) => setTnpscPhotoConfirmed(e.target.checked)}
+              className="mt-0.5 rounded border-emerald-500 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+            />
+            <div>
+              <span className="font-bold text-emerald-900 dark:text-emerald-200 block">
+                ✓ Confirmed: Candidate Name &amp; Date of Photo (DOP) printed at bottom of photo
+              </span>
+              <span className="text-muted-foreground text-[10px]">
+                TNPSC Commission Instructions (Clause 3) verified by candidate. Click to unconfirm.
+              </span>
+            </div>
+          </label>
+        )}
+
+        {/* TNPSC Mandatory Running Cursive Signature Confirmation Checkbox */}
+        {isTnpscSignature && (
+          <label className="flex items-start gap-2 p-2 rounded-lg bg-emerald-500/15 border border-emerald-500/40 cursor-pointer text-[11px] text-foreground">
+            <input
+              type="checkbox"
+              checked={tnpscSignConfirmed}
+              onChange={(e) => setTnpscSignConfirmed(e.target.checked)}
+              className="mt-0.5 rounded border-emerald-500 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+            />
+            <div>
+              <span className="font-bold text-emerald-900 dark:text-emerald-200 block">
+                ✓ Confirmed: Signature in natural running cursive handwriting (No Capital/Block letters)
+              </span>
+              <span className="text-muted-foreground text-[10px]">
+                TNPSC Instructions to Applicants disqualification rule verified. Click to unconfirm.
               </span>
             </div>
           </label>
@@ -308,6 +386,54 @@ export function ComplianceRejectionAudit({
             </span>
             <span className="text-[11px] text-muted-foreground block leading-relaxed">
               UPSSSC PET Clause 9.3 automatically cancels applications if Hindi name is missing below English signature or if signed on ruled notebook lines. Click to confirm your signature complies.
+            </span>
+          </div>
+        </label>
+      )}
+
+      {/* TNPSC Mandatory Photo Name & Date Interactive Confirmation Checkbox */}
+      {isTnpscPhoto && (
+        <label className={`flex items-start gap-2.5 p-3 rounded-xl border cursor-pointer text-xs transition ${
+          tnpscPhotoConfirmed
+            ? 'bg-emerald-500/15 border-emerald-500/40 text-foreground'
+            : 'bg-amber-500/20 border-2 border-amber-500/70 text-amber-950 dark:text-amber-100 shadow-sm'
+        }`}>
+          <input
+            type="checkbox"
+            checked={tnpscPhotoConfirmed}
+            onChange={(e) => setTnpscPhotoConfirmed(e.target.checked)}
+            className="mt-0.5 h-4 w-4 rounded border-amber-500 text-amber-600 focus:ring-amber-500 cursor-pointer shrink-0"
+          />
+          <div className="space-y-1">
+            <span className="font-extrabold block text-amber-900 dark:text-amber-200">
+              {tnpscPhotoConfirmed ? '✓ Confirmed: ' : '⚠️ Candidate Confirmation Required: '}Photo contains Candidate Name &amp; Date of Photo (DOP) printed at bottom
+            </span>
+            <span className="text-[11px] text-muted-foreground block leading-relaxed">
+              TNPSC Commission Instructions (Clause 3 / Annexure II) mandate candidate full name and date of photograph (within 3 months) in a white box at the bottom. Plain photos without name/date are rejected at scrutiny. Click to confirm your photo complies.
+            </span>
+          </div>
+        </label>
+      )}
+
+      {/* TNPSC Mandatory Running Cursive Signature Interactive Confirmation Checkbox */}
+      {isTnpscSignature && (
+        <label className={`flex items-start gap-2.5 p-3 rounded-xl border cursor-pointer text-xs transition ${
+          tnpscSignConfirmed
+            ? 'bg-emerald-500/15 border-emerald-500/40 text-foreground'
+            : 'bg-amber-500/20 border-2 border-amber-500/70 text-amber-950 dark:text-amber-100 shadow-sm'
+        }`}>
+          <input
+            type="checkbox"
+            checked={tnpscSignConfirmed}
+            onChange={(e) => setTnpscSignConfirmed(e.target.checked)}
+            className="mt-0.5 h-4 w-4 rounded border-amber-500 text-amber-600 focus:ring-amber-500 cursor-pointer shrink-0"
+          />
+          <div className="space-y-1">
+            <span className="font-extrabold block text-amber-900 dark:text-amber-200">
+              {tnpscSignConfirmed ? '✓ Confirmed: ' : '⚠️ Candidate Confirmation Required: '}Signature signed in running cursive handwriting (NOT capital/block letters)
+            </span>
+            <span className="text-[11px] text-muted-foreground block leading-relaxed">
+              TNPSC Instructions to Applicants strictly prohibit capital/block letters for signature and will reject the application. Must be signed in running handwriting with dark blue or black ballpoint pen on plain white paper. Click to confirm.
             </span>
           </div>
         </label>

@@ -180,6 +180,7 @@ const presetSlugMap = new Map([
   ['mpsc', 'mpsc-signature-resize'],
   ['maharashtra-police', 'maharashtra-police-signature-resize'],
   ['tnpsc', 'tnpsc-signature-resize'],
+  ['tnpsc-photo', 'tnpsc-photo-resize'],
   ['up-police', 'up-police-signature-resize'],
   ['sarathi-dl', 'sarathi-dl-signature-resize'],
   ['passport-seva', 'passport-seva-signature-resize'],

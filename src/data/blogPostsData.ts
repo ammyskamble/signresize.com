@@ -85,6 +85,232 @@ const redirectedBlogPostSlugs = new Set([
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'tnpsc-group-4-2-2026-master-guide-otr-photo-name-date-signature-rules',
+    title: 'TNPSC 2026 Master Guide: Group 4 (VAO), Group 2 & 1 OTR Registration, Syllabus, Photo (with Name & Date) and Signature Specifications',
+    metaTitle: 'TNPSC 2026 Master Guide: OTR, Group 4 VAO & Group 2 Rules - SignResize',
+    metaDescription: 'Official TNPSC 2026 master guide: Group 4 (VAO) & Group 2 syllabus, One Time Registration (OTR), photo with candidate name & date (20-50 KB), and signature (10-20 KB).',
+    excerpt: 'Comprehensive candidate blueprint for TNPSC 2026: Group 4 VAO and Group 2 eligibility, General Tamil SSLC syllabus, OTR renewal, and official photo (with Name & Date stamp) and signature resizer.',
+    category: 'Career Opportunity',
+    country: 'IN',
+    publishDate: 'Oct 23, 2026',
+    publishTime: '09:30 PM IST',
+    lastUpdated: 'Oct 23, 2026',
+    deployedAt: 'Oct 23, 2026 • 09:30 PM IST',
+    author: 'SignResize Tamil Nadu Public Service Desk',
+    authorRole: 'Senior State PSC Recruitment & OTR Compliance Specialist',
+    readTime: '12 min read',
+    featured: true,
+    relatedExamPreset: 'tnpsc',
+    guideTool: { href: '/tnpsc-signature-resize/', label: 'TNPSC Signature & Photo Resizer' },
+    tags: [
+      'TNPSC',
+      'TNPSC Group 4',
+      'TNPSC VAO 2026',
+      'TNPSC Group 2',
+      'TNPSC OTR Registration',
+      'apply.tnpscexams.in',
+      'TNPSC Photo with Name and Date',
+      'TNPSC Signature Resize 10 to 20 KB',
+      'TNPSC General Tamil Syllabus',
+      'PSTM Certificate'
+    ],
+    quickFacts: [
+      { label: 'Commission Name', value: 'Tamil Nadu Public Service Commission (TNPSC, Chennai)' },
+      { label: 'Official Portals', value: 'tnpsc.gov.in | apply.tnpscexams.in' },
+      { label: 'Mandatory Portal Account', value: 'TNPSC One Time Registration (OTR) — Valid for 5 Years' },
+      { label: 'Key Examinations', value: 'Group 4 & VAO (10th Pass), Group 2 & 2A (Degree), Group 1' },
+      { label: 'Photograph Specifications', value: '200 × 230 px (3.5×4.5 cm), 20–50 KB, JPG, Name & Date of Photo stamped' },
+      { label: 'Signature Specifications', value: '140 × 60 px (3.5×1.5 cm), 10–20 KB, Blue or Black Ballpoint Ink' },
+      { label: 'Document / Certificate Bounds', value: 'PDF format strictly under 200 KB (Community, SSLC, PSTM)' },
+      { label: 'Compulsory Language Paper', value: 'General Tamil (SSLC Standard) — Mandatory 40% (60/150 Marks)' }
+    ],
+    faqs: [
+      {
+        question: 'What is the official TNPSC photo size requirement for 2026?',
+        answer: 'The photograph must be formatted to 200 pixels width by 230 pixels height (3.5 cm × 4.5 cm) with a file size strictly between 20 KB and 50 KB in JPG format. The candidate Name and Date of Photo must be printed at the bottom.'
+      },
+      {
+        question: 'Is candidate Name and Date of Photo mandatory on TNPSC photographs?',
+        answer: 'Yes. TNPSC Commission instructions mandate that the candidate Name and the Date on which the photo was captured must be printed in clear text in a box at the bottom of the photograph.'
+      },
+      {
+        question: 'What is the allowed TNPSC signature file size and dimension?',
+        answer: 'TNPSC signature must be formatted to 140 pixels width by 60 pixels height (3.5 cm × 1.5 cm) and compressed strictly between 10.0 KB and 20.0 KB in JPG format. Blue or black ballpoint pen is permitted.'
+      },
+      {
+        question: 'What certificates need to be uploaded on TNPSC OTR and what size?',
+        answer: 'Community Certificate, SSLC Marksheet, Degree Certificates, and Persons Studied in Tamil Medium (PSTM) certificates must be in PDF format with file size strictly under 200 KB each.'
+      }
+    ],
+    contentHtml: `
+<div class="space-y-6 text-foreground leading-relaxed">
+
+  <!-- Direct Answer Box (Snippet / AI Overview Hook) -->
+  <div class="p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground space-y-3">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">🏛️</span>
+      <h3 class="text-base font-bold text-foreground">Direct Answer: TNPSC 2026 Document & Examination Blueprint</h3>
+    </div>
+    <p class="text-sm text-foreground/90 leading-relaxed font-medium">
+      The <strong>Tamil Nadu Public Service Commission (TNPSC)</strong> conducts annual recruitment for premier state services including <strong>Group 1, Group 2 &amp; 2A, and Group 4 (VAO, Junior Assistant, Typist)</strong> across Tamil Nadu. Digital compliance on <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">apply.tnpscexams.in</a> requires mandatory <strong>One Time Registration (OTR)</strong> valid for 5 years. Candidates must upload a <strong>200 × 230 px passport photograph (20–50 KB) with candidate Name and Date of Photo (DOP) printed at the bottom</strong>, a <strong>140 × 60 px signature (10–20 KB) in blue/black ballpoint ink</strong>, and supporting certificates (SSLC, Community, PSTM) in <strong>PDF format under 200 KB</strong>.
+    </p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Photo Bounds</span>
+        <strong class="text-foreground text-sm font-extrabold">200×230 px (20–50 KB)</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Signature Bounds</span>
+        <strong class="text-foreground text-sm font-extrabold">140×60 px (10–20 KB)</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Photo Rule</span>
+        <strong class="text-foreground text-sm font-extrabold">Name &amp; Date Stamped</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Certificate PDF</span>
+        <strong class="text-foreground text-sm font-extrabold">&lt; 200 KB Each</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Document Suite Callout -->
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card via-card to-primary/10 border-2 border-primary/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
+    <div>
+      <h4 class="font-bold text-base text-foreground">Need to Format Your TNPSC OTR Files?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">Use our dedicated tools configured to official apply.tnpscexams.in portal limits.</p>
+    </div>
+    <div class="flex flex-wrap gap-2 w-full sm:w-auto shrink-0">
+      <a href="/tnpsc-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
+        ✍️ TNPSC Signature (10–20 KB) &rarr;
+      </a>
+      <a href="/tnpsc-photo-resize/" class="px-4 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
+        📸 TNPSC Photo (20–50 KB) &rarr;
+      </a>
+      <a href="/photo-with-name-and-date-maker/" class="px-4 py-2.5 rounded-xl bg-card text-foreground border border-border font-bold text-xs hover:border-primary/50 transition">
+        🪪 Add Name &amp; Date
+      </a>
+    </div>
+  </div>
+
+  <h2>1. TNPSC Recruitment Hierarchy &amp; Major Examinations</h2>
+  <p>
+    The Commission administers exams categorized by administrative grade. Over <strong>20 lakh aspirants</strong> participate annually across these recruitment drives:
+  </p>
+  <div class="my-5 overflow-x-auto rounded-xl border border-border">
+    <table class="w-full text-xs sm:text-sm text-left">
+      <thead class="bg-muted text-foreground font-semibold">
+        <tr>
+          <th class="p-3 border-b border-border">Cadre Group</th>
+          <th class="p-3 border-b border-border">Key Designations</th>
+          <th class="p-3 border-b border-border">Minimum Qualification</th>
+          <th class="p-3 border-b border-border">Selection Stages</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr>
+          <td class="p-3 font-bold text-primary">Group 1</td>
+          <td class="p-3 font-medium">Deputy Collector, DSP, Assistant Commissioner (Commercial Taxes)</td>
+          <td class="p-3">Any Bachelor Degree</td>
+          <td class="p-3 text-xs">Prelims + Mains (Written) + Oral Test (Interview)</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-primary">Group 2 &amp; 2A</td>
+          <td class="p-3 font-medium">Sub-Registrar, Municipal Commissioner, Revenue Assistant, Secretariat ASO</td>
+          <td class="p-3">Any Bachelor Degree</td>
+          <td class="p-3 text-xs">Prelims + Mains (Group 2 has Interview; 2A Non-Interview)</td>
+        </tr>
+        <tr>
+          <td class="p-3 font-bold text-primary">Group 4 &amp; VAO</td>
+          <td class="p-3 font-medium">Village Administrative Officer (VAO), Junior Assistant, Typist, Steno-Typist, Bill Collector</td>
+          <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">10th Pass (SSLC)</td>
+          <td class="p-3 text-xs">Single-Stage Written Examination (300 Marks)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2. Official TNPSC Photo &amp; Signature Technical Specifications</h2>
+  <p>
+    Over <strong>60,000 online registrations are rejected or held in objection</strong> during certificate verification due to non-compliant digital uploads. Adhere strictly to these commission parameters:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
+        <span>📸</span> Candidate Photograph Specifications
+      </h4>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+        <li><strong>Dimensions:</strong> 200 pixels width × 230 pixels height (3.5 cm × 4.5 cm).</li>
+        <li><strong>File Weight:</strong> Strictly between <strong>20.0 KB and 50.0 KB</strong> in JPG/JPEG.</li>
+        <li><strong>Name &amp; Date Requirement:</strong> The applicant's Name and the Date on which the photo was captured must be printed at the bottom.</li>
+        <li><strong>Background:</strong> Plain white or light background with 75% face coverage. Ears must be visible.</li>
+        <li><strong>Strict Ban:</strong> No caps, sunglasses, uniforms, or sideways tilting.</li>
+      </ul>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
+        <span>✍️</span> Candidate Scanned Signature Specifications
+      </h4>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+        <li><strong>Dimensions:</strong> 140 pixels width × 60 pixels height (3.5 cm × 1.5 cm).</li>
+        <li><strong>File Weight:</strong> Strictly between <strong>10.0 KB and 20.0 KB</strong> in JPG/JPEG.</li>
+        <li><strong>Ink &amp; Medium:</strong> Dark Blue or Black ballpoint pen on spotless, unruled white paper.</li>
+        <li><strong>Handwriting Style:</strong> Natural running cursive handwriting only.</li>
+        <li><strong>Disqualification:</strong> Signatures in ALL CAPITAL / BLOCK LETTERS will be rejected automatically.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Warning Box: Photo Stamping Trap -->
+  <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-foreground space-y-2">
+    <h4 class="font-extrabold text-amber-900 dark:text-amber-300 text-base flex items-center gap-2">
+      <span>⚠️</span> The Mandatory "Name &amp; Date" Stamping Rule on TNPSC Photos
+    </h4>
+    <p class="text-sm text-amber-950/90 dark:text-slate-200 leading-relaxed font-medium">
+      Unlike UPSC or SSC which capture webcam images, the Tamil Nadu Commission enforces a strict photo stamping rule: <em>"The photograph should have been taken within the last 3 months. The name of the applicant and the date on which the photo was taken should be clearly printed at the bottom of the photograph."</em> Uploading a plain photo without this box will prompt a verification objection notice.
+    </p>
+  </div>
+
+  <h2>3. Persons Studied in Tamil Medium (PSTM) 20% Reservation Rules</h2>
+  <p>
+    Under the Tamil Nadu Appointment on Preferential Basis in the Services under the State of Persons Studied in Tamil Medium Act, <strong>20% of vacancies are reserved for PSTM candidates</strong>. However, recent High Court directives mandate that candidates must have completed their <strong>entire education from 1st Standard up to the prescribed qualification (SSLC for Group 4, Degree for Group 1/2) in Tamil Medium</strong>.
+  </p>
+  <ul class="my-3 space-y-1.5 text-sm list-disc pl-5">
+    <li>PSTM Certificate must be issued by the Head of Institution (HM or Principal) in the prescribed commission format.</li>
+    <li>Upload as a clear scanned PDF file strictly under <strong>200 KB</strong>.</li>
+  </ul>
+
+  <h2>4. Frequently Asked Questions (TNPSC 2026 Registration)</h2>
+  <div class="space-y-4 my-4">
+    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
+      <h4 class="font-bold text-sm text-foreground mb-1">What is the validity of TNPSC One Time Registration (OTR)?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        TNPSC OTR is valid for <strong>5 years from the date of initial registration</strong>. After 5 years, candidates must renew their OTR profile by paying the ₹150 renewal fee and updating their latest photograph and signature.
+      </p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
+      <h4 class="font-bold text-sm text-foreground mb-1">How can I resize my signature to 10 to 20 KB for TNPSC?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        Sign with a black or blue ballpoint pen on plain white paper. Use our <a href="/tnpsc-signature-resize/" class="text-primary underline font-medium">TNPSC Signature Resizer</a>, which automatically crops to 140×60 px, removes paper shadows, and compresses the file strictly between 10 KB and 20 KB.
+      </p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
+      <h4 class="font-bold text-sm text-foreground mb-1">What is the minimum qualifying score in the TNPSC Tamil Eligibility Test?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        Part-A (General Tamil Eligibility-cum-Scoring Test) contains 100 questions carrying 150 marks. Candidates must score a <strong>minimum of 40% (60 marks out of 150)</strong> for their General Studies paper (Part-B) to be evaluated.
+      </p>
+    </div>
+  </div>
+
+</div>
+`
+  },
+
+  {
     slug: 'nicl-assistant-recruitment-2026-notification-syllabus-photo-signature-guide',
     title: 'NICL Assistant Recruitment 2026: 500 Vacancies, Mains Exam Date, Salary, Syllabus & Document Upload Guide',
     title_hi: 'NICL Assistant Recruitment 2026: 500 पद, मेन्स परीक्षा तिथि, वेतन, सिलेबस और फोटो-हस्ताक्षर गाइड',
@@ -8848,7 +9074,111 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       "ssc.gov.in"
     ],
     "relatedExamPreset": "ssc-general",
-    "contentHtml": "\n<div class=\"space-y-6 text-foreground leading-relaxed\">\n\n<p class=\"text-lg font-medium text-foreground/90\">\n  With the launch of Staff Selection Commission's modernized portal (<a href=\"https://ssc.gov.in\" target=\"_blank\" rel=\"noopener\" class=\"text-primary underline\">ssc.gov.in</a>), the traditional method of uploading a pre-clicked passport photo file has been officially replaced by a <strong>mandatory real-time live webcam photograph capture</strong>. While this prevents photo impersonation, thousands of candidates encounter browser permission crashes, dim lighting warnings, and facial detection errors.\n</p>\n\n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/20\">\n  <h3 class=\"text-base font-bold text-amber-900 dark:text-amber-200 mb-2\">⚠️ Why Live Photo Matters for SSC 2026</h3>\n  <p class=\"text-sm text-foreground/80\">\n    Under SSC guidelines for CGL, CHSL, MTS, and GD Constable, an automated AI facial recognition filter matches your live webcam capture against your examination hall biometric scan. If your capture is blurry, backlit, or contains headwear, your application will be flagged during scrutiny.\n  </p>\n</div>\n\n<h2>Top 4 SSC Live Photo Capture Rules</h2>\n\n<div class=\"grid grid-cols-1 md:grid-cols-2 gap-4 my-5\">\n  <div class=\"p-4 rounded-xl bg-card border border-border\">\n    <h4 class=\"font-bold text-sm text-primary mb-1\">1. Plain, Light-Coloured Background</h4>\n    <p class=\"text-xs text-muted-foreground\">Sit directly in front of a plain white, off-white, or light grey wall. Curtains with folds, door frames, or outdoor scenes trigger background rejection errors.</p>\n  </div>\n  <div class=\"p-4 rounded-xl bg-card border border-border\">\n    <h4 class=\"font-bold text-sm text-primary mb-1\">2. Frontal Face Position &amp; Eye Level</h4>\n    <p class=\"text-xs text-muted-foreground\">Look straight into the camera lens with a neutral expression and mouth closed. Both ears must be fully visible. Do not tilt your head sideways or downwards.</p>\n  </div>\n  <div class=\"p-4 rounded-xl bg-card border border-border\">\n    <h4 class=\"font-bold text-sm text-primary mb-1\">3. Strict Prohibition on Caps &amp; Spectacles</h4>\n    <p class=\"text-xs text-muted-foreground\">Even if you wear prescription glasses daily, SSC guidelines mandate removing spectacles, sunglasses, caps, mufflers, and face coverings during live capture.</p>\n  </div>\n  <div class=\"p-4 rounded-xl bg-card border border-border\">\n    <h4 class=\"font-bold text-sm text-primary mb-1\">4. Front-Facing Diffused Lighting</h4>\n    <p class=\"text-xs text-muted-foreground\">Light source (window or lamp) must illuminate your face directly from the front. Avoid having a bulb or window behind you, which causes dark silhouette underexposure.</p>\n  </div>\n</div>\n\n<h2>How to Fix \"Camera Not Allowed / Permission Denied\" Error</h2>\n\n<p>The most frequent technical barrier is a blocked browser permission. Here is the step-by-step fix across devices:</p>\n\n<div class=\"space-y-4 my-4\">\n  <div class=\"p-4 rounded-xl bg-muted/40 border border-border text-sm\">\n    <h4 class=\"font-bold text-foreground mb-1\">📱 On Android Smartphones (Google Chrome)</h4>\n    <ol class=\"list-decimal pl-5 space-y-1 text-xs text-muted-foreground\">\n      <li>Tap the <strong>Padlock or Tune icon</strong> on the left side of the address bar at <code>ssc.gov.in</code>.</li>\n      <li>Select <strong>Permissions</strong> &rarr; Toggle <strong>Camera</strong> to <em>Allowed</em>.</li>\n      <li>If still blocked: Open Chrome Settings &rarr; <em>Site Settings</em> &rarr; <em>Camera</em> &rarr; Ensure <code>ssc.gov.in</code> is not under the \"Blocked\" list.</li>\n      <li>Refresh the webpage and click \"Allow\" when the browser prompt asks for camera access.</li>\n    </ol>\n  </div>\n\n  <div class=\"p-4 rounded-xl bg-muted/40 border border-border text-sm\">\n    <h4 class=\"font-bold text-foreground mb-1\">💻 On Windows Laptop / PC</h4>\n    <ol class=\"list-decimal pl-5 space-y-1 text-xs text-muted-foreground\">\n      <li>Open Windows <strong>Settings</strong> (Win + I) &rarr; <strong>Privacy &amp; Security</strong> &rarr; <strong>Camera</strong>.</li>\n      <li>Ensure <em>\"Camera access\"</em> is ON and <em>\"Let desktop apps access your camera\"</em> is enabled for your browser.</li>\n      <li>In Chrome, click the small video camera icon inside the address bar (far right) and choose <em>\"Always allow https://ssc.gov.in to access your camera\"</em>.</li>\n    </ol>\n  </div>\n</div>\n\n<h2>What About the SSC Scanned Signature?</h2>\n\n<p>\n  Unlike the photograph, <strong>SSC still requires uploading a scanned signature image file</strong>. The technical parameters remain strictly enforced:\n</p>\n\n<ul class=\"my-4 space-y-2 text-sm\">\n  <li>✍️ <strong>File Size:</strong> Strictly between <strong>10.0 KB and 20.0 KB</strong>.</li>\n  <li>📐 <strong>Dimensions:</strong> <strong>140 pixels width × 60 pixels height</strong> (4.0 cm × 2.0 cm).</li>\n  <li>🖋️ <strong>Ink Color:</strong> Black ink ballpoint pen on plain white paper.</li>\n  <li>🚫 <strong>Disqualification:</strong> Signatures in CAPITAL LETTERS will be summarily rejected.</li>\n</ul>\n\n<div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n  <h4 class=\"text-base font-bold text-foreground\">Prepare Your SSC Signature in 10 Seconds</h4>\n  <p class=\"text-sm text-muted-foreground mt-1\">\n    Resize your signature to exact 140×60 px and 10–20 KB bounds with automatic white background cleaning.\n  </p>\n  <div class=\"flex flex-wrap gap-2 mt-3\">\n    <a href=\"/ssc-signature-resize/\" class=\"inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition\">\n      ✍️ Resize SSC Signature (10–20 KB) &rarr;\n    </a>\n    <a href=\"/ssc-gd-signature-resize/\" class=\"inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition\">\n      🛡️ SSC GD Resizer\n    </a>\n    <a href=\"/ssc-chsl-signature-resize/\" class=\"inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition\">\n      📑 SSC CHSL Resizer\n    </a>\n  </div>\n</div>\n\n</div>\n    "
+    "contentHtml": `
+<div class="space-y-6 text-foreground leading-relaxed">
+
+<p class="text-lg font-medium text-foreground/90">
+  With the launch of Staff Selection Commission's modernized portal (<a href="https://ssc.gov.in" target="_blank" rel="noopener" class="text-primary underline">ssc.gov.in</a>), the traditional method of uploading a pre-clicked passport photo file has been officially replaced by a <strong>mandatory real-time live webcam photograph capture</strong>. While this prevents photo impersonation, thousands of candidates encounter browser permission crashes, dim lighting warnings, and facial detection errors.
+</p>
+
+<!-- Top Quick Tool Callout Banner (Above-The-Fold Conversion) -->
+<div class="my-5 p-4 rounded-2xl bg-primary/10 border-2 border-primary/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+  <div>
+    <h4 class="font-bold text-sm sm:text-base text-foreground">Also Need to Upload Your SSC Signature?</h4>
+    <p class="text-xs text-muted-foreground mt-0.5">SSC mandates a 140×60 px (10 to 20 KB) signature in black ballpoint ink. Auto-crop & compress in 5 seconds.</p>
+  </div>
+  <a href="/ssc-signature-resize/" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 shadow-sm shrink-0 transition">
+    <span>✍️ Open SSC Signature Tool</span>
+    <span>&rarr;</span>
+  </a>
+</div>
+
+<div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+  <h3 class="text-base font-bold text-amber-900 dark:text-amber-200 mb-2">⚠️ Why Live Photo Matters for SSC 2026</h3>
+  <p class="text-sm text-foreground/80">
+    Under SSC guidelines for CGL, CHSL, MTS, and GD Constable, an automated AI facial recognition filter matches your live webcam capture against your examination hall biometric scan. If your capture is blurry, backlit, or contains headwear, your application will be flagged during scrutiny.
+  </p>
+</div>
+
+<h2>Top 4 SSC Live Photo Capture Rules</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+  <div class="p-4 rounded-xl bg-card border border-border">
+    <h4 class="font-bold text-sm text-primary mb-1">1. Plain, Light-Coloured Background</h4>
+    <p class="text-xs text-muted-foreground">Sit directly in front of a plain white, off-white, or light grey wall. Curtains with folds, door frames, or outdoor scenes trigger background rejection errors.</p>
+  </div>
+  <div class="p-4 rounded-xl bg-card border border-border">
+    <h4 class="font-bold text-sm text-primary mb-1">2. Frontal Face Position &amp; Eye Level</h4>
+    <p class="text-xs text-muted-foreground">Look straight into the camera lens with a neutral expression and mouth closed. Both ears must be fully visible. Do not tilt your head sideways or downwards.</p>
+  </div>
+  <div class="p-4 rounded-xl bg-card border border-border">
+    <h4 class="font-bold text-sm text-primary mb-1">3. Strict Prohibition on Caps &amp; Spectacles</h4>
+    <p class="text-xs text-muted-foreground">Even if you wear prescription glasses daily, SSC guidelines mandate removing spectacles, sunglasses, caps, mufflers, and face coverings during live capture.</p>
+  </div>
+  <div class="p-4 rounded-xl bg-card border border-border">
+    <h4 class="font-bold text-sm text-primary mb-1">4. Front-Facing Diffused Lighting</h4>
+    <p class="text-xs text-muted-foreground">Light source (window or lamp) must illuminate your face directly from the front. Avoid having a bulb or window behind you, which causes dark silhouette underexposure.</p>
+  </div>
+</div>
+
+<h2>How to Fix "Camera Not Allowed / Permission Denied" Error</h2>
+
+<p>The most frequent technical barrier is a blocked browser permission. Here is the step-by-step fix across devices:</p>
+
+<div class="space-y-4 my-4">
+  <div class="p-4 rounded-xl bg-muted/40 border border-border text-sm">
+    <h4 class="font-bold text-foreground mb-1">📱 On Android Smartphones (Google Chrome)</h4>
+    <ol class="list-decimal pl-5 space-y-1 text-xs text-muted-foreground">
+      <li>Tap the <strong>Padlock or Tune icon</strong> on the left side of the address bar at <code>ssc.gov.in</code>.</li>
+      <li>Select <strong>Permissions</strong> &rarr; Toggle <strong>Camera</strong> to <em>Allowed</em>.</li>
+      <li>If still blocked: Open Chrome Settings &rarr; <em>Site Settings</em> &rarr; <em>Camera</em> &rarr; Ensure <code>ssc.gov.in</code> is not under the "Blocked" list.</li>
+      <li>Refresh the webpage and click "Allow" when the browser prompt asks for camera access.</li>
+    </ol>
+  </div>
+
+  <div class="p-4 rounded-xl bg-muted/40 border border-border text-sm">
+    <h4 class="font-bold text-foreground mb-1">💻 On Windows Laptop / PC</h4>
+    <ol class="list-decimal pl-5 space-y-1 text-xs text-muted-foreground">
+      <li>Open Windows <strong>Settings</strong> (Win + I) &rarr; <strong>Privacy &amp; Security</strong> &rarr; <strong>Camera</strong>.</li>
+      <li>Ensure <em>"Camera access"</em> is ON and <em>"Let desktop apps access your camera"</em> is enabled for your browser.</li>
+      <li>In Chrome, click the small video camera icon inside the address bar (far right) and choose <em>"Always allow https://ssc.gov.in to access your camera"</em>.</li>
+    </ol>
+  </div>
+</div>
+
+<h2>What About the SSC Scanned Signature?</h2>
+
+<p>
+  Unlike the photograph, <strong>SSC still requires uploading a scanned signature image file</strong>. The technical parameters remain strictly enforced:
+</p>
+
+<ul class="my-4 space-y-2 text-sm">
+  <li>✍️ <strong>File Size:</strong> Strictly between <strong>10.0 KB and 20.0 KB</strong>.</li>
+  <li>📐 <strong>Dimensions:</strong> <strong>140 pixels width × 60 pixels height</strong> (4.0 cm × 2.0 cm).</li>
+  <li>🖋️ <strong>Ink Color:</strong> Black ink ballpoint pen on plain white paper.</li>
+  <li>🚫 <strong>Disqualification:</strong> Signatures in CAPITAL LETTERS will be summarily rejected.</li>
+</ul>
+
+<div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
+  <h4 class="text-base font-bold text-foreground">Prepare Your SSC Signature in 10 Seconds</h4>
+  <p class="text-sm text-muted-foreground mt-1">
+    Resize your signature to exact 140×60 px and 10–20 KB bounds with automatic white background cleaning.
+  </p>
+  <div class="flex flex-wrap gap-2 mt-3">
+    <a href="/ssc-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
+      ✍️ Resize SSC Signature (10–20 KB) &rarr;
+    </a>
+    <a href="/ssc-gd-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      🛡️ SSC GD Resizer
+    </a>
+    <a href="/ssc-chsl-signature-resize/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition">
+      📑 SSC CHSL Resizer
+    </a>
+  </div>
+</div>
+
+</div>
+`
   },
   {
     "slug": "blue-ink-vs-black-ink-signature-guidelines-govt-exams",
