@@ -87,9 +87,17 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'tnpsc-group-4-2-2026-master-guide-otr-photo-name-date-signature-rules',
     title: 'TNPSC 2026 Master Guide: Group 4 (VAO), Group 2 & 1 OTR Registration, Syllabus, Photo (with Name & Date) and Signature Specifications',
+    title_hi: 'TNPSC 2026 मास्टर गाइड: ग्रुप 4 (VAO), ग्रुप 2 व 1 OTR रजिस्ट्रेशन, सिलेबस, फोटो (नाम व तारीख सहित) और हस्ताक्षर नियम',
+    title_mr: 'TNPSC 2026 मास्टर मार्गदर्शक: ग्रुप 4 (VAO), ग्रुप 2 व 1 OTR नोंदणी, अभ्यासक्रम, फोटो (नाव व तारीख) आणि स्वाक्षरी नियम',
     metaTitle: 'TNPSC 2026 Master Guide: OTR, Group 4 VAO & Group 2 Rules - SignResize',
+    metaTitle_hi: 'TNPSC 2026 मास्टर गाइड: OTR, ग्रुप 4 VAO व ग्रुप 2 नियम - SignResize',
+    metaTitle_mr: 'TNPSC 2026 मास्टर मार्गदर्शक: OTR, ग्रुप 4 VAO व ग्रुप 2 नियम - SignResize',
     metaDescription: 'Official TNPSC 2026 master guide: Group 4 (VAO) & Group 2 syllabus, One Time Registration (OTR), photo with candidate name & date (20-50 KB), and signature (10-20 KB).',
+    metaDescription_hi: 'TNPSC 2026 आधिकारिक गाइड: ग्रुप 4 VAO व ग्रुप 2 सिलेबस, वन टाइम रजिस्ट्रेशन (OTR), फोटो पर नाम व तारीख (20-50 KB) और 10-20 KB हस्ताक्षर नियम।',
+    metaDescription_mr: 'TNPSC 2026 अधिकृत मार्गदर्शक: ग्रुप 4 VAO व ग्रुप 2 अभ्यासक्रम, वन टाईम रजिस्ट्रेशन (OTR), फोटोवर नाव व तारीख (20-50 KB) आणि 10-20 KB स्वाक्षरी नियम.',
     excerpt: 'Comprehensive candidate blueprint for TNPSC 2026: Group 4 VAO and Group 2 eligibility, General Tamil SSLC syllabus, OTR renewal, and official photo (with Name & Date stamp) and signature resizer.',
+    excerpt_hi: 'TNPSC 2026 का संपूर्ण ब्लूप्रिंट: ग्रुप 4 VAO व ग्रुप 2 पात्रता, सामान्य तमिल SSLC सिलेबस, OTR नवीनीकरण और फोटो (Name & Date) व हस्ताक्षर रिसाइजर।',
+    excerpt_mr: 'TNPSC 2026 चा संपूर्ण आराखडा: ग्रुप 4 VAO व ग्रुप 2 पात्रता, सामान्य तमिळ SSLC अभ्यासक्रम, OTR नूतनीकरण आणि फोटो (नाव व तारीख) व स्वाक्षरी रिसाइझर.',
     category: 'Career Opportunity',
     country: 'IN',
     publishDate: 'Oct 23, 2026',
@@ -142,6 +150,42 @@ export const BLOG_POSTS: BlogPost[] = [
         answer: 'Community Certificate, SSLC Marksheet, Degree Certificates, and Persons Studied in Tamil Medium (PSTM) certificates must be in PDF format with file size strictly under 200 KB each.'
       }
     ],
+    faqs_hi: [
+      {
+        question: 'TNPSC 2026 के लिए फोटो का आधिकारिक साइज और नियम क्या है?',
+        answer: 'फोटो 200 पिक्सल चौड़ाई × 230 पिक्सल ऊंचाई (3.5 सेमी × 4.5 सेमी) और 20 KB से 50 KB के बीच JPG फॉर्मेट में होनी चाहिए। फोटो के नीचे सफेद पट्टी में उम्मीदवार का नाम और फोटो खींचने की तारीख छपी होना अनिवार्य है।'
+      },
+      {
+        question: 'क्या TNPSC फोटो पर उम्मीदवार का नाम और तारीख (Name & Date) होना अनिवार्य है?',
+        answer: 'हाँ, TNPSC आयोग दिशा-निर्देश (क्लॉज 3) के अनुसार फोटो पर नाम और तारीख छपी होना अनिवार्य है। बिना नाम-तारीख वाली सादी फोटो अपलोड करने पर फॉर्म खारिज या आपत्ति में डाला जा सकता है।'
+      },
+      {
+        question: 'TNPSC हस्ताक्षर (Signature) के लिए फाइल साइज और आयाम क्या हैं?',
+        answer: 'हस्ताक्षर 140 पिक्सल चौड़ाई × 60 पिक्सल ऊंचाई (3.5 सेमी × 1.5 सेमी) और सख्त रूप से 10.0 KB से 20.0 KB के बीच JPG फॉर्मेट में होना चाहिए। नीली या काली बॉलपॉइंट स्याही की कर्सिव लिखावट मान्य है।'
+      },
+      {
+        question: 'TNPSC OTR पोर्टल पर कौन से प्रमाण पत्र और किस साइज में अपलोड करने होते हैं?',
+        answer: 'जाति प्रमाण पत्र (Community Certificate), 10वीं (SSLC) अंकपत्र, डिग्री और PSTM (तमिल माध्यम) प्रमाण पत्र PDF फॉर्मेट में प्रत्येक 200 KB से कम साइज में अपलोड करने होते हैं।'
+      }
+    ],
+    faqs_mr: [
+      {
+        question: 'TNPSC 2026 साठी फोटोची अधिकृत साईझ काय आहे?',
+        answer: 'फोटो 200 पिक्सेल रुंदी × 230 पिक्सेल उंची (3.5 सेमी × 4.5 सेमी) आणि 20 KB ते 50 KB दरम्यान JPG फॉरमॅटमध्ये असणे आवश्यक आहे. फोटोच्या तळाशी उमेदवाराचे नाव आणि फोटोची तारीख असणे बंधनकारक आहे.'
+      },
+      {
+        question: 'TNPSC फोटोवर नाव आणि तारीख असणे अनिवार्य आहे का?',
+        answer: 'होय. TNPSC नियमांनुसार उमेदवाराचे नाव आणि फोटो काढल्याची तारीख खालील पांढऱ्या पट्टीवर स्पष्ट छापलेली असणे बंधनकारक आहे.'
+      },
+      {
+        question: 'TNPSC स्वाक्षरीसाठी फाईल मर्यादा काय आहे?',
+        answer: 'स्वाक्षरी 140 × 60 पिक्सेल (3.5 × 1.5 सेमी) आणि तंतोतंत 10.0 KB ते 20.0 KB दरम्यान JPG फॉरमॅटमध्ये निळ्या किंवा काळ्या बॉलपेनने रनिंग हँडरायटिंगमध्ये असावी.'
+      },
+      {
+        question: 'TNPSC OTR वर कोणती प्रमाणपत्रे अपलोड करावी लागतात?',
+        answer: 'जातीचा दाखला, 10वी (SSLC) गुणपत्रिका, पदवी प्रमाणपत्र आणि PSTM प्रमाणपत्र हे PDF फॉरमॅटमध्ये प्रत्येकी 200 KB पेक्षा कमी साईझमध्ये अपलोड करावे लागतात.'
+      }
+    ],
     contentHtml: `
 <div class="space-y-6 text-foreground leading-relaxed">
 
@@ -149,7 +193,7 @@ export const BLOG_POSTS: BlogPost[] = [
   <div class="p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground space-y-3">
     <div class="flex items-center gap-2">
       <span class="text-xl">🏛️</span>
-      <h3 class="text-base font-bold text-foreground">Direct Answer: TNPSC 2026 Document & Examination Blueprint</h3>
+      <h3 class="text-base font-bold text-foreground">Direct Answer: TNPSC 2026 Document &amp; Examination Blueprint</h3>
     </div>
     <p class="text-sm text-foreground/90 leading-relaxed font-medium">
       The <strong>Tamil Nadu Public Service Commission (TNPSC)</strong> conducts annual recruitment for premier state services including <strong>Group 1, Group 2 &amp; 2A, and Group 4 (VAO, Junior Assistant, Typist)</strong> across Tamil Nadu. Digital compliance on <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">apply.tnpscexams.in</a> requires mandatory <strong>One Time Registration (OTR)</strong> valid for 5 years. Candidates must upload a <strong>200 × 230 px passport photograph (20–50 KB) with candidate Name and Date of Photo (DOP) printed at the bottom</strong>, a <strong>140 × 60 px signature (10–20 KB) in blue/black ballpoint ink</strong>, and supporting certificates (SSLC, Community, PSTM) in <strong>PDF format under 200 KB</strong>.
@@ -302,6 +346,302 @@ export const BLOG_POSTS: BlogPost[] = [
       <h4 class="font-bold text-sm text-foreground mb-1">What is the minimum qualifying score in the TNPSC Tamil Eligibility Test?</h4>
       <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
         Part-A (General Tamil Eligibility-cum-Scoring Test) contains 100 questions carrying 150 marks. Candidates must score a <strong>minimum of 40% (60 marks out of 150)</strong> for their General Studies paper (Part-B) to be evaluated.
+      </p>
+    </div>
+  </div>
+
+</div>
+`,
+    contentHtml_hi: `
+<div class="space-y-6 text-foreground leading-relaxed">
+
+  <!-- Direct Answer Box (Snippet / AI Overview Hook) -->
+  <div class="p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground space-y-3">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">🏛️</span>
+      <h3 class="text-base font-bold text-foreground">त्वरित उत्तर: TNPSC 2026 दस्तावेज, OTR व परीक्षा ब्लूप्रिंट</h3>
+    </div>
+    <p class="text-sm text-foreground/90 leading-relaxed font-medium">
+      <strong>तमिलनाडु लोक सेवा आयोग (TNPSC)</strong> द्वारा राज्य की प्रमुख प्रशासनिक सेवाओं जैसे <strong>ग्रुप 1, ग्रुप 2/2A एवं ग्रुप 4 (VAO - ग्राम प्रशासनिक अधिकारी, कनिष्ठ सहायक, टाइपिस्ट)</strong> के लिए भर्ती आयोजित की जाती है। <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">apply.tnpscexams.in</a> पर आवेदन के लिए <strong>वन टाइम रजिस्ट्रेशन (OTR)</strong> अनिवार्य है जिसकी वैधता 5 वर्ष होती है। उम्मीदवारों को <strong>200 × 230 px पासपोर्ट फोटो (20–50 KB, नीचे नाम व तारीख सहित)</strong>, <strong>140 × 60 px हस्ताक्षर (10–20 KB, नीली/काली बॉलपॉइंट स्याही)</strong> और प्रमाण पत्र (10वीं, जाति, PSTM) <strong>200 KB से कम PDF</strong> में अपलोड करने होते हैं।
+    </p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">फोटो सीमा</span>
+        <strong class="text-foreground text-sm font-extrabold">200×230 px (20–50 KB)</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">हस्ताक्षर सीमा</span>
+        <strong class="text-foreground text-sm font-extrabold">140×60 px (10–20 KB)</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">फोटो नियम</span>
+        <strong class="text-foreground text-sm font-extrabold">नाम व तारीख प्रिंटेड</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">प्रमाण पत्र PDF</span>
+        <strong class="text-foreground text-sm font-extrabold">&lt; 200 KB प्रत्येक</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Document Suite Callout -->
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card via-card to-primary/10 border-2 border-primary/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
+    <div>
+      <h4 class="font-bold text-base text-foreground">TNPSC OTR के लिए फोटो-हस्ताक्षर रिसाइझ करना है?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">हमारे आधिकारिक TNPSC टूल्स से 1-क्लिक में सही KB और पिक्सल प्राप्त करें।</p>
+    </div>
+    <div class="flex flex-wrap gap-2 w-full sm:w-auto shrink-0">
+      <a href="/tnpsc-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
+        ✍️ TNPSC हस्ताक्षर (10–20 KB) &rarr;
+      </a>
+      <a href="/tnpsc-photo-resize/" class="px-4 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
+        📸 TNPSC फोटो (20–50 KB) &rarr;
+      </a>
+      <a href="/photo-with-name-and-date-maker/" class="px-4 py-2.5 rounded-xl bg-card text-foreground border border-border font-bold text-xs hover:border-primary/50 transition">
+        🪪 नाम व तारीख जोड़ें
+      </a>
+    </div>
+  </div>
+
+  <h2>1. TNPSC भर्ती संवर्ग एवं प्रमुख परीक्षाएं</h2>
+  <p>
+    तमिलनाडु लोक सेवा आयोग द्वारा प्रशासनिक पदों को ग्रुप 1 से ग्रुप 4 तक विभाजित किया गया है। हर वर्ष <strong>20 लाख से अधिक अभ्यर्थी</strong> इन परीक्षाओं में भाग लेते हैं:
+  </p>
+  <div class="my-5 overflow-x-auto rounded-xl border border-border">
+    <table class="w-full text-xs sm:text-sm text-left">
+      <thead class="bg-muted text-foreground font-semibold">
+        <tr>
+          <th class="p-3 border-b border-border">संवर्ग (Group)</th>
+          <th class="p-3 border-b border-border">प्रमुख पद</th>
+          <th class="p-3 border-b border-border">न्यूनतम योग्यता</th>
+          <th class="p-3 border-b border-border">चयन प्रक्रिया</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr>
+          <td class="p-3 font-bold text-primary">ग्रुप 1</td>
+          <td class="p-3 font-medium">डिप्टी कलेक्टर, डीएसपी (DSP), सहायक वाणिज्यिक कर आयुक्त</td>
+          <td class="p-3">स्नातक (Graduate)</td>
+          <td class="p-3 text-xs">प्रारंभिक (Prelims) + मुख्य लिखित + साक्षात्कार (Interview)</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-primary">ग्रुप 2 एवं 2A</td>
+          <td class="p-3 font-medium">सब-रजिस्ट्रार, म्युनिसिपल कमिश्नर, राजस्व सहायक, सचिवालय ASO</td>
+          <td class="p-3">स्नातक (Any Degree)</td>
+          <td class="p-3 text-xs">प्रारंभिक + मुख्य (ग्रुप 2 में इंटरव्यू; 2A नॉन-इंटरव्यू)</td>
+        </tr>
+        <tr>
+          <td class="p-3 font-bold text-primary">ग्रुप 4 व VAO</td>
+          <td class="p-3 font-medium">ग्राम प्रशासनिक अधिकारी (VAO), जूनियर असिस्टेंट, टाइपिस्ट, बिल कलेक्टर</td>
+          <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">10वीं पास (SSLC)</td>
+          <td class="p-3 text-xs">एकल-चरणीय लिखित परीक्षा (300 अंक)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2. आधिकारिक TNPSC फोटो एवं हस्ताक्षर तकनीकी विनिर्देश</h2>
+  <p>
+    प्रमाण पत्र सत्यापन और ऑनलाइन पोर्टल पर गलत फोटो या हस्ताक्षर के कारण <strong>60,000 से अधिक आवेदन अस्वीकृत</strong> होते हैं। इन नियमों का पालन करें:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
+        <span>📸</span> फोटो विनिर्देश (Photograph Rules)
+      </h4>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+        <li><strong>आयाम (Dimensions):</strong> 200 पिक्सल चौड़ाई × 230 पिक्सल ऊंचाई (3.5 सेमी × 4.5 सेमी)।</li>
+        <li><strong>फाइल वजन:</strong> केवल <strong>20.0 KB से 50.0 KB</strong> के बीच JPG/JPEG फॉर्मेट में।</li>
+        <li><strong>नाम व तारीख नियम (Clause 3):</strong> फोटो के नीचे सफेद पट्टी में अभ्यर्थी का पूरा नाम और फोटो खींचने की तारीख स्पष्ट छपी होनी चाहिए।</li>
+        <li><strong>पृष्ठभूमि:</strong> सादा सफेद या हल्का बैकग्राउंड, 75% चेहरा दिखना चाहिए, दोनों कान साफ दिखने चाहिए।</li>
+        <li><strong>प्रतिबंध:</strong> चश्मा (गॉगल्स), टोपी, मास्क या तिरछी सेल्फी पूर्णतः अमान्य है।</li>
+      </ul>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
+        <span>✍️</span> हस्ताक्षर विनिर्देश (Signature Rules)
+      </h4>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+        <li><strong>आयाम (Dimensions):</strong> 140 पिक्सल चौड़ाई × 60 पिक्सल ऊंचाई (3.5 सेमी × 1.5 सेमी)।</li>
+        <li><strong>फाइल वजन:</strong> केवल <strong>10.0 KB से 20.0 KB</strong> के बीच JPG/JPEG फॉर्मेट में।</li>
+        <li><strong>स्याही व कागज:</strong> सादे सफेद कागज पर नीली या काली बॉलपॉइंट पेन से हस्ताक्षर करें।</li>
+        <li><strong>हैंडराइटिंग शैली:</strong> केवल प्राकृतिक रनिंग कर्सिव लिखावट मान्य है।</li>
+        <li><strong>खारिज होने का कारण:</strong> केवल बड़े अक्षरों (BLOCK/CAPITAL LETTERS) में नाम लिखने पर पोर्टल स्वतः रिजेक्ट करता है।</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Warning Box: Photo Stamping Trap -->
+  <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-foreground space-y-2">
+    <h4 class="font-extrabold text-amber-900 dark:text-amber-300 text-base flex items-center gap-2">
+      <span>⚠️</span> TNPSC क्लॉज 3: फोटो पर नाम व तारीख का अनिवार्य नियम
+    </h4>
+    <p class="text-sm text-amber-950/90 dark:text-slate-200 leading-relaxed font-medium">
+      TNPSC आयोग के अनुसार: <em>"फोटो पिछले 3 महीनों के भीतर खींची गई होनी चाहिए। फोटो के नीचे बॉक्स में उम्मीदवार का नाम और फोटो लेने की तारीख साफ अक्षरों में मुद्रित होनी चाहिए।"</em> बिना नाम-तारीख के सादी फोटो अपलोड करने पर दस्तावेज सत्यापन के समय रिजेक्शन नोटिस मिल सकता है।
+    </p>
+  </div>
+
+  <h2>3. तमिल माध्यम आरक्षण (PSTM - 20% Reservation) नियम</h2>
+  <p>
+    तमिलनाडु सरकार के नियमों के तहत <strong>तमिल माध्यम से अध्ययन करने वाले अभ्यर्थियों (PSTM) को 20% आरक्षण</strong> मिलता है। उच्च न्यायालय के निर्देशानुसार कक्षा 1 से लेकर निर्धारित शैक्षणिक योग्यता (ग्रुप 4 के लिए 10वीं, ग्रुप 1/2 के लिए डिग्री) तक की संपूर्ण शिक्षा तमिल माध्यम में होना अनिवार्य है। संबंधित संस्थान प्रमुख द्वारा जारी PSTM प्रमाण पत्र <strong>200 KB से कम PDF</strong> में अपलोड करें।
+  </p>
+
+  <h2>4. अक्सर पूछे जाने वाले सवाल (TNPSC 2026 FAQs)</h2>
+  <div class="space-y-4 my-4">
+    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
+      <h4 class="font-bold text-sm text-foreground mb-1">TNPSC वन टाइम रजिस्ट्रेशन (OTR) की वैधता कितनी होती है?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        TNPSC OTR पंजीकरण <strong>5 वर्षों के लिए वैध</strong> होता है। 5 वर्ष पूरे होने पर ₹150 शुल्क देकर नवीनतम फोटो व हस्ताक्षर के साथ OTR नवीनीकृत (Renew) करना होता है।
+      </p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
+      <h4 class="font-bold text-sm text-foreground mb-1">TNPSC के लिए हस्ताक्षर को 10 से 20 KB में कैसे बदलें?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        सफेद कागज पर नीली/काली पेन से हस्ताक्षर करें। हमारे <a href="/tnpsc-signature-resize/" class="text-primary underline font-medium">TNPSC Signature Resizer</a> का उपयोग करें, जो स्वतः 140×60 px क्रॉप कर 10 से 20 KB की वैध सीमा में फाइल तैयार करता है।
+      </p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
+      <h4 class="font-bold text-sm text-foreground mb-1">सामान्य तमिल भाषा परीक्षा में न्यूनतम कितने अंक जरूरी हैं?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        भाग-क (जनरल तमिल पात्रता परीक्षा) में 100 प्रश्न 150 अंकों के होते हैं। उम्मीदवार को <strong>न्यूनतम 40% (150 में से 60 अंक)</strong> प्राप्त करना अनिवार्य है तभी भाग-ख (सामान्य अध्ययन) का मूल्यांकन किया जाता है।
+      </p>
+    </div>
+  </div>
+
+</div>
+`,
+    contentHtml_mr: `
+<div class="space-y-6 text-foreground leading-relaxed">
+
+  <!-- Direct Answer Box -->
+  <div class="p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground space-y-3">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">🏛️</span>
+      <h3 class="text-base font-bold text-foreground">थेट उत्तर: TNPSC 2026 कागदपत्रे, OTR आणि परीक्षा आराखडा</h3>
+    </div>
+    <p class="text-sm text-foreground/90 leading-relaxed font-medium">
+      <strong>तमिळनाडू लोकसेवा आयोग (TNPSC)</strong> मार्फत <strong>ग्रुप 1, ग्रुप 2/2A आणि ग्रुप 4 (VAO - ग्राम प्रशासकीय अधिकारी, कनिष्ठ सहाय्यक, टंकलेखक)</strong> पदांसाठी भरती घेतली जाते. <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">apply.tnpscexams.in</a> वर <strong>वन टाईम रजिस्ट्रेशन (OTR)</strong> करणे आवश्यक असून त्याची मुदत 5 वर्षे असते. अर्ज करताना <strong>200 × 230 px फोटो (20–50 KB, खाली नाव व तारीख)</strong>, <strong>140 × 60 px स्वाक्षरी (10–20 KB, बॉलपेन)</strong> आणि कागदपत्रे <strong>200 KB पेक्षा कमी PDF</strong> मध्ये अपलोड करावी लागतात.
+    </p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">फोटो मर्यादा</span>
+        <strong class="text-foreground text-sm font-extrabold">200×230 px (20–50 KB)</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">स्वाक्षरी मर्यादा</span>
+        <strong class="text-foreground text-sm font-extrabold">140×60 px (10–20 KB)</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">फोटो नियम</span>
+        <strong class="text-foreground text-sm font-extrabold">नाव व तारीख प्रिंट</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">कागदपत्रे PDF</span>
+        <strong class="text-foreground text-sm font-extrabold">&lt; 200 KB प्रत्येक</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Document Suite Callout -->
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card via-card to-primary/10 border-2 border-primary/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
+    <div>
+      <h4 class="font-bold text-base text-foreground">TNPSC OTR साठी फोटो-स्वाक्षरी रिसाइझ करायची आहे?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">आमच्या अधिकृत TNPSC टूल्सने एका क्लिकमध्ये अचूक साईझ मिळवा.</p>
+    </div>
+    <div class="flex flex-wrap gap-2 w-full sm:w-auto shrink-0">
+      <a href="/tnpsc-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
+        ✍️ TNPSC स्वाक्षरी (10–20 KB) &rarr;
+      </a>
+      <a href="/tnpsc-photo-resize/" class="px-4 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
+        📸 TNPSC फोटो (20–50 KB) &rarr;
+      </a>
+      <a href="/photo-with-name-and-date-maker/" class="px-4 py-2.5 rounded-xl bg-card text-foreground border border-border font-bold text-xs hover:border-primary/50 transition">
+        🪪 नाव व तारीख जोडा
+      </a>
+    </div>
+  </div>
+
+  <h2>1. TNPSC भरती गट व प्रमुख पदे</h2>
+  <p>
+    तमिळनाडू लोकसेवा आयोगामार्फत राज्य प्रशासनातील विविध पदांसाठी दरवर्षी लाखो विद्यार्थी परीक्षा देतात:
+  </p>
+  <div class="my-5 overflow-x-auto rounded-xl border border-border">
+    <table class="w-full text-xs sm:text-sm text-left">
+      <thead class="bg-muted text-foreground font-semibold">
+        <tr>
+          <th class="p-3 border-b border-border">संवर्ग (Group)</th>
+          <th class="p-3 border-b border-border">प्रमुख पदे</th>
+          <th class="p-3 border-b border-border">पात्रता</th>
+          <th class="p-3 border-b border-border">निवड प्रक्रिया</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr>
+          <td class="p-3 font-bold text-primary">ग्रुप 1</td>
+          <td class="p-3 font-medium">डेप्युटी कलेक्टर, डीएसपी (DSP), सहाय्यक आयुक्त</td>
+          <td class="p-3">पदवीधर (Graduate)</td>
+          <td class="p-3 text-xs">पूर्व + मुख्य लेखी + मुलाखत</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-primary">ग्रुप 2 व 2A</td>
+          <td class="p-3 font-medium">सब-रजिस्ट्रार, नगरपालिका आयुक्त, महसूल सहाय्यक</td>
+          <td class="p-3">कोणतीही पदवी</td>
+          <td class="p-3 text-xs">पूर्व + मुख्य (ग्रुप 2 मुलाखत; 2A विनामुलाखत)</td>
+        </tr>
+        <tr>
+          <td class="p-3 font-bold text-primary">ग्रुप 4 व VAO</td>
+          <td class="p-3 font-medium">ग्राम प्रशासकीय अधिकारी (VAO), कनिष्ठ सहाय्यक, टंकलेखक</td>
+          <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">10वी उत्तीर्ण (SSLC)</td>
+          <td class="p-3 text-xs">एकच लेखी परीक्षा (300 गुण)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2. अधिकृत TNPSC फोटो व स्वाक्षरी नियम</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
+        <span>📸</span> फोटो नियम (Photograph Rules)
+      </h4>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+        <li><strong>आकार:</strong> 200 × 230 पिक्सेल (3.5 × 4.5 सेमी).</li>
+        <li><strong>फाईल साईझ:</strong> 20.0 KB ते 50.0 KB दरम्यान JPG फॉरमॅट.</li>
+        <li><strong>नाव व तारीख नियम:</strong> फोटोच्या खाली उमेदवाराचे नाव व फोटो काढल्याची तारीख मुद्रित असणे बंधनकारक.</li>
+        <li><strong>पार्श्वभूमी:</strong> पांढरी किंवा फिकट पार्श्वभूमी, 75% चेहरा स्पष्ट दिसणे आवश्यक.</li>
+      </ul>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
+        <span>✍️</span> स्वाक्षरी नियम (Signature Rules)
+      </h4>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+        <li><strong>आकार:</strong> 140 × 60 पिक्सेल (3.5 × 1.5 सेमी).</li>
+        <li><strong>फाईल साईझ:</strong> 10.0 KB ते 20.0 KB दरम्यान JPG फॉरमॅट.</li>
+        <li><strong>पेन व कागद:</strong> पांढऱ्या कागदावर निळ्या किंवा काळ्या बॉलपेनने स्वाक्षरी करा.</li>
+        <li><strong>हस्ताक्षर:</strong> केवळ धावती कर्सिव्ह स्वाक्षरी मान्य. कॅपिटल अक्षरातील नाव बाद केले जाईल.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>3. वारंवार विचारले जाणारे प्रश्न (TNPSC FAQs)</h2>
+  <div class="space-y-4 my-4">
+    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
+      <h4 class="font-bold text-sm text-foreground mb-1">TNPSC वन टाईम रजिस्ट्रेशन (OTR) ची वैधता किती असते?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        TNPSC OTR ची वैधता नोंदणी तारखेपासून <strong>5 वर्षे</strong> असते. 5 वर्षांनंतर ₹150 शुल्क भरून OTR नूतनीकरण करावे लागते.
+      </p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
+      <h4 class="font-bold text-sm text-foreground mb-1">TNPSC साठी स्वाक्षरी 10 ते 20 KB मध्ये कशी रिसाइझ करावी?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        आमच्या मोफत <a href="/tnpsc-signature-resize/" class="text-primary underline font-medium">TNPSC Signature Resizer</a> चा वापर करा, जो स्वाक्षरी आपोआप 140×60 px मध्ये क्रॉप करून 10 ते 20 KB दरम्यान कम्प्रेशन करतो.
       </p>
     </div>
   </div>

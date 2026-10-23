@@ -783,7 +783,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Blue or Black Ballpoint Pen (Running Handwriting)',
     aspectRatioLabel: '7:3 (~140×60 px)',
     strictNotice: 'TNPSC portal rejects files under 10 KB and over 20 KB automatically during upload validation. Signatures in ALL CAPITAL LETTERS are disqualified.',
-    relatedTools: [],
+    relatedTools: ['tnpsc-photo-resize', 'photo-with-name-and-date-maker', 'photo-resizer'],
     tips: [
       'Sign with a bold blue or black ballpoint pen on plain, unruled white paper.',
       'Crop tight with 2 mm margins so the signature occupies 80% of the horizontal 140×60 box.',
@@ -830,7 +830,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Light/White Background (Name & Date at Bottom)',
     aspectRatioLabel: '200:230 (~3.5×4.5 cm)',
     strictNotice: 'TNPSC mandates that the applicant Name and Date of Photograph must be printed at the bottom of the photo. Plain photos without this stamp are subject to rejection.',
-    relatedTools: [],
+    relatedTools: ['tnpsc-signature-resize', 'photo-with-name-and-date-maker', 'photo-resizer'],
     tips: [
       'Sit straight against a plain white or light-coloured background with both ears visible.',
       'Ensure the candidate name and photo capture date are clearly legible in a white strip at the bottom.',

@@ -1059,7 +1059,7 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
     qualification: '10th Pass',
     qualificationDetail: '10th Pass (SSLC) for Group 4 & VAO; Degree for Group 1 & Group 2; Tamil language eligibility test',
     ageLimit: '18 to 32 Years (Group 4 minimum 21 for VAO; No upper limit for certain reserved categories)',
-    lastDate: '2026-10-06',
+    lastDate: '2026-11-28',
     examDate: 'November 1, 2026 (Prelims); Mains January 2027',
     status: 'Ongoing',
     badge: 'Tamil Nadu Mega Drive',
@@ -1081,6 +1081,7 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       note: 'Sign in blue or black ballpoint pen.'
     },
     toolPresetSlug: 'tnpsc-signature-resize',
+    guideSlug: 'tnpsc-group-4-2-2026-master-guide-otr-photo-name-date-signature-rules',
     toolLabel: 'Resize Photo & Sign for TNPSC'
   },
   {
