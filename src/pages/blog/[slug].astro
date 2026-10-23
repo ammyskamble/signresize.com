@@ -346,7 +346,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
   <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
     <Header />
 
-    <main class="flex-1 max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-6 sm:pt-10 md:pt-12 pb-8 sm:pb-12 space-y-6 sm:space-y-8 w-full min-w-0">
+    <main class="flex-1 max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-6 sm:pt-10 md:pt-12 pb-20 sm:pb-12 space-y-6 sm:space-y-8 w-full min-w-0">
       
       <!-- Breadcrumbs & Language Switcher Bar -->
       <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-3">
@@ -723,6 +723,18 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
 
       </div>
     </main>
+
+    <!-- Sticky Mobile Conversion Banner -->
+    <div class="fixed bottom-0 inset-x-0 z-40 p-2.5 bg-background/95 backdrop-blur-md border-t border-border shadow-lg sm:hidden flex items-center justify-between gap-3">
+      <div class="min-w-0 flex-1 pl-1">
+        <div class="text-xs font-bold text-foreground truncate">{post.guideTool?.label || 'Photo & Signature Resizer'}</div>
+        <div class="text-[10px] text-muted-foreground truncate">140×60 px • 10–20 KB &amp; 20–50 KB</div>
+      </div>
+      <a href={post.guideTool?.href || `/${relatedExamSlug}/`} class="px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-sm hover:opacity-95 shrink-0 flex items-center gap-1 transition">
+        <span>Resize Now</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
 
     <Footer topic={isPkiCompliancePost ? 'standards' : 'exams'} />
 

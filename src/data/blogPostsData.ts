@@ -86,134 +86,171 @@ const redirectedBlogPostSlugs = new Set([
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'tnpsc-group-4-2-2026-master-guide-otr-photo-name-date-signature-rules',
-    title: 'TNPSC 2026 Master Guide: Group 4 (VAO), Group 2 & 1 OTR Registration, Syllabus, Photo (with Name & Date) and Signature Specifications',
-    title_hi: 'TNPSC 2026 मास्टर गाइड: ग्रुप 4 (VAO), ग्रुप 2 व 1 OTR रजिस्ट्रेशन, सिलेबस, फोटो (नाम व तारीख सहित) और हस्ताक्षर नियम',
-    title_mr: 'TNPSC 2026 मास्टर मार्गदर्शक: ग्रुप 4 (VAO), ग्रुप 2 व 1 OTR नोंदणी, अभ्यासक्रम, फोटो (नाव व तारीख) आणि स्वाक्षरी नियम',
-    metaTitle: 'TNPSC 2026 Master Guide: OTR, Group 4 VAO & Group 2 Rules - SignResize',
-    metaTitle_hi: 'TNPSC 2026 मास्टर गाइड: OTR, ग्रुप 4 VAO व ग्रुप 2 नियम - SignResize',
-    metaTitle_mr: 'TNPSC 2026 मास्टर मार्गदर्शक: OTR, ग्रुप 4 VAO व ग्रुप 2 नियम - SignResize',
-    metaDescription: 'Official TNPSC 2026 master guide: Group 4 (VAO) & Group 2 syllabus, One Time Registration (OTR), photo with candidate name & date (20-50 KB), and signature (10-20 KB).',
-    metaDescription_hi: 'TNPSC 2026 आधिकारिक गाइड: ग्रुप 4 VAO व ग्रुप 2 सिलेबस, वन टाइम रजिस्ट्रेशन (OTR), फोटो पर नाम व तारीख (20-50 KB) और 10-20 KB हस्ताक्षर नियम।',
-    metaDescription_mr: 'TNPSC 2026 अधिकृत मार्गदर्शक: ग्रुप 4 VAO व ग्रुप 2 अभ्यासक्रम, वन टाईम रजिस्ट्रेशन (OTR), फोटोवर नाव व तारीख (20-50 KB) आणि 10-20 KB स्वाक्षरी नियम.',
-    excerpt: 'Comprehensive candidate blueprint for TNPSC 2026: Group 4 VAO and Group 2 eligibility, General Tamil SSLC syllabus, OTR renewal, and official photo (with Name & Date stamp) and signature resizer.',
-    excerpt_hi: 'TNPSC 2026 का संपूर्ण ब्लूप्रिंट: ग्रुप 4 VAO व ग्रुप 2 पात्रता, सामान्य तमिल SSLC सिलेबस, OTR नवीनीकरण और फोटो (Name & Date) व हस्ताक्षर रिसाइजर।',
-    excerpt_mr: 'TNPSC 2026 चा संपूर्ण आराखडा: ग्रुप 4 VAO व ग्रुप 2 पात्रता, सामान्य तमिळ SSLC अभ्यासक्रम, OTR नूतनीकरण आणि फोटो (नाव व तारीख) व स्वाक्षरी रिसाइझर.',
-    category: 'Career Opportunity',
+    title: 'TNPSC Group 4 Exam Date 2026 Out: Notification, 6,574 Vacancies, Apply Online, Syllabus in Tamil & OTR Photo-Signature Rules',
+    title_hi: 'TNPSC Group 4 Exam Date 2026: 6,574 पद, आवेदन तिथि, सिलेबस, तमिल पात्रता और OTR फोटो-हस्ताक्षर गाइड',
+    title_mr: 'TNPSC Group 4 Exam Date 2026: 6,574 पदे, अर्ज तारीख, अभ्यासक्रम आणि OTR फोटो-स्वाक्षरी नियम',
+    metaTitle: 'TNPSC Group 4 Exam Date 2026: Apply Online & OTR Photo Guide',
+    metaTitle_hi: 'TNPSC Group 4 Exam Date 2026: आवेदन तिथि, सिलेबस व पद - SignResize',
+    metaTitle_mr: 'TNPSC Group 4 Exam Date 2026: अर्ज तारीख, अभ्यासक्रम व पदे - SignResize',
+    metaDescription: 'TNPSC Group 4 exam date 2026 announced for 10 Jan 2027. Check 6,574 vacancies, notification, apply online dates, syllabus in Tamil PDF, age limit & OTR rules.',
+    metaDescription_hi: 'TNPSC Group 4 परीक्षा तिथि 2026 (10 जनवरी 2027) घोषित। 6,574 पद, आधिकारिक नोटिफिकेशन, ऑनलाइन आवेदन, तमिल सिलेबस PDF, आयु सीमा और OTR फोटो-हस्ताक्षर नियम।',
+    metaDescription_mr: 'TNPSC Group 4 परीक्षा तारीख 2026 (10 जानेवारी 2027) जाहीर. 6,574 पदे, अधिसूचना, ऑनलाइन अर्ज, तमिळ अभ्यासक्रम PDF, वयोमर्यादा आणि OTR फोटो-स्वाक्षरी नियम.',
+    excerpt: 'Complete authoritative blueprint for TNPSC Group 4 Exam Date 2026: Notification No. 11/2026 schedule, 6,574 vacancies, apply online window, Part-A General Tamil syllabus breakdown, age limits, and official photo (Name & Date) and signature upload standards.',
+    excerpt_hi: 'TNPSC Group 4 परीक्षा तिथि 2026 का आधिकारिक ब्लूप्रिंट: नोटिफिकेशन 11/2026, 6,574 रिक्तियां, ऑनलाइन आवेदन तारीखें, सामान्य तमिल सिलेबस, आयु सीमा और फोटो (नाम व तारीख) तथा हस्ताक्षर नियम।',
+    excerpt_mr: 'TNPSC Group 4 परीक्षा तारीख 2026 चा संपूर्ण मार्गदर्शक: अधिसूचना 11/2026, 6,574 पदे, ऑनलाइन अर्ज प्रक्रिया, तमिळ भाषा अभ्यासक्रम, वयोमर्यादा आणि फोटो-स्वाक्षरीचे अचूक नियम.',
+    category: 'Exam Alerts',
     country: 'IN',
     publishDate: 'Oct 23, 2026',
     publishTime: '09:30 PM IST',
-    lastUpdated: 'Oct 23, 2026',
-    deployedAt: 'Oct 23, 2026 • 09:30 PM IST',
+    lastUpdated: 'Oct 24, 2026',
+    deployedAt: 'Oct 24, 2026 • 01:10 AM IST',
     author: 'SignResize Tamil Nadu Public Service Desk',
     authorRole: 'Senior State PSC Recruitment & OTR Compliance Specialist',
-    readTime: '12 min read',
+    readTime: '15 min read',
     featured: true,
     relatedExamPreset: 'tnpsc',
     guideTool: { href: '/tnpsc-signature-resize/', label: 'TNPSC Signature & Photo Resizer' },
     tags: [
-      'TNPSC',
-      'TNPSC Group 4',
-      'TNPSC VAO 2026',
-      'TNPSC Group 2',
-      'TNPSC OTR Registration',
-      'apply.tnpscexams.in',
+      'tnpsc group 4 exam date 2026',
+      'tnpsc group 4 exam date 2026 apply online',
+      'tnpsc group 4 exam date 2026 syllabus',
+      'tnpsc group 4 exam date 2026 syllabus tamil',
+      'tnpsc group 4 exam date 2026 age limit',
+      'tnpsc group 4 exam date 2026 notification',
+      'tnpsc group 4 exam date 2026 tamil nadu',
+      'tnpsc group 4 exam date 2026 annual planner',
+      'tnpsc group 4 exam date 2026 vacancy',
+      'tnpsc group 4 exam date 2026 syllabus pdf',
+      'tnpsc group 4 exam date 2026 qualification',
+      'tnpsc group 4 exam date 2026 official website',
+      'tnpsc group 4 exam date 2026 application date',
+      'tnpsc group 4 exam date 2026 eligibility',
       'TNPSC Photo with Name and Date',
-      'TNPSC Signature Resize 10 to 20 KB',
-      'TNPSC General Tamil Syllabus',
-      'PSTM Certificate'
+      'TNPSC Signature Resize 10 to 20 KB'
     ],
     quickFacts: [
       { label: 'Commission Name', value: 'Tamil Nadu Public Service Commission (TNPSC, Chennai)' },
-      { label: 'Official Portals', value: 'tnpsc.gov.in | apply.tnpscexams.in' },
-      { label: 'Mandatory Portal Account', value: 'TNPSC One Time Registration (OTR) — Valid for 5 Years' },
-      { label: 'Key Examinations', value: 'Group 4 & VAO (10th Pass), Group 2 & 2A (Degree), Group 1' },
-      { label: 'Photograph Specifications', value: '200 × 230 px (3.5×4.5 cm), 20–50 KB, JPG, Name & Date of Photo stamped' },
-      { label: 'Signature Specifications', value: '140 × 60 px (3.5×1.5 cm), 10–20 KB, Blue or Black Ballpoint Ink' },
-      { label: 'Document / Certificate Bounds', value: 'PDF format strictly under 200 KB (Community, SSLC, PSTM)' },
-      { label: 'Compulsory Language Paper', value: 'General Tamil (SSLC Standard) — Mandatory 40% (60/150 Marks)' }
+      { label: 'Official Websites', value: 'tnpsc.gov.in (Info) | apply.tnpscexams.in (Apply)' },
+      { label: 'Recruitment Cycle', value: 'Combined Civil Services Examination - IV (Group 4 & VAO Services 2026)' },
+      { label: 'Official Notification', value: 'Notification No. 11/2026 (Published on 6 October 2026)' },
+      { label: 'Confirmed Exam Date', value: '10 January 2027 (Sunday) • 09:30 AM to 12:30 PM' },
+      { label: 'Annual Planner Date', value: 'Tentatively listed as 20 Dec 2026 (Finalized to 10 Jan 2027)' },
+      { label: 'Total Vacancies', value: '6,574 Posts (VAO, Junior Assistant, Typist, Steno-Typist, Bill Collector)' },
+      { label: 'Application Dates', value: 'Start: 6 Oct 2026 | Last Date: 5 Nov 2026 (Correction: 9–11 Nov 2026)' },
+      { label: 'Educational Qualification', value: '10th Standard (S.S.L.C) Pass / Typewriting Technical Exam for Typists' },
+      { label: 'Age Limit (as on 01/07/2026)', value: 'VAO: 21–32 Yrs | Others: 18–32 Yrs (No upper limit for reserved >SSLC)' },
+      { label: 'Language & Scoring Test', value: 'Part-A General Tamil SSLC (100 Qs / 150 Marks, Min 40% / 60 Marks)' },
+      { label: 'General Studies & Aptitude', value: 'Part-B GS (75 Qs) + Aptitude & Mental Ability (25 Qs) = 150 Marks' },
+      { label: 'Photograph Standards', value: '200 × 230 px (3.5×4.5 cm), 20–50 KB JPG with Name & Date printed' },
+      { label: 'Signature Standards', value: '140 × 60 px (3.5×1.5 cm), 10–20 KB JPG, running cursive in blue/black ink' },
+      { label: 'PSTM Reservation Proof', value: '20% quota: 1st to 10th std in Tamil medium certificate, PDF < 200 KB' }
     ],
     faqs: [
       {
-        question: 'What is the official TNPSC photo size requirement for 2026?',
-        answer: 'The photograph must be formatted to 200 pixels width by 230 pixels height (3.5 cm × 4.5 cm) with a file size strictly between 20 KB and 50 KB in JPG format. The candidate Name and Date of Photo must be printed at the bottom.'
+        question: 'What is the official TNPSC Group 4 exam date 2026?',
+        answer: 'As per the official recruitment notification (Notification No. 11/2026) published by the Tamil Nadu Public Service Commission, the TNPSC Group 4 written examination is scheduled for Sunday, 10 January 2027, from 09:30 AM to 12:30 PM in offline OMR mode across all Tamil Nadu district examination centres.'
       },
       {
-        question: 'Is candidate Name and Date of Photo mandatory on TNPSC photographs?',
-        answer: 'Yes. TNPSC Commission instructions mandate that the candidate Name and the Date on which the photo was captured must be printed in clear text in a box at the bottom of the photograph.'
+        question: 'Why does the TNPSC Group 4 exam date 2026 differ from the Annual Planner?',
+        answer: 'The initial TNPSC Annual Planner 2026 tentatively slated the Group 4 exam for 20 December 2026. However, during the release of the definitive recruitment advertisement on 6 October 2026, the Commission officially fixed the exam date for 10 January 2027 to allow candidates sufficient preparation time following the November 5 application deadline.'
       },
       {
-        question: 'What is the allowed TNPSC signature file size and dimension?',
-        answer: 'TNPSC signature must be formatted to 140 pixels width by 60 pixels height (3.5 cm × 1.5 cm) and compressed strictly between 10.0 KB and 20.0 KB in JPG format. Blue or black ballpoint pen is permitted.'
+        question: 'What are the application dates and last date for TNPSC Group 4 2026 apply online?',
+        answer: 'The online registration window opened on 6 October 2026 and closes on 5 November 2026 at 11:59 PM on apply.tnpscexams.in. Candidates can make corrections to submitted forms during the dedicated correction window from 9 November 2026 (12:01 AM) to 11 November 2026 (11:59 PM).'
       },
       {
-        question: 'What certificates need to be uploaded on TNPSC OTR and what size?',
-        answer: 'Community Certificate, SSLC Marksheet, Degree Certificates, and Persons Studied in Tamil Medium (PSTM) certificates must be in PDF format with file size strictly under 200 KB each.'
+        question: 'What is the educational qualification and age limit for TNPSC Group 4 2026?',
+        answer: 'The minimum general educational qualification is a pass in S.S.L.C (Class 10th). For Village Administrative Officer (VAO), the age limit is 21 to 32 years for General category. For Junior Assistant and Typist posts, the minimum age is 18 years. Candidates belonging to BC, BCM, MBC/DC, SC, and ST categories who possess qualifications higher than SSLC (HSC, Diploma, or Degree) have NO MAXIMUM AGE LIMIT.'
+      },
+      {
+        question: 'What is the TNPSC Group 4 syllabus and minimum qualifying marks in Tamil?',
+        answer: 'The exam comprises a single paper of 200 objective questions for 300 marks (3 hours). Part-A is the General Tamil Eligibility-cum-Scoring Test (SSLC standard) consisting of 100 questions (150 marks). Candidates must score a mandatory minimum of 40% (60 marks) in Part-A for Part-B (General Studies 75 Qs + Aptitude 25 Qs) to be evaluated. Part-A marks are also counted for final merit ranking.'
+      },
+      {
+        question: 'Why are photos and signatures rejected on the TNPSC apply online portal?',
+        answer: 'The TNPSC Commission strictly enforces Clause 3 photo standards: the photograph must be 200×230 px (20–50 KB JPG) with the candidate Name and Date of Photograph printed in a clean box at the bottom. Uploading plain photos without name and date triggers document verification objections. Signatures must be 140×60 px (10–20 KB JPG) in natural cursive handwriting; signatures in BLOCK / CAPITAL letters are disqualified.'
       }
     ],
     faqs_hi: [
       {
-        question: 'TNPSC 2026 के लिए फोटो का आधिकारिक साइज और नियम क्या है?',
-        answer: 'फोटो 200 पिक्सल चौड़ाई × 230 पिक्सल ऊंचाई (3.5 सेमी × 4.5 सेमी) और 20 KB से 50 KB के बीच JPG फॉर्मेट में होनी चाहिए। फोटो के नीचे सफेद पट्टी में उम्मीदवार का नाम और फोटो खींचने की तारीख छपी होना अनिवार्य है।'
+        question: 'TNPSC Group 4 Exam Date 2026 की आधिकारिक तारीख क्या है?',
+        answer: 'तमिलनाडु लोक सेवा आयोग (TNPSC) द्वारा जारी आधिकारिक नोटिफिकेशन 11/2026 के अनुसार TNPSC ग्रुप 4 लिखित परीक्षा 10 जनवरी 2027 (रविवार) को सुबह 09:30 बजे से दोपहर 12:30 बजे तक ऑफलाइन OMR मोड में आयोजित की जाएगी।'
       },
       {
-        question: 'क्या TNPSC फोटो पर उम्मीदवार का नाम और तारीख (Name & Date) होना अनिवार्य है?',
-        answer: 'हाँ, TNPSC आयोग दिशा-निर्देश (क्लॉज 3) के अनुसार फोटो पर नाम और तारीख छपी होना अनिवार्य है। बिना नाम-तारीख वाली सादी फोटो अपलोड करने पर फॉर्म खारिज या आपत्ति में डाला जा सकता है।'
+        question: 'TNPSC एनुअल प्लानर और नोटिफिकेशन की परीक्षा तारीख में अंतर क्यों है?',
+        answer: 'TNPSC एनुअल प्लानर 2026 में ग्रुप 4 परीक्षा की संभावित तारीख 20 दिसंबर 2026 दी गई थी। लेकिन 6 अक्टूबर 2026 को जारी आधिकारिक भर्ती विज्ञापन में आयोग ने इसे 10 जनवरी 2027 के रूप में अंतिम रूप दिया ताकि उम्मीदवारों को तैयारी का पूरा समय मिल सके।'
       },
       {
-        question: 'TNPSC हस्ताक्षर (Signature) के लिए फाइल साइज और आयाम क्या हैं?',
-        answer: 'हस्ताक्षर 140 पिक्सल चौड़ाई × 60 पिक्सल ऊंचाई (3.5 सेमी × 1.5 सेमी) और सख्त रूप से 10.0 KB से 20.0 KB के बीच JPG फॉर्मेट में होना चाहिए। नीली या काली बॉलपॉइंट स्याही की कर्सिव लिखावट मान्य है।'
+        question: 'TNPSC ग्रुप 4 2026 के लिए ऑनलाइन आवेदन (Apply Online) की अंतिम तिथि क्या है?',
+        answer: 'ऑनलाइन आवेदन 6 अक्टूबर 2026 से शुरू हुए हैं और अंतिम तिथि 5 नवंबर 2026 (रात 11:59 बजे) है। आवेदन पत्र में सुधार (Correction Window) 9 नवंबर से 11 नवंबर 2026 तक खुला रहेगा।'
       },
       {
-        question: 'TNPSC OTR पोर्टल पर कौन से प्रमाण पत्र और किस साइज में अपलोड करने होते हैं?',
-        answer: 'जाति प्रमाण पत्र (Community Certificate), 10वीं (SSLC) अंकपत्र, डिग्री और PSTM (तमिल माध्यम) प्रमाण पत्र PDF फॉर्मेट में प्रत्येक 200 KB से कम साइज में अपलोड करने होते हैं।'
+        question: 'TNPSC ग्रुप 4 भर्ती 2026 के लिए शैक्षणिक योग्यता और आयु सीमा क्या है?',
+        answer: 'न्यूनतम शैक्षणिक योग्यता 10वीं कक्षा (SSLC) उत्तीर्ण है। VAO पद हेतु न्यूनतम आयु 21 वर्ष तथा जूनियर असिस्टेंट व टाइपिस्ट हेतु 18 वर्ष है। सामान्य वर्ग हेतु अधिकतम आयु 32 वर्ष है, जबकि 10वीं से उच्च शिक्षा (12वीं/डिग्री) प्राप्त आरक्षित वर्ग (BC, MBC, SC, ST) के लिए कोई अधिकतम आयु सीमा नहीं है।'
+      },
+      {
+        question: 'TNPSC ग्रुप 4 परीक्षा का सिलेबस और तमिल पात्रता नियम क्या हैं?',
+        answer: 'कुल 200 प्रश्नों (300 अंक) की 3 घंटे की एकल परीक्षा होती है। भाग-क सामान्य तमिल पात्रता परीक्षा में 100 प्रश्न (150 अंक) होते हैं जिसमें न्यूनतम 40% (60 अंक) लाना अनिवार्य है। भाग-ख में 75 प्रश्न सामान्य अध्ययन और 25 प्रश्न गणित/मानसिक योग्यता के होते हैं।'
+      },
+      {
+        question: 'TNPSC OTR पोर्टल पर फोटो और हस्ताक्षर क्यों रिजेक्ट हो जाते हैं?',
+        answer: 'TNPSC क्लॉज 3 के तहत फोटो (200×230 px, 20-50 KB) के नीचे सफेद पट्टी में अभ्यर्थी का नाम और फोटो खींचने की तारीख प्रिंट होना अनिवार्य है। बिना नाम-तारीख वाली सादी फोटो निरस्त कर दी जाती है। हस्ताक्षर 140×60 px (10-20 KB) केवल कर्सिव लिखावट में होने चाहिए; बड़े अक्षरों (CAPITAL) में हस्ताक्षर अमान्य हैं।'
       }
     ],
     faqs_mr: [
       {
-        question: 'TNPSC 2026 साठी फोटोची अधिकृत साईझ काय आहे?',
-        answer: 'फोटो 200 पिक्सेल रुंदी × 230 पिक्सेल उंची (3.5 सेमी × 4.5 सेमी) आणि 20 KB ते 50 KB दरम्यान JPG फॉरमॅटमध्ये असणे आवश्यक आहे. फोटोच्या तळाशी उमेदवाराचे नाव आणि फोटोची तारीख असणे बंधनकारक आहे.'
+        question: 'TNPSC Group 4 Exam Date 2026 ची अधिकृत तारीख काय आहे?',
+        answer: 'तमिळनाडू लोकसेवा आयोगाच्या अधिकृत जाहिरातीनुसार (Notification No. 11/2026) TNPSC ग्रुप 4 ची लेखी परीक्षा रविवार, 10 जानेवारी 2027 रोजी सकाळी 09:30 ते दुपारी 12:30 या वेळेत ऑफलाइन OMR पद्धतीने घेतली जाईल.'
       },
       {
-        question: 'TNPSC फोटोवर नाव आणि तारीख असणे अनिवार्य आहे का?',
-        answer: 'होय. TNPSC नियमांनुसार उमेदवाराचे नाव आणि फोटो काढल्याची तारीख खालील पांढऱ्या पट्टीवर स्पष्ट छापलेली असणे बंधनकारक आहे.'
+        question: 'TNPSC ॲन्यूअल प्लॅनर आणि जाहिरातीच्या परीक्षेच्या तारखेत काय फरक आहे?',
+        answer: 'TNPSC ॲन्यूअल प्लॅनर 2026 मध्ये संभाव्य तारीख 20 डिसेंबर 2026 दर्शवली होती. परंतु 6 ऑक्टोबर 2026 रोजी प्रसिद्ध झालेल्या अधिकृत अधिसूचनेत आयोगाने परीक्षा तारीख 10 जानेवारी 2027 निश्चित केली आहे.'
       },
       {
-        question: 'TNPSC स्वाक्षरीसाठी फाईल मर्यादा काय आहे?',
-        answer: 'स्वाक्षरी 140 × 60 पिक्सेल (3.5 × 1.5 सेमी) आणि तंतोतंत 10.0 KB ते 20.0 KB दरम्यान JPG फॉरमॅटमध्ये निळ्या किंवा काळ्या बॉलपेनने रनिंग हँडरायटिंगमध्ये असावी.'
+        question: 'TNPSC ग्रुप 4 साठी ऑनलाइन अर्ज करण्याची शेवटची तारीख कोणती?',
+        answer: 'ऑनलाइन अर्ज नोंदणी 6 ऑक्टोबर 2026 रोजी सुरू झाली असून शेवटची तारीख 5 नोव्हेंबर 2026 (रात्री 11:59) आहे. अर्जातील दुरुस्ती विंडो (Correction Window) 9 ते 11 नोव्हेंबर 2026 दरम्यान उपलब्ध असेल.'
       },
       {
-        question: 'TNPSC OTR वर कोणती प्रमाणपत्रे अपलोड करावी लागतात?',
-        answer: 'जातीचा दाखला, 10वी (SSLC) गुणपत्रिका, पदवी प्रमाणपत्र आणि PSTM प्रमाणपत्र हे PDF फॉरमॅटमध्ये प्रत्येकी 200 KB पेक्षा कमी साईझमध्ये अपलोड करावे लागतात.'
+        question: 'TNPSC ग्रुप 4 भरती 2026 साठी पात्रता आणि वयोमर्यादा काय आहे?',
+        answer: 'किमान पात्रता 10वी (SSLC) उत्तीर्ण आहे. ग्राम प्रशासकीय अधिकारी (VAO) साठी किमान वय 21 वर्षे आणि इतर पदांसाठी 18 वर्षे आहे. खुल्या प्रवर्गासाठी कमाल वय 32 वर्षे आहे, तर उच्च शिक्षण असलेल्या राखीव प्रवर्गातील उमेदवारांसाठी कमाल वयाची कोणतीही अट नाही.'
+      },
+      {
+        question: 'TNPSC ग्रुप 4 अभ्यासक्रम आणि तमिळ भाषेतील किमान गुणांची अट काय आहे?',
+        answer: 'एकूण 200 प्रश्न (300 गुण) आणि 3 तासांचा एकच पेपर असतो. भाग-अ मध्ये सामान्य तमिळचे 100 प्रश्न (150 गुण) असून किमान 40% (60 गुण) मिळवणे अनिवार्य आहे. भाग-ब मध्ये सामान्य ज्ञान (75 प्रश्न) आणि बुद्धिमत्ता चाचणी (25 प्रश्न) असतात.'
+      },
+      {
+        question: 'TNPSC पोर्टलवर फोटो आणि स्वाक्षरी का बाद ठरवली जाते?',
+        answer: 'TNPSC नियमानुसार फोटोच्या तळाशी उमेदवाराचे नाव आणि फोटो काढल्याची तारीख मुद्रित असणे बंधनकारक आहे (200×230 px, 20 ते 50 KB). स्वाक्षरी 140×60 px (10 ते 20 KB) धावत्या हस्ताक्षरातच असावी; कॅपिटल अक्षरातील स्वाक्षरी थेट अपात्र ठरते.'
       }
     ],
     contentHtml: `
 <div class="space-y-6 text-foreground leading-relaxed">
 
-  <!-- Direct Answer Box (Snippet / AI Overview Hook) -->
+  <!-- Direct Answer Box (Featured Snippet / AI Overview Hook) -->
   <div class="p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground space-y-3">
     <div class="flex items-center gap-2">
       <span class="text-xl">🏛️</span>
-      <h3 class="text-base font-bold text-foreground">Direct Answer: TNPSC 2026 Document &amp; Examination Blueprint</h3>
+      <h3 class="text-base font-bold text-foreground">Direct Answer: TNPSC Group 4 Exam Date 2026 &amp; Official Schedule</h3>
     </div>
     <p class="text-sm text-foreground/90 leading-relaxed font-medium">
-      The <strong>Tamil Nadu Public Service Commission (TNPSC)</strong> conducts annual recruitment for premier state services including <strong>Group 1, Group 2 &amp; 2A, and Group 4 (VAO, Junior Assistant, Typist)</strong> across Tamil Nadu. Digital compliance on <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">apply.tnpscexams.in</a> requires mandatory <strong>One Time Registration (OTR)</strong> valid for 5 years. Candidates must upload a <strong>200 × 230 px passport photograph (20–50 KB) with candidate Name and Date of Photo (DOP) printed at the bottom</strong>, a <strong>140 × 60 px signature (10–20 KB) in blue/black ballpoint ink</strong>, and supporting certificates (SSLC, Community, PSTM) in <strong>PDF format under 200 KB</strong>.
+      The <strong>Tamil Nadu Public Service Commission (TNPSC)</strong> has officially announced the <strong>TNPSC Group 4 Exam Date 2026</strong> under <strong>Notification No. 11/2026</strong> for <strong>6,574 tentative vacancies</strong>. The single-stage written examination will be conducted on <strong>Sunday, 10 January 2027, from 09:30 AM to 12:30 PM</strong> in offline OMR mode across Tamil Nadu. Online applications opened on <strong>6 October 2026</strong> and close on <strong>5 November 2026 (11:59 PM)</strong> at the official website <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">apply.tnpscexams.in</a>, with an application correction window from <strong>9 to 11 November 2026</strong>. Candidates must upload an official <strong>200 × 230 px photo (20–50 KB) with Name &amp; Date printed</strong> and a <strong>140 × 60 px signature (10–20 KB)</strong> in running cursive handwriting.
     </p>
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Photo Bounds</span>
-        <strong class="text-foreground text-sm font-extrabold">200×230 px (20–50 KB)</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Confirmed Exam Date</span>
+        <strong class="text-foreground text-sm font-extrabold text-primary">10 Jan 2027 (Sun)</strong>
       </div>
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Signature Bounds</span>
-        <strong class="text-foreground text-sm font-extrabold">140×60 px (10–20 KB)</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Total Vacancies</span>
+        <strong class="text-foreground text-sm font-extrabold text-emerald-600 dark:text-emerald-400">6,574 Posts</strong>
       </div>
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Photo Rule</span>
-        <strong class="text-foreground text-sm font-extrabold">Name &amp; Date Stamped</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Apply Online Window</span>
+        <strong class="text-foreground text-sm font-extrabold">6 Oct – 5 Nov 2026</strong>
       </div>
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Certificate PDF</span>
-        <strong class="text-foreground text-sm font-extrabold">&lt; 200 KB Each</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Language Test Cutoff</span>
+        <strong class="text-foreground text-sm font-extrabold">Part A: Min 40% (60 M)</strong>
       </div>
     </div>
   </div>
@@ -221,8 +258,8 @@ export const BLOG_POSTS: BlogPost[] = [
   <!-- Interactive Document Suite Callout -->
   <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card via-card to-primary/10 border-2 border-primary/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
     <div>
-      <h4 class="font-bold text-base text-foreground">Need to Format Your TNPSC OTR Files?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">Use our dedicated tools configured to official apply.tnpscexams.in portal limits.</p>
+      <h4 class="font-bold text-base text-foreground">Need to Format Your TNPSC OTR Photo &amp; Signature?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">Automated Clause 3 compliance: Add Name &amp; Date stamp, crop to 140×60 px, and compress to exact 10–20 KB bounds.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto shrink-0">
       <a href="/tnpsc-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
@@ -237,59 +274,473 @@ export const BLOG_POSTS: BlogPost[] = [
     </div>
   </div>
 
-  <h2>1. TNPSC Recruitment Hierarchy &amp; Major Examinations</h2>
+  <h2>1. TNPSC Group 4 Exam Date 2026: Official Notification &amp; Annual Planner Schedule</h2>
   <p>
-    The Commission administers exams categorized by administrative grade. Over <strong>20 lakh aspirants</strong> participate annually across these recruitment drives:
+    Every year, over <strong>20 lakh candidates in Tamil Nadu</strong> compete in the Combined Civil Services Examination - IV (Group 4 Services &amp; VAO). There was widespread discussion regarding the <strong>TNPSC group 4 exam date 2026 annual planner</strong>, which originally indicated a tentative exam date of <strong>20 December 2026</strong>. However, upon publishing the formal recruitment notification (Notification No. 11/2026), the Commission confirmed that the exam will take place on <strong>10 January 2027</strong>.
   </p>
+
   <div class="my-5 overflow-x-auto rounded-xl border border-border">
     <table class="w-full text-xs sm:text-sm text-left">
       <thead class="bg-muted text-foreground font-semibold">
         <tr>
-          <th class="p-3 border-b border-border">Cadre Group</th>
-          <th class="p-3 border-b border-border">Key Designations</th>
-          <th class="p-3 border-b border-border">Minimum Qualification</th>
-          <th class="p-3 border-b border-border">Selection Stages</th>
+          <th class="p-3 border-b border-border">Recruitment Milestone</th>
+          <th class="p-3 border-b border-border">Official Schedule / Date</th>
+          <th class="p-3 border-b border-border">Official Portal / Remarks</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-border/60">
         <tr>
-          <td class="p-3 font-bold text-primary">Group 1</td>
-          <td class="p-3 font-medium">Deputy Collector, DSP, Assistant Commissioner (Commercial Taxes)</td>
-          <td class="p-3">Any Bachelor Degree</td>
-          <td class="p-3 text-xs">Prelims + Mains (Written) + Oral Test (Interview)</td>
+          <td class="p-3 font-bold text-foreground">Official Notification Release Date</td>
+          <td class="p-3 font-semibold text-primary">6 October 2026</td>
+          <td class="p-3 text-xs">Notification No. 11/2026 on <a href="https://www.tnpsc.gov.in" target="_blank" rel="noopener" class="underline">tnpsc.gov.in</a></td>
         </tr>
         <tr class="bg-muted/20">
-          <td class="p-3 font-bold text-primary">Group 2 &amp; 2A</td>
-          <td class="p-3 font-medium">Sub-Registrar, Municipal Commissioner, Revenue Assistant, Secretariat ASO</td>
-          <td class="p-3">Any Bachelor Degree</td>
-          <td class="p-3 text-xs">Prelims + Mains (Group 2 has Interview; 2A Non-Interview)</td>
+          <td class="p-3 font-bold text-foreground">TNPSC Group 4 Apply Online Start Date</td>
+          <td class="p-3 font-semibold">6 October 2026</td>
+          <td class="p-3 text-xs">OTR login on <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener" class="underline">apply.tnpscexams.in</a></td>
         </tr>
         <tr>
-          <td class="p-3 font-bold text-primary">Group 4 &amp; VAO</td>
-          <td class="p-3 font-medium">Village Administrative Officer (VAO), Junior Assistant, Typist, Steno-Typist, Bill Collector</td>
-          <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">10th Pass (SSLC)</td>
-          <td class="p-3 text-xs">Single-Stage Written Examination (300 Marks)</td>
+          <td class="p-3 font-bold text-foreground">TNPSC Group 4 Application Last Date</td>
+          <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">5 November 2026 (11:59 PM)</td>
+          <td class="p-3 text-xs">Fee payment &amp; final submission window closes</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-foreground">Online Application Correction Window</td>
+          <td class="p-3 font-semibold">9 November (12:01 AM) – 11 November 2026 (11:59 PM)</td>
+          <td class="p-3 text-xs">3-day window to edit errors in application data</td>
+        </tr>
+        <tr>
+          <td class="p-3 font-bold text-foreground">Annual Planner Tentative Date</td>
+          <td class="p-3 text-muted-foreground line-through">20 December 2026</td>
+          <td class="p-3 text-xs">Preliminary schedule replaced by official notification</td>
+        </tr>
+        <tr class="bg-emerald-500/10 font-bold">
+          <td class="p-3 text-emerald-800 dark:text-emerald-300">Confirmed TNPSC Group 4 Written Exam Date</td>
+          <td class="p-3 text-emerald-700 dark:text-emerald-400 text-sm font-extrabold">10 January 2027 (Sunday)</td>
+          <td class="p-3 text-xs">09:30 AM to 12:30 PM (Single 3-hour offline OMR session)</td>
+        </tr>
+        <tr>
+          <td class="p-3 font-bold text-foreground">Hall Ticket Release Date</td>
+          <td class="p-3 font-semibold">Last Week of December 2026</td>
+          <td class="p-3 text-xs">Available for download via candidate OTR dashboard</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h2>2. Official TNPSC Photo &amp; Signature Technical Specifications</h2>
+  <h2>2. TNPSC Group 4 Vacancy 2026: Post-Wise Distribution (6,574 Posts)</h2>
   <p>
-    Over <strong>60,000 online registrations are rejected or held in objection</strong> during certificate verification due to non-compliant digital uploads. Adhere strictly to these commission parameters:
+    The 2026 notification advertises a total of <strong>6,574 vacancies</strong> across various departments in the Government of Tamil Nadu. Successful candidates are recruited into prestigious clerical and administrative cadres with job stability, government allowances, and promotion pathways:
   </p>
+
+  <div class="my-5 overflow-x-auto rounded-xl border border-border">
+    <table class="w-full text-xs sm:text-sm text-left">
+      <thead class="bg-muted text-foreground font-semibold">
+        <tr>
+          <th class="p-3 border-b border-border">Post Name</th>
+          <th class="p-3 border-b border-border">Department / Service</th>
+          <th class="p-3 border-b border-border">Minimum Qualification</th>
+          <th class="p-3 border-b border-border">Pay Matrix Level</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr>
+          <td class="p-3 font-bold text-primary">Village Administrative Officer (VAO)</td>
+          <td class="p-3">Tamil Nadu Ministerial Service (Revenue Dept)</td>
+          <td class="p-3">SSLC (10th Pass)</td>
+          <td class="p-3 font-medium">Level 8 (₹19,500 – ₹71,900)</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-primary">Junior Assistant (Non-Security &amp; Security)</td>
+          <td class="p-3">Ministerial / Judicial / Board Services</td>
+          <td class="p-3">SSLC (10th Pass)</td>
+          <td class="p-3 font-medium">Level 8 (₹19,500 – ₹71,900)</td>
+        </tr>
+        <tr>
+          <td class="p-3 font-bold text-primary">Bill Collector (Grade-I)</td>
+          <td class="p-3">Tamil Nadu Ministerial Service / Town Panchayats</td>
+          <td class="p-3">SSLC (10th Pass)</td>
+          <td class="p-3 font-medium">Level 8 (₹19,500 – ₹71,900)</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-primary">Typist</td>
+          <td class="p-3">Secretariat / Legislative / Judicial / Ministerial</td>
+          <td class="p-3">SSLC + Govt Technical Exam in Typewriting</td>
+          <td class="p-3 font-medium">Level 8 (₹19,500 – ₹71,900)</td>
+        </tr>
+        <tr>
+          <td class="p-3 font-bold text-primary">Steno-Typist (Grade-III)</td>
+          <td class="p-3">Ministerial / Judicial / Board Services</td>
+          <td class="p-3">SSLC + Technical Typewriting &amp; Shorthand</td>
+          <td class="p-3 font-medium">Level 10 (₹20,600 – ₹75,900)</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-primary">Field Assistant &amp; Store Keeper</td>
+          <td class="p-3">Forest / Industries / Technical Education</td>
+          <td class="p-3">SSLC (10th Pass)</td>
+          <td class="p-3 font-medium">Level 8 (₹19,500 – ₹71,900)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3. TNPSC Group 4 Eligibility Criteria &amp; Age Limit 2026</h2>
+  <p>
+    Candidates must satisfy strict educational and age eligibility criteria as on <strong>1 July 2026</strong>. One of the most sought-after benefits of TNPSC recruitment is the absence of an upper age limit for reserved category candidates with qualifications above SSLC.
+  </p>
+
+  <!-- Highlight Callout: The "No Upper Age Limit" Advantage -->
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-emerald-500/15 via-emerald-500/10 to-transparent border-2 border-emerald-500/40 text-foreground space-y-2.5 shadow-xs">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl">🎯</span>
+      <h3 class="text-base sm:text-lg font-extrabold text-emerald-900 dark:text-emerald-300">
+        Huge Advantage: NO MAXIMUM AGE LIMIT for Reserved Candidates with Higher Qualifications!
+      </h3>
+    </div>
+    <p class="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
+      Under TNPSC Commission Rules (Section 20 of Tamil Nadu Government Servants Conditions of Service Act), candidates belonging to <strong>BC, BCM, MBC/DC, SC, SC(A), and ST</strong> categories who possess educational qualifications <strong>higher than the minimum SSLC requirement</strong> (such as <strong>HSC / 12th Pass, 3-Year Polytechnic Diploma, or any Bachelor's / Master's Degree</strong>) have <span class="bg-emerald-200/90 dark:bg-emerald-900/60 text-emerald-950 dark:text-emerald-100 font-bold px-1.5 py-0.5 rounded border border-emerald-400/40">NO MAXIMUM AGE CEILING</span> for Junior Assistant, Typist, and Steno-Typist posts! Candidates aged <strong>35, 40, 45, or above</strong> are fully eligible to apply and secure state government employment.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+    <!-- Educational Qualifications -->
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
+        <span>🎓</span> Minimum Educational Qualifications
+      </h4>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-2 list-disc pl-5">
+        <li><strong>Standard Posts (VAO, Junior Assistant, Bill Collector):</strong> Must have passed the S.S.L.C Public Examination or its equivalent with eligibility for admission to Higher Secondary Courses.</li>
+        <li><strong>Typist Post:</strong> Passed SSLC + Government Technical Examination in Typewriting:
+          <ul class="list-circle pl-4 pt-1 space-y-1 text-xs text-muted-foreground">
+            <li>Higher Grade in Tamil &amp; English, OR</li>
+            <li>Higher Grade in Tamil &amp; Lower Grade in English, OR</li>
+            <li>Higher Grade in English &amp; Lower Grade in Tamil.</li>
+          </ul>
+        </li>
+        <li><strong>Steno-Typist (Grade-III):</strong> Passed SSLC + Technical Typewriting AND Shorthand exams in specified grades.</li>
+        <li><strong>Computer Qualification:</strong> Passing the Certificate Course in "Computer on Office Automation" (COA) awarded by the Directorate of Technical Education is mandatory for typist posts within the probation period.</li>
+      </ul>
+    </div>
+
+    <!-- Age Limits -->
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
+        <span>📅</span> Age Limit Parameters (as on 01/07/2026)
+      </h4>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-2 list-disc pl-5">
+        <li><strong>Village Administrative Officer (VAO):</strong>
+          <ul class="list-circle pl-4 pt-1 space-y-1 text-xs text-muted-foreground">
+            <li>General / Others: <strong>21 to 32 Years</strong></li>
+            <li>BC, BCM, MBC/DC: <strong>21 to 34 Years</strong> (37 Years if higher educated)</li>
+            <li>SC, SC(A), ST, Destitute Widows: <strong>21 to 37 Years</strong> (42 Years if higher educated)</li>
+          </ul>
+        </li>
+        <li><strong>Junior Assistant, Typist &amp; Steno-Typist:</strong>
+          <ul class="list-circle pl-4 pt-1 space-y-1 text-xs text-muted-foreground">
+            <li>General / Others (SSLC pass): <strong>18 to 32 Years</strong></li>
+            <li>BC, BCM, MBC/DC (SSLC only): <strong>18 to 34 Years</strong></li>
+            <li>SC, SC(A), ST, DW (SSLC only): <strong>18 to 37 Years</strong></li>
+            <li><strong>Candidates with Higher Qualification:</strong> For SC, ST, MBC, BC candidates who have passed HSC, Diploma, or Degree, there is <strong class="text-emerald-600 dark:text-emerald-400">NO MAXIMUM AGE LIMIT</strong>!</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>4. TNPSC Group 4 Syllabus 2026 in Tamil &amp; Exam Pattern (Syllabus PDF Breakdown)</h2>
+  <p>
+    The TNPSC Group 4 written examination is a single-stage objective test comprising <strong>200 multiple-choice questions for a total of 300 marks</strong>. The total duration of the exam is <strong>3 hours (180 minutes)</strong> with no negative marking.
+  </p>
+
+  <div class="my-5 overflow-x-auto rounded-xl border border-border">
+    <table class="w-full text-xs sm:text-sm text-left">
+      <thead class="bg-muted text-foreground font-semibold">
+        <tr>
+          <th class="p-3 border-b border-border">Test Component</th>
+          <th class="p-3 border-b border-border">Number of Questions</th>
+          <th class="p-3 border-b border-border">Maximum Marks</th>
+          <th class="p-3 border-b border-border">Minimum Qualifying Marks</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr>
+          <td class="p-3 font-bold text-primary">
+            Part-A: General Tamil Eligibility-cum-Scoring Test<br/>
+            <span class="text-xs font-normal text-muted-foreground">SSLC Standard (பொதுத் தமிழ்)</span>
+          </td>
+          <td class="p-3 font-semibold">100 Questions</td>
+          <td class="p-3 font-bold text-foreground">150 Marks</td>
+          <td class="p-3 font-bold text-rose-600 dark:text-rose-400">40% (60 Marks mandatory)</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-primary">
+            Part-B (i): General Studies (பொது அறிவு)<br/>
+            <span class="text-xs font-normal text-muted-foreground">SSLC Standard Core Subjects &amp; Current Affairs</span>
+          </td>
+          <td class="p-3 font-semibold">75 Questions</td>
+          <td class="p-3 font-bold text-foreground">112.5 Marks</td>
+          <td class="p-3 text-xs" rowspan="2">
+            Evaluated only if Part-A is qualified (Marks added for overall state ranking)
+          </td>
+        </tr>
+        <tr>
+          <td class="p-3 font-bold text-primary">
+            Part-B (ii): Aptitude &amp; Mental Ability Test<br/>
+            <span class="text-xs font-normal text-muted-foreground">Mathematics, Reasoning &amp; Data Interpretation</span>
+          </td>
+          <td class="p-3 font-semibold">25 Questions</td>
+          <td class="p-3 font-bold text-foreground">37.5 Marks</td>
+        </tr>
+        <tr class="bg-primary/10 font-bold">
+          <td class="p-3 text-primary">Total Examination Aggregate</td>
+          <td class="p-3 font-extrabold text-foreground">200 Questions</td>
+          <td class="p-3 font-extrabold text-foreground">300 Marks</td>
+          <td class="p-3 font-extrabold text-primary">90 Marks (30% aggregate pass)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary">📖 Part-A: General Tamil Syllabus (பொதுத் தமிழ்)</h4>
+      <p class="text-xs text-muted-foreground">Divided into 3 core sections according to the official Tamil Nadu State Board Samacheer Kalvi syllabus:</p>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+        <li><strong>பகுதி-அ: இலக்கணம் (Grammar - 21 Units):</strong> பொருத்துதல், பிரித்தெழுதுதல், எதிர்ச்சொல், பிழை திருத்தம் (சந்திப்பிழை, ஒருமை பன்மை), வேர்ச்சொல் தேர்வு, அகரவரிசை, பெயர்ச்சொல் வகைகள், வினைமுற்று, வினையெச்சம்.</li>
+        <li><strong>பகுதி-ஆ: இலக்கியம் (Literature - 10 Units):</strong> திருக்குறள் (அன்புடைமை, பண்புடைமை, ஒழுக்கமுடைமை, போன்ற அதிகாரங்கள்), நாலடியார், நான்மணிக்கடிகை, சிலப்பதிகாரம், மணிமேகலை, கம்பராமாயணம், எட்டுத்தொகை, பத்துப்பாட்டு.</li>
+        <li><strong>பகுதி-இ: தமிழ் அறிஞர்களும் தமிழ்த் தொண்டும் (Scholars - 20 Units):</strong> பாரதியார், பாரதிதாசன், நாமக்கல் கவிஞர், கவிமணி, உ.வே.சா, திரு.வி.க, தேவநேயப் பாவாணர், ஜி.யு.போப், வீரமாமுனிவர், தந்தை பெரியார், பேரறிஞர் அண்ணா.</li>
+      </ul>
+    </div>
+
+    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
+      <h4 class="font-bold text-sm text-primary">🧠 Part-B: General Studies &amp; Aptitude Syllabus</h4>
+      <p class="text-xs text-muted-foreground">Focuses on Indian Constitution, Modern India, Tamil Nadu socio-economic growth, and arithmetic:</p>
+      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
+        <li><strong>General Science:</strong> Scientific Knowledge, Nature of Universe, Mechanics, Elements &amp; Compounds, Nutrition, Environmental Ecology.</li>
+        <li><strong>Geography &amp; History:</strong> Earth &amp; Universe, Monsoon, Natural Disasters, Indus Valley Civilization, Guptas, Delhi Sultans, Mughals, Marathas, South Indian Kingdoms.</li>
+        <li><strong>Unit 8: History &amp; Culture of Tamil Nadu:</strong> History of Tamil Society, Archaeological discoveries (Keezhadi), Thirukkural relevance, Justice Party, Self-Respect Movement.</li>
+        <li><strong>Unit 9: Development Administration in Tamil Nadu:</strong> Human Development Indicators, Social Justice, Welfare schemes, Economic trends, E-Governance in TN.</li>
+        <li><strong>Aptitude &amp; Mental Ability:</strong> Simplification, Percentage, HCF &amp; LCM, Ratio &amp; Proportion, Simple &amp; Compound Interest, Area &amp; Volume, Time &amp; Work, Logical Puzzles.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>5. Critical Competitor Gap: TNPSC Digital Photo &amp; Signature Upload Audit</h2>
+  <p>
+    While most online portals publish exam dates and syllabus summaries, they consistently neglect the <strong>#1 reason candidates are rejected or held under scrutiny</strong> during certificate verification: non-compliant digital uploads on <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener" class="text-primary underline">apply.tnpscexams.in</a>.
+  </p>
+
+  <!-- Clause 3 Visual Comparison: Accepted vs Rejected Standards -->
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-br from-card via-card to-muted/40 border-2 border-border shadow-xs space-y-4">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">⚖️</span>
+      <h3 class="text-base sm:text-lg font-bold text-foreground">Visual Guide: Accepted vs. Rejected TNPSC Photo &amp; Signature</h3>
+    </div>
+    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+      Over 60,000 TNPSC aspirants face application objections during verification due to minor digital formatting errors. Compare the official Clause 3 compliance specimens below:
+    </p>
+
+    <!-- Side-by-Side Comparison Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+      
+      <!-- PHOTO COMPARISON CARD -->
+      <div class="p-4 rounded-xl bg-card border-2 border-border flex flex-col justify-between space-y-3 shadow-xs">
+        <div>
+          <h4 class="font-bold text-sm text-foreground flex items-center justify-between">
+            <span>📸 Passport Photograph Specs</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono font-semibold">200 × 230 px • 20–50 KB</span>
+          </h4>
+
+          <div class="grid grid-cols-2 gap-3 text-xs mt-3">
+            <!-- Accepted Photo Specimen -->
+            <div class="p-3 rounded-lg bg-emerald-500/10 border-2 border-emerald-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-emerald-600 text-white font-extrabold text-[10px] tracking-wide">✅ ACCEPTED</span>
+              
+<div class="mx-auto w-28 h-36 bg-white border-2 border-emerald-500 rounded-lg shadow-sm flex flex-col overflow-hidden relative">
+  <div class="h-[75%] bg-slate-50 flex items-center justify-center relative overflow-hidden">
+    <svg viewBox="0 0 100 105" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="105" fill="#f8fafc"/>
+      <!-- Shoulders & Coat/Collar -->
+      <path d="M10 105 C15 76, 30 68, 50 68 C70 68, 85 76, 90 105 Z" fill="#1e293b"/>
+      <!-- Shirt Collar -->
+      <path d="M42 68 L50 82 L58 68 Z" fill="#ffffff"/>
+      <path d="M42 68 L48 76 L45 68 Z" fill="#cbd5e1"/>
+      <path d="M58 68 L52 76 L55 68 Z" fill="#cbd5e1"/>
+      <!-- Neck -->
+      <rect x="43" y="50" width="14" height="20" fill="#fbcfe8" rx="2"/>
+      <!-- Face -->
+      <ellipse cx="50" cy="40" rx="19" ry="24" fill="#fed7aa"/>
+      <!-- Hair -->
+      <path d="M29 36 C28 18, 40 12, 50 12 C60 12, 72 18, 71 36 C68 20, 60 16, 50 16 C40 16, 32 20, 29 36 Z" fill="#0f172a"/>
+      <!-- Ears -->
+      <circle cx="29" cy="41" r="3.5" fill="#fcd34d"/>
+      <circle cx="71" cy="41" r="3.5" fill="#fcd34d"/>
+      <!-- Eyes & Brows -->
+      <ellipse cx="43" cy="38" rx="2.2" ry="1.4" fill="#0f172a"/>
+      <ellipse cx="57" cy="38" rx="2.2" ry="1.4" fill="#0f172a"/>
+      <path d="M39 34 Q43 32 47 34" stroke="#0f172a" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M53 34 Q57 32 61 34" stroke="#0f172a" stroke-width="1.3" stroke-linecap="round"/>
+      <!-- Nose & Mouth -->
+      <path d="M50 40 L48 46 L51.5 46" stroke="#ea580c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M45 52 Q50 55 55 52" stroke="#c2410c" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    <span class="absolute top-1 right-1 px-1 py-0.5 rounded bg-emerald-600 text-white font-mono font-bold text-[8px] leading-none shadow-xs">3.5×4.5 cm</span>
+  </div>
+  <!-- Name & Date Box (Clause 3 Mandatory) -->
+  <div class="h-[25%] bg-white border-t border-slate-300 flex flex-col items-center justify-center px-1 text-center font-sans">
+    <span class="text-[9px] font-extrabold text-slate-900 tracking-tight leading-none uppercase">K. SARAVANAN</span>
+    <span class="text-[8px] font-semibold text-slate-600 mt-0.5 leading-none">DOP: 24.10.2026</span>
+  </div>
+</div>
+              <ul class="text-[11px] text-emerald-950 dark:text-emerald-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>White background (75% face)</li>
+                <li>Name &amp; Date printed at bottom</li>
+                <li>Taken within last 3 months</li>
+              </ul>
+            </div>
+
+            <!-- Rejected Photo Specimen -->
+            <div class="p-3 rounded-lg bg-rose-500/10 border-2 border-rose-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold text-[10px] tracking-wide">❌ REJECTED</span>
+              
+<div class="mx-auto w-28 h-36 bg-slate-800 border-2 border-rose-500 rounded-lg shadow-sm flex flex-col overflow-hidden relative">
+  <div class="h-full bg-slate-800 flex items-center justify-center relative overflow-hidden">
+    <svg viewBox="0 0 100 120" class="w-full h-full transform -rotate-6 scale-110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="120" fill="#334155"/>
+      <path d="M5 120 C15 88, 40 82, 60 82 C80 82, 95 92, 105 120 Z" fill="#0f172a"/>
+      <rect x="52" y="62" width="14" height="22" fill="#cbd5e1" rx="2"/>
+      <ellipse cx="60" cy="48" rx="20" ry="24" fill="#e2e8f0"/>
+      <!-- Sunglasses -->
+      <rect x="44" y="42" width="14" height="10" rx="3" fill="#020617"/>
+      <rect x="62" y="42" width="14" height="10" rx="3" fill="#020617"/>
+      <line x1="58" y1="46" x2="62" y2="46" stroke="#020617" stroke-width="2"/>
+    </svg>
+    <!-- Dark Red Rejection Overlay -->
+    <div class="absolute inset-0 bg-rose-950/80 flex flex-col items-center justify-center p-1 text-center backdrop-blur-[1px]">
+      <span class="text-rose-400 text-2xl font-black leading-none mb-1">✕</span>
+      <span class="text-rose-100 font-black text-[9px] uppercase tracking-wider leading-tight">NO NAME &amp; DATE<br/>BOX FOUND</span>
+      <span class="mt-1 px-1.5 py-0.5 rounded bg-rose-600 text-white font-mono font-bold text-[7px]">CASUAL SELFIE</span>
+    </div>
+  </div>
+</div>
+              <ul class="text-[11px] text-rose-950 dark:text-rose-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>Plain photo without name/date</li>
+                <li>Selfie, dark glasses, or cap</li>
+                <li>Blurry scan or &gt; 50 KB size</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- HIGH-VISIBILITY ACTION BUTTON FOR PHOTO -->
+        <a href="/photo-with-name-and-date-maker/" class="mt-2 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center">
+          <span>📸</span>
+          <span>Fix Photo &amp; Add Name/Date (20–50 KB) &rarr;</span>
+        </a>
+      </div>
+
+      <!-- SIGNATURE COMPARISON CARD -->
+      <div class="p-4 rounded-xl bg-card border-2 border-border flex flex-col justify-between space-y-3 shadow-xs">
+        <div>
+          <h4 class="font-bold text-sm text-foreground flex items-center justify-between">
+            <span>✍️ Scanned Signature Specs</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono font-semibold">140 × 60 px • 10–20 KB</span>
+          </h4>
+
+          <div class="grid grid-cols-2 gap-3 text-xs mt-3">
+            <!-- Accepted Signature Specimen -->
+            <div class="p-3 rounded-lg bg-emerald-500/10 border-2 border-emerald-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-emerald-600 text-white font-extrabold text-[10px] tracking-wide">✅ ACCEPTED</span>
+              
+<div class="mx-auto w-32 h-16 bg-white border-2 border-emerald-500 rounded-lg shadow-sm flex flex-col justify-between p-1.5 relative overflow-hidden">
+  <div class="flex items-center justify-between text-[7px] font-mono leading-none">
+    <span class="text-slate-400 font-semibold">3.5 × 1.5 cm</span>
+    <span class="px-1 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold">140×60 px</span>
+  </div>
+  <div class="flex-1 flex items-center justify-center">
+    <svg viewBox="0 0 160 50" class="w-28 h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cursive Signature in Royal Blue Pen -->
+      <path d="M15 35 C15 15, 20 8, 22 8 C23 8, 24 25, 25 35 M20 20 L30 10 M22 22 L32 35" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="36" cy="33" r="1.5" fill="#1d4ed8"/>
+      <path d="M42 32 C46 16, 50 12, 54 18 C58 24, 52 34, 58 32 C62 30, 64 24, 68 28 C72 32, 70 24, 76 26 C80 28, 82 22, 86 26 C90 30, 94 22, 98 25 C102 28, 106 20, 110 24 C114 28, 118 22, 124 26" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M25 40 Q75 42 135 34" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="138" cy="34" r="1.5" fill="#1d4ed8"/>
+    </svg>
+  </div>
+</div>
+              <ul class="text-[11px] text-emerald-950 dark:text-emerald-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>Natural cursive handwriting</li>
+                <li>Blue or black ballpoint pen</li>
+                <li>Clean unruled white paper</li>
+              </ul>
+            </div>
+
+            <!-- Rejected Signature Specimen -->
+            <div class="p-3 rounded-lg bg-rose-500/10 border-2 border-rose-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold text-[10px] tracking-wide">❌ REJECTED</span>
+              
+<div class="mx-auto w-32 h-16 bg-slate-50 dark:bg-slate-900 border-2 border-rose-500 rounded-lg shadow-sm flex flex-col justify-between p-1.5 relative overflow-hidden">
+  <div class="flex items-center justify-between text-[7px] font-mono leading-none">
+    <span class="text-rose-500 font-semibold">INVALID STYLE</span>
+    <span class="px-1 py-0.2 rounded bg-rose-100 dark:bg-rose-900/60 text-rose-700 dark:text-rose-300 font-bold">ALL CAPS</span>
+  </div>
+  <div class="flex-1 flex items-center justify-center relative">
+    <span class="font-sans font-black text-xs text-slate-800 dark:text-slate-200 tracking-widest uppercase">K. SARAVANAN</span>
+    <!-- Red Strikethrough & X -->
+    <svg viewBox="0 0 100 36" class="absolute inset-0 w-full h-full pointer-events-none" fill="none">
+      <line x1="8" y1="30" x2="92" y2="8" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="50" cy="18" r="10" stroke="#e11d48" stroke-width="2" fill="none"/>
+      <line x1="43" y1="11" x2="57" y2="25" stroke="#e11d48" stroke-width="2"/>
+    </svg>
+  </div>
+</div>
+              <ul class="text-[11px] text-rose-950 dark:text-rose-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>ALL CAPITAL / BLOCK letters</li>
+                <li>Faint pencil or red/green ink</li>
+                <li>Under 10 KB or over 20 KB</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- HIGH-VISIBILITY ACTION BUTTON FOR SIGNATURE -->
+        <a href="/tnpsc-signature-resize/" class="mt-2 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center">
+          <span>✍️</span>
+          <span>Resize Signature to 140×60 px (10–20 KB) &rarr;</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- HIGH-IMPACT DUAL CTA BANNER STRIP -->
+    <div class="mt-4 p-4 rounded-xl bg-slate-900 text-white border-2 border-indigo-500/40 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-center md:text-left space-y-0.5">
+        <span class="inline-flex items-center gap-1.5 text-amber-400 font-extrabold text-xs uppercase tracking-wider">
+          <span>⚡</span> Instant Portal-Ready Formatting
+        </span>
+        <p class="text-xs sm:text-sm text-slate-200 font-medium">Free automated tools: format Clause 3 photo with Name/Date &amp; resize cursive signature in 5 seconds.</p>
+      </div>
+      <div class="flex flex-wrap sm:flex-nowrap gap-2.5 w-full md:w-auto shrink-0 justify-center">
+        <a href="/photo-with-name-and-date-maker/" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs shadow-md transition text-center flex items-center justify-center gap-1.5">
+          <span>📸</span> Fix Photo (20–50 KB) &rarr;
+        </a>
+        <a href="/tnpsc-signature-resize/" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs shadow-md transition text-center flex items-center justify-center gap-1.5">
+          <span>✍️</span> Fix Signature (10–20 KB) &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
     <div class="p-4 rounded-xl bg-card border border-border space-y-2">
       <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
-        <span>📸</span> Candidate Photograph Specifications
+        <span>📸</span> Candidate Photograph Specifications (Clause 3)
       </h4>
       <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
         <li><strong>Dimensions:</strong> 200 pixels width × 230 pixels height (3.5 cm × 4.5 cm).</li>
-        <li><strong>File Weight:</strong> Strictly between <strong>20.0 KB and 50.0 KB</strong> in JPG/JPEG.</li>
-        <li><strong>Name &amp; Date Requirement:</strong> The applicant's Name and the Date on which the photo was captured must be printed at the bottom.</li>
-        <li><strong>Background:</strong> Plain white or light background with 75% face coverage. Ears must be visible.</li>
-        <li><strong>Strict Ban:</strong> No caps, sunglasses, uniforms, or sideways tilting.</li>
+        <li><strong>File Weight:</strong> Strictly between <strong>20.0 KB and 50.0 KB</strong> in JPG format.</li>
+        <li><strong>The Stamping Rule:</strong> The candidate Name and the Date on which the photo was taken (within the last 3 months) must be clearly printed in a white box at the bottom.</li>
+        <li><strong>Rejection Cause:</strong> Uploading plain photographs without the name and date stamp causes automatic rejection during manual certificate verification.</li>
       </ul>
     </div>
 
@@ -299,87 +750,110 @@ export const BLOG_POSTS: BlogPost[] = [
       </h4>
       <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
         <li><strong>Dimensions:</strong> 140 pixels width × 60 pixels height (3.5 cm × 1.5 cm).</li>
-        <li><strong>File Weight:</strong> Strictly between <strong>10.0 KB and 20.0 KB</strong> in JPG/JPEG.</li>
-        <li><strong>Ink &amp; Medium:</strong> Dark Blue or Black ballpoint pen on spotless, unruled white paper.</li>
-        <li><strong>Handwriting Style:</strong> Natural running cursive handwriting only.</li>
-        <li><strong>Disqualification:</strong> Signatures in ALL CAPITAL / BLOCK LETTERS will be rejected automatically.</li>
+        <li><strong>File Weight:</strong> Strictly between <strong>10.0 KB and 20.0 KB</strong> in JPG format.</li>
+        <li><strong>Ink &amp; Paper:</strong> Dark blue or black ballpoint pen on plain white paper.</li>
+        <li><strong>Handwriting Style:</strong> Natural running cursive handwriting.</li>
+        <li><strong>Disqualification:</strong> Signatures in ALL CAPITAL / BLOCK letters or faint gel ink are automatically disqualified by portal scrutiny algorithms.</li>
       </ul>
     </div>
   </div>
 
-  <!-- Warning Box: Photo Stamping Trap -->
+  <!-- PSTM Callout -->
   <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-foreground space-y-2">
     <h4 class="font-extrabold text-amber-900 dark:text-amber-300 text-base flex items-center gap-2">
-      <span>⚠️</span> The Mandatory "Name &amp; Date" Stamping Rule on TNPSC Photos
+      <span>📜</span> Persons Studied in Tamil Medium (PSTM) 20% Reservation Rule
     </h4>
     <p class="text-sm text-amber-950/90 dark:text-slate-200 leading-relaxed font-medium">
-      Unlike UPSC or SSC which capture webcam images, the Tamil Nadu Commission enforces a strict photo stamping rule: <em>"The photograph should have been taken within the last 3 months. The name of the applicant and the date on which the photo was taken should be clearly printed at the bottom of the photograph."</em> Uploading a plain photo without this box will prompt a verification objection notice.
+      Under the Tamil Nadu PSTM Act, <strong>20% of all departmental vacancies are reserved for Tamil medium students</strong>. By High Court ruling, candidates claiming PSTM quota for Group 4 must have completed their entire education from <strong>1st Standard through 10th Standard (SSLC) in Tamil medium</strong>. The certificate must be issued in the prescribed format by the Headmaster/Principal of the schools studied and uploaded as a clear PDF strictly under <strong>200 KB</strong>.
     </p>
   </div>
 
-  <h2>3. Persons Studied in Tamil Medium (PSTM) 20% Reservation Rules</h2>
-  <p>
-    Under the Tamil Nadu Appointment on Preferential Basis in the Services under the State of Persons Studied in Tamil Medium Act, <strong>20% of vacancies are reserved for PSTM candidates</strong>. However, recent High Court directives mandate that candidates must have completed their <strong>entire education from 1st Standard up to the prescribed qualification (SSLC for Group 4, Degree for Group 1/2) in Tamil Medium</strong>.
-  </p>
-  <ul class="my-3 space-y-1.5 text-sm list-disc pl-5">
-    <li>PSTM Certificate must be issued by the Head of Institution (HM or Principal) in the prescribed commission format.</li>
-    <li>Upload as a clear scanned PDF file strictly under <strong>200 KB</strong>.</li>
-  </ul>
-
-  <h2>4. Frequently Asked Questions (TNPSC 2026 Registration)</h2>
-  <div class="space-y-4 my-4">
-    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
-      <h4 class="font-bold text-sm text-foreground mb-1">What is the validity of TNPSC One Time Registration (OTR)?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        TNPSC OTR is valid for <strong>5 years from the date of initial registration</strong>. After 5 years, candidates must renew their OTR profile by paying the ₹150 renewal fee and updating their latest photograph and signature.
-      </p>
+  <!-- Pre-Application Desk Checklist -->
+  <div class="my-6 p-5 rounded-2xl bg-slate-900 text-white border border-slate-700 shadow-md space-y-3">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">📋</span>
+      <h3 class="text-base sm:text-lg font-bold text-white">Pre-Application Desk Checklist: Keep These 8 Items Ready</h3>
     </div>
-
-    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
-      <h4 class="font-bold text-sm text-foreground mb-1">How can I resize my signature to 10 to 20 KB for TNPSC?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        Sign with a black or blue ballpoint pen on plain white paper. Use our <a href="/tnpsc-signature-resize/" class="text-primary underline font-medium">TNPSC Signature Resizer</a>, which automatically crops to 140×60 px, removes paper shadows, and compresses the file strictly between 10 KB and 20 KB.
-      </p>
-    </div>
-
-    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
-      <h4 class="font-bold text-sm text-foreground mb-1">What is the minimum qualifying score in the TNPSC Tamil Eligibility Test?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        Part-A (General Tamil Eligibility-cum-Scoring Test) contains 100 questions carrying 150 marks. Candidates must score a <strong>minimum of 40% (60 marks out of 150)</strong> for their General Studies paper (Part-B) to be evaluated.
-      </p>
+    <p class="text-xs sm:text-sm text-slate-300">
+      Before opening the online application form on <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener" class="text-primary-foreground underline font-semibold">apply.tnpscexams.in</a>, have these credentials and scanned files ready on your desktop to prevent session timeouts:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 text-xs">
+      <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700 flex items-start gap-2">
+        <span class="text-emerald-400 font-bold">1.</span>
+        <span><strong>SSLC (10th) Marksheet:</strong> Registration number, month/year of passing, and Board certificate.</span>
+      </div>
+      <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700 flex items-start gap-2">
+        <span class="text-emerald-400 font-bold">2.</span>
+        <span><strong>Community Certificate:</strong> Permanent certificate number and Tahsildar issuing office details.</span>
+      </div>
+      <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700 flex items-start gap-2">
+        <span class="text-emerald-400 font-bold">3.</span>
+        <span><strong>PSTM Certificate (If Claiming 20% Quota):</strong> 1st to 10th std in Tamil medium signed by school HM (PDF &lt; 200 KB).</span>
+      </div>
+      <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700 flex items-start gap-2">
+        <span class="text-emerald-400 font-bold">4.</span>
+        <span><strong>Technical Typewriting/Shorthand:</strong> Technical board certificates for typist/steno posts.</span>
+      </div>
+      <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700 flex items-start gap-2">
+        <span class="text-emerald-400 font-bold">5.</span>
+        <span><strong>Aadhaar Card:</strong> Active mobile phone on hand to receive Aadhaar OTP verification.</span>
+      </div>
+      <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700 flex items-start gap-2">
+        <span class="text-emerald-400 font-bold">6.</span>
+        <span><strong>Pre-Sized TNPSC Photo:</strong> 200×230 px (20–50 KB) with Name &amp; Date printed at the bottom.</span>
+      </div>
+      <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700 flex items-start gap-2">
+        <span class="text-emerald-400 font-bold">7.</span>
+        <span><strong>Pre-Sized TNPSC Signature:</strong> 140×60 px (10–20 KB) in running cursive blue/black ink.</span>
+      </div>
+      <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700 flex items-start gap-2">
+        <span class="text-emerald-400 font-bold">8.</span>
+        <span><strong>Payment Mode:</strong> Net Banking, UPI, or Debit Card ready for the ₹100 exam fee.</span>
+      </div>
     </div>
   </div>
+
+  <h2>6. How to Apply Online for TNPSC Group 4 2026 on apply.tnpscexams.in</h2>
+  <ol class="space-y-3 my-4 list-decimal pl-5 text-sm">
+    <li><strong>Access the Official Portal:</strong> Visit <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-medium">apply.tnpscexams.in</a> or <a href="https://www.tnpsc.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary underline font-medium">tnpsc.gov.in</a>.</li>
+    <li><strong>Complete One Time Registration (OTR):</strong> If you are a new applicant, create your OTR profile with your Aadhaar verification and pay the ₹150 registration fee (valid for 5 years). Existing candidates can directly log in using their Login ID and Password.</li>
+    <li><strong>Select Recruitment Notification:</strong> Under the active applications dashboard, select <em>"Combined Civil Services Examination - IV (Group-IV Services &amp; VAO) (Notification No. 11/2026)"</em> and click <strong>Apply</strong>.</li>
+    <li><strong>Fill Educational &amp; Technical Details:</strong> Enter your SSLC marksheet registration number, board of examination, year of passing, community certificate number, and technical typewriting qualifications (if applying for typist posts).</li>
+    <li><strong>Format and Upload Photo &amp; Signature:</strong> Use our free <a href="/tnpsc-photo-resize/" class="text-primary underline font-bold">TNPSC Photo Resizer</a> and <a href="/tnpsc-signature-resize/" class="text-primary underline font-bold">TNPSC Signature Resizer</a> to generate perfectly sized, portal-ready files that pass the gateway check on the first attempt.</li>
+    <li><strong>Pay the Examination Fee:</strong> Pay the online exam fee of ₹100 via Net Banking, UPI, or Credit/Debit Card (exemptions apply to SC/ST/PwBD/DW candidates).</li>
+    <li><strong>Download Application PDF:</strong> Submit your application before <strong>5 November 2026 (11:59 PM)</strong> and save the generated confirmation receipt for future reference.</li>
+  </ol>
 
 </div>
 `,
     contentHtml_hi: `
 <div class="space-y-6 text-foreground leading-relaxed">
 
-  <!-- Direct Answer Box (Snippet / AI Overview Hook) -->
+  <!-- Direct Answer Box -->
   <div class="p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground space-y-3">
     <div class="flex items-center gap-2">
       <span class="text-xl">🏛️</span>
-      <h3 class="text-base font-bold text-foreground">त्वरित उत्तर: TNPSC 2026 दस्तावेज, OTR व परीक्षा ब्लूप्रिंट</h3>
+      <h3 class="text-base font-bold text-foreground">त्वरित उत्तर: TNPSC Group 4 Exam Date 2026 एवं आधिकारिक कार्यक्रम</h3>
     </div>
     <p class="text-sm text-foreground/90 leading-relaxed font-medium">
-      <strong>तमिलनाडु लोक सेवा आयोग (TNPSC)</strong> द्वारा राज्य की प्रमुख प्रशासनिक सेवाओं जैसे <strong>ग्रुप 1, ग्रुप 2/2A एवं ग्रुप 4 (VAO - ग्राम प्रशासनिक अधिकारी, कनिष्ठ सहायक, टाइपिस्ट)</strong> के लिए भर्ती आयोजित की जाती है। <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">apply.tnpscexams.in</a> पर आवेदन के लिए <strong>वन टाइम रजिस्ट्रेशन (OTR)</strong> अनिवार्य है जिसकी वैधता 5 वर्ष होती है। उम्मीदवारों को <strong>200 × 230 px पासपोर्ट फोटो (20–50 KB, नीचे नाम व तारीख सहित)</strong>, <strong>140 × 60 px हस्ताक्षर (10–20 KB, नीली/काली बॉलपॉइंट स्याही)</strong> और प्रमाण पत्र (10वीं, जाति, PSTM) <strong>200 KB से कम PDF</strong> में अपलोड करने होते हैं।
+      <strong>तमिलनाडु लोक सेवा आयोग (TNPSC)</strong> ने <strong>6,574 पदों</strong> के लिए <strong>TNPSC Group 4 Exam Date 2026</strong> की आधिकारिक घोषणा कर दी है। नोटिफिकेशन संख्या 11/2026 के अनुसार एकल-चरणीय लिखित परीक्षा <strong>10 जनवरी 2027 (रविवार) को सुबह 09:30 बजे से दोपहर 12:30 बजे तक</strong> तमिलनाडु के सभी जिलों में ऑफलाइन OMR मोड में आयोजित होगी। ऑनलाइन आवेदन <strong>6 अक्टूबर 2026</strong> से शुरू होकर <strong>5 नवंबर 2026 (रात 11:59 बजे)</strong> तक <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">apply.tnpscexams.in</a> पर स्वीकार किए जाएंगे। फॉर्म में सुधार (Correction Window) 9 से 11 नवंबर 2026 तक खुला रहेगा। उम्मीदवारों को <strong>200 × 230 px फोटो (20–50 KB, नीचे नाम व तारीख प्रिंट)</strong> और <strong>140 × 60 px कर्सिव हस्ताक्षर (10–20 KB)</strong> अपलोड करना अनिवार्य है।
     </p>
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">फोटो सीमा</span>
-        <strong class="text-foreground text-sm font-extrabold">200×230 px (20–50 KB)</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">लिखित परीक्षा तारीख</span>
+        <strong class="text-foreground text-sm font-extrabold text-primary">10 जनवरी 2027 (रवि)</strong>
       </div>
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">हस्ताक्षर सीमा</span>
-        <strong class="text-foreground text-sm font-extrabold">140×60 px (10–20 KB)</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">कुल रिक्तियां</span>
+        <strong class="text-foreground text-sm font-extrabold text-emerald-600 dark:text-emerald-400">6,574 पद</strong>
       </div>
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">फोटो नियम</span>
-        <strong class="text-foreground text-sm font-extrabold">नाम व तारीख प्रिंटेड</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">आवेदन अवधि</span>
+        <strong class="text-foreground text-sm font-extrabold">6 अक्टू – 5 नवं 2026</strong>
       </div>
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">प्रमाण पत्र PDF</span>
-        <strong class="text-foreground text-sm font-extrabold">&lt; 200 KB प्रत्येक</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">तमिल भाषा अर्हता</span>
+        <strong class="text-foreground text-sm font-extrabold">न्यूनतम 40% (60 अंक)</strong>
       </div>
     </div>
   </div>
@@ -387,8 +861,8 @@ export const BLOG_POSTS: BlogPost[] = [
   <!-- Interactive Document Suite Callout -->
   <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card via-card to-primary/10 border-2 border-primary/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
     <div>
-      <h4 class="font-bold text-base text-foreground">TNPSC OTR के लिए फोटो-हस्ताक्षर रिसाइझ करना है?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">हमारे आधिकारिक TNPSC टूल्स से 1-क्लिक में सही KB और पिक्सल प्राप्त करें।</p>
+      <h4 class="font-bold text-base text-foreground">TNPSC OTR के लिए फोटो और हस्ताक्षर रिसाइज़ करना है?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">हमारे 1-क्लिक टूल से फोटो पर नाम व तारीख जोड़ें और हस्ताक्षर को 10 से 20 KB में सटीक तैयार करें।</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto shrink-0">
       <a href="/tnpsc-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
@@ -403,112 +877,326 @@ export const BLOG_POSTS: BlogPost[] = [
     </div>
   </div>
 
-  <h2>1. TNPSC भर्ती संवर्ग एवं प्रमुख परीक्षाएं</h2>
+  <h2>1. TNPSC Group 4 परीक्षा तिथि 2026: एनुअल प्लानर बनाम आधिकारिक नोटिफिकेशन</h2>
   <p>
-    तमिलनाडु लोक सेवा आयोग द्वारा प्रशासनिक पदों को ग्रुप 1 से ग्रुप 4 तक विभाजित किया गया है। हर वर्ष <strong>20 लाख से अधिक अभ्यर्थी</strong> इन परीक्षाओं में भाग लेते हैं:
+    TNPSC एनुअल प्लानर 2026 में ग्रुप 4 परीक्षा की संभावित तारीख <strong>20 दिसंबर 2026</strong> दर्ज थी। हालांकि, 6 अक्टूबर 2026 को जारी आधिकारिक नोटिफिकेशन (Notification No. 11/2026) के माध्यम से परीक्षा की आधिकारिक तारीख <strong>10 जनवरी 2027</strong> निर्धारित की गई है।
   </p>
+
   <div class="my-5 overflow-x-auto rounded-xl border border-border">
     <table class="w-full text-xs sm:text-sm text-left">
       <thead class="bg-muted text-foreground font-semibold">
         <tr>
-          <th class="p-3 border-b border-border">संवर्ग (Group)</th>
-          <th class="p-3 border-b border-border">प्रमुख पद</th>
-          <th class="p-3 border-b border-border">न्यूनतम योग्यता</th>
-          <th class="p-3 border-b border-border">चयन प्रक्रिया</th>
+          <th class="p-3 border-b border-border">भर्ती चरण / घटना</th>
+          <th class="p-3 border-b border-border">आधिकारिक तारीख</th>
+          <th class="p-3 border-b border-border">महत्वपूर्ण विवरण</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-border/60">
         <tr>
-          <td class="p-3 font-bold text-primary">ग्रुप 1</td>
-          <td class="p-3 font-medium">डिप्टी कलेक्टर, डीएसपी (DSP), सहायक वाणिज्यिक कर आयुक्त</td>
-          <td class="p-3">स्नातक (Graduate)</td>
-          <td class="p-3 text-xs">प्रारंभिक (Prelims) + मुख्य लिखित + साक्षात्कार (Interview)</td>
+          <td class="p-3 font-bold text-foreground">आधिकारिक नोटिफिकेशन जारी</td>
+          <td class="p-3 font-semibold text-primary">6 अक्टूबर 2026</td>
+          <td class="p-3 text-xs">नोटिफिकेशन संख्या 11/2026 (tnpsc.gov.in)</td>
         </tr>
         <tr class="bg-muted/20">
-          <td class="p-3 font-bold text-primary">ग्रुप 2 एवं 2A</td>
-          <td class="p-3 font-medium">सब-रजिस्ट्रार, म्युनिसिपल कमिश्नर, राजस्व सहायक, सचिवालय ASO</td>
-          <td class="p-3">स्नातक (Any Degree)</td>
-          <td class="p-3 text-xs">प्रारंभिक + मुख्य (ग्रुप 2 में इंटरव्यू; 2A नॉन-इंटरव्यू)</td>
+          <td class="p-3 font-bold text-foreground">ऑनलाइन आवेदन प्रारंभ तिथि</td>
+          <td class="p-3 font-semibold">6 अक्टूबर 2026</td>
+          <td class="p-3 text-xs">apply.tnpscexams.in पर OTR के माध्यम से</td>
         </tr>
         <tr>
-          <td class="p-3 font-bold text-primary">ग्रुप 4 व VAO</td>
-          <td class="p-3 font-medium">ग्राम प्रशासनिक अधिकारी (VAO), जूनियर असिस्टेंट, टाइपिस्ट, बिल कलेक्टर</td>
-          <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">10वीं पास (SSLC)</td>
-          <td class="p-3 text-xs">एकल-चरणीय लिखित परीक्षा (300 अंक)</td>
+          <td class="p-3 font-bold text-foreground">ऑनलाइन आवेदन की अंतिम तिथि</td>
+          <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">5 नवंबर 2026 (रात 11:59 बजे)</td>
+          <td class="p-3 text-xs">फीस भुगतान एवं फॉर्म सबमिशन समाप्त</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-foreground">आवेदन सुधार विंडो (Correction Window)</td>
+          <td class="p-3 font-semibold">9 नवंबर से 11 नवंबर 2026</td>
+          <td class="p-3 text-xs">गलत विवरण सुधारने का 3 दिवसीय अवसर</td>
+        </tr>
+        <tr class="bg-emerald-500/10 font-bold">
+          <td class="p-3 text-emerald-800 dark:text-emerald-300">पुष्ट TNPSC Group 4 परीक्षा तिथि</td>
+          <td class="p-3 text-emerald-700 dark:text-emerald-400 text-sm font-extrabold">10 जनवरी 2027 (रविवार)</td>
+          <td class="p-3 text-xs">सुबह 09:30 से दोपहर 12:30 (3 घंटे, ऑफलाइन OMR)</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h2>2. आधिकारिक TNPSC फोटो एवं हस्ताक्षर तकनीकी विनिर्देश</h2>
-  <p>
-    प्रमाण पत्र सत्यापन और ऑनलाइन पोर्टल पर गलत फोटो या हस्ताक्षर के कारण <strong>60,000 से अधिक आवेदन अस्वीकृत</strong> होते हैं। इन नियमों का पालन करें:
-  </p>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
-    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
-        <span>📸</span> फोटो विनिर्देश (Photograph Rules)
-      </h4>
-      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
-        <li><strong>आयाम (Dimensions):</strong> 200 पिक्सल चौड़ाई × 230 पिक्सल ऊंचाई (3.5 सेमी × 4.5 सेमी)।</li>
-        <li><strong>फाइल वजन:</strong> केवल <strong>20.0 KB से 50.0 KB</strong> के बीच JPG/JPEG फॉर्मेट में।</li>
-        <li><strong>नाम व तारीख नियम (Clause 3):</strong> फोटो के नीचे सफेद पट्टी में अभ्यर्थी का पूरा नाम और फोटो खींचने की तारीख स्पष्ट छपी होनी चाहिए।</li>
-        <li><strong>पृष्ठभूमि:</strong> सादा सफेद या हल्का बैकग्राउंड, 75% चेहरा दिखना चाहिए, दोनों कान साफ दिखने चाहिए।</li>
-        <li><strong>प्रतिबंध:</strong> चश्मा (गॉगल्स), टोपी, मास्क या तिरछी सेल्फी पूर्णतः अमान्य है।</li>
-      </ul>
-    </div>
-
-    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
-        <span>✍️</span> हस्ताक्षर विनिर्देश (Signature Rules)
-      </h4>
-      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
-        <li><strong>आयाम (Dimensions):</strong> 140 पिक्सल चौड़ाई × 60 पिक्सल ऊंचाई (3.5 सेमी × 1.5 सेमी)।</li>
-        <li><strong>फाइल वजन:</strong> केवल <strong>10.0 KB से 20.0 KB</strong> के बीच JPG/JPEG फॉर्मेट में।</li>
-        <li><strong>स्याही व कागज:</strong> सादे सफेद कागज पर नीली या काली बॉलपॉइंट पेन से हस्ताक्षर करें।</li>
-        <li><strong>हैंडराइटिंग शैली:</strong> केवल प्राकृतिक रनिंग कर्सिव लिखावट मान्य है।</li>
-        <li><strong>खारिज होने का कारण:</strong> केवल बड़े अक्षरों (BLOCK/CAPITAL LETTERS) में नाम लिखने पर पोर्टल स्वतः रिजेक्ट करता है।</li>
-      </ul>
-    </div>
+  <h2>2. TNPSC ग्रुप 4 पद विवरण 2026 (कुल 6,574 रिक्तियां)</h2>
+  <div class="my-5 overflow-x-auto rounded-xl border border-border">
+    <table class="w-full text-xs sm:text-sm text-left">
+      <thead class="bg-muted text-foreground font-semibold">
+        <tr>
+          <th class="p-3 border-b border-border">पद का नाम</th>
+          <th class="p-3 border-b border-border">विभाग / सेवा</th>
+          <th class="p-3 border-b border-border">न्यूनतम योग्यता</th>
+          <th class="p-3 border-b border-border">वेतनमान</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        <tr>
+          <td class="p-3 font-bold text-primary">ग्राम प्रशासनिक अधिकारी (VAO)</td>
+          <td class="p-3">राजस्व विभाग (Ministerial Service)</td>
+          <td class="p-3">10वीं पास (SSLC)</td>
+          <td class="p-3 font-medium">लेवल 8 (₹19,500 – ₹71,900)</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-primary">कनिष्ठ सहायक (Junior Assistant)</td>
+          <td class="p-3">विभिन्न सरकारी विभाग एवं बोर्ड</td>
+          <td class="p-3">10वीं पास (SSLC)</td>
+          <td class="p-3 font-medium">लेवल 8 (₹19,500 – ₹71,900)</td>
+        </tr>
+        <tr>
+          <td class="p-3 font-bold text-primary">टाइपिस्ट (Typist)</td>
+          <td class="p-3">सचिवालय, न्यायिक एवं प्रशासनिक शाखाएं</td>
+          <td class="p-3">10वीं + टाइपराइटिंग तकनीकी परीक्षा</td>
+          <td class="p-3 font-medium">लेवल 8 (₹19,500 – ₹71,900)</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-primary">स्टेनो-टाइपिस्ट (Steno-Typist Gr-III)</td>
+          <td class="p-3">मंत्रालयीन सेवाएं</td>
+          <td class="p-3">10वीं + टाइपिंग व शॉर्टहैंड परीक्षा</td>
+          <td class="p-3 font-medium">लेवल 10 (₹20,600 – ₹75,900)</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- Warning Box: Photo Stamping Trap -->
-  <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-foreground space-y-2">
-    <h4 class="font-extrabold text-amber-900 dark:text-amber-300 text-base flex items-center gap-2">
-      <span>⚠️</span> TNPSC क्लॉज 3: फोटो पर नाम व तारीख का अनिवार्य नियम
-    </h4>
-    <p class="text-sm text-amber-950/90 dark:text-slate-200 leading-relaxed font-medium">
-      TNPSC आयोग के अनुसार: <em>"फोटो पिछले 3 महीनों के भीतर खींची गई होनी चाहिए। फोटो के नीचे बॉक्स में उम्मीदवार का नाम और फोटो लेने की तारीख साफ अक्षरों में मुद्रित होनी चाहिए।"</em> बिना नाम-तारीख के सादी फोटो अपलोड करने पर दस्तावेज सत्यापन के समय रिजेक्शन नोटिस मिल सकता है।
+  <h2>3. पात्रता एवं आयु सीमा (Age Limit as on 01/07/2026)</h2>
+
+  <!-- Highlight Callout: The "No Upper Age Limit" Advantage -->
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-emerald-500/15 via-emerald-500/10 to-transparent border-2 border-emerald-500/40 text-foreground space-y-2.5 shadow-xs">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl">🎯</span>
+      <h3 class="text-base sm:text-lg font-extrabold text-emerald-900 dark:text-emerald-300">
+        बड़ा लाभ: उच्च योग्यता वाले आरक्षित उम्मीदवारों के लिए कोई अधिकतम आयु सीमा नहीं!
+      </h3>
+    </div>
+    <p class="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
+      TNPSC आयोग के नियमों के अनुसार <strong>BC, BCM, MBC/DC, SC, SC(A) और ST</strong> वर्ग के वे अभ्यर्थी जिन्होंने 10वीं (SSLC) से उच्च शिक्षा (जैसे <strong>12वीं/HSC, 3 वर्षीय डिप्लोमा या कोई भी स्नातक/मास्टर डिग्री</strong>) प्राप्त की है, उनके लिए जूनियर असिस्टेंट, टाइपिस्ट एवं स्टेनो पदों हेतु <span class="bg-emerald-200/90 dark:bg-emerald-900/60 text-emerald-950 dark:text-emerald-100 font-bold px-1.5 py-0.5 rounded border border-emerald-400/40">कोई अधिकतम आयु सीमा (NO UPPER AGE LIMIT) नहीं है</span>! 35, 40 या 45 वर्ष से अधिक उम्र के योग्य अभ्यर्थी भी सरकारी नौकरी के लिए आवेदन कर सकते हैं।
     </p>
   </div>
 
-  <h2>3. तमिल माध्यम आरक्षण (PSTM - 20% Reservation) नियम</h2>
+  <ul class="space-y-2 text-sm list-disc pl-5">
+    <li><strong>शैक्षणिक योग्यता:</strong> मान्यता प्राप्त बोर्ड से 10वीं कक्षा (SSLC) उत्तीर्ण होना अनिवार्य है। टाइपिस्ट पदों के लिए तमिल व अंग्रेजी में टाइपराइटिंग परीक्षा उत्तीर्ण होना चाहिए।</li>
+    <li><strong>VAO पद हेतु आयु:</strong> सामान्य वर्ग (21 से 32 वर्ष), BC/MBC (21 से 34/37 वर्ष), SC/ST (21 से 37/42 वर्ष)।</li>
+    <li><strong>जूनियर असिस्टेंट व टाइपिस्ट हेतु आयु:</strong> सामान्य वर्ग के लिए 18 से 32 वर्ष। 10वीं से उच्च शिक्षा प्राप्त आरक्षित वर्ग के लिए कोई अधिकतम आयु सीमा नहीं।</li>
+  </ul>
+
+  <h2>4. परीक्षा पैटर्न एवं तमिल सिलेबस (Syllabus PDF)</h2>
   <p>
-    तमिलनाडु सरकार के नियमों के तहत <strong>तमिल माध्यम से अध्ययन करने वाले अभ्यर्थियों (PSTM) को 20% आरक्षण</strong> मिलता है। उच्च न्यायालय के निर्देशानुसार कक्षा 1 से लेकर निर्धारित शैक्षणिक योग्यता (ग्रुप 4 के लिए 10वीं, ग्रुप 1/2 के लिए डिग्री) तक की संपूर्ण शिक्षा तमिल माध्यम में होना अनिवार्य है। संबंधित संस्थान प्रमुख द्वारा जारी PSTM प्रमाण पत्र <strong>200 KB से कम PDF</strong> में अपलोड करें।
+    परीक्षा में 200 बहुविकल्पीय प्रश्न (300 अंक) होंगे और अवधि 3 घंटे होगी। कोई नकारात्मक अंकन (No Negative Marking) नहीं है:
   </p>
+  <div class="my-4 p-4 rounded-xl bg-card border border-border text-sm space-y-2">
+    <p><strong>भाग-क (जनरल तमिल):</strong> 100 प्रश्न (150 अंक)। व्याकरण (இலக்கணம்), साहित्य (இலக்கியம்) और तमिल विद्वान। इसमें न्यूनतम 40% (60 अंक) प्राप्त करना अनिवार्य है।</p>
+    <p><strong>भाग-ख (सामान्य अध्ययन व गणित):</strong> 75 प्रश्न सामान्य ज्ञान + 25 प्रश्न गणित/मानसिक क्षमता (150 अंक)।</p>
+  </div>
 
-  <h2>4. अक्सर पूछे जाने वाले सवाल (TNPSC 2026 FAQs)</h2>
-  <div class="space-y-4 my-4">
-    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
-      <h4 class="font-bold text-sm text-foreground mb-1">TNPSC वन टाइम रजिस्ट्रेशन (OTR) की वैधता कितनी होती है?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        TNPSC OTR पंजीकरण <strong>5 वर्षों के लिए वैध</strong> होता है। 5 वर्ष पूरे होने पर ₹150 शुल्क देकर नवीनतम फोटो व हस्ताक्षर के साथ OTR नवीनीकृत (Renew) करना होता है।
-      </p>
+  <h2>5. महत्वपूर्ण फोटो व हस्ताक्षर नियम (Clause 3 Compliance)</h2>
+
+  <!-- Clause 3 Visual Comparison: Accepted vs Rejected Standards -->
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-br from-card via-card to-muted/40 border-2 border-border shadow-xs space-y-4">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">⚖️</span>
+      <h3 class="text-base sm:text-lg font-bold text-foreground">विजुअल गाइड: स्वीकृत बनाम अस्वीकृत फोटो और हस्ताक्षर</h3>
+    </div>
+    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+      हर साल हजारों TNPSC उम्मीदवारों का आवेदन सिर्फ फोटो या हस्ताक्षर में Clause 3 नियमों की अनदेखी के कारण रिजेक्ट हो जाता है। नीचे आधिकारिक नमूने देखें:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+      
+      <!-- PHOTO COMPARISON CARD HINDI -->
+      <div class="p-4 rounded-xl bg-card border-2 border-border flex flex-col justify-between space-y-3 shadow-xs">
+        <div>
+          <h4 class="font-bold text-sm text-foreground flex items-center justify-between">
+            <span>📸 पासपोर्ट फोटो (20–50 KB)</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono font-semibold">200 × 230 px</span>
+          </h4>
+          <div class="grid grid-cols-2 gap-3 text-xs mt-3">
+            <div class="p-3 rounded-lg bg-emerald-500/10 border-2 border-emerald-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-emerald-600 text-white font-extrabold text-[10px]">✅ मान्य</span>
+              
+<div class="mx-auto w-28 h-36 bg-white border-2 border-emerald-500 rounded-lg shadow-sm flex flex-col overflow-hidden relative">
+  <div class="h-[75%] bg-slate-50 flex items-center justify-center relative overflow-hidden">
+    <svg viewBox="0 0 100 105" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="105" fill="#f8fafc"/>
+      <!-- Shoulders & Coat/Collar -->
+      <path d="M10 105 C15 76, 30 68, 50 68 C70 68, 85 76, 90 105 Z" fill="#1e293b"/>
+      <!-- Shirt Collar -->
+      <path d="M42 68 L50 82 L58 68 Z" fill="#ffffff"/>
+      <path d="M42 68 L48 76 L45 68 Z" fill="#cbd5e1"/>
+      <path d="M58 68 L52 76 L55 68 Z" fill="#cbd5e1"/>
+      <!-- Neck -->
+      <rect x="43" y="50" width="14" height="20" fill="#fbcfe8" rx="2"/>
+      <!-- Face -->
+      <ellipse cx="50" cy="40" rx="19" ry="24" fill="#fed7aa"/>
+      <!-- Hair -->
+      <path d="M29 36 C28 18, 40 12, 50 12 C60 12, 72 18, 71 36 C68 20, 60 16, 50 16 C40 16, 32 20, 29 36 Z" fill="#0f172a"/>
+      <!-- Ears -->
+      <circle cx="29" cy="41" r="3.5" fill="#fcd34d"/>
+      <circle cx="71" cy="41" r="3.5" fill="#fcd34d"/>
+      <!-- Eyes & Brows -->
+      <ellipse cx="43" cy="38" rx="2.2" ry="1.4" fill="#0f172a"/>
+      <ellipse cx="57" cy="38" rx="2.2" ry="1.4" fill="#0f172a"/>
+      <path d="M39 34 Q43 32 47 34" stroke="#0f172a" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M53 34 Q57 32 61 34" stroke="#0f172a" stroke-width="1.3" stroke-linecap="round"/>
+      <!-- Nose & Mouth -->
+      <path d="M50 40 L48 46 L51.5 46" stroke="#ea580c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M45 52 Q50 55 55 52" stroke="#c2410c" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    <span class="absolute top-1 right-1 px-1 py-0.5 rounded bg-emerald-600 text-white font-mono font-bold text-[8px] leading-none shadow-xs">3.5×4.5 cm</span>
+  </div>
+  <!-- Name & Date Box (Clause 3 Mandatory) -->
+  <div class="h-[25%] bg-white border-t border-slate-300 flex flex-col items-center justify-center px-1 text-center font-sans">
+    <span class="text-[9px] font-extrabold text-slate-900 tracking-tight leading-none uppercase">K. SARAVANAN</span>
+    <span class="text-[8px] font-semibold text-slate-600 mt-0.5 leading-none">DOP: 24.10.2026</span>
+  </div>
+</div>
+              <ul class="text-[11px] text-emerald-950 dark:text-emerald-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>सफेद बैकग्राउंड (75% चेहरा)</li>
+                <li>नीचे नाम व तारीख बॉक्स अनिवार्य</li>
+                <li>फोटो 3 महीने से पुरानी न हो</li>
+              </ul>
+            </div>
+            <div class="p-3 rounded-lg bg-rose-500/10 border-2 border-rose-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold text-[10px]">❌ रिजेक्ट</span>
+              
+<div class="mx-auto w-28 h-36 bg-slate-800 border-2 border-rose-500 rounded-lg shadow-sm flex flex-col overflow-hidden relative">
+  <div class="h-full bg-slate-800 flex items-center justify-center relative overflow-hidden">
+    <svg viewBox="0 0 100 120" class="w-full h-full transform -rotate-6 scale-110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="120" fill="#334155"/>
+      <path d="M5 120 C15 88, 40 82, 60 82 C80 82, 95 92, 105 120 Z" fill="#0f172a"/>
+      <rect x="52" y="62" width="14" height="22" fill="#cbd5e1" rx="2"/>
+      <ellipse cx="60" cy="48" rx="20" ry="24" fill="#e2e8f0"/>
+      <!-- Sunglasses -->
+      <rect x="44" y="42" width="14" height="10" rx="3" fill="#020617"/>
+      <rect x="62" y="42" width="14" height="10" rx="3" fill="#020617"/>
+      <line x1="58" y1="46" x2="62" y2="46" stroke="#020617" stroke-width="2"/>
+    </svg>
+    <!-- Dark Red Rejection Overlay -->
+    <div class="absolute inset-0 bg-rose-950/80 flex flex-col items-center justify-center p-1 text-center backdrop-blur-[1px]">
+      <span class="text-rose-400 text-2xl font-black leading-none mb-1">✕</span>
+      <span class="text-rose-100 font-black text-[9px] uppercase tracking-wider leading-tight">NO NAME &amp; DATE<br/>BOX FOUND</span>
+      <span class="mt-1 px-1.5 py-0.5 rounded bg-rose-600 text-white font-mono font-bold text-[7px]">CASUAL SELFIE</span>
+    </div>
+  </div>
+</div>
+              <ul class="text-[11px] text-rose-950 dark:text-rose-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>बिना नाम/तारीख की सादी फोटो</li>
+                <li>सेल्फी, चश्मा या टोपी वाली फोटो</li>
+                <li>धुंधली या 50 KB से अधिक साइज</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a href="/photo-with-name-and-date-maker/" class="mt-2 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 text-white font-black text-xs sm:text-sm tracking-wide shadow-md transition text-center">
+          <span>📸</span>
+          <span>फोटो पर नाम व तारीख जोड़ें (20–50 KB) &rarr;</span>
+        </a>
+      </div>
+
+      <!-- SIGNATURE COMPARISON CARD HINDI -->
+      <div class="p-4 rounded-xl bg-card border-2 border-border flex flex-col justify-between space-y-3 shadow-xs">
+        <div>
+          <h4 class="font-bold text-sm text-foreground flex items-center justify-between">
+            <span>✍️ हस्ताक्षर (10–20 KB)</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono font-semibold">140 × 60 px</span>
+          </h4>
+          <div class="grid grid-cols-2 gap-3 text-xs mt-3">
+            <div class="p-3 rounded-lg bg-emerald-500/10 border-2 border-emerald-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-emerald-600 text-white font-extrabold text-[10px]">✅ मान्य</span>
+              
+<div class="mx-auto w-32 h-16 bg-white border-2 border-emerald-500 rounded-lg shadow-sm flex flex-col justify-between p-1.5 relative overflow-hidden">
+  <div class="flex items-center justify-between text-[7px] font-mono leading-none">
+    <span class="text-slate-400 font-semibold">3.5 × 1.5 cm</span>
+    <span class="px-1 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold">140×60 px</span>
+  </div>
+  <div class="flex-1 flex items-center justify-center">
+    <svg viewBox="0 0 160 50" class="w-28 h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cursive Signature in Royal Blue Pen -->
+      <path d="M15 35 C15 15, 20 8, 22 8 C23 8, 24 25, 25 35 M20 20 L30 10 M22 22 L32 35" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="36" cy="33" r="1.5" fill="#1d4ed8"/>
+      <path d="M42 32 C46 16, 50 12, 54 18 C58 24, 52 34, 58 32 C62 30, 64 24, 68 28 C72 32, 70 24, 76 26 C80 28, 82 22, 86 26 C90 30, 94 22, 98 25 C102 28, 106 20, 110 24 C114 28, 118 22, 124 26" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M25 40 Q75 42 135 34" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="138" cy="34" r="1.5" fill="#1d4ed8"/>
+    </svg>
+  </div>
+</div>
+              <ul class="text-[11px] text-emerald-950 dark:text-emerald-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>स्वाभाविक रनिंग कर्सिव लिखावट</li>
+                <li>काली या नीली बॉलपॉइंट स्याही</li>
+                <li>सफेद कोरे कागज पर स्कैन</li>
+              </ul>
+            </div>
+            <div class="p-3 rounded-lg bg-rose-500/10 border-2 border-rose-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold text-[10px]">❌ रिजेक्ट</span>
+              
+<div class="mx-auto w-32 h-16 bg-slate-50 dark:bg-slate-900 border-2 border-rose-500 rounded-lg shadow-sm flex flex-col justify-between p-1.5 relative overflow-hidden">
+  <div class="flex items-center justify-between text-[7px] font-mono leading-none">
+    <span class="text-rose-500 font-semibold">INVALID STYLE</span>
+    <span class="px-1 py-0.2 rounded bg-rose-100 dark:bg-rose-900/60 text-rose-700 dark:text-rose-300 font-bold">ALL CAPS</span>
+  </div>
+  <div class="flex-1 flex items-center justify-center relative">
+    <span class="font-sans font-black text-xs text-slate-800 dark:text-slate-200 tracking-widest uppercase">K. SARAVANAN</span>
+    <!-- Red Strikethrough & X -->
+    <svg viewBox="0 0 100 36" class="absolute inset-0 w-full h-full pointer-events-none" fill="none">
+      <line x1="8" y1="30" x2="92" y2="8" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="50" cy="18" r="10" stroke="#e11d48" stroke-width="2" fill="none"/>
+      <line x1="43" y1="11" x2="57" y2="25" stroke="#e11d48" stroke-width="2"/>
+    </svg>
+  </div>
+</div>
+              <ul class="text-[11px] text-rose-950 dark:text-rose-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>बड़े अक्षरों (CAPITAL) में नाम</li>
+                <li>पेंसिल या लाल/हरी स्याही</li>
+                <li>10 KB से कम या 20 KB से अधिक</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a href="/tnpsc-signature-resize/" class="mt-2 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 text-slate-950 font-black text-xs sm:text-sm tracking-wide shadow-md transition text-center">
+          <span>✍️</span>
+          <span>हस्ताक्षर रीसाइज करें (140×60 px, 10–20 KB) &rarr;</span>
+        </a>
+      </div>
+
     </div>
 
-    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
-      <h4 class="font-bold text-sm text-foreground mb-1">TNPSC के लिए हस्ताक्षर को 10 से 20 KB में कैसे बदलें?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        सफेद कागज पर नीली/काली पेन से हस्ताक्षर करें। हमारे <a href="/tnpsc-signature-resize/" class="text-primary underline font-medium">TNPSC Signature Resizer</a> का उपयोग करें, जो स्वतः 140×60 px क्रॉप कर 10 से 20 KB की वैध सीमा में फाइल तैयार करता है।
-      </p>
+    <!-- HINDI DUAL CTA BANNER STRIP -->
+    <div class="mt-4 p-4 rounded-xl bg-slate-900 text-white border-2 border-indigo-500/40 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-center md:text-left space-y-0.5">
+        <span class="inline-flex items-center gap-1.5 text-amber-400 font-extrabold text-xs uppercase tracking-wider">
+          <span>⚡</span> तुरंत सरकारी पोर्टल अनुरूप फाइलें तैयार करें
+        </span>
+        <p class="text-xs sm:text-sm text-slate-200 font-medium">TNPSC Group 4 के लिए 100% मुफ्त व सुरक्षित ऑनलाइन टूल।</p>
+      </div>
+      <div class="flex flex-wrap sm:flex-nowrap gap-2.5 w-full md:w-auto shrink-0 justify-center">
+        <a href="/photo-with-name-and-date-maker/" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs shadow-md transition text-center flex items-center justify-center gap-1.5">
+          <span>📸</span> फोटो ठीक करें (20–50 KB) &rarr;
+        </a>
+        <a href="/tnpsc-signature-resize/" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs shadow-md transition text-center flex items-center justify-center gap-1.5">
+          <span>✍️</span> हस्ताक्षर ठीक करें (10–20 KB) &rarr;
+        </a>
+      </div>
     </div>
+  </div>
 
-    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
-      <h4 class="font-bold text-sm text-foreground mb-1">सामान्य तमिल भाषा परीक्षा में न्यूनतम कितने अंक जरूरी हैं?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        भाग-क (जनरल तमिल पात्रता परीक्षा) में 100 प्रश्न 150 अंकों के होते हैं। उम्मीदवार को <strong>न्यूनतम 40% (150 में से 60 अंक)</strong> प्राप्त करना अनिवार्य है तभी भाग-ख (सामान्य अध्ययन) का मूल्यांकन किया जाता है।
-      </p>
+  <!-- Pre-Application Desk Checklist -->
+  <div class="my-6 p-5 rounded-2xl bg-slate-900 text-white border border-slate-700 shadow-md space-y-3">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">📋</span>
+      <h3 class="text-base sm:text-lg font-bold text-white">आवेदन से पहले की डेस्क चेकलिस्ट (8 आवश्यक दस्तावेज)</h3>
+    </div>
+    <p class="text-xs sm:text-sm text-slate-300">फॉर्म भरने से पहले इन दस्तावेजों को अपने पास तैयार रखें:</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">1. 10वीं (SSLC) अंकपत्र व प्रमाण पत्र</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">2. स्थाई जाति प्रमाण पत्र (Community Certificate)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">3. PSTM प्रमाण पत्र (1 से 10वीं तमिल माध्यम, PDF &lt; 200 KB)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">4. टाइपराइटिंग/शॉर्टहैंड तकनीकी परीक्षा प्रमाण पत्र</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">5. आधार कार्ड व सक्रिय मोबाइल नंबर (OTP हेतु)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">6. TNPSC फोटो (200×230 px, 20-50 KB, नाम व तारीख सहित)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">7. TNPSC हस्ताक्षर (140×60 px, 10-20 KB, कर्सिव लिखावट)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">8. नेट बैंकिंग / UPI परीक्षा फीस (₹100) भुगतान हेतु</div>
     </div>
   </div>
 
@@ -521,27 +1209,27 @@ export const BLOG_POSTS: BlogPost[] = [
   <div class="p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground space-y-3">
     <div class="flex items-center gap-2">
       <span class="text-xl">🏛️</span>
-      <h3 class="text-base font-bold text-foreground">थेट उत्तर: TNPSC 2026 कागदपत्रे, OTR आणि परीक्षा आराखडा</h3>
+      <h3 class="text-base font-bold text-foreground">थेट उत्तर: TNPSC Group 4 Exam Date 2026 आणि अधिकृत वेळापत्रक</h3>
     </div>
     <p class="text-sm text-foreground/90 leading-relaxed font-medium">
-      <strong>तमिळनाडू लोकसेवा आयोग (TNPSC)</strong> मार्फत <strong>ग्रुप 1, ग्रुप 2/2A आणि ग्रुप 4 (VAO - ग्राम प्रशासकीय अधिकारी, कनिष्ठ सहाय्यक, टंकलेखक)</strong> पदांसाठी भरती घेतली जाते. <a href="https://apply.tnpscexams.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">apply.tnpscexams.in</a> वर <strong>वन टाईम रजिस्ट्रेशन (OTR)</strong> करणे आवश्यक असून त्याची मुदत 5 वर्षे असते. अर्ज करताना <strong>200 × 230 px फोटो (20–50 KB, खाली नाव व तारीख)</strong>, <strong>140 × 60 px स्वाक्षरी (10–20 KB, बॉलपेन)</strong> आणि कागदपत्रे <strong>200 KB पेक्षा कमी PDF</strong> मध्ये अपलोड करावी लागतात.
+      <strong>तमिळनाडू लोकसेवा आयोगाने (TNPSC)</strong> <strong>6,574 पदांसाठी</strong> <strong>TNPSC Group 4 Exam Date 2026</strong> अधिकृतपणे जाहीर केली आहे. अधिसूचना 11/2026 नुसार लेखी परीक्षा <strong>रविवार, 10 जानेवारी 2027 रोजी सकाळी 09:30 ते दुपारी 12:30 या वेळेत</strong> ऑफलाइन OMR पद्धतीने घेतली जाईल. ऑनलाइन अर्ज नोंदणी <strong>6 ऑक्टोबर 2026</strong> रोजी सुरू झाली असून शेवटची तारीख <strong>5 नोव्हेंबर 2026 (रात्री 11:59)</strong> आहे. अर्जातील दुरुस्ती विंडो 9 ते 11 नोव्हेंबर 2026 दरम्यान खुली असेल. उमेदवारांनी <strong>200 × 230 px फोटो (20–50 KB, खाली नाव व तारीख)</strong> आणि <strong>140 × 60 px स्वाक्षरी (10–20 KB)</strong> अपलोड करणे आवश्यक आहे.
     </p>
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">फोटो मर्यादा</span>
-        <strong class="text-foreground text-sm font-extrabold">200×230 px (20–50 KB)</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">लेखी परीक्षा तारीख</span>
+        <strong class="text-foreground text-sm font-extrabold text-primary">10 जानेवारी 2027 (रवि)</strong>
       </div>
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">स्वाक्षरी मर्यादा</span>
-        <strong class="text-foreground text-sm font-extrabold">140×60 px (10–20 KB)</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">एकूण पदे</span>
+        <strong class="text-foreground text-sm font-extrabold text-emerald-600 dark:text-emerald-400">6,574 पदे</strong>
       </div>
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">फोटो नियम</span>
-        <strong class="text-foreground text-sm font-extrabold">नाव व तारीख प्रिंट</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">अर्ज कालावधी</span>
+        <strong class="text-foreground text-sm font-extrabold">6 ऑक्टो – 5 नोव्हे 2026</strong>
       </div>
       <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
-        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">कागदपत्रे PDF</span>
-        <strong class="text-foreground text-sm font-extrabold">&lt; 200 KB प्रत्येक</strong>
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">तमिळ भाषा कटऑफ</span>
+        <strong class="text-foreground text-sm font-extrabold">किमान 40% (60 गुण)</strong>
       </div>
     </div>
   </div>
@@ -549,8 +1237,8 @@ export const BLOG_POSTS: BlogPost[] = [
   <!-- Interactive Document Suite Callout -->
   <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card via-card to-primary/10 border-2 border-primary/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
     <div>
-      <h4 class="font-bold text-base text-foreground">TNPSC OTR साठी फोटो-स्वाक्षरी रिसाइझ करायची आहे?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">आमच्या अधिकृत TNPSC टूल्सने एका क्लिकमध्ये अचूक साईझ मिळवा.</p>
+      <h4 class="font-bold text-base text-foreground">TNPSC OTR साठी फोटो व स्वाक्षरी रिसाइझ करायची आहे?</h4>
+      <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">आमच्या अधिकृत टूलने फोटोवर नाव व तारीख जोडा आणि स्वाक्षरी अचूक 10 ते 20 KB मध्ये मिळवा.</p>
     </div>
     <div class="flex flex-wrap gap-2 w-full sm:w-auto shrink-0">
       <a href="/tnpsc-signature-resize/" class="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 shadow-sm transition">
@@ -565,84 +1253,275 @@ export const BLOG_POSTS: BlogPost[] = [
     </div>
   </div>
 
-  <h2>1. TNPSC भरती गट व प्रमुख पदे</h2>
+  <h2>1. TNPSC Group 4 परीक्षा तारीख 2026: ॲन्यूअल प्लॅनर विरुद्ध अधिकृत जाहिरात</h2>
   <p>
-    तमिळनाडू लोकसेवा आयोगामार्फत राज्य प्रशासनातील विविध पदांसाठी दरवर्षी लाखो विद्यार्थी परीक्षा देतात:
+    TNPSC ॲन्यूअल प्लॅनर 2026 मध्ये परीक्षेची संभाव्य तारीख <strong>20 डिसेंबर 2026</strong> दर्शवली होती. मात्र 6 ऑक्टोबर 2026 रोजी प्रसिद्ध झालेल्या अधिकृत अधिसूचनेनुसार परीक्षा <strong>10 जानेवारी 2027</strong> रोजी आयोजित करण्यात आली आहे.
   </p>
+
   <div class="my-5 overflow-x-auto rounded-xl border border-border">
     <table class="w-full text-xs sm:text-sm text-left">
       <thead class="bg-muted text-foreground font-semibold">
         <tr>
-          <th class="p-3 border-b border-border">संवर्ग (Group)</th>
-          <th class="p-3 border-b border-border">प्रमुख पदे</th>
-          <th class="p-3 border-b border-border">पात्रता</th>
-          <th class="p-3 border-b border-border">निवड प्रक्रिया</th>
+          <th class="p-3 border-b border-border">महत्वाचा टप्पा</th>
+          <th class="p-3 border-b border-border">अधिकृत तारीख</th>
+          <th class="p-3 border-b border-border">तपशील</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-border/60">
         <tr>
-          <td class="p-3 font-bold text-primary">ग्रुप 1</td>
-          <td class="p-3 font-medium">डेप्युटी कलेक्टर, डीएसपी (DSP), सहाय्यक आयुक्त</td>
-          <td class="p-3">पदवीधर (Graduate)</td>
-          <td class="p-3 text-xs">पूर्व + मुख्य लेखी + मुलाखत</td>
+          <td class="p-3 font-bold text-foreground">अधिकृत जाहिरात प्रसिद्ध</td>
+          <td class="p-3 font-semibold text-primary">6 ऑक्टोबर 2026</td>
+          <td class="p-3 text-xs">अधिसूचना क्रमांक 11/2026</td>
         </tr>
         <tr class="bg-muted/20">
-          <td class="p-3 font-bold text-primary">ग्रुप 2 व 2A</td>
-          <td class="p-3 font-medium">सब-रजिस्ट्रार, नगरपालिका आयुक्त, महसूल सहाय्यक</td>
-          <td class="p-3">कोणतीही पदवी</td>
-          <td class="p-3 text-xs">पूर्व + मुख्य (ग्रुप 2 मुलाखत; 2A विनामुलाखत)</td>
+          <td class="p-3 font-bold text-foreground">ऑनलाइन अर्ज सुरू</td>
+          <td class="p-3 font-semibold">6 ऑक्टोबर 2026</td>
+          <td class="p-3 text-xs">apply.tnpscexams.in पोर्टलवर</td>
         </tr>
         <tr>
-          <td class="p-3 font-bold text-primary">ग्रुप 4 व VAO</td>
-          <td class="p-3 font-medium">ग्राम प्रशासकीय अधिकारी (VAO), कनिष्ठ सहाय्यक, टंकलेखक</td>
-          <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">10वी उत्तीर्ण (SSLC)</td>
-          <td class="p-3 text-xs">एकच लेखी परीक्षा (300 गुण)</td>
+          <td class="p-3 font-bold text-foreground">अर्ज करण्याची शेवटची तारीख</td>
+          <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">5 नोव्हेंबर 2026 (रात्री 11:59)</td>
+          <td class="p-3 text-xs">शुल्क भरण्याची अंतिम मुदत</td>
+        </tr>
+        <tr class="bg-muted/20">
+          <td class="p-3 font-bold text-foreground">अर्जातील दुरुस्ती विंडो</td>
+          <td class="p-3 font-semibold">9 नोव्हेंबर ते 11 नोव्हेंबर 2026</td>
+          <td class="p-3 text-xs">माहिती सुधारण्याची 3 दिवसांची मुदत</td>
+        </tr>
+        <tr class="bg-emerald-500/10 font-bold">
+          <td class="p-3 text-emerald-800 dark:text-emerald-300">निश्चित लेखी परीक्षा तारीख</td>
+          <td class="p-3 text-emerald-700 dark:text-emerald-400 text-sm font-extrabold">10 जानेवारी 2027 (रविवार)</td>
+          <td class="p-3 text-xs">सकाळी 09:30 ते दुपारी 12:30 (3 तास, OMR परीक्षा)</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h2>2. अधिकृत TNPSC फोटो व स्वाक्षरी नियम</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
-    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
-        <span>📸</span> फोटो नियम (Photograph Rules)
-      </h4>
-      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
-        <li><strong>आकार:</strong> 200 × 230 पिक्सेल (3.5 × 4.5 सेमी).</li>
-        <li><strong>फाईल साईझ:</strong> 20.0 KB ते 50.0 KB दरम्यान JPG फॉरमॅट.</li>
-        <li><strong>नाव व तारीख नियम:</strong> फोटोच्या खाली उमेदवाराचे नाव व फोटो काढल्याची तारीख मुद्रित असणे बंधनकारक.</li>
-        <li><strong>पार्श्वभूमी:</strong> पांढरी किंवा फिकट पार्श्वभूमी, 75% चेहरा स्पष्ट दिसणे आवश्यक.</li>
-      </ul>
+  <h2>2. पदसंख्या व पात्रता निकष (6,574 पदे)</h2>
+  <p>
+    ग्राम प्रशासकीय अधिकारी (VAO), कनिष्ठ सहाय्यक (Junior Assistant), टंकलेखक (Typist) आणि स्टेनो-टायपिस्ट या पदांसाठी किमान पात्रता <strong>10वी (SSLC) उत्तीर्ण</strong> आहे.
+  </p>
+
+  <h2>3. पात्रता व वयोमर्यादा (Age Limit as on 01/07/2026)</h2>
+
+  <!-- Highlight Callout: The "No Upper Age Limit" Advantage -->
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-emerald-500/15 via-emerald-500/10 to-transparent border-2 border-emerald-500/40 text-foreground space-y-2.5 shadow-xs">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl">🎯</span>
+      <h3 class="text-base sm:text-lg font-extrabold text-emerald-900 dark:text-emerald-300">
+        मोठा फायदा: उच्च शिक्षण असलेल्या राखीव प्रवर्गातील उमेदवारांसाठी कमाल वयाची मर्यादा नाही!
+      </h3>
+    </div>
+    <p class="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
+      TNPSC आयोगाच्या नियमांनुसार <strong>BC, BCM, MBC/DC, SC, SC(A) आणि ST</strong> प्रवर्गातील ज्या उमेदवारांनी 10वी पेक्षा जास्त शिक्षण (उदा. <strong>12वी/HSC, 3 वर्षांचा पदविका डिप्लोमा किंवा कोणतीही पदवी/पदव्युत्तर</strong>) पूर्ण केले आहे, त्यांच्यासाठी कनिष्ठ सहाय्यक, टंकलेखक व स्टेनो पदांकरिता <span class="bg-emerald-200/90 dark:bg-emerald-900/60 text-emerald-950 dark:text-emerald-100 font-bold px-1.5 py-0.5 rounded border border-emerald-400/40">कमाल वयाची कोणतीही अट नाही (NO MAXIMUM AGE LIMIT)</span>! वयाच्या 35, 40 किंवा 45 वर्षांपर्यंतचे पात्र उमेदवारही शासकीय सेवेत रुजू होऊ शकतात.
+    </p>
+  </div>
+
+  <h2>4. अधिकृत फोटो व स्वाक्षरी अपलोड नियम (Clause 3)</h2>
+
+  <!-- Clause 3 Visual Comparison: Accepted vs Rejected Standards -->
+  <div class="my-6 p-5 rounded-2xl bg-gradient-to-br from-card via-card to-muted/40 border-2 border-border shadow-xs space-y-4">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">⚖️</span>
+      <h3 class="text-base sm:text-lg font-bold text-foreground">व्हिज्युअल मार्गदर्शक: वैध विरुद्ध अवैध फोटो आणि स्वाक्षरी नमुना</h3>
+    </div>
+    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+      TNPSC भरतीत Clause 3 चे नियम न पाळल्यास हजारो अर्ज रद्दबातल ठरतात. खालील अधिकृत नमुन्यांची तुलना करा:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+      
+      <!-- PHOTO COMPARISON CARD MARATHI -->
+      <div class="p-4 rounded-xl bg-card border-2 border-border flex flex-col justify-between space-y-3 shadow-xs">
+        <div>
+          <h4 class="font-bold text-sm text-foreground flex items-center justify-between">
+            <span>📸 पासपोर्ट फोटो (20–50 KB)</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono font-semibold">200 × 230 px</span>
+          </h4>
+          <div class="grid grid-cols-2 gap-3 text-xs mt-3">
+            <div class="p-3 rounded-lg bg-emerald-500/10 border-2 border-emerald-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-emerald-600 text-white font-extrabold text-[10px]">✅ ग्राह्य</span>
+              
+<div class="mx-auto w-28 h-36 bg-white border-2 border-emerald-500 rounded-lg shadow-sm flex flex-col overflow-hidden relative">
+  <div class="h-[75%] bg-slate-50 flex items-center justify-center relative overflow-hidden">
+    <svg viewBox="0 0 100 105" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="105" fill="#f8fafc"/>
+      <!-- Shoulders & Coat/Collar -->
+      <path d="M10 105 C15 76, 30 68, 50 68 C70 68, 85 76, 90 105 Z" fill="#1e293b"/>
+      <!-- Shirt Collar -->
+      <path d="M42 68 L50 82 L58 68 Z" fill="#ffffff"/>
+      <path d="M42 68 L48 76 L45 68 Z" fill="#cbd5e1"/>
+      <path d="M58 68 L52 76 L55 68 Z" fill="#cbd5e1"/>
+      <!-- Neck -->
+      <rect x="43" y="50" width="14" height="20" fill="#fbcfe8" rx="2"/>
+      <!-- Face -->
+      <ellipse cx="50" cy="40" rx="19" ry="24" fill="#fed7aa"/>
+      <!-- Hair -->
+      <path d="M29 36 C28 18, 40 12, 50 12 C60 12, 72 18, 71 36 C68 20, 60 16, 50 16 C40 16, 32 20, 29 36 Z" fill="#0f172a"/>
+      <!-- Ears -->
+      <circle cx="29" cy="41" r="3.5" fill="#fcd34d"/>
+      <circle cx="71" cy="41" r="3.5" fill="#fcd34d"/>
+      <!-- Eyes & Brows -->
+      <ellipse cx="43" cy="38" rx="2.2" ry="1.4" fill="#0f172a"/>
+      <ellipse cx="57" cy="38" rx="2.2" ry="1.4" fill="#0f172a"/>
+      <path d="M39 34 Q43 32 47 34" stroke="#0f172a" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M53 34 Q57 32 61 34" stroke="#0f172a" stroke-width="1.3" stroke-linecap="round"/>
+      <!-- Nose & Mouth -->
+      <path d="M50 40 L48 46 L51.5 46" stroke="#ea580c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M45 52 Q50 55 55 52" stroke="#c2410c" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    <span class="absolute top-1 right-1 px-1 py-0.5 rounded bg-emerald-600 text-white font-mono font-bold text-[8px] leading-none shadow-xs">3.5×4.5 cm</span>
+  </div>
+  <!-- Name & Date Box (Clause 3 Mandatory) -->
+  <div class="h-[25%] bg-white border-t border-slate-300 flex flex-col items-center justify-center px-1 text-center font-sans">
+    <span class="text-[9px] font-extrabold text-slate-900 tracking-tight leading-none uppercase">K. SARAVANAN</span>
+    <span class="text-[8px] font-semibold text-slate-600 mt-0.5 leading-none">DOP: 24.10.2026</span>
+  </div>
+</div>
+              <ul class="text-[11px] text-emerald-950 dark:text-emerald-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>पांढरी पार्श्वभूमी (75% चेहरा)</li>
+                <li>तळाशी नाव व तारीख पट्टी बंधनकारक</li>
+                <li>फोटो मागील 3 महिन्यांतील असावा</li>
+              </ul>
+            </div>
+            <div class="p-3 rounded-lg bg-rose-500/10 border-2 border-rose-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold text-[10px]">❌ बाद</span>
+              
+<div class="mx-auto w-28 h-36 bg-slate-800 border-2 border-rose-500 rounded-lg shadow-sm flex flex-col overflow-hidden relative">
+  <div class="h-full bg-slate-800 flex items-center justify-center relative overflow-hidden">
+    <svg viewBox="0 0 100 120" class="w-full h-full transform -rotate-6 scale-110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="120" fill="#334155"/>
+      <path d="M5 120 C15 88, 40 82, 60 82 C80 82, 95 92, 105 120 Z" fill="#0f172a"/>
+      <rect x="52" y="62" width="14" height="22" fill="#cbd5e1" rx="2"/>
+      <ellipse cx="60" cy="48" rx="20" ry="24" fill="#e2e8f0"/>
+      <!-- Sunglasses -->
+      <rect x="44" y="42" width="14" height="10" rx="3" fill="#020617"/>
+      <rect x="62" y="42" width="14" height="10" rx="3" fill="#020617"/>
+      <line x1="58" y1="46" x2="62" y2="46" stroke="#020617" stroke-width="2"/>
+    </svg>
+    <!-- Dark Red Rejection Overlay -->
+    <div class="absolute inset-0 bg-rose-950/80 flex flex-col items-center justify-center p-1 text-center backdrop-blur-[1px]">
+      <span class="text-rose-400 text-2xl font-black leading-none mb-1">✕</span>
+      <span class="text-rose-100 font-black text-[9px] uppercase tracking-wider leading-tight">NO NAME &amp; DATE<br/>BOX FOUND</span>
+      <span class="mt-1 px-1.5 py-0.5 rounded bg-rose-600 text-white font-mono font-bold text-[7px]">CASUAL SELFIE</span>
+    </div>
+  </div>
+</div>
+              <ul class="text-[11px] text-rose-950 dark:text-rose-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>नाव/तारीख नसलेला साधा फोटो</li>
+                <li>सेल्फी, गॉगल किंवा टोपी असलेला फोटो</li>
+                <li>अस्पष्ट किंवा 50 KB पेक्षा जास्त फाईल</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a href="/photo-with-name-and-date-maker/" class="mt-2 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 text-white font-black text-xs sm:text-sm tracking-wide shadow-md transition text-center">
+          <span>📸</span>
+          <span>फोटोवर नाव व तारीख जोडा (20–50 KB) &rarr;</span>
+        </a>
+      </div>
+
+      <!-- SIGNATURE COMPARISON CARD MARATHI -->
+      <div class="p-4 rounded-xl bg-card border-2 border-border flex flex-col justify-between space-y-3 shadow-xs">
+        <div>
+          <h4 class="font-bold text-sm text-foreground flex items-center justify-between">
+            <span>✍️ स्वाक्षरी (10–20 KB)</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono font-semibold">140 × 60 px</span>
+          </h4>
+          <div class="grid grid-cols-2 gap-3 text-xs mt-3">
+            <div class="p-3 rounded-lg bg-emerald-500/10 border-2 border-emerald-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-emerald-600 text-white font-extrabold text-[10px]">✅ ग्राह्य</span>
+              
+<div class="mx-auto w-32 h-16 bg-white border-2 border-emerald-500 rounded-lg shadow-sm flex flex-col justify-between p-1.5 relative overflow-hidden">
+  <div class="flex items-center justify-between text-[7px] font-mono leading-none">
+    <span class="text-slate-400 font-semibold">3.5 × 1.5 cm</span>
+    <span class="px-1 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold">140×60 px</span>
+  </div>
+  <div class="flex-1 flex items-center justify-center">
+    <svg viewBox="0 0 160 50" class="w-28 h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cursive Signature in Royal Blue Pen -->
+      <path d="M15 35 C15 15, 20 8, 22 8 C23 8, 24 25, 25 35 M20 20 L30 10 M22 22 L32 35" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="36" cy="33" r="1.5" fill="#1d4ed8"/>
+      <path d="M42 32 C46 16, 50 12, 54 18 C58 24, 52 34, 58 32 C62 30, 64 24, 68 28 C72 32, 70 24, 76 26 C80 28, 82 22, 86 26 C90 30, 94 22, 98 25 C102 28, 106 20, 110 24 C114 28, 118 22, 124 26" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M25 40 Q75 42 135 34" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="138" cy="34" r="1.5" fill="#1d4ed8"/>
+    </svg>
+  </div>
+</div>
+              <ul class="text-[11px] text-emerald-950 dark:text-emerald-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>धावत्या हस्ताक्षरातील स्वाक्षरी (Cursive)</li>
+                <li>निळा किंवा काळा बॉलपेन</li>
+                <li>स्वच्छ पांढऱ्या कागदावर स्वाक्षरी</li>
+              </ul>
+            </div>
+            <div class="p-3 rounded-lg bg-rose-500/10 border-2 border-rose-500/50 text-center space-y-2">
+              <span class="inline-block px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold text-[10px]">❌ बाद</span>
+              
+<div class="mx-auto w-32 h-16 bg-slate-50 dark:bg-slate-900 border-2 border-rose-500 rounded-lg shadow-sm flex flex-col justify-between p-1.5 relative overflow-hidden">
+  <div class="flex items-center justify-between text-[7px] font-mono leading-none">
+    <span class="text-rose-500 font-semibold">INVALID STYLE</span>
+    <span class="px-1 py-0.2 rounded bg-rose-100 dark:bg-rose-900/60 text-rose-700 dark:text-rose-300 font-bold">ALL CAPS</span>
+  </div>
+  <div class="flex-1 flex items-center justify-center relative">
+    <span class="font-sans font-black text-xs text-slate-800 dark:text-slate-200 tracking-widest uppercase">K. SARAVANAN</span>
+    <!-- Red Strikethrough & X -->
+    <svg viewBox="0 0 100 36" class="absolute inset-0 w-full h-full pointer-events-none" fill="none">
+      <line x1="8" y1="30" x2="92" y2="8" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="50" cy="18" r="10" stroke="#e11d48" stroke-width="2" fill="none"/>
+      <line x1="43" y1="11" x2="57" y2="25" stroke="#e11d48" stroke-width="2"/>
+    </svg>
+  </div>
+</div>
+              <ul class="text-[11px] text-rose-950 dark:text-rose-200 text-left space-y-1 list-disc pl-3 pt-1">
+                <li>सर्व कॅपिटल (CAPITAL) अक्षरातील नाव</li>
+                <li>पेन्सिल किंवा लाल/हिरवी शाई</li>
+                <li>10 KB पेक्षा कमी किंवा 20 KB पेक्षा जास्त</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a href="/tnpsc-signature-resize/" class="mt-2 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 text-slate-950 font-black text-xs sm:text-sm tracking-wide shadow-md transition text-center">
+          <span>✍️</span>
+          <span>स्वाक्षरी रीसाइज करा (140×60 px, 10–20 KB) &rarr;</span>
+        </a>
+      </div>
+
     </div>
 
-    <div class="p-4 rounded-xl bg-card border border-border space-y-2">
-      <h4 class="font-bold text-sm text-primary flex items-center gap-1.5">
-        <span>✍️</span> स्वाक्षरी नियम (Signature Rules)
-      </h4>
-      <ul class="text-xs sm:text-sm text-foreground/90 space-y-1.5 list-disc pl-5">
-        <li><strong>आकार:</strong> 140 × 60 पिक्सेल (3.5 × 1.5 सेमी).</li>
-        <li><strong>फाईल साईझ:</strong> 10.0 KB ते 20.0 KB दरम्यान JPG फॉरमॅट.</li>
-        <li><strong>पेन व कागद:</strong> पांढऱ्या कागदावर निळ्या किंवा काळ्या बॉलपेनने स्वाक्षरी करा.</li>
-        <li><strong>हस्ताक्षर:</strong> केवळ धावती कर्सिव्ह स्वाक्षरी मान्य. कॅपिटल अक्षरातील नाव बाद केले जाईल.</li>
-      </ul>
+    <!-- MARATHI DUAL CTA BANNER STRIP -->
+    <div class="mt-4 p-4 rounded-xl bg-slate-900 text-white border-2 border-indigo-500/40 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-center md:text-left space-y-0.5">
+        <span class="inline-flex items-center gap-1.5 text-amber-400 font-extrabold text-xs uppercase tracking-wider">
+          <span>⚡</span> थेट पोर्टल निकषांनुसार फाईल तयार करा
+        </span>
+        <p class="text-xs sm:text-sm text-slate-200 font-medium">TNPSC Group 4 साठी 100% मोफत आणि सुरक्षित ऑनलाईन टूल.</p>
+      </div>
+      <div class="flex flex-wrap sm:flex-nowrap gap-2.5 w-full md:w-auto shrink-0 justify-center">
+        <a href="/photo-with-name-and-date-maker/" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs shadow-md transition text-center flex items-center justify-center gap-1.5">
+          <span>📸</span> फोटो तयार करा (20–50 KB) &rarr;
+        </a>
+        <a href="/tnpsc-signature-resize/" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs shadow-md transition text-center flex items-center justify-center gap-1.5">
+          <span>✍️</span> स्वाक्षरी तयार करा (10–20 KB) &rarr;
+        </a>
+      </div>
     </div>
   </div>
 
-  <h2>3. वारंवार विचारले जाणारे प्रश्न (TNPSC FAQs)</h2>
-  <div class="space-y-4 my-4">
-    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
-      <h4 class="font-bold text-sm text-foreground mb-1">TNPSC वन टाईम रजिस्ट्रेशन (OTR) ची वैधता किती असते?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        TNPSC OTR ची वैधता नोंदणी तारखेपासून <strong>5 वर्षे</strong> असते. 5 वर्षांनंतर ₹150 शुल्क भरून OTR नूतनीकरण करावे लागते.
-      </p>
+  <!-- Pre-Application Desk Checklist -->
+  <div class="my-6 p-5 rounded-2xl bg-slate-900 text-white border border-slate-700 shadow-md space-y-3">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">📋</span>
+      <h3 class="text-base sm:text-lg font-bold text-white">अर्ज भरण्यापूर्वीची डेस्क चेकलिस्ट (8 आवश्यक बाबी)</h3>
     </div>
-
-    <div class="p-4 rounded-xl bg-card border border-border shadow-2xs">
-      <h4 class="font-bold text-sm text-foreground mb-1">TNPSC साठी स्वाक्षरी 10 ते 20 KB मध्ये कशी रिसाइझ करावी?</h4>
-      <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-        आमच्या मोफत <a href="/tnpsc-signature-resize/" class="text-primary underline font-medium">TNPSC Signature Resizer</a> चा वापर करा, जो स्वाक्षरी आपोआप 140×60 px मध्ये क्रॉप करून 10 ते 20 KB दरम्यान कम्प्रेशन करतो.
-      </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">1. 10वी (SSLC) गुणपत्रिका व प्रमाणपत्र</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">2. कायमस्वरूपी जातीचा दाखला (Community Certificate)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">3. PSTM प्रमाणपत्र (1 ते 10वी तमिळ माध्यम, PDF &lt; 200 KB)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">4. टंकलेखन / लघुलेखन तांत्रिक प्रमाणपत्रे</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">5. आधार कार्ड व सक्रिय मोबाइल क्रमांक (OTP साठी)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">6. TNPSC फोटो (200×230 px, 20-50 KB, नाव व तारीख)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">7. TNPSC स्वाक्षरी (140×60 px, 10-20 KB, धावते हस्ताक्षर)</div>
+      <div class="p-2 rounded bg-slate-800 border border-slate-700">8. नेट बँकिंग / UPI परीक्षा शुल्क (₹100) भरण्यासाठी</div>
     </div>
   </div>
 
