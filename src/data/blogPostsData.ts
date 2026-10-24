@@ -3606,83 +3606,507 @@ Fatal Pitfall:       Ignoring Banking Awareness &amp; Degree Background in Inter
     `
   },
 
-  {
+      {
     slug: "upsc-csat-paper-2-master-blueprint-comprehension-hacks",
-    title: "UPSC CSE Prelims: CSAT Paper-II Qualifying Blueprint, Reading Comprehension & Speed Logic Hacks",
-    excerpt: "Master the 33% CSAT qualifying cutoff with proven strategies for high-accuracy reading comprehension, critical reasoning, arithmetic problem selection, and UPSC OTR document rules.",
+    title: "UPSC CSE Prelims 2026–2027: Exam Date, Syllabus, Marks Calculation Formula & CSAT Speed Blueprint",
+    title_hi: "UPSC CSE प्रीलिम्स 2026–2027: परीक्षा तिथि, सिलेबस, अंक गणना फॉर्मूला और CSAT स्पीड रणनीति",
+    title_mr: "UPSC CSE पूर्व परीक्षा 2026–2027: परीक्षा तारीख, अभ्यासक्रम, गुण मोजणी फॉर्म्युला आणि CSAT स्ट्रॅटेजी",
+    metaTitle: "UPSC CSE Prelims 2026–2027: Syllabus, Date & Marks Calculator",
+    metaTitle_hi: "UPSC CSE प्रीलिम्स 2026–2027: सिलेबस, परीक्षा तिथि व अंक गणना - SignResize",
+    metaTitle_mr: "UPSC CSE पूर्व परीक्षा 2026–2027: अभ्यासक्रम, तारीख व गुण मोजणी - SignResize",
+    metaDescription: "Comprehensive UPSC CSE Prelims 2026–2027 guide: exam timeline, GS-1 & CSAT syllabus, interactive marks calculator, RC hacks, pair-based question triage, and OTR photo rules.",
+    metaDescription_hi: "UPSC CSE प्रीलिम्स 2026–2027 की पूरी गाइड: आधिकारिक परीक्षा कैलेंडर, GS-1 व CSAT सिलेबस, इंटरैक्टिव अंक कैलकुलेटर, रीडिंग कॉम्प्रिहेंशन ट्रिक्स और OTR फोटो नियम।",
+    metaDescription_mr: "UPSC CSE पूर्व परीक्षा 2026–2027 संपूर्ण मार्गदर्शक: परीक्षा वेळापत्रक, GS-1 व CSAT अभ्यासक्रम, इंटरॅक्टिव्ह गुण कॅल्क्युलेटर, RC शॉर्टकट आणि OTR फोटो-स्वाक्षरी नियम.",
+    excerpt: "Authoritative master blueprint for UPSC CSE Prelims 2026–2027: official calendar schedule, GS-1 & CSAT syllabus breakdown, real-time interactive marks calculator, CSAT Reading Comprehension hacks, pair-based elimination triage, and OTR photo-signature guidelines.",
+    excerpt_hi: "UPSC CSE प्रीलिम्स 2026–2027 का संपूर्ण विश्लेषण: परीक्षा कैलेंडर, GS-1 और CSAT पेपर-2 सिलेबस, लाइव मार्क्स कैलकुलेटर, रीडिंग कॉम्प्रिहेंशन तकनीकें और OTR फोटो नियम।",
+    excerpt_mr: "UPSC CSE पूर्व परीक्षा 2026–2027 चे सविस्तर विश्लेषण: अधिकृत परीक्षा वेळापत्रक, GS-1 व CSAT अभ्यासक्रम, लाइव्ह गुण मोजणी टूल, RC ट्रिक्स आणि OTR फोटो-स्वाक्षरीचे नियम.",
     category: "Study Prep",
     publishDate: "Oct 21, 2026",
-    lastUpdated: "Oct 21, 2026",
+    lastUpdated: "Oct 24, 2026",
     author: "SignResize Academic Research Desk",
-    authorRole: "Civil Services Methodology Team",
-    readTime: "8 min read",
-    featured: false,
-    tags: ["UPSC Prelims","CSAT Strategy","Reading Comprehension","Aptitude Speed","Civil Services","UPSC OTR"],
+    authorRole: "Civil Services Examination Methodology Team",
+    readTime: "14 min read",
+    featured: true,
+    tags: ["UPSC CSE Prelims 2026", "UPSC Prelims 2027", "UPSC Prelims Syllabus", "UPSC Exam Date 2026", "Marks Calculation", "CSAT Strategy", "Reading Comprehension Hacks", "UPSC OTR"],
     relatedExamPreset: "upsc-civil-services",
-    quickFacts: [],
+    quickFacts: [
+      { label: "Target Cycle", value: "UPSC CSE Prelims 2026–2027" },
+      { label: "Exam Shift Schedule", value: "Morning GS-1 (9:30–11:30 AM) | Afternoon CSAT (2:30–4:30 PM)" },
+      { label: "Paper-I (General Studies)", value: "100 Questions | 200 Marks | Decides Merit Cutoff (88–95 M)" },
+      { label: "Paper-II (CSAT Qualifying)", value: "80 Questions | 200 Marks | Strict 33.0% (≥ 66.67 M) Minimum" },
+      { label: "Negative Deduction Penalty", value: "-0.666 M (GS-1) | -0.833 M (CSAT) per Wrong Answer" },
+      { label: "OTR Document Standard", value: "350×350 px Photo with Name/Date + 140×60 px Signature (10–20 KB)" }
+    ],
+    faqs: [
+      {
+        question: "How do you calculate UPSC CSE Prelims marks accurately?",
+        answer: "==To calculate your UPSC CSE Prelims marks for GS Paper-I, multiply your correct answers by 2.0 and your incorrect answers by 0.666, then subtract: Score = (Correct × 2.0) - (Wrong × 0.666)==. For CSAT Paper-II, multiply correct answers by 2.50 and wrong answers by 0.833: Score = (Correct × 2.50) - (Wrong × 0.833). Unanswered questions incur zero penalty."
+      },
+      {
+        question: "When is the UPSC CSE Prelims 2026 and 2027 exam date?",
+        answer: "==The UPSC Civil Services Examination (CSE) Prelims 2026 was conducted on Sunday, May 24, 2026, while UPSC CSE Prelims 2027 is scheduled for late May 2027 following the official annual calendar cycle==. Both cycles feature two mandatory shifts: GS-1 from 9:30 AM to 11:30 AM and CSAT from 2:30 PM to 4:30 PM."
+      },
+      {
+        question: "Is the UPSC CSE Prelims exam only qualifying in nature?",
+        answer: "==Yes, the UPSC Prelims stage is strictly an elimination screening test and its marks are not added to your final interview merit list==. GS Paper-I marks determine whether you clear the cutoff to write the Mains exam, provided you secure the mandatory 33% qualifying score (66.67 out of 200 marks) in CSAT Paper-II."
+      },
+      {
+        question: "Will UPSC CSE Prelims 2027 be postponed?",
+        answer: "==No, UPSC strictly maintains its official annual examination schedule unless extraordinary nationwide general elections or statutory emergencies occur==. Aspirants should organize their 2026–2027 revision roadmaps firmly around the official May calendar date."
+      },
+      {
+        question: "How does UPSC handle dropped or canceled questions in Prelims?",
+        answer: "==When UPSC cancels a disputed or flawed question, that question's marks are redistributed proportionally among the remaining valid questions==. For example, if 2 questions are canceled in GS Paper-I, each remaining question carries 2.0408 marks with a corresponding negative deduction of 0.6802 marks."
+      },
+      {
+        question: "What is the new pair-based question pattern in UPSC Prelims?",
+        answer: "==In recent examinations, UPSC has largely replaced traditional elimination options (such as '1 only' or '1 and 2 only') with pair-based options: 'Only one pair', 'Only two pairs', 'All three pairs', or 'None'==. This requires candidates to know the factual truth of every individual statement rather than eliminating a single flawed option."
+      },
+      {
+        question: "What are the mandatory UPSC OTR photo and signature upload rules?",
+        answer: "==Under UPSC OTR guidelines, the candidate photograph must be a recent passport image with the candidate's name and photo capture date printed clearly at the bottom (taken within 10 days of notification)==. Dimensions must be exactly 350 × 350 pixels (20 KB to 300 KB). Scanned signatures must be in black ink on clean white paper (140 × 60 pixels, 10 KB to 20 KB)."
+      }
+    ],
     contentHtml: `
-<h2>The Decisive Role of CSAT (Paper-II) in UPSC Prelims</h2>
-      <p>In recent Civil Services examinations, CSAT Paper-II has proven to be the major hurdle for thousands of aspirants. Despite scoring 100+ in General Studies Paper-I, failing to secure the mandatory qualifying threshold of <strong>33% (66.67 marks out of 200)</strong> results in immediate disqualification.</p>
+      <!-- Search Intent Direct Answer Spotlight -->
+      <div class="my-6 p-5 rounded-2xl border-2 border-primary/40 bg-gradient-to-r from-card to-primary/10 shadow-sm space-y-3">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs font-mono font-bold">
+          ⚡ DIRECT ANSWER: UPSC CSE PRELIMS 2026–2027 BLUEPRINT
+        </div>
+        <p class="text-sm sm:text-base text-foreground leading-relaxed font-medium">
+          The <strong>UPSC Civil Services Examination (CSE) Prelims</strong> screens aspirants across India through two compulsory papers conducted on the same day: <strong>General Studies Paper-I</strong> (100 questions, 200 marks, decides merit cutoff) and <strong>General Studies Paper-II / CSAT</strong> (80 questions, 200 marks, qualifying at 33% or 66.67 marks). With May 24, 2026 established as the benchmark exam date and <strong>May 2027</strong> serving as the upcoming primary target, candidates must master exact negative marking calculations ($1/3\text{rd}$ penalty) and modern pair-based question formats.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-xs">
+          <div class="p-2.5 rounded-xl bg-card border border-border"><span class="text-muted-foreground block text-[11px]">Primary Target</span><strong class="text-foreground text-sm">2026–2027 Cycle</strong></div>
+          <div class="p-2.5 rounded-xl bg-card border border-border"><span class="text-muted-foreground block text-[11px]">GS-1 Cutoff Benchmark</span><strong class="text-foreground text-sm">88 – 95 Marks</strong></div>
+          <div class="p-2.5 rounded-xl bg-card border border-border"><span class="text-muted-foreground block text-[11px]">CSAT Qualifying Cap</span><strong class="text-foreground text-sm">66.67 Marks (33%)</strong></div>
+          <div class="p-2.5 rounded-xl bg-card border border-border"><span class="text-muted-foreground block text-[11px]">Penalty Rates</span><strong class="text-foreground text-sm">-0.666 / -0.833</strong></div>
+        </div>
+      </div>
 
-      <h2>CSAT Sectional Breakdown &amp; Target Matrix</h2>
-      <div class="my-6 overflow-x-auto">
-        <table class="w-full text-xs sm:text-sm text-left border border-border">
+      <h2>⚡ 1. UPSC CSE Prelims 2026–2027 Schedule &amp; Shift Timetable</h2>
+      <p>The Union Public Service Commission conducts the Civil Services Preliminary Examination once annually. Following the benchmark examination on May 24, 2026, the <strong>UPSC CSE Prelims 2027</strong> is scheduled for late May 2027, with the official notification releasing in February. Preliminary marks are strictly qualifying for Mains entry and do not carry forward into the final service merit ranking.</p>
+
+      <div class="my-6 overflow-x-auto rounded-xl border border-border">
+        <table class="w-full border-collapse border border-border text-xs sm:text-sm text-left table-auto">
           <thead class="bg-muted text-foreground font-semibold">
             <tr>
-              <th class="p-3 border-b">Section</th>
-              <th class="p-3 border-b">Questions</th>
-              <th class="p-3 border-b">Target Attempt</th>
-              <th class="p-3 border-b">Scoring &amp; Accuracy Strategy</th>
+              <th class="p-3 border border-border">Exam Shift</th>
+              <th class="p-3 border border-border">Paper Name</th>
+              <th class="p-3 border border-border">Timings</th>
+              <th class="p-3 border border-border">Questions &amp; Marks</th>
+              <th class="p-3 border border-border">Weightage Nature</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-border">
-            <tr>
-              <td class="p-3 font-semibold text-primary">Reading Comprehension</td>
-              <td class="p-3 font-mono">25–28 Qs</td>
-              <td class="p-3 font-mono">20 Qs</td>
-              <td class="p-3">Identify author's central assumption, corollaries, and rational implications. Avoid extreme options.</td>
+          <tbody class="divide-y divide-border text-foreground">
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Morning Shift</td>
+              <td class="p-3 font-medium border border-border">General Studies Paper-I (GS)</td>
+              <td class="p-3 border border-border font-mono">09:30 AM – 11:30 AM</td>
+              <td class="p-3 border border-border font-mono">100 Qs | 200 Marks</td>
+              <td class="p-3 border border-border text-emerald-600 font-semibold">Decides Prelims Cutoff</td>
             </tr>
-            <tr>
-              <td class="p-3 font-semibold text-primary">Quantitative Aptitude</td>
-              <td class="p-3 font-mono">35–40 Qs</td>
-              <td class="p-3 font-mono">15 Qs</td>
-              <td class="p-3">Focus on Number Systems, Remainder Theorem, Percentages, Ratio, Work &amp; Time. Avoid complex P&amp;C.</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-semibold text-primary">Logical &amp; Analytical Reasoning</td>
-              <td class="p-3 font-mono">15–20 Qs</td>
-              <td class="p-3 font-mono">12 Qs</td>
-              <td class="p-3">Prioritize Syllogisms, Blood Relations, Direction Sense, and linear seating arrangements.</td>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Afternoon Shift</td>
+              <td class="p-3 font-medium border border-border">General Studies Paper-II (CSAT)</td>
+              <td class="p-3 border border-border font-mono">02:30 PM – 04:30 PM</td>
+              <td class="p-3 border border-border font-mono">80 Qs | 200 Marks</td>
+              <td class="p-3 border border-border text-amber-600 font-semibold">Qualifying (≥ 66.67 Marks)</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="my-6 p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 space-y-2">
-        <div class="flex items-center justify-between text-slate-400 text-[11px]">
-          <span>⚡ UPSC CSAT Safe Attempt &amp; Score Calculation Snippet</span>
-          <span>UPSC Marking Standard</span>
+      <!-- Mid-Article Compact UPSC OTR Banner -->
+      <div class="my-6 p-4 rounded-2xl bg-muted/40 border border-primary/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm">
+        <div class="flex items-center gap-2.5">
+          <span class="text-xl">📸</span>
+          <div>
+            <strong class="text-foreground block font-bold">Applying via UPSC OTR?</strong>
+            <span class="text-muted-foreground text-xs">Resize your photo (350×350 with Name & Date) and signature (10–20 KB) in seconds.</span>
+          </div>
         </div>
-        <pre class="overflow-x-auto text-emerald-400"><code>Target: Attempt 45 Questions with >= 80% Accuracy
-Raw Score = (36 Correct × 2.50) - (9 Wrong × 0.833) = 90 - 7.50 = 82.50 Marks (Comfortably clears 66.67)</code></pre>
+        <div class="flex items-center gap-2">
+          <a href="/upsc-signature-resize/" class="px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs whitespace-nowrap hover:opacity-95 transition shadow-xs">
+            UPSC Resizer Preset &rarr;
+          </a>
+          <a href="/photo-with-name-and-date-maker/" class="px-3 py-2 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs whitespace-nowrap hover:opacity-95 transition">
+            Name &amp; Date Maker &rarr;
+          </a>
+        </div>
       </div>
 
-      <h2>UPSC OTR Document Upload Rules</h2>
-      <p>Candidates registering on the UPSC One Time Registration portal (upsconline.nic.in) must adhere to precise file specifications for photo and signature uploads:</p>
-      <ul>
-        <li><strong>Passport Photograph:</strong> 350 &times; 350 pixels, size strictly <strong>20 KB to 300 KB</strong>. Must state candidate's name and photo date at the bottom.</li>
-        <li><strong>Scanned Signature:</strong> 140 &times; 60 pixels, size strictly <strong>10 KB to 20 KB</strong> in black ink.</li>
+      <h2>📐 2. High-Yield Subject Weightage &amp; Syllabus Breakdown</h2>
+      <p>Analyzing recent question papers reveals clear thematic clusters where question frequency remains consistently dense. Aligning your revision with these core topics maximizes scoring efficiency:</p>
+
+      <div class="my-6 overflow-x-auto rounded-xl border border-border">
+        <table class="w-full border-collapse border border-border text-xs sm:text-sm text-left table-auto">
+          <thead class="bg-muted text-foreground font-semibold">
+            <tr>
+              <th class="p-3 border border-border">Core Subject</th>
+              <th class="p-3 border border-border">Average Questions</th>
+              <th class="p-3 border border-border">High-Yield Sub-Themes</th>
+              <th class="p-3 border border-border">Target Accuracy</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border text-foreground">
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Indian Polity &amp; Governance</td>
+              <td class="p-3 border border-border font-mono">14 – 18 Qs</td>
+              <td class="p-3 border border-border">Fundamental Rights, DPSP, Parliament Procedures, Judicial Reviews, Constitutional Bodies.</td>
+              <td class="p-3 border border-border text-emerald-600 font-semibold">≥ 80% (Highest Return)</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Economy &amp; Banking</td>
+              <td class="p-3 border border-border font-mono">15 – 19 Qs</td>
+              <td class="p-3 border border-border">RBI Monetary Instruments, Inflation Indices (CPI/WPI), Balance of Payments, Government Budgeting.</td>
+              <td class="p-3 border border-border text-emerald-600 font-semibold">≥ 75%</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Environment &amp; Ecology</td>
+              <td class="p-3 border border-border font-mono">16 – 20 Qs</td>
+              <td class="p-3 border border-border">Protected Areas, National Parks, Ramsar Wetlands, IUCN Conservation Status, Climate Agreements.</td>
+              <td class="p-3 border border-border text-amber-600 font-semibold">≥ 65% (High Variance)</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Modern &amp; Ancient History</td>
+              <td class="p-3 border border-border font-mono">12 – 15 Qs</td>
+              <td class="p-3 border border-border">Buddhism &amp; Jainism, Vijayanagara Dynasty, Tribal &amp; Peasant Revolts, 1919–1947 Freedom Milestones.</td>
+              <td class="p-3 border border-border text-amber-600 font-semibold">≥ 60%</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Geography &amp; Mapping</td>
+              <td class="p-3 border border-border font-mono">10 – 14 Qs</td>
+              <td class="p-3 border border-border">River Drainage Basins, Strategic International Straits, Critical Mineral Belts, Plate Tectonics.</td>
+              <td class="p-3 border border-border text-emerald-600 font-semibold">≥ 70%</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Science &amp; Applied Tech</td>
+              <td class="p-3 border border-border font-mono">10 – 12 Qs</td>
+              <td class="p-3 border border-border">CRISPR/Cas9, Quantum Computing, Web3, Defense Missiles, Semiconductor Fab Ecosystems.</td>
+              <td class="p-3 border border-border text-amber-600 font-semibold">≥ 65%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>⚖️ 3. The 'Pair-Based' Question Trap &amp; 3-Tier Attempt Triage</h2>
+      <p>In recent examinations, UPSC fundamentally altered question architecture to counteract coaching elimination shortcuts. Over 45 questions now feature the restrictive format: <em>"How many of the above pairs are correctly matched? (a) Only one pair, (b) Only two pairs, (c) All three pairs, (d) None"</em>.</p>
+      
+      <p>When you cannot eliminate choices simply by spotting one false statement, apply the <strong>3-Tier Attempt Protocol</strong> across three structured passes:</p>
+
+      <div class="my-6 space-y-3">
+        <div class="p-4 rounded-xl border border-border bg-card">
+          <h4 class="font-bold text-foreground text-sm flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            Tier 1: Absolute Certainty (Target: 35–40 Questions)
+          </h4>
+          <p class="text-xs text-muted-foreground mt-1">
+            Questions where you have 100% factual mastery over all statements. Mark on the OMR sheet immediately in your first 45 minutes. Never leave easy Polity or direct Economy questions for later passes.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl border border-border bg-card">
+          <h4 class="font-bold text-foreground text-sm flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+            Tier 2: Dual-Option Elimination (Target: 35–42 Questions)
+          </h4>
+          <p class="text-xs text-muted-foreground mt-1">
+            Questions where you can confidently narrow the answer down to two possible choices. Statistically, attempting 40 such questions with a 50% success rate yields 20 correct (+40 M) and 20 incorrect (-13.33 M), providing a net gain of +26.67 marks.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl border border-border bg-card">
+          <h4 class="font-bold text-foreground text-sm flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            Tier 3: Pure Conjecture (Target: 0 Questions — Immediate Abort)
+          </h4>
+          <p class="text-xs text-muted-foreground mt-1">
+            Questions where all four statements or pairs are entirely unfamiliar. Guessing blindly here carries a negative mathematical expectation (-0.666 per question) that rapidly destroys borderline cutoffs.
+          </p>
+        </div>
+      </div>
+
+      <h2>💡 4. Exact Marks Calculation Formula &amp; Interactive Simulator</h2>
+      <p>One of the most searched queries by test takers is <em>"how to calculate upsc cse prelims marks"</em>. The scoring calculation differs mathematically between Paper-I and Paper-II. Use our live interactive calculator below to test your attempts against official marking boundaries:</p>
+
+      <!-- Embedded Interactive UPSC Marks Calculator Widget -->
+      <div class="my-6 p-5 sm:p-6 rounded-2xl border-2 border-primary/40 bg-gradient-to-br from-card via-card to-primary/5 shadow-md space-y-4" id="prelims-calculator">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border pb-3">
+          <div>
+            <h3 class="text-base sm:text-lg font-extrabold text-foreground flex items-center gap-2">
+              <span>🧮</span> Interactive UPSC Prelims Marks Calculator
+            </h3>
+            <p class="text-xs text-muted-foreground mt-0.5">Simulate net score, negative marks penalty, and cutoff clearance status in real time.</p>
+          </div>
+          <div class="inline-flex rounded-xl p-1 bg-muted border border-border text-xs font-semibold" role="tablist">
+            <button type="button" id="calc-tab-gs1" class="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground transition-all shadow-xs" aria-selected="true">GS Paper-I (Merit)</button>
+            <button type="button" id="calc-tab-csat" class="px-3 py-1.5 rounded-lg text-muted-foreground hover:text-foreground transition-all" aria-selected="false">CSAT Paper-II (Qualifying)</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="space-y-1.5">
+            <label for="calc-correct" class="font-semibold text-foreground flex items-center justify-between">
+              <span>Correct Answers (Marks Gain)</span>
+              <span id="calc-correct-weight" class="text-emerald-500 font-mono font-bold">+2.00 / Q</span>
+            </label>
+            <input type="number" id="calc-correct" min="0" max="100" value="62" class="w-full px-3 py-2 rounded-xl bg-background border border-border text-foreground font-mono font-bold text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" />
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="calc-wrong" class="font-semibold text-foreground flex items-center justify-between">
+              <span>Incorrect Answers (Penalty)</span>
+              <span id="calc-wrong-penalty" class="text-rose-500 font-mono font-bold">-0.666 / Q</span>
+            </label>
+            <input type="number" id="calc-wrong" min="0" max="100" value="22" class="w-full px-3 py-2 rounded-xl bg-background border border-border text-foreground font-mono font-bold text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 text-xs">
+          <div class="p-3 rounded-xl bg-background border border-border">
+            <span class="text-muted-foreground block text-[11px]">Total Attempted</span>
+            <span id="calc-attempted" class="text-foreground text-sm sm:text-base font-bold font-mono">84 / 100 Qs</span>
+          </div>
+          <div class="p-3 rounded-xl bg-background border border-border">
+            <span class="text-muted-foreground block text-[11px]">Gross Marks</span>
+            <span id="calc-gross" class="text-emerald-600 dark:text-emerald-400 text-sm sm:text-base font-bold font-mono">+124.00</span>
+          </div>
+          <div class="p-3 rounded-xl bg-background border border-border">
+            <span class="text-muted-foreground block text-[11px]">Negative Penalty</span>
+            <span id="calc-penalty" class="text-rose-600 dark:text-rose-400 text-sm sm:text-base font-bold font-mono">-14.65</span>
+          </div>
+          <div class="p-3 rounded-xl bg-primary/10 border border-primary/30">
+            <span class="text-primary block text-[11px] font-bold">Net Score</span>
+            <span id="calc-net" class="text-primary text-base sm:text-lg font-extrabold font-mono">109.35 M</span>
+          </div>
+        </div>
+
+        <div id="calc-status" class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 font-semibold text-xs flex items-center justify-between">
+          <span>Status: Comfortable Merit Cutoff Clearance (Estimated Benchmark: 88–95 Marks)</span>
+          <span class="font-bold">✓ SAFE</span>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          let currentPaper = 'gs1';
+          const tabGs1 = document.getElementById('calc-tab-gs1');
+          const tabCsat = document.getElementById('calc-tab-csat');
+          const inpCorrect = document.getElementById('calc-correct');
+          const inpWrong = document.getElementById('calc-wrong');
+          const weightLabel = document.getElementById('calc-correct-weight');
+          const penaltyLabel = document.getElementById('calc-wrong-penalty');
+          const outAttempted = document.getElementById('calc-attempted');
+          const outGross = document.getElementById('calc-gross');
+          const outPenalty = document.getElementById('calc-penalty');
+          const outNet = document.getElementById('calc-net');
+          const outStatus = document.getElementById('calc-status');
+
+          if (!tabGs1 || !tabCsat || !inpCorrect || !inpWrong) return;
+
+          function updateCalculator() {
+            const correct = Math.max(0, parseInt(inpCorrect.value) || 0);
+            const wrong = Math.max(0, parseInt(inpWrong.value) || 0);
+            const maxQs = currentPaper === 'gs1' ? 100 : 80;
+            const posWeight = currentPaper === 'gs1' ? 2.0 : 2.5;
+            const negPenalty = currentPaper === 'gs1' ? (2.0 / 3.0) : (2.5 / 3.0);
+
+            const total = correct + wrong;
+            const gross = correct * posWeight;
+            const penalty = wrong * negPenalty;
+            const net = Math.max(0, gross - penalty);
+
+            outAttempted.textContent = total + ' / ' + maxQs + ' Qs';
+            outGross.textContent = '+' + gross.toFixed(2);
+            outPenalty.textContent = '-' + penalty.toFixed(2);
+            outNet.textContent = net.toFixed(2) + ' M';
+
+            if (currentPaper === 'gs1') {
+              if (net >= 95) {
+                outStatus.className = 'p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 font-semibold text-xs flex items-center justify-between';
+                outStatus.innerHTML = '<span>Status: Comfortable Merit Clearance (Benchmark: 88–95 Marks)</span><span class="font-bold">✓ SAFE</span>';
+              } else if (net >= 88) {
+                outStatus.className = 'p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-300 font-semibold text-xs flex items-center justify-between';
+                outStatus.innerHTML = '<span>Status: Borderline Cutoff Zone (Benchmark: 88–95 Marks)</span><span class="font-bold">⚠ BORDERLINE</span>';
+              } else {
+                outStatus.className = 'p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-700 dark:text-rose-300 font-semibold text-xs flex items-center justify-between';
+                outStatus.innerHTML = '<span>Status: Below General Category Cutoff (Target: ≥ 90 Marks)</span><span class="font-bold">✗ RISK</span>';
+              }
+            } else {
+              if (net >= 66.67) {
+                outStatus.className = 'p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 font-semibold text-xs flex items-center justify-between';
+                outStatus.innerHTML = '<span>Status: Qualified in CSAT (Mandatory Threshold: ≥ 66.67 Marks / 33%)</span><span class="font-bold">✓ QUALIFIED</span>';
+              } else {
+                outStatus.className = 'p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-700 dark:text-rose-300 font-semibold text-xs flex items-center justify-between';
+                outStatus.innerHTML = '<span>Status: Disqualified in CSAT (Must score strictly ≥ 66.67 Marks)</span><span class="font-bold">✗ DISQUALIFIED</span>';
+              }
+            }
+          }
+
+          tabGs1.addEventListener('click', () => {
+            currentPaper = 'gs1';
+            tabGs1.className = 'px-3 py-1.5 rounded-lg bg-primary text-primary-foreground transition-all shadow-xs';
+            tabCsat.className = 'px-3 py-1.5 rounded-lg text-muted-foreground hover:text-foreground transition-all';
+            weightLabel.textContent = '+2.00 / Q';
+            penaltyLabel.textContent = '-0.666 / Q';
+            inpCorrect.max = '100';
+            inpWrong.max = '100';
+            if (parseInt(inpCorrect.value) > 100) inpCorrect.value = '62';
+            updateCalculator();
+          });
+
+          tabCsat.addEventListener('click', () => {
+            currentPaper = 'csat';
+            tabCsat.className = 'px-3 py-1.5 rounded-lg bg-primary text-primary-foreground transition-all shadow-xs';
+            tabGs1.className = 'px-3 py-1.5 rounded-lg text-muted-foreground hover:text-foreground transition-all';
+            weightLabel.textContent = '+2.50 / Q';
+            penaltyLabel.textContent = '-0.833 / Q';
+            inpCorrect.max = '80';
+            inpWrong.max = '80';
+            if (parseInt(inpCorrect.value) > 80) inpCorrect.value = '42';
+            updateCalculator();
+          });
+
+          inpCorrect.addEventListener('input', updateCalculator);
+          inpWrong.addEventListener('input', updateCalculator);
+          updateCalculator();
+        })();
+      </script>
+
+      <!-- Clean Mathematical Scoring Spec Cards (Responsive Math Badges) -->
+      <div class="my-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl border border-border bg-card space-y-1.5">
+          <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/20 text-primary uppercase">GS Paper-I (100 Qs | 200 Marks)</span>
+          <div class="font-mono text-xs font-semibold text-foreground pt-1">
+            Score = (Correct × 2.00) − (Wrong × 0.666)
+          </div>
+          <p class="text-[11px] text-muted-foreground">Each question carries 2.0 marks. 1/3rd negative deduction equals 0.666 marks. Unattempted questions carry zero penalty.</p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-border bg-card space-y-1.5">
+          <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-500 uppercase">CSAT Paper-II (80 Qs | 200 Marks)</span>
+          <div class="font-mono text-xs font-semibold text-foreground pt-1">
+            Score = (Correct × 2.50) − (Wrong × 0.833)
+          </div>
+          <p class="text-[11px] text-muted-foreground">Each question carries 2.50 marks. 1/3rd negative deduction equals 0.833 marks. Qualifying minimum is strictly 66.67 marks.</p>
+        </div>
+      </div>
+
+      <div class="my-6 overflow-x-auto rounded-xl border border-border">
+        <table class="w-full border-collapse border border-border text-xs sm:text-sm text-left table-auto">
+          <thead class="bg-muted text-foreground font-semibold">
+            <tr>
+              <th class="p-3 border border-border">Attempt Strategy Scenario</th>
+              <th class="p-3 border border-border">Attempted Qs</th>
+              <th class="p-3 border border-border">Correct Qs</th>
+              <th class="p-3 border border-border">Wrong Qs</th>
+              <th class="p-3 border border-border">Net Marks (GS-1)</th>
+              <th class="p-3 border border-border">Cutoff Clearance Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border text-foreground">
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Aggressive High-Attempt</td>
+              <td class="p-3 border border-border font-mono">88 Qs</td>
+              <td class="p-3 border border-border font-mono text-emerald-600 font-bold">66 Correct</td>
+              <td class="p-3 border border-border font-mono text-rose-500 font-bold">22 Wrong</td>
+              <td class="p-3 border border-border font-mono font-extrabold text-emerald-600">117.34 Marks</td>
+              <td class="p-3 border border-border text-emerald-600 font-bold">✓ Comfortable Clear</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Balanced Optimal</td>
+              <td class="p-3 border border-border font-mono">80 Qs</td>
+              <td class="p-3 border border-border font-mono text-emerald-600 font-bold">58 Correct</td>
+              <td class="p-3 border border-border font-mono text-rose-500 font-bold">22 Wrong</td>
+              <td class="p-3 border border-border font-mono font-extrabold text-emerald-600">101.34 Marks</td>
+              <td class="p-3 border border-border text-emerald-600 font-bold">✓ High Safety Margin</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold text-primary border border-border">Overly Conservative</td>
+              <td class="p-3 border border-border font-mono">64 Qs</td>
+              <td class="p-3 border border-border font-mono text-emerald-600 font-bold">46 Correct</td>
+              <td class="p-3 border border-border font-mono text-rose-500 font-bold">18 Wrong</td>
+              <td class="p-3 border border-border font-mono font-extrabold text-rose-500">80.00 Marks</td>
+              <td class="p-3 border border-border text-rose-500 font-bold">✗ Below Merit Cutoff</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Canceled Questions Rule:</strong> If UPSC cancels any questions due to translation ambiguities or factual errors, the full 200 marks are distributed proportionally across the remaining questions. If 2 questions are canceled in GS-1, each remaining question is weighted at <strong>2.0408 marks</strong>, and each incorrect answer deducts <strong>0.6802 marks</strong>.</p>
+
+      <h2>📖 5. CSAT Reading Comprehension Master Hacks (RC Accuracy Blueprint)</h2>
+      <p>Reading Comprehension accounts for 25 to 28 questions (roughly 62.5 to 70 marks) in CSAT Paper-II. Because each question carries 2.5 marks, mastering RC accuracy is the fastest and safest route to clearing the 66.67 qualifying threshold without risking complex permutation-combination maths.</p>
+
+      <div class="my-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl border border-border bg-card space-y-2">
+          <h4 class="font-bold text-foreground flex items-center gap-1.5">
+            <span class="text-primary font-mono font-bold">01</span>
+            <span>Inference vs. Assumption vs. Corollary</span>
+          </h4>
+          <ul class="space-y-1.5 text-muted-foreground leading-relaxed">
+            <li><strong>Assumption:</strong> The unstated foundational premise the author takes for granted. If negated, the entire argument collapses.</li>
+            <li><strong>Inference:</strong> A logical conclusion that must be 100% true based strictly on the stated facts in the text.</li>
+            <li><strong>Corollary:</strong> A direct, practical consequence or natural extension flowing from the passage's primary conclusion.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-xl border border-border bg-card space-y-2">
+          <h4 class="font-bold text-foreground flex items-center gap-1.5">
+            <span class="text-primary font-mono font-bold">02</span>
+            <span>Eliminating Extreme Word Modifiers</span>
+          </h4>
+          <p class="text-muted-foreground leading-relaxed">
+            UPSC RC answer keys consistently penalize extreme assertions. Immediately flag options containing words like <em>'only'</em>, <em>'always'</em>, <em>'never'</em>, <em>'completely'</em>, <em>'exclusively'</em>, or <em>'all'</em>. Authors rarely take radical stances unless explicitly stated verbatim.
+          </p>
+        </div>
+      </div>
+
+      <div class="my-6 p-4 rounded-xl bg-muted/40 border border-border space-y-2 text-xs sm:text-sm">
+        <h4 class="font-bold text-foreground">The 3-Step Reading Passage Workflow</h4>
+        <ol class="list-decimal pl-4 space-y-1.5 text-muted-foreground">
+          <li><strong>Read Question Stem First:</strong> Identify whether UPSC asks for the <em>'Crux'</em>, <em>'Critical Message'</em>, or a specific fact before reading the passage.</li>
+          <li><strong>Eliminate External Knowledge:</strong> Never introduce outside real-world information. Answer solely based on the four corners of the text, even if the passage contradicts your personal views.</li>
+          <li><strong>Match Scope:</strong> If a passage discusses agrarian water scarcity in a specific region, eliminate options that generalize water policy to the entire global economy.</li>
+        </ol>
+      </div>
+
+      <h2>🧠 6. Cognitive Conditioning &amp; Deductive Elimination Drills</h2>
+      <p>In CSAT Paper-II, the quantitative and analytical reasoning section focuses heavily on specific recurring conceptual clusters:</p>
+      
+      <ul class="my-3 space-y-1 text-xs sm:text-sm text-muted-foreground list-disc pl-5">
+        <li><strong>Number Systems &amp; Remainder Theorems:</strong> Divisibility rules, unit digits, prime factors, and recurring decimals.</li>
+        <li><strong>Permutations, Combinations &amp; Probability:</strong> Handshake problems, committee formations, and arrangement constraints.</li>
+        <li><strong>Logical Syllogisms &amp; Deductive Venns:</strong> Definite vs possibility conclusions and statement intersections.</li>
+        <li><strong>Linear &amp; Circular Seating Arrangements:</strong> Multi-constraint ordering and relative spatial positioning.</li>
+        <li><strong>Data Sufficiency &amp; Direction Tests:</strong> Evaluating whether Statement-1 and Statement-2 are independently sufficient.</li>
       </ul>
 
+      <p>Under the time pressure of a 2-hour afternoon paper (2:30 PM to 4:30 PM), candidates face severe afternoon fatigue after an exhausting morning GS-1 paper, leading to reading lapses and avoidable negative deductions. Beyond textbook study, dedicating 10–15 minutes daily to structured number puzzles and grid exercises on platforms like <a href="https://netsudoku.com/" target="_blank" rel="noopener" class="text-primary font-semibold underline decoration-primary/40 hover:decoration-primary">NetSudoku</a> trains your brain in quick candidate elimination, spatial pattern recognition, and multi-variable constraint tracking—cognitive reflexes that directly improve problem-solving speed across CSAT seating matrices and number series.</p>
+
+      <h2>🛡️ 7. UPSC OTR &amp; Admit Card Verification Standards</h2>
+      <p>Every year, hundreds of candidates face entry disqualification or withheld admit cards due to non-compliant photograph and signature uploads on the UPSC One-Time Registration portal (<code>upsconline.nic.in</code>). Ensure your application files strictly follow official commission directives:</p>
+
+      <ul>
+        <li><strong>Photograph with Name &amp; Date:</strong> The candidate's name and the date on which the photograph was taken must be clearly printed at the bottom of the photo. The photograph must not be older than 10 days from the opening date of the online application window.</li>
+        <li><strong>Photo Dimensions &amp; Size:</strong> Strictly <strong>350 × 350 pixels</strong> (1:1 square aspect ratio), file size between <strong>20 KB to 300 KB</strong> in JPG format.</li>
+        <li><strong>Live Webcam Photo Capture:</strong> Following updated UPSC security guidelines, candidates must complete a live photo capture via webcam during the application submission. Ensure you sit against a plain, light-colored background in a well-lit room without harsh backlighting, shadows, spectacles with tinted lenses, or head coverings.</li>
+        <li><strong>Signature Specifications:</strong> Black ballpoint ink on clean white paper, sized strictly between <strong>10 KB to 20 KB</strong> with <strong>140 × 60 pixel resolution</strong>. Signatures uploaded in capital letters or blue ink will lead to rejection.</li>
+      </ul>
+
+      <!-- Internal Tool Integration CTA -->
       <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
-        <h4 class="text-base font-bold text-foreground">Preparing UPSC OTR Documents?</h4>
-        <p class="text-sm text-muted-foreground mt-1">Ensure your UPSC passport photo and signature comply with official OTR specs before the registration portal closes.</p>
-        <a href="/upsc-signature-resize/" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition">
-          Open UPSC Resizer Preset &rarr;
-        </a>
+        <h4 class="text-base font-bold text-foreground">Prepare Your UPSC OTR Documents Instantly</h4>
+        <p class="text-sm text-muted-foreground mt-1">Resize your passport photo with name and date strip, and compress your black-ink signature to exact 10–20 KB UPSC portal limits in seconds.</p>
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 mt-3">
+          <a href="/upsc-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition">
+            UPSC Signature Resizer (10–20 KB) &rarr;
+          </a>
+          <a href="/photo-with-name-and-date-maker/" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition">
+            Add Name &amp; Date to Photo &rarr;
+          </a>
+        </div>
       </div>
-    `,
-    faqs: []
+    `
   },
 
   {
@@ -4160,6 +4584,10 @@ signatures in capital letters will be rejected summarily without any corresponde
         <li><strong>Complementary Pair (Either-Or):</strong> If two conclusions share the same subject and predicate, one is affirmative ('Some A are B') and the other is negative ('No A are B'), and both are independently doubtful, select <strong>Either I or II follows</strong>.</li>
         <li><strong>Negative Statement Boundary:</strong> When a statement asserts 'No A is B', draw a solid line between circle A and circle B with a cross mark (&times;) to prevent visual overlap errors during rapid inspection.</li>
       </ul>
+
+            <h2>Speed Test Drills &amp; Mental Agility Conditioning</h2>
+      <p>Attaining a 50/50 score in SSC Tier-1 reasoning within the targeted 15–17 minute window requires immediate pattern recognition. Instead of passively reading through textbook solutions, aspirants must actively condition their brain for rapid problem elimination.</p>
+      <p>To refresh your mind between intense study blocks, engaging with clean, distraction-free logic puzzles such as <a href="https://netsudoku.com/" target="_blank" rel="noopener" class="text-primary font-semibold underline decoration-primary/40 hover:decoration-primary">NetSudoku's online logic puzzles</a> helps sharpen your numerical scanning and analytical elimination speed, directly strengthening your reflexes for SSC number series, analogy grids, and matrix reasoning.</p>
 
       <div class="my-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
         <h4 class="text-base font-bold text-foreground">Prepare Your SSC Exam Application Documents</h4>

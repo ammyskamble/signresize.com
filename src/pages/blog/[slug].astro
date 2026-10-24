@@ -465,11 +465,11 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         </section>
       )}
 
-      <!-- Two Column Layout: Main Article Body + Sticky Desktop Table of Contents -->
-      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_260px] xl:grid-cols-[minmax(0,1fr)_290px] gap-8 xl:gap-10 items-start relative">
+      <!-- MAIN 2-COLUMN READING ZONE (Ends after Topic Tags) -->
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-8 items-start relative">
         
-        <!-- Primary Article Content Column -->
-        <div class="min-w-0 space-y-6 sm:space-y-8">
+        <!-- Left Column: Article Content -->
+        <article class="min-w-0 space-y-6 sm:space-y-8">
           <!-- Mobile / Tablet Compact TOC (Visible on < lg screens) -->
           {navItems.length > 0 && (
             <nav class="lg:hidden rounded-xl border border-border bg-muted/30 p-3.5 sm:p-5 space-y-2.5">
@@ -499,185 +499,144 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
             </nav>
           )}
 
-<!-- Main Article Prose Content (with Enhanced Headline, Code, Stepper & Table Responsiveness) -->
-      {sourceGuide && guidanceSlug && (
-        <aside class="my-5 rounded-xl border border-primary/30 bg-primary/5 p-4 space-y-2" aria-label="Source-checked upload guidance">
-          <h2 class="font-bold">Check the source notice before preparing your files</h2>
-          <p class="text-sm text-muted-foreground">{EXAM_GUIDANCE[guidanceSlug].caution}</p>
-          <a href={`/${guidanceSlug}/`} class="inline-flex min-h-11 items-center font-semibold text-primary underline">{sourceGuide.h1} →</a>
-          <p class="text-xs text-muted-foreground">Source scope: {sourceGuide.guidanceLabel}. Reviewed {sourceGuide.verifiedOn}. Older preparation advice in this article may use different presets; compare it with the cited notice.</p>
-        </aside>
-      )}
-      <article class="article-prose prose prose-slate dark:prose-invert max-w-none w-full min-w-0 break-words prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
-        {post.slug === 'ssc-live-photo-webcam-guidelines-troubleshooting-2026' && <section class="mb-6 space-y-3"><h2 class="text-xl font-bold">Try your webcam before opening SSC</h2><WebcamChecker client:visible /></section>}
-        <Fragment set:html={processedHtml} />
-      </article>
+          {sourceGuide && guidanceSlug && (
+            <aside class="my-5 rounded-xl border border-primary/30 bg-primary/5 p-4 space-y-2" aria-label="Source-checked upload guidance">
+              <h2 class="font-bold">Check the source notice before preparing your files</h2>
+              <p class="text-sm text-muted-foreground">{EXAM_GUIDANCE[guidanceSlug].caution}</p>
+              <a href={`/${guidanceSlug}/`} class="inline-flex min-h-11 items-center font-semibold text-primary underline">{sourceGuide.h1} →</a>
+              <p class="text-xs text-muted-foreground">Source scope: {sourceGuide.guidanceLabel}. Reviewed {sourceGuide.verifiedOn}. Older preparation advice in this article may use different presets; compare it with the cited notice.</p>
+            </aside>
+          )}
 
-      <!-- Prominent Social Share Card after Article -->
-      <SocialShare
-        url={canonicalUrl}
-        title={post.title}
-        description={post.excerpt}
-        variant="card"
-        badgeText={post.guideTool ? 'Share this image preparation guide' : isPkiCompliancePost ? "Share this Technical & Compliance Guide with Colleagues" : isOssscPost ? "Share this OSSSC 2026 Exam Guide with Aspirants & Study Groups" : isWbpscPost ? "Share this WBPSC Exam Guide with Aspirants & Study Groups" : "Share this Official Exam Guide with Aspirants & Study Groups"}
-        subtext={post.guideTool ? 'Help someone prepare a clear image and check their final export.' : isPkiCompliancePost ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : isOssscPost ? "Help fellow candidates format their OSSSC photos and 10–20 KB signatures correctly and bypass portal errors." : isWbpscPost ? "Help fellow aspirants format their WBPSC photos and signatures correctly and bypass portal errors." : "Help fellow candidates avoid application rejections on official exam portals."}
-      />
+          <div class="article-prose prose prose-slate dark:prose-invert max-w-none w-full min-w-0 break-words prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
+            {post.slug === 'ssc-live-photo-webcam-guidelines-troubleshooting-2026' && <section class="mb-6 space-y-3"><h2 class="text-xl font-bold">Try your webcam before opening SSC</h2><WebcamChecker client:visible /></section>}
+            <Fragment set:html={processedHtml} />
+          </div>
 
-      <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
-      {post.faqs && post.faqs.length > 0 && (
-        <section id="faqs" class="space-y-4 pt-6 border-t border-border scroll-mt-20">
-          <span id="12-frequently-asked-questions" class="scroll-mt-24 block -mt-6 pt-6"></span>
-          <span id="section-6" class="scroll-mt-24 block -mt-6 pt-6"></span>
-          <div class="space-y-1">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
-              <span>❓</span> {post.guideTool ? 'Image preparation FAQs' : isPkiCompliancePost ? 'Technical & Regulatory FAQs' : 'Candidate FAQs'}
+          <!-- Prominent Social Share Card after Article -->
+          <SocialShare
+            url={canonicalUrl}
+            title={post.title}
+            description={post.excerpt}
+            variant="card"
+            badgeText={post.guideTool ? 'Share this image preparation guide' : isPkiCompliancePost ? "Share this Technical & Compliance Guide with Colleagues" : isOssscPost ? "Share this OSSSC 2026 Exam Guide with Aspirants & Study Groups" : isWbpscPost ? "Share this WBPSC Exam Guide with Aspirants & Study Groups" : "Share this Official Exam Guide with Aspirants & Study Groups"}
+            subtext={post.guideTool ? 'Help someone prepare a clear image and check their final export.' : isPkiCompliancePost ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : isOssscPost ? "Help fellow candidates format their OSSSC photos and 10–20 KB signatures correctly and bypass portal errors." : isWbpscPost ? "Help fellow aspirants format their WBPSC photos and signatures correctly and bypass portal errors." : "Help fellow candidates avoid application rejections on official exam portals."}
+          />
+
+          <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
+          {post.faqs && post.faqs.length > 0 && (
+            <section id="faqs" class="space-y-4 pt-6 border-t border-border scroll-mt-20">
+              <span id="12-frequently-asked-questions" class="scroll-mt-24 block -mt-6 pt-6"></span>
+              <span id="section-6" class="scroll-mt-24 block -mt-6 pt-6"></span>
+              <div class="space-y-1">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
+                  <span>❓</span> {post.guideTool ? 'Image preparation FAQs' : isPkiCompliancePost ? 'Technical & Regulatory FAQs' : 'Candidate FAQs'}
+                </div>
+                <h2 class="text-xl sm:text-3xl font-extrabold text-foreground tracking-tight break-words">
+                  Frequently Asked Questions ({post.faqs.length} Clarified)
+                </h2>
+                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
+                  {post.guideTool ? 'Practical answers about this workflow and its limits.' : isPkiCompliancePost
+                    ? 'Authoritative answers verified against technical RFC specifications, NIST standards, and legal compliance frameworks.'
+                    : isWbpscPost
+                      ? 'Authoritative answers verified against official WBPSC recruitment notifications and commission portal upload benchmarks.'
+                      : 'Use the official sources referenced in this article to confirm current requirements.'}
+                </p>
+              </div>
+
+              <div class="space-y-3 pt-2">
+                {post.faqs.map((faq, idx) => (
+                  <details class="group rounded-2xl border border-border bg-card p-3.5 sm:p-5 transition-all hover:border-primary/40 open:border-primary/50 open:bg-primary/5 open:shadow-xs cursor-pointer" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary class="flex items-start justify-between gap-3 font-bold text-foreground text-sm sm:text-base list-none select-none">
+                      <div class="flex items-start gap-2.5">
+                        <span class="px-2 py-0.5 rounded-md text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20 shrink-0 mt-0.5">
+                          Q{idx + 1}
+                        </span>
+                        <span itemprop="name" class="group-open:text-primary transition break-words">{faq.question}</span>
+                      </div>
+                      <span class="shrink-0 text-muted-foreground group-open:rotate-180 group-open:text-primary transition-transform duration-200 mt-1">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
+                    </summary>
+                    <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="mt-3 pl-0 sm:pl-9 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300 border-t border-border/50 pt-3 prose prose-slate dark:prose-invert max-w-none break-words">
+                      <div itemprop="text">
+                        <Fragment set:html={formatHighlightMarkup(faq.answer)} />
+                      </div>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <!-- Educational & Fair Use Disclaimer Box -->
+          <section class="rounded-xl border border-border bg-slate-100/70 dark:bg-slate-900/50 p-3.5 sm:p-4 text-xs space-y-1.5 shadow-2xs">
+            <div class="flex items-center gap-1.5 font-bold text-foreground text-[11px] uppercase tracking-wider">
+              <span>⚖️</span>
+              <span>Educational Disclaimer &amp; Fair Use Notice</span>
             </div>
-            <h2 class="text-xl sm:text-3xl font-extrabold text-foreground tracking-tight break-words">
-              Frequently Asked Questions ({post.faqs.length} Clarified)
-            </h2>
-            <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
-              {post.guideTool ? 'Practical answers about this workflow and its limits.' : isPkiCompliancePost
-                ? 'Authoritative answers verified against technical RFC specifications, NIST standards, and legal compliance frameworks.'
-                : isWbpscPost
-                  ? 'Authoritative answers verified against official WBPSC recruitment notifications and commission portal upload benchmarks.'
-                  : 'Use the official sources referenced in this article to confirm current requirements.'}
+            <p class="leading-relaxed text-[11px] text-slate-700 dark:text-slate-300 break-words font-medium">
+              SignResize.in is an independent, non-governmental document utility and candidate educational guidance platform. All references to public examinations (including SSC, UPSC, RRB, IBPS, and State PSCs), syllabus topics, and government portals are made strictly under nominative fair use for descriptive, identification, and educational assistance. SignResize is neither affiliated with, nor endorsed, sponsored, or certified by any government commission or commercial coaching entity.
             </p>
-          </div>
+          </section>
 
-          <div class="space-y-3 pt-2">
-            {post.faqs.map((faq, idx) => (
-              <details class="group rounded-2xl border border-border bg-card p-3.5 sm:p-5 transition-all hover:border-primary/40 open:border-primary/50 open:bg-primary/5 open:shadow-xs cursor-pointer" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <summary class="flex items-start justify-between gap-3 font-bold text-foreground text-sm sm:text-base list-none select-none">
-                  <div class="flex items-start gap-2.5">
-                    <span class="px-2 py-0.5 rounded-md text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20 shrink-0 mt-0.5">
-                      Q{idx + 1}
-                    </span>
-                    <span itemprop="name" class="group-open:text-primary transition break-words">{faq.question}</span>
-                  </div>
-                  <span class="shrink-0 text-muted-foreground group-open:rotate-180 group-open:text-primary transition-transform duration-200 mt-1">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </summary>
-                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="mt-3 pl-0 sm:pl-9 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300 border-t border-border/50 pt-3 prose prose-slate dark:prose-invert max-w-none break-words">
-                  <div itemprop="text">
-                    <Fragment set:html={formatHighlightMarkup(faq.answer)} />
-                  </div>
-                </div>
-              </details>
-            ))}
-          </div>
-        </section>
-      )}
-
-      <!-- Educational & Fair Use Disclaimer Box -->
-      <section class="rounded-xl border border-border bg-slate-100/70 dark:bg-slate-900/50 p-3.5 sm:p-4 text-xs space-y-1.5 shadow-2xs">
-        <div class="flex items-center gap-1.5 font-bold text-foreground text-[11px] uppercase tracking-wider">
-          <span>⚖️</span>
-          <span>Educational Disclaimer &amp; Fair Use Notice</span>
-        </div>
-        <p class="leading-relaxed text-[11px] text-slate-700 dark:text-slate-300 break-words font-medium">
-          SignResize.in is an independent, non-governmental document utility and candidate educational guidance platform. All references to public examinations (including SSC, UPSC, RRB, IBPS, and State PSCs), syllabus topics, and government portals are made strictly under nominative fair use for descriptive, identification, and educational assistance. SignResize is neither affiliated with, nor endorsed, sponsored, or certified by any government commission or commercial coaching entity.
-        </p>
-      </section>
-
-      <!-- In-Article Dynamic Resizer Tool Callout -->
-      {relatedPreset && (
-        <section class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/5 via-card to-card p-4 sm:p-6 shadow-xs space-y-3">
-          <div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
-            <span>⚡ Recommended Instant Tool</span>
-          </div>
-          <h3 class="text-base sm:text-lg font-bold text-foreground break-words">
-            Resize Documents for {relatedPreset.name}
-          </h3>
-          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
-            Official Specs: {relatedPreset.widthPx}&times;{relatedPreset.heightPx} px ({relatedPreset.widthCm}&times;{relatedPreset.heightCm} cm), file size strictly {relatedPreset.minKb} to {relatedPreset.maxKb} KB ({relatedPreset.inkRequirement}).
-          </p>
-          <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3">
-            <a
-              href={getExamPageUrl(relatedExamSlug)}
-              class="w-full sm:w-auto px-4 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shadow-xs flex items-center justify-center gap-1.5"
-            >
-              <span>Launch {relatedPreset.shortCode} Preset Resizer</span>
-              <span>&rarr;</span>
-            </a>
-            <a
-              href="/#tool-workspace"
-              class="w-full sm:w-auto px-4 py-2.5 min-h-[42px] rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:bg-muted transition flex items-center justify-center"
-            >
-              Universal 10-20KB Tool
-            </a>
-          </div>
-        </section>
-      )}
-
-      <!-- Tags -->
-      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-4 border-t border-border">
-        <span class="text-xs font-semibold text-muted-foreground shrink-0">Topics:</span>
-        {post.tags.map(tag => (
-          <span class="text-xs px-2.5 py-0.5 rounded-lg bg-muted text-muted-foreground border border-border break-words">
-            #{tag}
-          </span>
-        ))}
-      </div>
-
-      <!-- Related Posts Section -->
-      {relatedPosts.length > 0 && (
-        <section class="border-t border-border pt-6 sm:pt-8 space-y-4">
-          <div class="flex items-center justify-between">
-            <h3 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
-              <span>📚</span>
-              <span>{isPkiCompliancePost ? 'Related Technical & Document Standards Guides' : 'Related High-Yield Preparation Guides'}</span>
-            </h3>
-            <a href="/blog/" class="text-xs text-primary font-semibold hover:underline">
-              View All Guides &rarr;
-            </a>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-            {relatedPosts.map(p => (
-              <a
-                href={`/blog/${p.slug}/`}
-                class="p-4 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-sm transition group flex flex-col justify-between space-y-3 min-w-0"
-              >
-                <div class="space-y-1.5">
-                  <div class="flex items-center justify-between gap-1">
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">
-                      {p.category}
-                    </span>
-                    <span class="text-[10px] text-muted-foreground font-mono">{p.readTime}</span>
-                  </div>
-                  <h4 class="font-bold text-xs sm:text-sm text-foreground group-hover:text-primary transition line-clamp-2 break-words">
-                    {p.title}
-                  </h4>
-                  <p class="text-[11px] text-muted-foreground line-clamp-2 leading-relaxed">
-                    {p.excerpt}
-                  </p>
-                </div>
-                <div class="text-xs text-primary font-bold flex items-center gap-1 pt-1 group-hover:translate-x-0.5 transition">
-                  <span>Read Guide</span>
+          <!-- In-Article Dynamic Resizer Tool Callout -->
+          {relatedPreset && (
+            <section class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/5 via-card to-card p-4 sm:p-6 shadow-xs space-y-3">
+              <div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
+                <span>⚡ Recommended Instant Tool</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-foreground break-words">
+                Resize Documents for {relatedPreset.name}
+              </h3>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
+                Official Specs: {relatedPreset.widthPx}&times;{relatedPreset.heightPx} px ({relatedPreset.widthCm}&times;{relatedPreset.heightCm} cm), file size strictly {relatedPreset.minKb} to {relatedPreset.maxKb} KB ({relatedPreset.inkRequirement}).
+              </p>
+              <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3">
+                <a
+                  href={getExamPageUrl(relatedExamSlug)}
+                  class="w-full sm:w-auto px-4 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shadow-xs flex items-center justify-center gap-1.5"
+                >
+                  <span>Launch {relatedPreset.shortCode} Preset Resizer</span>
                   <span>&rarr;</span>
-                </div>
-              </a>
+                </a>
+                <a
+                  href="/#tool-workspace"
+                  class="w-full sm:w-auto px-4 py-2.5 min-h-[42px] rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:bg-muted transition flex items-center justify-center"
+                >
+                  Universal 10-20KB Tool
+                </a>
+              </div>
+            </section>
+          )}
+
+          <!-- Tags -->
+          <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-4 border-t border-border">
+            <span class="text-xs font-semibold text-muted-foreground shrink-0">Topics:</span>
+            {post.tags.map(tag => (
+              <span class="text-xs px-2.5 py-0.5 rounded-lg bg-muted text-muted-foreground border border-border break-words">
+                #{tag}
+              </span>
             ))}
           </div>
-        </section>
-      )}
-        </div>
+        </article>
 
-        <!-- Sticky Right-Side Table of Contents (Desktop only: lg & xl) -->
-        {navItems.length > 0 && (
-          <aside class="hidden lg:block sticky top-28 self-start space-y-4">
-            <nav class="rounded-2xl border border-border bg-card/95 backdrop-blur-md p-4 shadow-sm space-y-3 max-h-[calc(100vh-8rem)] overflow-y-auto scrollbar-thin">
-              <div class="flex items-center justify-between border-b border-border/60 pb-2.5">
-                <div class="flex items-center gap-2 text-xs font-bold text-foreground uppercase tracking-wider">
-                  <span class="text-primary">📑</span>
-                  <span>Table of Contents</span>
-                </div>
+        <!-- Right Column: Sticky Sidebar (Never clips the CTA button) -->
+        <aside class="hidden lg:flex flex-col gap-3 sticky top-20 blog-sticky-sidebar">
+          
+          <!-- Scrollable TOC Card -->
+          {navItems.length > 0 && (
+            <nav class="bg-card border border-border rounded-xl p-4 overflow-y-auto flex-1 min-h-0 shadow-2xs scrollbar-thin">
+              <div class="flex items-center justify-between mb-2.5 border-b border-border/60 pb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                  <span class="text-primary">📑</span> Table of Contents
+                </span>
                 <span class="text-[10px] text-muted-foreground font-mono bg-muted px-1.5 py-0.5 rounded">{navItems.length} Sections</span>
               </div>
               
-              <ul class="space-y-1 text-xs" id="desktop-toc-list">
+              <ol class="space-y-1 text-xs leading-snug" id="desktop-toc-list">
                 {navItems.map((item, idx) => (
                   <li>
                     <a
@@ -695,33 +654,72 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
                     </a>
                   </li>
                 ))}
-              </ul>
-
-              <!-- Sticky Instant Tool Shortcut Box -->
-              {post.guideTool && <div class="pt-3 border-t border-border/60"><a href={post.guideTool.href} class="flex items-center justify-center w-full py-2 px-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition">{post.guideTool.label} →</a></div>}
-              {relatedPreset && (
-                <div class="pt-3 border-t border-border/60 space-y-2">
-                  <div class="text-[11px] font-bold text-foreground flex items-center gap-1.5">
-                    <span>⚡</span>
-                    <span>Instant Preset Resizer</span>
-                  </div>
-                  <p class="text-[10px] text-muted-foreground leading-tight">
-                    {relatedPreset.name} ({relatedPreset.minKb}–{relatedPreset.maxKb} KB)
-                  </p>
-                  <a
-                    href={`/${relatedExamSlug}/`}
-                    class="flex items-center justify-center gap-1.5 w-full py-2 px-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shadow-2xs"
-                  >
-                    <span>Open Resizer Canvas</span>
-                    <span>&rarr;</span>
-                  </a>
-                </div>
-              )}
+              </ol>
             </nav>
-          </aside>
-        )}
+          )}
+
+          <!-- Pinned Tool CTA Card (shrink-0 prevents clipping) -->
+          <div class="shrink-0 bg-slate-50 dark:bg-slate-800/90 border border-indigo-500/20 rounded-xl p-4 shadow-sm">
+            <div class="text-xs font-semibold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+              <span>⚡</span>
+              <span>Instant Preset Resizer</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 mb-3">
+              {relatedPreset ? `${relatedPreset.name} (${relatedPreset.minKb}–${relatedPreset.maxKb} KB)` : post.guideTool?.label || 'Universal Photo & Signature Resizer (10–20 KB)'}
+            </p>
+            <a
+              href={post.guideTool?.href || (relatedPreset ? getExamPageUrl(relatedExamSlug) : `/${relatedExamSlug}/`)}
+              class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2.5 px-4 rounded-lg transition shadow-2xs"
+            >
+              Open Resizer Canvas &rarr;
+            </a>
+          </div>
+
+        </aside>
 
       </div>
+
+      <!-- FULL-WIDTH BOTTOM DISCOVERY ZONE (Outside the 2-column grid) -->
+      {relatedPosts.length > 0 && (
+        <section class="border-t border-border pt-8 sm:pt-10 mt-12 mb-10 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+              <span>📚</span>
+              <span>{isPkiCompliancePost ? 'Related Technical & Document Standards Guides' : 'Related High-Yield Preparation Guides'}</span>
+            </h3>
+            <a href="/blog/" class="text-xs text-primary font-semibold hover:underline">
+              View All Guides &rarr;
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            {relatedPosts.map(p => (
+              <a
+                href={`/blog/${p.slug}/`}
+                class="p-4 sm:p-5 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-sm transition group flex flex-col justify-between space-y-3 min-w-0"
+              >
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">
+                      {p.category}
+                    </span>
+                    <span class="text-[10px] text-muted-foreground font-mono">{p.readTime}</span>
+                  </div>
+                  <h4 class="font-bold text-sm sm:text-base text-foreground group-hover:text-primary transition line-clamp-2 break-words leading-snug">
+                    {p.title}
+                  </h4>
+                  <p class="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                    {p.excerpt}
+                  </p>
+                </div>
+                <div class="text-xs text-primary font-bold flex items-center gap-1 pt-2 border-t border-border/40 group-hover:translate-x-0.5 transition">
+                  <span>Read Guide</span>
+                  <span>&rarr;</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
 
     <!-- Sticky Mobile Conversion Banner -->
@@ -739,6 +737,10 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
     <Footer topic={isPkiCompliancePost ? 'standards' : 'exams'} />
 
     <style>
+      .blog-sticky-sidebar {
+        max-height: calc(100vh - 6.5rem);
+        max-height: calc(100dvh - 6.5rem);
+      }
       :global(.article-prose) {
         width: 100%;
         max-width: 100%;
@@ -914,20 +916,16 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         word-break: normal;
         white-space: pre;
       }
-      /* Ensure all tables scroll horizontally on mobile without expanding body */
+      /* Ensure all tables stretch 100% cleanly without ghost columns on the right */
       :global(.article-prose table) {
-        display: block !important;
+        display: table !important;
         width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        border-collapse: collapse;
-        margin: 1.25rem 0 !important;
+        min-width: 100% !important;
+        border-collapse: collapse !important;
       }
       :global(.article-prose th),
       :global(.article-prose td) {
-        min-width: 120px;
-        padding: 0.5rem 0.75rem !important;
+        padding: 0.65rem 0.85rem !important;
         font-size: 0.8125rem !important;
         word-break: normal;
       }
