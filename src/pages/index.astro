@@ -23,11 +23,11 @@ import { ClosingSoon } from '../components/ClosingSoon';
 import ApplicationPreparationCards from '../components/ApplicationPreparationCards.astro';
 
 
-const pageTitle = "Resize Signature Online (10 to 20 KB) - Free Signature Resizer";
-const pageDescription = "Free online signature resize & compressor tool. Resize signature to 10 to 20 KB, set width & height in cm (140x60 px), whiten background shadows & convert to JPG for SSC, PAN, RRB & UPSC.";
+const pageTitle = "Resize Signature Online - Free Signature & Photo Resizer Studio";
+const pageDescription = "Free online signature & photo resizer studio. Crop signatures, set custom dimensions in cm/pixels, compress to exact KB limits, whiten paper backgrounds & export for SSC, UPSC, RRB & official portals.";
 const canonicalUrl = "https://signresize.in/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "resize signature, signature resize, resize signature 10 to 20 kb, signature resize 10 to 20 kb online, signature resizer, signature compressor, resize signature online, crop signature online, make signature background white, ssc signature resize, pan card signature resize, rrb signature resize, signature resize in cm";
+const keywordsContent = "resize signature, signature resize, signature resizer, signature compressor, resize signature online, crop signature online, signature resize online, online signature resizer, photo and signature resizer, make signature background white, signature resize in cm, pan card signature resize";
 
 // Top High-Yield Examination Guides for Sitewide PageRank Flow
 const seenGuides = new Set<string>();
@@ -102,14 +102,14 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": ["SoftwareApplication", "WebApplication"],
-      "name": "SignResize",
+      "name": "SignResize - Online Signature & Photo Resizer Studio",
       "url": "https://signresize.in/",
       "applicationCategory": "UtilityApplication",
       "applicationSubCategory": "Document & Image Processing Utility",
       "operatingSystem": "Web Browser, Android, iOS, Windows, macOS, Linux",
       "softwareVersion": "2026.2.4",
       "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
-      "description": "Free online signature resize, crop, and compressor tool. Resize signature to 10 to 20 KB, customize width and height in cm, and compress thumb impressions for SSC, PAN Card, RRB, and NSDL.",
+      "description": "Free online signature, photo, and document resizer. Crop signatures, customize width and height in cm or pixels, compress to exact KB bounds, and clean background shadows for government exams and official forms.",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -136,13 +136,13 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
         "url": "https://signresize.in/"
       },
       "featureList": [
-        "Signature resize 10 to 20 kb precision dual-boundary compression",
-        "Signature resize width and height in cm & pixels (140x60 px standard)",
-        "SSC signature resize & RRB signature resizer official preset",
-        "PAN card photo and signature resize (NSDL / UTIITSL 200 DPI standard)",
+        "Interactive signature, photo and document resizing studio",
+        "Custom width and height in cm, mm, and pixels (140x60 px, 200 DPI standards)",
+        "Official presets for SSC, RRB, UPSC, IBPS, State PSCs and PAN Card",
+        "Dual-boundary file size compression (10-20 KB, 20-50 KB, 50-100 KB)",
         "Clean White Paper 3.0 background shadow remover (#FFFFFF pure white)",
         "100% client-side privacy with zero server uploads (HTML5 Canvas & WebAssembly)",
-        "Instant client-side JPEG quantization without file upload lag"
+        "Instant portal-ready JPG download without compression lag"
       ]
     })} />
 
@@ -150,8 +150,8 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "HowTo",
-      "name": "How to Resize Signature to 10 to 20 KB Online",
-      "description": "Step-by-step guide to crop, resize, and compress your signature to exact 10 KB to 20 KB file bounds for SSC, RRB, and government portal uploads.",
+      "name": "How to Crop and Resize Signature Online to Exact Dimensions",
+      "description": "Step-by-step guide to crop, whiten background, and compress signature and photo files to exact dimension and kilobyte specifications.",
       "step": [
         {
           "@type": "HowToStep",
@@ -262,15 +262,16 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
 
       <section class="workspace-intro creative-hero" aria-label="Signature resizer introduction">
         <div class="hero-copy">
-          <p class="hero-eyebrow"><span aria-hidden="true"></span> FREE SIGNATURE RESIZER &amp; COMPRESSOR</p>
-          <h1 class="font-bold tracking-tight">Resize Signature Online<br /><span class="hero-headline-accent">10 to 20 KB.</span></h1>
-          <p class="hero-description">Resize signatures for SSC, UPSC, IBPS and RRB. Set dimensions and KB limits, then download your JPG.</p>
+          <p class="hero-eyebrow"><span aria-hidden="true"></span> FREE SIGNATURE &amp; PHOTO RESIZER STUDIO</p>
+          <h1 class="font-bold tracking-tight">Resize Signature Online<br /><span class="hero-headline-accent">To Exact KB &amp; Pixels.</span></h1>
+          <p class="hero-description">Crop, resize, and compress signatures and photos for SSC, UPSC, IBPS, and RRB. Set dimensions in cm/pixels, whiten paper shadows, and download portal-ready JPGs.</p>
           <div class="hero-actions">
             <a class="hero-start" href="#tool-workspace">Resize my signature <span aria-hidden="true">↗</span></a>
             <a class="hero-presets" href="#exam-specs">Browse exam presets <span aria-hidden="true">→</span></a>
           </div>
           <div class="hero-quick-presets flex flex-wrap items-center gap-1.5 pt-1 text-xs" aria-label="Popular exam shortcuts">
             <span class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider shrink-0">Popular:</span>
+            <a href="/resize-signature-to-10kb-20kb/" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25 font-bold transition inline-flex items-center gap-1 shadow-2xs">⚡ 10–20 KB Tool</a>
             <button type="button" data-hero-preset="ssc-cgl" class="px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-bold transition cursor-pointer shadow-2xs">★ SSC CGL 2026 (140×60)</button>
             <button type="button" data-hero-preset="rrb-railway" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">RRB Railway</button>
             <button type="button" data-hero-preset="upsc-civil-services" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">UPSC IAS</button>
