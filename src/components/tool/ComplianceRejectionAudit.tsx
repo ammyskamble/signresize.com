@@ -147,26 +147,28 @@ export function ComplianceRejectionAudit({
         )}
 
         {/* Verification Summary */}
-        <div className="text-[11px] text-emerald-900 dark:text-emerald-200 font-semibold">
-          <div className="flex items-center gap-x-3 gap-y-1.5 flex-wrap">
-            <span className="inline-flex items-center gap-1">
-              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-              <span><strong>Dimensions:</strong> {processedResult.width} × {processedResult.height} px</span>
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-              <span><strong>Size:</strong> {processedResult.sizeKb} KB {rule ? `(${rule.minKb}–${rule.maxKb} KB target)` : ''}</span>
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-              <span><strong>Format:</strong> {processedResult.format}</span>
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-              <span><strong>Background:</strong> Clean Paper</span>
-            </span>
+        {processedResult && (
+          <div className="text-[11px] text-emerald-900 dark:text-emerald-200 font-semibold">
+            <div className="flex items-center gap-x-3 gap-y-1.5 flex-wrap">
+              <span className="inline-flex items-center gap-1">
+                <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <span><strong>Dimensions:</strong> {processedResult.width} × {processedResult.height} px</span>
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <span><strong>Size:</strong> {processedResult.sizeKb} KB {rule ? `(${rule.minKb}–${rule.maxKb} KB target)` : ''}</span>
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <span><strong>Format:</strong> {processedResult.format}</span>
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <span><strong>Background:</strong> Clean Paper</span>
+              </span>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Coast Guard Special Slate Confirmation Checkbox */}
         {isCoastGuardPhoto && (

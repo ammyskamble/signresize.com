@@ -4383,22 +4383,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                       <button
                         type="button"
                         onClick={() => setToolMode('batch')}
-                        aria-pressed={toolMode === 'batch'}
-                        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
-                          toolMode === 'batch'
-                            ? 'bg-primary text-primary-foreground shadow-xs font-bold'
-                            : 'text-muted-foreground hover:text-foreground'
-                        }`}
+                        aria-pressed={false}
+                        className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition cursor-pointer text-muted-foreground hover:text-foreground"
                       >
                         <Layers className="w-3.5 h-3.5 shrink-0" />
                         <span>Batch Editor</span>
-                        <span
-                          className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono font-bold ${
-                            toolMode === 'batch'
-                              ? 'bg-primary-foreground/20 text-primary-foreground'
-                              : 'bg-muted text-muted-foreground'
-                          }`}
-                        >
+                        <span className="px-1.5 py-0.2 rounded-full text-[10px] font-mono font-bold bg-muted text-muted-foreground">
                           {batchItems.length > 0 ? `${batchItems.length}/10` : 'Up to 10'}
                         </span>
                       </button>

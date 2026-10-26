@@ -38,7 +38,7 @@ export function saveFeedback(draft: FeedbackDraft, fields: FeedbackFields) {
         method, credentials: 'same-origin', cache: 'no-store', signal: controller.signal,
         headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
       });
-      const data = await response.json().catch(() => ({}));
+      const data = (await response.json().catch(() => ({}))) as { error?: string };
       if (!response.ok) throw new Error(data.error || 'Could not send feedback. Please try again.');
       return response;
     } finally { window.clearTimeout(timer); }

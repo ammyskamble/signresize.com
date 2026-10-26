@@ -438,10 +438,10 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
                 onTouchStart={startDrawing}
                 onTouchMove={draw}
                 onTouchEnd={stopDrawing}
-                class="w-full h-full cursor-crosshair touch-none"
+                className="w-full h-full cursor-crosshair touch-none"
               />
               {!hasDrawn && (
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none text-xs text-muted-foreground/60">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none text-xs text-muted-foreground/60">
                   Draw your signature here with finger, mouse, or stylus
                 </div>
               )}
@@ -451,27 +451,27 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
 
         <FeedbackPrompt downloaded={hasDownloaded} tool="Signature creator" />
         {/* Action Buttons */}
-        <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-          <div class="text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+          <div className="text-xs text-muted-foreground">
             {tab === 'type' ? 'Rendered at 600×240 px' : 'Captured in real-time vector canvas'}
           </div>
 
-          <div class="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={() => downloadFile('png')}
-              class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-border bg-card hover:bg-muted text-foreground font-semibold text-xs transition"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-border bg-card hover:bg-muted text-foreground font-semibold text-xs transition"
             >
-              <Download class="w-3.5 h-3.5" />
+              <Download className="w-3.5 h-3.5" />
               <span>Download PNG</span>
             </button>
 
             <button
               type="button"
               onClick={() => downloadFile('jpeg')}
-              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow hover:bg-primary/90 transition"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow hover:bg-primary/90 transition"
             >
-              <Download class="w-4 h-4" />
+              <Download className="w-4 h-4" />
               <span>Download JPG (White Paper)</span>
             </button>
           </div>
