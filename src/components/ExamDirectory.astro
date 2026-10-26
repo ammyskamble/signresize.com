@@ -22,7 +22,8 @@ const directoryPresets = presets.map(p => ({
 }));
 const initialPresets = directoryPresets.slice(0, 10);
 ---
-<section id="exam-specs" class="home-directory rounded-xl border border-border bg-card p-4 space-y-3" data-directory-presets={JSON.stringify(directoryPresets)}>
+<section id="exam-specs" class="home-directory rounded-xl border border-border bg-card p-4 space-y-3">
+  <script type="application/json" id="directory-presets-data" set:html={JSON.stringify(directoryPresets)} />
   <div id="exam-directory" class="flex flex-wrap items-center justify-between gap-3">
     <div><h2 class="text-lg font-bold">Find your exam preset</h2><p class="text-xs text-muted-foreground">Search signature, photo and document requirements. Follow your current exam notice.</p></div>
     <label class="text-xs font-semibold">Search exams<input id="exam-directory-search" type="search" placeholder="SSC CGL, UPSC, IBPS, marksheet…" class="block mt-1 rounded-lg border border-input bg-background px-3 py-2 text-sm w-full sm:w-72" /></label>
@@ -41,7 +42,8 @@ const initialPresets = directoryPresets.slice(0, 10);
 <script>
   type DirectoryPreset = { id: string; name: string; authority: string; category: string; targetType: string; widthPx: number; heightPx: number; minKb: number; maxKb: number; format: string; dimensions: string; search: string; href: string };
   const directory = document.getElementById('exam-specs') as HTMLElement | null;
-  const presets: DirectoryPreset[] = JSON.parse(directory?.dataset.directoryPresets || '[]');
+  const presetsDataEl = document.getElementById('directory-presets-data');
+  const presets: DirectoryPreset[] = presetsDataEl ? JSON.parse(presetsDataEl.textContent || '[]') : [];
   const search = document.getElementById('exam-directory-search') as HTMLInputElement | null;
   const body = directory?.querySelector<HTMLTableSectionElement>('[data-directory-body]') || null;
   const tabs = Array.from(directory?.querySelectorAll<HTMLButtonElement>('[data-directory-tab]') || []);

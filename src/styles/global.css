@@ -304,3 +304,18 @@ footer[role="contentinfo"] .text-primary {
 img, svg {
   shape-rendering: auto;
 }
+
+/* 📱 Mobile Touch Speed & Zero Tap-Delay */
+a, button, input, select, textarea, [role="button"], label {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth kinetic scrolling */
+@media (max-width: 768px) {
+  .overflow-y-auto, .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
+

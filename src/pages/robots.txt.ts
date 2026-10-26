@@ -4,6 +4,7 @@ const getRobotsTxt = (siteUrl: URL) => `
 User-agent: *
 Allow: /
 Disallow: /cdn-cgi/l/email-protection
+Disallow: /search-index.json
 
 Sitemap: ${new URL('sitemap-index.xml', siteUrl).href}
 `.trim();
