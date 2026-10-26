@@ -13,7 +13,7 @@ import { EXAM_PAGES_DATA } from '../../../data/examPagesData';
 import { getExamPageUrl } from '../../../utils/examPageUrls';
 
 export function getStaticPaths() {
-  return BLOG_POSTS.map((post) => ({
+  return BLOG_POSTS.filter((post) => Boolean(post.contentHtml_hi)).map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
@@ -31,10 +31,7 @@ const translatedContent = getBlogPostContent(post, 'hi');
 
 const pageTitle = post.metaTitle_hi || `${translatedTitle} | SignResize हिंदी`;
 const pageDescription = post.metaDescription_hi || translatedExcerpt;
-const hasTranslation = Boolean(post.contentHtml_hi);
-const canonicalUrl = hasTranslation
-  ? `https://signresize.in/hi/blog/${post.slug}/`
-  : `https://signresize.in/blog/${post.slug}/`;
+const canonicalUrl = `https://signresize.in/hi/blog/${post.slug}/`;
 
 const relatedPreset = post.relatedExamPreset
   ? EXAM_PRESETS.find(p => p.id === post.relatedExamPreset)
@@ -50,7 +47,7 @@ else if (post.relatedExamPreset) {
   if (matchedPage) relatedExamSlug = matchedPage.slug;
 }
 
-const scoredPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).map(other => {
+const scoredPosts = BLOG_POSTS.filter(p => p.slug !== post.slug && Boolean(p.contentHtml_hi)).map(other => {
   let score = 0;
   if (other.category === post.category) score += 3;
   if (other.relatedExamPreset && post.relatedExamPreset && other.relatedExamPreset === post.relatedExamPreset) score += 5;
@@ -165,12 +162,9 @@ const faqSchema = (faqs && faqs.length > 0) ? {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
-    {!hasTranslation && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="en" href={`https://signresize.in/blog/${post.slug}/`} />
-    {hasTranslation && (
-      <link rel="alternate" hreflang="hi" href={`https://signresize.in/hi/blog/${post.slug}/`} />
-    )}
+    <link rel="alternate" hreflang="hi" href={`https://signresize.in/hi/blog/${post.slug}/`} />
     {Boolean(post.contentHtml_mr) && (
       <link rel="alternate" hreflang="mr" href={`https://signresize.in/mr/blog/${post.slug}/`} />
     )}
