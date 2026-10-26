@@ -1,6 +1,7 @@
-# SignResize.in Edge Redirect Rules (301 Permanent Redirects)
+# SignResize.in Cloudflare Pages Edge Redirects
+# All static rules must precede dynamic rules per Cloudflare Pages specification.
 
-# 1. Missing Route & Shortcut Redirects (Fixes GSC 404 Error)
+# --- 1. Static Redirects (Clean exact 1-to-1 mappings) ---
 /signature-resizer / 301
 /signature-resizer/ / 301
 /rrb-railway /rrb-signature-resize/ 301
@@ -30,8 +31,6 @@
 /thumb/ /thumb-impression-resize/ 301
 /appsc-tspsc /appsc-tspsc-signature-resize/ 301
 /appsc-tspsc/ /appsc-tspsc-signature-resize/ 301
-
-# International Single-Canonical Presets (Fixes GSC Alternate Page with Proper Canonical)
 /bd/teletalk-photo-signature-resize /teletalk-photo-signature-resize/ 301
 /bd/teletalk-photo-signature-resize/ /teletalk-photo-signature-resize/ 301
 /prc-photo-signature-resize-philippines /ph/prc-photo-signature-resize-philippines/ 301
@@ -44,9 +43,6 @@
 /fpsc-photo-resize/ /pk/fpsc-photo-resizer/ 301
 /pk/fpsc-photo-resize /pk/fpsc-photo-resizer/ 301
 /pk/fpsc-photo-resize/ /pk/fpsc-photo-resizer/ 301
-
-# 2. Renamed & Historical Blog Articles (Fixes GSC 404 & Hash Duplicates)
-# Explicit 301 redirects for all GSC-reported hash duplicate URLs
 /blog/state-psc-otr-registration-photo-signature-guidelines-muqsg7l9 /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
 /blog/state-psc-otr-registration-photo-signature-guidelines-muqsg7l9/ /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
 /hi/blog/state-psc-otr-registration-photo-signature-guidelines-muqsg7l9 /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
@@ -131,18 +127,6 @@
 /hi/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks-mui58dj6/ /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
 /mr/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks-mui58dj6 /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
 /mr/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks-mui58dj6/ /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
-
-# Wildcard pattern fallback for any past or future random hash suffixes
-/blog/state-psc-otr-registration-photo-signature-guidelines-* /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
-/hi/blog/state-psc-otr-registration-photo-signature-guidelines-* /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
-/mr/blog/state-psc-otr-registration-photo-signature-guidelines-* /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
-/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-* /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
-/hi/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-* /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
-/mr/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-* /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
-/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks-* /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
-/hi/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks-* /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
-/mr/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks-* /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
-
 /blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
 /blog/rrb-ntpc-2026-document-upload-rules-preparation-strategy/ /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
 /blog/ssc-cgl-2026-notification-dates-signature-guidelines /blog/ssc-cgl-2026-master-application-preparation-guide/ 301
@@ -215,8 +199,6 @@
 /mr/blog/teletalk-bangladesh-photo-signature-300x300-300x80-guide-2026/ /blog/teletalk-bangladesh-photo-signature-300x300-300x80-guide-2026/ 301
 /hi/blog/teletalk-bangladesh-photo-signature-300x300-300x80-guide-2026 /blog/teletalk-bangladesh-photo-signature-300x300-300x80-guide-2026/ 301
 /hi/blog/teletalk-bangladesh-photo-signature-300x300-300x80-guide-2026/ /blog/teletalk-bangladesh-photo-signature-300x300-300x80-guide-2026/ 301
-
-# 3. Canonical trailing-slash redirects (GSC "Page with redirect" is expected for these source URLs)
 /contact /contact/ 301
 /disclaimer /disclaimer/ 301
 /privacy /privacy/ 301
@@ -231,8 +213,6 @@
 /signature-generator /signature-generator/ 301
 /electronic-signature /electronic-signature/ 301
 /government-jobs /government-jobs/ 301
-
-# 4. Untranslated Regional Blog Posts (Redirects historical untranslated shells to English canonical guide)
 /hi/blog/bpsc-tre-teacher-recruitment-2026-syllabus-eligibility-photo-hindi-english-signature-guide /blog/bpsc-tre-teacher-recruitment-2026-syllabus-eligibility-photo-hindi-english-signature-guide/ 301
 /hi/blog/bpsc-tre-teacher-recruitment-2026-syllabus-eligibility-photo-hindi-english-signature-guide/ /blog/bpsc-tre-teacher-recruitment-2026-syllabus-eligibility-photo-hindi-english-signature-guide/ 301
 /hi/blog/jee-main-2026-session-1-registration-syllabus-photo-signature-guidelines /blog/jee-main-2026-session-1-registration-syllabus-photo-signature-guidelines/ 301
@@ -453,3 +433,14 @@
 /mr/blog/bpsc-teletalk-bangladesh-photo-signature-resize-guide-2026/ /blog/bpsc-teletalk-bangladesh-photo-signature-resize-guide-2026/ 301
 /mr/blog/bcs-exam-bangladesh-complete-guide-2026-syllabus-preparation-photo-upload /blog/bcs-exam-bangladesh-complete-guide-2026-syllabus-preparation-photo-upload/ 301
 /mr/blog/bcs-exam-bangladesh-complete-guide-2026-syllabus-preparation-photo-upload/ /blog/bcs-exam-bangladesh-complete-guide-2026-syllabus-preparation-photo-upload/ 301
+
+# --- 2. Dynamic Fallback Redirects (Splats / Wildcards) ---
+/blog/state-psc-otr-registration-photo-signature-guidelines-* /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/hi/blog/state-psc-otr-registration-photo-signature-guidelines-* /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/mr/blog/state-psc-otr-registration-photo-signature-guidelines-* /blog/state-psc-otr-registration-photo-signature-guidelines/ 301
+/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-* /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/hi/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-* /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/mr/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy-* /blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/ 301
+/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks-* /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
+/hi/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks-* /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
+/mr/blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks-* /blog/upsc-csat-paper-2-master-blueprint-comprehension-hacks/ 301
