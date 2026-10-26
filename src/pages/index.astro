@@ -269,14 +269,38 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
             <a class="hero-start" href="#tool-workspace">Resize my signature <span aria-hidden="true">↗</span></a>
             <a class="hero-presets" href="#exam-specs">Browse exam presets <span aria-hidden="true">→</span></a>
           </div>
-          <div class="hero-quick-presets flex flex-wrap items-center gap-1.5 pt-1 text-xs" aria-label="Popular exam shortcuts">
-            <span class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider shrink-0">Popular:</span>
-            <a href="/resize-signature-to-10kb-20kb/" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25 font-bold transition inline-flex items-center gap-1 shadow-2xs">⚡ 10–20 KB Tool</a>
-            <button type="button" data-hero-preset="ssc-cgl" class="px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 font-bold transition cursor-pointer shadow-2xs">★ SSC CGL 2026 (140×60)</button>
-            <button type="button" data-hero-preset="rrb-railway" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">RRB Railway</button>
-            <button type="button" data-hero-preset="upsc-civil-services" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">UPSC IAS</button>
-            <button type="button" data-hero-preset="ibps-sbi" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">IBPS / SBI</button>
-            <button type="button" data-hero-preset="pan-card-nsdl" class="px-2.5 py-1 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-medium transition cursor-pointer">PAN Card</button>
+          <div class="hero-quick-presets flex flex-wrap items-center gap-1.5 pt-1.5 text-xs" aria-label="Trending exam presets">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-extrabold bg-amber-500/15 text-amber-300 border border-amber-500/30 uppercase tracking-wider shrink-0 shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+              Trending:
+            </span>
+            <button type="button" data-hero-preset="rrb-railway" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🚆 RRB NTPC / ALP <span class="text-[10px] text-slate-400 font-normal">(140×60)</span>
+            </button>
+            <button type="button" data-hero-preset="ssc-gd-constable" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🛡️ SSC GD <span class="text-[10px] text-slate-400 font-normal">(10–20 KB)</span>
+            </button>
+            <button type="button" data-hero-preset="ssc-cgl" class="px-2.5 py-1 rounded-lg bg-primary/20 hover:bg-primary/30 text-white border border-primary/40 font-bold transition cursor-pointer shadow-2xs inline-flex items-center gap-1">
+              ★ SSC CGL 2026
+            </button>
+            <button type="button" data-hero-preset="ibps-sbi" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🏦 IBPS / SBI
+            </button>
+            <button type="button" data-hero-preset="ctet-photo" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              📝 CTET Photo
+            </button>
+            <button type="button" data-hero-preset="upsc-civil-services" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🏛️ UPSC IAS
+            </button>
+            <button type="button" data-hero-preset="neet-ug-photo" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🩺 NEET Photo
+            </button>
+            <a href="/resize-signature-to-10kb-20kb/" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 font-bold transition inline-flex items-center gap-1 shadow-2xs">
+              ⚡ 10–20 KB Tool
+            </a>
+            <a href="/photo-with-name-and-date-maker/" class="px-2.5 py-1 rounded-lg bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-300 border border-indigo-500/30 font-bold transition inline-flex items-center gap-1 shadow-2xs">
+              🏷️ Name &amp; Date
+            </a>
           </div>
           <p class="hero-privacy"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2 16 5v5c0 4-6 7-6 7s-6-3-6-7V5l6-3Z" stroke="currentColor" stroke-width="1.4"/><path d="m7 9 2 2 4-4" stroke="currentColor" stroke-width="1.4"/></svg> Your images stay on your device <span>·</span> Free. No signup.</p>
         </div>
@@ -436,6 +460,9 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
         btn.addEventListener('click', () => {
           const preset = btn.getAttribute('data-hero-preset');
           if (preset) {
+            document.querySelectorAll<HTMLButtonElement>('[data-hero-preset]').forEach(b => {
+              b.setAttribute('aria-pressed', String(b === btn));
+            });
             window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: preset }));
             const studio = document.getElementById('tool-workspace') || document.getElementById('studio-container');
             studio?.scrollIntoView({ behavior: 'smooth', block: 'start' });

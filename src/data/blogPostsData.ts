@@ -85,6 +85,4408 @@ const redirectedBlogPostSlugs = new Set([
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "bpsc-tre-teacher-recruitment-2026-syllabus-eligibility-photo-hindi-english-signature-guide",
+    title: "BPSC TRE 3.0 (87,774 Vacancies) & TRE 4.0 (1 Lakh+ Pipeline): PRT/TGT/PGT Syllabus, D.El.Ed/B.Ed Eligibility & 10–20KB Hindi/English Signature Rules",
+    title_hi: "BPSC TRE 3.0 व 4.0 शिक्षक भर्ती 2026: वैकेंसी, PRT/TGT/PGT सिलेबस, D.El.Ed/B.Ed पात्रता और 10-20KB हिंदी व अंग्रेजी हस्ताक्षर नियम",
+    title_mr: "BPSC TRE 3.0 व 4.0 शिक्षक भरती 2026: रिक्त जागा, PRT/TGT/PGT अभ्यासक्रम, D.El.Ed/B.Ed पात्रता आणि 10-20KB हिंदी व इंग्रजी स्वाक्षरी नियम",
+    metaTitle: "BPSC TRE 2026 Guide: Vacancy, Syllabus, Hindi & English Sign Rules",
+    metaTitle_hi: "BPSC TRE 2026 गाइड: वैकेंसी, सिलेबस, हिंदी व अंग्रेजी हस्ताक्षर नियम",
+    metaTitle_mr: "BPSC TRE 2026 मार्गदर्शक: रिक्त जागा, अभ्यासक्रम आणि स्वाक्षरी नियम",
+    metaDescription: "Complete BPSC TRE guide: 87,774 sanctioned TRE 3.0 vacancies + 1 Lakh+ TRE 4.0 pipeline, PRT 120-mark merit rule, D.El.Ed/B.Ed eligibility & 10–20 KB Hindi & English signature resizers.",
+    metaDescription_hi: "BPSC TRE 3.0 व 4.0 शिक्षक भर्ती संपूर्ण गाइड: PRT, TGT व PGT की 87,000+ वैकेंसी, D.El.Ed/B.Ed पात्रता, बिना नेगेटिव मार्किंग 150 अंक परीक्षा पैटर्न और 10-20 KB हिंदी व अंग्रेजी हस्ताक्षर रीसाइजर टूल्स।",
+    metaDescription_mr: "BPSC TRE 3.0 व 4.0 शिक्षक भरती सविस्तर मार्गदर्शक: ८७,०००+ शिक्षक पदे, D.El.Ed/B.Ed पात्रता, १५० गुण परीक्षा स्वरूप, आणि १०-२० KB हिंदी व इंग्रजी स्वाक्षरी रीसाइजर टूल्स.",
+    excerpt: "Authoritative handbook for Bihar Public Service Commission (BPSC) teacher aspirants: 87,774 sanctioned TRE 3.0 vacancies and upcoming 1,00,000+ TRE 4.0 pipeline across Primary (1–5), Middle (6–8), Secondary (9–10) & Higher Secondary (11–12), statutory D.El.Ed vs B.Ed qualification rules, PRT 120-mark merit rule, 150-mark pattern with zero negative marking, and instant 10–20 KB Hindi & English signature resizers.",
+    excerpt_hi: "बिहार लोक सेवा आयोग (BPSC) TRE 3.0 व 4.0 शिक्षक भर्ती का संपूर्ण विश्लेषण: प्राथमिक (1-5), मध्य (6-8), माध्यमिक (9-10) व उच्च माध्यमिक (11-12) की 87,000+ वैकेंसी, D.El.Ed vs B.Ed योग्यता नियम, बिना नेगेटिव मार्किंग 150 अंकों का पैटर्न, लाइव वेबकैम फोटो नियम और 10-20 KB हिंदी व अंग्रेजी हस्ताक्षर रीसाइजर टूल्स।",
+    excerpt_mr: "बिहार लोक सेवा आयोग (BPSC) TRE 3.0 व 4.0 शिक्षक भरतीचे सर्वसमावेशक विश्लेषण: प्राथमिक (१-५), माध्यमिक (६-१०) व उच्च माध्यमिक (११-१२) ची ८७,०००+ शिक्षक पदे, D.El.Ed vs B.Ed पात्रता नियम, १५० गुण परीक्षा स्वरूप (शून्य निगेटिव्ह मार्किंग), आणि १०-२० KB हिंदी व इंग्रजी स्वाक्षरी रीसाइजर टूल्स.",
+    category: "Exam Alerts",
+    country: "IN",
+    publishDate: "Oct 27, 2026",
+    publishTime: "09:00 AM IST",
+    lastUpdated: "Oct 27, 2026",
+    deployedAt: "Oct 27, 2026 • 09:00 AM IST",
+    author: "SignResize Engineering Technical Desk",
+    authorRole: "Senior BPSC & State Teaching Recruitment Specialist",
+    readTime: "16 min read",
+    featured: true,
+    tags: [
+      "BPSC TRE 2026",
+      "BPSC Teacher Recruitment 2026",
+      "BPSC TRE 3.0 4.0",
+      "BPSC Hindi Signature 10 to 20 KB",
+      "BPSC English Signature Resize",
+      "Bihar Teacher Vacancy 2026",
+      "BPSC PRT TGT PGT Syllabus",
+      "BPSC Teacher Negative Marking",
+      "onlinebpsc.bihar.gov.in",
+      "BPSC Live Photo Webcam"
+    ],
+    relatedExamSlug: "bpsc-tre-hindi-signature-resize",
+    guideTool: {
+      label: "BPSC TRE Hindi Signature (10–20 KB)",
+      href: "/bpsc-tre-hindi-signature-resize/"
+    },
+    quickFacts: [
+      { label: "Recruitment Authority", value: "Bihar Public Service Commission (BPSC - bpsc.bih.nic.in)" },
+      { label: "Total Vacancy Pipeline", value: "87,774 Sanctioned (TRE 3.0) + ~1,00,000+ Projected (TRE 4.0 Pipeline)" },
+      { label: "Selection Framework", value: "Single-Shift Written Exam (150 Marks) + Document Verification (Zero Interview)" },
+      { label: "Paper Duration & Format", value: "150 Questions, 150 Marks, 2h 30m (30 Q Language + 40 Q GS + 80 Q Subject)" },
+      { label: "Negative Marking Policy", value: "Zero Negative Marking (No Penalty for Incorrect Answers)" },
+      { label: "Primary (PRT 1–5) Eligibility", value: "Class 12 (50%) + 2-Year D.El.Ed + CTET Paper 1 / BTET Paper 1 (B.Ed Excluded as per SC Verdict)" },
+      { label: "Secondary/Higher Eligibility", value: "Graduation/PG (50%) + B.Ed + Bihar STET Paper 1 (9–10) or STET Paper 2 (11–12)" },
+      { label: "Dual Signature Upload Rules", value: "Separate Hindi (Devanagari) & English (Cursive), Strictly 220×100 px, 10–20 KB JPG Each" },
+      { label: "Photograph Submission Mode", value: "Real-Time Live Webcam Capture on onlinebpsc.bihar.gov.in + 25 KB Photo for e-Admit Card Declaration" }
+    ],
+    quickFacts_hi: [
+      { label: "भर्ती आयोग", value: "बिहार लोक सेवा आयोग (BPSC - bpsc.bih.nic.in)" },
+      { label: "कुल वैकेंसी पाइपलाइन", value: "87,774 स्वीकृत (TRE 3.0) + ~1,00,000+ आगामी (TRE 4.0 पाइपलाइन)" },
+      { label: "चयन प्रक्रिया", value: "एकल पाली लिखित परीक्षा (150 अंक) + दस्तावेज सत्यापन (कोई इंटरव्यू नहीं)" },
+      { label: "परीक्षा प्रारूप व समय", value: "150 प्रश्न, 150 अंक, 2 घंटे 30 मिनट (30 भाषा + 40 GS + 80 विषय)" },
+      { label: "नेगेटिव मार्किंग नियम", value: "शून्य नेगेटिव मार्किंग (गलत उत्तर पर कोई अंक नहीं कटेगा)" },
+      { label: "प्राथमिक (PRT 1-5) योग्यता", value: "12वीं (50%) + 2 वर्षीय D.El.Ed + CTET पेपर 1 / BTET पेपर 1 (सुप्रीम कोर्ट आदेशानुसार B.Ed बाहर)" },
+      { label: "माध्यमिक/उच्च माध्यमिक योग्यता", value: "स्नातक/PG (50%) + B.Ed + बिहार STET पेपर 1 (9-10) या STET पेपर 2 (11-12)" },
+      { label: "दोहरे हस्ताक्षर अपलोड नियम", value: "अलग-अलग हिंदी (देवनागरी) व अंग्रेजी (कर्सिव) हस्ताक्षर, 220×100 px, 10-20 KB JPG प्रत्येक" },
+      { label: "फोटो अपलोड माध्यम", value: "onlinebpsc.bihar.gov.in पर लाइव वेबकैम फोटो कैप्चर + एडमिट कार्ड हेतु 25 KB फोटो" }
+    ],
+    quickFacts_mr: [
+      { label: "भरती प्राधिकरण", value: "बिहार लोक सेवा आयोग (BPSC - bpsc.bih.nic.in)" },
+      { label: "एकूण जागा पाइपलाइन", value: "८७,७७४ मंजूर (TRE 3.0) + ~१,००,०००+ आगामी (TRE 4.0 पाइपलाइन)" },
+      { label: "निवड पद्धती", value: "एकल लेखी परीक्षा (१५० गुण) + कागदपत्र पडताळणी (मुलाखत नाही)" },
+      { label: "परीक्षा स्वरूप", value: "१५० प्रश्न, १५० गुण, २ तास ३० मिनिटे (३० भाषा + ४० सामान्य अध्ययन + ८० विषय)" },
+      { label: "निगेटिव्ह मार्किंग", value: "शून्य निगेटिव्ह मार्किंग (चुकीच्या उत्तरासाठी गुण कपात नाही)" },
+      { label: "प्राथमिक (PRT १-५) पात्रता", value: "१२वी (५०%) + २ वर्षे D.El.Ed + CTET पेपर १ / BTET पेपर १ (सर्वोच्च न्यायालयानुसार B.Ed अपात्र)" },
+      { label: "माध्यमिक/उच्च माध्यमिक पात्रता", value: "पदवी/पदव्युत्तर (५०%) + B.Ed + बिहार STET पेपर १ (९-१०) किंवा STET पेपर २ (११-१२)" },
+      { label: "स्वाक्षरी नियम", value: "स्वतंत्र हिंदी (देवनागरी) व इंग्रजी (कर्सिव्ह) स्वाक्षरी, २२०×१०० px, १०-२० KB JPG प्रत्येक" },
+      { label: "छायाचित्र नियम", value: "पोर्टलवर थेट वेबकॅम छायाचित्र + हॉल तिकीट डिक्लेरेशनसाठी २५ KB फोटो" }
+    ],
+    contentHtml: `<div class="space-y-6">
+  <!-- Sticky Quick-Jump Bar -->
+  <div class="quick-jump-wrapper mb-6">
+    <div class="quick-jump-scroll-container">
+      <div class="quick-jump-pills">
+        <a href="#vacancies-timeline" class="quick-jump-pill"><span>📊</span> 1. Vacancies & Dates</a>
+        <a href="#eligibility-matrix" class="quick-jump-pill"><span>🎓</span> 2. D.El.Ed vs B.Ed Rules</a>
+        <a href="#exam-pattern" class="quick-jump-pill"><span>📝</span> 3. 150-Mark Exam Pattern</a>
+        <a href="#syllabus-weightage" class="quick-jump-pill"><span>📚</span> 4. Bihar GK & Syllabus</a>
+        <a href="#webcam-specs" class="quick-jump-pill"><span>📸</span> 5. Live Webcam Photo</a>
+        <a href="#dual-signature-protocol" class="quick-jump-pill"><span>✍️</span> 6. Dual Signature (10–20 KB)</a>
+        <a href="#visual-checklist" class="quick-jump-pill"><span>🛡️</span> 7. Visual Do vs Don't</a>
+        <a href="#instant-resizers" class="quick-jump-pill"><span>🛠️</span> 8. Live Dropzones</a>
+        <a href="#official-portals" class="quick-jump-pill"><span>🏛️</span> 9. Official Portals</a>
+        <a href="#faqs" class="quick-jump-pill"><span>❓</span> 10. 10 Clarified FAQs</a>
+      </div>
+    </div>
+    <div class="quick-jump-fade-mask">
+      <span class="quick-jump-fade-text">Scroll &rarr;</span>
+    </div>
+  </div>
+
+  <!-- Executive Scrutiny Callout -->
+  <div class="my-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-950 dark:text-amber-100 flex items-start gap-3 shadow-xs">
+    <span class="text-xl shrink-0 mt-0.5">⚠️</span>
+    <div class="space-y-1 text-xs sm:text-sm">
+      <h3 class="font-bold text-amber-900 dark:text-amber-300 text-sm">Critical BPSC Mandate: The Separate Dual-Signature & Live Webcam Scrutiny</h3>
+      <p class="leading-relaxed">
+        The Bihar Public Service Commission (BPSC) enforces a strict zero-tolerance submission framework on <code>onlinebpsc.bihar.gov.in</code>. Candidates must upload <strong>two distinct signature files</strong>: one in clear Hindi (Devanagari script) and one in natural running English handwriting, each strictly sized to <strong>220×100 px (10 KB to 20 KB JPG)</strong>. Inverting the files (uploading English into the Hindi slot) or using ALL-CAPS capital letters results in instant cancellation during document verification. Furthermore, photographs must be captured directly via live webcam with browser permissions enabled. Format credentials instantly with the <a href="/bpsc-tre-hindi-signature-resize/" class="font-bold underline text-amber-800 dark:text-amber-300">BPSC Hindi Signature Tool</a> and <a href="/bpsc-tre-english-signature-resize/" class="font-bold underline text-amber-800 dark:text-amber-300">BPSC English Signature Tool</a>.
+      </p>
+      <!-- Instant Jump CTA Buttons inside Executive Callout -->
+      <div class="pt-2 flex flex-wrap items-center gap-2">
+        <a href="#instant-resizers" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-2xs">
+          <span>⚡</span>
+          <span>Jump to Hindi Signature Tool (10–20 KB) &darr;</span>
+        </a>
+        <a href="#instant-resizers" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition shadow-2xs">
+          <span>⚡</span>
+          <span>Jump to English Signature Tool (10–20 KB) &darr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Direct Official Circular Download Button -->
+  <div class="my-4 flex items-center justify-between p-3.5 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 text-xs sm:text-sm">
+    <div class="flex items-center gap-2">
+      <span class="text-blue-600 dark:text-blue-400 text-lg">📄</span>
+      <span class="text-slate-700 dark:text-slate-300 font-medium">BPSC Official Portal Directory: <strong>onlinebpsc.bihar.gov.in</strong></span>
+    </div>
+    <a href="https://onlinebpsc.bihar.gov.in" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition shadow-2xs">
+      Open Official Portal &rarr;
+    </a>
+  </div>
+
+  <!-- Section 1: Vacancies & Schedule -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="vacancies-timeline">📊 1. BPSC TRE 3.0 & 4.0 Timeline, Notification & Vacancy Overview</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    The Bihar Public Service Commission (BPSC) Teacher Recruitment Examination (TRE) is India's largest state education recruitment drive, covering <strong>87,774 sanctioned teacher vacancies under TRE 3.0 (Advt. No. 22/2024)</strong> alongside the upcoming <strong>1,00,000+ teacher pipeline under TRE 4.0</strong> across four distinct school education tiers:
+  </p>
+
+  <!-- TRE 3.0 vs TRE 4.0 Recruitment Cycle Distinction Card -->
+  <div class="my-5 p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 space-y-2 shadow-xs">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-base">⚖️</span>
+        <h3 class="text-xs sm:text-sm font-bold text-foreground">BPSC TRE 3.0 vs. TRE 4.0: Recruitment Cycle & Roster Distinction</h3>
+      </div>
+      <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">Roster Clarification</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-muted-foreground pt-1">
+      <div class="p-3 rounded-xl bg-card border border-border space-y-1">
+        <div class="flex items-center gap-1.5 font-bold text-indigo-700 dark:text-indigo-300 text-xs">
+          <span>📌</span>
+          <span>BPSC TRE 3.0 (Advt. No. 22/2024 — 87,774 Positions):</span>
+        </div>
+        <p class="text-[11px] leading-relaxed text-muted-foreground">
+          Covers exactly <strong>87,774 sanctioned teacher vacancies</strong> across 38 Bihar districts. Originally scheduled in March, it was re-conducted under heightened biometric scrutiny in July 2024 to fill critical school backlogs.
+        </p>
+      </div>
+      <div class="p-3 rounded-xl bg-card border border-border space-y-1">
+        <div class="flex items-center gap-1.5 font-bold text-emerald-700 dark:text-emerald-300 text-xs">
+          <span>🚀</span>
+          <span>BPSC TRE 4.0 (Upcoming Phase — ~1,00,000+ Positions):</span>
+        </div>
+        <p class="text-[11px] leading-relaxed text-muted-foreground">
+          The next comprehensive teaching recruitment phase announced by the Education Department of Bihar, projected at <strong>1,00,000+ additional teacher posts</strong> to staff newly upgraded higher secondary schools and absorb residual TRE 3.0 roster vacancies.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📑</span> BPSC TRE 3.0 & 4.0 Vacancy Distribution by School Tier</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[550px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Teaching Level</th>
+            <th class="p-3 font-semibold">Classes Covered</th>
+            <th class="p-3 font-semibold">Approx. Vacancies</th>
+            <th class="p-3 font-semibold">Mandatory Teacher Eligibility</th>
+            <th class="p-3 font-semibold">Pay Scale (Basic Pay)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Primary Teacher (PRT)</td>
+            <td class="p-3">Classes 1 to 5</td>
+            <td class="p-3 font-bold text-foreground">~28,000+</td>
+            <td class="p-3 font-medium text-emerald-600 dark:text-emerald-400">D.El.Ed + CTET Paper 1 / BTET Paper 1</td>
+            <td class="p-3 font-mono">₹25,000 + DA/HRA (~₹40,000 gross)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Middle School Teacher</td>
+            <td class="p-3">Classes 6 to 8</td>
+            <td class="p-3 font-bold text-foreground">~19,000+</td>
+            <td class="p-3 font-medium text-foreground">D.El.Ed or B.Ed + CTET / BTET Paper 2</td>
+            <td class="p-3 font-mono">₹28,000 + DA/HRA (~₹45,000 gross)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Secondary Teacher (TGT)</td>
+            <td class="p-3">Classes 9 to 10</td>
+            <td class="p-3 font-bold text-foreground">~17,000+</td>
+            <td class="p-3 font-medium text-foreground">Graduation + B.Ed + Bihar STET Paper 1</td>
+            <td class="p-3 font-mono">₹31,000 + DA/HRA (~₹50,000 gross)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Higher Secondary (PGT)</td>
+            <td class="p-3">Classes 11 to 12</td>
+            <td class="p-3 font-bold text-foreground">~22,000+</td>
+            <td class="p-3 font-medium text-foreground">Post-Graduation + B.Ed + Bihar STET Paper 2</td>
+            <td class="p-3 font-mono">₹32,000 + DA/HRA (~₹53,000 gross)</td>
+          </tr>
+          <tr class="bg-primary/5 font-bold">
+            <td class="p-3 text-primary">Cumulative Sanctioned</td>
+            <td class="p-3 text-primary">Classes 1 to 12</td>
+            <td class="p-3 text-primary font-bold">87,774 (TRE 3.0) + 1 Lakh+ (TRE 4.0 Pipeline)</td>
+            <td class="p-3 text-primary">State Merit Rank Based</td>
+            <td class="p-3 text-primary">Level 9/11 Bihar Pay Matrix</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 2: Educational Qualifications & D.El.Ed vs B.Ed -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="eligibility-matrix">🎓 2. Tier-Wise Educational Qualifications & D.El.Ed vs B.Ed Eligibility Matrix</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Candidate eligibility is determined by strict statutory norms issued by NCTE and upheld by the Supreme Court of India. Ensure your degree matches your target tier:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+    <!-- PRT Card -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400">🏫 Primary Teachers (PRT Classes 1–5)</span>
+        <span class="text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-bold">D.El.Ed Only</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>Class 12 / Intermediate:</strong> Minimum 50% aggregate marks (45% for reserved categories).</li>
+        <li><strong>Professional Diploma:</strong> 2-year Diploma in Elementary Education (D.El.Ed / BTC).</li>
+        <li><strong>Teacher Eligibility Test:</strong> CTET Paper 1 OR Bihar TET (BTET) Paper 1 qualified.</li>
+        <li><strong class="text-rose-600 dark:text-rose-400">Supreme Court Verdict:</strong> Candidates holding B.Ed degrees are <em>strictly ineligible</em> for Primary Classes 1–5 as per the Supreme Court judgment of August 11, 2023.</li>
+      </ul>
+    </div>
+
+    <!-- Middle School Card -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400">🏫 Middle School (Classes 6–8)</span>
+        <span class="text-[10px] font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400 px-1.5 py-0.5 rounded font-bold">D.El.Ed or B.Ed</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>Graduation:</strong> Bachelor's degree (B.A., B.Sc., B.Com) with minimum 50% marks in relevant subject.</li>
+        <li><strong>Professional Qualification:</strong> 2-year D.El.Ed OR Bachelor of Education (B.Ed / B.El.Ed).</li>
+        <li><strong>Teacher Eligibility Test:</strong> CTET Paper 2 OR Bihar TET (BTET) Paper 2 qualified.</li>
+        <li><strong>Subject Clusters:</strong> Mathematics & Science, Social Science, or Language Teacher.</li>
+      </ul>
+    </div>
+
+    <!-- Secondary TGT Card -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-purple-600 dark:text-purple-400">🏫 Secondary School (TGT Classes 9–10)</span>
+        <span class="text-[10px] font-mono bg-purple-500/10 text-purple-600 dark:text-purple-400 px-1.5 py-0.5 rounded font-bold">STET Paper 1</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>Graduation:</strong> 50% marks in relevant subject from recognized university.</li>
+        <li><strong>Professional Degree:</strong> Bachelor of Education (B.Ed / B.A.B.Ed / B.Sc.B.Ed).</li>
+        <li><strong>Mandatory State Test:</strong> Bihar Secondary Teachers Eligibility Test (STET) Paper 1 passed.</li>
+        <li><strong>CTET Invalidity:</strong> CTET is NOT applicable for Secondary (9–10); only Bihar STET is recognized.</li>
+      </ul>
+    </div>
+
+    <!-- Higher Secondary PGT Card -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-indigo-600 dark:text-indigo-400">🏫 Higher Secondary (PGT Classes 11–12)</span>
+        <span class="text-[10px] font-mono bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-1.5 py-0.5 rounded font-bold">STET Paper 2</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>Post-Graduation:</strong> Master's degree (M.A., M.Sc., M.Com, MCA) with minimum 50% marks in specific teaching subject.</li>
+        <li><strong>Professional Degree:</strong> Bachelor of Education (B.Ed).</li>
+        <li><strong>Mandatory State Test:</strong> Bihar STET Paper 2 qualified in concerned elective discipline.</li>
+        <li><strong>Computer Science Exception:</strong> B.Ed is not mandatory for PGT Computer Science (B.Tech CS / MCA / M.Sc CS qualified with STET Paper 2).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Domicile & Age Limits Callout -->
+  <div class="my-6 p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-border space-y-2 shadow-xs">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-base">🏛️</span>
+        <h3 class="text-xs sm:text-sm font-bold text-foreground">Bihar Domicile Policy & Statutory Age Limits</h3>
+      </div>
+      <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">All-India Open</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-muted-foreground pt-1">
+      <div class="p-3 rounded-xl bg-card border border-border space-y-1">
+        <strong class="text-foreground text-[11px] block">Domicile Eligibility:</strong>
+        <p class="leading-relaxed text-[11px]">
+          Following the Bihar state cabinet decision, <strong>citizens from all Indian states are eligible</strong> to apply for BPSC TRE under the General / Unreserved (UR) category. Reservation benefits (EWS, BC, EBC, SC, ST) are strictly reserved for permanent residents of Bihar possessing a valid Bihar Domicile Certificate.
+        </p>
+      </div>
+      <div class="p-3 rounded-xl bg-card border border-border space-y-1">
+        <strong class="text-foreground text-[11px] block">Statutory Age Limits (as on Aug 1):</strong>
+        <p class="leading-relaxed text-[11px]">
+          Minimum age is <strong>18 years</strong> for Primary (Classes 1–5) and Middle School (Classes 6–8), and <strong>21 years</strong> for Secondary (Classes 9–10) and Higher Secondary (Classes 11–12). Maximum age: <strong>37 years</strong> (UR Male), <strong>40 years</strong> (BC/EBC Male & Female, UR Female), and <strong>42 years</strong> (SC/ST). Retirement age cutoff is 60 years.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Exam Pattern & Negative Marking -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="exam-pattern">📝 3. Exam Pattern & Negative Marking Policy: 150-Mark Single Paper Scheme</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    BPSC conducts the Teacher Recruitment Examination as a single comprehensive paper of <strong>150 objective questions worth 150 marks</strong> over 2 hours and 30 minutes:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📐</span> BPSC TRE 150-Question Structural Breakdown (Classes 6–12)</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[550px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Section Part</th>
+            <th class="p-3 font-semibold">Subject Coverage</th>
+            <th class="p-3 font-semibold">Total Questions</th>
+            <th class="p-3 font-semibold">Maximum Marks</th>
+            <th class="p-3 font-semibold">Qualifying Rule</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Part I: Language (Qualifying)</td>
+            <td class="p-3">English (8 Q) + Hindi / Urdu / Bengali (22 Q)</td>
+            <td class="p-3 font-bold text-foreground">30 Questions</td>
+            <td class="p-3 font-bold text-foreground">30 Marks</td>
+            <td class="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">Mandatory 30% Pass (Min. 9 Marks)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Part II: General Studies</td>
+            <td class="p-3">Elementary Maths, Reasoning, General Science, Social Studies, Bihar GK, National Movement</td>
+            <td class="p-3 font-bold text-foreground">40 Questions</td>
+            <td class="p-3 font-bold text-foreground">40 Marks</td>
+            <td class="p-3 font-semibold text-foreground">Added to Final Merit List</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Part III: Subject Domain</td>
+            <td class="p-3">Selected Subject Specialization (e.g. Maths, Science, Social Science, Hindi, English, Sanskrit)</td>
+            <td class="p-3 font-bold text-foreground">80 Questions</td>
+            <td class="p-3 font-bold text-foreground">80 Marks</td>
+            <td class="p-3 font-semibold text-foreground">Added to Final Merit List</td>
+          </tr>
+          <tr class="bg-primary/5 font-bold">
+            <td class="p-3 text-primary">Cumulative Single Paper</td>
+            <td class="p-3 text-primary">Full Composite Syllabus (2h 30m Duration)</td>
+            <td class="p-3 text-primary">150 Questions</td>
+            <td class="p-3 text-primary">150 Marks</td>
+            <td class="p-3 text-primary">Merit computed on Part II + III (120 Marks)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Primary (PRT) Specific Note Box -->
+  <div class="my-4 p-3.5 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-950 dark:text-blue-100 flex items-start gap-3 shadow-xs">
+    <span class="text-lg shrink-0 mt-0.5">ℹ️</span>
+    <div class="space-y-1 text-xs">
+      <strong class="font-bold text-blue-900 dark:text-blue-300 block">PRT (Classes 1–5) Pattern Variation & Merit Determination:</strong>
+      <p class="leading-relaxed">
+        For Primary Teachers (Classes 1–5), there is no separate 80-question subject section. The 150 questions are split into: <strong>Part I: Language (30 Questions, qualifying with mandatory 30% / 9 marks)</strong> and <strong>Part II: General Studies (120 Questions)</strong> covering Elementary Maths, Mental Ability, General Science, Current Affairs, Indian National Movement, and Geography based on SCERT/NCERT primary curricula. <em>Crucial Scoring Distinction:</em> While scoring at least 9 marks in Language is mandatory to prevent immediate paper disqualification, Part I marks are <strong>strictly qualifying and not counted toward your final merit ranking</strong>; the final selection merit for PRT is determined exclusively out of the <strong>120 marks in Part II General Studies</strong>!
+      </p>
+    </div>
+  </div>
+
+  <!-- Language Qualifying Pass Nuance Cautionary Box -->
+  <div class="my-4 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-950 dark:text-amber-100 flex items-start gap-3 shadow-xs">
+    <span class="text-lg shrink-0 mt-0.5">⚠️</span>
+    <div class="space-y-1 text-xs">
+      <h3 class="font-bold text-amber-900 dark:text-amber-300 text-xs">Language Qualifying Mark Nuance: TRE 2.0 Precedent vs TRE 3.0/4.0 Rules</h3>
+      <p class="leading-relaxed">
+        In past recruitment cycles (specifically TRE 2.0), BPSC issued a mid-recruitment notice relaxing the Part I Language qualifying cutoff to zero for Classes 6 to 12 (while retaining 30% / 9 marks strictly for PRT 1–5). <strong>Crucial Warning:</strong> For TRE 3.0 and TRE 4.0, BPSC has reaffirmed the statutory <strong>30% (9 marks out of 30) qualifying requirement</strong> across all levels. Furthermore, Part I Language marks act as the primary tie-breaker when two candidates achieve identical Part II + III composite scores. Always prepare to comfortably score 15+ marks in Language.
+      </p>
+    </div>
+  </div>
+
+  <!-- Zero Negative Marking Callout Box -->
+  <div class="my-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-950 dark:text-emerald-100 flex items-start gap-3 shadow-xs">
+    <span class="text-xl shrink-0 mt-0.5">🎉</span>
+    <div class="space-y-1 text-xs sm:text-sm">
+      <h3 class="font-bold text-emerald-900 dark:text-emerald-300 text-sm">Critical Scoring Advantage: Zero Negative Marking</h3>
+      <p class="leading-relaxed">
+        Unlike UPSC or SSC examinations, <strong>BPSC enforces ZERO negative marking in Teacher Recruitment Examinations (TRE)</strong>. Correct answers award <strong>+1 mark</strong>; incorrect answers award <strong>0 marks</strong>. Candidates are strongly advised to attempt all 150 questions without fear of penalties.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 4: High-Yield Syllabus & Bihar GK Focus Areas -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="syllabus-weightage">📚 4. Subject-Wise High-Yield Syllabus & Bihar GK Focus Areas</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Scoring at the top of BPSC TRE merit lists requires mastering high-yield focus areas derived from past TRE 1.0, 2.0, and 3.0 question papers:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+    <!-- Bihar GK & History -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-amber-600 dark:text-amber-400">🏛️ Bihar GK & Modern History</span>
+        <span class="text-[10px] font-mono bg-amber-500/10 text-amber-600 dark:text-amber-400 px-1.5 py-0.5 rounded font-bold">~15-20 Marks</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>1857 Revolt in Bihar:</strong> Role of Veer Kunwar Singh, Jagdishpur, Amar Singh, and Patna uprisings.</li>
+        <li><strong>Champaran Satyagraha (1917):</strong> Raj Kumar Shukla, Tinkathia system, Mahatma Gandhi's first civil disobedience in Bihar.</li>
+        <li><strong>Bihar Geography:</strong> Major river drainages (Ganga, Kosi, Gandak, Son), soil classifications, climate zones, national parks (Valmiki).</li>
+        <li><strong>Bihar Census 2011:</strong> Literacy rates, sex ratio, population density, urban vs rural demographics.</li>
+      </ul>
+    </div>
+
+    <!-- General Studies & Science -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400">🔬 GS, Maths & Science</span>
+        <span class="text-[10px] font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400 px-1.5 py-0.5 rounded font-bold">~25-30 Marks</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>Indian National Movement:</strong> Quit India Movement, Subhas Chandra Bose, INA, Cabinet Mission, Partition.</li>
+        <li><strong>Elementary Mathematics:</strong> Percentages, profit & loss, ratio & proportions, time & work, simple/compound interest.</li>
+        <li><strong>General Science:</strong> Human digestive and circulatory systems, acid-base indicators, Newton's laws, optics, reflection/refraction.</li>
+        <li><strong>Environmental Studies:</strong> Ecosystems, biodiversity conservation, pollution controls, food chains.</li>
+      </ul>
+    </div>
+
+    <!-- Domain Subject Mastery -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-purple-600 dark:text-purple-400">📖 Domain Subject (Part III)</span>
+        <span class="text-[10px] font-mono bg-purple-500/10 text-purple-600 dark:text-purple-400 px-1.5 py-0.5 rounded font-bold">80 Marks</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>SCERT & NCERT Alignment:</strong> Questions are strictly aligned with Bihar State Textbooks (SCERT) and NCERT textbooks.</li>
+        <li><strong>Secondary (9–10):</strong> Depth equivalent to graduation level in concerned subject (Maths, Science, Social Science, Language).</li>
+        <li><strong>Higher Secondary (11–12):</strong> Depth equivalent to post-graduation standard (Physics, Chemistry, History, Economics, Computer Science).</li>
+        <li><strong>Pedagogical Application:</strong> Content-focused application without generic CTET-style pedagogical puzzles.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 5: Live Webcam Photograph Standards -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="webcam-specs">📸 5. BPSC Live Webcam Photograph Capture Standards & E-Admit Card Photo Rules</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Unlike traditional state PSC portals, the BPSC online application portal (<code>onlinebpsc.bihar.gov.in</code>) does NOT accept pre-scanned portrait studio uploads during initial registration. Instead, candidates must capture a <strong>live webcam photograph</strong> directly through their web browser:
+  </p>
+
+  <!-- Live Webcam Guidelines Box -->
+  <div class="my-6 p-4 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-950 dark:text-blue-100 flex items-start gap-3 shadow-xs">
+    <span class="text-xl shrink-0 mt-0.5">📹</span>
+    <div class="space-y-1.5 text-xs sm:text-sm">
+      <h3 class="font-bold text-blue-900 dark:text-blue-300 text-sm">5.1 Real-Time Live Webcam Capture Requirements on onlinebpsc.bihar.gov.in</h3>
+      <p class="leading-relaxed">
+        When filling out the online application, the portal activates your laptop or smartphone camera. Ensure you face bright, even lighting with a <strong>plain white or very light-colored wall</strong> behind you. Do not wear caps, mufflers, sunglasses, or spectacles with tinted lenses. Both eyes and ears should be clearly visible with a neutral facial expression.
+      </p>
+      <div class="p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-950 dark:text-amber-200 text-xs flex items-center gap-2 mt-2">
+        <span class="text-sm shrink-0">💡</span>
+        <p class="leading-relaxed">
+          <strong>Mobile & Chrome Permission Warning:</strong> Ensure your browser camera permissions are explicitly set to <em>"Allow"</em> before beginning your BPSC registration. Permission denials during the webcam step will cause the portal to lock and trigger session timeouts.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- E-Admit Card 25 KB Photo Note -->
+  <div class="my-6 p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 space-y-2.5 shadow-xs">
+    <div class="flex items-center gap-2">
+      <span class="text-base">🪪</span>
+      <h3 class="text-xs sm:text-sm font-bold text-foreground">5.2 E-Admit Card Photo Upload & Declaration Form Rules (25 KB JPG)</h3>
+    </div>
+    <p class="text-xs text-muted-foreground leading-relaxed">
+      Before downloading the e-Admit Card, candidates must log into their dashboard and upload a passport-size photograph formatted to <strong>250×250 pixels and under 25 KB JPG</strong>:
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+      <div class="p-3 rounded-xl bg-card border border-border space-y-1">
+        <strong class="text-foreground text-[11px] block">Standard E-Admit Card Upload:</strong>
+        <p class="text-[11px] text-muted-foreground leading-relaxed">
+          Log into your candidate dashboard on <code>onlinebpsc.bihar.gov.in</code>. Upload a clear <strong>250×250 px JPG photo (strictly under 25 KB)</strong>. Only after this upload will the Admit Card download link activate.
+        </p>
+      </div>
+      <div class="p-3 rounded-xl bg-card border border-border space-y-2">
+        <strong class="text-foreground text-[11px] block">Gazetted Officer Declaration (If Image Blurred / Distorted):</strong>
+        <p class="text-[11px] text-muted-foreground leading-relaxed">
+          If your e-Admit Card displays a blank, distorted, or unreadable photo/signature, BPSC requires downloading the official <strong>Proforma Declaration Form (घोषणा-पत्र)</strong> published under circular notices. Paste two identical color passport photos (one attested by a Gazetted Officer on the form, one for the examination attendance roll), sign in Hindi and English before the room invigilator, and submit it to the Centre Superintendent on exam day.
+        </p>
+        <div class="flex flex-wrap items-center gap-2 pt-1">
+          <a href="https://bpsc.bihar.gov.in/advertisement/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-[11px] transition shadow-2xs">
+            <span>📥 Download BPSC Declaration Notice & Form (bpsc.bihar.gov.in) &rarr;</span>
+          </a>
+          <a href="https://onlinebpsc.bihar.gov.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-card hover:bg-muted text-foreground border border-border font-semibold text-[11px] transition">
+            <span>🪪 Candidate Login Portal &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: Dual Signature Protocol -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="dual-signature-protocol">✍️ 6. The Mandatory Dual-Signature Protocol: Separate Hindi & English Rules (10–20 KB)</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    BPSC mandates the separate submission of <strong>both a Hindi signature and an English signature</strong>. Mixing these two slots is the single most frequent reason for document verification disqualification:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📑</span> BPSC Official Dual-Signature Specification Benchmark</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Specification</th>
+            <th class="p-3 font-semibold">Hindi Signature (हस्ताक्षर हिंदी में)</th>
+            <th class="p-3 font-semibold">English Signature (हस्ताक्षर अंग्रेजी में)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Required Script</td>
+            <td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">Devanagari Script (देवनागरी लिपि)</td>
+            <td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">Running Cursive Latin Script</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">File Size Bounds</td>
+            <td class="p-3 font-bold text-foreground">Strictly 10 KB to 20 KB (Max 25 KB)</td>
+            <td class="p-3 font-bold text-foreground">Strictly 10 KB to 20 KB (Max 25 KB)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Pixel Dimensions</td>
+            <td class="p-3 font-mono text-muted-foreground">220 × 100 pixels (5.5 × 2.5 cm)</td>
+            <td class="p-3 font-mono text-muted-foreground">220 × 100 pixels (5.5 × 2.5 cm)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Aspect Ratio</td>
+            <td class="p-3 font-mono text-muted-foreground">11 : 5 rectangular landscape</td>
+            <td class="p-3 font-mono text-muted-foreground">11 : 5 rectangular landscape</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">File Format</td>
+            <td class="p-3 font-mono font-bold text-foreground">JPG / JPEG Only</td>
+            <td class="p-3 font-mono font-bold text-foreground">JPG / JPEG Only</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Ink & Paper Standard</td>
+            <td class="p-3 text-muted-foreground">Black or Blue Ballpoint Pen on unruled white paper</td>
+            <td class="p-3 text-muted-foreground">Black or Blue Ballpoint Pen on unruled white paper</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Automatic Disqualification</td>
+            <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">Computer font, English letters in Hindi slot, ruled lines</td>
+            <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">ALL-CAPITAL / Block letters, Hindi in English slot</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Quick-Jump CTA Strip under Dual-Signature Table -->
+  <div class="my-4 p-3.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-border flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
+    <div class="flex items-center gap-2 text-xs font-semibold text-foreground">
+      <span>⚡</span>
+      <span>Format your signatures right now:</span>
+    </div>
+    <div class="flex items-center gap-2 w-full sm:w-auto">
+      <a href="/bpsc-tre-hindi-signature-resize/" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-2xs">
+        <span>✍️ Hindi Sign (10–20 KB) &rarr;</span>
+      </a>
+      <a href="/bpsc-tre-english-signature-resize/" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition shadow-2xs">
+        <span>✍️ English Sign (10–20 KB) &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Section 7: Visual Do vs Don't Audit -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="visual-checklist">🛡️ 7. Visual Do vs Don't: Eliminate the Top BPSC Rejection Traps</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Examine these visual compliance models before uploading your documents to avoid common portal rejections:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+    <!-- Hindi Sign DO vs DONT -->
+    <div class="p-4 rounded-xl border border-border bg-card space-y-3 shadow-xs">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <span class="font-bold text-xs uppercase tracking-wider text-primary">Hindi Signature (हिंदी हस्ताक्षर)</span>
+        <span class="text-[10px] font-mono bg-primary/10 text-primary px-1.5 py-0.5 rounded">Devanagari</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div class="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-950 dark:text-emerald-200 space-y-1">
+          <strong class="text-emerald-700 dark:text-emerald-300 flex items-center gap-1 font-bold">
+            <span>✅</span> DO (Devanagari)
+          </strong>
+          <div class="font-serif italic text-base text-foreground bg-white dark:bg-slate-900 p-2 rounded border border-emerald-300 text-center my-1">
+            आनंद कुमार
+          </div>
+          <p class="text-[11px] leading-snug">Handwritten Devanagari script, clear shirorekha (top line), black ink on white paper.</p>
+        </div>
+        <div class="p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-950 dark:text-rose-200 space-y-1">
+          <strong class="text-rose-700 dark:text-rose-300 flex items-center gap-1 font-bold">
+            <span>❌</span> DON'T (Invalid)
+          </strong>
+          <div class="font-mono text-xs text-foreground bg-white dark:bg-slate-900 p-2 rounded border border-rose-300 text-center my-1 tracking-widest line-through">
+            ANAND KUMAR
+          </div>
+          <p class="text-[11px] leading-snug">English text uploaded in Hindi slot, computer typed fonts, or ruled lines.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- English Sign DO vs DONT -->
+    <div class="p-4 rounded-xl border border-border bg-card space-y-3 shadow-xs">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <span class="font-bold text-xs uppercase tracking-wider text-primary">English Signature (अंग्रेजी हस्ताक्षर)</span>
+        <span class="text-[10px] font-mono bg-primary/10 text-primary px-1.5 py-0.5 rounded">Running Cursive</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div class="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-950 dark:text-emerald-200 space-y-1">
+          <strong class="text-emerald-700 dark:text-emerald-300 flex items-center gap-1 font-bold">
+            <span>✅</span> DO (Cursive)
+          </strong>
+          <div class="font-serif italic text-base text-foreground bg-white dark:bg-slate-900 p-2 rounded border border-emerald-300 text-center my-1">
+            Anand Kumar
+          </div>
+          <p class="text-[11px] leading-snug">Natural running cursive script, lowercase flow, initial capital allowed, unruled paper.</p>
+        </div>
+        <div class="p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-950 dark:text-rose-200 space-y-1">
+          <strong class="text-rose-700 dark:text-rose-300 flex items-center gap-1 font-bold">
+            <span>❌</span> DON'T (Block Letters)
+          </strong>
+          <div class="font-mono text-xs text-foreground bg-white dark:bg-slate-900 p-2 rounded border border-rose-300 text-center my-1 tracking-widest line-through">
+            ANAND KUMAR
+          </div>
+          <p class="text-[11px] leading-snug">BPSC Rule: Signatures in ALL-CAPS or block letters are strictly rejected.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 8: Instant Resizers & Dropzones -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="instant-resizers">🛠️ 8. Instant In-Page Resizer Launchers: Prepare Compliant BPSC Uploads</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Format your Hindi and English signatures to BPSC's exact <strong>220×100 px (10–20 KB)</strong> bounds right here. Test your files using the live dropzones below:
+  </p>
+
+  <!-- Dropzone Micro-Tips Warning Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-4">
+    <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-1">
+      <div class="flex items-center gap-1.5 font-bold text-amber-800 dark:text-amber-300 text-xs">
+        <span>⚡</span>
+        <span>The Slot Swap Trap</span>
+      </div>
+      <p class="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
+        Double check filenames before uploading. Ensure <code>hindi_signature.jpg</code> goes to the Hindi slot and <code>english_signature.jpg</code> goes to the English slot.
+      </p>
+    </div>
+    <div class="p-3.5 rounded-xl bg-blue-500/10 border border-blue-500/30 space-y-1">
+      <div class="flex items-center gap-1.5 font-bold text-blue-800 dark:text-blue-300 text-xs">
+        <span>📐</span>
+        <span>11:5 Aspect Ratio</span>
+      </div>
+      <p class="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
+        BPSC requires a 220×100 pixel canvas. Square or tall crops compress into distorted horizontal lines during BPSC system ingestion.
+      </p>
+    </div>
+    <div class="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 space-y-1">
+      <div class="flex items-center gap-1.5 font-bold text-rose-800 dark:text-rose-300 text-xs">
+        <span>⚖️</span>
+        <span>10 KB Undersize Trap</span>
+      </div>
+      <p class="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
+        Signatures compressed below 10 KB fail portal upload validation scripts with an error. Keep your export safely between 12 KB and 18 KB.
+      </p>
+    </div>
+    <div class="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/30 space-y-1">
+      <div class="flex items-center gap-1.5 font-bold text-purple-800 dark:text-purple-300 text-xs">
+        <span>📱</span>
+        <span>WhatsApp Artifact Trap</span>
+      </div>
+      <p class="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
+        Never send signatures via WhatsApp! Compression introduces grey pixel halos and washes out ink contrast, triggering portal rejection.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
+    <!-- Hindi Signature Launcher & Interactive Dropzone Card -->
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-card via-card to-primary/10 border-2 border-primary/30 shadow-xs flex flex-col justify-between space-y-4">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">✍️ Hindi Signature Resizer</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">220 × 100 px</span>
+        </div>
+        <h4 class="font-bold text-base text-foreground">BPSC TRE Hindi Signature Tool</h4>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          Standardizes handwritten Hindi Devanagari signature to strictly <strong>220×100 px</strong> and <strong>10 KB to 20 KB JPG</strong> for the Hindi upload slot.
+        </p>
+
+        <!-- Interactive Drag-and-Drop Dropzone Container -->
+        <div id="bpsc-hindi-dropzone" class="group relative cursor-pointer block border-2 border-dashed border-blue-400 dark:border-blue-500/70 hover:border-blue-600 bg-blue-50/40 hover:bg-blue-100/50 dark:bg-blue-950/20 dark:hover:bg-blue-900/30 rounded-xl p-4 transition-all duration-200 text-center space-y-2 shadow-xs hover:shadow-md hover:scale-[1.01]">
+          <input type="file" id="bpsc-hindi-input" class="hidden" accept="image/jpeg,image/png,image/webp" />
+          
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-2xs">
+              <span>⚡</span> Interactive Live Dropzone
+            </span>
+          </div>
+
+          <div id="bpsc-hindi-idle" class="space-y-1 py-1">
+            <span class="text-2xl block group-hover:scale-125 transition-transform duration-300">📥</span>
+            <span class="text-xs font-bold text-foreground block">Drop Hindi Signature image here</span>
+            <span class="text-[10px] text-muted-foreground block">or click to browse from device (JPG, PNG, WebP)</span>
+          </div>
+
+          <div id="bpsc-hindi-analyzing" class="hidden py-4 text-center text-xs font-semibold text-blue-600 dark:text-blue-400 animate-pulse space-y-1">
+            <span class="text-xl block animate-spin">⚙️</span>
+            <span>Analyzing Hindi signature dimensions & compression...</span>
+          </div>
+
+          <div id="bpsc-hindi-feedback" class="hidden space-y-2 text-left">
+            <div class="flex items-center gap-3">
+              <img id="bpsc-hindi-preview" class="w-20 h-10 object-contain border border-border bg-white rounded shadow-2xs" alt="Hindi Signature preview" />
+              <div class="min-w-0 flex-1 text-xs">
+                <div id="bpsc-hindi-name" class="font-bold text-foreground truncate text-[11px]">filename.jpg</div>
+                <div id="bpsc-hindi-meta" class="text-[10px] text-muted-foreground">Original: calculating...</div>
+                <div class="text-[10px] font-bold text-amber-600 dark:text-amber-400">Target: 220×100 px • 10–20 KB</div>
+              </div>
+            </div>
+            <div id="bpsc-hindi-status-badge" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5">
+              <span>⚡</span> Ready for 1-click optimization to BPSC TRE Hindi specifications
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a id="bpsc-hindi-action-btn" href="/bpsc-tre-hindi-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-95 transition shadow-xs w-full text-center">
+        <span>Open Hindi Sign Canvas (10–20 KB)</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+
+    <!-- English Signature Launcher & Interactive Dropzone Card -->
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-card via-card to-primary/10 border-2 border-primary/30 shadow-xs flex flex-col justify-between space-y-4">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">✍️ English Signature Resizer</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">220 × 100 px</span>
+        </div>
+        <h4 class="font-bold text-base text-foreground">BPSC TRE English Signature Tool</h4>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          Formats running cursive signature to strictly <strong>220×100 px</strong> and <strong>10 KB to 20 KB JPG</strong> for the English upload slot.
+        </p>
+
+        <!-- Interactive Drag-and-Drop Dropzone Container -->
+        <div id="bpsc-english-dropzone" class="group relative cursor-pointer block border-2 border-dashed border-blue-400 dark:border-blue-500/70 hover:border-blue-600 bg-blue-50/40 hover:bg-blue-100/50 dark:bg-blue-950/20 dark:hover:bg-blue-900/30 rounded-xl p-4 transition-all duration-200 text-center space-y-2 shadow-xs hover:shadow-md hover:scale-[1.01]">
+          <input type="file" id="bpsc-english-input" class="hidden" accept="image/jpeg,image/png,image/webp" />
+          
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-2xs">
+              <span>⚡</span> Interactive Live Dropzone
+            </span>
+          </div>
+
+          <div id="bpsc-english-idle" class="space-y-1 py-1">
+            <span class="text-2xl block group-hover:scale-125 transition-transform duration-300">📥</span>
+            <span class="text-xs font-bold text-foreground block">Drop English Signature image here</span>
+            <span class="text-[10px] text-muted-foreground block">or click to browse from device (JPG, PNG, WebP)</span>
+          </div>
+
+          <div id="bpsc-english-analyzing" class="hidden py-4 text-center text-xs font-semibold text-blue-600 dark:text-blue-400 animate-pulse space-y-1">
+            <span class="text-xl block animate-spin">⚙️</span>
+            <span>Analyzing English signature dimensions & compression...</span>
+          </div>
+
+          <div id="bpsc-english-feedback" class="hidden space-y-2 text-left">
+            <div class="flex items-center gap-3">
+              <img id="bpsc-english-preview" class="w-20 h-10 object-contain border border-border bg-white rounded shadow-2xs" alt="English Signature preview" />
+              <div class="min-w-0 flex-1 text-xs">
+                <div id="bpsc-english-name" class="font-bold text-foreground truncate text-[11px]">filename.jpg</div>
+                <div id="bpsc-english-meta" class="text-[10px] text-muted-foreground">Original: calculating...</div>
+                <div class="text-[10px] font-bold text-amber-600 dark:text-amber-400">Target: 220×100 px • 10–20 KB</div>
+              </div>
+            </div>
+            <div id="bpsc-english-status-badge" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5">
+              <span>⚡</span> Ready for 1-click optimization to BPSC TRE English specifications
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a id="bpsc-english-action-btn" href="/bpsc-tre-english-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted/40 transition shadow-xs w-full text-center">
+        <span>Open English Sign Canvas (10–20 KB)</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Inline Script for Interactive Dropzones -->
+  <script>
+    function setupBpscDropzone(zoneId, inputId, idleId, analyzingId, feedbackId, previewId, nameId, metaId, statusBadgeId, actionBtnId, toolUrl, minKb, maxKb, targetDims) {
+      const dropzone = document.getElementById(zoneId);
+      const input = document.getElementById(inputId);
+      const idle = document.getElementById(idleId);
+      const analyzing = document.getElementById(analyzingId);
+      const feedback = document.getElementById(feedbackId);
+      const preview = document.getElementById(previewId);
+      const nameEl = document.getElementById(nameId);
+      const metaEl = document.getElementById(metaId);
+      const statusBadge = document.getElementById(statusBadgeId);
+      const actionBtn = document.getElementById(actionBtnId);
+
+      if (!dropzone || !input) return;
+
+      dropzone.addEventListener('click', () => input.click());
+
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.add('border-blue-600', 'bg-blue-100/80', 'dark:bg-blue-900/60', 'ring-4', 'ring-blue-500/40', 'scale-[1.02]', 'shadow-lg');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove('border-blue-600', 'bg-blue-100/80', 'dark:bg-blue-900/60', 'ring-4', 'ring-blue-500/40', 'scale-[1.02]', 'shadow-lg');
+        });
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+          handleFile(e.dataTransfer.files[0]);
+        }
+      });
+
+      input.addEventListener('change', () => {
+        if (input.files && input.files.length > 0) {
+          handleFile(input.files[0]);
+        }
+      });
+
+      function handleFile(file) {
+        if (!file.type.startsWith('image/')) {
+          alert('Please upload a valid image file (JPG, PNG, or WebP).');
+          return;
+        }
+
+        idle.classList.add('hidden');
+        analyzing.classList.remove('hidden');
+        feedback.classList.add('hidden');
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const sizeKb = (file.size / 1024).toFixed(1);
+            const w = img.width;
+            const h = img.height;
+
+            nameEl.textContent = file.name;
+            metaEl.textContent = 'Original: ' + w + '×' + h + ' px • ' + sizeKb + ' KB';
+            preview.src = e.target.result;
+
+            analyzing.classList.add('hidden');
+            feedback.classList.remove('hidden');
+
+            const isSizeValid = file.size >= minKb * 1024 && file.size <= maxKb * 1024;
+            const isDimValid = Math.abs(w - 220) < 10 && Math.abs(h - 100) < 10;
+
+            if (isSizeValid && isDimValid) {
+              statusBadge.className = 'p-2 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold flex items-center gap-1.5';
+              statusBadge.innerHTML = '<span>✅</span> Compliant with BPSC TRE 220×100 px & ' + minKb + '–' + maxKb + ' KB bounds';
+              actionBtn.textContent = 'File Compliant! Open Resizer Canvas &rarr;';
+            } else {
+              statusBadge.className = 'p-2 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-[11px] font-bold flex items-center gap-1.5';
+              statusBadge.innerHTML = '<span>⚡</span> Needs Resize to ' + targetDims + ' (' + minKb + '–' + maxKb + ' KB) • Click below to fix';
+              actionBtn.textContent = '1-Click Auto Format & Compress &rarr;';
+            }
+
+            try {
+              sessionStorage.setItem('signresize_pending_image', e.target.result);
+              sessionStorage.setItem('signresize_pending_name', file.name);
+            } catch (err) {}
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupBpscDropzone('bpsc-hindi-dropzone', 'bpsc-hindi-input', 'bpsc-hindi-idle', 'bpsc-hindi-analyzing', 'bpsc-hindi-feedback', 'bpsc-hindi-preview', 'bpsc-hindi-name', 'bpsc-hindi-meta', 'bpsc-hindi-status-badge', 'bpsc-hindi-action-btn', '/bpsc-tre-hindi-signature-resize/', 10, 20, '220×100 px');
+      setupBpscDropzone('bpsc-english-dropzone', 'bpsc-english-input', 'bpsc-english-idle', 'bpsc-english-analyzing', 'bpsc-english-feedback', 'bpsc-english-preview', 'bpsc-english-name', 'bpsc-english-meta', 'bpsc-english-status-badge', 'bpsc-english-action-btn', '/bpsc-tre-english-signature-resize/', 10, 20, '220×100 px');
+    });
+  </script>
+
+  <!-- Section 9: Official Portals Directory -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="official-portals">🏛️ 9. Official BPSC Portals Directory & Document Verification Roadmap</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Access authenticated commissions portals directly to avoid third-party phishing or fraudulent application sites:
+  </p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+    <div class="p-4 rounded-xl border border-border bg-card shadow-xs space-y-2">
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-xs text-primary uppercase">BPSC Main Commission Portal</span>
+        <span class="text-[10px] font-mono bg-primary/10 text-primary px-1.5 py-0.5 rounded">bpsc.bih.nic.in</span>
+      </div>
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        Official commission portal hosting recruitment notifications, exam schedules, cutoff marks, answer keys, and district allocation lists.
+      </p>
+      <a href="https://bpsc.bih.nic.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline pt-1">
+        <span>Visit Official BPSC Website</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+
+    <div class="p-4 rounded-xl border border-border bg-card shadow-xs space-y-2">
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-xs text-primary uppercase">BPSC Online Application Portal</span>
+        <span class="text-[10px] font-mono bg-primary/10 text-primary px-1.5 py-0.5 rounded">onlinebpsc.bihar.gov.in</span>
+      </div>
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        The designated transaction portal for candidate registration, fee payment, live webcam capture, Hindi/English signature upload, and e-Admit Card downloads.
+      </p>
+      <a href="https://onlinebpsc.bihar.gov.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline pt-1">
+        <span>Open BPSC Online Application Portal</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Counseling Verification Documents Checklist -->
+  <div class="my-6 p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-border space-y-2 shadow-xs">
+    <div class="flex items-center gap-2">
+      <span class="text-base">📋</span>
+      <h3 class="text-xs sm:text-sm font-bold text-foreground">Mandatory Document Verification (Counseling) Checklist</h3>
+    </div>
+    <p class="text-xs text-muted-foreground leading-relaxed">
+      Original certificates plus two self-attested photocopies are verified during district counseling:
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-muted-foreground pt-1">
+      <div class="flex items-center gap-2 p-2 rounded-lg bg-card border border-border">
+        <span>✅</span> <span>Aadhaar Card / Photo Identity Proof</span>
+      </div>
+      <div class="flex items-center gap-2 p-2 rounded-lg bg-card border border-border">
+        <span>✅</span> <span>CTET / BTET / Bihar STET Qualifying Certificate</span>
+      </div>
+      <div class="flex items-center gap-2 p-2 rounded-lg bg-card border border-border">
+        <span>✅</span> <span>Class 10 / Matriculation Certificate (for Date of Birth)</span>
+      </div>
+      <div class="flex items-center gap-2 p-2 rounded-lg bg-card border border-border">
+        <span>✅</span> <span>D.El.Ed / B.Ed Final Degree & Marksheet</span>
+      </div>
+      <div class="flex items-center gap-2 p-2 rounded-lg bg-card border border-border">
+        <span>✅</span> <span>Graduation / Post-Graduation Degree & Marks</span>
+      </div>
+      <div class="flex items-center gap-2 p-2 rounded-lg bg-card border border-border">
+        <span>✅</span> <span>Bihar Permanent Domicile & Caste / EWS Certificate</span>
+      </div>
+    </div>
+  </div>
+</div>`,
+    faqs: [
+      {
+        question: "Does BPSC TRE have negative marking in 2026?",
+        answer: "No. The Bihar Public Service Commission (BPSC) has officially removed negative marking for the Teacher Recruitment Examination (TRE). Each correct question awards +1 mark, and zero marks are deducted for incorrect or unattempted responses. Aspirants should attempt all 150 questions.",
+        question_hi: "क्या BPSC TRE 2026 में नेगेटिव मार्किंग है?",
+        answer_hi: "नहीं। बिहार लोक सेवा आयोग (BPSC) ने शिक्षक भर्ती परीक्षा (TRE) में नेगेटिव मार्किंग पूर्णतः हटा दी है। प्रत्येक सही उत्तर पर +1 अंक मिलता है तथा गलत उत्तर पर कोई अंक नहीं काटा जाता।",
+        question_mr: "BPSC TRE 2026 मध्ये निगेटिव्ह मार्किंग आहे का?",
+        answer_mr: "नाही. बिहार लोक सेवा आयोगाने (BPSC) शिक्षक भरती परीक्षेतून निगेटिव्ह मार्किंग पूर्णपणे रद्द केले आहे. प्रत्येक बरोबर उत्तराला +१ गुण मिळतो व चुकीच्या उत्तरासाठी कोणतीही गुण कपात होत नाही."
+      },
+      {
+        question: "Why does BPSC require two separate signatures (Hindi and English)?",
+        answer: "BPSC mandates two separate signatures to verify candidate identity during examination attendance and subsequent district counseling. The Hindi signature must be written in handwritten Devanagari script (220×100 px, 10–20 KB), and the English signature must be in natural running cursive handwriting (220×100 px, 10–20 KB). Inverting these files causes rejection.",
+        question_hi: "BPSC में दो अलग-अलग हस्ताक्षर (हिंदी और अंग्रेजी) क्यों अपलोड करने होते हैं?",
+        answer_hi: "BPSC परीक्षा केंद्र पर उपस्थिति और जिला काउंसलिंग में पहचान सत्यापन हेतु दोनों हस्ताक्षर अनिवार्य करता है। हिंदी हस्ताक्षर देवनागरी लिपि में (220×100 px, 10-20 KB) और अंग्रेजी हस्ताक्षर कर्सिव राइटिंग में (220×100 px, 10-20 KB) अलग-अलग स्लॉट में अपलोड करना होता है।",
+        question_mr: "BPSC साठी दोन स्वतंत्र स्वाक्षऱ्या (हिंदी व इंग्रजी) का आवश्यक आहेत?",
+        answer_mr: "BPSC परीक्षा केंद्रावरील हजेरी आणि समुपदेशनादरम्यान ओळख पडताळणीसाठी दोन्ही स्वाक्षऱ्या अनिवार्य करते. हिंदी स्वाक्षरी देवनागरी लिपीत (२२०×१०० px, १०-२० KB) आणि इंग्रजी स्वाक्षरी कर्सिव्ह लिपीत (२२०×१०० px, १०-२० KB) वेगवेगळ्या स्लॉटमध्ये अपलोड करावी लागते."
+      },
+      {
+        question: "Can B.Ed degree holders apply for Primary Teacher (PRT Classes 1–5)?",
+        answer: "No. In accordance with the Supreme Court of India's landmark judgment dated August 11, 2023, B.Ed degree holders are strictly ineligible for Primary Teacher (Classes 1–5) vacancies. Only candidates holding a 2-year Diploma in Elementary Education (D.El.Ed / BTC) along with CTET Paper 1 or BTET Paper 1 can apply for PRT.",
+        question_hi: "क्या B.Ed डिग्री धारक प्राथमिक शिक्षक (PRT कक्षा 1-5) के लिए आवेदन कर सकते हैं?",
+        answer_hi: "नहीं। सुप्रीम कोर्ट के 11 अगस्त 2023 के ऐतिहासिक फैसले के अनुसार B.Ed धारक प्राथमिक शिक्षक (कक्षा 1-5) के लिए पात्र नहीं हैं। केवल 2 वर्षीय D.El.Ed / BTC और CTET पेपर 1 / BTET पेपर 1 उत्तीर्ण अभ्यर्थी ही प्राथमिक शिक्षक बन सकते हैं।",
+        question_mr: "B.Ed धारक प्राथमिक शिक्षक (PRT इयत्ता १-५) साठी अर्ज करू शकतात का?",
+        answer_mr: "नाही. सर्वोच्च न्यायालयाच्या ११ ऑगस्ट २०२३ च्या निर्णयानुसार B.Ed धारक प्राथमिक शिक्षक (इयत्ता १ ते ५) पदासाठी अपात्र आहेत. फक्त २ वर्षांचे D.El.Ed आणि CTET पेपर १ उत्तीर्ण उमेदवारच यासाठी पात्र आहेत."
+      },
+      {
+        question: "Can candidates from outside Bihar apply for BPSC TRE?",
+        answer: "Yes. Following the Bihar government's policy update, candidates from all Indian states and Union Territories are eligible to apply for BPSC TRE vacancies under the Unreserved (UR / General) category. However, statutory reservation benefits (EWS, BC, EBC, SC, ST) and fee concessions are restricted strictly to permanent residents of Bihar.",
+        question_hi: "क्या बिहार के बाहर के अभ्यर्थी BPSC TRE के लिए आवेदन कर सकते हैं?",
+        answer_hi: "हाँ। बिहार राज्य कैबिनेट के निर्णय के अनुसार पूरे भारत के अभ्यर्थी BPSC शिक्षक भर्ती में सामान्य (UR) श्रेणी के अंतर्गत आवेदन कर सकते हैं। आरक्षण का लाभ केवल बिहार के मूल निवासियों को मिलता है।",
+        question_mr: "बिहारबाहेरील उमेदवार BPSC TRE साठी अर्ज करू शकतात का?",
+        answer_mr: "होय. सर्व भारतीय नागरिक खुल्या (UR) प्रवर्गातून BPSC शिक्षक भरतीसाठी अर्ज करू शकतात. आरक्षणाचे लाभ मात्र केवळ बिहारच्या स्थानिक रहिवाशांना मिळतात."
+      },
+      {
+        question: "Can I sign in CAPITAL or BLOCK LETTERS for BPSC English signature?",
+        answer: "No. BPSC guidelines strictly prohibit signatures written in ALL-CAPITAL or block letters. The English signature must be in your natural running cursive handwriting. Signatures submitted in block letters will be rejected during application scrutiny.",
+        question_hi: "क्या BPSC अंग्रेजी हस्ताक्षर में बड़े (CAPITAL) अक्षर लिख सकते हैं?",
+        answer_hi: "नहीं। BPSC ने ब्लॉक या कैपिटल लेटर्स में हस्ताक्षर करने पर सख्त प्रतिबंध लगाया है। अंग्रेजी हस्ताक्षर सामान्य कर्सिव हैंडराइटिंग (running cursive) में होना चाहिए।",
+        question_mr: "BPSC इंग्रजी स्वाक्षरीसाठी कॅपिटल अक्षरे वापरता येतील का?",
+        answer_mr: "नाही. BPSC सर्व कॅपिटल किंवा ब्लॉक अक्षरांमधील स्वाक्षरी थेट नाकारते. इंग्रजी स्वाक्षरी नैसर्गिक कर्सिव्ह अक्षरांमध्येच असावी."
+      },
+      {
+        question: "How does BPSC photo capture work during online registration?",
+        answer: "During online registration on onlinebpsc.bihar.gov.in, candidates do not upload a pre-scanned photo. The portal uses your device webcam or phone front camera to take a real-time live photograph. Candidates must sit facing good natural light against a plain white or light-colored background with both ears visible and no cap or sunglasses.",
+        question_hi: "BPSC ऑनलाइन आवेदन में फोटो कैसे लिया जाता है?",
+        answer_hi: "onlinebpsc.bihar.gov.in पर फॉर्म भरते समय कोई पुरानी स्कैन फोटो अपलोड नहीं होती। पोर्टल आपके कंप्यूटर या मोबाइल के कैमरे से लाइव वेबकैम फोटो लेता है। इसके लिए सफेद पृष्ठभूमि और अच्छी रोशनी जरूरी है।",
+        question_mr: "BPSC ऑनलाइन नोंदणीत छायाचित्र कसे घेतले जाते?",
+        answer_mr: "onlinebpsc.bihar.gov.in वर अर्ज भरताना जुना स्कॅन केलेला फोटो चालत नाही. पोर्टल थेट तुमच्या वेबकॅम किंवा मोबाइल कॅमेऱ्याद्वारे थेट फोटो घेते."
+      },
+      {
+        question: "What is the qualifying pass mark for Part I Language in BPSC TRE?",
+        answer: "Part I Language consists of 30 questions (8 English and 22 Hindi, Urdu, or Bengali). Candidates must secure a minimum of 30% marks (9 marks out of 30) to qualify. While marks obtained in Part I are qualifying and not added to the final merit ranking, failing Part I disqualifies your entire paper.",
+        question_hi: "BPSC TRE में भाग I भाषा (Language) के लिए कितने अंक जरूरी हैं?",
+        answer_hi: "भाग 1 भाषा में कुल 30 प्रश्न (8 अंग्रेजी + 22 हिंदी/उर्दू/बांग्ला) होते हैं। इसमें न्यूनतम 30% यानी 9 अंक लाना अनिवार्य है। इसमें फेल होने पर पूरे पेपर का मूल्यांकन नहीं होता।",
+        question_mr: "BPSC TRE मधील भाग १ भाषा विषयासाठी किती गुण आवश्यक आहेत?",
+        answer_mr: "भाग १ भाषेत ३० प्रश्न (८ इंग्रजी + २२ हिंदी/उर्दू/बंगाली) असतात. यात किमान ३०% म्हणजेच ९ गुण मिळवणे बंधनकारक आहे."
+      },
+      {
+        question: "Is CTET valid for Secondary (Classes 9–10) and Higher Secondary (11–12)?",
+        answer: "No. Central Teacher Eligibility Test (CTET) is valid exclusively for Primary (Paper 1 for Classes 1–5) and Middle School (Paper 2 for Classes 6–8). For Secondary (Classes 9–10), candidates must pass Bihar STET Paper 1. For Higher Secondary (Classes 11–12), candidates must qualify Bihar STET Paper 2.",
+        question_hi: "क्या माध्यमिक (9-10) और उच्च माध्यमिक (11-12) के लिए CTET मान्य है?",
+        answer_hi: "नहीं। CTET केवल प्राथमिक (पेपर 1) और मध्य विद्यालय (पेपर 2) के लिए मान्य है। माध्यमिक (9-10) के लिए बिहार STET पेपर 1 और उच्च माध्यमिक (11-12) के लिए बिहार STET पेपर 2 उत्तीर्ण होना अनिवार्य है।",
+        question_mr: "माध्यमिक (९-१०) आणि उच्च माध्यमिक (११-१२) साठी CTET चालते का?",
+        answer_mr: "नाही. CTET केवळ इयत्ता १ ते ८ साठी वैध आहे. माध्यमिक (९-१०) साठी बिहार STET पेपर १ आणि उच्च माध्यमिक (११-१२) साठी बिहार STET पेपर २ उत्तीर्ण असणे आवश्यक आहे."
+      },
+      {
+        question: "What should I do if my photo on the BPSC e-Admit Card is distorted or missing?",
+        answer: "If your photograph or signature appears blurred, blank, or unrecognizable on the e-Admit Card, download the BPSC Declaration Form from bpsc.bih.nic.in. Paste two recent passport photographs attested by a Gazetted Officer, sign in Hindi and English in front of the Centre Superintendent on exam day, and submit with your valid ID proof.",
+        question_hi: "अगर BPSC एडमिट कार्ड पर फोटो धुंधली या गायब हो तो क्या करें?",
+        answer_hi: "अगर एडमिट कार्ड पर फोटो स्पष्ट न हो, तो BPSC की वेबसाइट से घोषणा पत्र (Declaration Form) डाउनलोड करें। उस पर राजपत्रित अधिकारी (Gazetted Officer) द्वारा सत्यापित दो फोटो चिपकाएं और परीक्षा केंद्र अधीक्षक के सामने हस्ताक्षर करें।",
+        question_mr: "BPSC हॉल तिकिटावरील फोटो अस्पष्ट किंवा गायब असल्यास काय करावे?",
+        answer_mr: "हॉल तिकिटावर फोटो स्पष्ट नसल्यास BPSC डिक्लेरेशन फॉर्म डाउनलोड करा, त्यावर राजपत्रित अधिकाऱ्याकडून दोन फोटो साक्षांकित करून परीक्षा केंद्र प्रमुखाकडे सादर करा."
+      },
+      {
+        question: "What are the exact pixel dimensions and file size for BPSC TRE signatures?",
+        answer: "Both Hindi and English signatures must be exactly 220 pixels wide by 100 pixels high (aspect ratio 11:5, 5.5×2.5 cm). The file size must be strictly between 10 KB and 20 KB (up to a maximum ceiling of 25 KB) in JPG/JPEG format on a spotless white background.",
+        question_hi: "BPSC TRE हस्ताक्षर का सही आकार और पिक्सेल माप क्या है?",
+        answer_hi: "हिंदी और अंग्रेजी दोनों हस्ताक्षरों का माप 220 पिक्सेल चौड़ा और 100 पिक्सेल ऊंचा (220×100 px) होना चाहिए। फाइल साइज अनिवार्य रूप से 10 KB से 20 KB (अधिकतम 25 KB) के बीच JPG प्रारूप में होना चाहिए।",
+        question_mr: "BPSC TRE स्वाक्षरीचे अचूक पिक्सेल आणि फाइल आकार काय आहे?",
+        answer_mr: "हिंदी आणि इंग्रजी दोन्ही स्वाक्षऱ्या २२० पिक्सेल रुंद आणि १०० पिक्सेल उंच (२२०×१०० px) असणे आवश्यक आहे. फाइलचा आकार काटेकोरपणे १० KB ते २० KB दरम्यान JPG फॉरमॅटमध्ये असावा."
+      }
+    ]
+  },
+  {
+    slug: "jee-main-2026-session-1-registration-syllabus-photo-signature-guidelines",
+    title: "JEE Main 2026 Session 1 & 2: Registration, Syllabus, 75% Board Rule & 10–200KB Photo / 4–30KB Signature Resizer Rules",
+    title_hi: "JEE Main 2026 सेशन 1 व 2: रजिस्ट्रेशन, सिलेबस, 75% बोर्ड नियम और 10-200KB फोटो व 4-30KB हस्ताक्षर नियम",
+    title_mr: "JEE Main 2026 सत्र १ व २: नोंदणी, अभ्यासक्रम, ७५% बोर्ड पात्रता आणि १०-२००KB फोटो व ४-३०KB स्वाक्षरी नियम",
+    metaTitle: "JEE Main 2026 Guide: Registration, Syllabus & Photo-Sign Rules",
+    metaTitle_hi: "JEE Main 2026 गाइड: रजिस्ट्रेशन, सिलेबस और फोटो-स्वाक्षरी नियम",
+    metaTitle_mr: "JEE Main 2026 मार्गदर्शक: नोंदणी, अभ्यासक्रम आणि फोटो-स्वाक्षरी नियम",
+    metaDescription: "Complete NTA JEE Main 2026 guide: Session 1 & 2 schedules, 75% eligibility criteria, Paper 1 B.Tech exam pattern with numerical negative marking, chapter weightage & 10–200 KB photo / 4–30 KB sign resizers.",
+    metaDescription_hi: "NTA JEE मेन 2026 संपूर्ण गाइड: सेशन 1 व 2 तिथियां, 75% बोर्ड पात्रता, पेपर 1 मार्किंग स्कीम, चैप्टर वेटेज और 10-200 KB फोटो व 4-30 KB हस्ताक्षर रीसाइजर टूल्स।",
+    metaDescription_mr: "NTA JEE मेन 2026 सविस्तर मार्गदर्शक: सत्र १ व २ वेळापत्रक, ७५% बोर्ड पात्रता, पेपर १ परीक्षा पॅटर्न, विषयवार वेटेज आणि १०-२०० KB फोटो व ४-३० KB स्वाक्षरी नियम.",
+    excerpt: "Authoritative handbook for National Testing Agency (NTA) JEE Main 2026 aspirants: Session 1 (January) & Session 2 (April) application schedule, 75% Class 12 board marks eligibility criteria, Paper 1 B.Tech 75-question compulsory format (+4/-1 for both Section A MCQs & Section B numericals, zero optional choice), category certificate April 1 cutoff rules, chapter weightages in Physics, Chemistry & Mathematics, live webcam matching rules, visual Do/Don't checklists, and instant 10–200 KB photo & 4–30 KB cursive signature resizer tools.",
+    excerpt_hi: "राष्ट्रीय परीक्षा एजेंसी (NTA) JEE मेन 2026 का आधिकारिक विश्लेषण: सेशन 1 (जनवरी) व सेशन 2 (अप्रैल) शेड्यूल, 75% 12वीं बोर्ड पात्रता नियम, पेपर 1 (300 अंक) मार्किंग स्कीम, फिजिक्स, केमिस्ट्री व मैथ्स के मुख्य चैप्टर्स, लाइव वेबकैम फोटो नियम और 10-200 KB फोटो व 4-30 KB हस्ताक्षर रीसाइजर टूल्स।",
+    excerpt_mr: "नॅशनल टेस्टिंग एजन्सी (NTA) JEE मेन 2026 चे संपूर्ण विश्लेषण: सत्र १ (जानेवारी) व सत्र २ (एप्रिल) नोंदणी वेळापत्रक, १२वी बोर्ड ७५% पात्रता नियम, पेपर १ (३०० गुण) परीक्षा स्वरूप, भौतिकशास्त्र, रसायनशास्त्र व गणितातील महत्त्वाचे प्रकरणे, आणि १०-२०० KB फोटो व ४-३० KB स्वाक्षरी रीसाइजर टूल्स.",
+    category: "Exam Alerts",
+    country: "IN",
+    publishDate: "Oct 27, 2026",
+    publishTime: "09:00 AM IST",
+    lastUpdated: "Oct 27, 2026",
+    deployedAt: "Oct 27, 2026 • 09:00 AM IST",
+    author: "SignResize Engineering Technical Desk",
+    authorRole: "Senior NTA & Technical Document Standards Specialist",
+    readTime: "15 min read",
+    featured: true,
+    tags: [
+      "JEE Main 2026",
+      "NTA JEE Main Session 1",
+      "JEE Main Registration 2026",
+      "JEE Main Photo Size 10 to 200 KB",
+      "JEE Main Signature Resize 4 to 30 KB",
+      "JEE Main 75 Percent Rule",
+      "JEE Main Syllabus 2026",
+      "JEE Main Paper 1 Pattern",
+      "JEE Main Negative Marking",
+      "jeemain.nta.nic.in",
+      "JoSAA Counselling 2026",
+      "NTA Live Webcam Photo"
+],
+    relatedExamPreset: "jee-main-photo",
+    guideTool: {
+      "href": "/jee-main-photo-resize/",
+      "label": "JEE Main Photo Resizer (10–200 KB)"
+},
+    quickFacts: [
+      {
+            "label": "Conducting Body",
+            "value": "National Testing Agency (NTA - jeemain.nta.nic.in)"
+      },
+      {
+            "label": "Examination Scope",
+            "value": "Session 1 (January 2026) & Session 2 (April 2026)"
+      },
+      {
+            "label": "Academic Streams",
+            "value": "B.E./B.Tech (Paper 1), B.Arch (Paper 2A), B.Planning (Paper 2B)"
+      },
+      {
+            "label": "NIT/IIIT Eligibility",
+            "value": "75% aggregate in 12th Board (65% for SC/ST) or Top 20 Percentile"
+      },
+      {
+            "label": "Paper 1 Structure",
+            "value": "300 Marks (75 Compulsory Questions: 25 Physics, 25 Chemistry, 25 Mathematics — Zero Optional Choice)"
+      },
+      {
+            "label": "Marking Scheme",
+            "value": "+4 Correct, -1 Incorrect (Applies to both MCQs and Section B Numericals)"
+      },
+      {
+            "label": "Upper Age Limit",
+            "value": "No age limit for JEE Main (subject to Class 12 passing year criteria)"
+      },
+      {
+            "label": "Photo Dimensions",
+            "value": "300 × 400 px (3.5×4.5 cm) | 10 KB to 200 KB JPG (White BG, 80% Face)"
+      },
+      {
+            "label": "Signature Dimensions",
+            "value": "140 × 60 px (3.5×1.5 cm) | 4 KB to 30 KB JPG (Running Hand, Black/Blue Ink)"
+      },
+      {
+            "label": "Live Capture Rule",
+            "value": "Mandatory real-time webcam photograph matching uploaded studio passport photo"
+      },
+      {
+            "label": "Counseling Authorities",
+            "value": "Joint Seat Allocation Authority (JoSAA) & CSAB"
+      },
+      {
+            "label": "Official Portals",
+            "value": "jeemain.nta.nic.in & nta.ac.in"
+      }
+],
+    quickFacts_hi: [
+      {
+            "label": "परीक्षा प्राधिकरण",
+            "value": "राष्ट्रीय परीक्षा एजेंसी (NTA - jeemain.nta.nic.in)"
+      },
+      {
+            "label": "परीक्षा सत्र",
+            "value": "सेशन 1 (जनवरी 2026) और सेशन 2 (अप्रैल 2026)"
+      },
+      {
+            "label": "पाठ्यक्रम",
+            "value": "बी.ई./बी.टेक (पेपर 1), बी.आर्क (पेपर 2A), बी.प्लानिंग (पेपर 2B)"
+      },
+      {
+            "label": "बोर्ड पात्रता",
+            "value": "12वीं में न्यूनतम 75% अंक (एससी/एसटी के लिए 65%) या टॉप 20 परसेंटाइल"
+      },
+      {
+            "label": "पेपर 1 प्रारूप",
+            "value": "300 अंक (75 अनिवार्य प्रश्न: 25 फिजिक्स, 25 केमिस्ट्री, 25 मैथ्स — कोई वैकल्पिक छूट नहीं)"
+      },
+      {
+            "label": "नेगेटिव मार्किंग",
+            "value": "+4 सही, -1 गलत (MCQ और न्यूमेरिकल दोनों सेक्शन में लागू)"
+      },
+      {
+            "label": "आयु सीमा",
+            "value": "कोई ऊपरी आयु सीमा नहीं (12वीं उत्तीर्ण वर्ष की शर्तों के अधीन)"
+      },
+      {
+            "label": "फोटो विनिर्देश",
+            "value": "300 × 400 px (3.5×4.5 cm) | 10 KB से 200 KB JPG (सफेद बैकग्राउंड, 80% चेहरा)"
+      },
+      {
+            "label": "हस्ताक्षर विनिर्देश",
+            "value": "140 × 60 px (3.5×1.5 cm) | 4 KB से 30 KB JPG (रनिंग हैंडराइटिंग, नो कैपिटल्स)"
+      },
+      {
+            "label": "आधिकारिक पोर्टल",
+            "value": "jeemain.nta.nic.in और nta.ac.in"
+      }
+],
+    quickFacts_mr: [
+      {
+            "label": "परीक्षा मंडळ",
+            "value": "नॅशनल टेस्टिंग एजन्सी (NTA - jeemain.nta.nic.in)"
+      },
+      {
+            "label": "परीक्षा सत्र",
+            "value": "सत्र १ (जानेवारी २०२६) आणि सत्र २ (एप्रिल २०२६)"
+      },
+      {
+            "label": "अभ्यासक्रम",
+            "value": "B.E./B.Tech (पेपर १), B.Arch (पेपर २A), B.Planning (पेपर २B)"
+      },
+      {
+            "label": "बोर्ड पात्रता",
+            "value": "१२वीत किमान ७५% गुण (SC/ST साठी ६५%) किंवा टॉप २० परसेंटाइल"
+      },
+      {
+            "label": "पेपर १ स्वरूप",
+            "value": "३०० गुण (७५ अनिवार्य प्रश्न: २५ भौतिक, २५ रसायन, २५ गणित — शून्य ऐच्छिक पर्याय)"
+      },
+      {
+            "label": "नेगेटिव्ह मार्किंग",
+            "value": "+४ बरोबर, -१ चूक (MCQ व न्यूमेरिकल दोन्हीसाठी लागू)"
+      },
+      {
+            "label": "वयोमर्यादा",
+            "value": "कोणतीही कमाल वयोमर्यादा नाही"
+      },
+      {
+            "label": "फोटो आकार",
+            "value": "300 × 400 px | 10 KB ते 200 KB JPG (पांढरी पार्श्वभूमी, ८०% चेहरा)"
+      },
+      {
+            "label": "स्वाक्षरी आकार",
+            "value": "140 × 60 px | 4 KB ते 30 KB JPG (धावती स्वाक्षरी, काळी/निळी शाई)"
+      },
+      {
+            "label": "अधिकृत संकेतस्थळ",
+            "value": "jeemain.nta.nic.in आणि nta.ac.in"
+      }
+],
+    faqs: [
+      {
+            "question": "Can candidates appear in both Session 1 and Session 2 of JEE Main 2026, and how is the percentile computed?",
+            "answer": "Yes, candidates can choose to appear in either Session 1 (January 2026), Session 2 (April 2026), or **both sessions**. If a candidate appears in both sessions, NTA computes the final All India Rank (AIR) and merit cutoff using the **best of the two total NTA scores (percentiles)**. Candidates can register for Session 1 initially and register for Session 2 when its separate portal opens, or register for both sessions concurrently during the initial window."
+      },
+      {
+            "question": "What is the 75% eligibility criteria for admission into NITs, IIITs, and CFTIs through JoSAA?",
+            "answer": "To secure admission into National Institutes of Technology (NITs), Indian Institutes of Information Technology (IIITs), and Centrally Funded Technical Institutions (CFTIs) through JoSAA counseling, general, OBC-NCL, and EWS candidates must obtain at least **75% aggregate marks in Class 12 board examinations**, or rank in the **top 20 percentile** of their respective qualifying board. For SC and ST candidates, the minimum qualifying cutoff is **65% aggregate marks**."
+      },
+      {
+            "question": "Is there negative marking for numerical value questions (Section B) in Paper 1 (B.Tech)?",
+            "answer": "Yes. National Testing Agency enforces negative marking in **both Section A (MCQs) and Section B (Numerical Value Questions)**. For every question answered correctly in Section B, candidates receive **+4 marks**, while every incorrect numerical answer incurs a penalty of **-1 mark**. Unanswered questions carry 0 marks. Starting from the updated NTA exam framework, Section B has exactly 5 numerical questions per subject, and ALL 5 ARE COMPULSORY (total 15 numerical questions across the test, zero optional choice). The COVID-era 10-question optional facility has been officially discontinued."
+      },
+      {
+            "question": "What are the exact dimensions and file size limits for NTA JEE Main photograph and signature?",
+            "answer": "NTA strictly specifies: **Passport Photograph** must be in JPG/JPEG format, file size between **10 KB and 200 KB**, dimensions of **3.5 × 4.5 cm (300 × 400 pixels)** at 200 DPI, with 80% face coverage against a pure white background. **Signature** must be in JPG/JPEG format, file size between **4 KB and 30 KB**, dimensions of **3.5 × 1.5 cm (140 × 60 pixels)**, signed in continuous running handwriting with a black or dark blue ballpoint pen on plain white paper."
+      },
+      {
+            "question": "Why does NTA automatically reject signatures executed in CAPITAL LETTERS or BLOCK LETTERS?",
+            "answer": "NTA Information Bulletin explicitly notes that signatures written in **ALL-CAPS, CAPITAL LETTERS, or disconnected BLOCK PRINT are legally invalid and will be disqualified**. Signatures must represent the candidate's natural, continuous cursive handwriting signature. Applications with block-letter signatures are rejected during pre-admit card algorithmic audits without refund."
+      },
+      {
+            "question": "What is the NTA live webcam photo capture rule during online registration?",
+            "answer": "During online registration on `jeemain.nta.nic.in`, candidates must undergo real-time **live webcam photograph capture** directly through their browser, in addition to uploading their studio passport photograph. The live capture checks for facial biometric parity, ambient lighting, and anti-spoofing. The uploaded studio photo and the live webcam capture are matched at exam center biometric gates."
+      },
+      {
+            "question": "Can candidates wear spectacles or colored sunglasses in the uploaded JEE Main photograph?",
+            "answer": "Spectacles with tinted lenses, sunglasses, or spectacles causing flash reflection/glare across the eyes are **strictly prohibited** and trigger immediate algorithmic upload rejection. If a candidate wears regular clear prescription spectacles daily, they may wear them provided there is zero reflection on the glass and both eyes and pupils remain 100% visible. Clear, unobstructed view of eyes and ears is mandatory."
+      },
+      {
+            "question": "What are the highest weightage chapters in Mathematics, Physics, and Chemistry for JEE Main 2026?",
+            "answer": "Historically, high-weightage topics include: **Physics:** Modern Physics (Dual Nature, Atoms, Nuclei ~12-16 marks), Current Electricity & Magnetism (~16 marks), Thermodynamics & KTG (~12 marks), and Geometrical Optics (~8 marks). **Chemistry:** Coordination Compounds & Chemical Bonding (~16 marks), Organic Reaction Mechanisms & Named Reactions (~20 marks), Thermodynamics & Equilibrium (~12 marks). **Mathematics:** Vectors & 3D Geometry (~16-20 marks), Definite Integration & Calculus (~16 marks), Matrices & Determinants (~8 marks), and Coordinate Geometry (~16 marks)."
+      },
+      {
+            "question": "What identity documents are accepted for JEE Main registration and entry into the exam hall?",
+            "answer": "For online application: Aadhaar Number, Passport, PAN Card, Voter ID, or School/College ID with photograph. For exam center entry: Candidates must carry their printed **JEE Main Admit Card (with filled self-declaration on A4 paper)**, one original valid **Government Photo ID proof** (Aadhaar Card, Passport, Voter ID, PAN, or 12th Board Admit Card with photo), one passport photograph identical to the uploaded one (for the attendance sheet), and PwD certificate if applicable."
+      },
+      {
+            "question": "How do I resolve \"File size must be between 10 KB and 200 KB\" or \"Invalid Dimensions\" on the NTA portal?",
+            "answer": "This error occurs when the uploaded JPG file size drops below 10 KB, exceeds 200 KB, or deviates from the mandatory 3:4 aspect ratio. Use the free **SignResize JEE Main Photo Resizer** to crop your photo to exact 300×400 px (3.5×4.5 cm) and compress it safely into the 50–100 KB sweet spot. For signatures, use the **SignResize JEE Main Signature Resizer** to lock 140×60 px and compress to 10–20 KB with optimal contrast."
+      }
+],
+    faqs_hi: [
+      {
+            "question": "क्या उम्मीदवार JEE Main 2026 के सेशन 1 और सेशन 2 दोनों में बैठ सकते हैं?",
+            "answer": "हाँ, उम्मीदवार सेशन 1 (जनवरी), सेशन 2 (अप्रैल), या दोनों सत्रों में भाग ले सकते हैं। यदि कोई उम्मीदवार दोनों सत्रों में उपस्थित होता है, तो NTA दोनों सत्रों के सर्वश्रेष्ठ NTA स्कोर (परसेंटाइल) के आधार पर अंतिम ऑल इंडिया रैंक (AIR) तैयार करता है।"
+      },
+      {
+            "question": "NITs और IIITs में प्रवेश के लिए 75% बोर्ड पात्रता नियम क्या है?",
+            "answer": "JoSAA काउंसलिंग के माध्यम से NITs, IIITs और CFTIs में प्रवेश हेतु सामान्य, OBC और EWS उम्मीदवारों को 12वीं बोर्ड परीक्षा में न्यूनतम 75% कुल अंक प्राप्त करने होंगे या अपने संबंधित बोर्ड के टॉप 20 परसेंटाइल में होना होगा। SC/ST उम्मीदवारों के लिए न्यूनतम कटऑफ 65% अंक है।"
+      },
+      {
+            "question": "क्या पेपर 1 (B.Tech) के न्यूमेरिकल सेक्शन B में नेगेटिव मार्किंग होती है?",
+            "answer": "हाँ। NTA सेक्शन A (MCQs) और सेक्शन B (न्यूमेरिकल वैल्यू प्रश्न) दोनों में नेगेटिव मार्किंग लागू करता है। प्रत्येक सही उत्तर पर +4 अंक मिलते हैं और प्रत्येक गलत उत्तर पर -1 अंक काटा जाता है। NTA ने कोविड-काल की 10 प्रश्नों वाली वैकल्पिक व्यवस्था समाप्त कर दी है। अब सेक्शन B में प्रत्येक विषय में 5 न्यूमेरिकल प्रश्न होते हैं और सभी 5 हल करना अनिवार्य है (कुल 15 न्यूमेरिकल, शून्य विकल्प)।"
+      },
+      {
+            "question": "JEE Main 2026 के लिए फोटो और हस्ताक्षर के सही आकार व KB नियम क्या हैं?",
+            "answer": "फोटो: 10 KB से 200 KB, JPG प्रारूप, 3.5×4.5 cm (300×400 px), सफेद बैकग्राउंड और 80% चेहरा। हस्ताक्षर: 4 KB से 30 KB, JPG प्रारूप, 3.5×1.5 cm (140×60 px), सफेद कागज पर काली या नीली स्याही से रनिंग हैंडराइटिंग (कैपिटल लेटर्स वर्जित)।"
+      },
+      {
+            "question": "कैपिटल या ब्लॉक लेटर्स में हस्ताक्षर करने पर फॉर्म क्यों रिजेक्ट हो जाता है?",
+            "answer": "NTA के नियमानुसार ब्लॉक या कैपिटल लेटर्स में किए गए हस्ताक्षर अमान्य होते हैं। हस्ताक्षर उम्मीदवार की स्वाभाविक रनिंग लिखावट में होना आवश्यक है। ब्लॉक लेटर्स वाले हस्ताक्षर फॉर्म जांच के दौरान स्वतः निरस्त कर दिए जाते हैं।"
+      }
+],
+    faqs_mr: [
+      {
+            "question": "JEE Main 2026 च्या दोन्ही सत्रांना बसता येते का आणि रँक कशी ठरवली जाते?",
+            "answer": "होय, उमेदवार सत्र १ (जानेवारी) आणि सत्र २ (एप्रिल) दोन्हीमध्ये बसू शकतात. दोन्ही सत्रांना बसल्यास, दोन्हीपैकी ज्या सत्रात सर्वोत्तम NTA स्कोअर (परसेंटाइल) मिळाला असेल तो अंतिम ऑल इंडिया रँकसाठी (AIR) ग्राह्य धरला जातो."
+      },
+      {
+            "question": "NIT आणि IIIT प्रवेशासाठी १२वीत ७५% गुणांचा नियम काय आहे?",
+            "answer": "JoSAA द्वारे NITs, IIITs मध्ये प्रवेश मिळवण्यासाठी ओपन, OBC आणि EWS उमेदवारांना १२वी बोर्ड परीक्षेत किमान ७५% गुण किंवा बोर्डाच्या टॉप २० परसेंटाइलमध्ये असणे आवश्यक आहे. SC आणि ST उमेदवारांसाठी किमान पात्रता ६५% गुण आहे."
+      },
+      {
+            "question": "JEE Main पेपर १ च्या न्यूमेरिकल सेक्शन B मध्ये नेगेटिव्ह मार्किंग असते का?",
+            "answer": "होय. NTA नुसार सेक्शन A आणि सेक्शन B (न्यूमेरिकल) दोन्हीमध्ये बरोबर उत्तरासाठी +४ आणि चुकीच्या उत्तरासाठी -१ गुण वजा केला जातो. NTA ने जुनी १० प्रश्नांची ऐच्छिक पद्धत बंद केली आहे. आता सेक्शन B मध्ये प्रत्येक विषयात ५ न्यूमेरिकल प्रश्न असून सर्व ५ प्रश्न सोडवणे अनिवार्य आहे (एकूण १५ प्रश्न, शून्य पर्याय)."
+      },
+      {
+            "question": "JEE Main साठी फोटो आणि स्वाक्षरीचे अचूक नियम काय आहेत?",
+            "answer": "फोटो: १० ते २०० KB, JPG, ३.५×४.५ सेमी (३००×४०० px), पांढरी पार्श्वभूमी आणि ८०% चेहरा. स्वाक्षरी: ४ ते ३० KB, JPG, ३.५×१.५ सेमी (१४०×६० px), धावत्या अक्षरातील स्वाक्षरी (कॅपिटल अक्षरे चालत नाहीत)."
+      },
+      {
+            "question": "स्वाक्षरी कॅपिटल अक्षरांमध्ये असल्यास अर्ज का नाकारला जातो?",
+            "answer": "NTA च्या अधिकृत नियमानुसार कॅपिटल किंवा ब्लॉक अक्षरांमधील स्वाक्षरी कायदेशीररीत्या अवैध मानली जाते. स्वाक्षरी नेहमी धावत्या (Cursive) हस्तलिखितात असणे बंधनकारक आहे."
+      }
+],
+    contentHtml: `
+  <!-- Sticky Quick-Jump Pill Bar -->
+  <div class="mt-3 mb-6 p-3 rounded-2xl bg-card border border-border shadow-xs backdrop-blur-md sticky top-28 sm:top-[116px] z-20 relative quick-jump-wrapper">
+    <div class="text-[11px] font-bold text-muted-foreground uppercase tracking-wider px-2 mb-1.5 flex items-center justify-between">
+      <span class="flex items-center gap-1.5"><span class="text-primary">⚡</span> Quick Jump Navigation:</span>
+      <span class="text-[10px] text-muted-foreground font-medium flex items-center gap-1 opacity-70">
+        <span>Scroll</span> <span>&rarr;</span>
+      </span>
+    </div>
+    <div class="relative">
+      <div class="quick-jump-fade-mask"></div>
+      <div class="flex items-center gap-1.5 overflow-x-auto scrollbar-thin pb-1 text-xs whitespace-nowrap pr-8">
+        <a href="#document-specs" class="px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary font-bold transition flex items-center gap-1 shrink-0">
+          <span>📸</span> <span>Photo (10–200 KB)</span>
+        </a>
+        <a href="#signature-specs" class="px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary font-bold transition flex items-center gap-1 shrink-0">
+          <span>✍️</span> <span>Sign (4–30 KB)</span>
+        </a>
+        <a href="#visual-checklist" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold transition flex items-center gap-1 shrink-0">
+          <span>🛡️</span> <span>Do vs Don't</span>
+        </a>
+        <a href="#instant-resizers" class="px-2.5 py-1 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition flex items-center gap-1 shrink-0 shadow-2xs">
+          <span>🛠️</span> <span>Live Dropzones</span>
+        </a>
+        <a href="#session-timeline" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+          <span>📊</span> <span>Session 1 vs 2 Dates</span>
+        </a>
+        <a href="#eligibility-75-rule" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+          <span>🎓</span> <span>75% Board Rule</span>
+        </a>
+        <a href="#exam-pattern" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+          <span>📝</span> <span>Paper 1 Pattern & -1 Mark</span>
+        </a>
+        <a href="#syllabus-weightage" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+          <span>📚</span> <span>High-Weight Chapters</span>
+        </a>
+        <a href="#official-portals" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+          <span>🌐</span> <span>NTA & JoSAA Portals</span>
+        </a>
+        <a href="#faqs" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+          <span>❓</span> <span>10 FAQs</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification & Scrutiny Alert Banner with Direct Portal Link -->
+  <div class="mt-8 mb-6 p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-foreground space-y-3 shadow-xs">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-600 text-white shrink-0">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> NTA OFFICIAL BULLETIN UPDATE
+        </span>
+        <span class="text-xs font-bold text-amber-700 dark:text-amber-300">Joint Entrance Examination (Main) 2026 Session 1 & 2</span>
+      </div>
+      <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-900 dark:text-amber-200 font-bold">jeemain.nta.nic.in</span>
+    </div>
+
+    <p class="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
+      <strong>Biometric Scrutiny Warning:</strong> The National Testing Agency (NTA) deploys algorithmic image validation during candidate registration. Uploaded photographs must have exactly <strong>80% face coverage against a pure white background</strong>. Additionally, candidates must complete a <strong>mandatory real-time live webcam photograph capture</strong>. If the live webcam capture mismatches the uploaded studio passport photo, or if signatures are submitted in <strong>CAPITAL / BLOCK LETTERS</strong>, the candidate's admit card is automatically withheld. Format credentials in seconds using the <a href="/jee-main-photo-resize/" class="text-primary font-bold underline">JEE Main Photo Tool</a> and <a href="/jee-main-signature-resize/" class="text-primary font-bold underline">JEE Main Signature Tool</a>.
+    </p>
+
+    <!-- Direct Official Portal Action Button -->
+    <div class="pt-1 flex flex-wrap gap-2.5 items-center">
+      <a href="https://jeemain.nta.nic.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-bold text-xs hover:opacity-90 transition shadow-xs">
+        <span>📄</span> Open Official NTA JEE Main Portal (jeemain.nta.nic.in) &rarr;
+      </a>
+      <span class="text-[11px] text-muted-foreground">Direct access to official examination gateway & information bulletin</span>
+    </div>
+  </div>
+
+  <!-- Section 1: Session 1 vs Session 2 Schedule -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="session-timeline">📊 1. JEE Main 2026 Schedule & Session 1 vs Session 2 Timeline</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    JEE Main is administered twice annually by the National Testing Agency to provide aspirants multiple opportunities to optimize their scores without dropping an academic year:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📅</span> NTA JEE Main 2026 Calendar & Operational Phases</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[550px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Examination Event</th>
+            <th class="p-3 font-semibold">Session 1 (January 2026)</th>
+            <th class="p-3 font-semibold">Session 2 (April 2026)</th>
+            <th class="p-3 font-semibold">Operational Importance</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Online Registration Window</td>
+            <td class="p-3 text-muted-foreground">November – December 2025</td>
+            <td class="p-3 text-muted-foreground">February – March 2026</td>
+            <td class="p-3 text-xs text-muted-foreground">Live webcam photo + studio upload</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">City Intimation Slip</td>
+            <td class="p-3 text-muted-foreground">Early January 2026</td>
+            <td class="p-3 text-muted-foreground">Late March 2026</td>
+            <td class="p-3 text-xs text-muted-foreground">Advance notification of test city</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Admit Card Download</td>
+            <td class="p-3 text-muted-foreground">3 Days Prior to Exam Day</td>
+            <td class="p-3 text-muted-foreground">3 Days Prior to Exam Day</td>
+            <td class="p-3 text-xs text-muted-foreground">Must carry printed A4 copy + original ID</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">CBT Examination Dates</td>
+            <td class="p-3 font-bold text-primary">Late January 2026</td>
+            <td class="p-3 font-bold text-primary">Early April 2026</td>
+            <td class="p-3 text-xs text-muted-foreground">Shift 1 (9 AM-12 PM) & Shift 2 (3-6 PM)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">NTA Scorecards (Percentile)</td>
+            <td class="p-3 text-muted-foreground">February 2026</td>
+            <td class="p-3 text-muted-foreground">Late April 2026</td>
+            <td class="p-3 text-xs text-muted-foreground">Normalized NTA multi-shift score</td>
+          </tr>
+          <tr class="bg-primary/5 font-bold">
+            <td class="p-3 text-primary">All India Rank (AIR) & Cutoffs</td>
+            <td class="p-3 text-muted-foreground" colspan="2">Declared after Session 2 Evaluation (April 2026)</td>
+            <td class="p-3 text-xs text-primary">Determines JEE Advanced & JoSAA entry</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 2: Eligibility Criteria & 75% Board Rule -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="eligibility-75-rule">🎓 2. Eligibility Criteria & 75% Board Rule: Detailed Benchmark Matrix</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    While there is no upper age limit to sit for JEE Main, admission into premier technical institutes (NITs, IIITs, and CFTIs) via JoSAA counseling is strictly subject to the statutory 75% Class 12 board criteria:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+    <!-- Academic Stream & Subject Criteria -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-2.5">
+      <h3 class="flex items-center gap-2 text-foreground font-bold text-sm">
+        <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">📖</span>
+        <span>Class 12 Mandatory Qualifying Subjects</span>
+      </h3>
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        Candidates must have passed Class 12 (or equivalent) in 2024, 2025, or appearing in 2026. For <strong>B.E./B.Tech (Paper 1)</strong>, subjects must include:
+      </p>
+      <ul class="text-xs text-muted-foreground space-y-1 list-disc list-inside">
+        <li><strong>Physics</strong> (Mandatory)</li>
+        <li><strong>Mathematics</strong> (Mandatory)</li>
+        <li><strong>Any One of:</strong> Chemistry, Biology, Biotechnology, or Technical Vocational Subject</li>
+        <li><strong>One Language Subject</strong> + One Elective fifth subject</li>
+      </ul>
+      <div class="p-2.5 rounded-xl bg-muted/50 text-[11px] text-foreground font-medium flex items-center gap-2">
+        <span>💡</span> <span><strong>Paper 2A/2B:</strong> Mathematics is mandatory for B.Arch/B.Planning; Drawing is evaluated separately.</span>
+      </div>
+    </div>
+
+    <!-- 75% Rule & Top 20 Percentile Box -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-2.5">
+      <h3 class="flex items-center gap-2 text-foreground font-bold text-sm">
+        <span class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">🎯</span>
+        <span>JoSAA NIT / IIIT / CFTI Admission Benchmarks</span>
+      </h3>
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        Securing a top JEE Main rank qualifies you for JoSAA seat allocation, but final admission requires fulfilling one of two criteria:
+      </p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-[11px] border-collapse">
+          <thead>
+            <tr class="text-muted-foreground border-b border-border text-left">
+              <th class="py-1.5 font-semibold">Candidate Category</th>
+              <th class="py-1.5 font-semibold">Minimum Board Aggregate</th>
+              <th class="py-1.5 font-semibold">Alternative Route</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="py-2 font-medium text-foreground">General / OBC-NCL / EWS</td>
+              <td class="py-2 font-bold text-primary">75.0% Aggregate</td>
+              <td class="py-2 text-muted-foreground">Top 20 Percentile in Board</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium text-foreground">SC / ST Candidates</td>
+              <td class="py-2 font-bold text-emerald-600 dark:text-emerald-400">65.0% Aggregate</td>
+              <td class="py-2 text-muted-foreground">Top 20 Percentile in Board</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium text-foreground">PwD Candidates</td>
+              <td class="py-2 font-bold text-emerald-600 dark:text-emerald-400">65.0% Aggregate</td>
+              <td class="py-2 text-muted-foreground">Top 20 Percentile in Board</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Certificate Upload & Financial Year Validity Callout -->
+  <div class="my-6 p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-border space-y-2 shadow-xs">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-base">🏛️</span>
+        <h3 class="text-xs sm:text-sm font-bold text-foreground">Category Certificate Rules & Financial Year Validity (OBC-NCL, EWS, SC, ST)</h3>
+      </div>
+      <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">April 1 Cutoff Rule</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-muted-foreground pt-1">
+      <div class="p-3 rounded-xl bg-card border border-border space-y-1">
+        <strong class="text-foreground text-[11px] block">OBC-NCL & Gen-EWS Validity:</strong>
+        <p class="leading-relaxed text-[11px]">
+          Must be issued on or after <strong>1st April of the preceding financial year</strong> (issued on or after April 1, 2025 for 2026 admissions). Older financial year certificates are strictly invalid for JoSAA seat allotment.
+        </p>
+      </div>
+      <div class="p-3 rounded-xl bg-card border border-border space-y-1">
+        <strong class="text-foreground text-[11px] block">Registration vs JoSAA Counseling:</strong>
+        <p class="leading-relaxed text-[11px]">
+          During NTA registration, candidates input category details and may upload a declaration/undertaking if the fresh certificate is pending. However, the original valid certificate must be uploaded during JoSAA document verification.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Exam Pattern & Marking Scheme -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="exam-pattern">📝 3. Exam Pattern: Paper 1 (B.Tech) 75-Question Scheme & Marking System</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    NTA administers JEE Main Paper 1 as a Computer-Based Test (CBT) consisting of <strong>strictly 75 compulsory questions worth 300 marks</strong>. <em>Important Update:</em> The National Testing Agency has officially discontinued the COVID-era optional choice in Section B. There are no longer 10 questions to pick 5 from; all 5 numerical value questions per subject are now mandatory:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📐</span> Paper 1 (B.E. / B.Tech) Structure: 75 Compulsory Questions (Zero Optional Choice)</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[550px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Subject Domain</th>
+            <th class="p-3 font-semibold">Section A (Compulsory MCQs)</th>
+            <th class="p-3 font-semibold">Section B (Compulsory Numericals)</th>
+            <th class="p-3 font-semibold">Total Questions</th>
+            <th class="p-3 font-semibold">Subject Marks</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Mathematics</td>
+            <td class="p-3">20 MCQs</td>
+            <td class="p-3 font-semibold text-foreground">5 Questions (All 5 Compulsory)</td>
+            <td class="p-3 font-bold text-foreground">25 Questions</td>
+            <td class="p-3 font-bold text-foreground">100 Marks</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Physics</td>
+            <td class="p-3">20 MCQs</td>
+            <td class="p-3 font-semibold text-foreground">5 Questions (All 5 Compulsory)</td>
+            <td class="p-3 font-bold text-foreground">25 Questions</td>
+            <td class="p-3 font-bold text-foreground">100 Marks</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Chemistry</td>
+            <td class="p-3">20 MCQs</td>
+            <td class="p-3 font-semibold text-foreground">5 Questions (All 5 Compulsory)</td>
+            <td class="p-3 font-bold text-foreground">25 Questions</td>
+            <td class="p-3 font-bold text-foreground">100 Marks</td>
+          </tr>
+          <tr class="bg-primary/5 font-bold">
+            <td class="p-3 text-primary">Cumulative Totals</td>
+            <td class="p-3 text-primary">60 MCQs</td>
+            <td class="p-3 text-primary">15 Numericals (Zero Optional Choice)</td>
+            <td class="p-3 text-primary">75 Questions</td>
+            <td class="p-3 text-primary">300 Marks</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Negative Marking Callout Box -->
+  <div class="my-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-950 dark:text-rose-100 flex items-start gap-3 shadow-xs">
+    <span class="text-xl shrink-0 mt-0.5">⚠️</span>
+    <div class="space-y-1 text-xs sm:text-sm">
+      <h3 class="font-bold text-rose-900 dark:text-rose-300 text-sm">Critical Scoring Rule: -1 Negative Marking in Section B Numericals</h3>
+      <p class="leading-relaxed">
+        Unlike historical formats where Section B numerical value questions carried zero penalty, <strong>NTA enforces -1 mark penalty for incorrect numerical answers</strong> in both Session 1 and Session 2. Correct answers yield <strong>+4 marks</strong>; incorrect answers yield <strong>-1 mark</strong>; unattempted questions yield <strong>0 marks</strong>. Candidates should avoid blind guessing in numerical problems.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 4: High-Yield Syllabus & Chapter Weightage Breakdown -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="syllabus-weightage">📚 4. Subject-Wise High-Yield Syllabus & Chapter Weightage Breakdown</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Based on multi-year NTA paper trend analyses, master these high-yield topics across the three domains to secure a 99+ percentile benchmark:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+    <!-- Physics Card -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-primary">⚛️ Physics High-Yield</span>
+        <span class="text-[10px] font-mono bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">~100 Marks</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>Modern Physics:</strong> Photoelectric effect, Bohr atom, de Broglie wavelength, nuclear decay (~16 marks).</li>
+        <li><strong>Current Electricity & Magnetism:</strong> Kirchhoff's laws, potentiometer, Biot-Savart, Ampere's circuital law (~16 marks).</li>
+        <li><strong>Thermodynamics & KTG:</strong> Carnot engine, PV diagrams, first & second laws (~12 marks).</li>
+        <li><strong>Optics:</strong> Lens formula, prism refraction, Young's double slit experiment (~12 marks).</li>
+        <li><strong>Rotational Motion:</strong> Moment of inertia, rolling motion, angular momentum (~8 marks).</li>
+      </ul>
+    </div>
+
+    <!-- Chemistry Card -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400">🧪 Chemistry High-Yield</span>
+        <span class="text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-bold">~100 Marks</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>Coordination Compounds:</strong> CFT, Werner theory, IUPAC naming, isomerism (~12-16 marks).</li>
+        <li><strong>Chemical Bonding:</strong> Molecular orbital theory (MOT), hybridization, VSEPR theory (~12 marks).</li>
+        <li><strong>Organic Mechanisms:</strong> SN1/SN2, Aldol condensation, Cannizzaro, electrophilic aromatic substitution (~20 marks).</li>
+        <li><strong>Chemical Kinetics & Equilibrium:</strong> Rate law, Le Chatelier's principle, solubility product (Ksp) (~12 marks).</li>
+        <li><strong>Electrochemistry:</strong> Nernst equation, Faraday's laws, Kohlrausch law (~8 marks).</li>
+      </ul>
+    </div>
+
+    <!-- Mathematics Card -->
+    <div class="p-4 rounded-xl bg-card border border-border shadow-xs space-y-2">
+      <div class="flex items-center justify-between border-b border-border pb-1.5">
+        <span class="font-bold text-xs uppercase tracking-wider text-purple-600 dark:text-purple-400">📐 Mathematics High-Yield</span>
+        <span class="text-[10px] font-mono bg-purple-500/10 text-purple-600 dark:text-purple-400 px-1.5 py-0.5 rounded font-bold">~100 Marks</span>
+      </div>
+      <ul class="text-xs text-muted-foreground space-y-1.5">
+        <li><strong>Vectors & 3D Geometry:</strong> Lines & planes, shortest distance between skew lines, scalar/vector triple products (~16-20 marks).</li>
+        <li><strong>Definite Integrals & Areas:</strong> Properties of definite integrals, Leibniz rule, area bounded by curves (~16 marks).</li>
+        <li><strong>Matrices & Determinants:</strong> System of linear equations (Cramer's rule), inverse matrix properties (~12 marks).</li>
+        <li><strong>Coordinate Geometry:</strong> Parabola, ellipse & hyperbola focal properties and tangents (~12 marks).</li>
+        <li><strong>Sequences, Series & Binomial:</strong> AGP, telescoping sums, general terms (~8 marks).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 5: Official Photograph & Live Webcam Scrutiny Rules -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="document-specs">📸 5. Official NTA Photograph & Live Webcam Scrutiny Rules: 10–200 KB Specs</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    NTA enforces strict biometric imaging standards during online application intake. Non-compliant photos are automatically flagged by portal inspection scripts:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📑</span> NTA JEE Main Upload Parameters Checklist</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Upload Parameter</th>
+            <th class="p-3 font-semibold">Passport Photograph</th>
+            <th class="p-3 font-semibold">Candidate Running Signature</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">File Format</td>
+            <td class="p-3 font-mono font-bold text-foreground">JPG / JPEG Only</td>
+            <td class="p-3 font-mono font-bold text-foreground">JPG / JPEG Only</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">File Size Bounds</td>
+            <td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">10 KB to 200 KB</td>
+            <td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">4 KB to 30 KB</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Pixel Dimensions</td>
+            <td class="p-3 font-mono text-muted-foreground">300 × 400 px (3.5 × 4.5 cm)</td>
+            <td class="p-3 font-mono text-muted-foreground">140 × 60 px (3.5 × 1.5 cm)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Background Requirement</td>
+            <td class="p-3 font-semibold text-foreground">Spotless White Background</td>
+            <td class="p-3 font-semibold text-foreground">Plain White Paper Sheet</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Facial / Ink Framing</td>
+            <td class="p-3 text-muted-foreground">80% face coverage, visible ears, no cap/tint</td>
+            <td class="p-3 text-muted-foreground">Black or Blue Ballpoint Ink, Running Cursive</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Disqualification Trigger</td>
+            <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">Selfies, spectacles glare, colored backdrops</td>
+            <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">ALL-CAPS / Block letters or cropped phone shadows</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Live Webcam Photo Notice (Section 5.1) -->
+  <div class="my-6 p-4 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-950 dark:text-blue-100 flex items-start gap-3 shadow-xs">
+    <span class="text-xl shrink-0 mt-0.5">📹</span>
+    <div class="space-y-1.5 text-xs sm:text-sm">
+      <h3 class="font-bold text-blue-900 dark:text-blue-300 text-sm">5.1 Real-Time Live Webcam Photo Matching & Camera Permissions</h3>
+      <p class="leading-relaxed">
+        NTA mandates that candidates capture a <strong>live photograph using their laptop/webcam camera</strong> directly inside the registration portal. This live snap is algorithmically compared with the uploaded studio passport photo. Ensure you sit in a well-lit room facing natural light with a plain wall behind you. Do not wear caps, hats, or headphones during the webcam snap.
+      </p>
+      <div class="p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-950 dark:text-amber-200 text-xs flex items-center gap-2 mt-2">
+        <span class="text-sm shrink-0">💡</span>
+        <p class="leading-relaxed">
+          <strong>Mobile & Chrome Permission Warning:</strong> Always ensure your mobile/Chrome browser camera permissions are set to <em>"Allow"</em> before opening the NTA application portal, as permission blocks during the webcam step frequently trigger portal session timeouts and browser freeze errors.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Operational Step-by-Step: Studio Photo vs Live Webcam Distinction -->
+  <div class="my-6 p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 space-y-2.5 shadow-xs">
+    <div class="flex items-center gap-2">
+      <span class="text-base">📸</span>
+      <h3 class="text-xs sm:text-sm font-bold text-foreground">Operational Distinction: Studio Photo Upload vs Live Webcam Capture</h3>
+    </div>
+    <p class="text-xs text-muted-foreground leading-relaxed">
+      Aspirants must perform <strong>both steps sequentially</strong> during the NTA registration workflow to complete biometric validation:
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+      <div class="p-3 rounded-xl bg-card border border-border space-y-1">
+        <div class="flex items-center gap-1.5 font-bold text-indigo-700 dark:text-indigo-300">
+          <span class="w-4 h-4 rounded-full bg-indigo-100 dark:bg-indigo-900/60 flex items-center justify-center text-[10px]">1</span>
+          <span>Upload Studio Passport Photo First:</span>
+        </div>
+        <p class="text-[11px] text-muted-foreground leading-relaxed">
+          Upload a formal, high-resolution portrait cropped to <strong>300×400 px (3.5×4.5 cm)</strong> and compressed to <strong>10–200 KB JPG</strong> against a pure white backdrop with 80% face coverage and visible ears.
+        </p>
+      </div>
+      <div class="p-3 rounded-xl bg-card border border-border space-y-1">
+        <div class="flex items-center gap-1.5 font-bold text-emerald-700 dark:text-emerald-300">
+          <span class="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center text-[10px]">2</span>
+          <span>Grant Camera Access for Live Selfie:</span>
+        </div>
+        <p class="text-[11px] text-muted-foreground leading-relaxed">
+          Allow browser webcam access when prompted (ensure mobile/desktop camera permission is preset to "Allow"). Sit facing bright natural light (no backlighting or glare), remove spectacles, and capture the real-time selfie. NTA's automated facial engine confirms identity parity.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: Cursive Signature Standards -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="signature-specs">✍️ 6. Cursive Signature Standards: 4–30 KB Running Hand Rule</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Candidate signatures are verified during attendance logging at examination centers and JoSAA counseling biometric checks. Disconnected block printing triggers automatic cancellation:
+  </p>
+
+  <div class="my-6 p-4 rounded-2xl bg-card border border-border space-y-3 shadow-xs">
+    <div class="flex items-center justify-between border-b border-border pb-2">
+      <span class="text-xs font-bold uppercase tracking-wider text-primary">NTA Mandatory Signature Protocol</span>
+      <span class="text-[11px] font-mono bg-primary/10 text-primary px-2 py-0.5 rounded font-bold">140 × 60 px • 4 to 30 KB</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-muted-foreground">
+      <div class="p-2.5 rounded-xl bg-muted/40 space-y-1">
+        <strong class="text-foreground block text-[11px]">Pen & Ink Medium:</strong>
+        <p class="text-[11px] leading-relaxed">Use a fresh black or dark blue ballpoint pen. Fountain pens, gel pens, or sketch markers bleed into paper fibers, causing low-contrast blur.</p>
+      </div>
+      <div class="p-2.5 rounded-xl bg-muted/40 space-y-1">
+        <strong class="text-foreground block text-[11px]">Paper Specification:</strong>
+        <p class="text-[11px] leading-relaxed">Sign on plain, clean, unruled white paper. Do not use notebook pages with horizontal ruled lines or grid squares.</p>
+      </div>
+      <div class="p-2.5 rounded-xl bg-muted/40 space-y-1">
+        <strong class="text-foreground block text-[11px]">Strict Running Handwriting:</strong>
+        <p class="text-[11px] leading-relaxed">Signatures must be written in normal running script. Capital letters, initials only, or box printing will result in disqualification.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 7: Visual Do vs Don't Inspection Mockups -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="visual-checklist">🛡️ 7. Visual Do vs Don't: Eliminate the Top Rejection Traps</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Over 15% of initial NTA application discrepancies arise from incorrect document framing. Review these visual compliance models before submitting your credentials:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
+    <!-- Signature DO vs DON'T Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <span class="font-bold text-xs uppercase tracking-wider text-foreground">✍️ Signature Running Script Audit</span>
+        <span class="text-[11px] font-mono text-muted-foreground">140 × 60 px Standard</span>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-3 pt-1">
+        <!-- DO Signature Box -->
+        <div class="p-3 rounded-xl border-2 border-emerald-500/40 bg-emerald-500/5 space-y-2 text-center">
+          <div class="h-16 flex items-center justify-center bg-white rounded-lg border border-border p-1 shadow-2xs">
+            <span class="font-serif italic text-lg text-slate-900 tracking-wide select-none" style="font-family: 'Brush Script MT', cursive, sans-serif;">Aarav Sharma</span>
+          </div>
+          <div class="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 flex items-center justify-center gap-1">
+            <span>✅</span> ACCEPTED (Cursive)
+          </div>
+          <p class="text-[10px] text-muted-foreground leading-tight">
+            Fluid natural handwriting, black ink, clear white background without shadows.
+          </p>
+        </div>
+
+        <!-- DON'T Signature Box -->
+        <div class="p-3 rounded-xl border-2 border-rose-500/40 bg-rose-500/5 space-y-2 text-center">
+          <div class="h-16 flex items-center justify-center bg-white rounded-lg border border-border p-1 shadow-2xs relative overflow-hidden">
+            <span class="font-mono font-black text-xs text-slate-800 tracking-widest line-through select-none">AARAV SHARMA</span>
+            <span class="absolute inset-0 flex items-center justify-center bg-rose-950/20 text-rose-600 font-black text-xs uppercase rotate-12">REJECTED</span>
+          </div>
+          <div class="text-[11px] font-bold text-rose-700 dark:text-rose-300 flex items-center justify-center gap-1">
+            <span>❌</span> REJECTED (Capital Letters)
+          </div>
+          <p class="text-[10px] text-muted-foreground leading-tight">
+            NTA Rule: Signatures in all-caps or block print are treated as invalid and rejected.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photograph DO vs DON'T Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <span class="font-bold text-xs uppercase tracking-wider text-foreground">📷 Photograph Lighting & Framing Audit</span>
+        <span class="text-[11px] font-mono text-muted-foreground">300 × 400 px Standard</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 pt-1">
+        <!-- DO Photo Box -->
+        <div class="p-3 rounded-xl border-2 border-emerald-500/40 bg-emerald-500/5 space-y-2 text-center">
+          <div class="h-24 w-18 mx-auto flex items-center justify-center bg-white rounded-lg border border-border shadow-2xs overflow-hidden">
+            <div class="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-600">
+              <span class="text-3xl">👤</span>
+              <span class="text-[8px] font-mono text-muted-foreground mt-1">80% Face Area</span>
+            </div>
+          </div>
+          <div class="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 flex items-center justify-center gap-1">
+            <span>✅</span> ACCEPTED (Studio)
+          </div>
+          <p class="text-[10px] text-muted-foreground leading-tight">
+            Plain white backdrop, direct eye gaze, both ears visible, uniform lighting.
+          </p>
+        </div>
+
+        <!-- DON'T Photo Box -->
+        <div class="p-3 rounded-xl border-2 border-rose-500/40 bg-rose-500/5 space-y-2 text-center">
+          <div class="h-24 w-18 mx-auto flex items-center justify-center bg-slate-800 rounded-lg border border-border shadow-2xs relative overflow-hidden">
+            <div class="w-full h-full flex flex-col items-center justify-center bg-amber-900/30 text-slate-400">
+              <span class="text-3xl opacity-50">🕶️</span>
+              <span class="text-[8px] font-mono text-rose-400 mt-1">Glasses & Tint</span>
+            </div>
+            <span class="absolute inset-0 flex items-center justify-center bg-rose-950/30 text-rose-500 font-black text-xs uppercase rotate-12">REJECTED</span>
+          </div>
+          <div class="text-[11px] font-bold text-rose-700 dark:text-rose-300 flex items-center justify-center gap-1">
+            <span>❌</span> REJECTED (Selfie/Glare)
+          </div>
+          <p class="text-[10px] text-muted-foreground leading-tight">
+            Spectacle glare, dark glasses, cropped social media selfies, or colorful backgrounds.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 8: In-Page Interactive Resizer Launchers -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="instant-resizers">🛠️ 8. Instant In-Page Resizer Launchers: Prepare Compliant NTA Uploads</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Eliminate file size errors and dimension mismatches before submitting your JEE Main application. Drop your file below for instant verification and direct 1-click resizing:
+  </p>
+
+  <!-- Common Upload Errors Quick-Fix Callout -->
+  <div class="my-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-3">
+    <h3 class="flex items-center gap-2 text-foreground font-bold text-xs sm:text-sm">
+      <span class="text-base">💡</span>
+      <span>Common Upload Errors & Quick-Fix Tips (Before You Drop Your File)</span>
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+      <div class="p-3 rounded-xl bg-card/80 border border-border space-y-1">
+        <span class="font-bold text-amber-700 dark:text-amber-300 flex items-center gap-1"><span>📸</span> 80% Face Area Framing</span>
+        <p class="text-muted-foreground leading-relaxed text-[11px]">
+          Do not upload full-body or waist-up photos. Crop so that your head, forehead, and shoulders occupy at least 80% of the image frame with visible ears.
+        </p>
+      </div>
+      <div class="p-3 rounded-xl bg-card/80 border border-border space-y-1">
+        <span class="font-bold text-amber-700 dark:text-amber-300 flex items-center gap-1"><span>✍️</span> Signature Aspect Ratio</span>
+        <p class="text-muted-foreground leading-relaxed text-[11px]">
+          NTA requires a rectangular 7:3 aspect ratio (140×60 px). Square crops compress or distort the handwriting into unreadable lines during portal ingestion.
+        </p>
+      </div>
+      <div class="p-3 rounded-xl bg-card/80 border border-border space-y-1">
+        <span class="font-bold text-amber-700 dark:text-amber-300 flex items-center gap-1"><span>📦</span> File Size Floor & Ceiling</span>
+        <p class="text-muted-foreground leading-relaxed text-[11px]">
+          Photos below 10 KB or above 200 KB fail portal upload scripts. Signatures below 4 KB or above 30 KB are equally blocked. Target the safe median.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
+    <!-- Photo Launcher & Interactive Dropzone Card -->
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-card via-card to-primary/10 border-2 border-primary/30 shadow-xs flex flex-col justify-between space-y-4">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">📷 Photograph Resizer</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">300 × 400 px</span>
+        </div>
+        <h4 class="font-bold text-base text-foreground">NTA JEE Main Photo Tool</h4>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          Standardizes passport photograph to strictly <strong>10 KB to 200 KB</strong> in JPG format with pure white background and 80% face framing.
+        </p>
+
+        <!-- Interactive Drag-and-Drop Dropzone Container -->
+        <div id="jee-photo-dropzone" class="group relative cursor-pointer block border-2 border-dashed border-blue-400 dark:border-blue-500/70 hover:border-blue-600 bg-blue-50/40 hover:bg-blue-100/50 dark:bg-blue-950/20 dark:hover:bg-blue-900/30 rounded-xl p-4 transition-all duration-200 text-center space-y-2 shadow-xs hover:shadow-md hover:scale-[1.01]">
+          <input type="file" id="jee-photo-input" class="hidden" accept="image/jpeg,image/png,image/webp" />
+          
+          <!-- Interactive Badge -->
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-2xs">
+              <span>⚡</span> Interactive Live Dropzone
+            </span>
+          </div>
+
+          <!-- Idle State -->
+          <div id="jee-photo-idle" class="space-y-1 py-1">
+            <span class="text-2xl block group-hover:scale-125 transition-transform duration-300">📥</span>
+            <span class="text-xs font-bold text-foreground block">Drop Passport Photo here</span>
+            <span class="text-[10px] text-muted-foreground block">or click to browse from device (JPG, PNG, WebP)</span>
+          </div>
+
+          <!-- Analyzing Spinner State -->
+          <div id="jee-photo-analyzing" class="hidden py-4 text-center text-xs font-semibold text-blue-600 dark:text-blue-400 animate-pulse space-y-1">
+            <span class="text-xl block animate-spin">⚙️</span>
+            <span>Analyzing photo dimensions & compression...</span>
+          </div>
+
+          <!-- Active File Inspection State -->
+          <div id="jee-photo-feedback" class="hidden space-y-2 text-left">
+            <div class="flex items-center gap-3">
+              <img id="jee-photo-preview" class="w-12 h-16 object-cover border border-border bg-white rounded shadow-2xs" alt="Photo preview" />
+              <div class="min-w-0 flex-1 text-xs">
+                <div id="jee-photo-name" class="font-bold text-foreground truncate text-[11px]">filename.jpg</div>
+                <div id="jee-photo-meta" class="text-[10px] text-muted-foreground">Original: calculating...</div>
+                <div class="text-[10px] font-bold text-amber-600 dark:text-amber-400">Target: 300×400 px • 10–200 KB</div>
+              </div>
+            </div>
+            <div id="jee-photo-status-badge" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5">
+              <span>⚡</span> Ready for 1-click optimization to NTA JEE Main specifications
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a id="jee-photo-action-btn" href="/jee-main-photo-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-95 transition shadow-xs w-full text-center">
+        <span>Open Photo Canvas (10–200 KB)</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+
+    <!-- Signature Launcher & Interactive Dropzone Card -->
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-card via-card to-primary/10 border-2 border-primary/30 shadow-xs flex flex-col justify-between space-y-4">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">✍️ Signature Resizer</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">140 × 60 px</span>
+        </div>
+        <h4 class="font-bold text-base text-foreground">NTA JEE Main Signature Tool</h4>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          Formats running signature to strictly <strong>4 KB to 30 KB</strong> JPG format in 140×60 px with contrast enhancement.
+        </p>
+
+        <!-- Interactive Drag-and-Drop Dropzone Container -->
+        <div id="jee-sign-dropzone" class="group relative cursor-pointer block border-2 border-dashed border-blue-400 dark:border-blue-500/70 hover:border-blue-600 bg-blue-50/40 hover:bg-blue-100/50 dark:bg-blue-950/20 dark:hover:bg-blue-900/30 rounded-xl p-4 transition-all duration-200 text-center space-y-2 shadow-xs hover:shadow-md hover:scale-[1.01]">
+          <input type="file" id="jee-sign-input" class="hidden" accept="image/jpeg,image/png,image/webp" />
+          
+          <!-- Interactive Badge -->
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-2xs">
+              <span>⚡</span> Interactive Live Dropzone
+            </span>
+          </div>
+
+          <!-- Idle State -->
+          <div id="jee-sign-idle" class="space-y-1 py-1">
+            <span class="text-2xl block group-hover:scale-125 transition-transform duration-300">📥</span>
+            <span class="text-xs font-bold text-foreground block">Drop Signature image here</span>
+            <span class="text-[10px] text-muted-foreground block">or click to browse from device (JPG, PNG, WebP)</span>
+          </div>
+
+          <!-- Analyzing Spinner State -->
+          <div id="jee-sign-analyzing" class="hidden py-4 text-center text-xs font-semibold text-blue-600 dark:text-blue-400 animate-pulse space-y-1">
+            <span class="text-xl block animate-spin">⚙️</span>
+            <span>Analyzing signature dimensions & compression...</span>
+          </div>
+
+          <!-- Active File Inspection State -->
+          <div id="jee-sign-feedback" class="hidden space-y-2 text-left">
+            <div class="flex items-center gap-3">
+              <img id="jee-sign-preview" class="w-20 h-10 object-contain border border-border bg-white rounded shadow-2xs" alt="Signature preview" />
+              <div class="min-w-0 flex-1 text-xs">
+                <div id="jee-sign-name" class="font-bold text-foreground truncate text-[11px]">filename.jpg</div>
+                <div id="jee-sign-meta" class="text-[10px] text-muted-foreground">Original: calculating...</div>
+                <div class="text-[10px] font-bold text-amber-600 dark:text-amber-400">Target: 140×60 px • 4–30 KB</div>
+              </div>
+            </div>
+            <div id="jee-sign-status-badge" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5">
+              <span>⚡</span> Ready for 1-click optimization to NTA JEE Main specifications
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a id="jee-sign-action-btn" href="/jee-main-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted/40 transition shadow-xs w-full text-center">
+        <span>Open Signature Canvas (4–30 KB)</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Inline Script for Interactive Dropzones -->
+  <script>
+    function setupJeeDropzone(zoneId, inputId, idleId, analyzingId, feedbackId, previewId, nameId, metaId, statusBadgeId, actionBtnId, toolUrl, minKb, maxKb, targetDims) {
+      const dropzone = document.getElementById(zoneId);
+      const input = document.getElementById(inputId);
+      const idle = document.getElementById(idleId);
+      const analyzing = document.getElementById(analyzingId);
+      const feedback = document.getElementById(feedbackId);
+      const preview = document.getElementById(previewId);
+      const nameEl = document.getElementById(nameId);
+      const metaEl = document.getElementById(metaId);
+      const statusBadge = document.getElementById(statusBadgeId);
+      const actionBtn = document.getElementById(actionBtnId);
+
+      if (!dropzone || !input) return;
+
+      dropzone.addEventListener('click', () => input.click());
+
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.add('border-blue-600', 'bg-blue-100/80', 'dark:bg-blue-900/60', 'ring-4', 'ring-blue-500/40', 'scale-[1.02]', 'shadow-lg');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove('border-blue-600', 'bg-blue-100/80', 'dark:bg-blue-900/60', 'ring-4', 'ring-blue-500/40', 'scale-[1.02]', 'shadow-lg');
+        });
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        const files = e.dataTransfer.files;
+        if (files && files.length > 0) handleFile(files[0]);
+      });
+
+      input.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files.length > 0) handleFile(e.target.files[0]);
+      });
+
+      function handleFile(file) {
+        if (!file.type.startsWith('image/')) return;
+
+        idle.classList.add('hidden');
+        if (analyzing) analyzing.classList.remove('hidden');
+        if (feedback) feedback.classList.add('hidden');
+
+        const objectUrl = URL.createObjectURL(file);
+        preview.src = objectUrl;
+        nameEl.textContent = file.name;
+        const kbSize = (file.size / 1024).toFixed(1);
+        const numericKb = parseFloat(kbSize);
+
+        const img = new Image();
+        img.onload = () => {
+          setTimeout(() => {
+            if (analyzing) analyzing.classList.add('hidden');
+            if (feedback) feedback.classList.remove('hidden');
+
+            metaEl.textContent = 'Original: ' + img.naturalWidth + '×' + img.naturalHeight + ' px • ' + kbSize + ' KB';
+
+            if (statusBadge) {
+              if (numericKb > maxKb) {
+                statusBadge.className = 'p-2 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300 text-[11px] font-semibold flex items-center gap-1.5';
+                statusBadge.innerHTML = '<span>⚠️</span> Oversized (' + kbSize + ' KB) &rarr; Auto-compress to ' + minKb + '–' + maxKb + ' KB on canvas';
+              } else if (numericKb < minKb) {
+                statusBadge.className = 'p-2 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300 text-[11px] font-semibold flex items-center gap-1.5';
+                statusBadge.innerHTML = '<span>⚠️</span> Undersized (<' + minKb + ' KB) &rarr; Auto-pad to meet ' + minKb + ' KB floor';
+              } else {
+                statusBadge.className = 'p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5';
+                statusBadge.innerHTML = '<span>✅</span> In-range size (' + kbSize + ' KB) &rarr; Format dimensions to ' + targetDims;
+              }
+            }
+
+            if (actionBtn) {
+              actionBtn.innerHTML = '<span>🚀 Resizing Ready: Format ' + file.name.slice(0, 15) + '... (' + kbSize + ' KB)</span> <span>&rarr;</span>';
+              actionBtn.className = 'inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white font-bold text-xs sm:text-sm hover:bg-blue-700 transition shadow-md ring-2 ring-blue-500/50 w-full text-center animate-pulse';
+            }
+          }, 250);
+        };
+        img.src = objectUrl;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupJeeDropzone('jee-photo-dropzone', 'jee-photo-input', 'jee-photo-idle', 'jee-photo-analyzing', 'jee-photo-feedback', 'jee-photo-preview', 'jee-photo-name', 'jee-photo-meta', 'jee-photo-status-badge', 'jee-photo-action-btn', '/jee-main-photo-resize/', 10, 200, '300×400 px');
+      setupJeeDropzone('jee-sign-dropzone', 'jee-sign-input', 'jee-sign-idle', 'jee-sign-analyzing', 'jee-sign-feedback', 'jee-sign-preview', 'jee-sign-name', 'jee-sign-meta', 'jee-sign-status-badge', 'jee-sign-action-btn', '/jee-main-signature-resize/', 4, 30, '140×60 px');
+    });
+  </script>
+
+  <!-- Section 9: Official NTA Portals Directory & JoSAA Roadmap -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="official-portals">🌐 9. Official NTA Portals Directory & JoSAA/CSAB Admissions Roadmap</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Candidates must access online application submissions, answer key challenges, and seat allocation through verified government URLs:
+  </p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 my-6">
+    <div class="p-3.5 rounded-xl bg-card border border-border shadow-xs space-y-1">
+      <span class="text-xs font-bold text-foreground block">NTA JEE Portal</span>
+      <a href="https://jeemain.nta.nic.in" target="_blank" rel="noopener noreferrer" class="text-xs text-primary font-mono hover:underline block truncate">jeemain.nta.nic.in</a>
+      <p class="text-[10px] text-muted-foreground">Session 1 & 2 Application Gateway</p>
+    </div>
+    <div class="p-3.5 rounded-xl bg-card border border-border shadow-xs space-y-1">
+      <span class="text-xs font-bold text-foreground block">NTA Official Agency</span>
+      <a href="https://nta.ac.in" target="_blank" rel="noopener noreferrer" class="text-xs text-primary font-mono hover:underline block truncate">nta.ac.in</a>
+      <p class="text-[10px] text-muted-foreground">Public Circulars & Results Desk</p>
+    </div>
+    <div class="p-3.5 rounded-xl bg-card border border-border shadow-xs space-y-1">
+      <span class="text-xs font-bold text-foreground block">JoSAA Counseling</span>
+      <a href="https://josaa.nic.in" target="_blank" rel="noopener noreferrer" class="text-xs text-primary font-mono hover:underline block truncate">josaa.nic.in</a>
+      <p class="text-[10px] text-muted-foreground">NIT, IIIT & IIT Joint Allocation</p>
+    </div>
+    <div class="p-3.5 rounded-xl bg-card border border-border shadow-xs space-y-1">
+      <span class="text-xs font-bold text-foreground block">CSAB Special Rounds</span>
+      <a href="https://csab.nic.in" target="_blank" rel="noopener noreferrer" class="text-xs text-primary font-mono hover:underline block truncate">csab.nic.in</a>
+      <p class="text-[10px] text-muted-foreground">Vacant Seat Special Spot Counseling</p>
+    </div>
+  </div>
+`
+  },
+  {
+    slug: 'wb-police-constable-si-2026-physical-test-syllabus-photo-signature-guide',
+    title: 'West Bengal Police Constable & SI 2026: 11,749 Posts, Eligibility, PMT/PET Standards, Syllabus & 138x177 Photo (10-50KB) / 138x59 Signature Rules',
+    title_hi: 'WB Police Constable & SI भर्ती 2026: 11,749 पद, योग्यता, PMT/PET दौड़ मानक, सिलेबस और 138x177 फोटो व 138x59 हस्ताक्षर नियम',
+    title_mr: 'पश्चिम बंगाल पोलीस कॉन्स्टेबल व SI भरती 2026: 11,749 पदे, पात्रता, शारीरिक चाचणी (PMT/PET), अभ्यासक्रम आणि फोटो-स्वाक्षरी नियम',
+    metaTitle: 'WB Police Constable & SI 2026 Guide: Eligibility, PMT/PET & Photo Rules',
+    metaTitle_hi: 'WB Police भर्ती 2026: पात्रता, PMT/PET शारीरिक मानक, सिलेबस व फोटो गाइड',
+    metaTitle_mr: 'WB Police भरती 2026: पात्रता, शारीरिक चाचणी, अभ्यासक्रम आणि फोटो-स्वाक्षरी मार्गदर्शक',
+    metaDescription: 'Complete WB Police (WBPRB) Constable & SI 2026 guide: 11,749 vacancies, Madhyamik eligibility, 18-30 age limits, PMT/PET (1600m in 6m 30s), ROPA salary, official PDF download & 138x177 photo / 138x59 sign resizer.',
+    metaDescription_hi: 'WB पुलिस कांस्टेबल व सब-इंस्पेक्टर भर्ती 2026 संपूर्ण गाइड: 11,749 पद, माध्यमिक पास योग्यता, आयु सीमा, PMT/PET 1600m दौड़, ROPA लेवल-6 वेतन और 138x177 फोटो व 138x59 हस्ताक्षर नियम।',
+    metaDescription_mr: 'पश्चिम बंगाल पोलीस भरती 2026 सविस्तर मार्गदर्शक: 11,749 पदे, 10वी पास पात्रता, वयोमर्यादा, शारीरिक पात्रता (PMT/PET), लेवल-6 पगार आणि 138x177 फोटो व 138x59 स्वाक्षरी नियम.',
+    excerpt: 'Comprehensive blueprint for West Bengal Police (WBPRB) Constable, Lady Constable & Sub-Inspector recruitment 2026: 11,749 vacancies, WBBSE Madhyamik educational qualifications, 18–30 age criteria with category relaxations, Kolkata Police vs WBP standards, exact PMT/PET standards (1600m in 6m 30s for male, 800m in 4m for female), ROPA Pay Level-6 salary slip, two-tier syllabus, visual Do/Don\'t upload mockups, dropzone micro-tips, direct official PDF circular link, and official 138×177 px (10–50 KB) photo & 138×59 px (5–20 KB) signature compliance.',
+    excerpt_hi: 'पश्चिम बंगाल पुलिस भर्ती बोर्ड (WBPRB) कांस्टेबल व सब-इंस्पेक्टर भर्ती 2026 का आधिकारिक विश्लेषण: 11,749 पद, माध्यमिक योग्यता, आयु सीमा व छूट, कोलकाता पुलिस बनाम WBP अंतर, PMT/PET शारीरिक परीक्षण, ROPA वेतन और 138x177 फोटो व 138x59 हस्ताक्षर नियम।',
+    excerpt_mr: 'पश्चिम बंगाल पोलीस भरती मंडळ (WBPRB) कॉन्स्टेबल व SI भरती 2026 चे संपूर्ण विश्लेषण: 11,749 पदे, माध्यमिक पात्रता, वयोमर्यादा, कोलकाता पोलीस तुलना, शारीरिक चाचणी, ROPA लेवल-6 पगार आणि फोटो-स्वाक्षरी नियम.',
+    category: 'Exam Alerts',
+    country: 'IN',
+    publishDate: 'Oct 26, 2026',
+    publishTime: '08:30 PM IST',
+    lastUpdated: 'Oct 26, 2026',
+    deployedAt: 'Oct 26, 2026 • 08:30 PM IST',
+    author: 'SignResize Police Technical Examination Desk',
+    authorRole: 'Senior Law Enforcement Recruitment & Document Standards Specialist',
+    readTime: '14 min read',
+    featured: true,
+    tags: [
+      'West Bengal Police 2026',
+      'WB Police Constable Recruitment',
+      'WBPRB Lady Constable',
+      'WBP SI Recruitment 2026',
+      'WB Police Eligibility 10th Pass',
+      'WB Police Age Limit 18 to 30',
+      'Kolkata Police vs WBP Standards',
+      'WB Police PMT PET Standards',
+      'WB Police Salary Level 6 ROPA',
+      'WB Police Photo Size 138x177',
+      'WB Police Signature Resize 138x59',
+      'WBP 1600m Running Time',
+      'prb.wb.gov.in Notice'
+    ],
+    relatedExamPreset: 'wb-police-signature',
+    guideTool: {
+      href: '/wb-police-signature-resize/',
+      label: 'WB Police Signature Resizer (5–20 KB)'
+    },
+    quickFacts: [
+      { label: 'Recruitment Authority', value: 'West Bengal Police Recruitment Board (WBPRB - prb.wb.gov.in)' },
+      { label: 'Notified Posts', value: 'Constable, Lady Constable, and Sub-Inspector (SI)' },
+      { label: 'Total Vacancies', value: '11,749+ Constable/Lady Constable Posts + SI Cadres' },
+      { label: 'Educational Criteria', value: 'Madhyamik Examination (10th Standard) Pass from WBBSE or equivalent' },
+      { label: 'Age Limit Window', value: '18 to 30 Years (General/EWS); 5-yr relaxation for SC/ST, 3-yr for OBC' },
+      { label: 'Pay Matrix Scale', value: 'ROPA-2019 Level-6 (Basic ₹22,700 to ₹58,500; Gross ~₹32,500/month)' },
+      { label: 'Selection Scheme', value: 'Prelims (100 Marks) + PMT/PET + Final Written (85 Marks) + Interview (15 Marks)' },
+      { label: 'Male PET Benchmark', value: '1600 Meters Run in 6 Minutes 30 Seconds' },
+      { label: 'Female PET Benchmark', value: '800 Meters Run in 4 Minutes 00 Seconds' },
+      { label: 'Photograph Specs', value: '138 × 177 px (4.5×3.5 cm) | 10 KB to 50 KB JPG (White BG, 75-80% Face)' },
+      { label: 'Signature Specs', value: '138 × 59 px (3.5×1.5 cm) | 5 KB to 20 KB JPG (Black Ink Running Hand, No CAPS)' },
+      { label: 'Official Portals', value: 'prb.wb.gov.in & wbpolice.gov.in' }
+    ],
+    quickFacts_hi: [
+      { label: 'भर्ती प्राधिकरण', value: 'पश्चिम बंगाल पुलिस भर्ती बोर्ड (WBPRB - prb.wb.gov.in)' },
+      { label: 'पद नाम', value: 'कांस्टेबल, लेडी कांस्टेबल और सब-इंस्पेक्टर (SI)' },
+      { label: 'कुल रिक्तियां', value: '11,749+ पद (कांस्टेबल/लेडी कांस्टेबल)' },
+      { label: 'शैक्षणिक योग्यता', value: 'WBBSE से माध्यमिक (10वीं) परीक्षा उत्तीर्ण या समकक्ष' },
+      { label: 'आयु सीमा', value: '18 से 30 वर्ष (एससी/एसटी को 5 वर्ष और ओबीसी को 3 वर्ष की छूट)' },
+      { label: 'वेतनमान', value: 'ROPA-2019 लेवल-6 (मूल वेतन ₹22,700; सकल ~₹32,500 प्रति माह)' },
+      { label: 'चयन प्रक्रिया', value: 'प्रारंभिक परीक्षा + PMT/PET + मुख्य लिखित परीक्षा + इंटरव्यू' },
+      { label: 'पुरुष दौड़ मानक', value: '1600 मीटर दौड़ अधिकतम 6 मिनट 30 सेकंड में' },
+      { label: 'महिला दौड़ मानक', value: '800 मीटर दौड़ अधिकतम 4 मिनट 00 सेकंड में' },
+      { label: 'फोटो माप', value: '138 × 177 पिक्सल | 10 KB से 50 KB JPG (सफेद बैकग्राउंड)' },
+      { label: 'हस्ताक्षर माप', value: '138 × 59 पिक्सल | 5 KB से 20 KB JPG (काली स्याही, रनिंग हैंड)' },
+      { label: 'आधिकारिक पोर्टल', value: 'prb.wb.gov.in व wbpolice.gov.in' }
+    ],
+    quickFacts_mr: [
+      { label: 'भरती प्राधिकरण', value: 'पश्चिम बंगाल पोलीस भरती मंडळ (WBPRB)' },
+      { label: 'पदाचे नाव', value: 'कॉन्स्टेबल, महिला कॉन्स्टेबल आणि पोलीस उपनिरीक्षक (SI)' },
+      { label: 'एकूण पदे', value: '11,749+ पदे' },
+      { label: 'शैक्षणिक पात्रता', value: 'माध्यमिक (10वी) परीक्षा उत्तीर्ण किंवा समकक्ष' },
+      { label: 'वयोमर्यादा', value: '18 ते 30 वर्षे (SC/ST: 5 वर्षे सवलत, OBC: 3 वर्षे सवलत)' },
+      { label: 'वेतन श्रेणी', value: 'ROPA-2019 लेव्हल-6 (मूळ वेतन ₹22,700; एकूण ~₹32,500 दरमहा)' },
+      { label: 'निवड प्रक्रिया', value: 'पूर्व परीक्षा (100 गुण) + PMT/PET + मुख्य परीक्षा (85 गुण) + मुलाखत' },
+      { label: 'पुरुष धावणे चाचणी', value: '1600 मीटर धावणे 6 मिनिटे 30 सेकंदात' },
+      { label: 'महिला धावणे चाचणी', value: '800 मीटर धावणे 4 मिनिटे 00 सेकंदात' },
+      { label: 'फोटो आकार', value: '138 × 177 पिक्सेल | 10 KB ते 50 KB JPG (पांढरी पार्श्वभूमी)' },
+      { label: 'स्वाक्षरी आकार', value: '138 × 59 पिक्सेल | 5 KB ते 20 KB JPG (काळी शाई, चालू हस्ताक्षर)' },
+      { label: 'अधिकृत पोर्टल', value: 'prb.wb.gov.in व wbpolice.gov.in' }
+    ],
+    faqs: [
+      {
+        question: 'What is the minimum educational qualification required for WB Police Constable?',
+        answer: 'Candidates must have passed the Madhyamik Examination from the West Bengal Board of Secondary Education (WBBSE) or its equivalent examination recognized by the state or central government. Candidates appearing in or awaiting results of the 10th standard cannot apply.'
+      },
+      {
+        question: 'What are the age limits and category relaxations for WB Police Constable recruitment?',
+        answer: 'The candidate must be between 18 and 30 years of age as of 1st January of the recruitment year. Relaxations in the upper age limit include: 5 years for Scheduled Caste (SC) and Scheduled Tribe (ST) candidates (up to 35 years), 3 years for Other Backward Classes (OBC-A and OBC-B) candidates (up to 33 years), 3 years for Third Gender candidates, and designated relaxations for Home Guards and Civic Volunteers with 3+ years continuous service.'
+      },
+      {
+        question: 'Are physical and upload standards for Kolkata Police (KP) Constable different from WB Police (WBP)?',
+        answer: 'No. The West Bengal Police Recruitment Board (WBPRB) conducts centralized recruitment for both Kolkata Police and West Bengal Police. Physical benchmarks (PMT/PET: 1600m in 6m 30s) and upload specifications (138×177 px photo, 138×59 px cursive signature) are 100% identical. The only distinction lies in deployment: Kolkata Police operates in the municipal city jurisdiction in white uniform, while WBP operates in district jurisdictions in khaki uniform.'
+      },
+      {
+        question: 'What are the height and weight physical standards (PMT) for WB Police Constable?',
+        answer: 'For Male candidates (General, OBC, SC), minimum height is 167 cm, weight 57 kg, and chest 78 cm with 5 cm expansion (83 cm). For Male Gorkhas, Garhwalis, Rajbanshis, and ST, minimum height is 160 cm, weight 53 kg, and chest 76 cm (with 5 cm expansion). For Female candidates (General, OBC, SC), minimum height is 160 cm, weight 49 kg (Gorkhas/ST: 152 cm, 45 kg). Third Gender candidates require 163 cm height and 53 kg weight.'
+      },
+      {
+        question: 'What is the Physical Efficiency Test (PET) running time for male and female candidates?',
+        answer: 'For Male Constable candidates, the PET is an outdoor 1600 meters run to be completed within 6 minutes 30 seconds. For Female Constable candidates, it is an 800 meters run to be completed within 4 minutes 00 seconds. For Third Gender candidates, the requirement is 800 meters in 3 minutes 30 seconds. Timing is measured precisely using RFID timing chips attached to bibs; exceeding even by 1 millisecond results in automatic disqualification.'
+      },
+      {
+        question: 'What is the examination pattern and syllabus for the WB Police Preliminary Written Test?',
+        answer: 'The Preliminary Written Test comprises 100 multiple-choice questions for 100 marks conducted over 1 hour. Subjects include General Awareness and General Knowledge (40 marks), Elementary Mathematics Madhyamik standard (30 marks), and Reasoning (30 marks). There is negative marking of 1/4th (0.25) marks per incorrect answer. It is qualifying in nature to shortlist candidates for PMT/PET.'
+      },
+      {
+        question: 'What are the exact photo dimensions and file size limits for WB Police online application?',
+        answer: 'WBPRB mandates passport photographs with exact dimensions of 138 × 177 pixels (approximately 4.5 cm height × 3.5 cm width) and file size strictly between 10 KB and 50 KB in JPG/JPEG format. The background must be clean white or very light, with the face occupying 75% to 80% of the picture without sunglasses, caps, or tinted lenses.'
+      },
+      {
+        question: 'What are the exact signature dimensions and file size limits for WBPRB recruitment?',
+        answer: 'The full running signature must measure exactly 138 × 59 pixels (approximately 1.5 cm height × 3.5 cm width) with a file size between 5 KB and 20 KB in JPG/JPEG format. It must be written with a black ink ballpoint pen on plain white paper in continuous cursive handwriting. Capital or block letter signatures are rejected automatically under official recruitment guidelines.'
+      },
+      {
+        question: 'What is the monthly in-hand salary of a West Bengal Police Constable under ROPA-2019?',
+        answer: 'Under WBS (ROPA) Pay Matrix Level-6, the initial basic pay is ₹22,700. Adding Dearness Allowance (14% = ₹3,178), House Rent Allowance (12% = ₹2,724), Medical Allowance (₹500), and Ration Allowance (₹1,500), the gross monthly emoluments reach approximately ₹30,602 to ₹32,500. After statutory deductions for General Provident Fund (GPF) and Professional Tax, the net in-hand salary is around ₹28,500 to ₹30,000 per month.'
+      },
+      {
+        question: 'Is Bengali language proficiency mandatory for WB Police Constable posts?',
+        answer: 'Yes. Candidates must be able to speak, read, and write the Bengali language fluently. However, this provision does not apply to permanent residents of the hill sub-divisions of Darjeeling and Kalimpong districts, for whom Nepali language rules apply.'
+      }
+    ],
+    faqs_hi: [
+      {
+        question: 'WB पुलिस कांस्टेबल के लिए न्यूनतम शैक्षणिक योग्यता क्या है?',
+        answer: 'उम्मीदवार को पश्चिम बंगाल माध्यमिक शिक्षा बोर्ड (WBBSE) से माध्यमिक (10वीं) परीक्षा या सरकार द्वारा मान्यता प्राप्त समकक्ष परीक्षा उत्तीर्ण होना अनिवार्य है।'
+      },
+      {
+        question: 'WB पुलिस कांस्टेबल भर्ती के लिए आयु सीमा और छूट क्या है?',
+        answer: 'भर्ती वर्ष की 1 जनवरी को उम्मीदवार की आयु 18 से 30 वर्ष के बीच होनी चाहिए। एससी/एसटी वर्ग को 5 वर्ष (35 वर्ष तक) और ओबीसी वर्ग को 3 वर्ष (33 वर्ष तक) की ऊपरी आयु सीमा में छूट मिलती है।'
+      },
+      {
+        question: 'क्या कोलकाता पुलिस और पश्चिम बंगाल पुलिस के शारीरिक व फोटो मानक अलग हैं?',
+        answer: 'नहीं। WBPRB दोनों बलों के लिए केंद्रीकृत भर्ती करता है। शारीरिक मानक (1600 मीटर दौड़ 6 मिनट 30 सेकंड) और फोटो (138x177) व हस्ताक्षर (138x59) के नियम दोनों के लिए बिल्कुल समान हैं।'
+      },
+      {
+        question: 'WB पुलिस कांस्टेबल शारीरिक दक्षता परीक्षा (PET) दौड़ का समय क्या है?',
+        answer: 'पुरुष उम्मीदवारों के लिए 1600 मीटर दौड़ अधिकतम 6 मिनट 30 सेकंड में पूरी करनी होती है। महिला उम्मीदवारों के लिए 800 मीटर दौड़ 4 मिनट 00 सेकंड में पूरी करनी होती है। समय का मापन RFID चिप के माध्यम से स्वचालित रूप से किया जाता है।'
+      },
+      {
+        question: 'हस्ताक्षर और फोटो अपलोड करने के क्या नियम हैं?',
+        answer: 'फोटो 138 × 177 पिक्सल (10-50 KB) सफेद बैकग्राउंड में और हस्ताक्षर 138 × 59 पिक्सल (5-20 KB) काली स्याही से रनिंग हैंडराइटिंग में होना चाहिए। कैपिटल अक्षरों वाले हस्ताक्षर निरस्त कर दिए जाते हैं।'
+      }
+    ],
+    faqs_mr: [
+      {
+        question: 'पश्चिम बंगाल पोलीस भरतीसाठी किमान शैक्षणिक पात्रता काय आहे?',
+        answer: 'उमेदवार पश्चिम बंगाल माध्यमिक शिक्षण मंडळातून (WBBSE) 10वी (माध्यमिक) परीक्षा किंवा मान्यताप्राप्त समकक्ष परीक्षा उत्तीर्ण असावा.'
+      },
+      {
+        question: 'पश्चिम बंगाल पोलीस भरतीसाठी वयोमर्यादा किती आहे?',
+        answer: 'किमान वय 18 वर्षे आणि कमाल वय 30 वर्षे असावे. SC/ST उमेदवारांना 5 वर्षे (35 वर्षांपर्यंत) आणि OBC उमेदवारांना 3 वर्षे (33 वर्षांपर्यंत) वयोमर्यादेत सवलत मिळते.'
+      },
+      {
+        question: 'कोलकाता पोलीस आणि पश्चिम बंगाल पोलीस नियमांमध्ये काय फरक आहे?',
+        answer: 'WBPRB दोन्ही परीक्षा एकाच नियमानुसार घेते. शारीरिक चाचणी (PMT/PET) आणि फोटो (138x177) व स्वाक्षरी (138x59) चे निकष दोन्हीसाठी 100% सारखेच आहेत. फक्त कार्यक्षेत्राचा फरक आहे.'
+      }
+    ],
+    contentHtml: `
+  <!-- Sticky Quick-Jump Pill Bar -->
+  <div class="mt-3 mb-6 p-3 rounded-2xl bg-card border border-border shadow-xs backdrop-blur-md sticky top-28 sm:top-[116px] z-20 relative quick-jump-wrapper">
+    <div class="text-[11px] font-bold text-muted-foreground uppercase tracking-wider px-2 mb-1.5 flex items-center justify-between">
+      <span class="flex items-center gap-1.5"><span class="text-primary">⚡</span> Quick Jump Navigation:</span>
+      <span class="text-[10px] text-muted-foreground font-medium flex items-center gap-1 opacity-70">
+        <span>Scroll</span> <span>&rarr;</span>
+      </span>
+    </div>
+    <div class="relative">
+      <div class="quick-jump-fade-mask"></div>
+      <div class="flex items-center gap-1.5 overflow-x-auto scrollbar-thin pb-1 text-xs whitespace-nowrap pr-8">
+      <a href="#document-specs" class="px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary font-bold transition flex items-center gap-1 shrink-0">
+        <span>📸</span> <span>138×177 Specs</span>
+      </a>
+      <a href="#visual-checklist" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold transition flex items-center gap-1 shrink-0">
+        <span>🛡️</span> <span>Do vs Don't</span>
+      </a>
+      <a href="#instant-resizers" class="px-2.5 py-1 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition flex items-center gap-1 shrink-0 shadow-2xs">
+        <span>🛠️</span> <span>Resize Now</span>
+      </a>
+      <a href="#eligibility-criteria" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>🎓</span> <span>Eligibility & Age</span>
+      </a>
+      <a href="#pmt-pet-standards" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>🏃</span> <span>PMT / PET Benchmarks</span>
+      </a>
+      <a href="#salary-structure" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>💰</span> <span>Salary Slip (ROPA)</span>
+      </a>
+      <a href="#exam-syllabus" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>📝</span> <span>Prelims & Mains</span>
+      </a>
+      <a href="#selection-timeline" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>🗺️</span> <span>5-Stage Roadmap</span>
+      </a>
+      <a href="#official-portals" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>🏛️</span> <span>PRB Portals</span>
+      </a>
+      <a href="#faqs" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>❓</span> <span>10 FAQs</span>
+      </a>
+    </div>
+    </div>
+  </div>
+
+  <!-- Notification & Scrutiny Alert Banner with Direct PDF Download -->
+  <div class="mt-8 mb-6 p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-foreground space-y-3 shadow-xs">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-600 text-white shrink-0">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> WBPRB NOTIFICATION UPDATE
+        </span>
+        <span class="text-xs font-bold text-amber-700 dark:text-amber-300">Constable (11,749 Posts) & Sub-Inspector Cadres</span>
+      </div>
+      <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-900 dark:text-amber-200 font-bold">Notice No. WBPRB/NOTICE/2024-26</span>
+    </div>
+
+    <p class="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
+      <strong>Scrutiny Warning:</strong> West Bengal Police Recruitment Board conducts algorithmic checks on uploaded photographs and signatures. Any signature rendered in CAPITAL / BLOCK LETTERS, or photographs with tinted spectacles, non-white backgrounds, or low contrast are automatically flagged for rejection without opportunity for revision. Format compliant credentials instantly using the <a href="/wb-police-photo-resize/" class="text-primary font-bold underline">WB Police Photo Tool</a> and <a href="/wb-police-signature-resize/" class="text-primary font-bold underline">WB Police Signature Tool</a>.
+    </p>
+
+    <!-- Direct Official PDF Download Button -->
+    <div class="pt-1 flex flex-wrap gap-2.5 items-center">
+      <a href="https://prb.wb.gov.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-bold text-xs hover:opacity-90 transition shadow-xs">
+        <span>📄</span> Download Official WBPRB Notification PDF (prb.wb.gov.in) &rarr;
+      </a>
+      <span class="text-[11px] text-muted-foreground">Direct access to official government gazette portal</span>
+    </div>
+  </div>
+
+  <!-- Kolkata Police vs West Bengal Police Clarification Callout -->
+  <div class="my-6 p-4 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-950 dark:text-blue-100 flex items-start gap-3 shadow-xs">
+    <span class="text-xl shrink-0 mt-0.5">👮</span>
+    <div class="space-y-1 text-xs sm:text-sm">
+      <h3 class="font-bold text-blue-900 dark:text-blue-300 text-sm">Kolkata Police (KP) vs West Bengal Police (WBP) Standards Clarification</h3>
+      <p class="leading-relaxed">
+        The West Bengal Police Recruitment Board (WBPRB) administers the joint recruitment examination for both <strong>West Bengal Police (WBP)</strong> and <strong>Kolkata Police (KP)</strong>. While Kolkata Police operates within the municipal limits of Kolkata (white uniform) and WBP manages all state district territories (khaki uniform), <strong>all eligibility conditions, PMT/PET physical benchmarks (1600m run in 6m 30s), and document upload standards (138×177 px photo, 138×59 px cursive signature) are 100% identical</strong>. The presets provided on this page serve applications for both forces interchangeably.
+      </p>
+    </div>
+  </div>
+
+  <!-- 5-Stage Selection Timeline Roadmap -->
+  <div class="my-6 p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4" id="selection-timeline">
+    <div class="flex items-center justify-between border-b border-border pb-3">
+      <div class="flex items-center gap-2 text-foreground font-bold text-sm sm:text-base">
+        <span>🗺️</span> <span>West Bengal Police Recruitment Progress Tracker</span>
+      </div>
+      <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">5-Stage Pipeline</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+      <!-- Stage 1 -->
+      <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-border space-y-1">
+        <div class="flex items-center justify-between">
+          <span class="font-mono font-bold text-primary text-[10px]">STAGE 1</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold">Online</span>
+        </div>
+        <strong class="text-foreground text-xs block font-bold">Application & Scrutiny</strong>
+        <p class="text-muted-foreground text-[11px] leading-relaxed">
+          Online application on prb.wb.gov.in with 138×177 px photo & 138×59 px cursive signature.
+        </p>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-border space-y-1">
+        <div class="flex items-center justify-between">
+          <span class="font-mono font-bold text-amber-600 dark:text-amber-400 text-[10px]">STAGE 2</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold">Screening</span>
+        </div>
+        <strong class="text-foreground text-xs block font-bold">Prelims Written Test</strong>
+        <p class="text-muted-foreground text-[11px] leading-relaxed">
+          100 Marks (GK 40, Math 30, Reasoning 30). 1/4th negative marking. Qualifying for PMT/PET.
+        </p>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-border space-y-1">
+        <div class="flex items-center justify-between">
+          <span class="font-mono font-bold text-emerald-600 dark:text-emerald-400 text-[10px]">STAGE 3</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold">Physical</span>
+        </div>
+        <strong class="text-foreground text-xs block font-bold">PMT & PET Tests</strong>
+        <p class="text-muted-foreground text-[11px] leading-relaxed">
+          Height/Weight/Chest scan, followed by RFID chip-timed 1600m run (6m 30s) / 800m run (4m).
+        </p>
+      </div>
+
+      <!-- Stage 4 -->
+      <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-border space-y-1">
+        <div class="flex items-center justify-between">
+          <span class="font-mono font-bold text-purple-600 dark:text-purple-400 text-[10px]">STAGE 4</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 font-bold">Merit Exam</span>
+        </div>
+        <strong class="text-foreground text-xs block font-bold">Final Written Exam</strong>
+        <p class="text-muted-foreground text-[11px] leading-relaxed">
+          85 Marks in 60 mins (GK 25, English 10, Math 25, Reasoning 25). Forms baseline merit rank.
+        </p>
+      </div>
+
+      <!-- Stage 5 -->
+      <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-border space-y-1">
+        <div class="flex items-center justify-between">
+          <span class="font-mono font-bold text-blue-600 dark:text-blue-400 text-[10px]">STAGE 5</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold">Final</span>
+        </div>
+        <strong class="text-foreground text-xs block font-bold">Interview & Medical</strong>
+        <p class="text-muted-foreground text-[11px] leading-relaxed">
+          15 Marks Interview testing Bengali language proficiency, followed by Police Verification & Medical.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 1: Vacancy Distribution -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="vacancy-distribution">📊 1. West Bengal Police Vacancy Breakdown: 11,749 Posts Matrix</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    The West Bengal Police Recruitment Board has notified 11,749 vacancies for Constable and Lady Constable cadres across the state. Below is the category-wise distribution:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>👮</span> WBP Constable & Lady Constable Vacancy Split</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Cadre Category</th>
+            <th class="p-3 font-semibold">Male Vacancies</th>
+            <th class="p-3 font-semibold">Female (Lady Constable)</th>
+            <th class="p-3 font-semibold">Total Posts</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Unreserved (UR) / General</td>
+            <td class="p-3 text-muted-foreground">3,056 Posts</td>
+            <td class="p-3 text-muted-foreground">1,248 Posts</td>
+            <td class="p-3 font-bold text-foreground">4,304 Posts</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Economically Weaker Section (EWS)</td>
+            <td class="p-3 text-muted-foreground">820 Posts</td>
+            <td class="p-3 text-muted-foreground">354 Posts</td>
+            <td class="p-3 font-bold text-foreground">1,174 Posts</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Scheduled Caste (SC)</td>
+            <td class="p-3 text-muted-foreground">1,790 Posts</td>
+            <td class="p-3 text-muted-foreground">732 Posts</td>
+            <td class="p-3 font-bold text-foreground">2,522 Posts</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Scheduled Tribe (ST)</td>
+            <td class="p-3 text-muted-foreground">490 Posts</td>
+            <td class="p-3 text-muted-foreground">200 Posts</td>
+            <td class="p-3 font-bold text-foreground">690 Posts</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">OBC-A (Other Backward Classes A)</td>
+            <td class="p-3 text-muted-foreground">820 Posts</td>
+            <td class="p-3 text-muted-foreground">336 Posts</td>
+            <td class="p-3 font-bold text-foreground">1,156 Posts</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">OBC-B (Other Backward Classes B)</td>
+            <td class="p-3 text-muted-foreground">580 Posts</td>
+            <td class="p-3 text-muted-foreground">238 Posts</td>
+            <td class="p-3 font-bold text-foreground">818 Posts</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Ex-Servicemen & Home Guard Quotas</td>
+            <td class="p-3 text-muted-foreground">760 Posts</td>
+            <td class="p-3 text-muted-foreground">325 Posts</td>
+            <td class="p-3 font-bold text-foreground">1,085 Posts</td>
+          </tr>
+          <tr class="bg-primary/5 font-bold">
+            <td class="p-3 text-primary">Cumulative Vacancy Total</td>
+            <td class="p-3 text-primary">8,316 Posts</td>
+            <td class="p-3 text-primary">3,433 Posts</td>
+            <td class="p-3 text-primary">11,749 Posts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 2: Eligibility Criteria & Age Limits -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="eligibility-criteria">🎓 2. Eligibility Criteria & Age Limits: Madhyamik Pass & Category Relaxations</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Before preparing application documents, candidates must confirm they meet the statutory educational qualifications and age limits prescribed by the Home & Hill Affairs Department of West Bengal:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+    <!-- Educational Criteria Box -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-2.5">
+      <h3 class="flex items-center gap-2 text-foreground font-bold text-sm">
+        <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">📖</span>
+        <span>Educational Qualification Benchmark</span>
+      </h3>
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        The applicant must have passed the <strong>Madhyamik Examination (10th Standard)</strong> from the West Bengal Board of Secondary Education (WBBSE) or its equivalent examination from any board recognized by the State Government or Central Government. Candidates awaiting final 10th-standard results are not eligible.
+      </p>
+      <div class="p-2.5 rounded-xl bg-muted/50 text-[11px] text-foreground font-medium flex items-center gap-2">
+        <span>🗣️</span> <span><strong>Language Requirement:</strong> Must be fluent in reading, writing, and speaking Bengali (except permanent residents of Darjeeling and Kalimpong hill sub-divisions).</span>
+      </div>
+    </div>
+
+    <!-- Age Limits Table Box -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-2.5">
+      <h3 class="flex items-center gap-2 text-foreground font-bold text-sm">
+        <span class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">🎂</span>
+        <span>Age Limit & Reservation Window</span>
+      </h3>
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        Candidates must not be less than <strong>18 years</strong> and not more than <strong>30 years</strong> as of <strong>1st January of the recruitment year</strong>. Statutory relaxations apply as follows:
+      </p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-[11px] border-collapse">
+          <thead>
+            <tr class="text-muted-foreground border-b border-border text-left">
+              <th class="py-1.5 font-semibold">Category</th>
+              <th class="py-1.5 font-semibold">Age Relaxation</th>
+              <th class="py-1.5 font-semibold">Max Upper Age</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="py-1.5 font-medium text-foreground">General (UR) / EWS</td>
+              <td class="py-1.5 text-muted-foreground">Nil (Standard)</td>
+              <td class="py-1.5 font-bold text-foreground">30 Years</td>
+            </tr>
+            <tr>
+              <td class="py-1.5 font-medium text-foreground">SC & ST Candidates</td>
+              <td class="py-1.5 text-emerald-600 dark:text-emerald-400 font-bold">+5 Years</td>
+              <td class="py-1.5 font-bold text-foreground">35 Years</td>
+            </tr>
+            <tr>
+              <td class="py-1.5 font-medium text-foreground">OBC-A & OBC-B</td>
+              <td class="py-1.5 text-emerald-600 dark:text-emerald-400 font-bold">+3 Years</td>
+              <td class="py-1.5 font-bold text-foreground">33 Years</td>
+            </tr>
+            <tr>
+              <td class="py-1.5 font-medium text-foreground">Third Gender Candidates</td>
+              <td class="py-1.5 text-emerald-600 dark:text-emerald-400 font-bold">+3 Years</td>
+              <td class="py-1.5 font-bold text-foreground">33 Years</td>
+            </tr>
+            <tr>
+              <td class="py-1.5 font-medium text-foreground">NVF / Home Guards</td>
+              <td class="py-1.5 text-muted-foreground">3+ yrs service rule</td>
+              <td class="py-1.5 font-bold text-foreground">Up to 35/40 Yrs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: PMT & PET Standards -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="pmt-pet-standards">🏃 3. Physical Measurement (PMT) & Physical Efficiency (PET) Benchmarks</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    WBPRB enforces non-negotiable physical benchmarks. Timing for the race is measured electronically using RFID timing chips attached to ankle bibs. Exceeding the qualifying threshold by a split second causes immediate elimination:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📏</span> Physical Measurement Test (PMT) Standards</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Candidate Category</th>
+            <th class="p-3 font-semibold">Min Height</th>
+            <th class="p-3 font-semibold">Min Weight</th>
+            <th class="p-3 font-semibold">Chest (Unexpanded / Expanded)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Male (General, OBC, SC)</td>
+            <td class="p-3 font-bold text-foreground">167 cm</td>
+            <td class="p-3 font-bold text-foreground">57 kg</td>
+            <td class="p-3 text-muted-foreground">78 cm with 5 cm expansion (83 cm)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Male (Gorkhas, Garhwalis, Rajbanshis, ST)</td>
+            <td class="p-3 font-bold text-foreground">160 cm</td>
+            <td class="p-3 font-bold text-foreground">53 kg</td>
+            <td class="p-3 text-muted-foreground">76 cm with 5 cm expansion (81 cm)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Female / Lady Constable (General, OBC, SC)</td>
+            <td class="p-3 font-bold text-foreground">160 cm</td>
+            <td class="p-3 font-bold text-foreground">49 kg</td>
+            <td class="p-3 text-muted-foreground">Not Applicable</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Female (Gorkhas, Garhwalis, Rajbanshis, ST)</td>
+            <td class="p-3 font-bold text-foreground">152 cm</td>
+            <td class="p-3 font-bold text-foreground">45 kg</td>
+            <td class="p-3 text-muted-foreground">Not Applicable</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Third Gender Candidates</td>
+            <td class="p-3 font-bold text-foreground">163 cm</td>
+            <td class="p-3 font-bold text-foreground">53 kg</td>
+            <td class="p-3 text-muted-foreground">Not Applicable</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>⏱️</span> Physical Efficiency Test (PET) Running Benchmarks</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Recruitment Cadre</th>
+            <th class="p-3 font-semibold">Running Event Distance</th>
+            <th class="p-3 font-semibold">Maximum Qualifying Time</th>
+            <th class="p-3 font-semibold">Measurement Technology</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Constable (Male)</td>
+            <td class="p-3 font-bold text-foreground">1600 Meters (1.6 km)</td>
+            <td class="p-3 font-bold text-primary">6 Minutes 30 Seconds</td>
+            <td class="p-3 text-muted-foreground">Automated RFID Sensor Mats</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Lady Constable (Female)</td>
+            <td class="p-3 font-bold text-foreground">800 Meters (0.8 km)</td>
+            <td class="p-3 font-bold text-primary">4 Minutes 00 Seconds</td>
+            <td class="p-3 text-muted-foreground">Automated RFID Sensor Mats</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Third Gender Constables</td>
+            <td class="p-3 font-bold text-foreground">800 Meters (0.8 km)</td>
+            <td class="p-3 font-bold text-primary">3 Minutes 30 Seconds</td>
+            <td class="p-3 text-muted-foreground">Automated RFID Sensor Mats</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 4: Salary Structure -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="salary-structure">💰 4. WB Police Salary Structure 2026: ROPA Level-6 Pay Slip Breakdown</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    West Bengal Police Constables are compensated under Pay Matrix Level-6 of the WBS (ROPA) Rules 2019. Below is the monthly gross and in-hand calculation for a newly recruited constable:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>💵</span> WBP Constable Monthly Pay Slip (ROPA Level-6)</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Pay Component</th>
+            <th class="p-3 font-semibold">Government Benchmark</th>
+            <th class="p-3 font-semibold">Monthly Amount</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Basic Pay</td>
+            <td class="p-3 text-muted-foreground">ROPA-2019 Level-6 Starting Index</td>
+            <td class="p-3 font-bold text-foreground">₹22,700</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Dearness Allowance (DA)</td>
+            <td class="p-3 text-muted-foreground">14% of Basic Pay (Revised)</td>
+            <td class="p-3 font-bold text-foreground">₹3,178</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">House Rent Allowance (HRA)</td>
+            <td class="p-3 text-muted-foreground">12% of Basic Pay</td>
+            <td class="p-3 font-bold text-foreground">₹2,724</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Medical Allowance (MA)</td>
+            <td class="p-3 text-muted-foreground">Fixed State Healthcare Allowance</td>
+            <td class="p-3 font-bold text-foreground">₹500</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Ration Allowance</td>
+            <td class="p-3 text-muted-foreground">Uniformed Police Personnel Subsidies</td>
+            <td class="p-3 font-bold text-foreground">₹1,500</td>
+          </tr>
+          <tr class="bg-primary/5 font-bold">
+            <td class="p-3 text-primary">Gross Monthly Emoluments</td>
+            <td class="p-3 text-primary">Before Deductions</td>
+            <td class="p-3 text-primary">₹30,602 – ₹32,500</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-muted-foreground">Statutory Deductions (GPF + P-Tax)</td>
+            <td class="p-3 text-muted-foreground">General Provident Fund & Bengal State Tax</td>
+            <td class="p-3 font-bold text-rose-600 dark:text-rose-400">-₹1,800 to -₹2,200</td>
+          </tr>
+          <tr class="bg-emerald-500/10 font-bold">
+            <td class="p-3 text-emerald-700 dark:text-emerald-300">Estimated Net In-Hand Pay</td>
+            <td class="p-3 text-emerald-700 dark:text-emerald-300">Credited to Salary Account Monthly</td>
+            <td class="p-3 text-emerald-700 dark:text-emerald-300">₹28,500 – ₹30,300 / month</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 5: Examination Syllabus -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="exam-syllabus">📝 5. Examination Pattern: Prelims (100 Marks) vs Final Written Exam (85 Marks)</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    The West Bengal Police selection process features two written tests: a preliminary screening test and a final merit test. Both feature objective multiple-choice questions with 1/4th (0.25) negative marking per wrong answer:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📚</span> WBP Written Examination Structure</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Subject Section</th>
+            <th class="p-3 font-semibold">Preliminary Written (100 Marks)</th>
+            <th class="p-3 font-semibold">Final Written Exam (85 Marks)</th>
+            <th class="p-3 font-semibold">Standard & Focus Areas</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">General Awareness & General Knowledge</td>
+            <td class="p-3 font-bold text-foreground">40 Questions (40 Marks)</td>
+            <td class="p-3 font-bold text-foreground">25 Questions (25 Marks)</td>
+            <td class="p-3 text-muted-foreground">Indian History, Bengal Geography, Constitution, Static GK</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">English Language</td>
+            <td class="p-3 text-muted-foreground font-semibold">Not Tested in Prelims</td>
+            <td class="p-3 font-bold text-foreground">10 Questions (10 Marks)</td>
+            <td class="p-3 text-muted-foreground">Vocabulary, Grammar, Idioms, Sentence Completion</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Elementary Mathematics</td>
+            <td class="p-3 font-bold text-foreground">30 Questions (30 Marks)</td>
+            <td class="p-3 font-bold text-foreground">25 Questions (25 Marks)</td>
+            <td class="p-3 text-muted-foreground">WBBSE Madhyamik Standard: Percentages, Profit/Loss, Time & Work</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Reasoning & Analytical Ability</td>
+            <td class="p-3 font-bold text-foreground">30 Questions (30 Marks)</td>
+            <td class="p-3 font-bold text-foreground">25 Questions (25 Marks)</td>
+            <td class="p-3 text-muted-foreground">Coding-Decoding, Series, Syllogisms, Blood Relations, Puzzles</td>
+          </tr>
+          <tr class="bg-primary/5 font-bold">
+            <td class="p-3 text-primary">Total Marks & Duration</td>
+            <td class="p-3 text-primary">100 Marks in 60 Minutes</td>
+            <td class="p-3 text-primary">85 Marks in 60 Minutes</td>
+            <td class="p-3 text-primary">Mains (85) + Interview (15) = 100 Marks Final Merit</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 6: Official Upload Guidelines & Visual Do vs Don't Mockups -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="document-specs">📸 6. Official WBPRB Photo & Signature Guidelines: Exact Specifications</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    WBPRB enforces specific dimension standards (138×177 px for photographs and 138×59 px for signatures) that differ from standard central government exams. Review the official specification matrix below:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>📋</span> WBPRB Document Upload Specification Matrix</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Credential Type</th>
+            <th class="p-3 font-semibold">Pixel Dimensions</th>
+            <th class="p-3 font-semibold">File Size (KB)</th>
+            <th class="p-3 font-semibold">Aspect Ratio</th>
+            <th class="p-3 font-semibold">Mandatory Requirements</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Passport Photograph</td>
+            <td class="p-3 font-bold text-primary">138 × 177 px</td>
+            <td class="p-3 font-bold text-foreground">10 KB to 50 KB</td>
+            <td class="p-3 text-muted-foreground">4.5 cm × 3.5 cm</td>
+            <td class="p-3 text-muted-foreground">White/light background, 75–80% facial coverage, both ears visible, no sunglasses/caps</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Full Signature</td>
+            <td class="p-3 font-bold text-primary">138 × 59 px</td>
+            <td class="p-3 font-bold text-foreground">5 KB to 20 KB</td>
+            <td class="p-3 text-muted-foreground">1.5 cm × 3.5 cm</td>
+            <td class="p-3 text-muted-foreground">Black ink on unruled white paper, continuous running cursive, NO CAPITAL LETTERS</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Visual Checklist: DO vs DON'T Side-by-Side Mockups -->
+  <h3 class="text-lg font-bold text-foreground mt-6 mb-3" id="visual-checklist">🛡️ Visual Do vs Don't: Eliminate the #1 Rejection Trap</h3>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Compare compliant uploads with common disqualifying mistakes before uploading to the WBPRB portal:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+    <!-- Signature DO vs DON'T Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <span class="font-bold text-xs uppercase tracking-wider text-foreground">✍️ Signature Handwriting Audit</span>
+        <span class="text-[11px] font-mono text-muted-foreground">138 × 59 px Standard</span>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-3 pt-1">
+        <!-- DO Signature Box -->
+        <div class="p-3 rounded-xl border-2 border-emerald-500/40 bg-emerald-500/5 space-y-2 text-center">
+          <div class="h-16 flex items-center justify-center bg-white rounded-lg border border-border p-1 shadow-2xs">
+            <span class="font-serif italic text-lg text-slate-900 tracking-wide select-none" style="font-family: 'Brush Script MT', cursive, sans-serif;">Anirban Das</span>
+          </div>
+          <div class="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 flex items-center justify-center gap-1">
+            <span>✅</span> ACCEPTED (Cursive)
+          </div>
+          <p class="text-[10px] text-muted-foreground leading-tight">
+            Fluid natural handwriting, black ink, clear white background without shadows.
+          </p>
+        </div>
+
+        <!-- DON'T Signature Box -->
+        <div class="p-3 rounded-xl border-2 border-rose-500/40 bg-rose-500/5 space-y-2 text-center">
+          <div class="h-16 flex items-center justify-center bg-white rounded-lg border border-border p-1 shadow-2xs relative overflow-hidden">
+            <span class="font-mono font-black text-xs text-slate-800 tracking-widest line-through select-none">ANIRBAN DAS</span>
+            <span class="absolute inset-0 flex items-center justify-center bg-rose-950/20 text-rose-600 font-black text-xs uppercase rotate-12">REJECTED</span>
+          </div>
+          <div class="text-[11px] font-bold text-rose-700 dark:text-rose-300 flex items-center justify-center gap-1">
+            <span>❌</span> REJECTED (Capital Letters)
+          </div>
+          <p class="text-[10px] text-muted-foreground leading-tight">
+            WBPRB Rule: All-caps or block letters disqualify application under scrutiny rules.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photograph DO vs DON'T Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-2">
+        <span class="font-bold text-xs uppercase tracking-wider text-foreground">📷 Photograph Lighting & Framing Audit</span>
+        <span class="text-[11px] font-mono text-muted-foreground">138 × 177 px Standard</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 pt-1">
+        <!-- DO Photo Box -->
+        <div class="p-3 rounded-xl border-2 border-emerald-500/40 bg-emerald-500/5 space-y-2 text-center">
+          <div class="h-24 w-18 mx-auto flex items-center justify-center bg-white rounded-lg border border-border shadow-2xs overflow-hidden">
+            <div class="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-600">
+              <span class="text-3xl">👤</span>
+              <span class="text-[8px] font-mono text-muted-foreground mt-1">75% Face Area</span>
+            </div>
+          </div>
+          <div class="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 flex items-center justify-center gap-1">
+            <span>✅</span> ACCEPTED (Studio)
+          </div>
+          <p class="text-[10px] text-muted-foreground leading-tight">
+            Plain white backdrop, direct eye gaze, both ears visible, uniform lighting.
+          </p>
+        </div>
+
+        <!-- DON'T Photo Box -->
+        <div class="p-3 rounded-xl border-2 border-rose-500/40 bg-rose-500/5 space-y-2 text-center">
+          <div class="h-24 w-18 mx-auto flex items-center justify-center bg-slate-800 rounded-lg border border-border shadow-2xs relative overflow-hidden">
+            <div class="w-full h-full flex flex-col items-center justify-center bg-amber-900/30 text-slate-400">
+              <span class="text-3xl opacity-50">🕶️</span>
+              <span class="text-[8px] font-mono text-rose-400 mt-1">Glasses & Tint</span>
+            </div>
+            <span class="absolute inset-0 flex items-center justify-center bg-rose-950/30 text-rose-500 font-black text-xs uppercase rotate-12">REJECTED</span>
+          </div>
+          <div class="text-[11px] font-bold text-rose-700 dark:text-rose-300 flex items-center justify-center gap-1">
+            <span>❌</span> REJECTED (Selfie/Glare)
+          </div>
+          <p class="text-[10px] text-muted-foreground leading-tight">
+            Spectacle glare, dark glasses, cropped social media selfies, or colorful backgrounds.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rejection Warning Callout -->
+  <div class="my-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-900 dark:text-rose-200 text-xs sm:text-sm font-medium flex items-start gap-3">
+    <span class="text-lg shrink-0">⚠️</span>
+    <div>
+      <strong class="font-bold">Strict WBPRB Application Rejection Rule:</strong> The West Bengal Police Recruitment Board explicitly mandates: <em>"Signatures in capital letters will not be accepted. The photograph must clearly show the face and eyes without any head covering or dark spectacles."</em> Applications failing these visual audits are cancelled without refund.
+    </div>
+  </div>
+
+  <!-- Section 7: In-Page Interactive Resizer Launchers & Common Upload Errors Callout -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="instant-resizers">🛠️ 7. Instant In-Page Resizer Launchers: Prepare Compliant WBP Uploads</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Eliminate file size errors and dimension mismatches before submitting your West Bengal Police application. Drop your file below for instant verification and direct 1-click resizing:
+  </p>
+
+  <!-- Common Upload Errors Quick-Fix Callout -->
+  <div class="my-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-3">
+    <h3 class="flex items-center gap-2 text-foreground font-bold text-xs sm:text-sm">
+      <span class="text-base">💡</span>
+      <span>Common Upload Errors & Quick-Fix Tips (Before You Drop Your File)</span>
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+      <div class="p-3 rounded-xl bg-card/80 border border-border space-y-1">
+        <span class="font-bold text-amber-700 dark:text-amber-300 flex items-center gap-1"><span>✍️</span> Signature Margin Trap</span>
+        <p class="text-muted-foreground leading-relaxed text-[11px]">
+          Crop out excess white empty borders before resizing. If handwriting covers only 20% of your scan, resizing to 59px height shrinks the signature into unreadable hairlines.
+        </p>
+      </div>
+      <div class="p-3 rounded-xl bg-card/80 border border-border space-y-1">
+        <span class="font-bold text-amber-700 dark:text-amber-300 flex items-center gap-1"><span>📷</span> Photo Moiré Pattern Trap</span>
+        <p class="text-muted-foreground leading-relaxed text-[11px]">
+          Avoid snapping a phone picture of an already printed paper photo. Print dot patterns produce moiré blur and artifact noise under 50 KB. Use a fresh digital camera portrait.
+        </p>
+      </div>
+      <div class="p-3 rounded-xl bg-card/80 border border-border space-y-1">
+        <span class="font-bold text-amber-700 dark:text-amber-300 flex items-center gap-1"><span>🖋️</span> Ink Contrast & Bleed</span>
+        <p class="text-muted-foreground leading-relaxed text-[11px]">
+          Use a dark black ballpoint pen on plain, unruled white paper. Blue gel pens or fountain pens bleed into paper fibers, triggering low-contrast rejections.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
+    <!-- Signature Launcher & Interactive Dropzone Card -->
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-card via-card to-primary/10 border-2 border-primary/30 shadow-xs flex flex-col justify-between space-y-4">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">✍️ Signature Resizer</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">138 × 59 px</span>
+        </div>
+        <h4 class="font-bold text-base text-foreground">WB Police Running Signature Tool</h4>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          Standardizes running signature to strictly <strong>5 KB to 20 KB</strong> in JPG format with automated contrast cleanup.
+        </p>
+
+        <!-- Interactive Drag-and-Drop Dropzone Container -->
+        <div id="wbp-sign-dropzone" class="group relative cursor-pointer block border-2 border-dashed border-blue-400 dark:border-blue-500/70 hover:border-blue-600 bg-blue-50/40 hover:bg-blue-100/50 dark:bg-blue-950/20 dark:hover:bg-blue-900/30 rounded-xl p-4 transition-all duration-200 text-center space-y-2 shadow-xs hover:shadow-md hover:scale-[1.01]">
+          <input type="file" id="wbp-sign-input" class="hidden" accept="image/jpeg,image/png,image/webp" />
+          
+          <!-- Interactive Badge -->
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-2xs">
+              <span>⚡</span> Interactive Live Dropzone
+            </span>
+          </div>
+
+          <!-- Idle State -->
+          <div id="wbp-sign-idle" class="space-y-1 py-1">
+            <span class="text-2xl block group-hover:scale-125 transition-transform duration-300">📥</span>
+            <span class="text-xs font-bold text-foreground block">Drop Signature image here</span>
+            <span class="text-[10px] text-muted-foreground block">or click to browse from device (JPG, PNG, WebP)</span>
+          </div>
+
+          <!-- Analyzing Spinner State -->
+          <div id="wbp-sign-analyzing" class="hidden py-4 text-center text-xs font-semibold text-blue-600 dark:text-blue-400 animate-pulse space-y-1">
+            <span class="text-xl block animate-spin">⚙️</span>
+            <span>Analyzing signature dimensions & compression...</span>
+          </div>
+
+          <!-- Active File Inspection State -->
+          <div id="wbp-sign-feedback" class="hidden space-y-2 text-left">
+            <div class="flex items-center gap-3">
+              <img id="wbp-sign-preview" class="w-20 h-10 object-contain border border-border bg-white rounded shadow-2xs" alt="Signature preview" />
+              <div class="min-w-0 flex-1 text-xs">
+                <div id="wbp-sign-name" class="font-bold text-foreground truncate text-[11px]">filename.jpg</div>
+                <div id="wbp-sign-meta" class="text-[10px] text-muted-foreground">Original: calculating...</div>
+                <div class="text-[10px] font-bold text-amber-600 dark:text-amber-400">Target: 138×59 px • 5–20 KB</div>
+              </div>
+            </div>
+            <div id="wbp-sign-status-badge" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5">
+              <span>⚡</span> Ready for 1-click optimization to WB Police specifications
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a id="wbp-sign-action-btn" href="/wb-police-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-95 transition shadow-xs w-full text-center">
+        <span>Open Signature Canvas (5–20 KB)</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+
+    <!-- Photo Launcher & Interactive Dropzone Card -->
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-card via-card to-primary/10 border-2 border-primary/30 shadow-xs flex flex-col justify-between space-y-4">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">📷 Photograph Resizer</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">138 × 177 px</span>
+        </div>
+        <h4 class="font-bold text-base text-foreground">WB Police Color Photo Tool</h4>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          Formats passport photograph to strictly <strong>10 KB to 50 KB</strong> JPG format in 138×177 px with plain white background.
+        </p>
+
+        <!-- Interactive Drag-and-Drop Dropzone Container -->
+        <div id="wbp-photo-dropzone" class="group relative cursor-pointer block border-2 border-dashed border-blue-400 dark:border-blue-500/70 hover:border-blue-600 bg-blue-50/40 hover:bg-blue-100/50 dark:bg-blue-950/20 dark:hover:bg-blue-900/30 rounded-xl p-4 transition-all duration-200 text-center space-y-2 shadow-xs hover:shadow-md hover:scale-[1.01]">
+          <input type="file" id="wbp-photo-input" class="hidden" accept="image/jpeg,image/png,image/webp" />
+          
+          <!-- Interactive Badge -->
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-2xs">
+              <span>⚡</span> Interactive Live Dropzone
+            </span>
+          </div>
+
+          <!-- Idle State -->
+          <div id="wbp-photo-idle" class="space-y-1 py-1">
+            <span class="text-2xl block group-hover:scale-125 transition-transform duration-300">📥</span>
+            <span class="text-xs font-bold text-foreground block">Drop Passport Photo here</span>
+            <span class="text-[10px] text-muted-foreground block">or click to browse from device (JPG, PNG, WebP)</span>
+          </div>
+
+          <!-- Analyzing Spinner State -->
+          <div id="wbp-photo-analyzing" class="hidden py-4 text-center text-xs font-semibold text-blue-600 dark:text-blue-400 animate-pulse space-y-1">
+            <span class="text-xl block animate-spin">⚙️</span>
+            <span>Analyzing photo dimensions & compression...</span>
+          </div>
+
+          <!-- Active File Inspection State -->
+          <div id="wbp-photo-feedback" class="hidden space-y-2 text-left">
+            <div class="flex items-center gap-3">
+              <img id="wbp-photo-preview" class="w-12 h-16 object-cover border border-border bg-white rounded shadow-2xs" alt="Photo preview" />
+              <div class="min-w-0 flex-1 text-xs">
+                <div id="wbp-photo-name" class="font-bold text-foreground truncate text-[11px]">filename.jpg</div>
+                <div id="wbp-photo-meta" class="text-[10px] text-muted-foreground">Original: calculating...</div>
+                <div class="text-[10px] font-bold text-amber-600 dark:text-amber-400">Target: 138×177 px • 10–50 KB</div>
+              </div>
+            </div>
+            <div id="wbp-photo-status-badge" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5">
+              <span>⚡</span> Ready for 1-click optimization to WB Police specifications
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a id="wbp-photo-action-btn" href="/wb-police-photo-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted/40 transition shadow-xs w-full text-center">
+        <span>Open Photo Canvas (10–50 KB)</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Inline Script for Interactive Dropzones -->
+  <script>
+    function setupWbpDropzone(zoneId, inputId, idleId, analyzingId, feedbackId, previewId, nameId, metaId, statusBadgeId, actionBtnId, toolUrl, minKb, maxKb, targetDims) {
+      const dropzone = document.getElementById(zoneId);
+      const input = document.getElementById(inputId);
+      const idle = document.getElementById(idleId);
+      const analyzing = document.getElementById(analyzingId);
+      const feedback = document.getElementById(feedbackId);
+      const preview = document.getElementById(previewId);
+      const nameEl = document.getElementById(nameId);
+      const metaEl = document.getElementById(metaId);
+      const statusBadge = document.getElementById(statusBadgeId);
+      const actionBtn = document.getElementById(actionBtnId);
+
+      if (!dropzone || !input) return;
+
+      dropzone.addEventListener('click', () => input.click());
+
+      // Drag-over active states
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.add('border-blue-600', 'bg-blue-100/80', 'dark:bg-blue-900/60', 'ring-4', 'ring-blue-500/40', 'scale-[1.02]', 'shadow-lg');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove('border-blue-600', 'bg-blue-100/80', 'dark:bg-blue-900/60', 'ring-4', 'ring-blue-500/40', 'scale-[1.02]', 'shadow-lg');
+        });
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        const files = e.dataTransfer.files;
+        if (files && files.length > 0) handleFile(files[0]);
+      });
+
+      input.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files.length > 0) handleFile(e.target.files[0]);
+      });
+
+      function handleFile(file) {
+        if (!file.type.startsWith('image/')) return;
+
+        // Immediate inline analyzing feedback
+        idle.classList.add('hidden');
+        if (analyzing) analyzing.classList.remove('hidden');
+        if (feedback) feedback.classList.add('hidden');
+
+        const objectUrl = URL.createObjectURL(file);
+        preview.src = objectUrl;
+        nameEl.textContent = file.name;
+        const kbSize = (file.size / 1024).toFixed(1);
+        const numericKb = parseFloat(kbSize);
+
+        const img = new Image();
+        img.onload = () => {
+          setTimeout(() => {
+            if (analyzing) analyzing.classList.add('hidden');
+            if (feedback) feedback.classList.remove('hidden');
+
+            metaEl.textContent = 'Original: ' + img.naturalWidth + '×' + img.naturalHeight + ' px • ' + kbSize + ' KB';
+
+            // Compliance status evaluation
+            if (statusBadge) {
+              if (numericKb > maxKb) {
+                statusBadge.className = 'p-2 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300 text-[11px] font-semibold flex items-center gap-1.5';
+                statusBadge.innerHTML = '<span>⚠️</span> Oversized (' + kbSize + ' KB) &rarr; Auto-compress to ' + minKb + '–' + maxKb + ' KB on canvas';
+              } else if (numericKb < minKb) {
+                statusBadge.className = 'p-2 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300 text-[11px] font-semibold flex items-center gap-1.5';
+                statusBadge.innerHTML = '<span>⚠️</span> Undersized (<' + minKb + ' KB) &rarr; Auto-pad to meet ' + minKb + ' KB floor';
+              } else {
+                statusBadge.className = 'p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5';
+                statusBadge.innerHTML = '<span>✅</span> In-range size (' + kbSize + ' KB) &rarr; Format dimensions to ' + targetDims;
+              }
+            }
+
+            if (actionBtn) {
+              actionBtn.innerHTML = '<span>🚀 Resizing Ready: Format ' + file.name.slice(0, 15) + '... (' + kbSize + ' KB)</span> <span>&rarr;</span>';
+              actionBtn.className = 'inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white font-bold text-xs sm:text-sm hover:bg-blue-700 transition shadow-md ring-2 ring-blue-500/50 w-full text-center animate-pulse';
+            }
+          }, 250);
+        };
+        img.src = objectUrl;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupWbpDropzone('wbp-sign-dropzone', 'wbp-sign-input', 'wbp-sign-idle', 'wbp-sign-analyzing', 'wbp-sign-feedback', 'wbp-sign-preview', 'wbp-sign-name', 'wbp-sign-meta', 'wbp-sign-status-badge', 'wbp-sign-action-btn', '/wb-police-signature-resize/', 5, 20, '138×59 px');
+      setupWbpDropzone('wbp-photo-dropzone', 'wbp-photo-input', 'wbp-photo-idle', 'wbp-photo-analyzing', 'wbp-photo-feedback', 'wbp-photo-preview', 'wbp-photo-name', 'wbp-photo-meta', 'wbp-photo-status-badge', 'wbp-photo-action-btn', '/wb-police-photo-resize/', 10, 50, '138×177 px');
+    });
+  </script>
+
+  <!-- Section 8: Official Portals Directory & Gazette Downloads -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="official-portals">🌐 8. Official West Bengal Police & Kolkata Police Portals Directory</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Candidates must verify application statuses, admit cards, and PMT/PET outdoor schedules exclusively on official state police portals:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>🏛️</span> Official Commission & Department Portals</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Authority / Division</th>
+            <th class="p-3 font-semibold">Primary Function</th>
+            <th class="p-3 font-semibold">Direct Official Portal Link</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">West Bengal Police Recruitment Board (WBPRB)</td>
+            <td class="p-3 text-muted-foreground">Main Application Portal, Admit Cards & Results</td>
+            <td class="p-3"><a href="https://prb.wb.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">prb.wb.gov.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">West Bengal State Police Head Office</td>
+            <td class="p-3 text-muted-foreground">Departmental Orders, Service Rules & Gazettes</td>
+            <td class="p-3"><a href="https://wbpolice.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">wbpolice.gov.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Kolkata Police Recruitment Directorate</td>
+            <td class="p-3 text-muted-foreground">Kolkata Police Constable & SI Notifications</td>
+            <td class="p-3"><a href="https://kolkatapolice.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">kolkatapolice.gov.in &rarr;</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+`
+  },
+  {
+    slug: 'rrb-je-recruitment-2026-cbt-syllabus-salary-photo-signature-rules',
+    title: 'RRB JE 2026 Master Guide: CEN 03/2024 Exam Dates, CBT 1 & 2 Branch Syllabus, Level-6 Salary & Photo-Signature Rules',
+    title_hi: 'RRB JE Recruitment 2026: 7,951 पद, CBT 1 व 2 ब्रांच-वार सिलेबस, लेवल-6 वेतन और फोटो-हस्ताक्षर अपलोड नियम',
+    title_mr: 'RRB JE भरती 2026: 7,951 पदे, CBT 1 व 2 तांत्रिक अभ्यासक्रम, लेवल-6 पगार आणि फोटो-स्वाक्षरी नियम',
+    metaTitle: 'RRB JE 2026 Master Guide: CBT Syllabus, Salary & Photo Rules',
+    metaTitle_hi: 'RRB JE भर्ती 2026: सिलेबस, लेवल-6 सैलरी और फोटो-हस्ताक्षर गाइड',
+    metaTitle_mr: 'RRB JE भरती 2026: अभ्यासक्रम, पगार आणि फोटो-स्वाक्षरी मार्गदर्शक',
+    metaDescription: 'Complete RRB JE (Junior Engineer & DMS) CEN 03/2024 & 2026 guide: 7,951 vacancies, CBT 1 & 2 branch syllabus, ₹69,000 salary, visual Do/Don\'t mockups & 140x60 sign resizer.',
+    metaDescription_hi: 'RRB JE 2026 भर्ती संपूर्ण गाइड: 7,951 पद, CBT 1 और 2 ब्रांच-वार तकनीकी सिलेबस, लेवल-6 वेतन संरचना और 140x60 हस्ताक्षर व 240x320 फोटो अपलोड के आधिकारिक नियम।',
+    metaDescription_mr: 'RRB JE 2026 भरती मार्गदर्शक: 7,951 पदे, CBT 1 व 2 शाखावार अभ्यासक्रम, लेवल-6 पगार आणि 140x60 स्वाक्षरी व 240x320 फोटो अपलोड नियम.',
+    excerpt: 'Authoritative guide to Railway Recruitment Board Junior Engineer (CEN 03/2024 & 2026): 7,951 vacancies across Civil, Mechanical, Electrical, and S&T, revised Pay Level-6 salary slip, CBT-1 screening pattern, CBT-2 technical syllabus matrix, visual Do/Don\'t mockups, interactive dropzones, and official 140×60 px signature & 240×320 px photo compliance.',
+    excerpt_hi: 'रेलवे भर्ती बोर्ड जूनियर इंजीनियर (RRB JE CEN 03/2024 व 2026) का संपूर्ण विश्लेषण: 7,951 पद, सिविल, मैकेनिकल, इलेक्ट्रिकल सिलेबस, लेवल-6 सैलरी और फोटो-हस्ताक्षर के नियम।',
+    excerpt_mr: 'रेल्वे भरती बोर्ड कनिष्ठ अभियंता (RRB JE 2026) चे सविस्तर विश्लेषण: 7,951 पदे, तांत्रिक अभ्यासक्रम, लेवल-6 पगार आणि फोटो-स्वाक्षरीचे अचूक नियम.',
+    category: 'Exam Alerts',
+    country: 'IN',
+    publishDate: 'Oct 26, 2026',
+    publishTime: '07:45 PM IST',
+    lastUpdated: 'Oct 26, 2026',
+    deployedAt: 'Oct 26, 2026 • 07:45 PM IST',
+    author: 'SignResize Railway Technical Desk',
+    authorRole: 'Senior Technical Examination & Document Standards Specialist',
+    readTime: '13 min read',
+    featured: true,
+    tags: [
+      'RRB JE 2026',
+      'RRB Junior Engineer Recruitment',
+      'RRB JE CEN 03/2024',
+      'RRB JE Syllabus Mechanical Civil Electrical',
+      'RRB JE Salary 7th CPC',
+      'RRB JE CBT 1 Cutoff',
+      'RRB JE Photo Size 30 to 70 KB',
+      'RRB JE Signature Resize 140x60',
+      'Railway Recruitment Board',
+      'DMS CMA Vacancy',
+      'RRB Regional Portals'
+    ],
+    relatedExamPreset: 'rrb-je',
+    guideTool: {
+      href: '/rrb-je-signature-resize/',
+      label: 'RRB JE Signature & Photo Resizer'
+    },
+    quickFacts: [
+      { label: 'Recruitment Authority', value: 'Railway Recruitment Boards (RRB CEN 03/2024 & Annual Calendar)' },
+      { label: 'Target Posts', value: 'Junior Engineer (JE), Depot Material Superintendent (DMS), CMA' },
+      { label: 'Total Vacancies', value: '7,951 Engineering Posts (Zone-wise Allocation Across 21 RRBs)' },
+      { label: 'Pay Matrix Cadre', value: 'Level-6 (7th CPC Basic ₹35,400 + DA + HRA ~₹69,120 Gross)' },
+      { label: 'Selection Scheme', value: 'CBT-1 (100 Marks) + CBT-2 (150 Marks) + DV & Medical' },
+      { label: 'CBT-1 Cutoff Floor', value: 'UR/EWS: 40%, OBC/SC: 30%, ST: 25% (15x Vacancy Shortlisting)' },
+      { label: 'Negative Marking', value: '1/3rd (0.33) marks deducted per incorrect response' },
+      { label: 'Signature Upload Specs', value: '140 × 60 px | 10 KB to 20 KB JPG (Black Ink Running Hand, No CAPS)' },
+      { label: 'Photograph Upload Specs', value: '240 × 320 px (3.5×4.5 cm) | 30 KB to 70 KB JPG (Plain White BG)' },
+      { label: 'Official Portals', value: 'rrbapply.gov.in & 21 Regional RRB Notice Boards' }
+    ],
+    quickFacts_hi: [
+      { label: 'भर्ती प्राधिकरण', value: 'रेलवे भर्ती बोर्ड (RRB CEN 03/2024 व वार्षिक कैलेंडर)' },
+      { label: 'पद नाम', value: 'जूनियर इंजीनियर (JE), डिपो सामग्री अधीक्षक (DMS), CMA' },
+      { label: 'कुल रिक्तियां', value: '7,951 पद (21 क्षेत्रीय RRB जोन-वार आवंटन)' },
+      { label: 'वेतन स्तर', value: 'लेवल-6 (मूल वेतन ₹35,400 + भत्ते, सकल ~₹69,120 प्रति माह)' },
+      { label: 'चयन प्रक्रिया', value: 'CBT-1 (100 अंक) + CBT-2 (150 अंक) + DV व मेडिकल' },
+      { label: 'न्यूनतम कटऑफ फ्लोर', value: 'UR/EWS: 40%, OBC/SC: 30%, ST: 25% (15 गुना शॉर्टलिस्टिंग)' },
+      { label: 'नेगेटिव मार्किंग', value: 'प्रत्येक गलत उत्तर पर 1/3 अंक की कटौती' },
+      { label: 'हस्ताक्षर माप', value: '140 × 60 पिक्सल | 10 KB से 20 KB JPG (काली स्याही, केवल रनिंग हैंड)' },
+      { label: 'फोटो माप', value: '240 × 320 पिक्सल | 30 KB से 70 KB JPG (सफेद पृष्ठभूमि)' },
+      { label: 'आधिकारिक पोर्टल', value: 'rrbapply.gov.in व क्षेत्रीय RRB वेबसाइटें' }
+    ],
+    quickFacts_mr: [
+      { label: 'भरती प्राधिकरण', value: 'रेल्वे भरती बोर्ड (RRB CEN 03/2024 व वार्षिक दिनदर्शिका)' },
+      { label: 'पदाचे नाव', value: 'कनिष्ठ अभियंता (JE), डेपो मटेरियल अधीक्षक (DMS), CMA' },
+      { label: 'एकूण पदे', value: '7,951 पदे (21 क्षेत्रीय RRB झोननिहाय वाटप)' },
+      { label: 'वेतन श्रेणी', value: 'लेव्हल-6 (मूळ वेतन ₹35,400 + भत्ते, एकूण ~₹69,120 दरमहा)' },
+      { label: 'निवड प्रक्रिया', value: 'CBT-1 (100 गुण) + CBT-2 (150 गुण) + कागदपत्र पडताळणी' },
+      { label: 'किमान पात्रता गुण', value: 'UR/EWS: 40%, OBC/SC: 30%, ST: 25% (15 पट उमेदवार निवड)' },
+      { label: 'नकारात्मक गुण', value: 'प्रत्येक चुकीच्या उत्तरासाठी 1/3 गुण वजा' },
+      { label: 'स्वाक्षरी आकार', value: '140 × 60 पिक्सेल | 10 KB ते 20 KB JPG (काळी शाई, फक्त चालू हस्ताक्षर)' },
+      { label: 'फोटो आकार', value: '240 × 320 पिक्सेल | 30 KB ते 70 KB JPG (पांढरी पार्श्वभूमी)' },
+      { label: 'अधिकृत पोर्टल', value: 'rrbapply.gov.in व प्रादेशिक RRB पोर्टल्स' }
+    ],
+    faqs: [
+      {
+        question: 'What is the examination pattern and sectional weightage for RRB JE CBT-1?',
+        answer: 'RRB JE CBT-1 is a 90-minute screening test consisting of 100 multiple-choice questions for 100 marks. The paper comprises Mathematics (30 Questions), General Intelligence & Reasoning (25 Questions), General Awareness (15 Questions), and General Science (30 Questions, covering Physics, Chemistry, and Life Sciences up to Class 10 CBSE level). Negative marking of 1/3rd (0.33 mark) applies for each wrong answer.'
+      },
+      {
+        question: 'How does the 15x shortlisting ratio and normalized cutoff floor work for CBT-2?',
+        answer: 'Candidates are shortlisted for CBT-2 strictly based on normalized marks scored in CBT-1 at a ratio of 15 times the community-wise vacancy of the posts notified for each Railway Recruitment Board. To be eligible for shortlisting, candidates must first score above the statutory minimum qualifying percentage: UR / EWS (40%), OBC-NCL (30%), SC (30%), and ST (25%). CBT-1 marks serve solely for screening and are not counted toward the final merit ranking.'
+      },
+      {
+        question: 'What is the branch-wise technical syllabus breakdown for RRB JE CBT-2?',
+        answer: 'RRB JE CBT-2 consists of 150 questions (150 marks) in 120 minutes: 50 non-technical marks (General Awareness - 15, Physics & Chemistry - 15, Computers - 10, Environment - 10) and 100 core technical branch marks. Civil covers Building Materials, Surveying, Soil Mechanics, Hydraulics, RCC & Steel. Mechanical covers SOM, Theory of Machines, Thermodynamics, IC Engines, and Fluid Machinery. Electrical covers Circuit Law, AC Fundamentals, Transformers, Induction Motors, and Power Systems. Electronics/S&T covers Semiconductor Devices, Digital Circuits, Microprocessors (8085), and Communication Networks.'
+      },
+      {
+        question: 'What is the monthly in-hand salary of an RRB Junior Engineer in 2026?',
+        answer: 'RRB Junior Engineers are appointed under 7th CPC Pay Matrix Level-6 with an initial basic pay of ₹35,400 per month. With Dearness Allowance (DA at 50% = ₹17,700), House Rent Allowance (HRA at 30% for X-Class cities = ₹10,620), and Transport Allowance (₹3,600 + DA on TA = ₹5,400), the gross monthly emoluments exceed ₹69,120. Net in-hand salary ranges between ₹58,000 and ₹62,000 after NPS (10% of Basic + DA = ₹5,310) and insurance deductions.'
+      },
+      {
+        question: 'What are the official photo requirements for the RRB JE application portal?',
+        answer: 'The photograph must be a recent clear color passport photograph of 3.5 cm × 4.5 cm (240 × 320 pixels) taken against a plain white or light grey background, with file size strictly between 30 KB and 70 KB in JPG/JPEG format. Full front view showing both ears and forehead is mandatory. Photos with caps, dark glasses, heavy shadows, or selfies are rejected.'
+      },
+      {
+        question: 'What are the signature specifications, and why are CAPITAL letters rejected?',
+        answer: 'The signature must be sized 140 × 60 pixels (4.0 cm × 2.0 cm) with file size strictly between 10 KB and 20 KB in JPG format. It must be signed in black ballpoint ink on clean white unruled paper in natural running cursive handwriting. Paragraph 15.2 of CEN 03/2024 states explicitly that signatures written in CAPITAL / BLOCK LETTERS will lead to immediate summary application disqualification.'
+      },
+      {
+        question: 'Can Diploma and B.Tech degree holders both apply for RRB JE?',
+        answer: 'Yes. Candidates holding a three-year Diploma in Engineering or a four-year B.Tech / B.E. / B.Sc (Engineering) degree in relevant streams (Civil, Mechanical, Electrical, Electronics, Production, Automobile, Instrumentation, IT, CS) from AICTE/UGC recognized institutions are eligible to apply.'
+      },
+      {
+        question: 'What are the medical vision standards for RRB Junior Engineers?',
+        answer: 'RRB JE posts demand stringent physical and optical fitness: Aye-Three (A-3) requires distance vision of 6/9, 6/9 with or without glasses and passing color vision tests; Bee-One (B-1) requires 6/9, 6/12 with or without glasses; Bee-Two (B-2) requires 6/9, 6/12 with glasses. Candidates who have undergone Lasik surgery are strictly ineligible for categories requiring A-3 medical standards.'
+      },
+      {
+        question: 'Can a candidate change their chosen Regional RRB zone after application submission?',
+        answer: 'No. The Railway Recruitment Board explicitly disallows any change of RRB zone once the final application is submitted and payment is completed. Modifications during correction windows are limited to personal details, gender, category, or photo/signature updates (with a ₹250 modification fee); the applied RRB zone and post priority remain locked.'
+      },
+      {
+        question: 'What is the relationship between CEN 03/2024 and the 2026 Railway Recruitment Calendar?',
+        answer: 'CEN 03/2024 represents the active recruitment notification for 7,951 Junior Engineer vacancies currently navigating CBT-1, CBT-2, and Document Verification schedules. The Ministry of Railways standardized annual calendar establishes that upcoming 2025-2026 JE recruitment cycles maintain identical CBT-1/CBT-2 syllabus structures, Level-6 pay rules, and 140x60 sign / 240x320 photo upload standards.'
+      }
+    ],
+    faqs_hi: [
+      {
+        question: 'RRB JE CBT-1 परीक्षा का पैटर्न और विषय-वार अंक क्या हैं?',
+        answer: 'RRB JE CBT-1 परीक्षा 90 मिनट की होती है जिसमें 100 वस्तुनिष्ठ प्रश्न (100 अंक) होते हैं: गणित (30 प्रश्न), रीजनिंग (25 प्रश्न), सामान्य जागरूकता (15 प्रश्न), और सामान्य विज्ञान (30 प्रश्न)। प्रत्येक गलत उत्तर पर 1/3 अंक की नेगेटिव मार्किंग होती है।'
+      },
+      {
+        question: 'CBT-2 के लिए 15 गुना शॉर्टलिस्टिंग और न्यूनतम कटऑफ नियम क्या है?',
+        answer: 'CBT-1 में प्राप्त नॉर्मलाइज्ड अंकों के आधार पर प्रत्येक RRB में रिक्तियों के 15 गुना उम्मीदवारों को CBT-2 के लिए चुना जाता है। उम्मीदवारों को न्यूनतम योग्यता अंक (UR/EWS: 40%, OBC/SC: 30%, ST: 25%) पार करना अनिवार्य होता है।'
+      },
+      {
+        question: 'RRB JE CBT-2 का ब्रांच-वार तकनीकी सिलेबस क्या है?',
+        answer: 'CBT-2 में 150 प्रश्न (150 अंक) होते हैं: 50 अंक गैर-तकनीकी (GA, Physics, Chemistry, Computer, Environment) और 100 अंक आपकी चुनी हुई इंजीनियरिंग शाखा (सिविल, मैकेनिकल, इलेक्ट्रिकल, इलेक्ट्रॉनिक्स) के कोर विषयों से पूछे जाते हैं।'
+      },
+      {
+        question: 'RRB जूनियर इंजीनियर का मासिक इन-हैंड वेतन कितना होता है?',
+        answer: '7वें वेतन आयोग के अनुसार RRB JE को लेवल-6 (मूल वेतन ₹35,400) पर नियुक्त किया जाता है। DA (50%), HRA और परिवहन भत्तों को मिलाकर मेट्रो शहरों में सकल वेतन लगभग ₹69,120 प्रति माह होता है, जिससे इन-हैंड वेतन ₹58,000 से ₹62,000 बनता है।'
+      },
+      {
+        question: 'RRB JE ऑनलाइन आवेदन के लिए फोटो और हस्ताक्षर का सही साइज क्या है?',
+        answer: 'पासपोर्ट फोटो का साइज 240 × 320 पिक्सल (30 KB से 70 KB JPG) सफेद बैकग्राउंड में और हस्ताक्षर का साइज 140 × 60 पिक्सल (10 KB से 20 KB JPG) काली स्याही में होना अनिवार्य है। कैपिटल अक्षरों में हस्ताक्षर 100% रद्द कर दिए जाते हैं।'
+      }
+    ],
+    faqs_mr: [
+      {
+        question: 'RRB JE CBT-1 परीक्षेचे स्वरूप आणि गुण विभागणी काय आहे?',
+        answer: 'RRB JE CBT-1 ही 90 मिनिटांची चाळणी परीक्षा असून यात 100 गुणांचे 100 प्रश्न असतात: गणित (30 प्रश्न), बुद्धिमत्ता (25 प्रश्न), सामान्य ज्ञान (15 प्रश्न) आणि सामान्य विज्ञान (30 प्रश्न). प्रत्येक चुकीच्या उत्तरासाठी 1/3 नकारात्मक गुण लागू असतात.'
+      },
+      {
+        question: 'CBT-2 साठी 15 पट शॉर्टलिस्टिंग आणि किमान पात्रता नियम काय आहे?',
+        answer: 'CBT-1 मधील नॉर्मलाइझ गुणांच्या आधारे प्रत्येक RRB झोनमधील रिक्त पदांच्या 15 पट उमेदवार CBT-2 साठी निवडले जातात. उमेदवारांना किमान पात्रता गुण (UR/EWS: 40%, OBC/SC: 30%, ST: 25%) मिळवणे बंधनकारक असते.'
+      },
+      {
+        question: 'RRB JE CBT-2 चा तांत्रिक अभ्यासक्रम कसा आहे?',
+        answer: 'CBT-2 मध्ये 150 प्रश्न (150 गुण, 120 मिनिटे) असतात. यातील 100 गुण संबंधित अभियांत्रिकी शाखेचे (सिव्हिल, मेकॅनिकल, इलेक्ट्रिकल, इलेक्ट्रॉनिक्स) असतात, तर 50 गुण सामान्य अभ्यास, संगणक व पर्यावरणाचे असतात.'
+      },
+      {
+        question: 'RRB कनिष्ठ अभियंता पदाचा मासिक पगार किती असतो?',
+        answer: 'लेव्हल-6 नुसार मूळ वेतन ₹35,400 असून महागाई भत्ता (50%), घरभाडे भत्ता आणि इतर भत्ते मिळून एकूण पगार सुमारे ₹69,120 दरमहा होतो. कपातीनंतर हातात ₹58,000 ते ₹62,000 मिळतात.'
+      },
+      {
+        question: 'RRB JE अर्जासाठी फोटो आणि स्वाक्षरीचे अचूक नियम काय आहेत?',
+        answer: 'फोटो 240 × 320 पिक्सेल (30 KB ते 70 KB) पांढऱ्या बॅकग्राउंडमध्ये आणि स्वाक्षरी 140 × 60 पिक्सेल (10 KB ते 20 KB) काळ्या शाईमध्ये आवश्यक आहे. कॅपिटल अक्षरातील स्वाक्षरी अपात्र ठरते.'
+      }
+    ],
+    contentHtml: `
+  <!-- Direct Answer Card -->
+  <div class="my-6 p-6 rounded-2xl bg-gradient-to-br from-card via-card to-primary/5 border border-primary/20 shadow-xs space-y-4">
+    <div class="flex items-center gap-2.5 text-primary">
+      <span class="text-xl">🚆</span>
+      <h3 class="text-base font-bold text-foreground">Direct Answer: RRB JE Recruitment 2026 Master Summary</h3>
+    </div>
+    <p class="text-sm text-foreground/90 leading-relaxed font-medium">
+      The <strong>Railway Recruitment Boards (RRB CEN 03/2024 & 2026)</strong> announced <strong>7,951 vacancies</strong> for Junior Engineer (JE), Depot Material Superintendent (DMS), and Chemical & Metallurgical Assistant (CMA) across Indian Railways zones. Appointed in <strong>Pay Matrix Level-6 (Basic Pay ₹35,400; Gross ~₹69,120/month)</strong>, candidates must navigate a rigorous selection pipeline: <strong>CBT-1 (100 Questions / 90 Mins screening)</strong>, followed by <strong>CBT-2 (150 Questions / 120 Mins including 100 technical branch marks)</strong>, Document Verification, and Medical Examination. Uploading compliant credentials is mandatory: passport photograph (<strong>240 × 320 px, strictly 30 KB to 70 KB JPG</strong> with plain white background) and black ballpoint ink signature (<strong>140 × 60 px, strictly 10 KB to 20 KB JPG</strong> in running handwriting) on <a href="https://www.rrbapply.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline">rrbapply.gov.in</a>.
+    </p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Total Vacancies</span>
+        <strong class="text-foreground text-sm font-extrabold">7,951 Posts</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Pay Scale</span>
+        <strong class="text-foreground text-sm font-extrabold">Level-6 (₹35,400 Basic)</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">CBT-1 Scheme</span>
+        <strong class="text-foreground text-sm font-extrabold">100 Qs / 90 Mins</strong>
+      </div>
+      <div class="p-2.5 rounded-xl bg-card border border-border shadow-2xs">
+        <span class="block text-slate-600 dark:text-slate-400 font-bold text-[11px]">Technical Marks</span>
+        <strong class="text-foreground text-sm font-extrabold">100 / 150 (CBT-2)</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Quick Jump Bar -->
+  <div class="my-4 p-2 rounded-xl bg-card/90 border border-border shadow-2xs sticky top-16 sm:top-20 z-20 backdrop-blur-md">
+    <div class="text-[11px] font-bold text-muted-foreground uppercase tracking-wider px-2 mb-1.5 flex items-center gap-1.5">
+      <span class="text-primary">⚡</span> Quick Jump Navigation:
+    </div>
+    <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs whitespace-nowrap">
+      <a href="#document-specs" class="px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary font-bold transition flex items-center gap-1 shrink-0">
+        <span>📸</span> <span>Upload Specs</span>
+      </a>
+      <a href="#visual-checklist" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold transition flex items-center gap-1 shrink-0">
+        <span>🛡️</span> <span>Do vs Don't</span>
+      </a>
+      <a href="#instant-resizers" class="px-2.5 py-1 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition flex items-center gap-1 shrink-0 shadow-2xs">
+        <span>🛠️</span> <span>Resize Now</span>
+      </a>
+      <a href="#salary-structure" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>💰</span> <span>Salary (₹69K)</span>
+      </a>
+      <a href="#technical-syllabus" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>🔬</span> <span>CBT-2 Syllabus</span>
+      </a>
+      <a href="#selection-timeline" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>🗺️</span> <span>4-Stage Roadmap</span>
+      </a>
+      <a href="#regional-rrb-portals" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>🏛️</span> <span>Regional Portals</span>
+      </a>
+      <a href="#faqs" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
+        <span>❓</span> <span>10 FAQs</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Notification Status & Timeline Clarification Banner -->
+  <div class="my-6 p-5 rounded-2xl bg-blue-500/10 border-2 border-blue-500/30 text-foreground space-y-2.5 shadow-xs">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-600 text-white shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> NOTIFICATION STATUS & TIMELINE CLARITY
+      </span>
+      <span class="text-xs font-bold text-blue-700 dark:text-blue-300">CEN 03/2024 Ongoing Stages vs 2026 Annual Calendar</span>
+    </div>
+    <p class="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
+      <strong>Active Cycle Notice:</strong> Centralised Employment Notice <strong>CEN 03/2024</strong> is the active recruitment cycle with 7,951 notified vacancies undergoing multi-phase evaluation: CBT-1 examination scheduling, City Intimation Slip releases (issued 10 days prior to exam), and Admit Card e-call letters (issued 4 days before exam dates). Candidates targeting the upcoming <strong>2026 Annual Railway Recruitment Calendar</strong> follow this identical CBT-1/CBT-2 syllabus structure, Pay Level-6 salary rules, and photo-signature compliance standards under the Ministry of Railways standardized hiring protocol.
+    </p>
+  </div>
+
+  <!-- 4-Stage Selection Timeline Roadmap -->
+  <div class="my-6 p-5 rounded-2xl bg-card border border-border shadow-xs space-y-4" id="selection-timeline">
+    <div class="flex items-center justify-between border-b border-border pb-3">
+      <div class="flex items-center gap-2 text-foreground font-bold text-sm sm:text-base">
+        <span>🗺️</span> <span>RRB JE 4-Stage Recruitment Progress Tracker</span>
+      </div>
+      <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">Standard Flow</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+      <!-- Stage 1 -->
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-border space-y-1.5">
+        <div class="flex items-center justify-between">
+          <span class="font-mono font-bold text-primary">STAGE 1</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold">Scrutiny</span>
+        </div>
+        <strong class="text-foreground text-xs block font-bold">Application & Scrutiny</strong>
+        <p class="text-muted-foreground text-[11px] leading-relaxed">
+          Online registration, fee payment, and automated checking of 140×60 sign and 240×320 photo uploads on rrbapply.gov.in.
+        </p>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-border space-y-1.5">
+        <div class="flex items-center justify-between">
+          <span class="font-mono font-bold text-amber-600 dark:text-amber-400">STAGE 2</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold">Screening</span>
+        </div>
+        <strong class="text-foreground text-xs block font-bold">CBT-1 & City Intimation</strong>
+        <p class="text-muted-foreground text-[11px] leading-relaxed">
+          Exam city slip out 10 days prior; Admit card 4 days prior. 100 Questions / 90 mins to filter top 15× vacancy candidates.
+        </p>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-border space-y-1.5">
+        <div class="flex items-center justify-between">
+          <span class="font-mono font-bold text-emerald-600 dark:text-emerald-400">STAGE 3</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold">Final Merit</span>
+        </div>
+        <strong class="text-foreground text-xs block font-bold">CBT-2 Technical Exam</strong>
+        <p class="text-muted-foreground text-[11px] leading-relaxed">
+          150 Questions / 120 mins with 100 technical branch marks. 100% of final appointment ranking relies on normalized CBT-2 score.
+        </p>
+      </div>
+
+      <!-- Stage 4 -->
+      <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-border space-y-1.5">
+        <div class="flex items-center justify-between">
+          <span class="font-mono font-bold text-purple-600 dark:text-purple-400">STAGE 4</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 font-bold">Empanelment</span>
+        </div>
+        <strong class="text-foreground text-xs block font-bold">DV & Medical Fitness</strong>
+        <p class="text-muted-foreground text-[11px] leading-relaxed">
+          Original engineering credentials audit and strict optical standards test (Aye-Three 6/9 vision, color test, no Lasik).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-base text-slate-800 dark:text-slate-200 font-medium">
+    Securing a Junior Engineer cadre in Indian Railways represents one of the most prestigious technical careers for diploma and degree engineers in India. Beyond attractive compensation and housing benefits, RRB JEs lead critical railway modernization, track inspection, rolling stock maintenance, signal interlocking, and depot logistics. Below is the exhaustive blueprint covering post distribution, Level-6 salary structures, syllabus breakdown, Do/Don\'t upload rules, and regional portal directories.
+  </p>
+
+  <!-- Section 1: Vacancy Breakdown & Post Categories -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="vacancy-distribution">📋 1. RRB JE 2026 Vacancy Distribution Across Engineering Streams</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Under Centralised Employment Notice (CEN 03/2024), the Ministry of Railways announced 7,951 posts distributed across four core designations:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>⚙️</span> RRB JE Post Cadre & Stream Allocation</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Post Cadre</th>
+            <th class="p-3 font-semibold">Qualifying Branch</th>
+            <th class="p-3 font-semibold">Vacancies</th>
+            <th class="p-3 font-semibold">Medical Standard</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Junior Engineer (Civil Engineering)</td>
+            <td class="p-3 text-muted-foreground">Civil, Construction Technology, B.Tech/Diploma</td>
+            <td class="p-3 font-bold text-foreground">4,298 Posts</td>
+            <td class="p-3 text-muted-foreground">Aye-Three (A-3) / Bee-One (B-1)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Junior Engineer (Mechanical & Workshop)</td>
+            <td class="p-3 text-muted-foreground">Mechanical, Production, Automobile, Manufacturing</td>
+            <td class="p-3 font-bold text-foreground">1,824 Posts</td>
+            <td class="p-3 text-muted-foreground">Bee-One (B-1) / Bee-Two (B-2)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Junior Engineer (Electrical & TRD)</td>
+            <td class="p-3 text-muted-foreground">Electrical, Power Systems, Instrumentation</td>
+            <td class="p-3 font-bold text-foreground">1,210 Posts</td>
+            <td class="p-3 text-muted-foreground">Aye-Three (A-3) / Bee-One (B-1)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Junior Engineer (Signal & Telecom - S&T)</td>
+            <td class="p-3 text-muted-foreground">Electronics, Telecommunication, IT, Computer Science</td>
+            <td class="p-3 font-bold text-foreground">412 Posts</td>
+            <td class="p-3 text-muted-foreground">Aye-Three (A-3)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Depot Material Superintendent (DMS)</td>
+            <td class="p-3 text-muted-foreground">Engineering Diploma / Degree in any branch</td>
+            <td class="p-3 font-bold text-foreground">168 Posts</td>
+            <td class="p-3 text-muted-foreground">Cee-One (C-1)</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Chemical & Metallurgical Assistant (CMA)</td>
+            <td class="p-3 text-muted-foreground">B.Sc with Chemistry & Physics (45% marks)</td>
+            <td class="p-3 font-bold text-foreground">39 Posts</td>
+            <td class="p-3 text-muted-foreground">Bee-One (B-1)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 2: Salary Structure -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="salary-structure">💰 2. RRB JE Salary Structure 2026: 7th CPC Level-6 Pay Slip Breakdown</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Railway Junior Engineers receive compensation under Pay Matrix Level-6 of the 7th Central Pay Commission. Below is the realistic monthly gross and in-hand calculation for an officer posted in an X-Class metropolitan city (e.g., Mumbai, Delhi, Kolkata, Chennai, Bengaluru):
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>💵</span> RRB JE Monthly Pay Calculation (Level-6)</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Component</th>
+            <th class="p-3 font-semibold">Rate / Calculation</th>
+            <th class="p-3 font-semibold">Monthly Amount</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Basic Pay</td>
+            <td class="p-3 text-muted-foreground">7th CPC Level-6 Index 1</td>
+            <td class="p-3 font-bold text-foreground">₹35,400</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Dearness Allowance (DA)</td>
+            <td class="p-3 text-muted-foreground">50% of Basic Pay</td>
+            <td class="p-3 font-bold text-foreground">₹17,700</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">House Rent Allowance (HRA)</td>
+            <td class="p-3 text-muted-foreground">30% (X City) / 20% (Y) / 10% (Z)</td>
+            <td class="p-3 font-bold text-foreground">₹10,620</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Transport Allowance (TA)</td>
+            <td class="p-3 text-muted-foreground">Higher TPTA Cities</td>
+            <td class="p-3 font-bold text-foreground">₹3,600</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">DA on Transport Allowance</td>
+            <td class="p-3 text-muted-foreground">50% on ₹3,600</td>
+            <td class="p-3 font-bold text-foreground">₹1,800</td>
+          </tr>
+          <tr class="bg-primary/5 font-bold">
+            <td class="p-3 text-primary">Gross Monthly Emoluments</td>
+            <td class="p-3 text-primary">Before Deductions</td>
+            <td class="p-3 text-primary">₹69,120</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Statutory Deductions (NPS 10% + CGEGIS + Tax)</td>
+            <td class="p-3 text-muted-foreground">NPS (Basic + DA) = ₹5,310 + CGIS</td>
+            <td class="p-3 font-bold text-red-500">- ₹7,200 (approx)</td>
+          </tr>
+          <tr class="bg-emerald-500/10 font-bold">
+            <td class="p-3 text-emerald-600 dark:text-emerald-400">Net Take-Home Salary</td>
+            <td class="p-3 text-emerald-600 dark:text-emerald-400">Deposited in Bank Account</td>
+            <td class="p-3 text-emerald-600 dark:text-emerald-400">₹61,920 / Month</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 3: Two-Tier CBT Examination Pattern -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="exam-pattern">📝 3. RRB JE Examination Pattern: CBT-1 vs CBT-2 Compared</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Selection strictly relies on computer-based merit. Understanding the exact sectional weightage ensures you balance speed in CBT-1 and engineering technical depth in CBT-2:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+    <!-- CBT-1 Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-3">
+        <h4 class="font-bold text-base text-foreground">Stage 1: CBT-1 (Screening Test)</h4>
+        <span class="text-xs px-2.5 py-1 rounded-full font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400">100 Qs / 90 Mins</span>
+      </div>
+      <ul class="text-xs sm:text-sm space-y-2 text-muted-foreground">
+        <li class="flex justify-between py-1 border-b border-border/50"><span>Mathematics (Arithmetic, Algebra, Geometry)</span><strong class="text-foreground">30 Questions (30 Marks)</strong></li>
+        <li class="flex justify-between py-1 border-b border-border/50"><span>General Intelligence & Reasoning</span><strong class="text-foreground">25 Questions (25 Marks)</strong></li>
+        <li class="flex justify-between py-1 border-b border-border/50"><span>General Science (Physics, Chemistry, Biology)</span><strong class="text-foreground">30 Questions (30 Marks)</strong></li>
+        <li class="flex justify-between py-1"><span>General Awareness (Current Affairs, Railway History)</span><strong class="text-foreground">15 Questions (15 Marks)</strong></li>
+      </ul>
+      <div class="p-3 rounded-xl bg-muted/40 text-[11px] text-muted-foreground font-medium">
+        🎯 <strong>Screening Purpose:</strong> Shortlists top 15× vacancy candidates for CBT-2 based on normalized scores.
+      </div>
+    </div>
+
+    <!-- CBT-2 Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-3">
+      <div class="flex items-center justify-between border-b border-border pb-3">
+        <h4 class="font-bold text-base text-foreground">Stage 2: CBT-2 (Merit Test)</h4>
+        <span class="text-xs px-2.5 py-1 rounded-full font-bold bg-primary/10 text-primary">150 Qs / 120 Mins</span>
+      </div>
+      <ul class="text-xs sm:text-sm space-y-2 text-muted-foreground">
+        <li class="flex justify-between py-1 border-b border-border/50"><span>Technical Abilities (Branch Discipline)</span><strong class="text-primary font-bold">100 Questions (100 Marks)</strong></li>
+        <li class="flex justify-between py-1 border-b border-border/50"><span>Physics & Chemistry (Class 10+2 Level)</span><strong class="text-foreground">15 Questions (15 Marks)</strong></li>
+        <li class="flex justify-between py-1 border-b border-border/50"><span>General Awareness (National, Economy)</span><strong class="text-foreground">15 Questions (15 Marks)</strong></li>
+        <li class="flex justify-between py-1 border-b border-border/50"><span>Basics of Computers & Applications</span><strong class="text-foreground">10 Questions (10 Marks)</strong></li>
+        <li class="flex justify-between py-1"><span>Basics of Environment & Pollution Control</span><strong class="text-foreground">10 Questions (10 Marks)</strong></li>
+      </ul>
+      <div class="p-3 rounded-xl bg-muted/40 text-[11px] text-muted-foreground font-medium">
+        🏆 <strong>Final Merit:</strong> 100% of final appointment ranking is prepared exclusively on normalized CBT-2 marks.
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimum Qualifying Cutoff Percentages Table -->
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>⚖️</span> Statutory Minimum Qualifying Marks & Normalization Floor</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/10 px-2 py-0.5 rounded-full animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Category</th>
+            <th class="p-3 font-semibold">Minimum Qualifying Cutoff</th>
+            <th class="p-3 font-semibold">Shortlisting Multiplier</th>
+            <th class="p-3 font-semibold">PwBD Concession</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Unreserved (UR) / General</td>
+            <td class="p-3 font-bold text-foreground">40% Marks</td>
+            <td class="p-3 text-muted-foreground">15 Times Category Vacancy</td>
+            <td class="p-3 text-muted-foreground">2% Relaxation (38%) if Shortfall</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Economically Weaker Section (EWS)</td>
+            <td class="p-3 font-bold text-foreground">40% Marks</td>
+            <td class="p-3 text-muted-foreground">15 Times Category Vacancy</td>
+            <td class="p-3 text-muted-foreground">2% Relaxation (38%) if Shortfall</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Other Backward Classes (OBC-NCL)</td>
+            <td class="p-3 font-bold text-foreground">30% Marks</td>
+            <td class="p-3 text-muted-foreground">15 Times Category Vacancy</td>
+            <td class="p-3 text-muted-foreground">2% Relaxation (28%) if Shortfall</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Scheduled Caste (SC)</td>
+            <td class="p-3 font-bold text-foreground">30% Marks</td>
+            <td class="p-3 text-muted-foreground">15 Times Category Vacancy</td>
+            <td class="p-3 text-muted-foreground">2% Relaxation (28%) if Shortfall</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Scheduled Tribe (ST)</td>
+            <td class="p-3 font-bold text-foreground">25% Marks</td>
+            <td class="p-3 text-muted-foreground">15 Times Category Vacancy</td>
+            <td class="p-3 text-muted-foreground">2% Relaxation (23%) if Shortfall</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 4: Branch-Wise Technical Syllabus Matrix -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="technical-syllabus">🔬 4. CBT-2 Technical Syllabus Matrix: Core Subject Breakdown (100 Marks)</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    The technical abilities section carries two-thirds (66.7%) of your total CBT-2 evaluation. Below are the highest-yield subjects notified for each engineering stream:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+    <!-- Civil Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-2.5">
+      <div class="flex items-center gap-2 border-b border-border pb-2.5">
+        <span class="text-lg">🏗️</span>
+        <h4 class="font-bold text-sm text-foreground">Civil & Allied Engineering</h4>
+      </div>
+      <ul class="text-xs space-y-1.5 text-muted-foreground">
+        <li><strong>Building Materials:</strong> Physical & chemical properties of cement, coarse/fine aggregates, concrete mix design, bricks, and timber.</li>
+        <li><strong>Surveying:</strong> Chain surveying, compass, theodolite traversal, levelling, contouring, tachometry, and curve setting.</li>
+        <li><strong>Soil Mechanics & Foundations:</strong> Soil classification, permeability, shear strength, compaction, and shallow/deep foundation bearing capacity.</li>
+        <li><strong>Hydraulics & Fluid Mechanics:</strong> Flow measurement, Bernoulli equation, pipe flow friction, open channel flow, and weir equations.</li>
+        <li><strong>RCC Structures & Steel Design:</strong> Working stress vs limit state methods, shear reinforcement, IS 456 beams/columns, and IS 800 connections.</li>
+      </ul>
+    </div>
+
+    <!-- Mechanical Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-2.5">
+      <div class="flex items-center gap-2 border-b border-border pb-2.5">
+        <span class="text-lg">⚙️</span>
+        <h4 class="font-bold text-sm text-foreground">Mechanical & Allied Engineering</h4>
+      </div>
+      <ul class="text-xs space-y-1.5 text-muted-foreground">
+        <li><strong>Mechanics & SOM:</strong> Stress-strain relationships, Mohr circle, shear force & bending moment diagrams, torsion of shafts, Euler columns.</li>
+        <li><strong>Theory of Machines:</strong> Kinematic links, inversions, gear trains, dynamic balancing, governors, and flywheel turning moment diagrams.</li>
+        <li><strong>Thermal Engineering:</strong> Laws of thermodynamics, air standard cycles (Otto, Diesel, Dual), Rankine cycle, IC engine performance, and cooling.</li>
+        <li><strong>Fluid Machinery:</strong> Pelton wheels, Francis/Kaplan turbines, centrifugal & reciprocating pumps, cavitation, and hydraulic efficiency.</li>
+        <li><strong>Production Technology:</strong> Casting gating systems, arc & resistance welding, lathe machining operations, CNC fundamentals, and heat treatment.</li>
+      </ul>
+    </div>
+
+    <!-- Electrical Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-2.5">
+      <div class="flex items-center gap-2 border-b border-border pb-2.5">
+        <span class="text-lg">⚡</span>
+        <h4 class="font-bold text-sm text-foreground">Electrical & Allied Engineering</h4>
+      </div>
+      <ul class="text-xs space-y-1.5 text-muted-foreground">
+        <li><strong>Circuit Theory:</strong> Ohm's law, Kirchhoff's laws, Thevenin, Norton, Superposition, and Maximum Power Transfer theorems.</li>
+        <li><strong>AC Fundamentals:</strong> RMS and average values, form factor, 3-phase star/delta connections, active/reactive power, and resonance.</li>
+        <li><strong>Electrical Machines:</strong> Single & 3-phase transformers (losses, efficiency), DC motors (starting, speed control), and 3-phase induction motors.</li>
+        <li><strong>Power Systems:</strong> Generation sources, transmission line parameters, distribution systems, fault current calculations, and substation layout.</li>
+        <li><strong>Switchgear & Measurements:</strong> Circuit breakers, induction relays, earthing standards, PMMC & MI meters, and digital energy meters.</li>
+      </ul>
+    </div>
+
+    <!-- S&T Card -->
+    <div class="p-5 rounded-2xl bg-card border border-border shadow-xs space-y-2.5">
+      <div class="flex items-center gap-2 border-b border-border pb-2.5">
+        <span class="text-lg">📡</span>
+        <h4 class="font-bold text-sm text-foreground">Electronics & Telecommunications (S&T / IT)</h4>
+      </div>
+      <ul class="text-xs space-y-1.5 text-muted-foreground">
+        <li><strong>Semiconductor Devices:</strong> PN junction diode characteristics, BJT biasing configurations, JFET/MOSFET operations, and operational amplifiers.</li>
+        <li><strong>Digital Electronics:</strong> Boolean algebra, Karnaugh maps, combinational logic (multiplexers, decoders), and sequential circuits (flip-flops, counters).</li>
+        <li><strong>Microprocessors:</strong> 8085 architecture, pin diagram, instruction set, timing diagrams, addressing modes, and peripheral interfacing (8255).</li>
+        <li><strong>Communication Systems:</strong> Modulation techniques (AM, FM, PM), digital modulations (ASK, FSK, PSK, QAM), and optical fiber communication.</li>
+        <li><strong>Computer Networks:</strong> OSI 7-layer reference model, TCP/IP protocol suite, IP addressing, routing protocols, and Ethernet standards.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 5: Document Upload Standards & Photo/Sign Rules -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="document-specs">📸 5. Official RRB JE Document Upload Guidelines (CEN 03/2024 Standards)</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Over 12% of railway applications face scrutiny disqualification or rejection due to non-compliant photograph backgrounds or signatures signed in capital letters. Adhere to these exact parameters when submitting on <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">rrbapply.gov.in</code>:
+  </p>
+
+  <div class="my-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Photo Box -->
+    <div class="p-5 rounded-2xl border-2 border-primary/20 bg-card space-y-3">
+      <div class="flex items-center justify-between">
+        <h4 class="font-bold text-foreground flex items-center gap-2"><span>📷</span> Passport Photograph</h4>
+        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">30 KB – 70 KB</span>
+      </div>
+      <ul class="text-xs sm:text-sm text-muted-foreground space-y-1.5">
+        <li><strong>Pixel Dimensions:</strong> 240 pixels (width) × 320 pixels (height).</li>
+        <li><strong>Physical Dimensions:</strong> 3.5 cm (width) × 4.5 cm (height).</li>
+        <li><strong>Background:</strong> Clean, plain white or light grey background without shadows.</li>
+        <li><strong>Facial View:</strong> Frontal face covering 75%–80% of frame with both ears clearly visible.</li>
+        <li><strong>Disqualification:</strong> Caps, hats, goggles, tinted sunglasses, or casual mobile selfies.</li>
+      </ul>
+      <div class="pt-2">
+        <a href="/rrb-je-photo-resize/" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+          Resize Photo for RRB JE (240×320 px, 30–70 KB) &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Sign Box -->
+    <div class="p-5 rounded-2xl border-2 border-primary/20 bg-card space-y-3">
+      <div class="flex items-center justify-between">
+        <h4 class="font-bold text-foreground flex items-center gap-2"><span>✍️</span> Running Signature</h4>
+        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary">10 KB – 20 KB</span>
+      </div>
+      <ul class="text-xs sm:text-sm text-muted-foreground space-y-1.5">
+        <li><strong>Pixel Dimensions:</strong> 140 pixels (width) × 60 pixels (height).</li>
+        <li><strong>Physical Dimensions:</strong> 4.0 cm (width) × 2.0 cm (height).</li>
+        <li><strong>Pen Ink:</strong> Black ballpoint ink ONLY on clean unruled white paper.</li>
+        <li><strong>Handwriting Style:</strong> Natural cursive running handwriting.</li>
+        <li><strong>Disqualification:</strong> Signatures in BLOCK / CAPITAL LETTERS lead to immediate rejection.</li>
+      </ul>
+      <div class="pt-2">
+        <a href="/rrb-je-signature-resize/" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+          Resize Signature for RRB JE (140×60 px, 10–20 KB) &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visual Mockups & Do's / Don'ts Comparison Cards -->
+  <div class="my-6 rounded-2xl border border-border bg-card overflow-hidden shadow-xs" id="visual-checklist">
+    <div class="p-3.5 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between">
+      <span class="font-bold text-xs sm:text-sm text-foreground flex items-center gap-2">
+        <span>🛡️</span> Visual Checklist: Compliant Uploads vs Disqualification Traps
+      </span>
+      <span class="text-[11px] font-bold text-primary">CEN 03/2024 Audit</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border">
+      <!-- Signature Comparison with Visual Mockups -->
+      <div class="p-4 sm:p-5 space-y-3.5">
+        <h5 class="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+          <span>✍️</span> Signature Compliance: Cursive vs Block Letters
+        </h5>
+
+        <!-- Visual Mockup Strip -->
+        <div class="grid grid-cols-2 gap-2.5 pt-1">
+          <!-- DO Signature Mockup -->
+          <div class="rounded-xl border border-emerald-500/40 bg-emerald-50/20 dark:bg-emerald-950/20 p-2.5 flex flex-col items-center justify-between gap-1.5 text-center">
+            <div class="w-full h-14 bg-white dark:bg-slate-900 rounded-lg border border-emerald-400/50 flex items-center justify-center px-2 shadow-2xs">
+              <span class="font-serif italic font-bold text-lg sm:text-xl text-slate-900 dark:text-slate-100 tracking-wider select-none">
+                Rahul Kumar
+              </span>
+            </div>
+            <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+              <span>✅</span> Running Script
+            </span>
+          </div>
+
+          <!-- DON'T Signature Mockup -->
+          <div class="rounded-xl border border-rose-500/40 bg-rose-50/20 dark:bg-rose-950/20 p-2.5 flex flex-col items-center justify-between gap-1.5 text-center">
+            <div class="w-full h-14 bg-white dark:bg-slate-900 rounded-lg border border-rose-400/50 flex items-center justify-center px-2 relative overflow-hidden shadow-2xs">
+              <span class="font-sans font-black text-xs sm:text-sm text-rose-600 dark:text-rose-400 tracking-widest line-through select-none uppercase">
+                RAHUL KUMAR
+              </span>
+              <span class="absolute bottom-1 text-[9px] font-black text-white bg-rose-600 px-1.5 rounded uppercase">REJECTED</span>
+            </div>
+            <span class="inline-flex items-center gap-1 text-[10px] font-bold text-rose-700 dark:text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full">
+              <span>❌</span> All-Caps / Block
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-950 dark:text-emerald-200">
+            <strong class="font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1 mb-1">
+              <span>✅</span> DO (Strictly Accepted):
+            </strong>
+            <p class="leading-relaxed">Cursive running handwriting in black ballpoint ink on crisp white unruled paper. High contrast, clean margins, strictly 140 × 60 px and 10–20 KB.</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-950 dark:text-rose-200">
+            <strong class="font-bold text-rose-700 dark:text-rose-300 flex items-center gap-1 mb-1">
+              <span>❌</span> DON'T (Summary Rejection):
+            </strong>
+            <p class="leading-relaxed">Signatures in CAPITAL / BLOCK LETTERS (e.g., "AMIT VERMA"), blue or gel pen ink, lined notebook paper with horizontal ruling, or shadows.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photograph Comparison with Visual Mockups -->
+      <div class="p-4 sm:p-5 space-y-3.5">
+        <h5 class="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+          <span>📷</span> Photograph Compliance: Studio vs Selfie
+        </h5>
+
+        <!-- Visual Mockup Strip -->
+        <div class="grid grid-cols-2 gap-2.5 pt-1">
+          <!-- DO Photo Mockup -->
+          <div class="rounded-xl border border-emerald-500/40 bg-emerald-50/20 dark:bg-emerald-950/20 p-2.5 flex flex-col items-center justify-between gap-1.5 text-center">
+            <div class="w-16 h-20 bg-white dark:bg-slate-900 rounded-lg border border-emerald-400/50 flex flex-col items-center justify-center p-1 relative shadow-2xs">
+              <div class="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 mb-0.5"></div>
+              <div class="w-12 h-6 rounded-t-full bg-slate-400 dark:bg-slate-600"></div>
+              <span class="absolute top-1 right-1 text-[9px] text-emerald-600 dark:text-emerald-400 font-bold">3.5×4.5</span>
+            </div>
+            <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+              <span>✅</span> Studio White BG
+            </span>
+          </div>
+
+          <!-- DON'T Photo Mockup -->
+          <div class="rounded-xl border border-rose-500/40 bg-rose-50/20 dark:bg-rose-950/20 p-2.5 flex flex-col items-center justify-between gap-1.5 text-center">
+            <div class="w-16 h-20 bg-slate-800 rounded-lg border border-rose-400/50 flex flex-col items-center justify-center p-1 relative overflow-hidden shadow-2xs">
+              <div class="w-8 h-8 rounded-full bg-slate-600 rotate-12 mb-0.5"></div>
+              <div class="w-12 h-6 rounded-t-full bg-slate-700 rotate-6"></div>
+              <div class="absolute inset-0 flex items-center justify-center bg-rose-950/40">
+                <span class="text-rose-500 font-black text-2xl select-none">✕</span>
+              </div>
+              <span class="absolute bottom-1 text-[8px] font-black text-white bg-rose-600 px-1 rounded uppercase">REJECTED</span>
+            </div>
+            <span class="inline-flex items-center gap-1 text-[10px] font-bold text-rose-700 dark:text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full">
+              <span>❌</span> Selfie / Sunglasses
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-950 dark:text-emerald-200">
+            <strong class="font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1 mb-1">
+              <span>✅</span> DO (Strictly Accepted):
+            </strong>
+            <p class="leading-relaxed">Recent studio passport photo on clean white background, 75–80% face coverage showing both ears, neutral expression, strictly 240 × 320 px and 30–70 KB.</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-950 dark:text-rose-200">
+            <strong class="font-bold text-rose-700 dark:text-rose-300 flex items-center gap-1 mb-1">
+              <span>❌</span> DON'T (Summary Rejection):
+            </strong>
+            <p class="leading-relaxed">Casual front-camera selfies, tilted head angles, dark or textured backgrounds, spectacles with tinted/reflective glass, caps, or heavy photo filters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rejection Alert Callout -->
+  <div class="my-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-900 dark:text-rose-200 text-xs sm:text-sm font-medium flex items-start gap-3">
+    <span class="text-lg shrink-0">⚠️</span>
+    <div>
+      <strong class="font-bold">Strict Railway Disqualification Rule:</strong> Railway Recruitment Boards state in Paragraph 15.2 of CEN 03/2024: <em>"Signatures in capital letters will not be accepted. Applications with signatures in capital letters will be rejected."</em> Always sign in natural flowing handwriting.
+    </div>
+  </div>
+
+  <!-- Section 6: Step-by-Step Embedded Quick Launch Resizers & Inline Dropzone with Live Feedback -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="instant-resizers">🛠️ 6. Instant In-Page Resizer Launchers: Fast Document Prep</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Do not let oversized scans or incorrect dimensions cause Paragraph 15.2 rejection. Use our dedicated RRB presets below. Drop your file right into the dropzone to inspect file size and auto-format directly in your browser:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
+    <!-- Signature Launcher & Interactive Dropzone Card -->
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-card via-card to-primary/10 border-2 border-primary/30 shadow-xs flex flex-col justify-between space-y-4">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">✍️ Signature Resizer</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">140 × 60 px</span>
+        </div>
+        <h4 class="font-bold text-base text-foreground">RRB JE Running Signature Tool</h4>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          Standardizes running signature to strictly <strong>10 KB to 20 KB</strong> in JPG format with automated contrast cleanup.
+        </p>
+
+        <!-- Interactive Drag-and-Drop Dropzone Container -->
+        <div id="rrb-sign-dropzone" class="group relative cursor-pointer block border-2 border-dashed border-blue-400 dark:border-blue-500/70 hover:border-blue-600 bg-blue-50/40 hover:bg-blue-100/50 dark:bg-blue-950/20 dark:hover:bg-blue-900/30 rounded-xl p-4 transition-all duration-200 text-center space-y-2 shadow-xs hover:shadow-md hover:scale-[1.01]">
+          <input type="file" id="rrb-sign-input" class="hidden" accept="image/jpeg,image/png,image/webp" />
+          
+          <!-- Interactive Badge -->
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-2xs">
+              <span>⚡</span> Interactive Live Dropzone
+            </span>
+          </div>
+
+          <!-- Idle State -->
+          <div id="rrb-sign-idle" class="space-y-1 py-1">
+            <span class="text-2xl block group-hover:scale-125 transition-transform duration-300">📥</span>
+            <span class="text-xs font-bold text-foreground block">Drop Signature image here</span>
+            <span class="text-[10px] text-muted-foreground block">or click to browse from device (JPG, PNG, WebP)</span>
+          </div>
+
+          <!-- Analyzing Spinner State -->
+          <div id="rrb-sign-analyzing" class="hidden py-4 text-center text-xs font-semibold text-blue-600 dark:text-blue-400 animate-pulse space-y-1">
+            <span class="text-xl block animate-spin">⚙️</span>
+            <span>Analyzing signature dimensions & compression...</span>
+          </div>
+
+          <!-- Active File Inspection State -->
+          <div id="rrb-sign-feedback" class="hidden space-y-2 text-left">
+            <div class="flex items-center gap-3">
+              <img id="rrb-sign-preview" class="w-20 h-10 object-contain border border-border bg-white rounded shadow-2xs" alt="Signature preview" />
+              <div class="min-w-0 flex-1 text-xs">
+                <div id="rrb-sign-name" class="font-bold text-foreground truncate text-[11px]">filename.jpg</div>
+                <div id="rrb-sign-meta" class="text-[10px] text-muted-foreground">Original: calculating...</div>
+                <div class="text-[10px] font-bold text-amber-600 dark:text-amber-400">Target: 140×60 px • 10–20 KB</div>
+              </div>
+            </div>
+            <div id="rrb-sign-status-badge" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5">
+              <span>⚡</span> Ready for 1-click optimization to RRB specifications
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a id="rrb-sign-action-btn" href="/rrb-je-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-95 transition shadow-xs w-full text-center">
+        <span>Open Signature Canvas (10–20 KB)</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+
+    <!-- Photo Launcher & Interactive Dropzone Card -->
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-card via-card to-primary/10 border-2 border-primary/30 shadow-xs flex flex-col justify-between space-y-4">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">📷 Photograph Resizer</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">240 × 320 px</span>
+        </div>
+        <h4 class="font-bold text-base text-foreground">RRB JE Color Photo Tool</h4>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          Formats 3.5×4.5 cm passport photograph to strictly <strong>30 KB to 70 KB</strong> JPG format with plain white background.
+        </p>
+
+        <!-- Interactive Drag-and-Drop Dropzone Container -->
+        <div id="rrb-photo-dropzone" class="group relative cursor-pointer block border-2 border-dashed border-blue-400 dark:border-blue-500/70 hover:border-blue-600 bg-blue-50/40 hover:bg-blue-100/50 dark:bg-blue-950/20 dark:hover:bg-blue-900/30 rounded-xl p-4 transition-all duration-200 text-center space-y-2 shadow-xs hover:shadow-md hover:scale-[1.01]">
+          <input type="file" id="rrb-photo-input" class="hidden" accept="image/jpeg,image/png,image/webp" />
+          
+          <!-- Interactive Badge -->
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white shadow-2xs">
+              <span>⚡</span> Interactive Live Dropzone
+            </span>
+          </div>
+
+          <!-- Idle State -->
+          <div id="rrb-photo-idle" class="space-y-1 py-1">
+            <span class="text-2xl block group-hover:scale-125 transition-transform duration-300">📥</span>
+            <span class="text-xs font-bold text-foreground block">Drop Passport Photo here</span>
+            <span class="text-[10px] text-muted-foreground block">or click to browse from device (JPG, PNG, WebP)</span>
+          </div>
+
+          <!-- Analyzing Spinner State -->
+          <div id="rrb-photo-analyzing" class="hidden py-4 text-center text-xs font-semibold text-blue-600 dark:text-blue-400 animate-pulse space-y-1">
+            <span class="text-xl block animate-spin">⚙️</span>
+            <span>Analyzing photo dimensions & compression...</span>
+          </div>
+
+          <!-- Active File Inspection State -->
+          <div id="rrb-photo-feedback" class="hidden space-y-2 text-left">
+            <div class="flex items-center gap-3">
+              <img id="rrb-photo-preview" class="w-12 h-16 object-cover border border-border bg-white rounded shadow-2xs" alt="Photo preview" />
+              <div class="min-w-0 flex-1 text-xs">
+                <div id="rrb-photo-name" class="font-bold text-foreground truncate text-[11px]">filename.jpg</div>
+                <div id="rrb-photo-meta" class="text-[10px] text-muted-foreground">Original: calculating...</div>
+                <div class="text-[10px] font-bold text-amber-600 dark:text-amber-400">Target: 240×320 px • 30–70 KB</div>
+              </div>
+            </div>
+            <div id="rrb-photo-status-badge" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5">
+              <span>⚡</span> Ready for 1-click optimization to RRB specifications
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a id="rrb-photo-action-btn" href="/rrb-je-photo-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-card border border-border text-foreground font-bold text-xs sm:text-sm hover:bg-muted/40 transition shadow-xs w-full text-center">
+        <span>Open Photo Canvas (30–70 KB)</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Inline Script for Interactive Dropzones -->
+  <script>
+    function setupRrbDropzone(zoneId, inputId, idleId, analyzingId, feedbackId, previewId, nameId, metaId, statusBadgeId, actionBtnId, toolUrl, minKb, maxKb, targetDims) {
+      const dropzone = document.getElementById(zoneId);
+      const input = document.getElementById(inputId);
+      const idle = document.getElementById(idleId);
+      const analyzing = document.getElementById(analyzingId);
+      const feedback = document.getElementById(feedbackId);
+      const preview = document.getElementById(previewId);
+      const nameEl = document.getElementById(nameId);
+      const metaEl = document.getElementById(metaId);
+      const statusBadge = document.getElementById(statusBadgeId);
+      const actionBtn = document.getElementById(actionBtnId);
+
+      if (!dropzone || !input) return;
+
+      dropzone.addEventListener('click', () => input.click());
+
+      // Drag-over active states
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.add('border-blue-600', 'bg-blue-100/80', 'dark:bg-blue-900/60', 'ring-4', 'ring-blue-500/40', 'scale-[1.02]', 'shadow-lg');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove('border-blue-600', 'bg-blue-100/80', 'dark:bg-blue-900/60', 'ring-4', 'ring-blue-500/40', 'scale-[1.02]', 'shadow-lg');
+        });
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        const files = e.dataTransfer.files;
+        if (files && files.length > 0) handleFile(files[0]);
+      });
+
+      input.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files.length > 0) handleFile(e.target.files[0]);
+      });
+
+      function handleFile(file) {
+        if (!file.type.startsWith('image/')) return;
+        
+        // Immediate inline analyzing feedback
+        idle.classList.add('hidden');
+        if (analyzing) analyzing.classList.remove('hidden');
+        if (feedback) feedback.classList.add('hidden');
+
+        const objectUrl = URL.createObjectURL(file);
+        preview.src = objectUrl;
+        nameEl.textContent = file.name;
+        const kbSize = (file.size / 1024).toFixed(1);
+        const numericKb = parseFloat(kbSize);
+
+        const img = new Image();
+        img.onload = () => {
+          setTimeout(() => {
+            if (analyzing) analyzing.classList.add('hidden');
+            if (feedback) feedback.classList.remove('hidden');
+
+            metaEl.textContent = 'Original: ' + img.naturalWidth + '×' + img.naturalHeight + ' px • ' + kbSize + ' KB';
+            
+            // Compliance status evaluation
+            if (statusBadge) {
+              if (numericKb > maxKb) {
+                statusBadge.className = 'p-2 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300 text-[11px] font-semibold flex items-center gap-1.5';
+                statusBadge.innerHTML = '<span>⚠️</span> Oversized (' + kbSize + ' KB) &rarr; Auto-compress to ' + minKb + '–' + maxKb + ' KB on canvas';
+              } else if (numericKb < minKb) {
+                statusBadge.className = 'p-2 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-300 text-[11px] font-semibold flex items-center gap-1.5';
+                statusBadge.innerHTML = '<span>⚠️</span> Undersized (<' + minKb + ' KB) &rarr; Auto-pad to meet ' + minKb + ' KB floor';
+              } else {
+                statusBadge.className = 'p-2 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5';
+                statusBadge.innerHTML = '<span>✅</span> In-range size (' + kbSize + ' KB) &rarr; Format dimensions to ' + targetDims;
+              }
+            }
+
+            if (actionBtn) {
+              actionBtn.innerHTML = '<span>🚀 Resizing Ready: Format ' + file.name.slice(0, 15) + '... (' + kbSize + ' KB)</span> <span>&rarr;</span>';
+              actionBtn.className = 'inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white font-bold text-xs sm:text-sm hover:bg-blue-700 transition shadow-md ring-2 ring-blue-500/50 w-full text-center animate-pulse';
+            }
+          }, 250);
+        };
+        img.src = objectUrl;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupRrbDropzone('rrb-sign-dropzone', 'rrb-sign-input', 'rrb-sign-idle', 'rrb-sign-analyzing', 'rrb-sign-feedback', 'rrb-sign-preview', 'rrb-sign-name', 'rrb-sign-meta', 'rrb-sign-status-badge', 'rrb-sign-action-btn', '/rrb-je-signature-resize/', 10, 20, '140×60 px');
+      setupRrbDropzone('rrb-photo-dropzone', 'rrb-photo-input', 'rrb-photo-idle', 'rrb-photo-analyzing', 'rrb-photo-feedback', 'rrb-photo-preview', 'rrb-photo-name', 'rrb-photo-meta', 'rrb-photo-status-badge', 'rrb-photo-action-btn', '/rrb-je-photo-resize/', 30, 70, '240×320 px');
+    });
+  </script>
+
+  <!-- Section 7: Regional RRB Zone Portals Directory -->
+  <h2 class="text-xl font-bold text-foreground mt-8 mb-3" id="regional-rrb-portals">🌐 7. Regional RRB Portals Directory: Direct Links & Jurisdiction Matrix</h2>
+  <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+    Candidates must verify city intimation slips, regional vacancies, and scorecards on their respective regional RRB portal. Below are direct official links to active boards:
+  </p>
+
+  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>🏛️</span> Regional Railway Recruitment Boards (RRB) Notice Boards</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/10 px-2 py-0.5 rounded-full animate-pulse">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">RRB Regional Board</th>
+            <th class="p-3 font-semibold">Zonal Railways Served</th>
+            <th class="p-3 font-semibold">Direct Official Portal Link</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">RRB Mumbai</td>
+            <td class="p-3 text-muted-foreground">Central Railway (CR), Western Railway (WR)</td>
+            <td class="p-3"><a href="https://www.rrbmumbai.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">rrbmumbai.gov.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">RRB Secunderabad</td>
+            <td class="p-3 text-muted-foreground">South Central Railway (SCR), East Coast (ECoR)</td>
+            <td class="p-3"><a href="https://rrbsecunderabad.cgg.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">rrbsecunderabad.cgg.gov.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">RRB Kolkata</td>
+            <td class="p-3 text-muted-foreground">Eastern Railway (ER), South Eastern (SER), Metro</td>
+            <td class="p-3"><a href="https://www.rrbkolkata.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">rrbkolkata.gov.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">RRB Chennai</td>
+            <td class="p-3 text-muted-foreground">Southern Railway (SR), ICF</td>
+            <td class="p-3"><a href="https://www.rrbchennai.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">rrbchennai.gov.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">RRB Allahabad (Prayagraj)</td>
+            <td class="p-3 text-muted-foreground">North Central Railway (NCR), Northern (NR)</td>
+            <td class="p-3"><a href="https://www.rrbald.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">rrbald.gov.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">RRB Chandigarh</td>
+            <td class="p-3 text-muted-foreground">Northern Railway (NR)</td>
+            <td class="p-3"><a href="https://www.rrbcdg.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">rrbcdg.gov.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">RRB Bangalore (Bengaluru)</td>
+            <td class="p-3 text-muted-foreground">South Western Railway (SWR), RWF</td>
+            <td class="p-3"><a href="https://www.rrbbnc.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">rrbbnc.gov.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">RRB Bhopal</td>
+            <td class="p-3 text-muted-foreground">West Central Railway (WCR), Western (WR)</td>
+            <td class="p-3"><a href="https://www.rrbbpl.nic.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">rrbbpl.nic.in &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-medium text-foreground">Central Application Portal</td>
+            <td class="p-3 text-muted-foreground">All 21 RRBs Online Application & Login</td>
+            <td class="p-3"><a href="https://www.rrbapply.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline">rrbapply.gov.in &rarr;</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+`,
+    contentHtml_hi: `
+  <div class="my-6 p-6 rounded-2xl bg-gradient-to-br from-card via-card to-primary/5 border border-primary/20 shadow-xs space-y-4">
+    <div class="flex items-center gap-2.5 text-primary">
+      <span class="text-xl">🚆</span>
+      <h3 class="text-base font-bold text-foreground">त्वरित सारांश: RRB JE भर्ती 2026</h3>
+    </div>
+    <p class="text-sm text-foreground/90 leading-relaxed font-medium">
+      रेलवे भर्ती बोर्ड (RRB CEN 03/2024 व 2026) ने जूनियर इंजीनियर (JE), डिपो सामग्री अधीक्षक (DMS) और CMA के <strong>7,951 पदों</strong> पर भर्ती निकाली है। 7वें वेतन आयोग के <strong>लेवल-6 (मूल वेतन ₹35,400; सकल वेतन लगभग ₹69,120 प्रति माह)</strong> पर चयनित होने के लिए उम्मीदवारों को दो चरणों की ऑनलाइन परीक्षा से गुजरना होता है: <strong>CBT-1 (100 प्रश्न / 90 मिनट)</strong> और <strong>CBT-2 (150 प्रश्न / 120 मिनट जिसमें 100 अंक तकनीकी शाखा के हैं)</strong>। आवेदन करते समय पासपोर्ट फोटो (<strong>240 × 320 पिक्सल, 30 KB से 70 KB</strong> सफेद बैकग्राउंड) और हस्ताक्षर (<strong>140 × 60 पिक्सल, 10 KB से 20 KB</strong> काली स्याही) अपलोड करना अनिवार्य है।
+    </p>
+  </div>
+`,
+    contentHtml_mr: `
+  <div class="my-6 p-6 rounded-2xl bg-gradient-to-br from-card via-card to-primary/5 border border-primary/20 shadow-xs space-y-4">
+    <div class="flex items-center gap-2.5 text-primary">
+      <span class="text-xl">🚆</span>
+      <h3 class="text-base font-bold text-foreground">थेट सारांश: RRB JE भरती 2026</h3>
+    </div>
+    <p class="text-sm text-foreground/90 leading-relaxed font-medium">
+      रेल्वे भरती बोर्डाने (RRB CEN 03/2024) कनिष्ठ अभियंता (JE), DMS आणि CMA च्या <strong>7,951 पदांसाठी</strong> भरती जाहीर केली आहे. <strong>लेव्हल-6 (मूळ वेतन ₹35,400; एकूण पगार ~₹69,120)</strong> मध्ये निवड होण्यासाठी <strong>CBT-1 (100 प्रश्न)</strong> आणि <strong>CBT-2 (150 प्रश्न, 100 तांत्रिक गुण)</strong> उत्तीर्ण होणे आवश्यक आहे. अर्जासाठी पासपोर्ट फोटो (<strong>240 × 320 px, 30 ते 70 KB</strong>) आणि स्वाक्षरी (<strong>140 × 60 px, 10 ते 20 KB</strong>) आवश्यक आहे.
+    </p>
+  </div>
+`
+  },
+  {
     slug: 'tnpsc-group-4-2-2026-master-guide-otr-photo-name-date-signature-rules',
     title: 'TNPSC Group 4 Exam Date 2026 Out: Notification, 6,574 Vacancies, Apply Online, Syllabus in Tamil & OTR Photo-Signature Rules',
     title_hi: 'TNPSC Group 4 Exam Date 2026: 6,574 पद, आवेदन तिथि, सिलेबस, तमिल पात्रता और OTR फोटो-हस्ताक्षर गाइड',
@@ -2864,7 +7266,7 @@ export const BLOG_POSTS: BlogPost[] = [
               </div>
             </a>
 
-            <a href="/handwritten-declaration-resizer/" class="group p-3.5 rounded-xl bg-slate-800/90 border border-slate-700 hover:border-amber-400 hover:bg-slate-800 transition flex flex-col justify-between shadow-md">
+            <a href="/ibps-handwritten-declaration-resize/" class="group p-3.5 rounded-xl bg-slate-800/90 border border-slate-700 hover:border-amber-400 hover:bg-slate-800 transition flex flex-col justify-between shadow-md">
               <div>
                 <div class="text-xs font-bold text-amber-300 font-mono">50–100 KB</div>
                 <div class="text-sm font-bold text-white group-hover:text-amber-200 transition mt-0.5" style="color: #ffffff !important;">डिक्लेरेशन रिसाइज़र</div>
@@ -3496,7 +7898,7 @@ Fatal Pitfall:       Ignoring Banking Awareness &amp; Degree Background in Inter
               </div>
             </a>
 
-            <a href="/handwritten-declaration-resizer/" class="group p-3.5 rounded-xl bg-slate-800/90 border border-slate-700 hover:border-amber-400 hover:bg-slate-800 transition flex flex-col justify-between shadow-md">
+            <a href="/ibps-handwritten-declaration-resize/" class="group p-3.5 rounded-xl bg-slate-800/90 border border-slate-700 hover:border-amber-400 hover:bg-slate-800 transition flex flex-col justify-between shadow-md">
               <div>
                 <div class="text-xs font-bold text-amber-300 font-mono">50–100 KB</div>
                 <div class="text-sm font-bold text-white group-hover:text-amber-200 transition mt-0.5" style="color: #ffffff !important;">Declaration Resizer</div>
@@ -8884,7 +13286,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         "answer": "Yes. Banking exams have standard syllabus boundaries. Practicing simplification, approximation, number series, quadratic equations, and standard seating arrangements daily for 4 months builds the speed needed to easily clear Prelims and Mains cutoffs."
       }
     ],
-    "contentHtml": "\n<h2 id=\"document-specs\" id=\"overview\">The 4 Mandatory Digital Uploads for IBPS &amp; SBI Recruitment</h2>\n      <p>Applying for banking recruitment exams conducted by the <strong>Institute of Banking Personnel Selection (IBPS)</strong> or <strong>State Bank of India (SBI)</strong> requires uploading four distinct scanned assets during online registration. Failing even one parameter results in immediate application rejection or biometric failure at the exam venue.</p>\n\n      <div class=\"my-6 overflow-x-auto\">\n        <table class=\"w-full text-xs sm:text-sm text-left border border-border\">\n          <thead class=\"bg-muted text-foreground font-semibold\">\n            <tr>\n              <th class=\"p-3 border-b\">Document</th>\n              <th class=\"p-3 border-b\">File Size Range</th>\n              <th class=\"p-3 border-b\">Dimensions &amp; Resolution</th>\n              <th class=\"p-3 border-b\">Mandatory Ink &amp; Canvas Rules</th>\n            </tr>\n          </thead>\n          <tbody class=\"divide-y divide-border\">\n            <tr>\n              <td class=\"p-3 font-semibold text-primary\">Passport Photo</td>\n              <td class=\"p-3 font-mono\">20 KB to 50 KB</td>\n              <td class=\"p-3 font-mono\">200 &times; 230 px (3.5 &times; 4.5 cm)</td>\n              <td class=\"p-3\">Light or pure white background</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-semibold text-primary\">Candidate Signature</td>\n              <td class=\"p-3 font-mono\">10 KB to 20 KB</td>\n              <td class=\"p-3 font-mono\">140 &times; 60 px (4.0 &times; 2.0 cm)</td>\n              <td class=\"p-3\">Black ink ballpoint pen; Cursive running writing</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-semibold text-primary\">Left Thumb Impression (LTI)</td>\n              <td class=\"p-3 font-mono\">20 KB to 50 KB</td>\n              <td class=\"p-3 font-mono\">240 &times; 240 px (3.0 &times; 3.0 cm)</td>\n              <td class=\"p-3\">Blue or black ink on clean white paper</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-semibold text-primary\">Handwritten Declaration</td>\n              <td class=\"p-3 font-mono\">50 KB to 100 KB</td>\n              <td class=\"p-3 font-mono\">800 &times; 400 px (10.0 &times; 5.0 cm)</td>\n              <td class=\"p-3\">Candidate's own handwriting in English (Black ink)</td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n\n      <div class=\"my-6 p-4 rounded-xl bg-card border border-border\">\n        <p class=\"text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-2\">IBPS Official Handwritten Declaration Verbatim Text</p>\n        <blockquote class=\"italic text-foreground font-serif text-sm sm:text-base border-l-4 border-primary pl-4 py-1\">\n          &ldquo;I, _______ (Name of the candidate), hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.&rdquo;\n        </blockquote>\n      </div>\n\n      <div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n        <h4 class=\"text-base font-bold text-foreground\">Resize for IBPS / SBI in 3 Seconds</h4>\n        <p class=\"text-sm text-muted-foreground mt-1\">Format your signature, thumb impression, and declaration to exact pixel dimensions and KB bounds with zero server uploads.</p>\n        <div class=\"flex flex-wrap gap-3 mt-3\">\n          <a href=\"/ibps-signature-resize/\" class=\"inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition\">\n            Resize IBPS Signature &rarr;\n          </a>\n          <a href=\"/thumb-impression-resize/\" class=\"inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-95 transition\">\n            Format Thumb Impression &rarr;\n          </a>\n        </div>\n      </div>\n    \n\n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2\">\n  <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n    <span>⚠️</span> Critical Application Rejection Traps to Avoid\n  </h4>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">\n    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:\n  </p>\n  <ul class=\"list-disc pl-5 text-sm space-y-1 text-muted-foreground\">\n    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>\n    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>\n    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>\n    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>\n  </ul>\n</div>\n\n<h2 id=\"exam-pattern\">IBPS PO & Clerk 2026 Master Upload Guide: Examination Structure &amp; Selection Blueprint</h2>\n<p>Understanding the multi-tier selection stages, sectional weightages, and negative marking scheme ensures strategic preparation without risking disqualification.</p>\n<h2 id=\"strategy\">IBPS PO & Clerk 2026 Master Upload Guide: High-Yield Preparation Strategy &amp; Daily Routine</h2>\n<p>Focus on high-weightage topics, daily revision schedules, and solving previous year question papers under strict exam timer conditions.</p>\n<div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20\">\n  <div class=\"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n    <div>\n      <h4 class=\"font-bold text-lg text-foreground\">Prepare Your IBPS PO & Clerk 2026 Master Upload Guide Documents in Seconds</h4>\n      <p class=\"text-sm text-muted-foreground mt-1\">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>\n    </div>\n    <div class=\"flex flex-wrap gap-2 w-full sm:w-auto\">\n      <a href=\"/photo-resizer/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all\">\n        <span>📸</span> Resize Photo\n      </a>\n      <a href=\"/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all\">\n        <span>✍️</span> Resize Signature\n      </a>\n    </div>\n  </div>\n</div>\n    "
+    "contentHtml": "\n<h2 id=\"document-specs\" id=\"overview\">The 4 Mandatory Digital Uploads for IBPS &amp; SBI Recruitment</h2>\n      <p>Applying for banking recruitment exams conducted by the <strong>Institute of Banking Personnel Selection (IBPS)</strong> or <strong>State Bank of India (SBI)</strong> requires uploading four distinct scanned assets during online registration. Failing even one parameter results in immediate application rejection or biometric failure at the exam venue.</p>\n\n      <div class=\"my-6 overflow-x-auto\">\n        <table class=\"w-full text-xs sm:text-sm text-left border border-border\">\n          <thead class=\"bg-muted text-foreground font-semibold\">\n            <tr>\n              <th class=\"p-3 border-b\">Document</th>\n              <th class=\"p-3 border-b\">File Size Range</th>\n              <th class=\"p-3 border-b\">Dimensions &amp; Resolution</th>\n              <th class=\"p-3 border-b\">Mandatory Ink &amp; Canvas Rules</th>\n            </tr>\n          </thead>\n          <tbody class=\"divide-y divide-border\">\n            <tr>\n              <td class=\"p-3 font-semibold\"><a href=\"/photo-resizer/\" class=\"text-primary hover:underline flex items-center gap-1\"><span>📸</span> Passport Photo</a></td>\n              <td class=\"p-3 font-mono\">20 KB to 50 KB</td>\n              <td class=\"p-3 font-mono\">200 &times; 230 px (3.5 &times; 4.5 cm)</td>\n              <td class=\"p-3\">Light or pure white background</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-semibold\"><a href=\"/ibps-signature-resize/\" class=\"text-primary hover:underline flex items-center gap-1\"><span>✍️</span> Candidate Signature</a></td>\n              <td class=\"p-3 font-mono\">10 KB to 20 KB</td>\n              <td class=\"p-3 font-mono\">140 &times; 60 px (4.0 &times; 2.0 cm)</td>\n              <td class=\"p-3\">Black ink ballpoint pen; Cursive running writing</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-semibold\"><a href=\"/ibps-thumb-impression-resize/\" class=\"text-primary hover:underline flex items-center gap-1\"><span>👍</span> Left Thumb Impression (LTI)</a></td>\n              <td class=\"p-3 font-mono\">20 KB to 50 KB</td>\n              <td class=\"p-3 font-mono\">240 &times; 240 px (3.0 &times; 3.0 cm)</td>\n              <td class=\"p-3\">Blue or black ink on clean white paper</td>\n            </tr>\n            <tr>\n              <td class=\"p-3 font-semibold\"><a href=\"/ibps-handwritten-declaration-resize/\" class=\"text-primary hover:underline flex items-center gap-1\"><span>📝</span> Handwritten Declaration</a></td>\n              <td class=\"p-3 font-mono\">50 KB to 100 KB</td>\n              <td class=\"p-3 font-mono\">800 &times; 400 px (10.0 &times; 5.0 cm)</td>\n              <td class=\"p-3\">Candidate's own handwriting in English (Black ink)</td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n\n      <div class=\"my-6 p-4 rounded-xl bg-card border border-border\">\n        <p class=\"text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-2\">IBPS Official Handwritten Declaration Verbatim Text</p>\n        <blockquote class=\"italic text-foreground font-serif text-sm sm:text-base border-l-4 border-primary pl-4 py-1\">\n          &ldquo;I, _______ (Name of the candidate), hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.&rdquo;\n        </blockquote>\n      </div>\n\n      <div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n        <h4 class=\"text-base font-bold text-foreground\">Resize for IBPS / SBI in 3 Seconds</h4>\n        <p class=\"text-sm text-muted-foreground mt-1\">Format your signature, thumb impression, and declaration to exact pixel dimensions and KB bounds with zero server uploads.</p>\n        <div class=\"grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-3\">\n          <a href=\"/photo-resizer/\" class=\"p-2.5 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs\">\n            <span class=\"text-base block mb-0.5 group-hover:scale-110 transition\">📸</span>\n            <span class=\"text-xs font-bold block text-foreground\">Passport Photo</span>\n            <span class=\"text-[10px] text-muted-foreground font-mono\">20–50 KB (200×230)</span>\n          </a>\n          <a href=\"/ibps-signature-resize/\" class=\"p-2.5 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs\">\n            <span class=\"text-base block mb-0.5 group-hover:scale-110 transition\">✍️</span>\n            <span class=\"text-xs font-bold block text-foreground\">IBPS Signature</span>\n            <span class=\"text-[10px] text-muted-foreground font-mono\">10–20 KB (140×60)</span>\n          </a>\n          <a href=\"/ibps-thumb-impression-resize/\" class=\"p-2.5 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs\">\n            <span class=\"text-base block mb-0.5 group-hover:scale-110 transition\">👍</span>\n            <span class=\"text-xs font-bold block text-foreground\">Thumb Impression</span>\n            <span class=\"text-[10px] text-muted-foreground font-mono\">20–50 KB (240×240)</span>\n          </a>\n          <a href=\"/ibps-handwritten-declaration-resize/\" class=\"p-2.5 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs\">\n            <span class=\"text-base block mb-0.5 group-hover:scale-110 transition\">📝</span>\n            <span class=\"text-xs font-bold block text-foreground\">Declaration</span>\n            <span class=\"text-[10px] text-muted-foreground font-mono\">50–100 KB (800×400)</span>\n          </a>\n        </div>\n        <div class=\"mt-3 pt-3 border-t border-border/50 flex flex-wrap items-center gap-2 text-xs text-muted-foreground\">\n          <span class=\"font-semibold text-foreground\">Exam Presets:</span>\n          <a href=\"/sbi-clerk-signature-resize/\" class=\"underline hover:text-primary\">SBI Clerk Signature (10–20 KB)</a> •\n          <a href=\"/sbi-po-signature-resize/\" class=\"underline hover:text-primary\">SBI PO Signature</a> •\n          <a href=\"/ibps-clerk-signature-resize/\" class=\"underline hover:text-primary\">IBPS Clerk Signature</a>\n        </div>\n      </div>\n    \n\n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2\">\n  <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n    <span>⚠️</span> Critical Application Rejection Traps to Avoid\n  </h4>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">\n    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:\n  </p>\n  <ul class=\"list-disc pl-5 text-sm space-y-1 text-muted-foreground\">\n    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>\n    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>\n    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>\n    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>\n  </ul>\n</div>\n\n<h2 id=\"exam-pattern\">IBPS PO & Clerk 2026 Master Upload Guide: Examination Structure &amp; Selection Blueprint</h2>\n<p>Understanding the multi-tier selection stages, sectional weightages, and negative marking scheme ensures strategic preparation without risking disqualification.</p>\n<h2 id=\"strategy\">IBPS PO & Clerk 2026 Master Upload Guide: High-Yield Preparation Strategy &amp; Daily Routine</h2>\n<p>Focus on high-weightage topics, daily revision schedules, and solving previous year question papers under strict exam timer conditions.</p>\n<div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20\">\n  <div class=\"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n    <div>\n      <h4 class=\"font-bold text-lg text-foreground\">Prepare Your IBPS PO & Clerk 2026 Master Upload Guide Documents in Seconds</h4>\n      <p class=\"text-sm text-muted-foreground mt-1\">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>\n    </div>\n    <div class=\"flex flex-wrap gap-2 w-full sm:w-auto\">\n      <a href=\"/ibps-signature-resize/\" class=\"inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:opacity-90 shadow-sm transition-all\">\n        <span>✍️</span> Signature (10–20 KB)\n      </a>\n      <a href=\"/ibps-thumb-impression-resize/\" class=\"inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition-all\">\n        <span>👍</span> Thumb (20–50 KB)\n      </a>\n      <a href=\"/ibps-handwritten-declaration-resize/\" class=\"inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition-all\">\n        <span>📝</span> Declaration (50–100 KB)\n      </a>\n      <a href=\"/photo-resizer/\" class=\"inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition-all\">\n        <span>📸</span> Photo\n      </a>\n    </div>\n  </div>\n  <div class=\"mt-4 pt-3 border-t border-border/50 flex flex-wrap items-center gap-2 text-xs text-muted-foreground\">\n    <span class=\"font-semibold text-foreground\">Related Banking Guides:</span>\n    <a href=\"/blog/ibps-po-2026-top-10-faq-banking-aspirants/\" class=\"underline hover:text-primary\">IBPS PO Top 10 FAQs</a> •\n    <a href=\"/blog/sbi-clerk-2026-top-10-faq-junior-associates/\" class=\"underline hover:text-primary\">SBI Clerk Selection Guide</a> •\n    <a href=\"/blog/ibps-rrb-po-prelims-mains-preparation-strategy-interview-guide/\" class=\"underline hover:text-primary\">IBPS RRB Officer Guide</a>\n  </div>\n</div>\n    "
   },
   {
     "slug": "top-5-mistakes-photo-signature-rejection-govt-exams",
@@ -9368,7 +13770,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         "answer": "Yes. Banking exams test speed, accuracy, and question selection rather than memorization. Beginners can crack IBPS PO in 4–5 months by: (1) Mastering Vedic maths, tables up to 30, and percentage fraction equivalents for speedy Quantitative calculations. (2) Solving 4–5 high-level puzzle sets daily for Reasoning. (3) Reading an editorial daily for English and Descriptive Paper. (4) Taking 2 timed sectional tests daily."
       }
     ],
-    "contentHtml": "\n<section id=\"overview\" class=\"space-y-4\">\n        <h2>IBPS PO 2026: Public Sector Banking Career Gateway</h2>\n        <p>The Institute of Banking Personnel Selection conducts the common recruitment process for Probationary Officers and Management Trainees across 11 major Public Sector Banks across India. The PO role offers high prestige, swift promotion ladders to Executive Director/CMD levels, and generous banking allowances.</p>\n        <p>Banking application forms demand four distinct digital uploads: Passport Photograph, Scanned Signature, Left Thumb Impression (LTI), and a mandatory Handwritten Declaration penned by the candidate personally. Any discrepancy in declaration wording or ink color leads to cancellation.</p>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-2\">\n          <h4 class=\"font-bold text-primary text-base flex items-center gap-2\">\n            <span>⚡</span> Participating Public Sector Banks &amp; Career Ladder\n          </h4>\n          <ul class=\"grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-foreground/90 pt-1\">\n            <li><strong>Premier Banks:</strong> Punjab National Bank, Bank of Baroda, Canara Bank, Union Bank of India</li>\n            <li><strong>Scale I Officer (PO):</strong> Basic ₹36,000 – ₹48,480 (Gross ~₹65,000–₹72,000)</li>\n            <li><strong>Scale II (Manager):</strong> Attainable within 3–4 years through internal fast-track promotion channels</li>\n            <li><strong>Key Perks:</strong> Leased accommodation (up to ₹30,000 in Mumbai), petrol allowance, medical coverage</li>\n          </ul>\n        </div>\n      </section>\n\n      <section id=\"exam-pattern\" class=\"space-y-4 mt-8\">\n        <h2>Prelims &amp; Mains Examination Pattern &amp; Sectional Cutoffs</h2>\n        <p>Unlike many central exams, IBPS enforces <strong>both Sectional Cut-offs and Overall Cut-offs</strong> in both Prelims and Mains. Failing in even one section (e.g. English by 0.25 marks) disqualifies the candidate despite high overall scores.</p>\n\n        <div class=\"my-6 overflow-x-auto\">\n          <table class=\"w-full text-xs sm:text-sm text-left border border-border\">\n            <thead class=\"bg-muted text-foreground font-semibold\">\n              <tr>\n                <th class=\"p-3 border-b\">Prelims Section</th>\n                <th class=\"p-3 border-b\">Questions</th>\n                <th class=\"p-3 border-b\">Marks</th>\n                <th class=\"p-3 border-b\">Sectional Time</th>\n                <th class=\"p-3 border-b\">Typical Sectional Cutoff (UR)</th>\n              </tr>\n            </thead>\n            <tbody class=\"divide-y divide-border\">\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">English Language</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">20 min (locked)</td>\n                <td class=\"p-3 font-mono\">8.50 – 11.00 Marks</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Quantitative Aptitude</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min (locked)</td>\n                <td class=\"p-3 font-mono\">8.00 – 10.50 Marks</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Reasoning Ability</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min (locked)</td>\n                <td class=\"p-3 font-mono\">9.50 – 12.00 Marks</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section id=\"document-specs\" class=\"space-y-4 mt-8\">\n        \n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2\">\n  <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n    <span>⚠️</span> Critical Application Rejection Traps to Avoid\n  </h4>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">\n    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:\n  </p>\n  <ul class=\"list-disc pl-5 text-sm space-y-1 text-muted-foreground\">\n    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>\n    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>\n    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>\n    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>\n  </ul>\n</div>\n\n<h2>Document Upload Rules: Photo, Signature, Thumb &amp; Declaration</h2>\n        <p>IBPS mandates four uploaded documents with precise size and color requirements:</p>\n\n        <div class=\"my-6 overflow-x-auto\">\n          <table class=\"w-full text-xs sm:text-sm text-left border border-border\">\n            <thead class=\"bg-muted text-foreground font-semibold\">\n              <tr>\n                <th class=\"p-3 border-b\">Upload Element</th>\n                <th class=\"p-3 border-b\">Pixel Dimensions</th>\n                <th class=\"p-3 border-b\">File Weight</th>\n                <th class=\"p-3 border-b\">Ink / Format Rule</th>\n              </tr>\n            </thead>\n            <tbody class=\"divide-y divide-border\">\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Passport Photograph</td>\n                <td class=\"p-3 font-mono\">200 × 230 px</td>\n                <td class=\"p-3 font-mono\">20 KB – 50 KB</td>\n                <td class=\"p-3\">Color, white background, light clothes</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Scanned Signature</td>\n                <td class=\"p-3 font-mono\">140 × 60 px</td>\n                <td class=\"p-3 font-mono\">10 KB – 20 KB</td>\n                <td class=\"p-3\"><strong>Black ink only</strong> (Blue ink rejected)</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Left Thumb Impression</td>\n                <td class=\"p-3 font-mono\">240 × 240 px (3×3 cm)</td>\n                <td class=\"p-3 font-mono\">20 KB – 50 KB</td>\n                <td class=\"p-3\">Blue or Black ink pad on white paper</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Handwritten Declaration</td>\n                <td class=\"p-3 font-mono\">800 × 400 px</td>\n                <td class=\"p-3 font-mono\">50 KB – 100 KB</td>\n                <td class=\"p-3\"><strong>Black ink only</strong>, candidate's own hand</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n          <h4 class=\"text-base font-bold text-foreground\">Prepare All 4 IBPS Documents in 1 Minute</h4>\n          <p class=\"text-sm text-muted-foreground mt-1\">Our IBPS / SBI preset handles 10-20KB signatures, 20-50KB thumb impressions, and 50-100KB declaration documents in your browser.</p>\n          <a href=\"/ibps-signature-resize/\" class=\"inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition\">Open IBPS Resizer Tool &rarr;</a>\n        </div>\n      </section>\n    \n<h2 id=\"strategy\">IBPS PO 2026: High-Yield Preparation Strategy &amp; Daily Routine</h2>\n<p>Focus on high-weightage topics, daily revision schedules, and solving previous year question papers under strict exam timer conditions.</p>\n<div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20\">\n  <div class=\"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n    <div>\n      <h4 class=\"font-bold text-lg text-foreground\">Prepare Your IBPS PO 2026 Documents in Seconds</h4>\n      <p class=\"text-sm text-muted-foreground mt-1\">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>\n    </div>\n    <div class=\"flex flex-wrap gap-2 w-full sm:w-auto\">\n      <a href=\"/photo-resizer/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all\">\n        <span>📸</span> Resize Photo\n      </a>\n      <a href=\"/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all\">\n        <span>✍️</span> Resize Signature\n      </a>\n    </div>\n  </div>\n</div>\n    "
+    "contentHtml": "\n<section id=\"overview\" class=\"space-y-4\">\n        <h2>IBPS PO 2026: Public Sector Banking Career Gateway</h2>\n        <p>The Institute of Banking Personnel Selection conducts the common recruitment process for Probationary Officers and Management Trainees across 11 major Public Sector Banks across India. The PO role offers high prestige, swift promotion ladders to Executive Director/CMD levels, and generous banking allowances.</p>\n        <p>Banking application forms demand four distinct digital uploads: Passport Photograph, Scanned Signature, Left Thumb Impression (LTI), and a mandatory Handwritten Declaration penned by the candidate personally. Any discrepancy in declaration wording or ink color leads to cancellation.</p>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-2\">\n          <h4 class=\"font-bold text-primary text-base flex items-center gap-2\">\n            <span>⚡</span> Participating Public Sector Banks &amp; Career Ladder\n          </h4>\n          <ul class=\"grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-foreground/90 pt-1\">\n            <li><strong>Premier Banks:</strong> Punjab National Bank, Bank of Baroda, Canara Bank, Union Bank of India</li>\n            <li><strong>Scale I Officer (PO):</strong> Basic ₹36,000 – ₹48,480 (Gross ~₹65,000–₹72,000)</li>\n            <li><strong>Scale II (Manager):</strong> Attainable within 3–4 years through internal fast-track promotion channels</li>\n            <li><strong>Key Perks:</strong> Leased accommodation (up to ₹30,000 in Mumbai), petrol allowance, medical coverage</li>\n          </ul>\n        </div>\n      </section>\n\n      <section id=\"exam-pattern\" class=\"space-y-4 mt-8\">\n        <h2>Prelims &amp; Mains Examination Pattern &amp; Sectional Cutoffs</h2>\n        <p>Unlike many central exams, IBPS enforces <strong>both Sectional Cut-offs and Overall Cut-offs</strong> in both Prelims and Mains. Failing in even one section (e.g. English by 0.25 marks) disqualifies the candidate despite high overall scores.</p>\n\n        <div class=\"my-6 overflow-x-auto\">\n          <table class=\"w-full text-xs sm:text-sm text-left border border-border\">\n            <thead class=\"bg-muted text-foreground font-semibold\">\n              <tr>\n                <th class=\"p-3 border-b\">Prelims Section</th>\n                <th class=\"p-3 border-b\">Questions</th>\n                <th class=\"p-3 border-b\">Marks</th>\n                <th class=\"p-3 border-b\">Sectional Time</th>\n                <th class=\"p-3 border-b\">Typical Sectional Cutoff (UR)</th>\n              </tr>\n            </thead>\n            <tbody class=\"divide-y divide-border\">\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">English Language</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">20 min (locked)</td>\n                <td class=\"p-3 font-mono\">8.50 – 11.00 Marks</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Quantitative Aptitude</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min (locked)</td>\n                <td class=\"p-3 font-mono\">8.00 – 10.50 Marks</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Reasoning Ability</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min (locked)</td>\n                <td class=\"p-3 font-mono\">9.50 – 12.00 Marks</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section id=\"document-specs\" class=\"space-y-4 mt-8\">\n        \n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2\">\n  <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n    <span>⚠️</span> Critical Application Rejection Traps to Avoid\n  </h4>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">\n    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:\n  </p>\n  <ul class=\"list-disc pl-5 text-sm space-y-1 text-muted-foreground\">\n    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>\n    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>\n    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>\n    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>\n  </ul>\n</div>\n\n<h2>Document Upload Rules: Photo, Signature, Thumb &amp; Declaration</h2>\n        <p>IBPS mandates four uploaded documents with precise size and color requirements:</p>\n\n        <div class=\"my-6 overflow-x-auto\">\n          <table class=\"w-full text-xs sm:text-sm text-left border border-border\">\n            <thead class=\"bg-muted text-foreground font-semibold\">\n              <tr>\n                <th class=\"p-3 border-b\">Upload Element</th>\n                <th class=\"p-3 border-b\">Pixel Dimensions</th>\n                <th class=\"p-3 border-b\">File Weight</th>\n                <th class=\"p-3 border-b\">Ink / Format Rule</th>\n              </tr>\n            </thead>\n            <tbody class=\"divide-y divide-border\">\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Passport Photograph</td>\n                <td class=\"p-3 font-mono\">200 × 230 px</td>\n                <td class=\"p-3 font-mono\">20 KB – 50 KB</td>\n                <td class=\"p-3\">Color, white background, light clothes</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Scanned Signature</td>\n                <td class=\"p-3 font-mono\">140 × 60 px</td>\n                <td class=\"p-3 font-mono\">10 KB – 20 KB</td>\n                <td class=\"p-3\"><strong>Black ink only</strong> (Blue ink rejected)</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Left Thumb Impression</td>\n                <td class=\"p-3 font-mono\">240 × 240 px (3×3 cm)</td>\n                <td class=\"p-3 font-mono\">20 KB – 50 KB</td>\n                <td class=\"p-3\">Blue or Black ink pad on white paper</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Handwritten Declaration</td>\n                <td class=\"p-3 font-mono\">800 × 400 px</td>\n                <td class=\"p-3 font-mono\">50 KB – 100 KB</td>\n                <td class=\"p-3\"><strong>Black ink only</strong>, candidate's own hand</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n          <h4 class=\"text-base font-bold text-foreground\">Prepare All 4 IBPS Documents in 1 Minute</h4>\n          <p class=\"text-sm text-muted-foreground mt-1\">Our IBPS / SBI preset handles 10-20KB signatures, 20-50KB thumb impressions, and 50-100KB declaration documents in your browser.</p>\n          <a href=\"/ibps-signature-resize/\" class=\"inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition\">Open IBPS Resizer Tool &rarr;</a>\n        </div>\n      </section>\n    \n<h2 id=\"strategy\">IBPS PO 2026: High-Yield Preparation Strategy &amp; Daily Routine</h2>\n<p>Focus on high-weightage topics, daily revision schedules, and solving previous year question papers under strict exam timer conditions.</p>\n<div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20\">\n  <div class=\"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n    <div>\n      <h4 class=\"font-bold text-lg text-foreground\">Prepare All IBPS PO 2026 Uploads in Seconds</h4>\n      <p class=\"text-sm text-muted-foreground mt-1\">Resize photo, signature, thumb impression, and declaration with instant portal compliance.</p>\n    </div>\n    <div class=\"flex flex-wrap gap-2 w-full sm:w-auto\">\n      <a href=\"/ibps-signature-resize/\" class=\"inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:opacity-90 shadow-sm transition-all\">\n        <span>✍️</span> Signature (10–20 KB)\n      </a>\n      <a href=\"/ibps-thumb-impression-resize/\" class=\"inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition-all\">\n        <span>👍</span> Thumb (20–50 KB)\n      </a>\n      <a href=\"/ibps-handwritten-declaration-resize/\" class=\"inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition-all\">\n        <span>📝</span> Declaration (50–100 KB)\n      </a>\n      <a href=\"/blog/ibps-po-clerk-2026-photo-signature-thumb-declaration-guidelines/\" class=\"inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition-all\">\n        <span>📘</span> Master Handbook\n      </a>\n    </div>\n  </div>\n</div>\n    "
   },
   {
     "slug": "sbi-clerk-2026-top-10-faq-junior-associates",
@@ -9466,7 +13868,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         "answer": "Yes. SBI Clerk has zero sectional cutoffs in Prelims and Mains, allowing candidates to capitalize on their strongest sections. With 90 days of dedicated 6-hour daily study, complete the basic syllabus in the first 45 days and spend the remaining 45 days attempting one full Prelims mock test daily and solving 50 puzzle and arithmetic questions."
       }
     ],
-    "contentHtml": "\n<section id=\"overview\" class=\"space-y-4\">\n        <h2>SBI Clerk (Junior Associate) 2026: Selection System &amp; Job Profile</h2>\n        <p>State Bank of India recruits thousands of <strong>Junior Associates (Customer Support &amp; Sales)</strong> annually across its nationwide network. Unlike IBPS clerical cadres, SBI Clerks operate under state-specific vacancies and cannot transfer outside their assigned Circle for at least 5 to 8 years.</p>\n        <p>A signature feature of the SBI recruitment process is the complete <strong>absence of sectional cutoffs</strong>: candidates qualify solely on overall aggregate marks, providing a massive advantage to candidates with specialized strengths.</p>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-2\">\n          <h4 class=\"font-bold text-primary text-base flex items-center gap-2\">\n            <span>⚡</span> SBI Junior Associate Key Career Highlights\n          </h4>\n          <ul class=\"grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-foreground/90 pt-1\">\n            <li><strong>Starting In-Hand Salary:</strong> ~₹34,000 – ₹38,000 in metro cities</li>\n            <li><strong>Promotion Opportunity:</strong> Eligible for Trainee Officer (JMGS-I) internal examination after 3 years</li>\n            <li><strong>Work-Life Balance:</strong> Regular branch working hours without frequent transfer dislocation</li>\n            <li><strong>Medical &amp; Travel:</strong> 100% medical reimbursement for self and dependent family, LFC allowance</li>\n          </ul>\n        </div>\n      </section>\n\n      <section id=\"exam-pattern\" class=\"space-y-4 mt-8\">\n        <h2>Prelims &amp; Mains Examination Pattern: Aggregate Scoring Advantage</h2>\n        <p>SBI does not maintain minimum sectional cut-offs in either Prelims or Mains. If a candidate scores low in English but dominates Quantitative Aptitude and Reasoning, their high aggregate score qualifies them for Mains.</p>\n\n        <div class=\"my-6 overflow-x-auto\">\n          <table class=\"w-full text-xs sm:text-sm text-left border border-border\">\n            <thead class=\"bg-muted text-foreground font-semibold\">\n              <tr>\n                <th class=\"p-3 border-b\">Prelims Section</th>\n                <th class=\"p-3 border-b\">Questions</th>\n                <th class=\"p-3 border-b\">Marks</th>\n                <th class=\"p-3 border-b\">Sectional Time</th>\n                <th class=\"p-3 border-b\">Scoring Rule</th>\n              </tr>\n            </thead>\n            <tbody class=\"divide-y divide-border\">\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">English Language</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">20 min</td>\n                <td class=\"p-3\">0.25 negative marking per error</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Numerical Ability</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min</td>\n                <td class=\"p-3\">Simplification, Number Series, Arithmetic</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Reasoning Ability</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min</td>\n                <td class=\"p-3\">Puzzles, Seating Arrangements, Syllogisms</td>\n              </tr>\n              <tr class=\"bg-muted/30 font-bold\">\n                <td class=\"p-3\">Total / Composite</td>\n                <td class=\"p-3 font-mono\">100</td>\n                <td class=\"p-3 font-mono\">100</td>\n                <td class=\"p-3 font-mono\">60 min</td>\n                <td class=\"p-3 text-emerald-600 dark:text-emerald-400\">NO Sectional Cut-off</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section id=\"document-specs\" class=\"space-y-4 mt-8\">\n        \n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2\">\n  <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n    <span>⚠️</span> Critical Application Rejection Traps to Avoid\n  </h4>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">\n    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:\n  </p>\n  <ul class=\"list-disc pl-5 text-sm space-y-1 text-muted-foreground\">\n    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>\n    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>\n    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>\n    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>\n  </ul>\n</div>\n\n<h2>Document Specifications for SBI Clerk Portal</h2>\n        <p>SBI adheres strictly to IBPS portal digital standards: <strong>Photo: 20–50 KB (200×230 px)</strong>, <strong>Signature: 10–20 KB (140×60 px in black ink)</strong>. Signatures in capital letters are disqualified immediately.</p>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n          <h4 class=\"text-base font-bold text-foreground\">Resize Your SBI Clerk Photo &amp; Signature</h4>\n          <p class=\"text-sm text-muted-foreground mt-1\">Ensure 100% compliance with SBI portal file boundaries using our instant client-side resizer tool.</p>\n          <a href=\"/ibps-signature-resize/\" class=\"inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition\">Launch SBI Resizer Preset &rarr;</a>\n        </div>\n      </section>\n    \n<h2 id=\"strategy\">SBI Clerk 2026: High-Yield Preparation Strategy &amp; Daily Routine</h2>\n<p>Focus on high-weightage topics, daily revision schedules, and solving previous year question papers under strict exam timer conditions.</p>\n<div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20\">\n  <div class=\"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n    <div>\n      <h4 class=\"font-bold text-lg text-foreground\">Prepare Your SBI Clerk 2026 Documents in Seconds</h4>\n      <p class=\"text-sm text-muted-foreground mt-1\">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>\n    </div>\n    <div class=\"flex flex-wrap gap-2 w-full sm:w-auto\">\n      <a href=\"/photo-resizer/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all\">\n        <span>📸</span> Resize Photo\n      </a>\n      <a href=\"/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all\">\n        <span>✍️</span> Resize Signature\n      </a>\n    </div>\n  </div>\n</div>\n    "
+    "contentHtml": "\n<section id=\"overview\" class=\"space-y-4\">\n        <h2>SBI Clerk (Junior Associate) 2026: Selection System &amp; Job Profile</h2>\n        <p>State Bank of India recruits thousands of <strong>Junior Associates (Customer Support &amp; Sales)</strong> annually across its nationwide network. Unlike IBPS clerical cadres, SBI Clerks operate under state-specific vacancies and cannot transfer outside their assigned Circle for at least 5 to 8 years.</p>\n        <p>A signature feature of the SBI recruitment process is the complete <strong>absence of sectional cutoffs</strong>: candidates qualify solely on overall aggregate marks, providing a massive advantage to candidates with specialized strengths.</p>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-2\">\n          <h4 class=\"font-bold text-primary text-base flex items-center gap-2\">\n            <span>⚡</span> SBI Junior Associate Key Career Highlights\n          </h4>\n          <ul class=\"grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-foreground/90 pt-1\">\n            <li><strong>Starting In-Hand Salary:</strong> ~₹34,000 – ₹38,000 in metro cities</li>\n            <li><strong>Promotion Opportunity:</strong> Eligible for Trainee Officer (JMGS-I) internal examination after 3 years</li>\n            <li><strong>Work-Life Balance:</strong> Regular branch working hours without frequent transfer dislocation</li>\n            <li><strong>Medical &amp; Travel:</strong> 100% medical reimbursement for self and dependent family, LFC allowance</li>\n          </ul>\n        </div>\n      </section>\n\n      <section id=\"exam-pattern\" class=\"space-y-4 mt-8\">\n        <h2>Prelims &amp; Mains Examination Pattern: Aggregate Scoring Advantage</h2>\n        <p>SBI does not maintain minimum sectional cut-offs in either Prelims or Mains. If a candidate scores low in English but dominates Quantitative Aptitude and Reasoning, their high aggregate score qualifies them for Mains.</p>\n\n        <div class=\"my-6 overflow-x-auto\">\n          <table class=\"w-full text-xs sm:text-sm text-left border border-border\">\n            <thead class=\"bg-muted text-foreground font-semibold\">\n              <tr>\n                <th class=\"p-3 border-b\">Prelims Section</th>\n                <th class=\"p-3 border-b\">Questions</th>\n                <th class=\"p-3 border-b\">Marks</th>\n                <th class=\"p-3 border-b\">Sectional Time</th>\n                <th class=\"p-3 border-b\">Scoring Rule</th>\n              </tr>\n            </thead>\n            <tbody class=\"divide-y divide-border\">\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">English Language</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">20 min</td>\n                <td class=\"p-3\">0.25 negative marking per error</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Numerical Ability</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min</td>\n                <td class=\"p-3\">Simplification, Number Series, Arithmetic</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Reasoning Ability</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min</td>\n                <td class=\"p-3\">Puzzles, Seating Arrangements, Syllogisms</td>\n              </tr>\n              <tr class=\"bg-muted/30 font-bold\">\n                <td class=\"p-3\">Total / Composite</td>\n                <td class=\"p-3 font-mono\">100</td>\n                <td class=\"p-3 font-mono\">100</td>\n                <td class=\"p-3 font-mono\">60 min</td>\n                <td class=\"p-3 text-emerald-600 dark:text-emerald-400\">NO Sectional Cut-off</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section id=\"document-specs\" class=\"space-y-4 mt-8\">\n        \n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2\">\n  <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n    <span>⚠️</span> Critical Application Rejection Traps to Avoid\n  </h4>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">\n    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:\n  </p>\n  <ul class=\"list-disc pl-5 text-sm space-y-1 text-muted-foreground\">\n    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>\n    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>\n    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>\n    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>\n  </ul>\n</div>\n\n<h2>Document Specifications for SBI Clerk Portal</h2>\n        <p>SBI adheres strictly to IBPS portal digital standards: <strong>Photo: 20–50 KB (200×230 px)</strong>, <strong>Signature: 10–20 KB (140×60 px in black ink)</strong>. Signatures in capital letters are disqualified immediately.</p>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n          <div class=\"flex items-center justify-between mb-2\">\n            <h4 class=\"text-base font-bold text-foreground flex items-center gap-2\"><span>🏛️</span> Resize Your SBI Clerk Photo &amp; Signature</h4>\n            <a href=\"/blog/ibps-po-clerk-2026-photo-signature-thumb-declaration-guidelines/\" class=\"text-xs text-primary font-semibold hover:underline\">Read Master Banking Handbook &rarr;</a>\n          </div>\n          <p class=\"text-xs sm:text-sm text-muted-foreground mt-1 mb-3\">Ensure 100% compliance with State Bank of India portal file boundaries using our dedicated client-side tools:</p>\n          <div class=\"flex flex-wrap gap-2.5\">\n            <a href=\"/sbi-clerk-signature-resize/\" class=\"inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:opacity-95 transition shadow-xs\">\n              <span>✍️</span> SBI Clerk Signature (10–20 KB) &rarr;\n            </a>\n            <a href=\"/sbi-signature-resize/\" class=\"inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition shadow-xs\">\n              <span>✍️</span> All SBI Signature Resizer &rarr;\n            </a>\n            <a href=\"/photo-resizer/\" class=\"inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition shadow-xs\">\n              <span>📸</span> Passport Photo (20–50 KB) &rarr;\n            </a>\n          </div>\n        </div>\n      </section>\n    \n<h2 id=\"strategy\">SBI Clerk 2026: High-Yield Preparation Strategy &amp; Daily Routine</h2>\n<p>Focus on high-weightage topics, daily revision schedules, and solving previous year question papers under strict exam timer conditions.</p>\n<div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20\">\n  <div class=\"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n    <div>\n      <h4 class=\"font-bold text-lg text-foreground\">Prepare Your SBI Clerk 2026 Documents in Seconds</h4>\n      <p class=\"text-sm text-muted-foreground mt-1\">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>\n    </div>\n    <div class=\"flex flex-wrap gap-2 w-full sm:w-auto\">\n      <a href=\"/photo-resizer/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all\">\n        <span>📸</span> Resize Photo\n      </a>\n      <a href=\"/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all\">\n        <span>✍️</span> Resize Signature\n      </a>\n    </div>\n  </div>\n</div>\n    "
   },
   {
     "slug": "upsc-cds-nda-2026-top-10-faq-defence-guide",

@@ -212,12 +212,20 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
     }
     if (!updatedAttrs.includes('scroll-mt-')) {
       if (updatedAttrs.includes('class="')) {
-        updatedAttrs = updatedAttrs.replace(/class="([^"]*)"/, 'class="$1 scroll-mt-28 sm:scroll-mt-32"');
+        updatedAttrs = updatedAttrs.replace(/class="([^"]*)"/, 'class="$1 scroll-mt-40 sm:scroll-mt-44"');
       } else {
-        updatedAttrs = ` class="scroll-mt-28 sm:scroll-mt-32"${updatedAttrs}`;
+        updatedAttrs = ` class="scroll-mt-40 sm:scroll-mt-44"${updatedAttrs}`;
       }
     }
-    return `<h2${updatedAttrs}>${content}</h2>`;
+
+    // Auto-inject alias anchor for numeric sections like #section-5 or #section-1
+    let prefix = '';
+    const sectionNumMatch = rawText.match(/(?:^|\b)(?:section\s+)?(\d+)[\.\-\)]\s*/i);
+    if (sectionNumMatch && id !== `section-${sectionNumMatch[1]}`) {
+      prefix = `<span id="section-${sectionNumMatch[1]}" class="scroll-mt-40 sm:scroll-mt-44 block -mt-6 pt-6"></span>`;
+    }
+
+    return `${prefix}<h2${updatedAttrs}>${content}</h2>`;
   });
 
   // 2. Parse all <h2> elements (including those inside <section id="...">) in order
@@ -226,7 +234,11 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
   while ((h2Match = h2Regex.exec(html)) !== null) {
     const id = h2Match[1];
     const rawTitle = decodeHtmlEntities(h2Match[2].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
-    const cleanTitle = rawTitle.replace(/^([\p{Extended_Pictographic}\u2000-\u3300\uFE00-\uFE0F\s]*\d+[\.\-\)]\s*)+/u, '').trim() || rawTitle;
+    const cleanTitle = rawTitle
+      .replace(/^([\p{Extended_Pictographic}\u2000-\u3300\uFE00-\uFE0F\s]*\d+[\.\-\)]\s*)+/u, '')
+      .replace(/^[*_~`]+|[*_~`]+$/g, '')
+      .replace(/[*_~`]/g, '')
+      .trim() || rawTitle;
 
     if (!registeredIds.has(id)) {
       registeredIds.add(id);
@@ -264,8 +276,8 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
     navItems.push({ id: 'faqs', title: `Frequently Asked Questions (${faqs.length} Clarified)` });
   }
 
-  // 4. Adjust sticky jump bars from `sticky top-4` to `sticky top-28` (80px) to clear the 64px sticky header
-  html = html.replace(/sticky top-4/g, 'sticky top-28');
+  // 4. Adjust sticky jump bars from `sticky top-4` or `sticky top-20` to `sticky top-28 sm:top-[116px]` to clear the sticky header and announcement strip
+  html = html.replace(/sticky top-(?:4|20)/g, 'sticky top-28 sm:top-[116px]');
 
   // 5. Highlight syntax ==...==
   html = html.replace(/==(.*?)==/g, '<mark class="bg-amber-200/90 dark:bg-amber-900/60 text-amber-950 dark:text-amber-100 font-bold px-1.5 py-0.5 rounded border border-amber-400/40 dark:border-amber-600/40 selection:bg-amber-300 dark:selection:bg-amber-800">$1</mark>');
@@ -472,7 +484,8 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         <article class="min-w-0 space-y-6 sm:space-y-8">
           <!-- Mobile / Tablet Compact TOC (Visible on < lg screens) -->
           {navItems.length > 0 && (
-            <nav class="lg:hidden rounded-xl border border-border bg-muted/30 p-3.5 sm:p-5 space-y-2.5">
+            <nav id="table-of-contents" class="lg:hidden rounded-xl border border-border bg-muted/30 p-3.5 sm:p-5 space-y-2.5 scroll-mt-28 sm:scroll-mt-36">
+              <span id="toc" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
               <div class="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
                 <div class="flex items-center gap-2 text-xs font-bold text-foreground uppercase tracking-wider">
                   <span>📑</span>
@@ -525,9 +538,14 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
 
           <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
           {post.faqs && post.faqs.length > 0 && (
-            <section id="faqs" class="space-y-4 pt-6 border-t border-border scroll-mt-20">
-              <span id="12-frequently-asked-questions" class="scroll-mt-24 block -mt-6 pt-6"></span>
-              <span id="section-6" class="scroll-mt-24 block -mt-6 pt-6"></span>
+            <section id="faqs" class="space-y-4 pt-6 border-t border-border scroll-mt-28 sm:scroll-mt-36">
+              <span id="faq" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="frequently-asked-questions" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="10-frequently-asked-questions" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="12-frequently-asked-questions" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="section-6" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="section-9" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="section-10" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
               <div class="space-y-1">
                 <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
                   <span>❓</span> {post.guideTool ? 'Image preparation FAQs' : isPkiCompliancePost ? 'Technical & Regulatory FAQs' : 'Candidate FAQs'}
@@ -642,15 +660,15 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
                     <a
                       href={`#${item.id}`}
                       class:list={[
-                        "toc-desktop-link group flex items-start gap-2 px-2.5 py-1.5 rounded-lg text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-cyan-300 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition text-xs leading-snug font-medium",
+                        "toc-desktop-link group not-italic flex items-start gap-2 px-2.5 py-1.5 rounded-lg text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-cyan-300 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition text-xs leading-snug font-medium",
                         item.id === 'faqs' ? "font-semibold text-blue-700 dark:text-cyan-300" : ""
                       ]}
                       data-target={item.id}
                     >
-                      <span class="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 group-hover:text-blue-700 dark:group-hover:text-cyan-300 shrink-0 mt-0.5">
+                      <span class="text-[10px] font-mono font-bold not-italic text-slate-500 dark:text-slate-400 group-hover:text-blue-700 dark:group-hover:text-cyan-300 shrink-0 mt-0.5">
                         {idx + 1}.
                       </span>
-                      <span class="line-clamp-2">{item.title}</span>
+                      <span class="line-clamp-2 not-italic font-normal">{item.title}</span>
                     </a>
                   </li>
                 ))}
@@ -665,7 +683,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
               <span>Instant Preset Resizer</span>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 mb-3">
-              {relatedPreset ? `${relatedPreset.name} (${relatedPreset.minKb}–${relatedPreset.maxKb} KB)` : post.guideTool?.label || 'Universal Photo & Signature Resizer (10–20 KB)'}
+              {post.guideTool?.label || (relatedPreset ? `${relatedPreset.name} (${relatedPreset.minKb}–${relatedPreset.maxKb} KB)` : 'Universal Photo & Signature Resizer (10–20 KB)')}
             </p>
             <a
               href={post.guideTool?.href || (relatedPreset ? getExamPageUrl(relatedExamSlug) : `/${relatedExamSlug}/`)}
@@ -726,7 +744,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
     <div class="fixed bottom-0 inset-x-0 z-40 p-2.5 bg-background/95 backdrop-blur-md border-t border-border shadow-lg sm:hidden flex items-center justify-between gap-3">
       <div class="min-w-0 flex-1 pl-1">
         <div class="text-xs font-bold text-foreground truncate">{post.guideTool?.label || 'Photo & Signature Resizer'}</div>
-        <div class="text-[10px] text-muted-foreground truncate">140×60 px • 10–20 KB &amp; 20–50 KB</div>
+        <div class="text-[10px] text-muted-foreground truncate">{relatedPreset ? `${relatedPreset.widthPx}×${relatedPreset.heightPx} px • ${relatedPreset.minKb}–${relatedPreset.maxKb} KB (${relatedPreset.inkRequirement})` : '140×60 px • 10–20 KB & 20–50 KB'}</div>
       </div>
       <a href={post.guideTool?.href || `/${relatedExamSlug}/`} class="px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-sm hover:opacity-95 shrink-0 flex items-center gap-1 transition">
         <span>Resize Now</span>
@@ -928,6 +946,54 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         padding: 0.65rem 0.85rem !important;
         font-size: 0.8125rem !important;
         word-break: normal;
+      }
+      :global(.article-prose .overflow-x-auto) {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+      /* Subtle edge shadow/fade hint for mobile scrollable tables */
+      @media (max-width: 640px) {
+        :global(.article-prose .table-scroll-hint-wrapper) {
+          position: relative;
+        }
+        :global(.article-prose .table-scroll-hint-wrapper::after) {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 28px;
+          background: linear-gradient(to left, var(--card), transparent);
+          pointer-events: none;
+          z-index: 10;
+          border-top-right-radius: 1rem;
+          border-bottom-right-radius: 1rem;
+        }
+      }
+      /* Quick Jump Pill Horizontal Scroll Mask & Touch Styling */
+      :global(.quick-jump-wrapper) {
+        position: relative;
+      }
+      :global(.quick-jump-wrapper .overflow-x-auto) {
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+      }
+      :global(.quick-jump-fade-mask) {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 3.5rem;
+        background: linear-gradient(to left, var(--card), transparent);
+        z-index: 10;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+      /* Desktop & Mobile TOC Typography Uniformity */
+      :global(.toc-desktop-link),
+      :global(.toc-desktop-link *) {
+        font-style: normal !important;
       }
       /* Responsive container adjustments */
       :global(.article-prose [class*="border-l-2"]) {

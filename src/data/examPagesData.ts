@@ -638,40 +638,6 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       }
     ]
   },
-  // BPSC
-  {
-    slug: 'bpsc-signature-resize',
-    presetId: 'bpsc',
-    pageTitle: 'BPSC Signature Resize 10 to 25 KB (English & Hindi) - SignResize',
-    metaDescription: 'Resize signature for Bihar Public Service Commission (BPSC CCE, TRE, Headmaster). Format to 140x60 px (4x2 cm), 10 KB to 25 KB JPG in English & Hindi.',
-    keywords: 'bpsc signature resize, bpsc signature size 10 to 25 kb, bpsc hindi signature resize, bpsc tre signature upload, bihar psc signature resizer',
-    h1: 'BPSC Signature Resize & Compressor (10 KB – 25 KB)',
-    subheading: 'Official 4.0×2.0 cm format with strict 10 KB to 25 KB limits for BPSC Combined Competitive Examination and Teacher Recruitment.',
-    authority: 'Bihar Public Service Commission (BPSC)',
-    targetExams: 'BPSC CCE (Integrated 70th/71st), BPSC TRE (Teacher Recruitment), BPSC Headmaster, Assistant Professor',
-    widthPx: 140,
-    heightPx: 60,
-    widthCm: 4.0,
-    heightCm: 2.0,
-    minKb: 10,
-    maxKb: 25,
-    recommendedKb: 15,
-    dpi: 200,
-    ink: 'Black or Blue Ink Pen',
-    aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'BPSC typically mandates uploading both English and Hindi signatures into separate upload slots. Resize both files under 25 KB.',
-    tips: [
-      'Format both English and Hindi signatures using this preset to ensure consistent dimensions.',
-      'Strictly maintain file size between 10.0 KB and 24.9 KB.',
-      'Crop neatly without clipping descending characters.'
-    ],
-    faqs: [
-      {
-        q: 'Does BPSC require Hindi signature as well?',
-        a: 'Yes, most BPSC online application forms require two separate signature uploads: one in English and one in Hindi, both under 25 KB.'
-      }
-    ]
-  },
   // MPSC
   {
     slug: 'mpsc-signature-resize',
@@ -1752,7 +1718,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       { label: 'NICL AO Official Online Application Portal (ibpsreg.ibps.in/niiclsep26/)', url: 'https://ibpsreg.ibps.in/niiclsep26/' },
       { label: 'National Insurance Company Limited Official Portal (nationalinsurance.nic.co.in)', url: 'https://nationalinsurance.nic.co.in/' }
     ],
-    relatedTools: ['handwritten-declaration-resizer', 'photo-resizer', 'document-resizer', 'resize-signature-to-10kb-20kb'],
+    relatedTools: ['ibps-handwritten-declaration-resize', 'ibps-thumb-impression-resize', 'photo-resizer', 'document-resizer', 'resize-signature-to-10kb-20kb'],
     tips: [
       'Sign with a black ballpoint pen on plain white paper in running handwriting (never use capital letters).',
       'For Passport Photograph: 200×230 pixels, 20 KB to 50 KB JPG with a plain light or white background.',
@@ -3846,6 +3812,490 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'What is the required passport photo size for Railway RRB exams?',
         a: 'Railway Recruitment Boards require a color passport photograph with dimensions of 3.5 × 4.5 cm (240 × 320 px) and a file size strictly between 20 KB and 50 KB in JPG/JPEG format.'
+      }
+    ]
+  },
+  // RRB JE Signature
+  {
+    slug: 'rrb-je-signature-resize',
+    presetId: 'rrb-je',
+    pageTitle: 'RRB JE Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
+    metaDescription: 'Resize signature for RRB JE (Junior Engineer & DMS) CEN 03/2024 online. Format to 140x60 px, 10 KB to 20 KB JPG with black ink on white paper for RRB portal. Free & 100% private.',
+    keywords: 'rrb je signature resize, rrb je signature size 10 to 20 kb, rrb je signature 140x60, railway junior engineer signature crop, rrb je cen 03 2024 signature format, rrb je apply online 2026',
+    h1: 'RRB JE Signature Resize & Compressor (10 KB – 20 KB)',
+    subheading: 'Official 140×60 px (4.0×2.0 cm) dimensions and strict 10 KB to 20 KB limits for Railway Recruitment Board Junior Engineer (CEN 03/2024) portal.',
+    authority: 'Railway Recruitment Board (RRB)',
+    targetExams: 'RRB JE (Junior Engineer - Civil, Mechanical, Electrical, Electronics), Depot Material Superintendent (DMS), Chemical & Metallurgical Assistant (CMA)',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 4.0,
+    heightCm: 2.0,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'RRB strictly rejects signatures written in BLOCK/CAPITAL LETTERS. Sign in natural running cursive handwriting on unruled white paper with black ballpoint ink.',
+    relatedTools: ['rrb-je-photo-resize', 'rrb-signature-resize', 'rrb-alp-signature-resize', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Sign with a black ballpoint pen on clean, spotless unruled white paper.',
+      'Maintain running cursive handwriting — never write your full name in capital letters.',
+      'Crop tightly to ensure the signature fills 75–85% of the frame without cutting strokes.',
+      'Verify that the final downloaded JPG is strictly between 10.0 KB and 19.9 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the RRB JE signature size requirement for CEN 03/2024?',
+        a: 'The official RRB JE signature size is 140 pixels wide by 60 pixels tall (approximately 4.0 cm × 2.0 cm), file size between 10 KB and 20 KB in JPG/JPEG format, signed in black ink on white paper.'
+      },
+      {
+        q: 'Can I use blue ink for the RRB JE signature?',
+        a: 'Railway Recruitment Boards strongly recommend black ballpoint ink on clean white paper. Low contrast blue ink signatures may get flagged or rejected during document verification.'
+      },
+      {
+        q: 'What if my RRB JE signature is above 20 KB or below 10 KB?',
+        a: 'The RRB portal has automated validation filters and will reject files under 10 KB or over 20 KB. SignResize compresses your signature precisely into the 14–19 KB safe zone.'
+      }
+    ]
+  },
+  // RRB JE Photo
+  {
+    slug: 'rrb-je-photo-resize',
+    presetId: 'rrb-je-photo',
+    pageTitle: 'RRB JE Photo Resize 30 to 70 KB (3.5x4.5 cm) Online 2026 - SignResize',
+    metaDescription: 'Resize passport photo for RRB JE (Junior Engineer & DMS) CEN 03/2024. Format to 3.5x4.5 cm (240x320 px), 30 KB to 70 KB JPG with plain white background for RRB portal. Free & instant.',
+    keywords: 'rrb je photo resize, rrb je photo size 30 to 70 kb, rrb junior engineer photo 3.5x4.5 cm, rrb je photo compressor online, rrb apply photo format cen 03 2024',
+    h1: 'RRB JE Photo Resize & Compressor (30 KB – 70 KB)',
+    subheading: 'Official 3.5×4.5 cm (240×320 px) colour passport photograph with plain white background and 30–70 KB bounds for Railway Recruitment Board Junior Engineer (CEN 03/2024) portal.',
+    authority: 'Railway Recruitment Board (RRB)',
+    targetExams: 'RRB JE (Junior Engineer - Mechanical, Civil, Electrical, Signal & Telecom), DMS, CMA Recruitment (CEN 03/2024)',
+    widthPx: 240,
+    heightPx: 320,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 30,
+    maxKb: 70,
+    recommendedKb: 50,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '3:4 (3.5×4.5 cm)',
+    strictNotice: 'RRB requires a clear colour passport photo with a plain white or light grey background taken within the last 6 months. Sunglasses, tinted spectacles, and caps are strictly prohibited.',
+    relatedTools: ['rrb-je-signature-resize', 'rrb-photo-resize', 'photo-resizer', 'rrb-alp-signature-resize'],
+    tips: [
+      'Take the photograph in clear, even light facing straight forward with both ears visible.',
+      'Ensure the background is pure white or light grey with no textures or shadows.',
+      'Do not wear caps, hats, or tinted sunglasses (regular prescription glasses without reflection are allowed).',
+      'Download JPG file and verify the file size is strictly between 30 KB and 70 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the passport photo size for RRB JE CEN 03/2024?',
+        a: 'The RRB JE application portal requires a recent color passport photograph of 3.5 cm × 4.5 cm (approximately 240 × 320 pixels), with file size strictly between 30 KB and 70 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'Can I upload a selfie for RRB JE online application?',
+        a: 'Selfies taken from unusual angles or with casual backgrounds are commonly rejected by RRB portal validators. Use a front-facing, passport-style photo with a plain white background.'
+      },
+      {
+        q: 'Does RRB JE photo require candidate name and date printed on it?',
+        a: 'No. Unlike UPSC or NEET, RRB JE (CEN 03/2024) does not mandate printing your name and date on the passport photo, though the photo must be recently taken.'
+      }
+    ]
+  },
+  // BPSC Signature (General / CCE)
+  {
+    slug: 'bpsc-signature-resize',
+    presetId: 'bpsc',
+    pageTitle: 'BPSC Signature Resize 220x100 (10 to 25 KB) Online 2026 - SignResize',
+    metaDescription: 'Resize signature for BPSC (Bihar Public Service Commission) 70th/71st CCE and teacher recruitment online. Format to 220x100 px, 10 KB to 25 KB JPG in Hindi and English. Free & instant.',
+    keywords: 'bpsc signature resize, bpsc signature size 220x100, bpsc photo and signature resize online, bpsc cce signature format, onlinebpsc bihar gov in signature resize, bpsc signature 10 to 20 kb',
+    h1: 'BPSC Signature Resize & Compressor (220×100 px, 10–25 KB)',
+    subheading: 'Official 220×100 pixel dimensions and 10 KB to 25 KB JPG limits for Bihar Public Service Commission (BPSC 70th/71st CCE & State exams) application portal.',
+    authority: 'Bihar Public Service Commission (BPSC)',
+    targetExams: 'BPSC Combined Competitive Examination (CCE 70th / 71st), BPSC Assistant Engineer, Head Teacher, Bihar Administrative Service',
+    widthPx: 220,
+    heightPx: 100,
+    widthCm: 5.5,
+    heightCm: 2.5,
+    minKb: 10,
+    maxKb: 25,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black or Blue Ink',
+    aspectRatioLabel: '11:5 (~220×100 px)',
+    strictNotice: 'The BPSC online portal (onlinebpsc.bihar.gov.in) strictly requires separate uploads for Hindi Signature and English Signature. Signatures in CAPITAL / BLOCK LETTERS will lead to rejection.',
+    relatedTools: ['bpsc-tre-hindi-signature-resize', 'bpsc-tre-english-signature-resize', 'resize-signature-to-10kb-20kb', 'uppsc-signature-resize'],
+    tips: [
+      'BPSC portal requires both English and Hindi signatures in separate upload slots.',
+      'Crop your signature tightly within 220×100 pixels with clear white background.',
+      'Use clean black or dark blue ink on spotless unruled white paper.',
+      'Ensure the exported JPG file is between 10 KB and 20 KB (max 25 KB).'
+    ],
+    faqs: [
+      {
+        q: 'What is the official BPSC signature size and dimension?',
+        a: 'According to official BPSC guidelines on onlinebpsc.bihar.gov.in, signatures must be exactly 220 pixels in width and 100 pixels in height, with a file size between 10 KB and 25 KB (strictly recommended under 20 KB) in JPG/JPEG format.'
+      },
+      {
+        q: 'Does BPSC require both Hindi and English signatures?',
+        a: 'Yes. The Bihar Public Service Commission portal provides two distinct upload slots: "Signature in Hindi" and "Signature in English". You must upload both to complete your application.'
+      },
+      {
+        q: 'Can I write my BPSC English signature in block capital letters?',
+        a: 'No. BPSC strictly prohibits signatures in block or capital letters. Signatures must be in your natural running cursive handwriting.'
+      }
+    ]
+  },
+  // BPSC TRE Hindi Signature
+  {
+    slug: 'bpsc-tre-hindi-signature-resize',
+    presetId: 'bpsc-tre-hindi-sign',
+    pageTitle: 'BPSC TRE Hindi Signature Resize 220x100 (10 to 20 KB) 2026 - SignResize',
+    metaDescription: 'Resize Hindi signature for BPSC TRE 3.0 / 4.0 Teacher Recruitment online. Format to 220x100 px, strictly 10 KB to 20 KB JPG in Devanagari script for onlinebpsc. Free & instant.',
+    keywords: 'bpsc tre hindi signature resize, bpsc teacher hindi sign resize, bpsc hindi signature 220x100, bihar teacher hindi signature 10 to 20 kb, onlinebpsc hindi signature format, bpsc tre 4 signature',
+    h1: 'BPSC TRE Hindi Signature Resize & Compressor (हिंदी हस्ताक्षर)',
+    subheading: 'Official 220×100 px dimensions and strict 10 KB to 20 KB limits in Devanagari script for BPSC Teacher Recruitment Examination (TRE 3.0 & 4.0) portal.',
+    authority: 'Bihar Public Service Commission (BPSC TRE)',
+    targetExams: 'BPSC TRE 3.0, BPSC TRE 4.0 Primary Teacher (PRT 1-5), Middle School (TGT 6-8), Secondary & Higher Secondary (PGT 9-12), Headmaster Recruitment',
+    widthPx: 220,
+    heightPx: 100,
+    widthCm: 5.5,
+    heightCm: 2.5,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black or Blue Ink (Devanagari Script)',
+    aspectRatioLabel: '11:5 (~220×100 px)',
+    strictNotice: 'Upload only your signature in Hindi (Devanagari script) into the "Signature in Hindi" slot on onlinebpsc.bihar.gov.in. Uploading an English signature in this slot will result in rejection during scrutiny.',
+    relatedTools: ['bpsc-tre-english-signature-resize', 'bpsc-signature-resize', 'ctet-signature-resize', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Write your signature clearly in Devanagari script (देवनागरी लिपि) with black or blue pen.',
+      'Use clean unruled white printer paper without shadows or background tint.',
+      'Set aspect ratio to 220×100 px so the text fits cleanly across the canvas.',
+      'Ensure the final JPG file size is strictly between 10 KB and 20 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required Hindi signature size for BPSC TRE?',
+        a: 'For BPSC TRE (Teacher Recruitment), the Hindi signature must be 220 pixels wide by 100 pixels high, in JPG/JPEG format, with a file size strictly between 10 KB and 20 KB.'
+      },
+      {
+        q: 'Can I type my Hindi name with a computer font for BPSC TRE?',
+        a: 'No. The signature must be handwritten by the candidate in Devanagari script using a black or blue pen, then scanned or photographed and cropped.'
+      },
+      {
+        q: 'What happens if I mix up Hindi and English signatures on the BPSC portal?',
+        a: 'If you upload your English signature in the Hindi slot or vice versa, your application form will have a mismatch and may be rejected during document verification. SignResize lets you crop and download both separately with clear filenames.'
+      }
+    ]
+  },
+  // BPSC TRE English Signature
+  {
+    slug: 'bpsc-tre-english-signature-resize',
+    presetId: 'bpsc-tre-english-sign',
+    pageTitle: 'BPSC TRE English Signature Resize 220x100 (10 to 20 KB) 2026 - SignResize',
+    metaDescription: 'Resize English signature for BPSC TRE 3.0 / 4.0 Teacher Recruitment online. Format to 220x100 px, strictly 10 KB to 20 KB JPG in running cursive handwriting for onlinebpsc. Free & secure.',
+    keywords: 'bpsc tre english signature resize, bpsc teacher english sign resize, bpsc english signature 220x100, bihar teacher english signature 10 to 20 kb, onlinebpsc english signature format, bpsc tre 4 signature',
+    h1: 'BPSC TRE English Signature Resize & Compressor (अंग्रेजी हस्ताक्षर)',
+    subheading: 'Official 220×100 px dimensions and strict 10 KB to 20 KB bounds in running cursive handwriting for BPSC Teacher Recruitment Examination (TRE 3.0 & 4.0) portal.',
+    authority: 'Bihar Public Service Commission (BPSC TRE)',
+    targetExams: 'BPSC TRE 3.0, BPSC TRE 4.0 Primary Teacher (PRT 1-5), Middle School (TGT 6-8), Secondary & Higher Secondary (PGT 9-12), Head Teacher',
+    widthPx: 220,
+    heightPx: 100,
+    widthCm: 5.5,
+    heightCm: 2.5,
+    minKb: 10,
+    maxKb: 20,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black or Blue Ink (Running Handwriting)',
+    aspectRatioLabel: '11:5 (~220×100 px)',
+    strictNotice: 'Capital/block letters in English signature are strictly rejected by BPSC. Sign in natural cursive running handwriting on unruled white paper and upload into the "Signature in English" slot.',
+    relatedTools: ['bpsc-tre-hindi-signature-resize', 'bpsc-signature-resize', 'ctet-signature-resize', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Sign in running cursive handwriting using a black or blue ballpoint pen.',
+      'Never write your name in all capital letters (e.g., "RAHUL KUMAR" is invalid).',
+      'Crop to exact 220×100 pixels with unruled white paper background.',
+      'Keep file size between 10 KB and 20 KB JPG for 100% acceptance on onlinebpsc portal.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required English signature size for BPSC TRE?',
+        a: 'For BPSC TRE (Teacher Recruitment), the English signature must be 220 pixels wide by 100 pixels high, in JPG/JPEG format, with a file size strictly between 10 KB and 20 KB.'
+      },
+      {
+        q: 'Can I use capital letters for my English signature on BPSC portal?',
+        a: 'No. BPSC guidelines specifically declare that signatures written in block letters or capital letters will be rejected. You must sign in natural running script.'
+      },
+      {
+        q: 'Where do I upload the English signature on onlinebpsc.bihar.gov.in?',
+        a: 'On the BPSC application page, navigate to the "Upload Signature in English" section. Upload your 220×100 px JPG file generated by SignResize.'
+      }
+    ]
+  },
+  // West Bengal Police Signature
+  {
+    slug: 'wb-police-signature-resize',
+    presetId: 'wb-police-signature',
+    pageTitle: 'WB Police Signature Resize 5 to 20 KB (138x59 px) Online 2026 - SignResize',
+    metaDescription: 'Resize signature for West Bengal Police (Constable, Lady Constable, SI) & Kolkata Police recruitment online. Format to 138x59 px, 5 KB to 20 KB JPG for prb.wb.gov.in. Free & instant.',
+    keywords: 'wb police signature resize, wbp constable signature size 5 to 20 kb, wb police signature 138x59, kolkata police signature resize, west bengal police recruitment board prb wb gov in sign, wbp lady constable signature crop',
+    h1: 'West Bengal Police Signature Resize & Compressor (5 KB – 20 KB)',
+    subheading: 'Official 138×59 px (3.5×1.5 cm) dimensions and strict 5 KB to 20 KB file bounds for WBPRB West Bengal Police Constable, Lady Constable & Kolkata Police SI portal.',
+    authority: 'West Bengal Police Recruitment Board (WBPRB)',
+    targetExams: 'West Bengal Police (WBP) Constable, Lady Constable, Sub-Inspector (SI), Kolkata Police Constable, Wireless Operator, Jail Warder',
+    widthPx: 138,
+    heightPx: 59,
+    widthCm: 3.5,
+    heightCm: 1.5,
+    minKb: 5,
+    maxKb: 20,
+    recommendedKb: 12,
+    dpi: 200,
+    ink: 'Black Ink Only',
+    aspectRatioLabel: '138:59 (~3.5×1.5 cm)',
+    strictNotice: 'WBPRB strictly rejects signatures written in CAPITAL/BLOCK letters or in faint ink. Sign in running cursive handwriting using a black ballpoint pen on plain white unruled paper.',
+    relatedTools: ['wb-police-photo-resize', 'wbpsc-signature-resize', 'resize-signature-to-10kb-20kb', 'bihar-police-signature-resize'],
+    tips: [
+      'Sign with a black ballpoint pen on unruled spotless white paper.',
+      'Write in natural cursive running handwriting — do not write your name in capital letters.',
+      'Crop strictly to 138×59 pixels without cutting off any strokes.',
+      'Verify that the exported file size is strictly between 5 KB and 20 KB in JPG format.'
+    ],
+    faqs: [
+      {
+        q: 'What is the signature size for West Bengal Police (WBP) recruitment 2026?',
+        a: 'The official WBPRB requirement is 138 pixels wide by 59 pixels high (approx 3.5 cm × 1.5 cm) with file size strictly between 5 KB and 20 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'Can I use blue ink for the WB Police signature?',
+        a: 'WBPRB guidelines mandate black ballpoint ink on clean white paper. Blue or gel ink signatures can appear washed out after scanning and risk rejection.'
+      },
+      {
+        q: 'Is Kolkata Police signature format identical to West Bengal Police?',
+        a: 'Yes. Both West Bengal Police and Kolkata Police recruitments are conducted by WBPRB (prb.wb.gov.in) and share identical upload dimensions (138×59 px, 5–20 KB).'
+      }
+    ]
+  },
+  // West Bengal Police Photo
+  {
+    slug: 'wb-police-photo-resize',
+    presetId: 'wb-police-photo',
+    pageTitle: 'WB Police Photo Resize 10 to 50 KB (138x177 px) Online 2026 - SignResize',
+    metaDescription: 'Resize passport photo for West Bengal Police Constable & SI recruitment 2026. Format to 138x177 px (3.5x4.5 cm), strictly 10 KB to 50 KB JPG with white background for prb.wb.gov.in. Free.',
+    keywords: 'wb police photo resize, wbp constable photo size 10 to 50 kb, wb police photo 138x177, kolkata police photo resize, west bengal police recruitment board photo format, wbp photo compressor online',
+    h1: 'West Bengal Police Photo Resize & Compressor (10 KB – 50 KB)',
+    subheading: 'Official 138×177 px (3.5×4.5 cm) passport photo with white background and strict 10 KB to 50 KB bounds for WBPRB West Bengal Police & Kolkata Police portal.',
+    authority: 'West Bengal Police Recruitment Board (WBPRB)',
+    targetExams: 'West Bengal Police (WBP) Constable, Lady Constable, Sub-Inspector (SI), Kolkata Police Constable, Assistant Sub-Inspector (ASI)',
+    widthPx: 138,
+    heightPx: 177,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 10,
+    maxKb: 50,
+    recommendedKb: 30,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '138:177 (~3.5×4.5 cm)',
+    strictNotice: 'WBPRB strictly mandates a recent color passport photograph taken within 3 months with a clean white or very light background. Photos with dark backgrounds, caps, tinted glasses, or covering face will be rejected.',
+    relatedTools: ['wb-police-signature-resize', 'wbpsc-photo-resize', 'photo-resizer', 'bihar-police-photo-resize'],
+    tips: [
+      'Use a front-facing colour photograph with face covering 70–80% of the frame.',
+      'Ensure a clear white background with even lighting on both cheeks.',
+      'Do not wear caps, hats, dark sunglasses, or tinted lenses.',
+      'Ensure the saved JPG file is strictly between 10 KB and 50 KB (WBPRB rejects files under 10 KB or above 50 KB).'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo size for West Bengal Police (WBP) Constable application?',
+        a: 'WBPRB specifies a photograph size of 138 pixels wide by 177 pixels high (approximately 3.5 cm × 4.5 cm), with file size strictly between 10 KB and 50 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'How does WB Police photo requirements differ from WBPSC photo?',
+        a: 'While both use 138×177 pixel dimensions, WB Police allows a 10 KB to 50 KB file size range, whereas WBPSC enforces a 20 KB to 100 KB range. SignResize tailors the compression specifically for each portal.'
+      },
+      {
+        q: 'Can I wear glasses in the West Bengal Police photograph?',
+        a: 'Clear prescription glasses without glare or reflection are permitted. Sunglasses, tinted glasses, or frames that obscure the eyes or eyebrows are strictly prohibited.'
+      }
+    ]
+  },
+  // NTA JEE Main Signature
+  {
+    slug: 'jee-main-signature-resize',
+    presetId: 'jee-main-signature',
+    pageTitle: 'JEE Main Signature Resize 4 to 30 KB (140x60 px) Online 2026 - SignResize',
+    metaDescription: 'Resize signature for NTA JEE Main 2026 Session 1 & Session 2 online. Format to 140x60 px (3.5x1.5 cm), strictly 4 KB to 30 KB JPG in black ink for jeemain.nta.nic.in. Free & 100% private.',
+    keywords: 'jee main signature resize, jee main signature size 4 to 30 kb, jee main signature 140x60, nta jee signature compressor, jee main online application signature format, jee main 2026 signature resizer',
+    h1: 'NTA JEE Main Signature Resize & Compressor (4 KB – 30 KB)',
+    subheading: 'Official 140×60 px (3.5×1.5 cm) dimensions and strict 4 KB to 30 KB file bounds in black ballpoint ink for National Testing Agency JEE (Main) 2026 application portal.',
+    authority: 'National Testing Agency (NTA)',
+    targetExams: 'JEE Main 2026 (Session 1 & Session 2), JEE Advanced, B.Tech/B.E. (Paper 1), B.Arch (Paper 2A), B.Planning (Paper 2B)',
+    widthPx: 140,
+    heightPx: 60,
+    widthCm: 3.5,
+    heightCm: 1.5,
+    minKb: 4,
+    maxKb: 30,
+    recommendedKb: 15,
+    dpi: 200,
+    ink: 'Black Ballpoint Ink Only',
+    aspectRatioLabel: '7:3 (~140×60 px)',
+    strictNotice: 'NTA strictly rejects signatures written in CAPITAL/BLOCK letters or in blue/colored gel ink. Sign in natural cursive running handwriting on spotless unruled white paper with black ballpoint pen.',
+    relatedTools: ['jee-main-photo-resize', 'nta-neet-jee-signature-resize', 'gate-signature-resize', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Sign with a black ballpoint pen on spotless unruled white printer paper.',
+      'Maintain natural cursive handwriting — capital letters are strictly disqualified by NTA.',
+      'Crop tightly around the signature strokes so it fills 75–80% of the 140×60 box.',
+      'Verify that the exported file is strictly between 4.0 KB and 30.0 KB in JPG format.'
+    ],
+    faqs: [
+      {
+        q: 'What is the signature size for JEE Main 2026 online application?',
+        a: 'According to the official NTA JEE (Main) Information Bulletin, the signature must be in JPG/JPEG format, with file size strictly between 4 KB and 30 KB, dimensions approximately 3.5 cm × 1.5 cm (140 × 60 pixels).'
+      },
+      {
+        q: 'Can I use blue ink for JEE Main signature?',
+        a: 'No. The National Testing Agency explicitly specifies black ink on white unruled paper for clear optical scanning during exam day verification.'
+      },
+      {
+        q: 'What happens if my JEE Main signature file size is 35 KB or 3 KB?',
+        a: 'The NTA portal validator will automatically throw an upload error and refuse to save your form. SignResize compresses your signature safely into the 10–20 KB sweet spot.'
+      }
+    ]
+  },
+  // NTA JEE Main Photo
+  {
+    slug: 'jee-main-photo-resize',
+    presetId: 'jee-main-photo',
+    pageTitle: 'JEE Main Photo Resize 10 to 200 KB (3.5x4.5 cm) Online 2026 - SignResize',
+    metaDescription: 'Resize passport photo for NTA JEE Main 2026 online. Format to 3.5x4.5 cm, strictly 10 KB to 200 KB JPG with 80% face coverage and white background for jeemain.nta.nic.in. Free & instant.',
+    keywords: 'jee main photo resize, jee main photo size 10 to 200 kb, jee main photo 3.5x4.5 cm, nta jee main photo compressor online, jee main passport photo format 2026, jee main photo resizer online',
+    h1: 'NTA JEE Main Photo Resize & Compressor (10 KB – 200 KB)',
+    subheading: 'Official 3.5×4.5 cm (300×400 px) passport photo with 80% face coverage against white background and 10 KB to 200 KB file limits for JEE Main 2026 portal.',
+    authority: 'National Testing Agency (NTA)',
+    targetExams: 'JEE Main 2026 (B.E./B.Tech, B.Arch, B.Planning), JEE Advanced, JoSAA Counselling',
+    widthPx: 300,
+    heightPx: 400,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 10,
+    maxKb: 200,
+    recommendedKb: 50,
+    dpi: 200,
+    ink: 'Any (Passport Photo)',
+    aspectRatioLabel: '3:4 (3.5×4.5 cm)',
+    strictNotice: 'NTA mandates 80% face coverage (without mask) with clear visible ears against a spotless white background. Photos with caps, dark sunglasses, or casual selfies are automatically rejected.',
+    relatedTools: ['jee-main-signature-resize', 'neet-photo-resize', 'photo-resizer', 'gate-photo-resize'],
+    tips: [
+      'Ensure 80% of the photo is covered by your face, neck, and shoulders with both ears visible.',
+      'Background must be pure plain white with no textures, patterns, or heavy shadows.',
+      'Regular clear spectacles are allowed only if you wear them daily; tinted lenses and sunglasses are strictly prohibited.',
+      'Download the JPG file and verify that the file size is between 10 KB and 200 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photograph size requirement for JEE Main 2026?',
+        a: 'NTA specifies that the passport photo must be in JPG/JPEG format, file size between 10 KB and 200 KB, with 80% face coverage against a white background.'
+      },
+      {
+        q: 'Is candidate name and date mandatory on the JEE Main photograph?',
+        a: 'Unlike NEET UG where name and date are mandated, the JEE Main Information Bulletin does not make printing your name and date mandatory on the photo. However, having a recent photo taken within the last 6 months is compulsory.'
+      },
+      {
+        q: 'Can I upload a black and white photo for JEE Main?',
+        a: 'Yes. NTA accepts either clear color photographs or high-contrast black and white photographs, provided the background is white and 80% face coverage is maintained.'
+      }
+    ]
+  },
+  // IBPS & SBI Left Thumb Impression
+  {
+    slug: 'ibps-thumb-impression-resize',
+    presetId: 'ibps-thumb-impression',
+    pageTitle: 'IBPS Left Thumb Impression Resize 20 to 50 KB (240x240 px) - SignResize',
+    metaDescription: 'Resize and compress Left Thumb Impression (LTI) for IBPS PO, Clerk, RRB, SO & SBI exams online. Exact 240x240 px (3x3 cm), strictly 20 KB to 50 KB JPG. Free & instant.',
+    keywords: 'ibps thumb impression resize, ibps thumb impression size 20 to 50 kb, ibps lti resize, sbi thumb impression resize, ibps left thumb impression 240x240, banking thumb impression compressor online',
+    h1: 'IBPS Left Thumb Impression Resize & Compressor (20 KB – 50 KB)',
+    subheading: 'Official 240×240 px (3.0×3.0 cm) square format with strict 20 KB to 50 KB bounds for IBPS PO, Clerk, RRB, and SBI recruitment portals.',
+    authority: 'Institute of Banking Personnel Selection (IBPS & SBI)',
+    targetExams: 'IBPS PO (CRP PO/MT), IBPS Clerk, IBPS RRB (Scale I, II, III & Office Assistant), IBPS SO, SBI PO, SBI Clerk (Junior Associate), RBI Assistant',
+    widthPx: 240,
+    heightPx: 240,
+    widthCm: 3.0,
+    heightCm: 3.0,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Black or Blue Ink',
+    aspectRatioLabel: '1:1 (240×240 px)',
+    strictNotice: 'The IBPS online portal (ibpsonline.ibps.in) will reject any file below 20 KB or above 50 KB. Use candidate\'s Left Thumb Impression on spotless white unruled paper with blue or black stamp pad ink.',
+    relatedTools: ['ibps-handwritten-declaration-resize', 'ibps-signature-resize', 'sbi-signature-resize', 'thumb-impression-resize'],
+    tips: [
+      'Clean your left thumb with soap and let it dry completely before stamping.',
+      'Dab gently on a blue or black stamp pad — avoid heavy pressure to prevent ink smudges.',
+      'Crop strictly to 240×240 pixels (1:1 square ratio) centered on the ridge pattern.',
+      'Verify that the exported file is strictly between 20 KB and 50 KB in JPG format.'
+    ],
+    faqs: [
+      {
+        q: 'What is the Left Thumb Impression (LTI) size requirement for IBPS and SBI?',
+        a: 'IBPS and SBI mandate a Left Thumb Impression of exactly 240 × 240 pixels (3 cm × 3 cm), with file size strictly between 20 KB and 50 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'Why did the IBPS portal reject my thumb impression?',
+        a: 'The most common reason is file size under 20 KB. While many exams allow 10 KB, IBPS strictly enforces a minimum of 20 KB. SignResize locks your export into the 25–45 KB safe zone.'
+      },
+      {
+        q: 'Which ink should I use for IBPS left thumb impression?',
+        a: 'Blue or black stamp pad ink on clean unruled white paper. Ensure the dermatoglyphic ridges are clearly visible without blurry ink pools.'
+      }
+    ]
+  },
+  // IBPS & SBI Handwritten Declaration
+  {
+    slug: 'ibps-handwritten-declaration-resize',
+    presetId: 'ibps-handwritten-declaration',
+    pageTitle: 'IBPS Handwritten Declaration Resize 50 to 100 KB (800x400 px) - SignResize',
+    metaDescription: 'Resize and format Handwritten Declaration for IBPS PO, Clerk, RRB & SBI online. Exact 800x400 px (10x5 cm), strictly 50 KB to 100 KB JPG in running English hand. Free.',
+    keywords: 'ibps handwritten declaration resize, ibps declaration size 50 to 100 kb, ibps declaration 800x400, sbi handwritten declaration resize, ibps handwritten declaration text 2026, banking declaration compressor',
+    h1: 'IBPS Handwritten Declaration Resize & Compressor (50 KB – 100 KB)',
+    subheading: 'Official 800×400 px (10.0×5.0 cm, 2:1 ratio) format and strict 50 KB to 100 KB bounds in candidate\'s own running handwriting for IBPS & SBI portal.',
+    authority: 'Institute of Banking Personnel Selection (IBPS & SBI)',
+    targetExams: 'IBPS PO (CRP PO/MT), IBPS Clerk, IBPS RRB (Officer & Assistant), IBPS SO, SBI PO, SBI Clerk (Junior Associates), RBI Grade B, NICL/NIACL',
+    widthPx: 800,
+    heightPx: 400,
+    widthCm: 10.0,
+    heightCm: 5.0,
+    minKb: 50,
+    maxKb: 100,
+    recommendedKb: 75,
+    dpi: 200,
+    ink: 'Black Ink Only (English Handwriting)',
+    aspectRatioLabel: '2:1 (~800×400 px)',
+    strictNotice: 'IBPS and SBI strictly reject Handwritten Declarations written in CAPITAL / BLOCK LETTERS, typed fonts, or written by anyone other than the candidate. Must be in candidate\'s own natural running cursive handwriting in black ink.',
+    relatedTools: ['ibps-thumb-impression-resize', 'ibps-signature-resize', 'sbi-signature-resize', 'resize-signature-to-10kb-20kb'],
+    tips: [
+      'Write the official declaration text in clear running handwriting using a black ballpoint pen on unruled white paper.',
+      'Never write in block or capital letters — doing so results in immediate application cancellation.',
+      'Scan or photograph straight-on without shadows or angles, and crop to 800×400 px (2:1 ratio).',
+      'Ensure exported JPG file size is strictly between 50.0 KB and 100.0 KB.'
+    ],
+    faqs: [
+      {
+        q: 'What is the required text for IBPS and SBI Handwritten Declaration?',
+        a: 'The official text is: "I, _______ (Name of the candidate), hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required."'
+      },
+      {
+        q: 'What is the file size and dimension for IBPS Handwritten Declaration?',
+        a: 'The dimensions are 800 × 400 pixels (10 cm × 5 cm, 2:1 ratio) with file size strictly between 50 KB and 100 KB in JPG/JPEG format.'
+      },
+      {
+        q: 'Can I write the IBPS declaration in blue ink or capital letters?',
+        a: 'No. IBPS and SBI guidelines strictly specify BLACK INK on white paper. Furthermore, declarations written in capital letters will NOT be accepted.'
       }
     ]
   }

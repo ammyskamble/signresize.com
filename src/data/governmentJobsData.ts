@@ -855,13 +855,13 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       note: 'White background, face 70% of frame.'
     },
     signatureSpecs: {
-      dimensions: '350 × 90 pixels',
+      dimensions: '138 × 59 pixels',
       fileSize: '5 KB – 20 KB',
       format: 'JPG',
-      note: 'Full running signature.'
+      note: 'Full running signature in black ink.'
     },
-    toolPresetSlug: 'wbpsc-signature-resize',
-    toolLabel: 'Resize for WBPSC & WBP'
+    toolPresetSlug: 'wb-police-signature-resize',
+    toolLabel: 'Resize for WB Police & WBPSC'
   },
   {
     id: 'osssc-ri-amin-2026',
