@@ -2059,6 +2059,53 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       }
     ]
   },
+  // UTI Photo Crop Tool
+  {
+    slug: 'uti-photo-crop-tool',
+    presetId: 'uti-photo-crop',
+    pageTitle: 'UTI Photo Crop Tool & Resizer (213x213 px, 300 DPI, <30 KB) - SignResize',
+    metaDescription: 'Free online UTI photo crop tool for UTIITSL PAN Card applications. Crop photo to exact 213x213 pixels, set 300 DPI resolution, and compress under 30 KB JPG. 100% private browser processing.',
+    keywords: 'uti photo crop tool, uti pan crop tool, uti crop tool, utiitsl photo resizer, pan card photo resize 213x213, utiitsl photo size 300 dpi, uti photo resize under 30 kb, pan crop tool',
+    h1: 'UTI Photo Crop Tool (UTIITSL 213×213 px, 300 DPI)',
+    subheading: 'Official UTIITSL PAN Card photo cropping and resizing utility. Exactly 213×213 pixels at 300 DPI resolution, compressed strictly under 30 KB.',
+    authority: 'UTIITSL (UTI Infrastructure Technology And Services Limited)',
+    targetExams: 'UTIITSL PAN Card (Form 49A), UTI PAN Correction / CSF Request, Minor to Major PAN, Instant e-PAN Reprint',
+    widthPx: 213,
+    heightPx: 213,
+    widthCm: 2.5,
+    heightCm: 2.5,
+    minKb: 10,
+    maxKb: 30,
+    recommendedKb: 25,
+    dpi: 300,
+    ink: 'Color Passport Photograph',
+    aspectRatioLabel: '1:1 Square (213 × 213 px)',
+    strictNotice: 'UTIITSL strictly enforces 213×213 pixel dimensions and file size under 30 KB. Images over 30 KB or with incorrect pixel dimensions trigger upload rejection.',
+    tips: [
+      'Align applicant head and shoulders centered inside the 1:1 square cropping box.',
+      'UTIITSL portal requires file size strictly under 30 KB (10 KB to 30 KB).',
+      '300 DPI resolution is encoded into the file header for automated scanner validation.',
+      'Use a clean white or light background without glares or harsh facial shadows.'
+    ],
+    faqs: [
+      {
+        q: 'What are the official photo specifications for UTI PAN card portal?',
+        a: 'The UTIITSL portal requires applicant photos to be 213 × 213 pixels, 300 DPI resolution, and between 10 KB and 30 KB in JPEG/JPG format.'
+      },
+      {
+        q: 'Why does the UTIITSL portal show "Invalid Photo Size" error?',
+        a: 'UTIITSL checks both dimensions (213x213) and file size (<30 KB). Even an image of 214x214 px or 31 KB is rejected. This tool locks the exact 213×213 pixel boundary and guarantees the file stays under 30 KB.'
+      },
+      {
+        q: 'What is the signature requirement for UTI PAN card?',
+        a: 'UTIITSL requires signatures to be 400 × 200 pixels (4.5 × 2.0 cm) scanned at 600 DPI in black ink, with file weight under 60 KB.'
+      },
+      {
+        q: 'Is my photograph uploaded to your server?',
+        a: 'No. SignResize processes images 100% locally in your browser memory using HTML5 Canvas. Your photograph never leaves your device.'
+      }
+    ]
+  },
   // 1. APPSC Signature Resize
   {
     slug: 'appsc-signature-resize',

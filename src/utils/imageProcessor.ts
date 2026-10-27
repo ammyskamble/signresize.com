@@ -404,7 +404,8 @@ export async function compressCanvasToTargetSize(
   minKb: number,
   maxKb: number,
   targetKb?: number,
-  preserveDimensions = false
+  preserveDimensions = false,
+  targetDpi: number = 200
 ): Promise<ProcessedImageResult> {
   const desiredKb = targetKb || (minKb + maxKb) / 2;
   const mimeType = format;
@@ -530,6 +531,11 @@ export async function compressCanvasToTargetSize(
     }
   }
 
+  // 6. Embed standard JFIF DPI resolution header for NSDL / UTIITSL / government portal scanners
+  if (mimeType === 'image/jpeg' && targetDpi > 0) {
+    finalBlob = await setJpegDpi(finalBlob, targetDpi);
+  }
+
   const finalSizeBytes = finalBlob.size;
   const roundedKb = Number((finalSizeBytes / 1024).toFixed(2));
   const dataUrl = URL.createObjectURL(finalBlob);
@@ -546,6 +552,72 @@ export async function compressCanvasToTargetSize(
   };
 }
 
+/**
+ * Sets or injects the standard JFIF APP0 (0xFFE0) resolution header to specify exact DPI
+ * (Dots Per Inch) in the JPEG binary stream. This ensures Windows property inspector,
+ * Photoshop, and strict government application upload validators (NSDL 200 DPI, UTIITSL 300/600 DPI)
+ * detect the exact required resolution.
+ */
+export async function setJpegDpi(jpegBlob: Blob, dpi: number = 200): Promise<Blob> {
+  if (dpi <= 0) return jpegBlob;
+  try {
+    const arrayBuffer = await jpegBlob.arrayBuffer();
+    const bytes = new Uint8Array(arrayBuffer);
+
+    // Verify JPEG SOI marker (0xFF, 0xD8)
+    if (bytes[0] !== 0xff || bytes[1] !== 0xd8) {
+      return jpegBlob;
+    }
+
+    const dpiVal = Math.round(dpi);
+
+    // Check if an APP0 (0xFFE0) JFIF marker already exists immediately after SOI
+    if (bytes[2] === 0xff && bytes[3] === 0xe0) {
+      // Check for 'JFIF\0' at offset 6..10
+      if (
+        bytes[6] === 0x4a && // 'J'
+        bytes[7] === 0x46 && // 'F'
+        bytes[8] === 0x49 && // 'I'
+        bytes[9] === 0x46 && // 'F'
+        bytes[10] === 0x00
+      ) {
+        // Offset 13: Density units (1 = dots per inch)
+        bytes[13] = 1;
+        // Offset 14, 15: Xdensity (16-bit big-endian)
+        bytes[14] = (dpiVal >> 8) & 0xff;
+        bytes[15] = dpiVal & 0xff;
+        // Offset 16, 17: Ydensity (16-bit big-endian)
+        bytes[16] = (dpiVal >> 8) & 0xff;
+        bytes[17] = dpiVal & 0xff;
+        return new Blob([bytes], { type: 'image/jpeg' });
+      }
+    }
+
+    // If no APP0 marker exists, construct an 18-byte JFIF APP0 segment:
+    // [0xFF, 0xE0, length(16)=0x00, 0x10, 'J', 'F', 'I', 'F', 0x00, ver_hi=1, ver_lo=2, units=1, dpiX_hi, dpiX_lo, dpiY_hi, dpiY_lo, 0, 0]
+    const jfifSegment = new Uint8Array([
+      0xff, 0xe0,
+      0x00, 0x10,
+      0x4a, 0x46, 0x49, 0x46, 0x00, // JFIF\0
+      0x01, 0x02,                   // Version 1.02
+      0x01,                         // Units: 1 = dots per inch (DPI)
+      (dpiVal >> 8) & 0xff, dpiVal & 0xff, // Xdensity
+      (dpiVal >> 8) & 0xff, dpiVal & 0xff, // Ydensity
+      0x00, 0x00                    // No thumbnail
+    ]);
+
+    // Insert jfifSegment right after SOI (offset 2)
+    const parts: BlobPart[] = [
+      bytes.slice(0, 2),
+      jfifSegment,
+      bytes.slice(2)
+    ];
+    return new Blob(parts, { type: 'image/jpeg' });
+  } catch (err) {
+    console.warn('Failed to embed DPI in JPEG:', err);
+    return jpegBlob;
+  }
+}
 
 /**
  * Adds JPEG COM segments to meet a minimum size without changing image pixels.

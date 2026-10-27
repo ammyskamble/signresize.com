@@ -219,6 +219,8 @@ const presetSlugMap = new Map([
   ['lic-aao-ado', 'lic-signature-resize'],
   ['isro-drdo', 'isro-drdo-signature-resize'],
   ['pan-card-photo-nsdl', 'pan-card-photo-resize'],
+  ['uti-photo-crop', 'uti-photo-crop-tool'],
+  ['uti-signature-crop', 'uti-photo-crop-tool'],
   ['india-post-gds-photo', 'india-post-gds-photo-resize'],
   ['kerala-psc-photo', 'kerala-psc-photo-resize'],
   ['neet-photo', 'neet-photo-resize'],

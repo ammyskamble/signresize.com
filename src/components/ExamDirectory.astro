@@ -4,7 +4,7 @@ import { EXAM_PAGES_DATA } from '../data/examPagesData';
 import { presetMode } from '../utils/presetMode';
 
 const links = new Map(EXAM_PAGES_DATA.map(page => [page.presetId, `/${page.slug}/`]));
-const featured = ['ssc-cgl', 'ssc-general', 'ssc-cgl-photo', 'ssc-photo', 'rrb-railway', 'upsc-civil-services', 'ibps-sbi', 'iit-jam', 'gate-jam', 'iit-jam-photo', 'gate-photo', 'pan-card-nsdl', 'neet-photo', 'pan-card-photo-nsdl', 'handwritten-declaration'];
+const featured = ['ssc-cgl', 'ssc-general', 'ssc-cgl-photo', 'ssc-photo', 'rrb-railway', 'upsc-civil-services', 'ibps-sbi', 'iit-jam', 'gate-jam', 'iit-jam-photo', 'gate-photo', 'pan-card-nsdl', 'neet-photo', 'pan-card-photo-nsdl', 'uti-photo-crop', 'handwritten-declaration'];
 const presets = [...new Map(ALL_COMBINED_PRESETS.map(p => [p.id, { ...p, targetType: presetMode(p) }])).values()].sort((a, b) => {
   const rank = (p: typeof a) => { const index = featured.indexOf(p.id); return index >= 0 ? index : 100 + (p.country && p.country !== 'IN' ? 100 : 0) + (p.isPopular ? 0 : 10); };
   return rank(a) - rank(b);

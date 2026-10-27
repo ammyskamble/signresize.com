@@ -274,6 +274,14 @@ const PRESET_ALIASES: Record<string, string> = {
   'pan-card-photo': 'pan-card-photo-nsdl',
   'pan-card-photo-nsdl-preset': 'pan-card-photo-nsdl',
   'pan-photo': 'pan-card-photo-nsdl',
+  uti: 'uti-photo-crop',
+  'uti-photo': 'uti-photo-crop',
+  'uti-crop': 'uti-photo-crop',
+  'uti-crop-tool': 'uti-photo-crop',
+  'uti-photo-crop': 'uti-photo-crop',
+  'uti-photo-crop-tool': 'uti-photo-crop',
+  'uti-signature': 'uti-signature-crop',
+  'uti-signature-crop': 'uti-signature-crop',
   sarathi: 'sarathi-dl',
   'sarathi-dl': 'sarathi-dl',
   'sarathi-photo': 'sarathi-photo',
@@ -855,11 +863,20 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'india-post-gds-photo' || p.id.includes('gds'));
       else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
     }
-    // 16. PAN Card
-    else if (matchesExam('pan-card', 'pan card', 'utiitsl', 'nsdl')) {
-      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'pan-card-nsdl');
-      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'pan-card-photo-nsdl' || p.id === 'pan-card-photo-nsdl-preset');
-      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card');
+    // 16. PAN Card & UTI
+    else if (matchesExam('pan-card', 'pan card', 'utiitsl', 'nsdl', 'uti')) {
+      const isUtiSpecific = matchesExam('uti', 'utiitsl');
+      if (newType === 'signature') {
+        targetPreset = isUtiSpecific
+          ? (SIGNATURE_PRESETS.find(p => p.id === 'uti-signature-crop') || SIGNATURE_PRESETS.find(p => p.id === 'pan-card-nsdl'))
+          : (SIGNATURE_PRESETS.find(p => p.id === 'pan-card-nsdl') || SIGNATURE_PRESETS.find(p => p.id === 'uti-signature-crop'));
+      } else if (newType === 'photo') {
+        targetPreset = isUtiSpecific
+          ? (PHOTO_PRESETS.find(p => p.id === 'uti-photo-crop') || PHOTO_PRESETS.find(p => p.id === 'pan-card-photo-nsdl'))
+          : (PHOTO_PRESETS.find(p => p.id === 'pan-card-photo-nsdl') || PHOTO_PRESETS.find(p => p.id === 'uti-photo-crop'));
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card');
+      }
     }
     // 17. Staff Selection Commission (Central SSC)
     else if (!matchesExam('bssc', 'upsssc', 'osssc', 'hssc', 'jssc') && (matchesExam('staff selection commission') || examAnchor.startsWith('ssc') || rawCurId.startsWith('ssc') || curName.toLowerCase().startsWith('ssc'))) {
@@ -1686,7 +1703,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         minKb,
         maxKb,
         sweetspotKb,
-        true
+        true,
+        selectedPreset?.dpi || 200
       );
 
       if (sequence !== processingSequenceRef.current) { URL.revokeObjectURL(result.dataUrl); return; }
@@ -1859,7 +1877,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         minKb,
         maxKb,
         sweetspotKb,
-        true
+        true,
+        selectedPreset?.dpi || 200
       );
 
       return {
@@ -2144,7 +2163,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
       ctx.drawImage(image, 0, 0);
-      const result = await compressCanvasToTargetSize(canvas, 'image/jpeg', minKb, maxKb, (minKb + maxKb) / 2, true);
+      const result = await compressCanvasToTargetSize(canvas, 'image/jpeg', minKb, maxKb, (minKb + maxKb) / 2, true, selectedPreset?.dpi || 200);
       setProcessedResult(result);
       URL.revokeObjectURL(processedResult.dataUrl);
     } catch {

@@ -39,7 +39,7 @@ const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
 const isJam = examData.slug.includes('iit-jam');
 const isGate = examData.slug.includes('gate');
 const isSarathi = examData.slug.includes('sarathi');
-const isPan = examData.slug.includes('pan-card');
+const isPan = examData.slug.includes('pan-card') || examData.slug.includes('uti');
 const isIbAcio = examData.slug.includes('ib-acio');
 const isGds = examData.slug.includes('india-post-gds');
 const isSscMts = examData.slug === 'ssc-mts-signature-resize' && !examGuidance;
@@ -458,11 +458,11 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
             <div class="space-y-1">
               <div class="flex items-center gap-2">
                 <span class="text-lg">💳</span>
-                <span class="font-bold text-sm sm:text-base text-foreground">PAN Card (NSDL / UTIITSL) Document Suite</span>
-                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">200 DPI Standards</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">PAN Card (NSDL &amp; UTIITSL) Complete Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official DPI Standards</span>
               </div>
               <p class="text-xs text-muted-foreground leading-relaxed">
-                Income Tax Department requires 200 DPI resolution for sharp PVC card thermal printing. Select your document below:
+                NSDL requires 200 DPI resolution, while UTIITSL mandates 300 DPI (213×213 px photo) and 600 DPI signature. Switch presets below:
               </p>
             </div>
             <div class="flex items-center gap-2 flex-wrap shrink-0">
@@ -471,14 +471,21 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
                 class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'pan-card-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
               >
                 <span>✍️</span>
-                <span>Signature (&le; 20 KB)</span>
+                <span>PAN Signature (NSDL 200 DPI)</span>
               </a>
               <a
                 href="/pan-card-photo-resize/"
                 class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'pan-card-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
               >
                 <span>📸</span>
-                <span>Photo (&le; 50 KB)</span>
+                <span>PAN Photo (NSDL 3.5×2.5 cm)</span>
+              </a>
+              <a
+                href="/uti-photo-crop-tool/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'uti-photo-crop-tool' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>⚡</span>
+                <span>UTI Photo Crop (213×213 px, 300 DPI)</span>
               </a>
             </div>
           </div>
