@@ -11,11 +11,11 @@ import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 
-const pageTitle = "Teletalk Bangladesh Photo & Signature Resizer 300x300 - SignResize";
-const pageDescription = "Free Teletalk Bangladesh photo and signature resizer. Format photo to 300x300 px (100 KB max) and signature to 300x80 px (60 KB max) for Teletalk All Jobs (alljobs.teletalk.com.bd), BCS (BPSC), and NTRCA.";
+const pageTitle = "Bangladesh Photo & Signature Resizer (Teletalk 300x300, BCS, Bank Jobs) - SignResize";
+const pageDescription = "Free Bangladesh recruitment photo & signature resizer. Crop and compress images to 300x300 px (100 KB) and 300x80 px (60 KB) for Teletalk All Jobs, BPSC BCS, Bangladesh Bank, DPE Primary, and NTRCA.";
 const canonicalUrl = "https://signresize.in/bd/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resizer 300x80, teletalk photo resizer 100kb, bpsc photo resizer bangladesh, ntrca photo resizer, alljobs teletalk photo size editor";
+const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resizer 300x80, bcs photo resizer bangladesh, bangladesh bank photo size 600x600, primary teacher photo resizer, ntrca photo resizer, alljobs teletalk photo editor";
 ---
 
 <!doctype html>
@@ -58,13 +58,50 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "SignResize Bangladesh - Teletalk Photo & Signature Resizer",
-      "url": "https://signresize.in/bd/",
+      "name": "SignResize Bangladesh Hub - Teletalk Photo & Signature Resizer",
+      "url": canonicalUrl,
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
       "inLanguage": "en-BD",
-      "description": "Free 300x300 photo and 300x80 signature resizer for Teletalk All Jobs (alljobs.teletalk.com.bd), BPSC BCS Exam, and NTRCA in Bangladesh."
+      "description": pageDescription,
+      "featureList": [
+        "Teletalk Universal All Jobs 300x300 Photo & 300x80 Signature",
+        "BCS 47th / BPSC Cadre & Non-Cadre Dedicated Tool",
+        "Bangladesh Bank & Combined 8/9 Banks 600x600 px Preset",
+        "DPE Primary School Assistant Teacher Resizer",
+        "NTRCA Teacher Registration Resizer",
+        "DGME MBBS & BDS Medical College Admission Resizer",
+        "100% In-Browser Client-Side Processing"
+      ]
+    })} />
+
+    <!-- Schema.org HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Photo & Signature for Teletalk Bangladesh All Jobs",
+      "description": "Step-by-step guide to format candidate photograph (300x300 px, ≤100 KB) and signature (300x80 px, ≤60 KB) for Teletalk All Jobs, BPSC BCS, and Primary Teacher recruitment.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Select Official Preset",
+          "text": "Choose Teletalk Bangladesh Photo (300×300 px) or Signature (300×80 px) from the preset dropdown.",
+          "url": "https://signresize.in/bd/#tool-workspace"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload and Crop Image",
+          "text": "Upload your photo or signature scan. The tool automatically locks the official 1:1 or 3.75:1 aspect ratio.",
+          "url": "https://signresize.in/bd/#tool-workspace"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Export Verified JPG",
+          "text": "Click Download to export your image strictly under 100 KB (photo) or under 60 KB (signature) guaranteed to pass Teletalk server validation.",
+          "url": "https://signresize.in/bd/#tool-workspace"
+        }
+      ]
     })} />
   </head>
 
@@ -72,26 +109,150 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
     <Header />
 
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
-      <!-- Bangladesh Hero Header -->
+      <!-- Bangladesh Hero Header with Quick Dropdown Switcher -->
       <section class="space-y-4">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div class="space-y-1.5">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
-              <span>🇧🇩 Official Bangladesh Presets (Teletalk All Jobs, BPSC, NTRCA)</span>
+              <svg class="w-4 h-2.5 rounded-xs shadow-2xs shrink-0 inline-block" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="20" height="12" fill="#006a4e" rx="1" />
+                <circle cx="9" cy="6" r="4" fill="#f42a41" />
+              </svg>
+              <span>Official Bangladesh Hub (Teletalk, BPSC, Bangladesh Bank)</span>
             </div>
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
-              Teletalk Bangladesh Photo &amp; Signature Resizer <span class="text-primary">(300×300 / 300×80)</span>
+              Bangladesh Photo &amp; Signature Resizer <span class="text-primary">(300×300 / 300×80)</span>
             </h1>
             <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
-              Official 300×300 px (≤ 100 KB) photo and 300×80 px (≤ 60 KB) signature presets compliant with Teletalk All Jobs (`alljobs.teletalk.com.bd`), BPSC (BCS Exam), NTRCA, and Primary Teacher Recruitment.
+              Official 300×300 px (≤ 100 KB) photo and 300×80 px (≤ 60 KB) signature presets compliant with Teletalk All Jobs (<code class="font-mono text-xs bg-muted px-1.5 py-0.5 rounded border border-border">alljobs.teletalk.com.bd</code>), BPSC (BCS Exam), Bangladesh Bank, DPE, and NTRCA.
             </p>
+          </div>
+
+          <!-- Quick Dropdown Hub Selector -->
+          <div class="w-full md:w-auto min-w-[280px] bg-card p-3 rounded-xl border border-border shadow-sm">
+            <label for="bd-tool-select" class="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+              Select Bangladesh Portal Tool:
+            </label>
+            <select
+              id="bd-tool-select"
+              class="w-full bg-background border border-input text-foreground rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer"
+              onchange="if(this.value) window.location.href=this.value;"
+            >
+              <option value="/bd/" selected>Bangladesh Main Hub</option>
+              <option value="/bd/bcs-photo-signature-resizer/">BCS &amp; BPSC (300×300 / 300×80 px)</option>
+              <option value="/bd/bangladesh-bank-photo-signature-resizer/">Bangladesh Bank (600×600 / 300×80 px)</option>
+              <option value="/bd/primary-teacher-dpe-photo-resizer/">DPE Primary Assistant Teacher</option>
+              <option value="/bd/ntrca-photo-signature-resizer/">NTRCA Teacher Registration</option>
+              <option value="/bd/medical-admission-photo-resizer/">DGME Medical MBBS/BDS Admission</option>
+            </select>
           </div>
         </div>
       </section>
 
-      <!-- Resizer Studio Tool loaded with Teletalk BD Preset -->
+      <!-- Resizer Studio Tool loaded with Universal Teletalk BD Preset -->
       <section id="tool-workspace" class="scroll-mt-20">
         <SignatureTool client:idle initialPresetId="teletalk-bd" />
+      </section>
+
+      <!-- 5 Quick-Access Exam Category Cards Grid -->
+      <section class="space-y-4 pt-4">
+        <h2 class="text-xl font-bold text-foreground">Dedicated Bangladesh Application Tools</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <a href="/bd/bcs-photo-signature-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🏛️</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">BCS &amp; BPSC</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | 300×80 px | Cadre &amp; Non-Cadre</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open BCS Tool &rarr;</span>
+          </a>
+
+          <a href="/bd/bangladesh-bank-photo-signature-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🏦</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Bangladesh Bank</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">600×600 px | Combined 8/9 Banks &amp; AD</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open Bank Tool &rarr;</span>
+          </a>
+
+          <a href="/bd/primary-teacher-dpe-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">📚</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">DPE Primary</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | Assistant Teacher 10 Lakh+ Pool</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open DPE Tool &rarr;</span>
+          </a>
+
+          <a href="/bd/ntrca-photo-signature-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🎓</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">NTRCA Teachers</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | 18th &amp; 19th Registration</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open NTRCA Tool &rarr;</span>
+          </a>
+
+          <a href="/bd/medical-admission-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🩺</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Medical Admission</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | DGME MBBS &amp; Dental BDS</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open Medical Tool &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Editorial Technical Guide Section -->
+      <section class="space-y-6 pt-6 border-t border-border">
+        <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
+          <h2 class="text-2xl font-bold text-foreground">
+            How to Format Photos for Bangladesh Government Portals (Teletalk &amp; Bangladesh Bank)
+          </h2>
+          <p class="text-muted-foreground leading-relaxed">
+            In Bangladesh, over 90% of recruitment portals are managed through <strong>Teletalk Bangladesh</strong> (including <em>bpsc.teletalk.com.bd</em>, <em>dpe.teletalk.com.bd</em>, <em>br.teletalk.com.bd</em>, and <em>police.teletalk.com.bd</em>). The server infrastructure implements rigid JavaScript validation that rejects any upload deviating by even a single pixel or exceeding the maximum file limit.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">The 300×300 Px Rule</h3>
+              <p class="text-xs text-muted-foreground">Photos must be exactly 300×300 px (≤ 100 KB). Color photos only with clean white or off-white background.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">The 300×80 Px Signature</h3>
+              <p class="text-xs text-muted-foreground">Signatures must be strictly 300×80 px (≤ 60 KB). Running cursive script in black or dark blue ink.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">Zero Server Upload</h3>
+              <p class="text-xs text-muted-foreground">All image cropping, background cleaning, and compression execute locally inside your browser.</p>
+            </div>
+          </div>
+
+          <!-- High-Value Troubleshooting & Teletalk Validator Callouts -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-1.5">
+              <div class="flex items-center gap-2 font-bold text-sm text-foreground">
+                <span class="text-primary">🛡️</span>
+                <span>Pre-Tested Against Teletalk Official Validator</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                The official portal at <code class="font-mono text-[11px] bg-muted px-1 py-0.5 rounded">alljobs.teletalk.com.bd</code> features a built-in <em>"Photo &amp; Signature Validator"</em> tab. Every image downloaded from SignResize is mathematically pre-calibrated to pass that exact validator with zero <em>"Image dimension should be 300x300"</em> or <em>"File size must be less than 100 KB"</em> rejections.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 space-y-1.5">
+              <div class="flex items-center gap-2 font-bold text-sm text-foreground">
+                <span class="text-amber-500">📁</span>
+                <span>Strict Lowercase <code>.jpg</code> Output Guarantee</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Many Bangladeshi ministry application servers employ legacy file-extension validation that rejects uppercase <code class="font-mono text-[11px]">.JPG</code>, <code class="font-mono text-[11px]">.PNG</code>, or <code class="font-mono text-[11px]">.webp</code> files. SignResize automatically standardizes output files to compliant lowercase <code class="font-mono text-[11px]">.jpg</code> files (e.g. <code class="font-mono text-[11px]">teletalk_photo_300x300.jpg</code>).
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- Specifications Table, Country Blog Section & FAQs -->

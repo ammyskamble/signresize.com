@@ -1,0 +1,220 @@
+---
+// src/pages/bd/bangladesh-bank-photo-signature-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "Bangladesh Bank Photo & Signature Resizer 600x600 px (100 KB) - SignResize";
+const pageDescription = "Free Bangladesh Bank e-Recruitment photo (600x600 px, ≤100 KB) and signature (300x80 px, ≤60 KB) resizer. Compliant with Combined 8/9 Banks, Senior Officer, Officer General, and Cash Officer recruitment.";
+const canonicalUrl = "https://signresize.in/bd/bangladesh-bank-photo-signature-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "bangladesh bank photo resizer 600x600, bangladesh bank signature resizer 300x80, erecruitment bb org bd photo size, combined 8 banks photo resize, sonali bank officer photo size";
+
+const bbFaqs = [
+  {
+    q: "What is the official photo size for Bangladesh Bank e-Recruitment (erecruitment.bb.org.bd)?",
+    summary: "Bangladesh Bank requires a 600×600 pixel square photograph (or 300×300 px depending on circular) with file weight not exceeding 100 KB.",
+    details: "The photograph must be in JPG/JPEG format with a clean white or light grey background. Head position should be centered, facing straight into the camera."
+  },
+  {
+    q: "What are the signature specifications for Bangladesh Bank and Combined 8/9 Banks?",
+    summary: "The specimen signature must be exactly 300×80 pixels with a file size under 60 KB in JPG format.",
+    details: "Sign on a clean sheet of white paper using dark black or blue ink. Avoid shadowy mobile captures that muddy the background."
+  },
+  {
+    q: "Which banks are included under Bangladesh Bank's Bankers' Selection Committee (BSCS)?",
+    summary: "Participating state-owned banks include Sonali, Janata, Agrani, Rupali, Bangladesh Development Bank (BDBL), Bangladesh Krishi Bank (BKB), RAKUB, Karmasangsthan Bank, and Probashi Kallyan Bank.",
+    details: "All recruitments for Senior Officer, Officer (General), and Officer (Cash) across these institutions adhere to the centralized erecruitment.bb.org.bd upload specifications."
+  },
+  {
+    q: "How can I reduce my bank photo to under 100 KB without losing resolution?",
+    summary: "SignResize applies client-side intelligent quantization that maintains crisp 600×600 pixel fidelity while compressing bytes under 100 KB.",
+    details: "Your facial features, eyes, and borders remain sharp and pass the Bangladesh Bank automated pre-scrutiny checks."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-BD" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_BD" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bangladesh Bank Photo & Signature Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "600x600 px Bangladesh Bank Photo Resizer (≤100 KB)",
+        "300x80 px Bank Signature Resizer (≤60 KB)",
+        "Zero Server Upload - 100% In-Browser Privacy",
+        "Combined 8/9 Banks Verified Compatibility"
+      ]
+    })} />
+  
+    <!-- Schema.org FAQPage JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": bbFaqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `${faq.summary} ${faq.details}`
+        }
+      }))
+    })} />
+
+    <!-- Schema.org HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Photo & Signature for Bangladesh Bank e-Recruitment",
+      "description": "Step-by-step guide to crop, resize, and compress image uploads strictly compliant with erecruitment.bb.org.bd.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Select Bangladesh Bank Photo (600×600 px) or Signature",
+          "text": "Open the tool with the preloaded preset. The official pixel dimensions and aspect ratio are automatically locked.",
+          "url": canonicalUrl
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload & Adjust Crop Frame",
+          "text": "Upload your photo or signature scan. Adjust zoom and position within the guide frame.",
+          "url": canonicalUrl
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Certified JPG",
+          "text": "Click Download to export your image strictly within the required KB limits, guaranteed to pass erecruitment.bb.org.bd.",
+          "url": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Tool Page Header with Selector Dropdown -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+              <svg class="w-4 h-2.5 rounded-xs shadow-2xs shrink-0 inline-block" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="20" height="12" fill="#006a4e" rx="1" />
+                <circle cx="9" cy="6" r="4" fill="#f42a41" />
+              </svg>
+              <span>Bangladesh Bank BSCS Preset (erecruitment.bb.org.bd)</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              Bangladesh Bank Photo &amp; Signature Resizer <span class="text-primary">(600×600 / 300×80)</span>
+            </h1>
+            <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
+              Official 600×600 px (≤ 100 KB) photograph and 300×80 px (≤ 60 KB) signature presets calibrated for Bangladesh Bank Assistant Director and Combined 8/9 State Banks recruitments.
+            </p>
+          </div>
+
+          <!-- Quick Dropdown Hub Selector -->
+          <div class="w-full md:w-auto min-w-[280px] bg-card p-3 rounded-xl border border-border shadow-sm">
+            <label for="bd-tool-select" class="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+              Select Bangladesh Portal Tool:
+            </label>
+            <select
+              id="bd-tool-select"
+              class="w-full bg-background border border-input text-foreground rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer"
+              onchange="if(this.value) window.location.href=this.value;"
+            >
+              <option value="/bd/">Bangladesh Main Hub</option>
+              <option value="/bd/bcs-photo-signature-resizer/">BCS &amp; BPSC (300×300 / 300×80 px)</option>
+              <option value="/bd/bangladesh-bank-photo-signature-resizer/" selected>Bangladesh Bank (600×600 / 300×80 px)</option>
+              <option value="/bd/primary-teacher-dpe-photo-resizer/">DPE Primary Assistant Teacher</option>
+              <option value="/bd/ntrca-photo-signature-resizer/">NTRCA Teacher Registration</option>
+              <option value="/bd/medical-admission-photo-resizer/">DGME Medical MBBS/BDS Admission</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature Tool Canvas Widget loaded with Bangladesh Bank preset -->
+      <section id="tool-workspace" class="scroll-mt-20 bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-sm">
+        <SignatureTool client:idle initialPresetId="bangladesh-bank-photo-bd" initialMode="photo" />
+      </section>
+
+      <!-- SEO Educational Guide Section -->
+      <section class="space-y-6 pt-6 border-t border-border">
+        <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
+          <h2 class="text-2xl font-bold text-foreground">
+            Bangladesh Bank &amp; Combined Banks e-Recruitment Photo Instructions
+          </h2>
+          <p class="text-muted-foreground leading-relaxed">
+            The <strong>Bankers' Selection Committee Secretariat (BSCS)</strong> managed by Bangladesh Bank requires applicants to submit high-resolution digital files on <em>erecruitment.bb.org.bd</em>. Unlike standard Teletalk portals which default to 300×300 px, Bangladesh Bank specifically recommends <strong>600×600 pixels (300 DPI)</strong> for superior biometric clarity.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">Photograph Resolution</h3>
+              <p class="text-xs text-muted-foreground"><strong>600 × 600 pixels</strong> (or 300×300 px), Max 100 KB JPG. Plain white background.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">Signature Resolution</h3>
+              <p class="text-xs text-muted-foreground"><strong>300 × 80 pixels</strong>, Max 60 KB JPG. Crisp signature on unruled white paper.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">Bank Coverage</h3>
+              <p class="text-xs text-muted-foreground">Sonali, Janata, Agrani, Rupali, BKB, RAKUB, BDBL, Karmasangsthan Bank, and BB AD.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Specifications Table & FAQ Section -->
+      <section class="space-y-6">
+        <ExamSpecsTable country="BD" />
+        <FaqSection faqs={bbFaqs} title="Frequently Asked Questions (Bangladesh Bank Jobs)" />
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+

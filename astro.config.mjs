@@ -27,6 +27,8 @@ export default defineConfig({
     '/signature-resizer': '/',
     '/signature-creator': '/signature-generator/',
     '/bd/teletalk-photo-signature-resize': '/teletalk-photo-signature-resize/',
+    '/blog/teletalk-bangladesh-photo-signature-300x300-300x80-guide-2026': '/blog/teletalk-bangladesh-photo-signature-resize-guide-300x300-300x80-alljobs-bpsc/',
+    '/blog/bpsc-teletalk-bangladesh-photo-signature-resize-guide-2026': '/blog/teletalk-bangladesh-photo-signature-resize-guide-300x300-300x80-alljobs-bpsc/',
     '/rrb-railway': '/rrb-signature-resize/',
     '/ssc-general': '/ssc-signature-resize/',
     '/ibps-sbi': '/ibps-signature-resize/',

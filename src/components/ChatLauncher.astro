@@ -1,5 +1,5 @@
-<div id="help-launcher" class="copilot-launcher fixed bottom-4 right-4 max-sm:bottom-16 z-30">
-  <button type="button" aria-label="Open exam help" aria-expanded="false" class="rounded-full border border-border bg-card text-foreground px-3 py-2 text-xs font-semibold shadow-sm focus-visible:outline-2 focus-visible:outline-primary">Exam help</button>
+<div id="help-launcher" class="copilot-launcher fixed bottom-5 right-5 max-sm:bottom-4 max-sm:right-3 z-20 transition-all duration-300">
+  <button type="button" aria-label="Open exam help" aria-expanded="false" class="rounded-full border border-border bg-card/95 backdrop-blur-xs text-foreground px-3 py-1.5 text-xs font-semibold shadow-md hover:bg-muted/80 focus-visible:outline-2 focus-visible:outline-primary cursor-pointer transition">Exam help</button>
   <span role="status" class="block text-xs bg-card"></span>
 </div>
 <div id="help-root"></div>
@@ -10,10 +10,31 @@
   const host = document.getElementById('help-root');
   let loading = false, mounted = false;
   const footer = document.querySelector('footer');
+  const workspace = document.getElementById('tool-workspace') ||
+    document.getElementById('exam-tool') ||
+    document.getElementById('studio-container') ||
+    document.querySelector('.signature-tool-wrapper') ||
+    document.querySelector('main > section:has(div.signature-tool)') ||
+    document.querySelector('main > section:nth-of-type(2)');
+
   const observer = new IntersectionObserver(entries => {
     if (launcher) launcher.hidden = mounted || Boolean(entries[0]?.isIntersecting);
   });
   if (footer) observer.observe(footer);
+
+  // Avoid overlapping the resizer workspace cards on any device viewport
+  if (workspace) {
+    const wsObserver = new IntersectionObserver(entries => {
+      if (launcher && !mounted) {
+        if (entries[0]?.isIntersecting) {
+          launcher.classList.add('opacity-0', 'pointer-events-none');
+        } else {
+          launcher.classList.remove('opacity-0', 'pointer-events-none');
+        }
+      }
+    }, { threshold: 0.15 });
+    wsObserver.observe(workspace);
+  }
   async function openHelp() {
     if (loading || mounted || !host || !button) return;
     loading = true; button.disabled = true;

@@ -1,0 +1,220 @@
+---
+// src/pages/bd/medical-admission-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "Bangladesh Medical MBBS/BDS Admission Photo & Signature Resizer - SignResize";
+const pageDescription = "Format photo to 300x300 px (≤100 KB) and signature to 300x80 px (≤60 KB) for DGME Government & Private Medical College MBBS and Dental BDS Admission test.";
+const canonicalUrl = "https://signresize.in/bd/medical-admission-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "medical admission photo resizer bangladesh, mbbs admission photo size 300x300, bds dental admission signature size 300x80, dgme teletalk photo crop, dghs medical photo size";
+
+const medicalFaqs = [
+  {
+    q: "What is the official photo size for MBBS & BDS admission in Bangladesh?",
+    summary: "The Directorate General of Medical Education (DGME) requires a 300×300 pixel color photograph with file weight between 10 KB and 100 KB in JPG format.",
+    details: "The applicant's face must be centered with both ears and eyes clearly visible. Caps, dark sunglasses, or heavily edited filters are strictly prohibited."
+  },
+  {
+    q: "What are the signature requirements for DGME Medical Admission (dgme.teletalk.com.bd)?",
+    summary: "The specimen signature must be exactly 300×80 pixels with file size between 5 KB and 60 KB in JPG format.",
+    details: "Sign in dark ink on clean unruled white paper. Ensure high contrast so the signature prints clearly on the examination admit card."
+  },
+  {
+    q: "Are the photo rules the same for Government Medical and Private Medical Colleges?",
+    summary: "Yes, all 37 government medical colleges, 67 private medical colleges, and dental colleges operate under the centralized DGME portal.",
+    details: "Every applicant submits images through dgme.teletalk.com.bd, which runs the standard 300×300 px and 300×80 px validation."
+  },
+  {
+    q: "How can I avoid rejection during biometric admit card scanning on exam day?",
+    summary: "Use SignResize to produce sharp 300×300 pixels without compression artifacts or pixelation.",
+    details: "Invigilators cross-verify your physical appearance against the admit card photo. Clear lighting and neutral expression are strongly recommended."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-BD" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_BD" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bangladesh Medical Admission Photo & Signature Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "300x300 px Medical MBBS Photo Resizer (≤100 KB)",
+        "300x80 px Dental BDS Signature Resizer (≤60 KB)",
+        "Zero Server Upload - 100% In-Browser Privacy",
+        "DGME & DGHS Teletalk 100% Pass Guarantee"
+      ]
+    })} />
+  
+    <!-- Schema.org FAQPage JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": medicalFaqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `${faq.summary} ${faq.details}`
+        }
+      }))
+    })} />
+
+    <!-- Schema.org HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Photo & Signature for DGME Medical MBBS/BDS Admission",
+      "description": "Step-by-step guide to crop, resize, and compress image uploads strictly compliant with dgme.teletalk.com.bd.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Select Medical Admission Photo (300×300 px) or Signature",
+          "text": "Open the tool with the preloaded preset. The official pixel dimensions and aspect ratio are automatically locked.",
+          "url": canonicalUrl
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload & Adjust Crop Frame",
+          "text": "Upload your photo or signature scan. Adjust zoom and position within the guide frame.",
+          "url": canonicalUrl
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Certified JPG",
+          "text": "Click Download to export your image strictly within the required KB limits, guaranteed to pass dgme.teletalk.com.bd.",
+          "url": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Tool Page Header with Selector Dropdown -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+              <svg class="w-4 h-2.5 rounded-xs shadow-2xs shrink-0 inline-block" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="20" height="12" fill="#006a4e" rx="1" />
+                <circle cx="9" cy="6" r="4" fill="#f42a41" />
+              </svg>
+              <span>DGME Official Preset (dgme.teletalk.com.bd)</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              Medical Admission Photo &amp; Signature Resizer <span class="text-primary">(300×300 / 300×80)</span>
+            </h1>
+            <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
+              Calibrated cropping and size reduction for Bangladesh MBBS &amp; Dental BDS admission tests conducted by the Directorate General of Medical Education (DGME).
+            </p>
+          </div>
+
+          <!-- Quick Dropdown Hub Selector -->
+          <div class="w-full md:w-auto min-w-[280px] bg-card p-3 rounded-xl border border-border shadow-sm">
+            <label for="bd-tool-select" class="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+              Select Bangladesh Portal Tool:
+            </label>
+            <select
+              id="bd-tool-select"
+              class="w-full bg-background border border-input text-foreground rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer"
+              onchange="if(this.value) window.location.href=this.value;"
+            >
+              <option value="/bd/">Bangladesh Main Hub</option>
+              <option value="/bd/bcs-photo-signature-resizer/">BCS &amp; BPSC (300×300 / 300×80 px)</option>
+              <option value="/bd/bangladesh-bank-photo-signature-resizer/">Bangladesh Bank (600×600 / 300×80 px)</option>
+              <option value="/bd/primary-teacher-dpe-photo-resizer/">DPE Primary Assistant Teacher</option>
+              <option value="/bd/ntrca-photo-signature-resizer/">NTRCA Teacher Registration</option>
+              <option value="/bd/medical-admission-photo-resizer/" selected>DGME Medical MBBS/BDS Admission</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature Tool Canvas Widget loaded with Medical Admission preset -->
+      <section id="tool-workspace" class="scroll-mt-20 bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-sm">
+        <SignatureTool client:idle initialPresetId="dgme-medical-photo-bd" initialMode="photo" />
+      </section>
+
+      <!-- SEO Educational Guide Section -->
+      <section class="space-y-6 pt-6 border-t border-border">
+        <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
+          <h2 class="text-2xl font-bold text-foreground">
+            Complete Bangladesh Medical College MBBS &amp; BDS Image Guidelines
+          </h2>
+          <p class="text-muted-foreground leading-relaxed">
+            Every year, approximately 1.4 lakh candidates compete for seats across government and private medical and dental colleges in Bangladesh. Online applications are processed centrally on <em>dgme.teletalk.com.bd</em>. Submitting photos that do not match the required 300×300 pixel dimension or exceed 100 KB will cause automatic application failure.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">MBBS Photograph</h3>
+              <p class="text-xs text-muted-foreground"><strong>300 × 300 pixels</strong>, 10 KB to 100 KB JPG. Recent color photo on plain white background.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">Specimen Signature</h3>
+              <p class="text-xs text-muted-foreground"><strong>300 × 80 pixels</strong>, 5 KB to 60 KB JPG. Plain white paper with dark black ink.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">National Exam Scope</h3>
+              <p class="text-xs text-muted-foreground">Applies to all Government Medical Colleges (DMC, SSMC, SOMC, etc.) and Dental Colleges.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Specifications Table & FAQ Section -->
+      <section class="space-y-6">
+        <ExamSpecsTable country="BD" />
+        <FaqSection faqs={medicalFaqs} title="Frequently Asked Questions (Medical Admission)" />
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+

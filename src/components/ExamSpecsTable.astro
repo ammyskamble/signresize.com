@@ -12,6 +12,26 @@ const { country = 'IN' } = Astro.props;
 
 const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
 
+const bdCustomUrls: Record<string, string> = {
+  'teletalk-bd': '/bd/',
+  'teletalk-photo-bd': '/bd/',
+  'teletalk-sign-bd': '/bd/',
+  'bpsc-bd': '/bd/bcs-photo-signature-resizer/',
+  'bcs-photo-300x300': '/bd/bcs-photo-signature-resizer/',
+  'bcs-signature-300x80': '/bd/bcs-photo-signature-resizer/',
+  'bpsc-sign-bd': '/bd/bcs-photo-signature-resizer/',
+  'bangladesh-bank-photo-bd': '/bd/bangladesh-bank-photo-signature-resizer/',
+  'bangladesh-bank-sign-bd': '/bd/bangladesh-bank-photo-signature-resizer/',
+  'bb-photo-600x600': '/bd/bangladesh-bank-photo-signature-resizer/',
+  'bb-signature-300x80': '/bd/bangladesh-bank-photo-signature-resizer/',
+  'dpe-primary-teacher-bd': '/bd/primary-teacher-dpe-photo-resizer/',
+  'dpe-primary-sign-bd': '/bd/primary-teacher-dpe-photo-resizer/',
+  'ntrca-teacher-bd': '/bd/ntrca-photo-signature-resizer/',
+  'ntrca-sign-bd': '/bd/ntrca-photo-signature-resizer/',
+  'dgme-medical-photo-bd': '/bd/medical-admission-photo-resizer/',
+  'dgme-medical-sign-bd': '/bd/medical-admission-photo-resizer/',
+};
+
 const countryPresetsMap = {
   PK: EXAM_PRESETS.filter((p) => p.country === 'PK'),
   PH: EXAM_PRESETS.filter((p) => p.country === 'PH'),
@@ -36,7 +56,7 @@ const countryTitles = {
 const countrySubtitles = {
   PK: "Verified technical requirements for PPSC Punjab Public Service Commission, FPSC CSS, NTS, and NADRA portals.",
   PH: "Verified technical requirements for PRC LERIS 2x2 photos, CSC Civil Service Exam, and DFA Passport.",
-  BD: "Verified technical requirements for Teletalk 300x300 photos and 300x80 signatures across all Bangladesh portals.",
+  BD: "Verified technical requirements for Teletalk 300×300 photos and 300×80 signatures across all Bangladesh portals.",
   NP: "Verified technical requirements for Lok Sewa Aayog PSC and e-Passport applications in Nepal.",
   IN: "Verified technical requirements across all major Indian competitive exams and government application portals.",
   ALL: "Verified technical requirements across all competitive exams and government recruitment portals.",
@@ -59,65 +79,81 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
     </p>
   </div>
 
-  <!-- Quick Specification Matrix Across Major Entrance Exams -->
-  <div class="rounded-2xl border-2 border-primary/25 bg-card shadow-sm overflow-hidden space-y-3 p-4 sm:p-5">
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/70 pb-3">
-      <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
-        <h3 class="font-bold text-sm sm:text-base text-foreground">
-          Quick Specification Matrix (Top Most-Applied)
-        </h3>
+  {/* Quick Specification Matrix Across Major Entrance Exams (Hidden on BD route to avoid duplicate tables) */}
+  {country !== 'BD' && (
+    <div class="rounded-2xl border-2 border-primary/25 bg-card shadow-sm overflow-hidden space-y-3 p-4 sm:p-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/70 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+          <h3 class="font-bold text-sm sm:text-base text-foreground">
+            Quick Specification Matrix (Top Most-Applied)
+          </h3>
+        </div>
+        <a href="#exam-specs-search" class="text-xs text-primary hover:underline font-medium inline-flex items-center gap-1">
+          <span>Search all {displayPresets.length} guidelines below</span>
+          <span>↓</span>
+        </a>
       </div>
-      <a href="#exam-specs-search" class="text-xs text-primary hover:underline font-medium inline-flex items-center gap-1">
-        <span>Search all {displayPresets.length} guidelines below</span>
-        <span>↓</span>
-      </a>
-    </div>
 
-    <div class="overflow-x-auto rounded-xl border border-border/80">
-      <table class="w-full text-left text-xs sm:text-sm">
-        <thead class="bg-muted/70 text-muted-foreground font-bold uppercase text-[11px] tracking-wider border-b border-border">
-          <tr>
-            <th class="py-3 px-3.5">Exam / Authority</th>
-            <th class="py-3 px-3.5">Pixel Dimensions</th>
-            <th class="py-3 px-3.5">Physical Dimensions</th>
-            <th class="py-3 px-3.5">File Size Range</th>
-            <th class="py-3 px-3.5">Ink &amp; Rules</th>
-            <th class="py-3 px-3.5 text-right">Instant Preset</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-border/60 font-medium">
-          {quickMatrixPresets.map((preset) => {
-            const dedicatedSlug = presetSlugMap.get(preset.id);
-            return (
-              <tr class="hover:bg-muted/40 transition">
-                <td class="py-3 px-3.5">
-                  {dedicatedSlug ? (
-                    <a href={getExamPageUrl(dedicatedSlug)} class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
-                      <span>{preset.name}</span>
-                      <span class="text-[10px] text-primary">→</span>
+      <div class="overflow-x-auto rounded-xl border border-border/80">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-muted/70 text-muted-foreground font-bold uppercase text-[11px] tracking-wider border-b border-border">
+            <tr>
+              <th class="py-3 px-3.5">Exam / Authority</th>
+              <th class="py-3 px-3.5">Pixel Dimensions</th>
+              <th class="py-3 px-3.5">Physical Dimensions</th>
+              <th class="py-3 px-3.5">File Size Range</th>
+              <th class="py-3 px-3.5">Ink &amp; Rules</th>
+              <th class="py-3 px-3.5 text-right">Instant Preset</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border/60 font-medium">
+            {quickMatrixPresets.map((preset) => {
+              const dedicatedSlug = presetSlugMap.get(preset.id);
+              const customUrl = bdCustomUrls[preset.id];
+              return (
+                <tr class="hover:bg-muted/40 transition">
+                  <td class="py-3 px-3.5">
+                    {customUrl ? (
+                      <a href={customUrl} class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                        <span>{preset.name}</span>
+                        <span class="text-[10px] text-primary">→</span>
+                      </a>
+                    ) : dedicatedSlug ? (
+                      <a href={getExamPageUrl(dedicatedSlug)} class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                        <span>{preset.name}</span>
+                        <span class="text-[10px] text-primary">→</span>
+                      </a>
+                    ) : (
+                      <span class="font-bold text-foreground">{preset.name}</span>
+                    )}
+                    <div class="text-[10px] text-muted-foreground">{preset.authority}</div>
+                  </td>
+                  <td class="py-3 px-3.5 font-mono text-foreground font-bold">{preset.widthPx} × {preset.heightPx} px</td>
+                  <td class="py-3 px-3.5 font-mono text-muted-foreground">
+                    {preset.heightPx === 80 ? '~3.5 × 0.93 cm (Pixel-strict)' : preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : 'Ratio locked'}
+                  </td>
+                  <td class="py-3 px-3.5 font-mono font-bold text-primary">{preset.minKb} KB – {preset.maxKb} KB</td>
+                  <td class="py-3 px-3.5 text-xs text-muted-foreground">
+                    {preset.targetType === 'photo' || preset.heightPx === preset.widthPx ? (
+                      <><span class="font-medium text-foreground">Plain White / Light Background</span>: {preset.notes}</>
+                    ) : (
+                      <><span class="font-medium text-foreground">{preset.inkRequirement}</span>: {preset.notes}</>
+                    )}
+                  </td>
+                  <td class="py-3 px-3.5 text-right">
+                    <a href={`#tool-workspace?preset=${preset.id}`} data-preset-id={preset.id} aria-label={`Resize for ${preset.name}`} class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
+                      Apply Preset
                     </a>
-                  ) : (
-                    <span class="font-bold text-foreground">{preset.name}</span>
-                  )}
-                  <div class="text-[10px] text-muted-foreground">{preset.authority}</div>
-                </td>
-                <td class="py-3 px-3.5 font-mono text-foreground font-bold">{preset.widthPx} × {preset.heightPx} px</td>
-                <td class="py-3 px-3.5 font-mono text-muted-foreground">{preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : 'Ratio locked'}</td>
-                <td class="py-3 px-3.5 font-mono font-bold text-primary">{preset.minKb} KB – {preset.maxKb} KB</td>
-                <td class="py-3 px-3.5 text-xs text-muted-foreground">{preset.inkRequirement}; {preset.notes}</td>
-                <td class="py-3 px-3.5 text-right">
-                  <a href="#tool-workspace" data-preset-id={preset.id} aria-label={`Resize for ${preset.name}`} class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                    Apply Preset
-                  </a>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
+  )}
 
   <!-- Search & Category Filter Toolbar for Exam Specs Table -->
   <div class="p-4 rounded-2xl border border-border bg-card shadow-xs space-y-3">
@@ -147,6 +183,32 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
         </button>
       </div>
     </div>
+
+    <!-- Category Filter Tabs for Bangladesh -->
+    {country === 'BD' && (
+      <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-border/70">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mr-1">Categories:</span>
+        {[
+          { id: 'All', label: 'All (17)' },
+          { id: 'Teletalk', label: 'Teletalk & Govt (8)' },
+          { id: 'Banks', label: 'Banks (3)' },
+          { id: 'Admission', label: 'University Admission (4)' },
+          { id: 'Specialized', label: 'Specialized (2)' }
+        ].map((cat, idx) => (
+          <button
+            type="button"
+            data-bd-category={cat.id}
+            class={`bd-cat-filter-btn px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer ${
+              idx === 0
+                ? 'bg-primary text-primary-foreground font-bold shadow-xs'
+                : 'bg-muted/70 hover:bg-muted text-foreground border border-border/70'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    )}
   </div>
 
   <div class="overflow-x-auto rounded-xl border border-border bg-card shadow-sm">
@@ -155,15 +217,23 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
         <tr>
           <th class="py-3.5 px-4">Exam / Portal</th>
           <th class="py-3.5 px-4">Required Dimensions</th>
-          <th class="py-3.5 px-4">Print Size</th>
+          <th class="py-3.5 px-4">Physical / Ratio</th>
           <th class="py-3.5 px-4">Allowed File Size</th>
-          <th class="py-3.5 px-4">Ink &amp; Paper Rules</th>
+          <th class="py-3.5 px-4">Background &amp; Ink Rules</th>
           <th class="py-3.5 px-4 text-right">Action</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-border/60">
         {displayPresets.map((preset) => {
           const dedicatedSlug = presetSlugMap.get(preset.id);
+          const customUrl = bdCustomUrls[preset.id];
+          
+          let bdCategory = 'Teletalk';
+          const pId = preset.id.toLowerCase();
+          if (pId.includes('bank')) bdCategory = 'Banks';
+          else if (pId.includes('du') || pId.includes('buet') || pId.includes('medical') || pId.includes('gst')) bdCategory = 'Admission';
+          else if (pId.includes('nsi') || pId.includes('btrc')) bdCategory = 'Specialized';
+
           return (
             <tr
               class="hover:bg-muted/30 transition-colors exam-spec-row"
@@ -171,9 +241,19 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
               data-code={preset.shortCode.toLowerCase()}
               data-authority={preset.authority.toLowerCase()}
               data-category={preset.category}
+              data-bd-category={bdCategory}
             >
               <td class="py-3 px-4">
-                {dedicatedSlug ? (
+                {customUrl ? (
+                  <a
+                    href={customUrl}
+                    aria-label={`View dedicated page for ${preset.name} specifications`}
+                    class="font-semibold text-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 group"
+                  >
+                    <span>{preset.name}</span>
+                    <span class="text-[10px] text-primary opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                  </a>
+                ) : dedicatedSlug ? (
                   <a
                     href={getExamPageUrl(dedicatedSlug)}
                     aria-label={`View dedicated page for ${preset.name} specifications`}
@@ -193,7 +273,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
                 {preset.widthPx} × {preset.heightPx} px
               </td>
               <td class="py-3 px-4 font-mono text-muted-foreground">
-                {preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : '-'}
+                {preset.heightPx === 80 ? '~3.5 × 0.93 cm (Pixel-strict)' : preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : '-'}
               </td>
               <td class="py-3 px-4">
                 <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20">
@@ -201,14 +281,18 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
                 </span>
               </td>
               <td class="py-3 px-4 text-xs text-muted-foreground max-w-xs">
-                <span class="font-medium text-foreground">{preset.inkRequirement}</span>: {preset.notes}
+                {preset.targetType === 'photo' || preset.heightPx === preset.widthPx || preset.widthPx === 360 ? (
+                  <><span class="font-medium text-foreground">Plain White / Light Background</span>: {preset.notes}</>
+                ) : (
+                  <><span class="font-medium text-foreground">{preset.inkRequirement}</span>: {preset.notes}</>
+                )}
               </td>
               <td class="py-3 px-4 text-right">
                 <div class="flex items-center justify-end gap-2">
                   <a
-                    href="#tool-workspace"
+                    href={`#tool-workspace?preset=${preset.id}`}
                     data-preset-id={preset.id}
-                    aria-label={`Resize signature for ${preset.name}`}
+                    aria-label={`Resize for ${preset.name}`}
                     class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-muted hover:bg-primary hover:text-primary-foreground border border-border transition active:scale-95 cursor-pointer"
                   >
                     Apply Preset
@@ -224,7 +308,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
             <div class="max-w-xs mx-auto space-y-2">
               <div class="text-2xl">🔍</div>
               <div class="font-bold text-foreground text-sm">No exam specifications found</div>
-              <div class="text-xs text-muted-foreground">Try searching for a different exam like SSC, UPSC, GATE, or PAN.</div>
+              <div class="text-xs text-muted-foreground">Try searching for a different exam like BCS, Teletalk, or Bank.</div>
             </div>
           </td>
         </tr>
@@ -238,9 +322,9 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
     const searchInput = document.getElementById('exam-specs-search') as HTMLInputElement | null;
     const clearBtn = document.getElementById('exam-specs-clear') as HTMLButtonElement | null;
     const emptyRow = document.getElementById('exam-specs-empty') as HTMLTableRowElement | null;
-    const catButtons = document.querySelectorAll('.exam-cat-filter-btn');
+    const bdCatButtons = document.querySelectorAll('.bd-cat-filter-btn');
     const rows = document.querySelectorAll('.exam-spec-row') as NodeListOf<HTMLTableRowElement>;
-    let activeCategory = 'All';
+    let activeBdCategory = 'All';
 
     function filterRows() {
       const query = (searchInput?.value || '').toLowerCase().trim();
@@ -258,10 +342,10 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
         const name = row.getAttribute('data-name') || '';
         const code = row.getAttribute('data-code') || '';
         const auth = row.getAttribute('data-authority') || '';
-        const cat = row.getAttribute('data-category') || '';
+        const bdCat = row.getAttribute('data-bd-category') || '';
 
         const matchesSearch = !query || name.includes(query) || code.includes(query) || auth.includes(query);
-        const matchesCategory = activeCategory === 'All' || cat === activeCategory;
+        const matchesCategory = activeBdCategory === 'All' || bdCat === activeBdCategory;
 
         if (matchesSearch && matchesCategory) {
           row.style.display = '';
@@ -290,16 +374,16 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
       }
     });
 
-    catButtons.forEach((btn) => {
+    bdCatButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        catButtons.forEach((b) => {
+        bdCatButtons.forEach((b) => {
           b.classList.remove('bg-primary', 'text-primary-foreground', 'font-bold', 'shadow-xs');
-          b.classList.add('bg-muted/60', 'text-muted-foreground');
+          b.classList.add('bg-muted/70', 'text-foreground', 'border', 'border-border/70');
         });
-        btn.classList.remove('bg-muted/60', 'text-muted-foreground');
+        btn.classList.remove('bg-muted/70', 'text-foreground', 'border', 'border-border/70');
         btn.classList.add('bg-primary', 'text-primary-foreground', 'font-bold', 'shadow-xs');
 
-        activeCategory = btn.getAttribute('data-category') || 'All';
+        activeBdCategory = btn.getAttribute('data-bd-category') || 'All';
         filterRows();
       });
     });

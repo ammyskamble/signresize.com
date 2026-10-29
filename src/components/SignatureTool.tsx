@@ -359,7 +359,41 @@ const PRESET_ALIASES: Record<string, string> = {
   'maharashtra-police': 'maharashtra-police',
   'up-police': 'up-police',
   uppolice: 'up-police',
+  // Bangladesh aliases
   teletalk: 'teletalk-bd',
+  'teletalk-bd': 'teletalk-bd',
+  'teletalk-photo': 'teletalk-bd',
+  'teletalk-photo-bd': 'teletalk-bd',
+  'teletalk-sign': 'teletalk-sign-bd',
+  'teletalk-sign-bd': 'teletalk-sign-bd',
+  'bangladesh-bank': 'bangladesh-bank-photo-bd',
+  'bangladesh-bank-photo': 'bangladesh-bank-photo-bd',
+  'bangladesh-bank-sign': 'bangladesh-bank-sign-bd',
+  'bb-photo': 'bangladesh-bank-photo-bd',
+  'bb-sign': 'bangladesh-bank-sign-bd',
+  bcs: 'bpsc-bd',
+  'bcs-photo': 'bpsc-bd',
+  'bcs-sign': 'bpsc-sign-bd',
+  'bpsc-bd': 'bpsc-bd',
+  'bpsc-sign-bd': 'bpsc-sign-bd',
+  'dpe-primary': 'dpe-primary-teacher-bd',
+  'dpe-primary-photo': 'dpe-primary-teacher-bd',
+  'dpe-primary-sign': 'dpe-primary-sign-bd',
+  ntrca: 'ntrca-teacher-bd',
+  'ntrca-photo': 'ntrca-teacher-bd',
+  'ntrca-sign': 'ntrca-sign-bd',
+  'bd-police': 'police-bd-photo',
+  'bd-police-photo': 'police-bd-photo',
+  'bd-police-sign': 'police-bd-sign',
+  'dgme-medical': 'dgme-medical-photo-bd',
+  'dgme-photo': 'dgme-medical-photo-bd',
+  'dgme-sign': 'dgme-medical-sign-bd',
+  du: 'du-admission-photo-bd',
+  'du-admission': 'du-admission-photo-bd',
+  'du-photo': 'du-admission-photo-bd',
+  'gst-cluster': 'gst-cluster-photo-bd',
+  'gst-photo': 'gst-cluster-photo-bd',
+  'gst-sign': 'gst-cluster-sign-bd',
   // Pakistan aliases
   ppsc: 'ppsc-pk',
   'ppsc-pk': 'ppsc-pk',
@@ -958,7 +992,30 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'tnpsc-document');
       }
     }
-    // 23. State Public Service Commissions (UPPSC, BPSC, MPSC, RPSC, KPSC, OPSC, GPSC, etc.)
+    // 23. Bangladesh Recruitment & Admission Portals (Teletalk, BPSC BCS, Bangladesh Bank, DPE, NTRCA)
+    else if (matchesExam('teletalk', 'bpsc-bd', 'bangladesh', 'alljobs', 'erecruitment.bb.org.bd') || examAnchor.includes('-bd')) {
+      if (newType === 'signature') {
+        if (examAnchor.includes('bank')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'bangladesh-bank-sign-bd');
+        else if (examAnchor.includes('dpe') || examAnchor.includes('primary')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'dpe-primary-sign-bd');
+        else if (examAnchor.includes('ntrca')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'ntrca-sign-bd');
+        else if (examAnchor.includes('police')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'police-bd-sign');
+        else if (examAnchor.includes('medical') || examAnchor.includes('dgme')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'dgme-medical-sign-bd');
+        else if (examAnchor.includes('bpsc') || examAnchor.includes('bcs')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'bpsc-sign-bd');
+        else targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'teletalk-sign-bd');
+      } else if (newType === 'photo') {
+        if (examAnchor.includes('bank')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'bangladesh-bank-photo-bd');
+        else if (examAnchor.includes('dpe') || examAnchor.includes('primary')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'dpe-primary-teacher-bd' || p.id === 'dpe-primary-teacher-photo-bd');
+        else if (examAnchor.includes('ntrca')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'ntrca-teacher-bd' || p.id === 'ntrca-teacher-photo-bd');
+        else if (examAnchor.includes('police')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'police-bd-photo');
+        else if (examAnchor.includes('du') || examAnchor.includes('dhaka')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'du-admission-photo-bd');
+        else if (examAnchor.includes('medical') || examAnchor.includes('dgme')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'dgme-medical-photo-bd');
+        else if (examAnchor.includes('bpsc') || examAnchor.includes('bcs')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'bpsc-bd' || p.id === 'bpsc-photo-bd');
+        else targetPreset = PHOTO_PRESETS.find(p => p.id === 'teletalk-bd' || p.id === 'teletalk-photo-bd');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th') || DOCUMENT_PRESETS[0];
+      }
+    }
+    // 24. State Public Service Commissions (UPPSC, BPSC, MPSC, RPSC, KPSC, OPSC, GPSC, etc.)
     else if (matchesExam('state-psc', 'uppsc', 'bpsc', 'mpsc', 'kpsc', 'rpsc', 'gpsc', 'opsc', 'hpsc', 'appsc', 'tspsc', 'apsc', 'mppsc')) {
       if (newType === 'signature') {
         targetPreset = SIGNATURE_PRESETS.find(p => p.id === examAnchor || p.id.includes(examAnchor.replace(/-photo|-sign/g, ''))) ||
@@ -980,6 +1037,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     const defaultPreset = 
       targetPreset || 
       presets.find(p => p.id === examAnchor) ||
+      (isBdActive ? (newType === 'signature' ? SIGNATURE_PRESETS.find(p => p.id === 'teletalk-sign-bd') : PHOTO_PRESETS.find(p => p.id === 'teletalk-bd' || p.id === 'teletalk-photo-bd')) : undefined) ||
       presets.find(p => (!p.country || p.country === 'IN') && p.isPopular) ||
       presets.find(p => !p.country || p.country === 'IN') || 
       presets[0];
@@ -987,12 +1045,17 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     applyPreset(defaultPreset);
     if (newType === 'photo') {
       setLockAspect(true);
+      setShowFaceGuide(true);
       setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 10 }));
     } else if (newType === 'document') {
       setLockAspect(true);
+      setShowFaceGuide(false);
+      setAddNameDateStamp(false);
       setFilters(prev => ({ ...prev, cleanPaper: false, contrast: 20 }));
     } else {
       setLockAspect(true);
+      setShowFaceGuide(false);
+      setAddNameDateStamp(false);
       setFilters(prev => ({ ...prev, cleanPaper: true, contrast: 15 }));
     }
 
@@ -1061,6 +1124,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     selectedPreset?.authority?.toLowerCase().includes('tnpsc') ||
     resolvedPreset?.id?.includes('tnpsc') ||
     initialPresetId?.includes('tnpsc')
+  );
+
+  const isBdActive = Boolean(
+    (typeof window !== 'undefined' && window.location.pathname.includes('/bd')) ||
+    selectedPreset?.country === 'BD' ||
+    selectedPreset?.id?.includes('-bd') ||
+    selectedPreset?.name?.toLowerCase().includes('bangladesh') ||
+    selectedPreset?.name?.toLowerCase().includes('teletalk') ||
+    selectedPreset?.authority?.toLowerCase().includes('teletalk') ||
+    resolvedPreset?.country === 'BD' ||
+    resolvedPreset?.id?.includes('-bd') ||
+    initialPresetId?.includes('-bd') ||
+    initialPresetId?.includes('teletalk')
   );
 
   const selectCoastGuardSection = useCallback((section: 'signature' | 'photo' | 'thumb' | 'document') => {
@@ -2234,6 +2310,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       filename = `tnpsc_signature.${ext}`;
     } else if (selectedPreset?.id === 'tnpsc-document') {
       filename = `tnpsc_certificate.${ext}`;
+    } else if (isBdActive) {
+      if (targetType === 'photo') {
+        filename = selectedPreset?.id?.includes('bank') ? `bangladesh_bank_photo.${ext}` : `teletalk_photo_300x300.${ext}`;
+      } else if (targetType === 'signature') {
+        filename = selectedPreset?.id?.includes('bank') ? `bangladesh_bank_signature.${ext}` : `teletalk_signature_300x80.${ext}`;
+      }
     }
 
     const link = document.createElement('a');
@@ -2696,7 +2778,14 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const isIndonesian = (typeof window !== 'undefined' && window.location.pathname.includes('/id')) || initialPreset?.country === 'ID' || selectedPreset?.country === 'ID';
 
   // Pinned Entrance Exams based on active mode
-  const PINNED_TOP_EXAMS = isPakistan
+  const PINNED_TOP_EXAMS = isBdActive
+    ? [
+        { id: 'teletalk-bd', short: 'Teletalk Photo', label: 'Teletalk Photo 300×300', specs: '300×300 • ≤100 KB' },
+        { id: 'teletalk-sign-bd', short: 'Teletalk Sign', label: 'Teletalk Signature 300×80', specs: '300×80 • ≤60 KB' },
+        { id: 'bangladesh-bank-photo-bd', short: 'BB Bank Photo', label: 'Bangladesh Bank Photo 600×600', specs: '600×600 • ≤100 KB' },
+        { id: 'du-admission-photo-bd', short: 'DU Admission', label: 'DU Admission Photo 360×480', specs: '360×480 • ≤100 KB' }
+      ]
+    : isPakistan
     ? (targetType === 'photo'
         ? [
             { id: 'nadra-pk', short: 'NADRA PK', label: 'NADRA CNIC & Passport', specs: '350×450 • 10–1000 KB' },
@@ -3031,7 +3120,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         {/* Pinned Top 4 Exams Bar + Combobox Trigger */}
         <div className="flex flex-wrap items-center gap-2 pt-1">
           <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground shrink-0 flex items-center gap-1 mr-1">
-            <Sparkles className="w-3.5 h-3.5 text-primary" /> {modeConfig.pinnedTitle}
+            <Sparkles className="w-3.5 h-3.5 text-primary" /> {isBdActive ? 'Top Bangladesh Formats:' : modeConfig.pinnedTitle}
           </span>
 
           {/* 4 Pinned Chips */}
@@ -3113,7 +3202,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
               </div>
               <p className="leading-relaxed text-amber-900/90 dark:text-amber-100/90">
                 {selectedPreset.notes}
-                {selectedPreset.portalExactSpecsVerified !== false && <> • <strong className="text-amber-950 dark:text-amber-50 font-semibold">Ink:</strong> {selectedPreset.inkRequirement}</>}
+                {selectedPreset.portalExactSpecsVerified !== false && (
+                  targetType === 'photo' ? (
+                    <> • <strong className="text-amber-950 dark:text-amber-50 font-semibold">Background:</strong> Plain White / Light Studio Background</>
+                  ) : (
+                    <> • <strong className="text-amber-950 dark:text-amber-50 font-semibold">Ink:</strong> {selectedPreset.inkRequirement}</>
+                  )
+                )}
               </p>
             </div>
           </div>
@@ -3150,6 +3245,37 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           <button type="button" onClick={() => fileInputRef.current?.click()}><Upload size={15} />{sourceImage ? 'Replace image' : 'Upload image'}</button>
         </div>
       </>}
+      {isBdActive && (
+        <div className="teletalk-banner flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 dark:bg-emerald-950/40 p-3.5 shadow-2xs">
+          <div className="flex items-center gap-2.5">
+            <svg className="w-5 h-3.5 rounded-xs shadow-2xs shrink-0 inline-block" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="20" height="12" fill="#006a4e" rx="1" />
+              <circle cx="9" cy="6" r="4" fill="#f42a41" />
+            </svg>
+            <div>
+              <p className="text-xs sm:text-sm font-bold text-foreground flex items-center gap-1.5">
+                <span>{selectedPreset?.id?.includes('bank') ? 'Bangladesh Bank BSCS Validator Active' : 'Teletalk Bangladesh 100% Pass Validator Active'}</span>
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                  <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                  Exact Validation Pass
+                </span>
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {targetType === 'signature'
+                  ? 'Locked to strictly 300×80 px (≤ 60 KB) on plain white paper · Guaranteed to pass Teletalk All Jobs & BPSC'
+                  : selectedPreset?.id?.includes('bank')
+                  ? 'Locked to strictly 600×600 px (≤ 100 KB) · Guaranteed to pass Bangladesh Bank erecruitment.bb.org.bd'
+                  : 'Locked to strictly 300×300 px (≤ 100 KB) color photo · Guaranteed to pass alljobs.teletalk.com.bd'}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-card border border-border text-foreground shadow-2xs">
+              {targetWidthPx} × {targetHeightPx} px · ≤{maxKb} KB
+            </span>
+          </div>
+        </div>
+      )}
       {!compactStudio && !isCoastGuardActive && !isTnpscActive && (
         <div className="quick-upload flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-xl border border-primary/25 bg-primary/5 p-3">
           <div><p className="text-sm font-bold">Start with your image</p><p className="text-xs text-muted-foreground">JPG, PNG, WebP and browser-supported images · up to 15 MB</p></div>
@@ -4788,7 +4914,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
                         <Camera className="w-3.5 h-3.5 text-primary" />
-                        <span>Passport Photo Compliance Tools</span>
+                        <span>{isBdActive ? 'Photo Compliance Tools (Bangladesh)' : selectedPreset?.shortCode ? `${selectedPreset.shortCode} Compliance Tools` : 'Photo Compliance Tools'}</span>
                       </h3>
                       <span className="text-[10px] font-mono font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-md border border-primary/20">
                         Govt Norms
@@ -4828,7 +4954,18 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                       </label>
 
                       {/* Name & Date on Photo (DoP) Stamp */}
-                      <div className="p-3.5 rounded-xl border border-primary/20 bg-primary/5 space-y-3">
+                      {isBdActive ? (
+                        <div className="p-3 rounded-xl border border-amber-500/30 bg-amber-500/10 space-y-1">
+                          <div className="flex items-center gap-1.5 text-xs font-bold text-amber-700 dark:text-amber-300">
+                            <span>⚠️</span>
+                            <span>Name &amp; Date Overlays Strictly Prohibited</span>
+                          </div>
+                          <p className="text-[11px] text-muted-foreground leading-relaxed">
+                            Teletalk All Jobs, BPSC (BCS Exam) and Bangladesh Bank strictly reject photos containing candidate names or dates printed at the bottom. Upload only clean portrait photographs without text banners.
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="p-3.5 rounded-xl border border-primary/20 bg-primary/5 space-y-3">
                         <label className="flex items-center justify-between cursor-pointer">
                           <div>
                             <span className="text-xs font-bold text-foreground flex items-center gap-1.5">
@@ -4876,6 +5013,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           </div>
                         )}
                       </div>
+                      )}
                     </div>
                   )}
                 </div>
@@ -5009,14 +5147,18 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     </div>
                     <div>
                       <h3 className="font-bold text-sm text-foreground flex items-center gap-2">
-                        <span>{compactStudio ? 'Export' : `Real-Time Output Preview (${modeConfig.shortNoun})`}</span>
+                        <span>{compactStudio ? 'Export' : `Real-Time ${selectedPreset?.shortCode || (targetType === 'signature' ? 'Signature' : targetType === 'photo' ? 'Photo' : 'Output')} Preview (${targetWidthPx} × ${targetHeightPx} px)`}</span>
                         <span className="live-badge inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                           Live Sync
                         </span>
                       </h3>
                       <p className="text-[11px] text-muted-foreground">
-                        {modeConfig.previewSubtitle}
+                        {targetType === 'signature'
+                          ? (selectedPreset?.shortCode ? `Simulated ${selectedPreset.shortCode} output view with high-contrast ink sync.` : 'Simulated signature output view with high-contrast ink sync.')
+                          : targetType === 'photo'
+                          ? (selectedPreset?.shortCode ? `Simulated ${selectedPreset.shortCode} print preview with facial centering.` : 'Simulated photo print preview with facial centering.')
+                          : modeConfig.previewSubtitle}
                       </p>
                     </div>
                   </div>
@@ -5116,25 +5258,34 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   ) : (
                     /* Simulated preview before upload */
                     <div className="flex flex-col items-center justify-center text-center space-y-3 py-2">
-                      <div className={`border-2 border-dashed border-border/80 shadow-xs rounded-xl flex items-center justify-center p-3 ${targetType === 'photo' ? 'w-[140px] h-[175px]' : targetType === 'document' ? 'w-[150px] h-[190px]' : 'w-[240px] h-[90px]'} bg-card dark:bg-slate-900`}>
+                      <div className={`border-2 border-dashed border-border/80 shadow-xs rounded-xl flex items-center justify-center p-3 ${targetType === 'photo' ? (targetWidthPx === targetHeightPx ? 'w-[150px] h-[150px]' : 'w-[140px] h-[175px]') : targetType === 'document' ? 'w-[150px] h-[190px]' : 'w-[240px] h-[90px]'} bg-card dark:bg-slate-900`}>
                         {targetType === 'photo' ? (
                           <div className="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 space-y-1">
                             <User className="w-10 h-10 stroke-1 text-primary/60" />
-                            <span className="font-bold text-xs tracking-wider text-muted-foreground">Passport Photo</span>
+                            <span className="font-bold text-xs tracking-wider text-muted-foreground">{selectedPreset?.shortCode || 'Photo'}</span>
                           </div>
                         ) : targetType === 'document' ? (
                           <div className="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 space-y-1">
                             <FileText className="w-10 h-10 stroke-1 text-primary/60" />
-                            <span className="font-bold text-xs tracking-wider text-muted-foreground">Marksheet / Doc</span>
+                            <span className="font-bold text-xs tracking-wider text-muted-foreground">{selectedPreset?.shortCode || 'Marksheet / Doc'}</span>
                           </div>
                         ) : (
-                          <span className="font-serif italic text-xl text-slate-400 dark:text-slate-500 select-none tracking-wider">
-                            Sample Signature
-                          </span>
+                          <div className="flex flex-col items-center justify-center space-y-1">
+                            <span className="font-serif italic text-lg sm:text-xl text-slate-400 dark:text-slate-500 select-none tracking-wider">
+                              {selectedPreset?.shortCode ? `${selectedPreset.shortCode} Specimen` : 'Sample Signature'}
+                            </span>
+                            {selectedPreset?.shortCode && (
+                              <span className="text-[10px] font-mono text-muted-foreground">({targetWidthPx} × ${targetHeightPx} px)</span>
+                            )}
+                          </div>
                         )}
                       </div>
                       <span id="preview-status-text" className="text-[11px] text-muted-foreground font-mono">
-                        {modeConfig.awaitingText} ({targetWidthPx} × {targetHeightPx} px)
+                        {targetType === 'signature'
+                          ? `Awaiting ${selectedPreset?.shortCode ? `${selectedPreset.shortCode} ` : 'signature '}upload... (${targetWidthPx} × ${targetHeightPx} px)`
+                          : targetType === 'photo'
+                          ? `Awaiting ${selectedPreset?.shortCode ? `${selectedPreset.shortCode} ` : 'photo '}upload... (${targetWidthPx} × ${targetHeightPx} px)`
+                          : `${modeConfig.awaitingText} (${targetWidthPx} × ${targetHeightPx} px)`}
                       </span>
                     </div>
                   )}
@@ -5235,6 +5386,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           >
                             <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
                             <span>Clause 9.3 Check</span>
+                          </button>
+                        ) : isBdActive && processedResult?.withinTargetBounds ? (
+                          <button
+                            type="button"
+                            onClick={() => setShowExportChecks(true)}
+                            className="inline-flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-500/15 border border-emerald-500/40 px-2 py-0.5 rounded text-[11px] cursor-pointer hover:bg-emerald-500/25 transition shadow-2xs"
+                            title="Validated: exact pixel resolution and byte size match Bangladesh portal requirements"
+                          >
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                            <span>{selectedPreset?.id?.includes('bank') ? 'BB Verified' : 'Teletalk Verified'}</span>
                           </button>
                         ) : (
                           <button
@@ -5550,6 +5711,31 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     </div>
                   </div>
                 </div>
+
+                {isBdActive && selectedPreset && (targetWidthPx !== selectedPreset.widthPx || targetHeightPx !== selectedPreset.heightPx) && (
+                  <div className="p-2.5 rounded-lg border border-amber-500/40 bg-amber-500/10 text-amber-800 dark:text-amber-300 text-xs space-y-1.5">
+                    <div className="flex items-center gap-1.5 font-bold">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0 text-amber-600" />
+                      <span>Teletalk Strict Dimension Warning</span>
+                    </div>
+                    <p className="text-[11px] leading-relaxed">
+                      Teletalk strictly checks for exactly {selectedPreset.widthPx}×{selectedPreset.heightPx} px. Deviating will cause upload failure on alljobs.teletalk.com.bd.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setWidth(selectedPreset.widthPx);
+                        setHeight(selectedPreset.heightPx);
+                        setWidthInput(String(selectedPreset.widthPx));
+                        setHeightInput(String(selectedPreset.heightPx));
+                        setUnit('px');
+                      }}
+                      className="px-2 py-0.5 rounded bg-amber-600 text-white font-bold text-[10px] hover:bg-amber-700 transition cursor-pointer"
+                    >
+                      Reset to {selectedPreset.widthPx}×{selectedPreset.heightPx} px
+                    </button>
+                  </div>
+                )}
 
                 {/* Target File Size Bounds Panel (Min KB - Max KB) */}
                 <div className="space-y-2 pt-2 border-t border-border/60">

@@ -105,19 +105,39 @@ const phFaqs: FaqItem[] = [
 
 const bdFaqs: FaqItem[] = [
   {
-    q: "What is the Teletalk Bangladesh photo and signature size?",
-    summary: "Teletalk requires a 300×300 pixel photo (≤ 100 KB) and a 300×80 pixel signature (≤ 60 KB) in JPG format.",
-    details: "This standard specification applies across all Teletalk All Jobs portals, BPSC, NTRCA, and Primary Assistant Teacher recruitments."
+    q: "What is the Teletalk Bangladesh photo and signature size for 2026?",
+    summary: "Teletalk requires an exact 300×300 pixel photo (≤ 100 KB) and an exact 300×80 pixel signature (≤ 60 KB) in JPG format.",
+    details: "This standard applies across Teletalk All Jobs (alljobs.teletalk.com.bd), BPSC (BCS Exam), NTRCA, and Directorate of Primary Education (DPE). The server validator automatically blocks any image that deviates by even 1 pixel."
   },
   {
-    q: "How to resize photo for Bangladesh Civil Service (BCS) exam?",
-    summary: "Select the BCS / Teletalk Bangladesh preset to automatically set 300×300 px dimensions and under 100 KB file size.",
-    details: "BPSC online application forms strictly check pixel dimensions (300x300) and 100 KB max size limit."
+    q: "What are Bangladesh Bank Combined Banks photo & signature requirements?",
+    summary: "Bangladesh Bank e-Recruitment (erecruitment.bb.org.bd) requires a 600×600 px photo (≤ 100 KB) and a 300×80 px signature (≤ 60 KB).",
+    details: "This applies to Officer General, Cash Officer, and Senior Officer posts across Sonali, Janata, Agrani, Rupali, and Bangladesh Krishi Bank. The background must be clean white or light grey."
   },
   {
-    q: "How to crop 300x80 signature for Teletalk All Jobs?",
-    summary: "Upload your signature, select the Teletalk Signature preset (300×80 px), and adjust the crop handles.",
-    details: "Sign with black or dark blue ink on clean unruled paper and toggle the Clean White Paper filter."
+    q: "How to resize photo for DPE Primary School Assistant Teacher recruitment?",
+    summary: "Select the 'DPE Primary Assistant Teacher' preset to export an exact 300×300 px photo under 100 KB and a 300×80 px signature under 60 KB.",
+    details: "Directorate of Primary Education applications run on dpe.teletalk.com.bd. Uploading an off-center or low-resolution image can result in admit card disqualification."
+  },
+  {
+    q: "What is the photo size for Dhaka University (DU) undergraduate admission?",
+    summary: "Dhaka University (admission.eis.du.ac.bd) mandates a 360×480 px (3:4 ratio) portrait photo between 30 KB and 100 KB in JPG format.",
+    details: "Ensure ears and forehead are clearly visible with a plain neutral background. SignResize's DU preset automatically locks the 3:4 aspect ratio and sets resolution to 360×480 px."
+  },
+  {
+    q: "Why does Teletalk show 'Photo dimensions must be 300x300 pixels' error?",
+    summary: "This error occurs when the uploaded JPG is off by even 1 pixel (e.g., 301×300 or 299×299).",
+    details: "SignResize guarantees exact integer pixel dimensions (300×300 px for photo and 300×80 px for signature) and strictly keeps file sizes within 10–100 KB so Teletalk accepts it on the first attempt."
+  },
+  {
+    q: "Why does Teletalk reject .png, .webp, or uppercase .JPG files?",
+    summary: "Many older Teletalk sub-portals enforce legacy file-extension validation that strictly checks for lowercase '.jpg' extensions.",
+    details: "Uploading uppercase '.JPG', '.PNG', or '.webp' files results in immediate rejection on alljobs.teletalk.com.bd. SignResize always encodes baseline sRGB JPEG and names every download with clean lowercase '.jpg' (e.g. teletalk_photo_300x300.jpg)."
+  },
+  {
+    q: "Does SignResize pass the built-in Teletalk Photo & Signature Validator check?",
+    summary: "Yes. All images processed through SignResize are 100% pre-calibrated to pass the official validator at alljobs.teletalk.com.bd.",
+    details: "Teletalk's validator checks Image.width === 300, Image.height === 300, and file.size <= 102400 bytes (or 300x80 and <= 61440 bytes for signatures). Our in-browser validator reproduces this exact test client-side before you download."
   }
 ];
 

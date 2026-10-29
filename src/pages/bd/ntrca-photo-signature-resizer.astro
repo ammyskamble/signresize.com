@@ -1,0 +1,220 @@
+---
+// src/pages/bd/ntrca-photo-signature-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "NTRCA Teacher Registration Photo & Signature Resizer (300x300 / 300x80) - SignResize";
+const pageDescription = "Official 300x300 px (≤100 KB) photo and 300x80 px (≤60 KB) signature resizer for 18th & 19th NTRCA Non-Government Teachers Registration examination (ntrca.teletalk.com.bd).";
+const canonicalUrl = "https://signresize.in/bd/ntrca-photo-signature-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "ntrca photo resizer 300x300, ntrca signature resizer 300x80, ntrca 19th exam photo size, non-government teacher registration photo, ntrca teletalk photo crop";
+
+const ntrcaFaqs = [
+  {
+    q: "What is the photo size for NTRCA Teacher Registration (ntrca.teletalk.com.bd)?",
+    summary: "NTRCA requires an exact 300×300 pixel photograph with file weight under 100 KB in JPG format.",
+    details: "The photo must be clear, recent, and taken against a light or white background. Head, forehead, and both ears must be fully visible."
+  },
+  {
+    q: "What is the signature requirement for NTRCA 18th and 19th exams?",
+    summary: "The specimen signature must be strictly 300×80 pixels with file size under 60 KB in JPG format.",
+    details: "Sign in running cursive script on unruled white paper with black ink. Avoid all-capital letter signatures as they are disqualified during verification."
+  },
+  {
+    q: "Do School, School-2, and College levels use the same NTRCA photo specs?",
+    summary: "Yes. Whether applying for Junior Teacher (School-2), Assistant Teacher (School), or Lecturer (College/Madrasah), the dimensions are identical: 300×300 px and 300×80 px.",
+    details: "All level circulars operate through the unified ntrca.teletalk.com.bd registration engine."
+  },
+  {
+    q: "How does SignResize ensure NTRCA Teletalk upload acceptance?",
+    summary: "SignResize enforces hardware-accelerated integer pixel rounding and dynamic JPEG compression to keep your photo strictly within 10–100 KB and signature within 5–60 KB.",
+    details: "This eliminates the dreaded 'Image resolution must be exactly 300x300' validation error on the Teletalk portal."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-BD" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_BD" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "NTRCA Photo & Signature Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "300x300 px NTRCA Photo Resizer (≤100 KB)",
+        "300x80 px NTRCA Signature Resizer (≤60 KB)",
+        "Zero Server Upload - 100% In-Browser Privacy",
+        "School & College MPO Teacher Registration Verified"
+      ]
+    })} />
+  
+    <!-- Schema.org FAQPage JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": ntrcaFaqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `${faq.summary} ${faq.details}`
+        }
+      }))
+    })} />
+
+    <!-- Schema.org HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Photo & Signature for NTRCA Teacher Registration",
+      "description": "Step-by-step guide to crop, resize, and compress image uploads strictly compliant with ntrca.teletalk.com.bd.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Select NTRCA Teacher Photo (300×300 px) or Signature",
+          "text": "Open the tool with the preloaded preset. The official pixel dimensions and aspect ratio are automatically locked.",
+          "url": canonicalUrl
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload & Adjust Crop Frame",
+          "text": "Upload your photo or signature scan. Adjust zoom and position within the guide frame.",
+          "url": canonicalUrl
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Certified JPG",
+          "text": "Click Download to export your image strictly within the required KB limits, guaranteed to pass ntrca.teletalk.com.bd.",
+          "url": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Tool Page Header with Selector Dropdown -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+              <svg class="w-4 h-2.5 rounded-xs shadow-2xs shrink-0 inline-block" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="20" height="12" fill="#006a4e" rx="1" />
+                <circle cx="9" cy="6" r="4" fill="#f42a41" />
+              </svg>
+              <span>NTRCA Official Preset (ntrca.teletalk.com.bd)</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              NTRCA Teacher Registration Photo &amp; Signature Resizer <span class="text-primary">(300×300 / 300×80)</span>
+            </h1>
+            <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
+              Calibrated cropping and size reduction for the 18th &amp; 19th Non-Government Teachers' Registration &amp; Certification Authority (NTRCA) examination portals.
+            </p>
+          </div>
+
+          <!-- Quick Dropdown Hub Selector -->
+          <div class="w-full md:w-auto min-w-[280px] bg-card p-3 rounded-xl border border-border shadow-sm">
+            <label for="bd-tool-select" class="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+              Select Bangladesh Portal Tool:
+            </label>
+            <select
+              id="bd-tool-select"
+              class="w-full bg-background border border-input text-foreground rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer"
+              onchange="if(this.value) window.location.href=this.value;"
+            >
+              <option value="/bd/">Bangladesh Main Hub</option>
+              <option value="/bd/bcs-photo-signature-resizer/">BCS &amp; BPSC (300×300 / 300×80 px)</option>
+              <option value="/bd/bangladesh-bank-photo-signature-resizer/">Bangladesh Bank (600×600 / 300×80 px)</option>
+              <option value="/bd/primary-teacher-dpe-photo-resizer/">DPE Primary Assistant Teacher</option>
+              <option value="/bd/ntrca-photo-signature-resizer/" selected>NTRCA Teacher Registration</option>
+              <option value="/bd/medical-admission-photo-resizer/">DGME Medical MBBS/BDS Admission</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature Tool Canvas Widget loaded with NTRCA preset -->
+      <section id="tool-workspace" class="scroll-mt-20 bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-sm">
+        <SignatureTool client:idle initialPresetId="ntrca-teacher-bd" initialMode="photo" />
+      </section>
+
+      <!-- SEO Educational Guide Section -->
+      <section class="space-y-6 pt-6 border-t border-border">
+        <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
+          <h2 class="text-2xl font-bold text-foreground">
+            Complete NTRCA Registration Photo &amp; Signature Format Requirements
+          </h2>
+          <p class="text-muted-foreground leading-relaxed">
+            The <strong>Non-Government Teachers' Registration &amp; Certification Authority (NTRCA)</strong> certifies educators for secondary schools, higher secondary colleges, technical institutions, and madrasahs across Bangladesh. Uploading valid digital files on <em>ntrca.teletalk.com.bd</em> is mandatory to generate your preliminary admit card.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">NTRCA Photograph</h3>
+              <p class="text-xs text-muted-foreground"><strong>300 × 300 pixels</strong>, 10 KB to 100 KB in JPG format. Neutral/white background.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">NTRCA Signature</h3>
+              <p class="text-xs text-muted-foreground"><strong>300 × 80 pixels</strong>, 5 KB to 60 KB in JPG format. Plain white background.</p>
+            </div>
+            <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
+              <h3 class="font-bold text-base text-foreground">All Tiers Supported</h3>
+              <p class="text-xs text-muted-foreground">School, School-2 (Junior), College (Lecturer), and Madrasah/Technical levels.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Specifications Table & FAQ Section -->
+      <section class="space-y-6">
+        <ExamSpecsTable country="BD" />
+        <FaqSection faqs={ntrcaFaqs} title="Frequently Asked Questions (NTRCA Registration)" />
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
