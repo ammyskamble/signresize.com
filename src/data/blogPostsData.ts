@@ -13936,10 +13936,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "sbi-clerk-2026-top-10-faq-junior-associates",
-    "title": "SBI Clerk 2026: Upload Specs, Photo & Signature Resizer, LPT Rules & 17 Crucial FAQs",
+    "title": "SBI Clerk 2026: Upload Specs, Photo & Signature Resizer, Prelims Result, LPT & 18 FAQs",
     "metaTitle": "SBI Clerk 2026 Upload Specs & Resizer: Photo, 140x60 Sign, LTI & FAQs",
-    "metaDescription": "Official SBI Clerk 2026 upload rules: 20–50 KB photo (200×230), 10–20 KB signature, thumb & exact declaration text. Download free printable PDF template.",
-    "excerpt": "Official SBI Clerk (Junior Associates) candidate handbook: 2026 upload specs (photo, 140×60 sign, thumb & declaration), LPT state mapping, state-wise cutoffs, eligibility, no-sectional cutoffs, and 17 crucial FAQs answered.",
+    "metaDescription": "Official SBI Clerk 2026 guide: 20–50 KB photo (200×230), 10–20 KB sign, thumb, declaration text, prelims result & scorecard check steps, and state cutoffs.",
+    "excerpt": "Official SBI Clerk (Junior Associates) candidate handbook: 2026 upload specs (photo, 140×60 sign, thumb & declaration), prelims result & scorecard check guide, LPT state mapping, state-wise cutoffs, and 18 crucial FAQs answered.",
     "category": "Career Opportunity",
     "publishDate": "Sept 20, 2026",
     "publishTime": "09:00 AM IST",
@@ -13967,6 +13967,9 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       "Can SBI Clerk Transfer To Other State",
       "SBI Clerk Cut Off Prelims State Wise",
       "SBI Clerk Apply Online 2026",
+      "SBI Clerk Prelims Result",
+      "SBI Clerk Result 2026",
+      "SBI Clerk Scorecard",
       "Junior Associate"
     ],
     "quickTools": [
@@ -14095,6 +14098,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       {
         "question": "How do state-wise cutoffs differ, and can I apply from a state with lower cutoff marks?",
         "answer": "SBI Clerk cutoffs are declared state-wise and category-wise, varying substantially based on declared vacancies and local competition. For example, historical General Prelims cutoffs have ranged between 63 and 80 marks out of 100 across states like Karnataka (63–68), Maharashtra (72–74), UP (75–78), and Delhi (76–80). While candidates can legally apply from any state, they must pass the mandatory Local Language Test (LPT) if they cannot produce a 10th or 12th certificate proving study of the official local language. Furthermore, because inter-circle transfers are permanently prohibited in clerical cadre, candidates must be prepared to serve their entire clerical career in that chosen circle."
+      },
+      {
+        "question": "How to check SBI Clerk Prelims Result 2026 and download the official scorecard?",
+        "answer": "To check your SBI Clerk Preliminary Examination result and download the scorecard: (1) Visit the official State Bank of India careers portal at sbi.co.in/web/careers or bank.sbi/careers. (2) Open 'Current Openings' and click on 'Recruitment of Junior Associates (Customer Support & Sales)'. (3) Select 'Preliminary Examination Result / Marks Download'. (4) Enter your Registration Number or Roll Number, Date of Birth (in DD-MM-YYYY format), and the security verification captcha. (5) Your official digital scorecard will display your sectional scores, total normalized aggregate score (out of 100), the qualifying cutoff marks for your state and category, and whether you are shortlisted for the Phase-II Mains Examination."
       }
     ],
     "contentHtml": `
@@ -14744,6 +14751,59 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
             </tbody>
           </table>
         </div>
+
+        <!-- How to Check SBI Clerk Prelims Result & Scorecard Card -->
+        <div id="prelims-result" class="my-6 p-5 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-primary/5 border-2 border-primary/25 space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-2.5">
+            <h4 class="font-bold text-foreground text-sm flex items-center gap-2 m-0 p-0 border-0 bg-transparent">
+              <span>📋</span> SBI Clerk Prelims Result 2026: Official Scorecard &amp; Qualifying Status
+            </h4>
+            <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">Official Portal: sbi.co.in/careers</span>
+          </div>
+
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            The State Bank of India announces the <strong>SBI Clerk Preliminary Examination Result &amp; Scorecard</strong> online under the Central Recruitment &amp; Promotion Department (CRPD) portal. Both qualified and non-qualified aspirants can download their official scorecard displaying individual sectional scores, total normalized marks out of 100, and state-level category cutoffs.
+          </p>
+
+          <!-- 4-Step Result Checking Blueprint -->
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-2.5 pt-1 text-xs">
+            <div class="p-3 rounded-xl bg-card border border-border space-y-1 shadow-2xs">
+              <span class="text-[10px] font-bold text-primary uppercase">Step 1: Open Portal</span>
+              <p class="text-foreground font-semibold">sbi.co.in/web/careers</p>
+              <span class="text-[10px] text-muted-foreground block">Click "Current Openings" tab</span>
+            </div>
+            <div class="p-3 rounded-xl bg-card border border-border space-y-1 shadow-2xs">
+              <span class="text-[10px] font-bold text-primary uppercase">Step 2: Locate Exam</span>
+              <p class="text-foreground font-semibold">Junior Associates (CRPD)</p>
+              <span class="text-[10px] text-muted-foreground block">Select "Prelims Result &amp; Marks"</span>
+            </div>
+            <div class="p-3 rounded-xl bg-card border border-border space-y-1 shadow-2xs">
+              <span class="text-[10px] font-bold text-primary uppercase">Step 3: Enter Login ID</span>
+              <p class="text-foreground font-semibold">Reg / Roll No + DOB</p>
+              <span class="text-[10px] text-muted-foreground block">Date of Birth in DD-MM-YYYY</span>
+            </div>
+            <div class="p-3 rounded-xl bg-card border border-border space-y-1 shadow-2xs">
+              <span class="text-[10px] font-bold text-primary uppercase">Step 4: Check Score</span>
+              <p class="text-foreground font-semibold">Normalized Marks &amp; Status</p>
+              <span class="text-[10px] text-muted-foreground block">Mains Phase-II eligibility</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 text-xs border-t border-border/50">
+            <div class="text-muted-foreground text-[11px]">
+              ⚡ <em>Shortlisting Threshold:</em> Exactly <strong>10 times the declared state category vacancies (10:1 ratio)</strong> are empaneled for the Mains examination.
+            </div>
+            <a
+              href="https://sbi.co.in/web/careers"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition flex items-center justify-center gap-1.5 shadow-xs shrink-0"
+            >
+              <span>Check Official Result Portal</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
       </section>
 
       <!-- Section 6: State Vacancies, Strict Transfer Policy & LPT Language Mapping -->
@@ -14894,6 +14954,13 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
                 <td class="p-3 font-mono">800 &times; 400 px • 50–100 KB (DOB clause required)</td>
                 <td class="p-3">
                   <a href="/ibps-handwritten-declaration-resize/" class="font-bold text-primary hover:underline">Format Declaration &rarr;</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">SBI Clerk Prelims Result &amp; Scorecard</td>
+                <td class="p-3">Official normalized score out of 100 + State Category Cutoff</td>
+                <td class="p-3">
+                  <a href="#prelims-result" class="font-bold text-primary hover:underline">View 4-Step Result Guide &rarr;</a>
                 </td>
               </tr>
               <tr>
