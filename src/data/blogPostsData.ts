@@ -13936,10 +13936,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "sbi-clerk-2026-top-10-faq-junior-associates",
-    "title": "SBI Clerk 2026: Upload Specs, Photo & Signature Resizer, LPT Rules & 13 Crucial FAQs",
+    "title": "SBI Clerk 2026: Upload Specs, Photo & Signature Resizer, LPT Rules & 17 Crucial FAQs",
     "metaTitle": "SBI Clerk 2026 Upload Specs & Resizer: Photo, 140x60 Sign, LTI & FAQs",
     "metaDescription": "Official SBI Clerk 2026 upload rules: 20–50 KB photo (200×230), 10–20 KB signature, thumb & exact declaration text. Download free printable PDF template.",
-    "excerpt": "Official SBI Clerk (Junior Associates) candidate handbook: 2026 upload specs (photo, 140×60 sign, thumb & declaration), LPT state mapping, no-sectional cutoff scoring rules, and 13 crucial FAQs answered.",
+    "excerpt": "Official SBI Clerk (Junior Associates) candidate handbook: 2026 upload specs (photo, 140×60 sign, thumb & declaration), LPT state mapping, state-wise cutoffs, eligibility, no-sectional cutoffs, and 17 crucial FAQs answered.",
     "category": "Career Opportunity",
     "publishDate": "Sept 20, 2026",
     "publishTime": "09:00 AM IST",
@@ -13951,15 +13951,23 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     "featured": false,
     "tags": [
       "SBI Clerk 2026",
-      "Junior Associate",
-      "Handwritten Declaration",
       "SBI Clerk Photo Size",
-      "SBI Clerk Signature",
-      "Thumb Impression",
-      "LPT Test",
-      "No Sectional Cutoff",
-      "State Vacancy Rules",
-      "Bank Jobs"
+      "SBI Clerk Signature Size",
+      "SBI Clerk Thumb Impression Size",
+      "SBI Clerk Handwritten Declaration",
+      "SBI Clerk Declaration Format 2026",
+      "SBI Clerk Syllabus 2026",
+      "SBI Clerk Salary In Hand",
+      "SBI Clerk Exam Pattern",
+      "SBI Clerk Sectional Cut Off",
+      "SBI Clerk LPT Test",
+      "SBI Clerk State Wise Vacancy",
+      "SBI Clerk Age Limit 2026",
+      "SBI Clerk Eligibility Criteria",
+      "Can SBI Clerk Transfer To Other State",
+      "SBI Clerk Cut Off Prelims State Wise",
+      "SBI Clerk Apply Online 2026",
+      "Junior Associate"
     ],
     "quickTools": [
       {
@@ -14071,6 +14079,22 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       {
         "question": "How can I resize and format all 4 SBI Clerk documents in 1 minute?",
         "answer": "You can use SignResize's client-side banking tool presets to format your passport photograph (200×230 px, 20–50 KB), running cursive signature (140×60 px, 10–20 KB), left thumb impression (240×240 px, 20–50 KB), and handwritten declaration (800×400 px, 50–100 KB) entirely in your browser with zero server uploads and zero privacy risk."
+      },
+      {
+        "question": "What is the age limit and educational qualification for SBI Clerk 2026?",
+        "answer": "Candidates must be between 20 and 28 years of age as of the notification benchmark date. Upper age relaxation is provided for reserved categories: OBC gets 3 years (up to 31), SC/ST gets 5 years (up to 33), and PwD gets 10 to 15 years. The educational qualification is Graduation in any discipline from a recognized university. Final year or final semester college students are eligible to apply provisionally, provided they produce proof of passing the degree on or before the document verification cutoff date."
+      },
+      {
+        "question": "Is there negative marking in SBI Clerk, and how does shift normalization work?",
+        "answer": "Yes, both Preliminary and Mains examinations enforce a negative marking penalty of 1/4th (0.25) marks for every wrong MCQ answer. Unattempted questions carry zero penalty. Because the exam is conducted across multiple shifts and dates across India, SBI uses an equi-percentile normalization method to neutralize difficulty variances between different test slots."
+      },
+      {
+        "question": "What is the application fee for SBI Clerk 2026, and who is exempted?",
+        "answer": "The non-refundable application fee and intimation charges are ₹750 for General, EWS, and OBC candidates. Candidates belonging to SC, ST, PwD, and ESM/DESM categories are 100% exempted from paying any application fees (₹0). Payment must be made entirely online via net banking, debit cards, or UPI on sbi.co.in/careers."
+      },
+      {
+        "question": "How do state-wise cutoffs differ, and can I apply from a state with lower cutoff marks?",
+        "answer": "SBI Clerk cutoffs are declared state-wise and category-wise, varying substantially based on declared vacancies and local competition. For example, historical General Prelims cutoffs have ranged between 63 and 80 marks out of 100 across states like Karnataka (63–68), Maharashtra (72–74), UP (75–78), and Delhi (76–80). While candidates can legally apply from any state, they must pass the mandatory Local Language Test (LPT) if they cannot produce a 10th or 12th certificate proving study of the official local language. Furthermore, because inter-circle transfers are permanently prohibited in clerical cadre, candidates must be prepared to serve their entire clerical career in that chosen circle."
       }
     ],
     "contentHtml": `
@@ -14827,6 +14851,146 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         <h2>7. In-Hand Salary &amp; Fast-Track Promotion to Officer (JMGS-I)</h2>
         <p>Under the revised 12th Bipartite Wage Settlement, the starting Basic Pay of an SBI Junior Associate is <strong>₹19,900</strong> (with 2 advance increments for graduate recruits, making starting basic ₹20,900). Total gross salary with Dearness Allowance (DA), House Rent Allowance (HRA), Special Allowance, and Transport Allowance ranges between <strong>₹39,000 and ₹42,000</strong> per month. Net in-hand monthly pay is approximately <strong>₹34,000 to ₹38,000</strong> depending on posting city classification (Class A/B/C).</p>
         <p>Unlike other commercial banks, SBI allows Junior Associates to appear for the <strong>Trainee Officer (TO) internal examination after just 3 years of service</strong>, placing successful candidates directly into Junior Management Grade Scale-I (JMGS-I) with equal rank, pay band, and promotion seniority as directly recruited SBI Probationary Officers (PO). Promotion to Officer cadre also unlocks eligibility for all-India transfers.</p>
+      </section>
+
+      <!-- Section 8: Aspirant Search Matrix & High-Yield Keyword Reference -->
+      <section id="search-matrix" class="space-y-4 mt-8">
+        <h2>8. SBI Clerk 2026 Aspirant Search Matrix: State Cutoffs, Age Limit &amp; Direct Tools</h2>
+        <p>To help candidates navigate high-frequency queries during online registration, the matrix below compiles verified recruitment benchmarks, official specifications, and direct 1-click tools:</p>
+
+        <div class="my-6 overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border border-border">
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th class="p-3 border-b">Aspirant Search Query &amp; Topic</th>
+                <th class="p-3 border-b">Official 2026 CRPD Standard</th>
+                <th class="p-3 border-b">Direct Action / Portal Guidance</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr>
+                <td class="p-3 font-semibold text-primary">SBI Clerk Photo Size &amp; Format</td>
+                <td class="p-3 font-mono">200 &times; 230 px • 20–50 KB (Light background)</td>
+                <td class="p-3">
+                  <a href="/sbi-clerk-photo-resize/" class="font-bold text-primary hover:underline">Resize Photo (20–50 KB) &rarr;</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">SBI Clerk Signature Size (Black Ink)</td>
+                <td class="p-3 font-mono">140 &times; 60 px • 10–20 KB (Running cursive)</td>
+                <td class="p-3">
+                  <a href="/sbi-clerk-signature-resize/" class="font-bold text-primary hover:underline">Format Sign (140&times;60) &rarr;</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Left Thumb Impression Size (LTI)</td>
+                <td class="p-3 font-mono">240 &times; 240 px (3&times;3 cm) • 20–50 KB JPG</td>
+                <td class="p-3">
+                  <a href="/ibps-thumb-impression-resize/" class="font-bold text-primary hover:underline">Format Thumb (240&times;240) &rarr;</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Handwritten Declaration Format &amp; Size</td>
+                <td class="p-3 font-mono">800 &times; 400 px • 50–100 KB (DOB clause required)</td>
+                <td class="p-3">
+                  <a href="/ibps-handwritten-declaration-resize/" class="font-bold text-primary hover:underline">Format Declaration &rarr;</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">SBI Clerk Age Limit 2026</td>
+                <td class="p-3">20 to 28 Years (OBC +3y, SC/ST +5y, PwD +10y)</td>
+                <td class="p-3 text-muted-foreground">Calculated as of notification cut-off date</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Graduation Percentage &amp; Final Year</td>
+                <td class="p-3">Pass class in any discipline (No minimum % required)</td>
+                <td class="p-3 text-muted-foreground">Final year eligible with passing proof at DV</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Negative Marking in Prelims &amp; Mains</td>
+                <td class="p-3 font-mono">0.25 (1/4th) penalty per wrong MCQ answer</td>
+                <td class="p-3 text-muted-foreground">No penalty for unattempted questions</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Sectional Cutoff Policy</td>
+                <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">NONE in Prelims or Mains</td>
+                <td class="p-3 text-muted-foreground">Shortlisting strictly on overall aggregate</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Mains Shortlisting Benchmark Ratio</td>
+                <td class="p-3 font-mono">10:1 Ratio (10 times state-wise vacancies)</td>
+                <td class="p-3 text-muted-foreground">Qualifies candidates for Phase II Mains</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Local Language Test (LPT) Exemption</td>
+                <td class="p-3">Exempt if 10th or 12th marksheet has local language</td>
+                <td class="p-3 text-muted-foreground">Compulsory qualifying test for others</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Can SBI Clerk Transfer to Other State?</td>
+                <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">NO (Circle-specific clerical cadre)</td>
+                <td class="p-3 text-muted-foreground">Transfers unlocked only upon Officer promotion</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">In-Hand Salary &amp; Basic Pay</td>
+                <td class="p-3 font-mono">₹19,900 basic + 2 increments (~₹36k–₹42k gross)</td>
+                <td class="p-3 text-muted-foreground">Includes DA, HRA, transport, and medical cover</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Application Fees</td>
+                <td class="p-3">General / OBC / EWS: ₹750 • SC / ST / PwD: ₹0 (Exempt)</td>
+                <td class="p-3 text-muted-foreground">Online payment on sbi.co.in/careers</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Historical State-wise Prelims Cutoff Benchmark Card -->
+        <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-card via-primary/5 to-card border border-primary/25 space-y-3">
+          <h4 class="font-bold text-foreground text-sm flex items-center gap-2">
+            <span>📊</span> State-Wise Prelims Cut-Off Trends (General Category Historical Range)
+          </h4>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Unlike central exams with uniform national cutoffs, SBI Clerk cutoffs reflect state-level competition and vacancies. Reviewing typical General (UR) Prelims cutoff score bands (out of 100) helps determine realistic preparation targets:
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-xs">
+            <div class="p-2.5 rounded-xl bg-card border border-border">
+              <span class="text-muted-foreground block text-[10px] font-bold uppercase">Maharashtra</span>
+              <span class="font-bold text-foreground font-mono">72.00 – 74.50</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-card border border-border">
+              <span class="text-muted-foreground block text-[10px] font-bold uppercase">Uttar Pradesh</span>
+              <span class="font-bold text-foreground font-mono">75.50 – 78.50</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-card border border-border">
+              <span class="text-muted-foreground block text-[10px] font-bold uppercase">Delhi (NCR)</span>
+              <span class="font-bold text-foreground font-mono">76.00 – 80.25</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-card border border-border">
+              <span class="text-muted-foreground block text-[10px] font-bold uppercase">Bihar</span>
+              <span class="font-bold text-foreground font-mono">74.00 – 77.25</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-card border border-border">
+              <span class="text-muted-foreground block text-[10px] font-bold uppercase">Rajasthan</span>
+              <span class="font-bold text-foreground font-mono">75.00 – 78.00</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-card border border-border">
+              <span class="text-muted-foreground block text-[10px] font-bold uppercase">Gujarat</span>
+              <span class="font-bold text-foreground font-mono">65.00 – 70.25</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-card border border-border">
+              <span class="text-muted-foreground block text-[10px] font-bold uppercase">Karnataka</span>
+              <span class="font-bold text-foreground font-mono">63.50 – 68.00</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-card border border-border">
+              <span class="text-muted-foreground block text-[10px] font-bold uppercase">Tamil Nadu</span>
+              <span class="font-bold text-foreground font-mono">64.00 – 69.50</span>
+            </div>
+          </div>
+          <p class="text-[11px] text-muted-foreground pt-1">
+            ⚠️ <em>Remember: High aggregate marks are essential. While lower cutoffs exist in certain states, you must pass the Local Language Test (LPT) and accept lifelong posting in that circle.</em>
+          </p>
+        </div>
       </section>
     `
   },
