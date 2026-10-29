@@ -14141,7 +14141,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         <h2>1. The 4 Mandatory Digital Uploads for SBI Clerk (Junior Associates)</h2>
         <p>State Bank of India (SBI) processes millions of online applications through its dedicated recruitment intake engine at <code>sbi.co.in/careers</code>. During registration, candidates must provide four separate digital uploads. Every uploaded file must pass strict automated dual-boundary file-size checks and pixel dimension validations:</p>
 
-        <div class="my-6 overflow-x-auto">
+        <div class="my-6 table-scroll-hint-wrapper overflow-x-auto">
+          <div class="flex items-center gap-1.5 text-[11px] text-muted-foreground font-mono sm:hidden mb-1.5"><span>👉</span><span>Swipe horizontally to view full table &rarr;</span></div>
           <table class="w-full text-xs sm:text-sm text-left border border-border">
             <thead class="bg-muted text-foreground font-semibold">
               <tr>
@@ -14204,7 +14205,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
 
       <!-- Visual Do / Don't Guide Section -->
       <section id="visual-do-dont" class="space-y-4 mt-8">
-        <h2>2. Visual &ldquo;Do &amp; Don&rsquo;t&rdquo; Compliance Guide: Preventing Biometric Disqualification</h2>
+        <h2>2. Visual "Do & Don't" Compliance Guide: Preventing Biometric Disqualification</h2>
         <p>Over 80% of application rejections on banking portals occur due to automated scanner dropouts or biometric verification errors. Inspect these strict compliance badges before submitting your files:</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
@@ -14307,6 +14308,18 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
           <blockquote class="italic text-foreground font-serif text-sm sm:text-base border-l-4 border-primary pl-4 py-2 bg-primary/5 rounded-r-lg my-2 leading-relaxed">
             &ldquo;I, _______ (Name of the candidate), Date of Birth ______ hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required. The signature, photograph and thumb impression is of mine.&rdquo;
           </blockquote>
+
+          <!-- High-Risk Trap Notice -->
+          <div class="my-3 p-3.5 rounded-xl bg-amber-500/10 border-l-4 border-amber-500 text-foreground space-y-1.5">
+            <div class="flex items-center gap-2 font-bold text-xs text-amber-700 dark:text-amber-400">
+              <span>⚠️</span> High-Risk Disqualification Traps to Avoid
+            </div>
+            <ul class="text-[11px] text-muted-foreground list-disc pl-4 space-y-0.5">
+              <li><strong>Black Ink Only:</strong> The declaration must be written in <strong>BLACK ballpoint ink</strong>. Blue ink or gel pens are scanned out by OCR and will invalidate the application.</li>
+              <li><strong>Running Hand:</strong> Must be written personally in candidate's own cursive handwriting. <strong>Signatures or declarations in ALL CAPITAL / BLOCK letters are rejected immediately.</strong></li>
+              <li><strong>Mandatory DOB Clause:</strong> SBI strictly requires <em>"Date of Birth ______"</em>. Standard IBPS text lacks this clause and leads to form cancellation.</li>
+            </ul>
+          </div>
 
           <div class="flex flex-wrap items-center gap-2.5 pt-2">
             <button
@@ -14653,7 +14666,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         <h4 class="font-bold text-sm text-foreground mt-4 mb-2 flex items-center gap-1.5">
           <span>⚡</span> Phase I: Preliminary Examination Pattern (100 Marks | 60 Mins)
         </h4>
-        <div class="my-3 overflow-x-auto">
+        <div class="my-3 table-scroll-hint-wrapper overflow-x-auto">
+          <div class="flex items-center gap-1.5 text-[11px] text-muted-foreground font-mono sm:hidden mb-1.5"><span>👉</span><span>Swipe horizontally to view full table &rarr;</span></div>
           <table class="w-full text-xs sm:text-sm text-left border border-border">
             <thead class="bg-muted text-foreground font-semibold">
               <tr>
@@ -14701,7 +14715,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         <h4 class="font-bold text-sm text-foreground mt-6 mb-2 flex items-center gap-1.5">
           <span>🎯</span> Phase II: Mains Examination Pattern (200 Marks | 160 Mins)
         </h4>
-        <div class="my-3 overflow-x-auto">
+        <div class="my-3 table-scroll-hint-wrapper overflow-x-auto">
+          <div class="flex items-center gap-1.5 text-[11px] text-muted-foreground font-mono sm:hidden mb-1.5"><span>👉</span><span>Swipe horizontally to view full table &rarr;</span></div>
           <table class="w-full text-xs sm:text-sm text-left border border-border">
             <thead class="bg-muted text-foreground font-semibold">
               <tr>
@@ -14824,7 +14839,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
           Candidates must demonstrate proficiency (reading, writing, speaking, and understanding) in the specified local language. <strong>Candidates who produce 10th or 12th standard mark sheets verifying they studied the local language as an official subject are 100% EXEMPT from the Local Language Test.</strong>
         </p>
 
-        <div class="my-4 overflow-x-auto">
+        <div class="my-4 table-scroll-hint-wrapper overflow-x-auto">
+          <div class="flex items-center gap-1.5 text-[11px] text-muted-foreground font-mono sm:hidden mb-1.5"><span>👉</span><span>Swipe horizontally to view full table &rarr;</span></div>
           <table class="w-full text-xs sm:text-sm text-left border border-border">
             <thead class="bg-muted text-foreground font-semibold">
               <tr>
@@ -14918,7 +14934,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         <h2>8. SBI Clerk 2026 Aspirant Search Matrix: State Cutoffs, Age Limit &amp; Direct Tools</h2>
         <p>To help candidates navigate high-frequency queries during online registration, the matrix below compiles verified recruitment benchmarks, official specifications, and direct 1-click tools:</p>
 
-        <div class="my-6 overflow-x-auto">
+        <div class="my-6 table-scroll-hint-wrapper overflow-x-auto">
+          <div class="flex items-center gap-1.5 text-[11px] text-muted-foreground font-mono sm:hidden mb-1.5"><span>👉</span><span>Swipe horizontally to view full table &rarr;</span></div>
           <table class="w-full text-xs sm:text-sm text-left border border-border">
             <thead class="bg-muted text-foreground font-semibold">
               <tr>
