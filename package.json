@@ -22,7 +22,8 @@
     "daily-article": "node scripts/publish-daily-article.mjs --status",
     "generate-article": "node scripts/generate-daily-article.mjs",
     "publish-daily": "node scripts/generate-daily-article.mjs && npm run build",
-    "share:facebook": "node scripts/post-to-facebook.mjs"
+    "share:facebook": "node scripts/post-to-facebook.mjs",
+    "monitor-ctr": "node scripts/monitor-gsc-ctr.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.4",

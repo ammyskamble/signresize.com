@@ -10009,7 +10009,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "wbpsc-miscellaneous-clerkship-form-fill-up-photo-signature-resize-guide",
+    "guideTool": { "href": "/wbpsc-signature-resize/", "label": "WBPSC Photo & Signature Resizer (10–20 KB)" },
     "title": "WBPSC Form Fill Up 2026: Miscellaneous, Clerkship, Syllabus, Salary, Results & Photo/Signature Resizer",
+    "metaTitle": "WBPSC Clerkship & Misc 2026: Photo & Sign Resize (10–20 KB) + Step Form Fill Guide",
+    "metaDescription": "Official WBPSC Clerkship & Miscellaneous form fill-up guide: exact 10–20 KB signature and photo specifications, syllabus, OTR server crash fixes & instant resizer.",
     "excerpt": "The master guide for WBPSC 2026: Miscellaneous & Clerkship recruitment, post list, syllabus, salary slips, results, server crash solutions, and 10–20 KB signature/photo upload tools.",
     "category": "Guidelines & Tips",
     "publishDate": "Oct 12, 2026",
@@ -12311,9 +12314,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "mp-police-constable-2026-vacancy-syllabus-physical-chart-salary",
+    "guideTool": { "href": "/mp-police-signature-resize/", "label": "MP Police Photo & Signature Resizer" },
     "title": "MP Police Constable 2026: Vacancy, Syllabus, Physical Chart & Salary Guide",
-    "metaTitle": "MP Police Constable 2026: Syllabus, Physical & Cut-Off",
-    "metaDescription": "Complete guide to MP Police Constable 2026 recruitment: CBT syllabus, 100-mark physical chart, salary matrix, admit card download, and document upload rules.",
+    "metaTitle": "MP Police Constable 2026: 800m Running Time, Shot Put & Physical Chart [Official MPESB]",
+    "metaDescription": "Verified MP Police Constable PET criteria: 800m running time vs marks table, physical measurement rules, syllabus and MPESB photo-signature resize guidelines.",
     "excerpt": "Complete candidate blueprint for MP Police Constable 2026: 100-mark CBT syllabus, 100-mark PET physical chart, height criteria, salary matrix, admit card steps, and document resize guidelines.",
     "category": "Study Prep",
     "country": "IN",
@@ -14127,9 +14131,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "uppsc-ro-aro-2026-top-10-faq-aspirants",
+    "guideTool": { "href": "/uppsc-signature-resize/", "label": "UPPSC OTR Signature Resizer (10–20 KB)" },
     "title": "UPPSC RO/ARO 2026: Top 10 FAQs on Exam Pattern, 'O' Level Equivalents & Typing Rules",
-    "metaTitle": "Is O Level Necessary for UPPSC RO ARO? (Official Eligibility Rules)",
-    "metaDescription": "Is O Level necessary for RO ARO? Official rule: NO for Review Officer (RO), YES for Assistant Review Officer (ARO + 25 WPM typing). Full equivalence list here.",
+    "metaTitle": "UPPSC RO ARO Eligibility Criteria 2026: O-Level Rule, Age Limit & Qualification [Official]",
+    "metaDescription": "Official UPPSC RO/ARO eligibility: Is O-Level mandatory for Samiksha Adhikari? Complete list of equivalent degrees, age limits, and Hindi typing rules verified from the gazette.",
     "excerpt": "Everything candidates need to know about UP Review Officer / Assistant Review Officer: 'O' Level diploma equivalence, Hindi typing tests, 1/3rd negative marking, and General Hindi scoring hacks.",
     "category": "Guidelines & Tips",
     "publishDate": "Sept 20, 2026",
@@ -14177,8 +14182,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     ],
     "faqs": [
       {
-        "question": "Is 'O' Level necessary for UPPSC RO ARO?",
-        "answer": "No. NIELIT 'O' Level certificate is NOT necessary for Review Officer (RO / Samiksha Adhikari). Any candidate with a simple Bachelor's Degree in any discipline from a recognized University is fully eligible for the RO post. The NIELIT 'O' Level computer diploma (or recognized 1-year equivalent qualification like BCA, MCA, PGDCA, B.Tech/B.Sc CS) and Hindi typing speed test (25 WPM) are mandatory ONLY for the post of Assistant Review Officer (ARO / Sahayak Samiksha Adhikari)."
+        "question": "What is the complete UPPSC RO ARO eligibility criteria (age, qualification & 'O' Level)?",
+        "answer": "For Review Officer (RO / Samiksha Adhikari), the minimum eligibility is a simple Bachelor's Degree in any discipline from a recognized university; NIELIT 'O' Level certificate is NOT necessary. The NIELIT 'O' Level computer diploma (or recognized 1-year equivalent qualification like BCA, MCA, PGDCA, B.Tech/B.Sc CS) and 25 WPM Hindi typing speed test are mandatory ONLY for the post of Assistant Review Officer (ARO / Sahayak Samiksha Adhikari). The general age limit is 21 to 40 years with standard category relaxations."
       },
       {
         "question": "What computer diplomas are recognized as equivalent to NIELIT 'O' Level by UPPSC?",
@@ -14323,12 +14328,18 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
   "slug": "maharashtra-police-bharti-2026-top-10-faq-guide",
+    "relatedExamPreset": "maharashtra-police",
+    "guideTool": { "href": "/maharashtra-police-signature-resize/", "label": "Maharashtra Police Photo & Signature Resizer (5–20 KB)" },
   "contentHtml_mr": "\n<div class=\"mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20\">\n  <h4 class=\"font-bold text-primary mb-2\">⚡ थेट सारांश: महाराष्ट्र पोलीस भरती २०२६ मैदानी चाचणी व दस्तऐवज नियम</h4>\n  <p class=\"text-sm text-foreground/90 leading-relaxed\">\n    महाराष्ट्र राज्य पोलीस दलात पोलीस शिपाई (Police Constable), चालक, SRPF आणि कारागृह शिपाई (Jail Constable) पदांसाठी भरती प्रक्रिया राबवली जाते. mahapolice.gov.in वर अधिकृत जाहिरात प्रसिद्ध झाल्यावर ऑनलाइन अर्जादरम्यान उमेदवारांनी <strong>१६० × २०० पिक्सेल रंगीत छायाचित्र (१६०x२०० px, ५ KB ते २० KB, कमाल ५० KB)</strong> आणि <strong>२५६ × ६४ पिक्सेल स्वाक्षरी (२५६x६४ px, ५ KB ते २० KB)</strong> अपलोड करणे अनिवार्य आहे.\n  </p>\n</div>\n\n<h2>🏃‍♂️ १. मैदानी चाचणी (Physical Test) – ५० गुण गुणदान तक्ता</h2>\n<p>\n  पोलीस शिपाई पदासाठी शारीरिक चाचणी ५० गुणांची असून त्यामध्ये पात्रता (Eligibility) मिळवण्यासाठी किमान ५०% (२५ गुण - Qualifying Marks) मिळवणे लेखी परीक्षेसाठी पात्र ठरण्यासाठी आवश्यक आहे:\n</p>\n\n<div class=\"my-6 overflow-x-auto\">\n  <table class=\"w-full text-left border-collapse border border-border text-xs sm:text-sm\">\n    <thead>\n      <tr class=\"bg-muted text-foreground\">\n        <th class=\"p-3 border border-border\">चाचणी प्रकार (पुरुष उमेदवार)</th>\n        <th class=\"p-3 border border-border\">वेळ / अंतर</th>\n        <th class=\"p-3 border border-border\">कमाल गुण</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr class=\"border-b border-border/50\">\n        <td class=\"p-3 border border-border font-semibold\">१६०० मीटर धावणे</td>\n        <td class=\"p-3 border border-border font-mono\">५ मिनिटे १० सेकंद किंवा त्यापेक्षा कमी</td>\n        <td class=\"p-3 border border-border font-mono font-bold text-primary\">२० गुण</td>\n      </tr>\n      <tr class=\"border-b border-border/50 bg-muted/20\">\n        <td class=\"p-3 border border-border font-semibold\">१०० मीटर स्प्रिंट</td>\n        <td class=\"p-3 border border-border font-mono\">११.५० सेकंद किंवा त्यापेक्षा कमी</td>\n        <td class=\"p-3 border border-border font-mono font-bold text-primary\">१५ गुण</td>\n      </tr>\n      <tr class=\"border-b border-border/50\">\n        <td class=\"p-3 border border-border font-semibold\">गोळाफेक (७.२६ किलो)</td>\n        <td class=\"p-3 border border-border font-mono\">८.५० मीटर किंवा जास्त लांब</td>\n        <td class=\"p-3 border border-border font-mono font-bold text-primary\">१५ गुण</td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n\n<h2>📸 २. अनिवार्य फोटो व स्वाक्षरी विनिर्देश (Upload Rules)</h2>\n<ul>\n  <li><strong>पासपोर्ट साईज फोटो (Photo Size):</strong> फिकट रंगाची किंवा पांढरी पार्श्वभूमी, १६० × २०० पिक्सेल (160x200), फाईल आकार strictly <strong>५ KB ते २० KB</strong> दरम्यान (JPG फॉरमॅट, कमाल ५० KB).</li>\n  <li><strong>उमेदवाराची स्वाक्षरी (Signature Size):</strong> पांढऱ्या कागदावर काळ्या शाईने नैसर्गिक स्वाक्षरी, आकार २५६ × ६४ पिक्सेल (256x64), फाईल आकार strictly <strong>५ KB ते २० KB</strong>.</li>\n</ul>\n\n<div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n  <h4 class=\"text-base font-bold text-foreground\">महाराष्ट्र पोलीस भरती स्वाक्षरी व फोटो रिसाइज करा</h4>\n  <p class=\"text-sm text-muted-foreground mt-1\">पोर्टलवर अपलोड करताना कोणतीही त्रुटी येऊ नये म्हणून SignResize चा मोफत वापर करा.</p>\n  <a href=\"/maharashtra-police-signature-resize/\" class=\"inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition\">\n    पोलीस भरती स्वाक्षरी व फोटो टूल उघडा &rarr;\n  </a>\n</div>\n",
   "title": "Maharashtra Police Bharti 2026: Physical Test (50 Marks), 1600m Running Time, Syllabus & Upload Rules",
   "title_hi": "महाराष्ट्र पुलिस भर्ती 2026: शारीरिक परीक्षा 50 अंक, 1600m व 100m दौड़ समय तालिका, सिलेबस और फोटो-हस्ताक्षर नियम",
   "title_mr": "महाराष्ट्र पोलीस भरती २०२६: मैदानी चाचणी ५० गुण, १६००m व १००m रनिंग टाइम तक्ता, अभ्यासक्रम व फोटो-स्वाक्षरी नियम",
-  "metaTitle": "Maharashtra Police Bharti 2026: 50 Ground Marks, 100m/1600m Time, Syllabus",
-  "metaDescription": "Maharashtra Police Bharti 2026 candidate guide: 1600m/800m & 100m sprint time vs marks tables, 50-mark physical ground criteria, written exam syllabus, age limit and official MahaIT photo/signature upload specifications.",
+  "metaTitle": "Maharashtra Police Bharti 2026 Ground Marks: 1600m & 100m Running Time Chart [PDF Table]",
+  "metaTitle_hi": "महाराष्ट्र पुलिस भर्ती 2026 फिजिकल टेस्ट: 1600m व 100m रनिंग टाइम मार्क्स चार्ट [Official]",
+  "metaTitle_mr": "महाराष्ट्र पोलीस भरती २०२६ मैदानी चाचणी: १६००m व १००m रनिंग टाइम गुण तक्ता [Official]",
+  "metaDescription": "Official Maharashtra Police Bharti 2026 physical criteria: 1600m/800m running time vs 50-mark ground chart, 100m sprint breakdown & official photo/sign upload tool.",
+  "metaDescription_hi": "महाराष्ट्र पुलिस भर्ती 2026 मैदानी शारीरिक मानदंड: 1600m/800m दौड़ समय बनाम 50 अंक ग्राउंड चार्ट, 100m स्प्रिंट अंक व MahaIT फोटो-हस्ताक्षर अपलोड नियम।",
+  "metaDescription_mr": "महाराष्ट्र पोलीस भरती २०२६ अधिकृत शारीरिक चाचणी नियम: १६००m/८००m धावणे वेळ विरुद्ध ५० गुण मैदानी तक्ता, १००m स्प्रिंट व MahaIT फोटो-स्वाक्षरी अपलोड टूल.",
   "excerpt": "Authoritative candidate handbook for Maharashtra Police Bharti 2026: previous 17,471 vacancy benchmark, confirmed 50 ground marks (1600m/800m run, 100m sprint & shot put charts), written syllabus, and official MahaIT photo/signature portal rules.",
   "excerpt_hi": "महाराष्ट्र पुलिस भर्ती 2026 संपूर्ण गाइड: 17,471 पदों का पिछला बेंचमार्क, 50 अंकों का फिजिकल टेस्ट (1600m/800m दौड़, 100m स्प्रिंट एवं गोला फेंक), 100 अंकों की लिखित परीक्षा एवं फोटो-हस्ताक्षर अपलोड नियम।",
   "excerpt_mr": "महाराष्ट्र पोलीस भरती २०२६ संपूर्ण मार्गदर्शक: १७,४७१ पदांचा मागील बेंचमार्क, ५० गुणांची मैदानी चाचणी (१६००m/८००m धावणे, १००m स्प्रिंट व गोळा फेक), १०० गुणांची लेखी परीक्षा व फोटो-स्वाक्षरी अचूक नियम.",
@@ -14404,11 +14415,11 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       "answer": "Candidates must secure a mandatory minimum of 50% marks in the Physical Efficiency Test (PET), which equals at least 25 marks out of 50 across 3 physical events (1600m/800m run, 100m sprint, and shot put). Candidates scoring less than 25 marks are disqualified. Qualified candidates are shortlisted for the 100-mark written examination at a 1:10 ratio based on vacant seats."
     },
     {
-      "question": "What is the 1600m (Male) & 800m (Female) running time and marks scale?",
+      "question": "What is the 1600 meter running time and marks chart for Maharashtra Police Bharti 2026?",
       "answer": "For male candidates, the 1600m run carries 20 marks: 5 min 10 sec or less = 20 marks; 5 min 11 sec to 5 min 30 sec = 18 marks; 5 min 31 sec to 5 min 50 sec = 15 marks; 5 min 51 sec to 6 min 10 sec = 12 marks; 6 min 11 sec to 6 min 30 sec = 10 marks; over 6 min 30 sec = 0 marks (disqualified). For female candidates, the 800m run carries 20 marks: 2 min 50 sec or less = 20 marks; 2 min 51 sec to 3 min 00 sec = 18 marks; 3 min 01 sec to 3 min 10 sec = 15 marks; 3 min 11 sec to 3 min 20 sec = 12 marks; over 4 min 00 sec = 0 marks."
     },
     {
-      "question": "What is the 100m sprint time and marks scale for male and female candidates?",
+      "question": "What is the 100 meter police bharti running time and marks chart?",
       "answer": "The 100m sprint carries 15 marks. For male candidates: 11.50 sec or less = 15 marks; 11.51 to 12.50 sec = 12 marks; 12.51 to 13.50 sec = 10 marks; 13.51 to 14.50 sec = 8 marks; 14.51 to 15.50 sec = 6 marks; 15.51 to 16.50 sec = 4 marks; 16.51 to 17.50 sec = 2 marks; over 17.50 sec = 0 marks. For female candidates: 14.00 sec or less = 15 marks; 14.01 to 15.00 sec = 12 marks; 15.01 to 16.00 sec = 10 marks; 16.01 to 17.00 sec = 8 marks; 17.01 to 18.00 sec = 6 marks; 18.01 to 19.00 sec = 4 marks; 19.01 to 20.00 sec = 2 marks; over 20.00 sec = 0 marks."
     },
     {
@@ -15231,6 +15242,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "rrb-ntpc-cen-06-2026-photo-signature-guidelines",
+    "relatedExamPreset": "rrb-ntpc",
+    "guideTool": { "href": "/rrb-ntpc-signature-resize/", "label": "RRB NTPC Signature Resizer (30–70 KB)" },
     "title": "RRB NTPC CEN 06/2026 — Official Photo & Signature Upload Guidelines for October 2026 Applications",
     "metaTitle": "RRB NTPC CEN 06/2026 Photo & Signature Size — Complete Upload Guide",
     "metaDescription": "Complete guide to RRB NTPC CEN 06/2026 photo and signature upload specifications. Official size: 140x60 px, 10-20 KB JPG for signature; 240x320 px, 30-70 KB for photo. Apply from Oct 8, 2026.",
@@ -15388,9 +15401,36 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "blue-ink-vs-black-ink-signature-guidelines-govt-exams",
+    "guideTool": { "href": "/make-signature-background-white/", "label": "Convert Blue Ink to Clean Black & White Signature" },
     "title": "Blue Ink vs Black Ink for Government Exam Signatures: Official SSC, UPSC, Banking & Railway Rules",
-    "metaTitle": "Blue Ink vs Black Ink for Govt Exam Signatures: Official 2026 Rules - SignResize",
-    "metaDescription": "Which pen should you use for government exams? Detailed breakdown of blue vs black ink signature rules for SSC, UPSC, IBPS, SBI, Railway RRB, and State PSCs with OCR scanner requirements.",
+    "faqs": [
+      {
+        "question": "Can I use blue ink for government exam signatures?",
+        "answer": "Most central recruiting bodies (including SSC, IBPS, and Railway RRB) permit both black and blue ink on clean white unruled paper. However, UPSC and several State PSCs (like UPPSC, BPSC, and WBPSC) strictly mandate black ballpoint ink for maximum contrast on automated optical scanners."
+      },
+      {
+        "question": "Which exam portals strictly require black ink signatures?",
+        "answer": "UPSC (Union Public Service Commission), UPPSC, BPSC, and State Police recruitment portals require signatures in black ballpoint ink. SBI (State Bank of India) notifications also explicitly specify black ink on white paper."
+      },
+      {
+        "question": "Why do government exam portals reject gel pen or fountain pen signatures?",
+        "answer": "Gel pen and fountain pen inks bleed into paper fibers, causing smudged stroke edges during high-resolution document scanning. This leads to automated OCR rejection. Always use a standard ballpoint pen."
+      },
+      {
+        "question": "Will my application get rejected if I signed in blue ink by mistake?",
+        "answer": "If the portal strictly required black ink in its official notification brochure, non-compliant ink color can trigger rejection during preliminary scrutiny. For portals accepting both (like SSC), blue ink is accepted as long as strokes are sharp and contrast against a white background."
+      },
+      {
+        "question": "How can I convert a blue ink signature into an accepted black ink signature?",
+        "answer": "You can use the SignResize Black and White Signature tool to convert blue ink into deep, high-contrast monochrome black strokes on a pure white background in 10-20 KB without reshooting or re-signing."
+      },
+      {
+        "question": "What is the standard file size and DPI for scanned exam signatures?",
+        "answer": "Standard government portal requirements are 10 KB to 20 KB (or 10 to 50 KB), scanned at 200 DPI in JPG/JPEG format with dimensions ranging from 140x60 pixels to 256x64 pixels."
+      }
+    ],
+    "metaTitle": "Blue Ink or Black Ink for Govt Exam Signatures? Official SSC, UPSC & Bank Rules 2026",
+    "metaDescription": "Will your exam application be rejected for using blue ink? Official signature ink rules for SSC, UPSC, IBPS, SBI, and Railway exams with scanner contrast requirements.",
     "excerpt": "Using the wrong pen color can get your application disqualified during automated OCR scrutiny. Here is the definitive guide to official blue ink vs black ink requirements across every major Indian exam portal.",
     "category": "Guidelines & Tips",
     "publishDate": "2026-09-30",
@@ -15845,9 +15885,9 @@ const verifiedPoliceArticleUpdates: Record<string, Partial<BlogPost>> = {
   'mp-police-constable-2026-vacancy-syllabus-physical-chart-salary': {
     title: 'MP Police Constable Recruitment: Official Notice, Exam & Physical Test Guide',
     title_hi: 'MP पुलिस कांस्टेबल भर्ती: आधिकारिक सूचना, परीक्षा और शारीरिक परीक्षा गाइड',
-    metaTitle: 'MP Police Constable Recruitment: Official Notice & Exam Guide',
-    metaTitle_hi: 'MP पुलिस कांस्टेबल भर्ती: आधिकारिक नोटिस और परीक्षा गाइड',
-    metaDescription: 'Learn how to verify MP Police Constable vacancies, eligibility, exam pattern, PET and document rules in the current MPESB notification. No unsourced 2026 figures or score charts.',
+    metaTitle: 'MP Police Constable 2026: 800m Running Time, Shot Put & Physical Chart [Official MPESB]',
+    metaTitle_hi: 'MP पुलिस कांस्टेबल भर्ती 2026: 800m दौड़ समय, गोला फेंक व फिजिकल चार्ट [MPESB]',
+    metaDescription: 'Verified MP Police Constable PET criteria: 800m running time vs marks table, physical measurement rules, syllabus and MPESB photo-signature resize guidelines.',
     metaDescription_hi: 'वर्तमान MPESB सूचना से MP पुलिस कांस्टेबल रिक्तियों, पात्रता, परीक्षा, PET और दस्तावेज़ नियमों की पुष्टि करें। बिना स्रोत वाले 2026 आंकड़ों या स्कोर चार्ट पर भरोसा न करें।',
     excerpt: 'A source-first guide to MP Police Constable recruitment. Check the current MPESB notice for the exact post, cycle, eligibility, written exam, PET scoring and document upload rules.',
     excerpt_hi: 'MP पुलिस कांस्टेबल भर्ती के लिए स्रोत-आधारित गाइड। पद, भर्ती चक्र, पात्रता, लिखित परीक्षा, PET और दस्तावेज़ नियम वर्तमान MPESB सूचना में जांचें।',
@@ -15870,6 +15910,14 @@ const verifiedPoliceArticleUpdates: Record<string, Partial<BlogPost>> = {
       { label: 'Photo and signature rules', value: 'Use the current application instructions; the resizer preset is not an official specification' },
     ],
     faqs: [
+      {
+        question: 'What is the 800 meter running time and physical marks chart for MP Police Constable?',
+        answer: 'In the MP Police Constable Physical Efficiency Test (PET), the 800-meter run carries a maximum of 40 marks out of 100 total physical marks. Male candidates clocking 124.2 seconds (2 min 4 sec) or less receive the full 40 marks, with marks scaled down as time increases. Female candidates clocking 176.0 seconds (2 min 56 sec) or less achieve the maximum 40 marks.',
+      },
+      {
+        question: 'What are the physical test standards for shot put and long jump in MP Police?',
+        answer: 'In MP Police Constable PET, Shot Put carries 30 marks (7.26 kg shot for males requiring 8.76m+ for 30 marks; 4 kg shot for females requiring 7.20m+ for 30 marks). Long Jump also carries 30 marks (males need 5.57m+ for 30 marks; females need 4.36m+ for 30 marks). Combined with the 40-mark 800m run, the PET total is 100 marks.',
+      },
       {
         question: 'Has a 2026 MP Police Constable recruitment been announced?',
         answer: 'Check the current MPESB notifications and exam calendar for a dated notice. This guide does not confirm an announcement, vacancy count or application date.',

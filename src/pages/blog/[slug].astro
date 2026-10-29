@@ -163,7 +163,15 @@ const articleSchema = {
 // Helper to sanitize text for JSON-LD Schemas (removing markdown markup and HTML tags)
 function cleanSchemaText(text: string): string {
   if (!text) return '';
-  return text.replace(/<[^>]*>?/gm, '').replace(/==/g, '').trim();
+  return text
+    .replace(/<[^>]*>?/gm, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/(\*\*|__)(.*?)\1/g, '$2')
+    .replace(/(\*|_)(.*?)\1/g, '$2')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/==/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 interface NavItem {
@@ -475,6 +483,31 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
               </div>
             ))}
           </div>
+        </section>
+      )}
+
+      <!-- Above-the-fold Quick Tool Conversion Card -->
+      {(post.guideTool || relatedPreset) && (
+        <section class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-primary/5 p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="space-y-1 min-w-0 flex-1">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+              <span>⚡</span>
+              <span>Official Application Tool</span>
+            </div>
+            <h3 class="text-sm sm:text-base font-bold text-foreground truncate">
+              {post.guideTool?.label || (relatedPreset ? `${relatedPreset.name} (${relatedPreset.minKb}–${relatedPreset.maxKb} KB)` : 'Universal Photo & Signature Resizer')}
+            </h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              {relatedPreset ? `Pre-calibrated to official ${relatedPreset.widthPx}×${relatedPreset.heightPx} px & ${relatedPreset.minKb}–${relatedPreset.maxKb} KB bounds. Zero-upload, client-side processing.` : 'Format your signature and photograph to official government portal specifications in 10–20 KB instantly.'}
+            </p>
+          </div>
+          <a
+            href={post.guideTool?.href || (relatedPreset ? getExamPageUrl(relatedExamSlug) : `/${relatedExamSlug}/`)}
+            class="w-full sm:w-auto px-5 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-95 transition shadow-sm flex items-center justify-center gap-2 shrink-0"
+          >
+            <span>Open Direct Tool</span>
+            <span>&rarr;</span>
+          </a>
         </section>
       )}
 

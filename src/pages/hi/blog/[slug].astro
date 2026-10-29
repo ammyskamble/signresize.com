@@ -62,7 +62,15 @@ const faqs = (post.faqs_hi && post.faqs_hi.length > 0) ? post.faqs_hi : post.faq
 
 function cleanSchemaText(text: string): string {
   if (!text) return '';
-  return text.replace(/<[^>]*>?/gm, '').replace(/==/g, '').trim();
+  return text
+    .replace(/<[^>]*>?/gm, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/(\*\*|__)(.*?)\1/g, '$2')
+    .replace(/(\*|_)(.*?)\1/g, '$2')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/==/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function formatHighlightMarkup(html: string): string {
