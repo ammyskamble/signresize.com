@@ -23,7 +23,8 @@
     "generate-article": "node scripts/generate-daily-article.mjs",
     "publish-daily": "node scripts/generate-daily-article.mjs && npm run build",
     "share:facebook": "node scripts/post-to-facebook.mjs",
-    "monitor-ctr": "node scripts/monitor-gsc-ctr.mjs"
+    "monitor-ctr": "node scripts/monitor-gsc-ctr.mjs",
+    "generate-sbi-pdf": "node scripts/generate-sbi-clerk-pdf.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.4",

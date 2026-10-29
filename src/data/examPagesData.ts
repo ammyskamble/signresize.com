@@ -2779,13 +2779,13 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'sbi-clerk-signature-resize',
     presetId: 'sbi-clerk',
-    pageTitle: 'SBI Clerk Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
-    metaDescription: 'Resize signature for SBI Clerk (Junior Associate) recruitment 2026 online. Format to 140x60 px, 10 to 20 KB JPG for SBI Clerk application portal. Free, instant, private.',
+    pageTitle: 'SBI Clerk Signature Resize 10 to 20 KB (140x60 px) | SignResize',
+    metaDescription: 'Resize signature for SBI Clerk (Junior Associate) recruitment 2026 online. Format to 140x60 px, 10 to 20 KB JPG in running black ink for SBI portal. Free & private.',
     keywords: 'sbi clerk signature resize, sbi clerk signature size 10 to 20 kb, sbi clerk signature format 2026, sbi junior associate signature resize, sbi clerk 2026 apply online, sbi clerk signature 140x60, state bank clerk signature',
     h1: 'SBI Clerk Signature Resize & Compressor (10 KB – 20 KB)',
     subheading: 'Official 140×60 px (4.0×2.0 cm) signature with strict 10–20 KB bounds for State Bank of India Junior Associate (Clerk) recruitment 2026.',
     authority: 'State Bank of India (SBI)',
-    targetExams: 'SBI Clerk (Junior Associate, Customer Support & Sales) 2026',
+    targetExams: 'SBI Clerk (Junior Associate, Customer Support & Sales) 2026, SBI PO, SBI SO',
     widthPx: 140,
     heightPx: 60,
     widthCm: 4.0,
@@ -2796,7 +2796,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black Ballpoint Ink Only',
     aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'SBI Clerk portal rejects signatures in CAPITAL / BLOCK LETTERS. Natural running handwriting is mandatory. Signature must match your bank account records.',
+    strictNotice: 'SBI Clerk portal rejects signatures in CAPITAL / BLOCK LETTERS. Natural running handwriting is mandatory. Black ballpoint ink is strictly enforced by portal OCR.',
     tips: [
       'Sign with a black ballpoint pen — the same style as your bank passbook/Aadhaar signature.',
       'Photograph on spotless white unruled paper in good lighting with no shadows.',
@@ -2813,14 +2813,63 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
         a: 'No. SBI requires a handwritten (physical) signature on white paper, photographed/scanned, and uploaded as a JPG. Digital signatures created on screens are not accepted for government bank recruitment portals.'
       },
       {
-        q: 'What is the last date to apply for SBI Clerk 2026?',
-        a: 'SBI Clerk 2026 notification and application dates are released by SBI at sbi.co.in/careers. Based on previous cycles, notifications typically appear between July and September, with examinations in November/December. Check the official SBI website for the current cycle dates.'
+        q: 'What are the other 3 mandatory digital uploads for SBI Clerk?',
+        a: 'In addition to the 10–20 KB signature, candidates must upload a 20–50 KB passport photo (200×230 px), a 20–50 KB left thumb impression (240×240 px), and a 50–100 KB handwritten declaration (800×400 px).'
       },
       {
         q: 'Is there a negative marking in SBI Clerk Prelims 2026?',
-        a: 'Yes. SBI Clerk Preliminary Exam has a negative marking of 0.25 marks for each wrong answer. The exam consists of 100 questions for 100 marks: English Language (30 Q), Numerical Ability (35 Q), and Reasoning Ability (35 Q).'
+        a: 'Yes. SBI Clerk Preliminary Exam has a negative marking of 0.25 marks for each wrong answer. There are NO sectional cutoffs; selection is based on overall aggregate merit.'
       }
-    ]
+    ],
+    relatedTools: ['sbi-clerk-photo-resize', 'ibps-thumb-impression-resize', 'ibps-handwritten-declaration-resize', 'sbi-signature-resize']
+  },
+  // 4b. SBI Clerk Photo
+  {
+    slug: 'sbi-clerk-photo-resize',
+    presetId: 'ibps-sbi-photo',
+    pageTitle: 'SBI Clerk Photo Resize: 20–50 KB (200×230 px) | SignResize',
+    metaDescription: 'Resize and crop passport photo for SBI Clerk (Junior Associate) 2026 online. Exact 200×230 px (3.5×4.5 cm), 20 to 50 KB JPG with light background. Free & private.',
+    keywords: 'sbi clerk photo resize, sbi clerk photo size, sbi clerk photo resizer, sbi image resizer, sbi photo size 20 to 50 kb, sbi photo resizer, sbi junior associate photo format, sbi photo and signature size converter',
+    h1: 'SBI Clerk Photo Resize & Crop Tool (20 KB – 50 KB)',
+    subheading: 'Official 200×230 px (3.5×4.5 cm) passport photo format with strict 20–50 KB bounds for State Bank of India Junior Associate application portal.',
+    authority: 'State Bank of India (SBI)',
+    targetExams: 'SBI Clerk (Junior Associate, Customer Support & Sales) 2026, SBI PO, SBI SO',
+    widthPx: 200,
+    heightPx: 230,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Light / Pure White Background',
+    aspectRatioLabel: '3.5:4.5 (~200×230 px)',
+    strictNotice: 'SBI portal requires a recent colored passport photograph taken against a light or pure white background within 3 months. No caps, dark spectacles, or shadow obstructions.',
+    tips: [
+      'Ensure your face occupies 75% to 80% of the image frame with both ears visible.',
+      'Take the photo against a plain white wall or background in even, natural lighting.',
+      'Do not wear tinted glasses, hats, or religious headgear that conceals facial features.',
+      'Compress to 30–45 KB to safely sit inside the 20 KB to 50 KB limit.'
+    ],
+    faqs: [
+      {
+        q: 'What is the SBI Clerk photo size for 2026 application?',
+        a: 'The official SBI Clerk photo specification is 200 × 230 pixels (approx. 3.5 cm × 4.5 cm) in JPG/JPEG format, with a file size strictly between 20.0 KB and 50.0 KB on a light or white background.'
+      },
+      {
+        q: 'Are spectacles allowed in the SBI Clerk passport photo?',
+        a: 'Everyday prescription spectacles are allowed only if there is zero glare or flash reflection on the lenses and the eyes are clearly visible. Tinted glasses, sunglasses, or thick frames that obscure eye features are strictly prohibited.'
+      },
+      {
+        q: 'What other documents must be uploaded for SBI Clerk?',
+        a: 'Candidates must upload 4 items: Passport Photo (20–50 KB), Signature in black ink (10–20 KB, 140×60 px), Left Thumb Impression (20–50 KB, 240×240 px), and Handwritten Declaration (50–100 KB, 800×400 px).'
+      },
+      {
+        q: 'Why does the SBI portal reject my photo file?',
+        a: 'Common reasons include file size outside 20–50 KB bounds, saving in PNG/WEBP format instead of JPG, dark or patterned backgrounds, and uneven shadows across the face.'
+      }
+    ],
+    relatedTools: ['sbi-clerk-signature-resize', 'ibps-thumb-impression-resize', 'ibps-handwritten-declaration-resize', 'photo-resizer']
   },
   // 5. Rajasthan Police Signature
   {

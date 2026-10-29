@@ -13936,14 +13936,14 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   {
     "slug": "sbi-clerk-2026-top-10-faq-junior-associates",
     "title": "SBI Clerk 2026: Top 10 FAQs on Eligibility, State Selection, LPT & No-Sectional Cutoff Rules",
-    "metaTitle": "SBI Clerk 2026 FAQs: State Vacancy, LPT & Photo Rules",
-    "metaDescription": "Official SBI Clerk 2026 guide: State vacancy rules, Language Proficiency Test (LPT), Prelims pattern & photo/sign guidelines. Resize documents online free!",
-    "excerpt": "Everything candidates ask about SBI Junior Associates: single-state application rule, Local Language Test (LPT) conditions, the unique no-sectional-cutoffs policy, and career progression to Officer.",
+    "metaTitle": "SBI Clerk 2026: Photo, Sign & Declaration Rules [PDF]",
+    "metaDescription": "Official SBI Clerk 2026 upload rules: 20–50 KB photo (200×230), 10–20 KB signature, thumb & exact declaration text. Download free printable PDF template.",
+    "excerpt": "Everything candidates ask about SBI Junior Associates: single-state application rule, Local Language Test (LPT) conditions, the unique no-sectional-cutoffs policy, official 4-in-1 document upload specifications, and printable declaration template.",
     "category": "Career Opportunity",
     "publishDate": "Sept 20, 2026",
     "publishTime": "09:00 AM IST",
-    "lastUpdated": "Sept 20, 2026",
-    "deployedAt": "Sept 20, 2026 • 09:00 AM IST",
+    "lastUpdated": "Oct 29, 2026",
+    "deployedAt": "Oct 29, 2026 • 09:00 AM IST",
     "author": "SignResize Academic Research Desk",
     "authorRole": "Banking Recruitment Strategy Desk",
     "readTime": "8 min read",
@@ -13951,16 +13951,24 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     "tags": [
       "SBI Clerk 2026",
       "Junior Associate",
+      "Handwritten Declaration",
+      "SBI Clerk Photo Size",
+      "SBI Clerk Signature",
+      "Thumb Impression",
       "LPT Test",
       "No Sectional Cutoff",
       "State Vacancy Rules",
       "Bank Jobs"
     ],
-    "relatedExamPreset": "ibps-sbi",
+    "relatedExamPreset": "sbi-clerk",
+    "guideTool": {
+      "href": "/sbi-clerk-signature-resize/",
+      "label": "SBI Clerk 4-in-1 Document Upload Suite (Photo, Sign, Thumb & Declaration)"
+    },
     "quickFacts": [
       {
         "label": "Conducting Body",
-        "value": "State Bank of India (SBI)"
+        "value": "State Bank of India (SBI - Central Recruitment Desk)"
       },
       {
         "label": "Designation",
@@ -13968,68 +13976,329 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       },
       {
         "label": "Selection Stages",
-        "value": "Prelims + Mains + Local Language Test (LPT)"
+        "value": "Prelims (100M) + Mains (200M) + Local Language Test (LPT)"
       },
       {
         "label": "Sectional Cut-offs",
-        "value": "NONE (Aggregate Marks Only)"
+        "value": "NONE (Overall Aggregate Marks Only)"
       },
       {
         "label": "State Selection",
-        "value": "Strictly ONE State / UT only"
+        "value": "Strictly ONE State / UT only (5-8 Year Transfer Lock)"
       },
       {
-        "label": "Document Specs",
-        "value": "Photo (20-50 KB) + Signature (10-20 KB)"
+        "label": "Passport Photo",
+        "value": "200×230 px (20–50 KB JPG, Light/White Background)"
+      },
+      {
+        "label": "Candidate Signature",
+        "value": "140×60 px (10–20 KB JPG, Black Ballpoint Ink Only)"
+      },
+      {
+        "label": "Left Thumb Impression",
+        "value": "240×240 px (20–50 KB JPG, Blue or Black Ink)"
+      },
+      {
+        "label": "Handwritten Declaration",
+        "value": "800×400 px (50–100 KB JPG, Candidate's Own Hand)"
       }
     ],
     "faqs": [
       {
-        "question": "Can an aspirant apply for SBI Clerk vacancies across multiple states?",
-        "answer": "No. A candidate can apply for vacancies in only ONE State / Union Territory. There is no provision to apply for more than one circle. If a candidate submits multiple applications for different states, only the latest valid application registered with fee payment is considered, and all prior submissions are nullified."
+        "question": "What are the exact photo and signature dimensions for SBI Clerk 2026?",
+        "answer": "The candidate's photograph must be a clear 200 × 230 pixel (3.5 × 4.5 cm) color image on a light or pure white background, with file size strictly between 20.0 KB and 50.0 KB in JPG/JPEG format taken within the past 3 months without caps or tinted glasses. The signature must measure 140 × 60 pixels (4.0 × 2.0 cm), strictly between 10.0 KB and 20.0 KB in JPG/JPEG, penned in black ballpoint ink on unruled white paper. Signatures in ALL CAPITAL / BLOCK letters are rejected immediately."
       },
       {
-        "question": "What is the Local Language Test (LPT) and who is exempted from taking it?",
-        "answer": "Candidates shortlisted for final selection must demonstrate proficiency (reading, writing, speaking, and understanding) in the specified local language of the State/UT they applied for. The Local Language Test is conducted before joining. However, candidates who produce 10th or 12th standard mark sheets or certificates indicating they studied the local language as an official subject are completely exempted from the LPT."
+        "question": "What is the official SBI Handwritten Declaration verbatim text?",
+        "answer": "Under official SBI guidelines, the declaration must be handwritten by the candidate in English using black ink on white paper with this verbatim wording: 'I, _______ (Name of the candidate), Date of Birth ______ hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required. The signature, photograph and thumb impression is of mine.' Note that SBI mandates including Date of Birth, unlike standard IBPS text."
+      },
+      {
+        "question": "What are the dimensions and file size for Left Thumb Impression in SBI Clerk?",
+        "answer": "The Left Thumb Impression (LTI) must measure exactly 240 × 240 pixels (3 cm × 3 cm square format) with file size strictly between 20.0 KB and 50.0 KB in JPG/JPEG format. It should be stamped using blue or black stamp pad ink on clean white unruled paper. Ridge patterns must be clearly visible without smudging or heavy blotting."
+      },
+      {
+        "question": "Why does SBI reject signatures written in capital letters or blue ink?",
+        "answer": "A signature must represent an individual's personal running cursive mark. Capital or block letters lack distinctive personal handwriting traits and can be easily forged, triggering automated portal rejection. Furthermore, SBI recruitment servers use automated high-speed OCR scanners calibrated to black ink; blue ink can drop below the binarization contrast threshold and appear blank on hall tickets."
       },
       {
         "question": "Is it true that SBI Clerk has no sectional cutoff marks?",
         "answer": "Yes, this is completely true. Unlike IBPS PO, IBPS Clerk, and SBI PO, the State Bank of India does NOT enforce minimum qualifying marks for individual sections in either the Preliminary or Mains Examination. Candidates are shortlisted purely on their overall aggregate score, subject to qualifying the minimum aggregate benchmark determined by the Bank."
       },
       {
+        "question": "What is the Local Language Test (LPT) and who is exempted from taking it?",
+        "answer": "Candidates shortlisted for final selection must demonstrate proficiency (reading, writing, speaking, and understanding) in the specified local language of the State/UT they applied for. The Local Language Test is conducted before joining. However, candidates who produce 10th or 12th standard mark sheets or certificates indicating they studied the local language as an official subject are completely exempted from the LPT."
+      },
+      {
+        "question": "Can an aspirant apply for SBI Clerk vacancies across multiple states?",
+        "answer": "No. A candidate can apply for vacancies in only ONE State / Union Territory. There is no provision to apply for more than one circle. If a candidate submits multiple applications for different states, only the latest valid application registered with fee payment is considered, and all prior submissions are nullified."
+      },
+      {
         "question": "Can an SBI Junior Associate transfer to another state or circle after joining?",
-        "answer": "Under the current SBI service policy, Junior Associates are not eligible for inter-circle transfer (transfer to another state or circle) until completing 5 years of service for female candidates and 8 years for male candidates, except on extraordinary medical or compassionate grounds. Candidates must carefully choose their application state, as they will spend the majority of their early banking career in that circle."
-      },
-      {
-        "question": "What is the age limit and educational qualification for SBI Clerk 2026?",
-        "answer": "Candidates must be between 20 and 28 years of age. Standard statutory age relaxations apply: SC/ST candidates get +5 years (up to 33), OBC candidates get +3 years (up to 31), and PwBD candidates get +10 to +15 years. Candidates must possess a Graduation degree in any discipline from a recognized University. Final year students are eligible provided they produce proof of having passed the graduation examination on or before the cutoff date."
-      },
-      {
-        "question": "What is the exam pattern for SBI Clerk Mains examination?",
-        "answer": "SBI Clerk Mains consists of 190 questions carrying 200 marks, with a duration of 2 hours and 40 minutes across four sections: General/Financial Awareness (50 Qs / 50 Marks / 35 min), General English (40 Qs / 40 Marks / 35 min), Quantitative Aptitude (50 Qs / 50 Marks / 45 min), and Reasoning Ability & Computer Aptitude (50 Qs / 60 Marks / 45 min). Each wrong answer incurs a 1/4th mark deduction."
-      },
-      {
-        "question": "What is the SBI Clerk waitlist policy and how many candidates are empaneled?",
-        "answer": "SBI maintains a reserve waitlist of up to 50% of the total declared state-wise vacancies. The waitlist is released in quarterly tranches over a period of one year from the date of final result declaration. Candidates who marginally miss the final state cutoff often secure appointments as non-joining candidates create vacant positions."
-      },
-      {
-        "question": "What are the photo and signature upload requirements for SBI Clerk?",
-        "answer": "The candidate's photograph must be a clear 200 × 230 pixel color image on white background, with file size strictly between 20.0 KB and 50.0 KB in JPG/JPEG. The signature must measure 140 × 60 pixels, strictly between 10.0 KB and 20.0 KB in JPG/JPEG, penned in black ballpoint ink on white paper. Capital letter signatures are strictly prohibited."
+        "answer": "Under current SBI service policy, Junior Associates are not eligible for inter-circle transfer (transfer to another state or circle) until completing 5 years of service for female candidates and 8 years for male candidates, except on extraordinary medical or compassionate grounds. Candidates must carefully choose their application state, as they will spend the majority of their early banking career in that circle."
       },
       {
         "question": "What is the starting monthly in-hand salary for an SBI Junior Associate?",
         "answer": "Under the 12th Bipartite Wage Settlement, the starting Basic Pay of a Junior Associate is ₹19,900 (with 2 advance increments for graduates, starting Basic ₹20,900). With DA, Special Allowance, Transport Allowance, and HRA, gross pay is ~₹39,000–₹42,000. In-hand net salary ranges between ₹34,000 and ₹38,000 per month depending on city classification."
       },
       {
-        "question": "What is the internal promotion path from SBI Clerk to Officer?",
-        "answer": "SBI offers rapid internal career promotion channels. After 3 years of service as a Junior Associate, employees can appear for internal written examinations and interviews for promotion to Trainee Officer (JMGS Scale-I), which puts them on par with directly recruited Probationary Officers. Alternatively, after 4 years, candidates can qualify for promotion to Junior Management Grade Scale-I via the JMGS-I internal fast-track channel."
+        "question": "What is the SBI Clerk waitlist policy and how many candidates are empaneled?",
+        "answer": "SBI maintains a reserve waitlist of up to 50% of the total declared state-wise vacancies. The waitlist is released in quarterly tranches over a period of one year from the date of final result declaration. Candidates who marginally miss the final state cutoff often secure appointments as non-joining candidates create vacant positions."
       },
       {
-        "question": "Can an average graduate student clear SBI Clerk 2026 in 90 days?",
-        "answer": "Yes. SBI Clerk has zero sectional cutoffs in Prelims and Mains, allowing candidates to capitalize on their strongest sections. With 90 days of dedicated 6-hour daily study, complete the basic syllabus in the first 45 days and spend the remaining 45 days attempting one full Prelims mock test daily and solving 50 puzzle and arithmetic questions."
+        "question": "What is the exam pattern for SBI Clerk Mains examination?",
+        "answer": "SBI Clerk Mains consists of 190 questions carrying 200 marks, with a duration of 2 hours and 40 minutes across four sections: General/Financial Awareness (50 Qs / 50 Marks / 35 min), General English (40 Qs / 40 Marks / 35 min), Quantitative Aptitude (50 Qs / 50 Marks / 45 min), and Reasoning Ability & Computer Aptitude (50 Qs / 60 Marks / 45 min). Each wrong answer incurs a 0.25 mark deduction."
+      },
+      {
+        "question": "How can I resize and format all 4 SBI Clerk documents in 1 minute?",
+        "answer": "You can use SignResize's client-side banking tool presets to format your passport photograph (200×230 px, 20–50 KB), running cursive signature (140×60 px, 10–20 KB), left thumb impression (240×240 px, 20–50 KB), and handwritten declaration (800×400 px, 50–100 KB) entirely in your browser with zero server uploads and zero privacy risk."
       }
     ],
-    "contentHtml": "\n<section id=\"overview\" class=\"space-y-4\">\n        <h2>SBI Clerk (Junior Associate) 2026: Selection System &amp; Job Profile</h2>\n        <p>State Bank of India recruits thousands of <strong>Junior Associates (Customer Support &amp; Sales)</strong> annually across its nationwide network. Unlike IBPS clerical cadres, SBI Clerks operate under state-specific vacancies and cannot transfer outside their assigned Circle for at least 5 to 8 years.</p>\n        <p>A signature feature of the SBI recruitment process is the complete <strong>absence of sectional cutoffs</strong>: candidates qualify solely on overall aggregate marks, providing a massive advantage to candidates with specialized strengths.</p>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-2\">\n          <h4 class=\"font-bold text-primary text-base flex items-center gap-2\">\n            <span>⚡</span> SBI Junior Associate Key Career Highlights\n          </h4>\n          <ul class=\"grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-foreground/90 pt-1\">\n            <li><strong>Starting In-Hand Salary:</strong> ~₹34,000 – ₹38,000 in metro cities</li>\n            <li><strong>Promotion Opportunity:</strong> Eligible for Trainee Officer (JMGS-I) internal examination after 3 years</li>\n            <li><strong>Work-Life Balance:</strong> Regular branch working hours without frequent transfer dislocation</li>\n            <li><strong>Medical &amp; Travel:</strong> 100% medical reimbursement for self and dependent family, LFC allowance</li>\n          </ul>\n        </div>\n      </section>\n\n      <section id=\"exam-pattern\" class=\"space-y-4 mt-8\">\n        <h2>Prelims &amp; Mains Examination Pattern: Aggregate Scoring Advantage</h2>\n        <p>SBI does not maintain minimum sectional cut-offs in either Prelims or Mains. If a candidate scores low in English but dominates Quantitative Aptitude and Reasoning, their high aggregate score qualifies them for Mains.</p>\n\n        <div class=\"my-6 overflow-x-auto\">\n          <table class=\"w-full text-xs sm:text-sm text-left border border-border\">\n            <thead class=\"bg-muted text-foreground font-semibold\">\n              <tr>\n                <th class=\"p-3 border-b\">Prelims Section</th>\n                <th class=\"p-3 border-b\">Questions</th>\n                <th class=\"p-3 border-b\">Marks</th>\n                <th class=\"p-3 border-b\">Sectional Time</th>\n                <th class=\"p-3 border-b\">Scoring Rule</th>\n              </tr>\n            </thead>\n            <tbody class=\"divide-y divide-border\">\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">English Language</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">30</td>\n                <td class=\"p-3 font-mono\">20 min</td>\n                <td class=\"p-3\">0.25 negative marking per error</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Numerical Ability</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min</td>\n                <td class=\"p-3\">Simplification, Number Series, Arithmetic</td>\n              </tr>\n              <tr>\n                <td class=\"p-3 font-semibold text-primary\">Reasoning Ability</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">35</td>\n                <td class=\"p-3 font-mono\">20 min</td>\n                <td class=\"p-3\">Puzzles, Seating Arrangements, Syllogisms</td>\n              </tr>\n              <tr class=\"bg-muted/30 font-bold\">\n                <td class=\"p-3\">Total / Composite</td>\n                <td class=\"p-3 font-mono\">100</td>\n                <td class=\"p-3 font-mono\">100</td>\n                <td class=\"p-3 font-mono\">60 min</td>\n                <td class=\"p-3 text-emerald-600 dark:text-emerald-400\">NO Sectional Cut-off</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <section id=\"document-specs\" class=\"space-y-4 mt-8\">\n        \n<div class=\"my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2\">\n  <h4 class=\"font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2\">\n    <span>⚠️</span> Critical Application Rejection Traps to Avoid\n  </h4>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">\n    Over 15% of online recruitment applications are rejected during preliminary scrutiny due to non-compliant digital uploads. Avoid these common mistakes:\n  </p>\n  <ul class=\"list-disc pl-5 text-sm space-y-1 text-muted-foreground\">\n    <li><strong>Spectacles / Caps:</strong> Wearing glasses, tinted sunglasses, or caps obscures biometrics.</li>\n    <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL letters causes immediate disqualification.</li>\n    <li><strong>Blurred Thumb / Details:</strong> Smudged ink or low DPI leads to automated portal rejection.</li>\n    <li><strong>Exceeding File Size Bounds:</strong> Uploading files outside the strict KB range fails verification.</li>\n  </ul>\n</div>\n\n<h2>Document Specifications for SBI Clerk Portal</h2>\n        <p>SBI adheres strictly to IBPS portal digital standards: <strong>Photo: 20–50 KB (200×230 px)</strong>, <strong>Signature: 10–20 KB (140×60 px in black ink)</strong>. Signatures in capital letters are disqualified immediately.</p>\n\n        <div class=\"my-6 p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30\">\n          <div class=\"flex items-center justify-between mb-2\">\n            <h4 class=\"text-base font-bold text-foreground flex items-center gap-2\"><span>🏛️</span> Resize Your SBI Clerk Photo &amp; Signature</h4>\n            <a href=\"/blog/ibps-po-clerk-2026-photo-signature-thumb-declaration-guidelines/\" class=\"text-xs text-primary font-semibold hover:underline\">Read Master Banking Handbook &rarr;</a>\n          </div>\n          <p class=\"text-xs sm:text-sm text-muted-foreground mt-1 mb-3\">Ensure 100% compliance with State Bank of India portal file boundaries using our dedicated client-side tools:</p>\n          <div class=\"flex flex-wrap gap-2.5\">\n            <a href=\"/sbi-clerk-signature-resize/\" class=\"inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs hover:opacity-95 transition shadow-xs\">\n              <span>✍️</span> SBI Clerk Signature (10–20 KB) &rarr;\n            </a>\n            <a href=\"/sbi-signature-resize/\" class=\"inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition shadow-xs\">\n              <span>✍️</span> All SBI Signature Resizer &rarr;\n            </a>\n            <a href=\"/photo-resizer/\" class=\"inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card hover:bg-muted text-foreground font-semibold text-xs border border-border transition shadow-xs\">\n              <span>📸</span> Passport Photo (20–50 KB) &rarr;\n            </a>\n          </div>\n        </div>\n      </section>\n    \n<h2 id=\"strategy\">SBI Clerk 2026: High-Yield Preparation Strategy &amp; Daily Routine</h2>\n<p>Focus on high-weightage topics, daily revision schedules, and solving previous year question papers under strict exam timer conditions.</p>\n<div class=\"my-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20\">\n  <div class=\"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4\">\n    <div>\n      <h4 class=\"font-bold text-lg text-foreground\">Prepare Your SBI Clerk 2026 Documents in Seconds</h4>\n      <p class=\"text-sm text-muted-foreground mt-1\">Resize your photo, signature, and certificates to exact official portal specifications for free.</p>\n    </div>\n    <div class=\"flex flex-wrap gap-2 w-full sm:w-auto\">\n      <a href=\"/photo-resizer/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 shadow-sm transition-all\">\n        <span>📸</span> Resize Photo\n      </a>\n      <a href=\"/\" class=\"inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground font-semibold text-sm border border-border transition-all\">\n        <span>✍️</span> Resize Signature\n      </a>\n    </div>\n  </div>\n</div>\n    "
+    "contentHtml": `
+      <!-- Direct Executive Summary Box -->
+      <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20 text-xs sm:text-sm text-foreground/90 leading-relaxed">
+        <strong>⚡ Direct Summary:</strong> Applying for <strong>SBI Clerk (Junior Associates) 2026</strong> on <code>sbi.co.in/careers</code> requires <strong>four mandatory digital uploads</strong>: Passport Photo (<strong>200 &times; 230 px, 20–50 KB</strong>), Candidate Signature (<strong>140 &times; 60 px, 10–20 KB in black ink</strong>), Left Thumb Impression (<strong>240 &times; 240 px, 20–50 KB</strong>), and Handwritten Declaration (<strong>800 &times; 400 px, 50–100 KB in candidate's own hand</strong>). SBI features <strong>NO sectional cut-offs</strong> in Prelims or Mains, but locks candidates into a <strong>single State/UT</strong> with a 5 to 8-year transfer restriction. Download the official printable PDF handbook and declaration practice sheet below.
+      </div>
+
+      <!-- PDF Download and Print Section -->
+      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-card to-emerald-500/5 border-2 border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+            <span>📄</span>
+            <span>Official SBI Clerk Candidate Handbook [PDF]</span>
+          </div>
+          <h4 class="text-sm sm:text-base font-bold text-foreground">
+            Printable Upload Specifications, Declaration Template &amp; LPT Rules
+          </h4>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Vector-crisp 2-page candidate handbook with exact pixel boxes, ruled declaration practice lines, thumb impression box, and state-wise Local Language Test criteria.
+          </p>
+        </div>
+        <div class="flex flex-wrap sm:flex-nowrap gap-2 w-full sm:w-auto shrink-0">
+          <a
+            href="/downloads/sbi-clerk-2026-photo-sign-and-declaration-guide.pdf"
+            download="sbi-clerk-2026-photo-sign-and-declaration-guide.pdf"
+            class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition shadow-sm flex items-center justify-center gap-2"
+          >
+            <span>⬇️</span>
+            <span>Download PDF (11 KB)</span>
+          </a>
+          <button
+            type="button"
+            onclick="window.print()"
+            class="w-full sm:w-auto px-3.5 py-2.5 rounded-xl bg-card border border-border hover:bg-muted text-foreground font-semibold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer"
+          >
+            <span>🖨️</span>
+            <span>Print Sheet</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Section 1: Overview & 4 Mandatory Digital Uploads -->
+      <section id="overview" class="space-y-4">
+        <h2>1. The 4 Mandatory Digital Uploads for SBI Clerk (Junior Associates)</h2>
+        <p>State Bank of India (SBI) processes millions of online applications through its dedicated recruitment intake engine at <code>sbi.co.in/careers</code>. During registration, candidates must provide four separate digital uploads. Every uploaded file must pass strict automated dual-boundary file-size checks and pixel dimension validations:</p>
+
+        <div class="my-6 overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border border-border">
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th class="p-3 border-b">Document</th>
+                <th class="p-3 border-b">Dimensions &amp; Aspect</th>
+                <th class="p-3 border-b">File Size Range</th>
+                <th class="p-3 border-b">Mandatory Ink &amp; Framing Rules</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr>
+                <td class="p-3 font-semibold"><a href="/photo-resizer/" class="text-primary hover:underline flex items-center gap-1"><span>📸</span> Passport Photo</a></td>
+                <td class="p-3 font-mono">200 &times; 230 px (3.5 &times; 4.5 cm)</td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 KB to 50 KB</td>
+                <td class="p-3">Light or white background. Clicked within 3 months. No spectacles glare, caps, or masks.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold"><a href="/sbi-clerk-signature-resize/" class="text-primary hover:underline flex items-center gap-1"><span>✍️</span> Candidate Signature</a></td>
+                <td class="p-3 font-mono">140 &times; 60 px (4.0 &times; 2.0 cm)</td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">10 KB to 20 KB</td>
+                <td class="p-3"><strong class="text-rose-600 dark:text-rose-400">Black ballpoint ink only</strong> on clean white paper. Cursive running hand (NO CAPITAL LETTERS).</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold"><a href="/ibps-thumb-impression-resize/" class="text-primary hover:underline flex items-center gap-1"><span>👍</span> Left Thumb Impression (LTI)</a></td>
+                <td class="p-3 font-mono">240 &times; 240 px (3.0 &times; 3.0 cm)</td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 KB to 50 KB</td>
+                <td class="p-3">Blue or black stamp pad ink on unruled white paper. Clean ridges without smudging.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold"><a href="/ibps-handwritten-declaration-resize/" class="text-primary hover:underline flex items-center gap-1"><span>📝</span> Handwritten Declaration</a></td>
+                <td class="p-3 font-mono">800 &times; 400 px (10.0 &times; 5.0 cm)</td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">50 KB to 100 KB</td>
+                <td class="p-3">Candidate's own handwriting in English. <strong class="text-rose-600 dark:text-rose-400">Black ink only</strong>. Official verbatim wording with Date of Birth.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 2: Official SBI Handwritten Declaration Verbatim Text -->
+      <section id="handwritten-declaration" class="space-y-4 mt-8">
+        <h2>2. Official Verbatim Text of SBI Handwritten Declaration</h2>
+        <p>A frequent cause of candidate panic is using the wrong declaration text. <strong>SBI's official declaration wording includes the candidate's Date of Birth and a specific closing clause</strong>, which differs slightly from the generic IBPS text. You must write this exact sentence in your own running cursive handwriting using a black ballpoint pen on white paper:</p>
+
+        <div class="my-6 p-5 rounded-2xl bg-card border-2 border-primary/30 shadow-xs">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs uppercase tracking-wider text-primary font-bold">Official SBI Verbatim Text (Do Not Modify)</span>
+            <span class="text-[11px] font-mono text-muted-foreground">English Language Only</span>
+          </div>
+          <blockquote class="italic text-foreground font-serif text-sm sm:text-base border-l-4 border-primary pl-4 py-2 bg-primary/5 rounded-r-lg my-2 leading-relaxed">
+            &ldquo;I, _______ (Name of the candidate), Date of Birth ______ hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required. The signature, photograph and thumb impression is of mine.&rdquo;
+          </blockquote>
+          <div class="mt-3 pt-3 border-t border-border flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+            <span>⚠️ Must be penned personally by the applicant. Typing or block capital letters will lead to rejection.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: 4-in-1 Direct Resizing Toolkit -->
+      <section id="resizing-toolkit" class="space-y-4 mt-8">
+        <h2>3. Instant 4-in-1 Client-Side Resizing Toolkit</h2>
+        <p>Prepare and compress all four mandatory files in under 60 seconds with SignResize. All image processing occurs 100% locally on your device — your biometric files and personal documents are never transmitted to external servers.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 my-4">
+          <a href="/photo-resizer/" class="p-4 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs">
+            <span class="text-2xl block mb-1 group-hover:scale-110 transition">📸</span>
+            <span class="text-sm font-bold block text-foreground">Passport Photo</span>
+            <span class="text-xs text-muted-foreground font-mono">20–50 KB (200&times;230)</span>
+            <span class="mt-2 inline-flex items-center text-xs text-primary font-semibold group-hover:underline">Open Resizer &rarr;</span>
+          </a>
+          <a href="/sbi-clerk-signature-resize/" class="p-4 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs">
+            <span class="text-2xl block mb-1 group-hover:scale-110 transition">✍️</span>
+            <span class="text-sm font-bold block text-foreground">SBI Clerk Signature</span>
+            <span class="text-xs text-muted-foreground font-mono">10–20 KB (140&times;60)</span>
+            <span class="mt-2 inline-flex items-center text-xs text-primary font-semibold group-hover:underline">Open Resizer &rarr;</span>
+          </a>
+          <a href="/ibps-thumb-impression-resize/" class="p-4 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs">
+            <span class="text-2xl block mb-1 group-hover:scale-110 transition">👍</span>
+            <span class="text-sm font-bold block text-foreground">Left Thumb Impression</span>
+            <span class="text-xs text-muted-foreground font-mono">20–50 KB (240&times;240)</span>
+            <span class="mt-2 inline-flex items-center text-xs text-primary font-semibold group-hover:underline">Open Resizer &rarr;</span>
+          </a>
+          <a href="/ibps-handwritten-declaration-resize/" class="p-4 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs">
+            <span class="text-2xl block mb-1 group-hover:scale-110 transition">📝</span>
+            <span class="text-sm font-bold block text-foreground">Handwritten Declaration</span>
+            <span class="text-xs text-muted-foreground font-mono">50–100 KB (800&times;400)</span>
+            <span class="mt-2 inline-flex items-center text-xs text-primary font-semibold group-hover:underline">Open Resizer &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Section 4: Critical Rejection Traps -->
+      <section id="rejection-traps" class="space-y-4 mt-8">
+        <div class="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-foreground space-y-2">
+          <h4 class="font-bold text-amber-600 dark:text-amber-400 text-base flex items-center gap-2">
+            <span>⚠️</span> Critical Application Rejection Traps to Avoid (CRPD Audit Standards)
+          </h4>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            Over 15% of online banking applications face disqualification or hall ticket withholding during preliminary scrutiny due to non-compliant digital uploads. Avoid these common pitfalls:
+          </p>
+          <ul class="list-disc pl-5 text-sm space-y-1.5 text-muted-foreground">
+            <li><strong>Block Letter Signature:</strong> Signing in ALL CAPITAL / BLOCK letters causes immediate and irrevocable rejection. Use natural running handwriting.</li>
+            <li><strong>Blue Ink in Signature:</strong> SBI portal scanners use binary threshold algorithms. Light blue or gel ink often drops out, leaving a blank signature box. <strong>Black ballpoint pen is strictly mandatory</strong>.</li>
+            <li><strong>Spectacles Glare &amp; Shadows:</strong> Wearing glasses, tinted sunglasses, or caps obscures facial biometrics. Both ears and eyes must be clearly visible against a light background.</li>
+            <li><strong>Smudged Thumb Impression:</strong> A dark ink blob with unreadable ridge patterns will fail biometric matching at the exam centre.</li>
+            <li><strong>File Size Outside Bounds:</strong> Files under 10 KB or above 20 KB for signatures will be blocked by the upload portal.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 5: Prelims & Mains Pattern (No Sectional Cutoffs) -->
+      <section id="exam-pattern" class="space-y-4 mt-8">
+        <h2>4. Prelims &amp; Mains Examination Pattern: The Aggregate Scoring Advantage</h2>
+        <p>A standout benefit of the SBI Clerk recruitment process is that <strong>SBI does NOT enforce minimum sectional cut-offs</strong> in either Prelims or Mains. If a candidate scores lower in English but achieves near-perfect marks in Quantitative Aptitude and Reasoning, their high aggregate score qualifies them for Mains selection.</p>
+
+        <div class="my-6 overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border border-border">
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th class="p-3 border-b">Prelims Section</th>
+                <th class="p-3 border-b">Questions</th>
+                <th class="p-3 border-b">Marks</th>
+                <th class="p-3 border-b">Sectional Time</th>
+                <th class="p-3 border-b">Scoring &amp; Cut-Off Rule</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr>
+                <td class="p-3 font-semibold text-primary">English Language</td>
+                <td class="p-3 font-mono">30</td>
+                <td class="p-3 font-mono">30</td>
+                <td class="p-3 font-mono">20 min</td>
+                <td class="p-3 font-mono text-rose-500">0.25 negative marking per error</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Numerical Ability (Quant)</td>
+                <td class="p-3 font-mono">35</td>
+                <td class="p-3 font-mono">35</td>
+                <td class="p-3 font-mono">20 min</td>
+                <td class="p-3 font-mono text-rose-500">0.25 negative marking per error</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-primary">Reasoning Ability</td>
+                <td class="p-3 font-mono">35</td>
+                <td class="p-3 font-mono">35</td>
+                <td class="p-3 font-mono">20 min</td>
+                <td class="p-3 font-mono text-rose-500">0.25 negative marking per error</td>
+              </tr>
+              <tr class="bg-muted/30 font-bold">
+                <td class="p-3">TOTAL COMPOSITE</td>
+                <td class="p-3 font-mono">100</td>
+                <td class="p-3 font-mono">100</td>
+                <td class="p-3 font-mono">60 min</td>
+                <td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">NO Sectional Cut-off (Aggregate Merit Only)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 6: State Vacancies, Transfer Lock & LPT Rules -->
+      <section id="state-rules" class="space-y-4 mt-8">
+        <h2>5. Single-State Application, 5–8 Year Transfer Lock &amp; Local Language Test (LPT)</h2>
+        <p>Before applying for SBI Clerk, candidates must carefully consider three state-specific conditions enforced by the State Bank of India:</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 my-4">
+          <div class="p-4 rounded-xl bg-card border border-border space-y-1.5 shadow-2xs">
+            <h4 class="font-bold text-sm text-foreground flex items-center gap-1.5">
+              <span>📍</span> Single-State Application
+            </h4>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Candidates can apply for vacancies in <strong>only ONE State or Union Territory</strong>. Multiple applications across circles result in the cancellation of all prior attempts.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-card border border-border space-y-1.5 shadow-2xs">
+            <h4 class="font-bold text-sm text-foreground flex items-center gap-1.5">
+              <span>🗣️</span> LPT Exemption Rule
+            </h4>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              If you have studied the official local language of the state in your <strong>10th or 12th standard</strong> marksheet, you are <strong>100% exempt from the Local Language Test</strong>.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-card border border-border space-y-1.5 shadow-2xs">
+            <h4 class="font-bold text-sm text-foreground flex items-center gap-1.5">
+              <span>🔒</span> Inter-Circle Transfer Lock
+            </h4>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Junior Associates cannot apply for transfer out of their recruited circle for at least <strong>5 years for female candidates</strong> and <strong>8 years for male candidates</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Salary and Promotion Ladder -->
+      <section id="salary-career" class="space-y-4 mt-8">
+        <h2>6. In-Hand Salary &amp; Fast-Track Promotion to Officer (JMGS-I)</h2>
+        <p>Under the revised 12th Bipartite Wage Settlement, the starting Basic Pay of an SBI Junior Associate is <strong>₹19,900</strong> (with 2 advance increments for graduate recruits, making starting basic ₹20,900). Total gross salary with Dearness Allowance (DA), House Rent Allowance (HRA), Special Allowance, and Transport Allowance ranges between <strong>₹39,000 and ₹42,000</strong> per month. Net in-hand monthly pay is approximately <strong>₹34,000 to ₹38,000</strong> depending on posting city classification (Class A/B/C).</p>
+        <p>Unlike other commercial banks, SBI allows Junior Associates to appear for the <strong>Trainee Officer (TO) internal examination after just 3 years of service</strong>, placing successful candidates directly into Junior Management Grade Scale-I (JMGS-I) with equal rank, pay band, and promotion seniority as directly recruited SBI Probationary Officers (PO).</p>
+      </section>
+    `
   },
   {
     "slug": "upsc-cds-nda-2026-top-10-faq-defence-guide",

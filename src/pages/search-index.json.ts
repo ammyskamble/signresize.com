@@ -255,6 +255,7 @@ const presetSlugMap = new Map([
   ['ibps-clerk', 'ibps-clerk-signature-resize'],
   ['sbi-po', 'sbi-po-signature-resize'],
   ['sbi-clerk', 'sbi-clerk-signature-resize'],
+  ['ibps-sbi-photo', 'sbi-clerk-photo-resize'],
   ['sbi-signature', 'sbi-signature-resize'],
   ['mahapolice', 'maharashtra-police-signature-resize'],
   ['rajasthan-police-sig', 'rajasthan-police-signature-resize'],
