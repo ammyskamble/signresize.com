@@ -3305,7 +3305,7 @@ const BASE_PHOTO_PRESETS: ExamPreset[] = [
 
 export const PHOTO_PRESETS: ExamPreset[] = BASE_PHOTO_PRESETS.map(preset => ({ ...preset, ...GUIDANCE_PRESET_UPDATES[preset.id] }));
 
-export const DOCUMENT_PRESETS: ExamPreset[] = [
+const BASE_DOCUMENT_PRESETS: ExamPreset[] = [
   {
     id: 'marksheet-10th',
     name: '10th / Matriculation Marksheet & Certificate',
@@ -3604,27 +3604,26 @@ export const DOCUMENT_PRESETS: ExamPreset[] = [
   },
   {
     id: 'wbpsc-document',
-    name: 'WBPSC Madhyamik Admit / Caste / PwBD Certificate',
+    name: 'WBPSC Document Image - legacy preparation preset',
     shortCode: 'WBPSC Doc / Admit',
     authority: 'West Bengal Public Service Commission (WBPSC)',
     category: 'State PSC',
     widthPx: 700,
     heightPx: 990,
-    widthCm: 21.0,
-    heightCm: 29.7,
     minKb: 100,
     maxKb: 300,
     recommendedKb: 180,
     dpi: 150,
     format: 'JPG',
     aspectRatio: 700 / 990,
-    notes: 'Scanned Madhyamik (10th) admit card for mandatory date of birth verification, or SC/ST/OBC/EWS/PwBD certificate. Strictly 100 KB to 300 KB in JPG or PDF. Full borders and official seals visible.',
+    notes: 'Legacy JPG preparation defaults only; not a certificate upload specification. The Clerkship 2024 notice requests category certificates as PDF up to 100 KB. This image export does not satisfy that PDF requirement. Check your active form.',
+    portalExactSpecsVerified: false,
     inkRequirement: 'Any Ink',
-    isPopular: true,
+    isPopular: false,
     targetType: 'document',
     docCategory: 'Education',
-    sourceUrl: 'https://psc.wb.gov.in/',
-    sourceLabel: 'WBPSC Online Application & OTR Guidelines',
+    sourceUrl: 'https://psc.wb.gov.in/Download?param1=CLERKSHIP2024.pdf&param2=advertisement',
+    sourceLabel: 'Clerkship 2024 notice - certificate instructions',
   },
   {
     id: 'tnpsc-document',
@@ -3651,6 +3650,8 @@ export const DOCUMENT_PRESETS: ExamPreset[] = [
     sourceLabel: 'TNPSC Online Application & OTR Certificate Guidelines',
   }
 ];
+
+export const DOCUMENT_PRESETS: ExamPreset[] = BASE_DOCUMENT_PRESETS.map(preset => ({ ...preset, ...GUIDANCE_PRESET_UPDATES[preset.id] }));
 
 export const SIGNATURE_PRESETS = EXAM_PRESETS;
 

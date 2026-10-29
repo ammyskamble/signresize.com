@@ -281,9 +281,9 @@ body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inlin
   body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs button > svg { width: 18px; height: 18px; padding: 2px; flex-shrink: 0; }
 }
 
-/* Indian Coast Guard 4-in-1 document suite matching main page canvas tabs */
+/* Coast Guard 2027: signature, uploaded photo and document preparation. */
 body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs.coast-guard-mode-tabs {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   flex: 1 1 420px;
 }
 body:has(#tool-workspace:not(.compact-studio)) #tool-workspace :is(.studio-inline-controls, .batch-toolbar) .studio-mode-tabs.coast-guard-mode-tabs::before {

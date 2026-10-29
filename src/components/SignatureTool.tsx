@@ -774,7 +774,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       } else if (newType === 'photo') {
         targetPreset = PHOTO_PRESETS.find(p => p.id === 'indian-coast-guard-photo');
       } else if (newType === 'document') {
-        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'indian-coast-guard-thumb-doc' || p.id === 'indian-coast-guard-document');
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'indian-coast-guard-document');
       }
     }
     // 4. NICL AO & Insurance
@@ -891,7 +891,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     // 18. Railway Recruitment Boards (RRB)
     else if (matchesExam('rrb', 'railway recruitment', 'railway')) {
       if (newType === 'signature') {
-        targetPreset = (examAnchor.includes('alp') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-alp-technician') : undefined) || SIGNATURE_PRESETS.find(p => p.id === 'rrb-railway');
+        targetPreset = (examAnchor.includes('ntpc') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-ntpc') : undefined) || (examAnchor.includes('alp') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-alp-technician') : undefined) || SIGNATURE_PRESETS.find(p => p.id === 'rrb-railway');
       } else if (newType === 'photo') {
         targetPreset = (examAnchor.includes('group-d') ? PHOTO_PRESETS.find(p => p.id === 'rrb-group-d-photo') : undefined) || PHOTO_PRESETS.find(p => p.id === 'rrb-photo');
       } else if (newType === 'document') {
@@ -1022,6 +1022,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     }
   }, [applyPreset, isSampleImage, sourceImage, loadSampleGenerators, focusedWorkspace, selectedPreset, resolvedPreset, initialPresetId, effectivePresetPropId]);
 
+  const isJam2027Active = selectedPreset?.id === 'iit-jam' || selectedPreset?.id === 'iit-jam-photo';
+  const isNtpcActive = selectedPreset?.id === 'rrb-ntpc';
   const isCoastGuardActive = Boolean(
     selectedPreset?.id?.includes('coast-guard') ||
     selectedPreset?.name?.toLowerCase().includes('coast guard') ||
@@ -1038,6 +1040,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     initialPresetId?.includes('wbpsc') ||
     initialPresetId?.includes('wbcs')
   );
+
+  const isBpscActive = ['bpsc', 'bpsc-tre-hindi-sign', 'bpsc-tre-english-sign'].includes(
+    selectedPreset?.id ?? resolvedPreset?.id ?? initialPresetId ?? ''
+  );
+  const requiresNoticeCheck = selectedPreset?.portalExactSpecsVerified === false;
 
   const isUpssscActive = Boolean(
     selectedPreset?.id?.includes('upsssc') ||
@@ -2178,7 +2185,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       addToast('Fix the export checks before downloading. Restore the preset settings and inspect the crop.', 'Export needs attention', 'warning');
       return;
     }
-    if (isCoastGuardActive && targetType === 'photo' && !slateConfirmed) {
+    if (selectedPreset?.requiresPhysicalSlate === true && targetType === 'photo' && !slateConfirmed) {
       setShowExportChecks(true);
       addToast('Indian Coast Guard requires physical slate with Name & Date. Confirm slate requirement before downloading.', 'Slate Confirmation Required', 'warning');
       return;
@@ -2217,6 +2224,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       filename = `wbpsc_signature.${ext}`;
     } else if (selectedPreset?.id === 'wbpsc-document') {
       filename = `wbpsc_admit_doc.${ext}`;
+    } else if (selectedPreset?.id === 'bpsc-tre-hindi-sign') {
+      filename = `bpsc_hindi_signature.${ext}`;
+    } else if (selectedPreset?.id === 'bpsc-tre-english-sign') {
+      filename = `bpsc_english_signature.${ext}`;
     } else if (selectedPreset?.id === 'tnpsc-photo') {
       filename = `tnpsc_photo.${ext}`;
     } else if (selectedPreset?.id === 'tnpsc') {
@@ -2706,12 +2717,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'id-passport', short: 'Paspor RI', label: 'Paspor / eVisa Imigrasi', specs: '350×450 • 100–1000 KB' },
         { id: 'us-ds160', short: 'US DS-160', label: 'US Visa DS-160', specs: '600×600 • 20–240 KB' }
       ]
+    : isJam2027Active
+    ? ALL_COMBINED_PRESETS.filter(preset => ['iit-jam', 'iit-jam-photo'].includes(preset.id))
+        .map(preset => ({ id: preset.id, short: preset.id === 'iit-jam' ? 'JAM Signature' : 'JAM Photo', label: preset.name, specs: `${preset.widthPx}×${preset.heightPx} • ${preset.minKb}–${preset.maxKb} KB` }))
+    : isNtpcActive
+    ? SIGNATURE_PRESETS.filter(preset => preset.id === 'rrb-ntpc')
+        .map(preset => ({ id: preset.id, short: preset.shortCode, label: preset.name, specs: `${preset.widthPx}×${preset.heightPx} • ${preset.minKb}–${preset.maxKb} KB` }))
+    : isBpscActive
+    ? SIGNATURE_PRESETS.filter(preset => ['bpsc', 'bpsc-tre-hindi-sign', 'bpsc-tre-english-sign'].includes(preset.id))
+        .map(preset => ({ id: preset.id, short: preset.shortCode, label: preset.name, specs: `${preset.widthPx}×${preset.heightPx} • ${preset.minKb}–${preset.maxKb} KB` }))
     : isWbpscActive
     ? [
         { id: 'wbpsc-west-bengal', short: 'WBPSC Sign', label: 'WBPSC Sign (140×60)', specs: '140×60 • 10–20 KB' },
         { id: 'wbpsc-photo', short: 'WBPSC Photo', label: 'WBPSC Photo (138×177)', specs: '138×177 • 20–100 KB' },
-        { id: 'wbpsc-document', short: 'WBPSC Admit / Doc', label: 'WBPSC Madhyamik Admit / Doc', specs: '700×990 • 100–300 KB' },
-        { id: 'wbpsc-signature-138x59', short: '138×59 Sign', label: 'WBPSC Sign (138×59)', specs: '138×59 • 10–20 KB' }
       ]
     : targetType === 'photo'
     ? [
@@ -3171,7 +3189,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       {/* ========================================================================= */}
       {/* 🚀 PRIMARY DEDICATED EXAM RESIZER SELECTOR (Signature / Photo / Documents) */}
       {/* ========================================================================= */}
-      {!studioModeTabs && !isCoastGuardActive && !isTnpscActive && <div className="mode-selector p-3 sm:p-4 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-3 min-h-[185px] sm:min-h-[110px]">
+      {!studioModeTabs && !isNtpcActive && !isCoastGuardActive && !isTnpscActive && <div className="mode-selector p-3 sm:p-4 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-3 min-h-[185px] sm:min-h-[110px]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-2.5">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
@@ -3195,99 +3213,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           </span>
         </div>
 
-        {/* 🏛️ WBPSC 4-IN-1 SECTION SELECTOR */}
         {isWbpscActive && (
-          <div className="p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-500/10 via-primary/10 to-emerald-500/10 border-2 border-primary/30 shadow-xs space-y-2.5 my-1">
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
-                <span className="text-xs font-bold text-foreground uppercase tracking-wider">
-                  WBPSC (WBCS, Clerkship, Miscellaneous) All Application Sections
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold bg-primary/20 text-primary px-2.5 py-0.5 rounded-full border border-primary/30">
-                  Active: {selectedPreset?.shortCode || 'WBPSC'}
-                </span>
-                <a
-                  href="https://psc.wb.gov.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[11px] font-bold text-primary bg-primary/10 hover:bg-primary/20 px-2.5 py-0.5 rounded-full border border-primary/30 transition"
-                  title="Official WBPSC Portal (psc.wb.gov.in)"
-                >
-                  <span>Official Portal: psc.wb.gov.in</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-            </div>
-            <p className="text-[11px] text-muted-foreground">
-              Click any section to automatically set official WBPSC dimensions, 10–20 KB signature, 138×177 px photo, or 100–300 KB admit card:
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              <button
-                type="button"
-                onClick={() => selectWbpscSection('signature')}
-                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
-                  targetType === 'signature' && selectedPreset?.id === 'wbpsc-west-bengal'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
-                    : 'bg-card border-border hover:bg-muted text-foreground'
-                }`}
-              >
-                <span className="text-xs font-bold flex items-center justify-between">
-                  <span>🖋️ Signature</span>
-                  {targetType === 'signature' && selectedPreset?.id === 'wbpsc-west-bengal' && <Check className="w-3.5 h-3.5" />}
-                </span>
-                <span className="text-[10px] font-mono opacity-80">140×60 • 10–20 KB</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => selectWbpscSection('photo')}
-                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
-                  targetType === 'photo' && selectedPreset?.id === 'wbpsc-photo'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
-                    : 'bg-card border-border hover:bg-muted text-foreground'
-                }`}
-              >
-                <span className="text-xs font-bold flex items-center justify-between">
-                  <span>📸 Passport Photo</span>
-                  {targetType === 'photo' && selectedPreset?.id === 'wbpsc-photo' && <Check className="w-3.5 h-3.5" />}
-                </span>
-                <span className="text-[10px] font-mono opacity-80">138×177 • 20–100 KB</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => selectWbpscSection('document')}
-                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
-                  targetType === 'document' && selectedPreset?.id === 'wbpsc-document'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
-                    : 'bg-card border-border hover:bg-muted text-foreground'
-                }`}
-              >
-                <span className="text-xs font-bold flex items-center justify-between">
-                  <span>📄 Madhyamik Admit</span>
-                  {targetType === 'document' && selectedPreset?.id === 'wbpsc-document' && <Check className="w-3.5 h-3.5" />}
-                </span>
-                <span className="text-[10px] font-mono opacity-80">Age Proof • 100–300 KB</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => selectWbpscSection('variant')}
-                className={`px-3 py-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 cursor-pointer ${
-                  targetType === 'signature' && selectedPreset?.id === 'wbpsc-signature-138x59'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/25'
-                    : 'bg-card border-border hover:bg-muted text-foreground'
-                }`}
-              >
-                <span className="text-xs font-bold flex items-center justify-between">
-                  <span>🖋️ 138×59 Sign</span>
-                  {targetType === 'signature' && selectedPreset?.id === 'wbpsc-signature-138x59' && <Check className="w-3.5 h-3.5" />}
-                </span>
-                <span className="text-[10px] font-mono opacity-80">138×59 • 10–20 KB</span>
-              </button>
+          <div className="p-3 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
+            <p className="text-sm font-semibold">WBPSC image preparation</p>
+            <p className="text-xs text-muted-foreground">These are editable defaults. Match the pixels, KB limits and ink instructions shown in your active application before exporting.</p>
+            <div className="flex flex-wrap gap-2">
+              <button type="button" onClick={() => selectWbpscSection('signature')} className="min-h-11 rounded-lg border border-border px-3 text-xs font-semibold hover:bg-muted">Signature default: 140 x 60 px / 10-20 KB</button>
+              <button type="button" onClick={() => selectWbpscSection('photo')} className="min-h-11 rounded-lg border border-border px-3 text-xs font-semibold hover:bg-muted">Photo default: 138 x 177 px / 20-100 KB</button>
             </div>
           </div>
         )}
@@ -3312,7 +3244,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
               <div>
                 <div className="font-bold text-xs">{isTnpscActive ? 'TNPSC Signature' : isCoastGuardActive ? 'Coast Guard Signature' : isWbpscActive ? 'WBPSC Signature' : t.tool.signatureMode}</div>
                 <div className={`text-[10px] ${targetType === 'signature' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {isTnpscActive ? '140×60 px • 10–20 KB • Cursive Blue/Black Ink' : isCoastGuardActive ? '140×60 px • 10–50 KB • Signature.jpg' : isWbpscActive ? '140×60 px • 10–20 KB • Cursive Black Ink' : t.tool.signatureSub}
+                  {isTnpscActive ? '140×60 px • 10–20 KB • Cursive Blue/Black Ink' : isCoastGuardActive ? '10–100 KB • Signature.jpg' : isWbpscActive ? '140×60 px • 10–20 KB • Cursive Black Ink' : t.tool.signatureSub}
                 </div>
               </div>
             </div>
@@ -3335,9 +3267,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <Camera className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">{isTnpscActive ? 'TNPSC Passport Photo' : isCoastGuardActive ? 'Coast Guard Slate Photo' : isWbpscActive ? 'WBPSC Passport Photo' : t.tool.photoMode}</div>
+                <div className="font-bold text-xs">{isTnpscActive ? 'TNPSC Passport Photo' : isCoastGuardActive ? 'Coast Guard Photo' : isWbpscActive ? 'WBPSC Passport Photo' : t.tool.photoMode}</div>
                 <div className={`text-[10px] ${targetType === 'photo' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {isTnpscActive ? '200×230 px • 20–50 KB • Name & Date (Clause 3)' : isCoastGuardActive ? '350×450 px • 10–50 KB • Slate + DoP' : isWbpscActive ? '138×177 px • 20–100 KB • White Background' : t.tool.photoSub}
+                  {isTnpscActive ? '200×230 px • 20–50 KB • Name & Date (Clause 3)' : isCoastGuardActive ? '10–100 KB • Separate live capture in portal' : isWbpscActive ? '138×177 px • 20–100 KB • White Background' : t.tool.photoSub}
                 </div>
               </div>
             </div>
@@ -3360,9 +3292,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <FileText className="w-4 h-4" />
               </div>
               <div>
-                <div className="font-bold text-xs">{isTnpscActive ? 'TNPSC Certificates & PSTM' : isCoastGuardActive ? 'Coast Guard Documents & Thumb' : isWbpscActive ? 'WBPSC Admit Card & Docs' : t.tool.documentMode}</div>
+                <div className="font-bold text-xs">{isTnpscActive ? 'TNPSC Certificates & PSTM' : isCoastGuardActive ? 'Coast Guard Documents' : isWbpscActive ? 'WBPSC Admit Card & Docs' : t.tool.documentMode}</div>
                 <div className={`text-[10px] ${targetType === 'document' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {isTnpscActive ? 'SSLC / Community / PSTM • 50–200 KB' : isCoastGuardActive ? 'Marksheets (50–150 KB) & LTI (10–50 KB)' : isWbpscActive ? 'Madhyamik Age Proof / Caste (100–300 KB)' : t.tool.documentSub}
+                  {isTnpscActive ? 'SSLC / Community / PSTM • 50–200 KB' : isCoastGuardActive ? 'Identity proof 50–150 KB • Check other fields' : isWbpscActive ? 'Madhyamik Age Proof / Caste (100–300 KB)' : t.tool.documentSub}
                 </div>
               </div>
             </div>
@@ -3393,7 +3325,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   data-step="01"
                   aria-pressed={targetType === 'signature' && (selectedPreset?.id === 'indian-coast-guard' || (!selectedPreset?.id?.includes('-photo') && !selectedPreset?.id?.includes('-thumb') && !selectedPreset?.id?.includes('-document')))}
                   onClick={() => selectCoastGuardSection('signature')}
-                  title="Signature.jpg • 140×60 px • 10–50 KB"
+                  title="Signature.jpg • 10–100 KB • editable 140×60 px canvas"
                 >
                   <PenTool className="w-3.5 h-3.5 shrink-0" />
                   <span>1. Signature</span>
@@ -3404,32 +3336,22 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   data-step="02"
                   aria-pressed={targetType === 'photo' || selectedPreset?.id === 'indian-coast-guard-photo'}
                   onClick={() => selectCoastGuardSection('photo')}
-                  title="Passport_Photograph.jpg • 350×450 px • 10–50 KB (Chalk Slate)"
+                  title="Passport_Photograph.jpg • 10–100 KB • editable 350×450 px canvas"
                 >
                   <Camera className="w-3.5 h-3.5 shrink-0" />
-                  <span>2. Slate Photo</span>
+                  <span>2. Photo</span>
                 </button>
+
                 <button
                   type="button"
                   data-mode="document"
                   data-step="03"
-                  aria-pressed={targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb')}
-                  onClick={() => selectCoastGuardSection('thumb')}
-                  title="Thumb_Impression.jpg • 240×240 px • 10–50 KB (Left Thumb)"
-                >
-                  <span className="text-sm shrink-0 leading-none">👆</span>
-                  <span>3. Left Thumb</span>
-                </button>
-                <button
-                  type="button"
-                  data-mode="document"
-                  data-step="04"
                   aria-pressed={targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document'}
                   onClick={() => selectCoastGuardSection('document')}
-                  title="Certificate.jpg • 700×990 px • 50–150 KB (Marksheets)"
+                  title="Certificate.jpg • 700×990 px • 50–150 KB (Identity proof; check other fields)"
                 >
                   <FileText className="w-3.5 h-3.5 shrink-0" />
-                  <span>4. Certificate</span>
+                  <span>3. Document</span>
                 </button>
               </div>
             ) : isTnpscActive ? (
@@ -3468,9 +3390,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   <span>3. Certificates & PSTM</span>
                 </button>
               </div>
-            ) : studioModeTabs && (
+            ) : studioModeTabs && !isNtpcActive && (
               <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
-                {(['signature', 'photo', 'document'] as const).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
+                {(isJam2027Active ? (['signature', 'photo'] as const) : (['signature', 'photo', 'document'] as const)).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
                   {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
                   <span>{lang === 'hi' ? (type === 'signature' ? 'हस्ताक्षर' : type === 'photo' ? 'फोटो' : 'दस्तावेज़') : lang === 'mr' ? (type === 'signature' ? 'स्वाक्षरी' : type === 'photo' ? 'फोटो' : 'कागदपत्रे') : (type === 'signature' ? 'Signature' : type === 'photo' ? 'Photo' : 'Documents')}</span>
                   {lang === 'en' && <small className="studio-mode-description">{type === 'signature' ? 'Crop & clean' : type === 'photo' ? 'Portrait sizing' : 'Scan & compress'}</small>}
@@ -4061,19 +3983,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           Indian Coast Guard (CGEPT) Tool Suite
                         </span>
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 hidden sm:inline">
-                          01/2026 Batch
+                          01/2027 & 02/2027
                         </span>
                       </div>
 
                       <div className="flex items-center gap-2 flex-wrap">
                         <a
-                          href="https://joinindiancoastguard.cdac.in/cgept/"
+                          href="https://cgept.parikshasaarthi.in/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 px-2.5 py-1 rounded-full border border-emerald-500/30 transition shadow-2xs"
                           title="Official CGEPT Recruitment & Upload Guidelines Portal"
                         >
-                          <span>joinindiancoastguard.cdac.in</span>
+                          <span>CGEPT recruitment portal</span>
                           <ExternalLink className="w-3 h-3" />
                         </a>
                         <button
@@ -4104,24 +4026,24 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                         <span className="text-sm shrink-0">⚠️</span>
                         <span className="text-[11px] leading-tight">
                           {targetType === 'photo' || selectedPreset?.id === 'indian-coast-guard-photo' ? (
-                            <span>Hold black chalkboard with <strong>Name &amp; Date in white chalk</strong>. Auto-saved as <strong>Passport_Photograph.jpg</strong>.</span>
+                            <span>Recent colour front portrait on a light background. Complete <strong>live capture separately in the portal</strong>. Saved as <strong>Passport_Photograph.jpg</strong>.</span>
                           ) : targetType === 'signature' ? (
-                            <span>Running cursive handwriting on plain white paper (no capital letters). Auto-saved as <strong>Signature.jpg</strong>.</span>
+                            <span>Keep your scanned signature clear and complete. Saved as <strong>Signature.jpg</strong>.</span>
                           ) : selectedPreset?.id === 'indian-coast-guard-document' ? (
-                            <span>Scanned from <strong>ORIGINAL</strong> certificate/marksheet (no photocopies). Auto-saved as <strong>Certificate.jpg</strong>.</span>
+                            <span><strong>Original</strong> identity-proof scan: 50–150 KB. Check other document fields separately. Convenience filename: <strong>Certificate.jpg</strong>.</span>
                           ) : (
-                            <span>Clear left thumb impression ridge lines on plain white paper. Auto-saved as <strong>Thumb_Impression.jpg</strong>.</span>
+                            <span><strong>Legacy preset:</strong> thumb-image upload is not listed in the reviewed 2027 instructions. Saved as <strong>Thumb_Impression.jpg</strong>.</span>
                           )}
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5 shrink-0 text-[10px] font-mono font-bold">
                         <span className="bg-amber-500/20 px-2 py-0.5 rounded">
                           {targetType === 'photo' || selectedPreset?.id === 'indian-coast-guard-photo'
-                            ? '350×450 px • 10–50 KB'
+                            ? 'Default 350×450 px • 10–100 KB'
                             : targetType === 'signature'
-                            ? '140×60 px • 10–50 KB'
+                            ? 'Default 140×60 px • 10–100 KB'
                             : selectedPreset?.id === 'indian-coast-guard-document'
-                            ? '700×990 px • 50–150 KB'
+                            ? 'Default 700×990 px • 50–150 KB'
                             : '240×240 px • 10–50 KB'}
                         </span>
                         <span className="bg-black/10 dark:bg-white/10 px-2 py-0.5 rounded">
@@ -4222,73 +4144,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   </div>
                 )}
 
-                {/* 🏛️ WBPSC 4-IN-1 STUDIO SECTION SELECTOR */}
-                {isWbpscActive && (
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-blue-500/10 via-primary/10 to-emerald-500/10 border border-primary/30 space-y-2">
-                    <div className="flex items-center justify-between flex-wrap gap-2">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-foreground">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span>WBPSC Application Sections (Auto-Synced)</span>
-                      </div>
-                      <span className="text-[10px] font-mono font-bold bg-primary/20 text-primary px-2 py-0.5 rounded">
-                        Active: {selectedPreset?.shortCode || 'WBPSC'}
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-xs">
-                      <button
-                        type="button"
-                        onClick={() => selectWbpscSection('signature')}
-                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
-                          targetType === 'signature' && selectedPreset?.id === 'wbpsc-west-bengal'
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
-                            : 'bg-card border-border hover:bg-muted text-foreground'
-                        }`}
-                      >
-                        <span className="truncate">🖋️ Sign (140×60)</span>
-                        {targetType === 'signature' && selectedPreset?.id === 'wbpsc-west-bengal' && <Check className="w-3 h-3 shrink-0" />}
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => selectWbpscSection('photo')}
-                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
-                          targetType === 'photo' && selectedPreset?.id === 'wbpsc-photo'
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
-                            : 'bg-card border-border hover:bg-muted text-foreground'
-                        }`}
-                      >
-                        <span className="truncate">📸 Photo (138×177)</span>
-                        {targetType === 'photo' && selectedPreset?.id === 'wbpsc-photo' && <Check className="w-3 h-3 shrink-0" />}
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => selectWbpscSection('document')}
-                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
-                          targetType === 'document' && selectedPreset?.id === 'wbpsc-document'
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
-                            : 'bg-card border-border hover:bg-muted text-foreground'
-                        }`}
-                      >
-                        <span className="truncate">📄 Madhyamik Admit</span>
-                        {targetType === 'document' && selectedPreset?.id === 'wbpsc-document' && <Check className="w-3 h-3 shrink-0" />}
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => selectWbpscSection('variant')}
-                        className={`px-2.5 py-1.5 rounded-lg border text-left transition flex items-center justify-between cursor-pointer ${
-                          targetType === 'signature' && selectedPreset?.id === 'wbpsc-signature-138x59'
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold'
-                            : 'bg-card border-border hover:bg-muted text-foreground'
-                        }`}
-                      >
-                        <span className="truncate">🖋️ 138×59 Sign</span>
-                        {targetType === 'signature' && selectedPreset?.id === 'wbpsc-signature-138x59' && <Check className="w-3 h-3 shrink-0" />}
-                      </button>
-                    </div>
-                  </div>
-                )}
+        {isWbpscActive && (
+          <div className="p-3 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
+            <p className="text-sm font-semibold">WBPSC image preparation</p>
+            <p className="text-xs text-muted-foreground">These are editable defaults. Match the pixels, KB limits and ink instructions shown in your active application before exporting.</p>
+            <div className="flex flex-wrap gap-2">
+              <button type="button" onClick={() => selectWbpscSection('signature')} className="min-h-11 rounded-lg border border-border px-3 text-xs font-semibold hover:bg-muted">Signature default: 140 x 60 px / 10-20 KB</button>
+              <button type="button" onClick={() => selectWbpscSection('photo')} className="min-h-11 rounded-lg border border-border px-3 text-xs font-semibold hover:bg-muted">Photo default: 138 x 177 px / 20-100 KB</button>
+            </div>
+          </div>
+        )}
 
                 <div className="studio-meta-bar studio-inline-controls flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-2">
                   <div className="flex flex-wrap items-center gap-2.5">
@@ -4301,7 +4166,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           data-step="01"
                           aria-pressed={targetType === 'signature' && (selectedPreset?.id === 'indian-coast-guard' || (!selectedPreset?.id?.includes('-photo') && !selectedPreset?.id?.includes('-thumb') && !selectedPreset?.id?.includes('-document')))}
                           onClick={() => selectCoastGuardSection('signature')}
-                          title="Signature.jpg • 140×60 px • 10–50 KB"
+                          title="Signature.jpg • 10–100 KB • editable 140×60 px canvas"
                         >
                           <PenTool className="w-3.5 h-3.5 shrink-0" />
                           <span>1. Signature</span>
@@ -4312,32 +4177,22 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           data-step="02"
                           aria-pressed={targetType === 'photo' || selectedPreset?.id === 'indian-coast-guard-photo'}
                           onClick={() => selectCoastGuardSection('photo')}
-                          title="Passport_Photograph.jpg • 350×450 px • 10–50 KB (Chalk Slate)"
+                          title="Passport_Photograph.jpg • 10–100 KB • editable 350×450 px canvas"
                         >
                           <Camera className="w-3.5 h-3.5 shrink-0" />
-                          <span>2. Slate Photo</span>
+                          <span>2. Photo</span>
                         </button>
+
                         <button
                           type="button"
                           data-mode="document"
                           data-step="03"
-                          aria-pressed={targetType === 'document' && (selectedPreset?.id === 'indian-coast-guard-thumb-doc' || selectedPreset?.id === 'indian-coast-guard-thumb')}
-                          onClick={() => selectCoastGuardSection('thumb')}
-                          title="Thumb_Impression.jpg • 240×240 px • 10–50 KB (Left Thumb)"
-                        >
-                          <span className="text-sm shrink-0 leading-none">👆</span>
-                          <span>3. Left Thumb</span>
-                        </button>
-                        <button
-                          type="button"
-                          data-mode="document"
-                          data-step="04"
                           aria-pressed={targetType === 'document' && selectedPreset?.id === 'indian-coast-guard-document'}
                           onClick={() => selectCoastGuardSection('document')}
-                          title="Certificate.jpg • 700×990 px • 50–150 KB (Marksheets)"
+                          title="Certificate.jpg • 700×990 px • 50–150 KB (Identity proof; check other fields)"
                         >
                           <FileText className="w-3.5 h-3.5 shrink-0" />
-                          <span>4. Certificate</span>
+                          <span>3. Document</span>
                         </button>
                       </div>
                     ) : isTnpscActive ? (
@@ -4376,9 +4231,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           <span>3. Certificates & PSTM</span>
                         </button>
                       </div>
-                    ) : studioModeTabs && (
+                    ) : studioModeTabs && !isNtpcActive && (
                       <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
-                        {(['signature', 'photo', 'document'] as const).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
+                        {(isJam2027Active ? (['signature', 'photo'] as const) : (['signature', 'photo', 'document'] as const)).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
                           {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
                           <span>{lang === 'hi' ? (type === 'signature' ? 'हस्ताक्षर' : type === 'photo' ? 'फोटो' : 'दस्तावेज़') : lang === 'mr' ? (type === 'signature' ? 'स्वाक्षरी' : type === 'photo' ? 'फोटो' : 'कागदपत्रे') : (type === 'signature' ? 'Signature' : type === 'photo' ? 'Photo' : 'Documents')}</span>
                           {lang === 'en' && <small className="studio-mode-description">{type === 'signature' ? 'Crop & clean' : type === 'photo' ? 'Portrait sizing' : 'Scan & compress'}</small>}
@@ -4981,7 +4836,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                               <span>Add Name &amp; Date of Photo (DoP)</span>
                             </span>
                             <span className="text-[10px] text-muted-foreground">
-                              Strictly required for SSC, UPPSC, NEET &amp; BPSC uploads
+                              Use only if your active application asks for a name and date overlay
                             </span>
                           </div>
                           <input
@@ -5341,7 +5196,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                             <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
                             <span>Check Background</span>
                           </button>
-                        ) : isCoastGuardActive && targetType === 'photo' && !slateConfirmed ? (
+                        ) : selectedPreset?.requiresPhysicalSlate === true && targetType === 'photo' && !slateConfirmed ? (
                           <button
                             type="button"
                             onClick={() => setShowExportChecks(true)}
@@ -5563,14 +5418,14 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                             <div className="flex items-center justify-between">
                               <span className="text-[11px] font-bold text-foreground flex items-center gap-1.5">
                                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-                                <span>Official Portal Submission</span>
+                                <span>{requiresNoticeCheck ? 'Check the official source' : 'Official Portal Submission'}</span>
                               </span>
-                              <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-primary/20 text-primary font-bold">
+                              {!requiresNoticeCheck && <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-primary/20 text-primary font-bold">
                                 48–72h Window
-                              </span>
+                              </span>}
                             </div>
                             <p className="text-[11px] text-muted-foreground leading-relaxed">
-                              {selectedPreset?.id === 'ctet-exam' || selectedPreset?.id === 'ctet-photo'
+                              {requiresNoticeCheck ? 'Reopen your downloaded image and compare it with the instructions in your active application. The source below is a reference, not an upload form.' : selectedPreset?.id === 'ctet-exam' || selectedPreset?.id === 'ctet-photo'
                                 ? 'CBSE discrepancy notifications require re-uploading corrected images within 48 to 72 hours. Jump straight to the login portal below.'
                                 : 'After checking the file in Downloads, upload it only on the official portal for this selected exam.'}
                             </p>

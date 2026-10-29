@@ -52,3 +52,13 @@ for (const slug of ['osssc-photo-resizer', 'osssc-signature-resize', 'upsssc-pet
   assert.ok(!readFileSync(`dist/${slug}/index.html`, 'utf8').includes('SSC CGL 2026 Document Matrix'), `${slug}: unrelated SSC content`);
 }
 console.log(`PASS: ${titles.size} source-backed pages, page/preset consistency, archive, sitemap and unrelated-exam regression checks.`);
+
+for (const slug of ['iit-jam-signature-resize', 'iit-jam-photo-resize']) {
+  const page = EXAM_PAGES_DATA.find(p => p.slug === slug);
+  const html = readFileSync(`dist/${slug}/index.html`, 'utf8');
+  assert.equal(page.verifiedOn, '2026-10-28');
+  assert.ok(page.hidePhysicalSize);
+  assert.ok(!/padding prevents rejection|guaranteed|official 560/.test(JSON.stringify(page)));
+  assert.ok(!html.includes('Anti-Rejection Floor') && !html.includes('Official JOAPS Document Matrix'));
+  assert.ok(page.sources.every(source => source.url === 'https://www.jam.iitkgp.ac.in/doc-req.html'));
+}

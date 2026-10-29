@@ -126,12 +126,7 @@ export function ExportChecksDialog({
   const complianceRule = preset ?? rule;
   const complianceIssues = result ? inspectExport(result, complianceRule) : [];
 
-  const isCoastGuardPhoto = Boolean(
-    mode === 'photo' &&
-    (preset?.id.includes('coast-guard') ||
-     preset?.name.toLowerCase().includes('coast guard') ||
-     preset?.authority.toLowerCase().includes('coast guard'))
-  );
+  const requiresPhysicalSlate = mode === 'photo' && preset?.requiresPhysicalSlate === true;
 
   const isUpssscSignature = Boolean(
     mode === 'signature' &&
@@ -155,7 +150,7 @@ export function ExportChecksDialog({
      preset?.authority.toLowerCase().includes('tnpsc'))
   );
 
-  const isSlatePending = Boolean(isCoastGuardPhoto && !slateConfirmed);
+  const isSlatePending = Boolean(requiresPhysicalSlate && !slateConfirmed);
   const isUpssscPending = Boolean(isUpssscSignature && !upssscConfirmed);
   const isTnpscPhotoPending = Boolean(isTnpscPhoto && !tnpscPhotoConfirmed);
   const isTnpscSignPending = Boolean(isTnpscSignature && !tnpscSignConfirmed);

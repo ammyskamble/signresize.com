@@ -55,10 +55,12 @@ export interface ExamPreset {
   format: 'JPG' | 'JPEG' | 'PNG';
   aspectRatio: number; // width / height
   notes: string;
-  inkRequirement: 'Black Ink Only' | 'Black or Blue Ink' | 'Any Ink';
+  inkRequirement: 'Black Ink Only' | 'Black or Blue Ink' | 'Any Ink' | 'Ink specified in your application';
   isPopular?: boolean;
   targetType?: 'signature' | 'photo' | 'document';
   requiresNameDate?: boolean;
+  /** Only true when the selected recruitment source requires a physical slate. */
+  requiresPhysicalSlate?: boolean;
   faceGuide?: boolean;
   docCategory?: string;
   sourceUrl?: string;

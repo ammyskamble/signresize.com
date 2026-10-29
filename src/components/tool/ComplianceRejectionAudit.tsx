@@ -69,13 +69,7 @@ export function ComplianceRejectionAudit({
   const ruledPaperIssue = backgroundIssues?.find((i) => i.code === 'ruled_paper');
   const genericBgIssue = backgroundIssues?.find((i) => i.code === 'background' || i.code === 'bg');
 
-  const isCoastGuardPhoto = Boolean(
-    mode === 'photo' &&
-    (preset?.id.includes('coast-guard') ||
-     preset?.name.toLowerCase().includes('coast guard') ||
-     preset?.authority.toLowerCase().includes('coast guard') ||
-     audit.examName === 'Indian Coast Guard')
-  );
+  const requiresPhysicalSlate = mode === 'photo' && preset?.requiresPhysicalSlate === true;
 
   const isUpssscSignature = Boolean(
     mode === 'signature' &&
@@ -104,7 +98,7 @@ export function ComplianceRejectionAudit({
      audit.examName.includes('Tamil Nadu PSC'))
   );
 
-  const isSlatePending = Boolean(isCoastGuardPhoto && !slateConfirmed);
+  const isSlatePending = Boolean(requiresPhysicalSlate && !slateConfirmed);
   const isUpssscPending = Boolean(isUpssscSignature && !upssscConfirmed);
   const isTnpscPhotoPending = Boolean(isTnpscPhoto && !tnpscPhotoConfirmed);
   const isTnpscSignPending = Boolean(isTnpscSignature && !tnpscSignConfirmed);
@@ -132,17 +126,17 @@ export function ComplianceRejectionAudit({
         <div className="flex items-center justify-between border-b border-emerald-500/30 pb-2 gap-2 flex-wrap">
           <div className="font-extrabold flex items-center gap-1.5 text-xs sm:text-sm text-emerald-800 dark:text-emerald-300">
             <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-            <span>Technical Specifications Met — Ready for Download</span>
+            <span>{requiresAdvertisementVerification ? 'Preparation file ready to download' : 'Technical Specifications Met — Ready for Download'}</span>
           </div>
           <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow-xs text-white whitespace-nowrap bg-emerald-600">
-            SPECS VERIFIED
+            {requiresAdvertisementVerification ? 'PRESET CHECKS PASSED' : 'SPECS VERIFIED'}
           </span>
         </div>
 
         {requiresAdvertisementVerification && (
           <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-2 text-[11px] font-semibold text-emerald-950 dark:text-emerald-100 flex items-center gap-1.5">
             <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-            <span>File matches official {audit.examName} guidelines. Prepared and ready to upload.</span>
+            <span>File matches the selected {audit.examName} preparation preset. Confirm your application requirements before uploading; these checks do not certify portal acceptance.</span>
           </p>
         )}
 
@@ -171,7 +165,7 @@ export function ComplianceRejectionAudit({
         )}
 
         {/* Coast Guard Special Slate Confirmation Checkbox */}
-        {isCoastGuardPhoto && (
+        {requiresPhysicalSlate && (
           <label className="flex items-start gap-2 p-2 rounded-lg bg-emerald-500/15 border border-emerald-500/40 cursor-pointer text-[11px] text-foreground">
             <input
               type="checkbox"
@@ -346,7 +340,7 @@ export function ComplianceRejectionAudit({
       </p>
 
       {/* Coast Guard Mandatory Slate Confirmation Banner with Interactive Checkbox */}
-      {isCoastGuardPhoto && (
+      {requiresPhysicalSlate && (
         <label className={`flex items-start gap-2.5 p-3 rounded-xl border cursor-pointer text-xs transition ${
           slateConfirmed
             ? 'bg-emerald-500/15 border-emerald-500/40 text-foreground'

@@ -1,15 +1,40 @@
----
+﻿---
 import UtilityPage from '../layouts/UtilityPage.astro';
-const documents = [
-  ['Photograph', 'Follow the current portal’s live-photo or uploaded-photo instructions. Do not assume that an older CEN uses the same process.', '/photo-resizer/?preset=rrb-photo'],
-  ['Signature', 'Sign on plain paper in the required ink. Match the file type, dimensions, and KB range shown in your upload field.', '/rrb-signature-resize/'],
-  ['Class 12 marksheet / certificate', 'Keep the original ready. Upload a scan only if requested; preserve the board name, roll number, marks, and all page edges.', '/document-resizer/?preset=marksheet-12th'],
-  ['SC / ST and other category documents', 'Use the certificate format and validity rules specified in CEN 07/2026. Choose PDF only when the field accepts it.', '/document-resizer/?preset=caste-certificate'],
-];
+import { NTPC_SOURCES } from '../data/examGuidance';
 ---
-<UtilityPage title="RRB NTPC Undergraduate Document Checklist" description="CEN 07/2026 preparation for 12th-level applicants: signature scans, Class 12 certificates, category documents, and fixes for common upload problems.">
-  <section class="rounded-2xl border border-primary/20 bg-primary/5 p-5 space-y-3"><p class="text-xs font-bold text-primary tracking-wider">CEN 07/2026 · UNDERGRADUATE / 12TH LEVEL</p><h2 class="text-xl font-bold">Keep the graduate and undergraduate notices separate</h2><p class="text-sm text-muted-foreground">The published undergraduate notice reports 1,688 posts and an application window from October 15 to November 13, 2026 (23:59 IST). CEN 06/2026 is a separate graduate-level recruitment. Check the latest RRB notice and any extension before applying.</p><div class="flex flex-wrap gap-4 text-xs font-semibold"><a class="text-primary underline" href="https://rrb.indianrailways.gov.in/patna" target="_blank" rel="noopener noreferrer">Official RRB notice listing</a><a class="text-primary underline" href="https://indianexpress.com/article/education/rrb-ntpc-ug-notification-2026-out-rrb-indianrailways-gov-in-applications-open-1688-posts-10922540/" target="_blank" rel="noopener noreferrer">Dates and vacancies: published report, Oct 15</a><a class="text-primary underline" href="https://www.rrbapply.gov.in/" target="_blank" rel="noopener noreferrer">RRB application portal</a></div></section>
-  <section class="grid sm:grid-cols-2 gap-4">{documents.map(([title, description, href]) => <article class="rounded-2xl border border-border bg-card p-5 space-y-3"><h2 class="font-bold">{title}</h2><p class="text-sm text-muted-foreground">{description}</p><a class="text-primary text-sm font-semibold" href={href}>Prepare image →</a></article>)}</section>
-  <section class="rounded-2xl border border-border bg-card p-5 space-y-3"><h2 class="text-xl font-bold">If a file is rejected</h2><ol class="list-decimal pl-5 text-sm text-muted-foreground space-y-2"><li>Read the upload field’s exact format and minimum/maximum KB limits. General document presets are starting points, not official RRB specifications.</li><li>Check the downloaded file’s bytes, pixels, and extension. Renaming a PNG to JPG does not convert it.</li><li>Inspect small text and seals at 100% zoom. Reduce shadows or rescan rather than repeatedly compressing an unreadable image.</li><li>Reopen the exported file before uploading and keep the unedited original.</li></ol></section>
-  <a class="text-sm font-semibold text-primary" href="/admit-card-photo-print-sheet/">After applying: prepare your exam-day photographs →</a>
+<UtilityPage title="RRB NTPC Undergraduate Document Checklist" description="Prepare NTPC UG signature and documents using the CEN 07/2025 FAQ: 30–49 KB JPG signature, live photo capture and SC/ST free-travel certificate guidance.">
+  <section class="rounded-2xl border border-primary/20 bg-primary/5 p-5 space-y-3">
+    <p class="text-xs font-bold text-primary tracking-wider">SOURCE: CEN 07/2025 UNDERGRADUATE FAQ · REVIEWED 28 OCTOBER 2026</p>
+    <h2 class="text-xl font-bold">Check the CEN for your application</h2>
+    <p class="text-sm text-muted-foreground">This checklist uses the verified 2025 Undergraduate FAQ. It does not confirm application dates, vacancies or upload rules for CEN 07/2026. Graduate recruitment has a separate notice. Read your active CEN and any corrections before submitting.</p>
+    <div class="flex flex-wrap gap-4 text-xs font-semibold">
+      <a class="text-primary underline" href={`${NTPC_SOURCES.undergraduate}#page=12`} target="_blank" rel="noopener noreferrer">Official UG FAQ: documents, Q59–60</a>
+      <a class="text-primary underline" href={`${NTPC_SOURCES.undergraduate}#page=15`} target="_blank" rel="noopener noreferrer">Official UG FAQ: live photo and signature, Q73–74</a>
+      <a class="text-primary underline" href="https://www.rrbapply.gov.in/" target="_blank" rel="noopener noreferrer">RRB application portal</a>
+    </div>
+  </section>
+  <section class="grid sm:grid-cols-2 gap-4">
+    <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
+      <h2 class="font-bold">Signature upload</h2>
+      <p class="text-sm text-muted-foreground">Prepare your own running signature in black ink on white paper as a 30–49 KB JPG/JPEG. The FAQ specifies minimum 140 × 60 pixels, a scan of at least 100 DPI and a 35 × 20 mm box. Keep all strokes clear.</p>
+      <a class="text-primary text-sm font-semibold" href="/rrb-ntpc-signature-resize/">Prepare NTPC signature →</a>
+    </article>
+    <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
+      <h2 class="font-bold">Live photograph</h2>
+      <p class="text-sm text-muted-foreground">Complete live capture inside the RRB application using the permitted camera method. A pre-existing photograph or resized image cannot replace this step.</p>
+      <a class="text-primary text-sm font-semibold" href="/live-webcam-photo-checker/">Practise camera framing only →</a>
+    </article>
+    <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
+      <h2 class="font-bold">SC/ST certificate for free travel</h2>
+      <p class="text-sm text-muted-foreground">This upload applies to eligible applicants requesting the free travel facility. The FAQ calls for PDF: Q60 says up to 400 KB, while Q32 says below 400 KB. Keep the PDF below 400 KB and confirm the active field. A JPG from an image resizer is not the required PDF.</p>
+    </article>
+    <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
+      <h2 class="font-bold">Education and other records</h2>
+      <p class="text-sm text-muted-foreground">Keep your original education and applicable category records ready. Follow your CEN for format, validity and verification-stage requirements; do not assume every record needs an image upload during the initial application.</p>
+    </article>
+  </section>
+  <section class="rounded-2xl border border-border bg-card p-5 space-y-3">
+    <h2 class="text-xl font-bold">Before submitting</h2>
+    <p class="text-sm text-muted-foreground">Reopen each file and inspect its clarity, complete content, actual format and byte size. Check the application preview. Renaming an extension does not convert a file, and compression cannot restore missing detail. These tools cannot certify portal acceptance.</p>
+  </section>
 </UtilityPage>

@@ -1,0 +1,70 @@
+{
+  "period": [
+    "2026-09-29",
+    "2026-10-26"
+  ],
+  "totals": {
+    "Chart.csv": {
+      "rows": 28,
+      "clicks": 1012,
+      "impressions": 41415,
+      "ctr": 2.4436,
+      "position_approx": 6.6853
+    },
+    "Queries.csv": {
+      "rows": 1000,
+      "clicks": 120,
+      "impressions": 6751,
+      "ctr": 1.7775,
+      "position_approx": 9.4495
+    },
+    "Pages.csv": {
+      "rows": 342,
+      "clicks": 1019,
+      "impressions": 43026,
+      "ctr": 2.3683,
+      "position_approx": 6.8686
+    },
+    "Countries.csv": {
+      "rows": 85,
+      "clicks": 1012,
+      "impressions": 41415,
+      "ctr": 2.4436,
+      "position_approx": 6.6841
+    },
+    "Devices.csv": {
+      "rows": 3,
+      "clicks": 1012,
+      "impressions": 41415,
+      "ctr": 2.4436,
+      "position_approx": 6.6877
+    },
+    "Search appearance.csv": {
+      "rows": 1,
+      "clicks": 31,
+      "impressions": 2616,
+      "ctr": 1.185,
+      "position_approx": 5.9
+    }
+  },
+  "first14": {
+    "rows": 14,
+    "clicks": 242,
+    "impressions": 9928,
+    "ctr": 2.4376,
+    "position_approx": 6.9303
+  },
+  "last14": {
+    "rows": 14,
+    "clicks": 770,
+    "impressions": 31487,
+    "ctr": 2.4455,
+    "position_approx": 6.608
+  },
+  "query_click_coverage_percent": 11.86,
+  "query_impression_coverage_percent": 16.3,
+  "india_click_share_percent": 99.41,
+  "mobile_click_share_percent": 66.4,
+  "focus_keywords": 80,
+  "focus_groups": 17
+}

@@ -52,6 +52,9 @@ const isCtet = examData.slug.includes('ctet') && !examGuidance;
 const isRrb = examData.slug === 'rrb-signature-resize' || examData.slug === 'rrb-photo-resize';
 const isCoastGuard = examData.slug.includes('coast-guard');
 const isWbpsc = examData.slug.includes('wbpsc') || examData.slug.includes('wbcs');
+const isBpsc = examData.slug === 'bpsc-signature-resize' || examData.slug.startsWith('bpsc-tre-');
+const isNtpc = examData.slug === 'rrb-ntpc-signature-resize';
+const isPreparationGuide = isWbpsc || isBpsc || isCoastGuard || isNtpc || isJam;
 const isTnpsc = examData.slug.includes('tnpsc');
 const hasDocumentSuite = isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc;
 const relatedTools = (examData.relatedTools || [])
@@ -67,7 +70,8 @@ const relatedTools = (examData.relatedTools || [])
   });
 
 // Find relevant blog posts for this specific exam tool
-const relevantBlogPosts = BLOG_POSTS.map(post => {
+// BPSC articles still need a separate source review; use the reviewed guidance links.
+const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLOG_POSTS.map(post => {
   let score = 0;
   const examSlugLower = examData.slug.toLowerCase();
   const examKey = examSlugLower.split('-')[0]; // 'ssc', 'rrb', 'upsc', 'bpsc', etc.
@@ -288,6 +292,27 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               {examData.subheading} Applicable for <strong>{examData.targetExams}</strong>.
             </p>
               {examData.slug === 'lsat-india-signature-resize' && <aside class="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm space-y-2" aria-label="Legacy exam notice"><strong class="text-amber-800 dark:text-amber-200">Legacy LSAT—India preset</strong><p>LSAT—India has been discontinued. This page preserves the historical preset; it is not a current registration guide. Check your law school’s current admission route.</p><div class="flex flex-wrap gap-4 font-semibold text-primary"><a href="/clat-signature-resize/">CLAT signature tool →</a><a href="/ailet-signature-resize/">AILET signature tool →</a><a href="https://www.chitkara.edu.in/blogs/law-entrance-exams-after-12th-clat-lsat-cuet/" target="_blank" rel="noopener noreferrer">University admission guidance ↗</a></div></aside>}
+              {examData.slug === 'uppsc-signature-resize' && (
+                <aside class="mt-4 rounded-2xl border border-primary/30 bg-primary/10 p-4 text-xs space-y-2 shadow-xs" aria-label="UPPSC RO ARO Notice">
+                  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <div class="space-y-1">
+                      <strong class="text-sm font-bold text-foreground flex items-center gap-1.5">
+                        <span>📢</span> UPPSC RO/ARO 2026: 'O' Level Eligibility Clarification
+                      </strong>
+                      <p class="text-xs text-muted-foreground leading-relaxed">
+                        Review Officer (RO) does <strong>NOT</strong> require 'O' Level diploma (Simple Graduation). O-Level is compulsory ONLY for Assistant Review Officer (ARO + 25 WPM typing).
+                      </p>
+                    </div>
+                    <a
+                      href="/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/"
+                      class="shrink-0 px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition flex items-center gap-1.5 shadow-xs"
+                    >
+                      <span>Read Official RO/ARO Guide</span>
+                      <span>&rarr;</span>
+                    </a>
+                  </div>
+                </aside>
+              )}
           </div>
 
           <!-- Quick Matrix Badges -->
@@ -297,7 +322,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               <div class="text-xs font-bold text-foreground font-mono">{examData.widthPx} × {examData.heightPx} PX</div>
             </div>
             <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
-              <div class="text-[9px] uppercase font-bold text-muted-foreground">Size Range</div>
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">{isPreparationGuide ? 'Default size range' : 'Size Range'}</div>
               <div class="text-xs font-bold text-primary font-mono">{examData.minKb} – {examData.maxKb} KB</div>
             </div>
             {!examData.hidePhysicalSize && <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
@@ -330,7 +355,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
         </nav>
       )}
 
-      {examData.slug.includes('iit-jam') && (
+      {examData.slug.includes('iit-jam') && !examGuidance && (
         <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="IIT JAM Document Suite">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div class="space-y-1">
@@ -828,61 +853,6 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
         </aside>
       )}
 
-      {isWbpsc && (
-        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="WBPSC Document Suite">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div class="space-y-1">
-              <div class="flex items-center gap-2">
-                <span class="text-lg">🏛️</span>
-                <span class="font-bold text-sm sm:text-base text-foreground">WBPSC Document Suite (WBCS, Clerkship, Miscellaneous)</span>
-                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official Commission Specs</span>
-              </div>
-              <p class="text-xs text-muted-foreground leading-relaxed">
-                West Bengal PSC portal (<code class="text-primary font-mono font-bold">psc.wb.gov.in</code> &amp; <code class="text-primary font-mono font-bold">wbpsc.ucanapply.com</code>) strictly enforces 10–20 KB signatures and 138×177 px photos. Switch tools below or adjust inside studio:
-              </p>
-            </div>
-            <div class="flex items-center gap-2 flex-wrap shrink-0">
-              <button
-                type="button"
-                onclick="window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: 'wbpsc-west-bengal' }))"
-                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border cursor-pointer ${examData.slug === 'wbpsc-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
-              >
-                <span>🖋️</span>
-                <span>Signature (140×60 • 10–20 KB)</span>
-              </button>
-              <button
-                type="button"
-                onclick="window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: 'wbpsc-photo' }))"
-                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border cursor-pointer ${examData.slug === 'wbpsc-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
-              >
-                <span>📸</span>
-                <span>Passport Photo (138×177 • 20–100 KB)</span>
-              </button>
-              <button
-                type="button"
-                onclick="window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: 'wbpsc-document' }))"
-                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border bg-card text-foreground border-border hover:border-primary/50 cursor-pointer"
-              >
-                <span>📄</span>
-                <span>Madhyamik Admit / Doc (100–300 KB)</span>
-              </button>
-              <button
-                type="button"
-                onclick="window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: 'wbpsc-signature-138x59' }))"
-                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border bg-card text-foreground border-border hover:border-primary/50 cursor-pointer"
-              >
-                <span>🖋️</span>
-                <span>138×59 Sign (10–20 KB)</span>
-              </button>
-            </div>
-          </div>
-          <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-[11px] text-amber-900 dark:text-amber-200 flex items-center gap-2">
-            <span>⚠️</span>
-            <span><strong>WBPSC Portal Strict Rejection Notice:</strong> {examData.strictNotice} Signatures must be in running cursive handwriting (BLOCK CAPITALS are strictly disqualified). Photos must strictly be 138×177 px (20–100 KB) with plain white background.</span>
-          </div>
-        </aside>
-      )}
-
       <!-- Main Interactive Resizer Tool Workspace -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
@@ -1013,7 +983,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               </div>
             )}
 
-            {examData.slug.includes('iit-jam') && (
+            {examData.slug.includes('iit-jam') && !examGuidance && (
               <div class="p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-3">
                 <div class="flex items-center justify-between flex-wrap gap-2">
                   <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
@@ -1187,7 +1157,7 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
             {examData.sources && <SignatureCropExamples />}
             <div class="space-y-3 pt-4 border-t border-border">
               <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
-                <span>🛡️</span> 4 Rules to Avoid {examData.slug.includes('photo') ? 'Photo' : 'Signature'} Rejection for {examData.authority}
+                <span>🛡️</span> {isPreparationGuide ? 'Preparation checklist' : `4 Rules to Avoid ${examData.slug.includes('photo') ? 'Photo' : 'Signature'} Rejection`} for {examData.authority}
               </h3>
               <ul class="space-y-2 text-xs text-muted-foreground">
                 {examData.tips.map((tip, idx) => (
@@ -1311,14 +1281,14 @@ const relevantBlogPosts = BLOG_POSTS.map(post => {
               <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
                 <span class="text-emerald-500 font-bold">✓</span>
                 <div>
-                  <div class="font-medium text-foreground">Target Size: {examData.minKb}–{examData.maxKb} KB</div>
+                  <div class="font-medium text-foreground">{isPreparationGuide ? 'Default target' : 'Target Size'}: {examData.minKb}–{examData.maxKb} KB</div>
                   <div class="text-[11px] text-muted-foreground">Check the actual downloaded file size.</div>
                 </div>
               </div>
               <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
                 <span class="text-emerald-500 font-bold">✓</span>
                 <div>
-                  <div class="font-medium text-foreground">Dimensions: {examData.widthPx} × {examData.heightPx} px</div>
+                  <div class="font-medium text-foreground">{isPreparationGuide ? 'Default canvas' : 'Dimensions'}: {examData.widthPx} × {examData.heightPx} px</div>
                   <div class="text-[11px] text-muted-foreground">Inspect the final image and application preview.</div>
                 </div>
               </div>

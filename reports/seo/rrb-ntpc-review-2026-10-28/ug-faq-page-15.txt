@@ -1,0 +1,55 @@
+password and OTP sent on the registered mobile number.
+The broad guidelines for capturing the Live Photograph of the candidate During Application are given below:
+a) Candidates are not required to upload a pre-existing photograph while applying.
+b) The application module is designed to capture a live photograph of the candidate at the time
+of filling up the application form.
+c) Live photo may be captured by web cam or by front camera (screen side camera) of the
+Mobile phone.
+d) Ensure Dress yourself in NON-WHITE clothing, preferably in dark colours, to maintain contrast
+with the background
+e) For this purpose, the candidate must stand or sit in front of the camera when prompted by
+the application module and carefully follow the instructions below:
+• Ensure that the camera is positioned at eye level before capturing the photograph.
+• Position yourself directly in front of the camera and look straight ahead with a neutral expression.
+• Make sure your entire face is clearly visible and centered within the frame shown by the application module.
+• Ensure that your face is neither too close nor too far from the camera, and no part of the head or face is
+outside the delineated frame.
+• Do not wear a cap, mask, or glasses/spectacles while capturing the photograph.
+• Candidates may preview their captured photo and retake it if they are not satisfied with the image, until their
+application is submitted
+• Applications with photographs that do not comply with these guidelines are liable to be rejected.
+• The candidate’s appearance during the entire process of recruitment must match the photograph submitted
+with the application.
+Important Note: Candidates must not attempt to take a picture of a printed or digital pre-
+existing photograph. Any application where such an image is submitted will be summarily
+rejected.
+Please see Para No.14.4 of CEN No. 07/2025 for details.
+प्रश्न 74 हस्तािर अपलोड करने की िविया क्या है? वकस िकार के हस्तािर अपलोड वकए जाने चावहए?
+What is the procedure for uploading the Signature? What type of signature should be uploaded?
+उत्तर उम्मीदिारो ंको नीचे वदए गए वनदेशो ंके अनुसार अपने हस्तािर की स्कैन की हुई िवत अपलोड करनी होगी:
+• हस्तािर केिल उम्मीदिार द्वारा ही वलखे जाने चावहए।
+• सफेद कागज़ पर काली स्याही िाले पेन का ियोग करें।
+• हस्तािर सीधी वलखािि (अिावत, कवसवि/जुडे हुए अिरो ंमें) में होने चावहए, बडे, बडे या असंबद्ध अिरो ंमें नही।ं
+हस्तािर स्पि, सुपाठ्य और स्कैन वकए गए िेत्र में पूरी तरह से वदखाई देने िाले होने चावहए।
+हस्तािर के वलए विवनदेश:
+• हस्तािररत दस्तािेज़ को न्यूनतम 100 DPI ररज़ॉल्यूशन पर स्कैन करें।
+• छवि फाइल िारूप: केिल JPG/JPEG
+• फाइल आकार: 30 KB और 49 KB के बीच
+• छवि आयाम: न्यूनतम 140 वपक्सेल (चौडाई) × 60 वपक्सेल (ऊँचाई)
+• स्कैन वकए गए हस्तािर आिेदन पत्र पर वनवदवि स्कैन बॉक्स में क्तित होन ेचावहए: बॉक्स का आकार: 35 वममी
+(चौडाई) × 20 वममी (ऊँचाई)। हस्तािर की छवि इस बॉक्स के केंद्र म ेंहोनी चावहए।
+कृपया अवधक जानकारी के वलए सीईएन संख्या 07/2025 के पैरा संख्या 14.5.1 देखें।
+Candidates are required upload scanned copy of their signature, as per the specifications given below:
+• The signature must be written by the candidate only.
+• Use a black ink pen on white paper.
+• The signature must be, in running handwriting (i.e., cursive/joined letters), NOT in BLOCK, CAPITAL, or
+DISJOINED letters. The signature should be clear, legible, and entirely visible within the scanned area.
+Specifications for signature:
+• Scan the signed paper using a minimum resolution of 100 DPI.
+• Image file format: JPG/JPEG only
+• File size: Between 30 KB and 49 KB
+• Image dimensions: Minimum 140 pixels (width) × 60 pixels (height)
+• The scanned signature must be positioned within the designated scan box on the application form: Box
+Size: 35 mm (width) × 20 mm (height). The signature image should be centred within this box.
+Please see Para No.14.5.1 of CEN No. 07/2025 for details.
+15

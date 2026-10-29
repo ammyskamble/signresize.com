@@ -635,6 +635,10 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'What is the signature requirement for UPPSC OTR?',
         a: 'UPPSC requires a signature size of 3.5 cm × 1.5 cm with file size between 10 KB and 50 KB in JPG format.'
+      },
+      {
+        q: 'Is O Level certificate necessary for UPPSC RO/ARO?',
+        a: 'No. NIELIT O-Level is NOT required for Review Officer (RO / Samiksha Adhikari); simple graduation in any stream is eligible. O-Level (or a recognized 1-year equivalent computer diploma) is compulsory ONLY for Assistant Review Officer (ARO) posts along with 25 WPM Hindi typing speed.'
       }
     ]
   },
@@ -4351,5 +4355,5 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
 // Focused, source-backed guidance overrides the historical shared exam entries.
 export const EXAM_PAGES_DATA: ExamPageInfo[] = [
   ...BASE_EXAM_PAGES_DATA.map(page => ({ ...page, ...EXAM_PAGE_UPDATES[page.slug], ...GUIDANCE_PAGE_UPDATES[page.slug] })),
-  ...FOCUSED_EXAM_PAGES,
+  ...FOCUSED_EXAM_PAGES.map(page => ({ ...page, ...GUIDANCE_PAGE_UPDATES[page.slug] })),
 ];

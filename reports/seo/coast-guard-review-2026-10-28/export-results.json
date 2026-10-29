@@ -1,0 +1,16 @@
+[
+  {
+    "filename": "Signature.jpg",
+    "width": 140,
+    "height": 60,
+    "format": "JPEG",
+    "bytes": 10240
+  },
+  {
+    "filename": "Passport_Photograph.jpg",
+    "width": 350,
+    "height": 450,
+    "format": "JPEG",
+    "bytes": 16286
+  }
+]
