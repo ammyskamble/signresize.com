@@ -13996,7 +13996,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     "quickFacts": [
       {
         "label": "Conducting Body",
-        "value": "State Bank of India (SBI - Central Recruitment Desk)"
+        "value": "State Bank of India (Central Recruitment Desk)"
       },
       {
         "label": "Designation",
@@ -14016,23 +14016,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       },
       {
         "label": "State Selection Rule",
-        "value": "Strictly ONE State / UT (No Inter-Circle Transfers)"
-      },
-      {
-        "label": "Passport Photo",
-        "value": "200×230 px (20–50 KB JPG, Light/White Background)"
-      },
-      {
-        "label": "Candidate Signature",
-        "value": "140×60 px (10–20 KB JPG, Black Ballpoint Ink Only)"
-      },
-      {
-        "label": "Left Thumb Impression",
-        "value": "240×240 px (20–50 KB JPG, Blue or Black Ink)"
-      },
-      {
-        "label": "Handwritten Declaration",
-        "value": "800×400 px (50–100 KB JPG, Candidate's Own Hand)"
+        "value": "Strictly ONE State / UT (Circle Cadre; No Inter-Circle Transfers)"
       }
     ],
     "faqs": [
@@ -14090,41 +14074,33 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       }
     ],
     "contentHtml": `
-      <!-- Direct Executive Summary Box -->
-      <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20 text-xs sm:text-sm text-foreground/90 leading-relaxed">
-        <strong>⚡ Direct Summary:</strong> Applying for <strong>SBI Clerk (Junior Associates) 2026</strong> on <code>sbi.co.in/careers</code> requires <strong>four mandatory digital uploads</strong>: Passport Photo (<strong>200 &times; 230 px, 20–50 KB</strong>), Candidate Signature (<strong>140 &times; 60 px, 10–20 KB in black ink</strong>), Left Thumb Impression (<strong>240 &times; 240 px, 20–50 KB</strong>), and Handwritten Declaration (<strong>800 &times; 400 px, 50–100 KB in candidate's own hand</strong>). SBI features <strong>NO sectional cut-offs</strong> in Prelims or Mains, but shortlists approximately <strong>10 times vacancies (10:1 ratio)</strong> for Mains. Junior Associates belong to a circle-specific cadre where <strong>inter-circle transfers are not permitted in clerical cadre</strong>. Download the official printable PDF handbook, examine the visual Do/Don't guide, and review state-wise LPT language mappings below.
-      </div>
-
-      <!-- PDF Download and Print Section -->
-      <div class="my-6 p-5 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-card to-emerald-500/5 border-2 border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-            <span>📄</span>
-            <span>Official SBI Clerk Candidate Handbook [PDF]</span>
+      <!-- Compact PDF & Direct Summary Strip -->
+      <div class="my-3 p-3 sm:p-3.5 rounded-xl bg-gradient-to-r from-emerald-500/10 via-card to-emerald-500/5 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span class="text-2xl shrink-0">📄</span>
+          <div class="min-w-0">
+            <div class="text-xs sm:text-sm font-bold text-foreground truncate">
+              Official SBI Clerk Candidate Handbook &amp; Practice Template [PDF]
+            </div>
+            <div class="text-[11px] text-muted-foreground truncate">
+              Vector 2-page PDF with 140&times;60 signature box, declaration lines, and LPT rules.
+            </div>
           </div>
-          <h4 class="text-sm sm:text-base font-bold text-foreground">
-            Printable Upload Specifications, Declaration Template &amp; LPT Rules
-          </h4>
-          <p class="text-xs text-muted-foreground leading-relaxed">
-            Vector-crisp 2-page candidate handbook with exact pixel boxes, ruled declaration practice lines, thumb impression box, and state-wise Local Language Test criteria.
-          </p>
         </div>
-        <div class="flex flex-wrap sm:flex-nowrap gap-2 w-full sm:w-auto shrink-0">
+        <div class="flex items-center gap-2 w-full sm:w-auto shrink-0">
           <a
             href="/downloads/sbi-clerk-2026-photo-sign-and-declaration-guide.pdf"
             download="sbi-clerk-2026-photo-sign-and-declaration-guide.pdf"
-            class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition shadow-sm flex items-center justify-center gap-2"
+            class="flex-1 sm:flex-none px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs flex items-center justify-center gap-1.5 transition"
           >
-            <span>⬇️</span>
-            <span>Download PDF (16 KB)</span>
+            <span>⬇️ Download PDF (16 KB)</span>
           </a>
           <button
             type="button"
             onclick="window.print()"
-            class="w-full sm:w-auto px-3.5 py-2.5 rounded-xl bg-card border border-border hover:bg-muted text-foreground font-semibold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer"
+            class="px-3 py-2 rounded-lg bg-card border border-border hover:bg-muted text-foreground font-semibold text-xs transition flex items-center justify-center gap-1 cursor-pointer"
           >
-            <span>🖨️</span>
-            <span>Print Sheet</span>
+            <span>🖨️ Print</span>
           </button>
         </div>
       </div>
@@ -14338,62 +14314,303 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         </div>
       </section>
 
-      <!-- Section 4: 4-in-1 Client-Side Resizing Matrix -->
+      <!-- Section 4: Interactive Client-Side Resizing Studio & Dropzone -->
       <section id="resizing-toolkit" class="space-y-4 mt-8">
-        <h2>4. Batch Resize All 4 SBI Clerk Documents (Client-Side &amp; 100% Free)</h2>
-        <p>Prepare and compress all four mandatory files in under 60 seconds with SignResize. All image processing occurs 100% locally in your browser sandbox — your biometric photos, signature, and thumb impression are never transmitted to or stored on external servers.</p>
+        <h2>4. Instant In-Page Resizer: Batch Process SBI Documents (100% Client-Side)</h2>
+        <p>Drop your document image directly into the sandbox below to auto-scale to exact SBI pixel bounds and compress within mandatory file size limits in under 2 seconds. No image files ever leave your device.</p>
 
-        <div class="my-4 p-5 rounded-2xl bg-gradient-to-br from-card via-primary/5 to-card border-2 border-primary/20 space-y-4 shadow-xs">
+        <div class="my-4 p-4 sm:p-5 rounded-2xl bg-card border-2 border-primary/30 shadow-md space-y-4" id="sbi-dropzone-studio">
+          <!-- Preset selector buttons -->
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-3">
-            <div class="flex items-center gap-2 font-bold text-sm text-foreground">
-              <span>⚡</span>
-              <span>SBI Clerk 4-in-1 Calibration Matrix</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-1.5">
+              <span>⚡</span> Select Document to Convert:
+            </span>
+            <div class="flex flex-wrap gap-1.5" id="sbi-preset-buttons">
+              <button type="button" data-preset="sign" class="sbi-preset-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-primary text-primary-foreground shadow-xs cursor-pointer">
+                ✍️ Signature (140&times;60)
+              </button>
+              <button type="button" data-preset="photo" class="sbi-preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground cursor-pointer">
+                📸 Photo (200&times;230)
+              </button>
+              <button type="button" data-preset="thumb" class="sbi-preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground cursor-pointer">
+                👍 Thumb (240&times;240)
+              </button>
+              <button type="button" data-preset="decl" class="sbi-preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground cursor-pointer">
+                📝 Declaration (800&times;400)
+              </button>
             </div>
-            <span class="text-xs text-muted-foreground font-mono">Zero Server Upload • Instant Download</span>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <a href="/sbi-clerk-photo-resize/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs flex flex-col justify-between">
-              <div>
-                <span class="text-2xl block mb-1 group-hover:scale-110 transition">📸</span>
-                <span class="text-xs font-bold block text-foreground">Passport Photograph</span>
-                <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">20–50 KB • 200&times;230</span>
-                <p class="text-[10px] text-muted-foreground mt-1">Light background, 3.5&times;4.5 cm, within 3 months</p>
-              </div>
-              <span class="mt-3 inline-flex items-center justify-center text-xs text-primary font-bold group-hover:underline">Resize Photo &rarr;</span>
-            </a>
+          <!-- Active Preset Parameters Badge -->
+          <div class="p-3 rounded-xl bg-primary/5 border border-primary/20 flex flex-wrap items-center justify-between gap-2 text-xs" id="sbi-active-preset-info">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-foreground" id="sbi-active-name">✍️ Candidate Signature</span>
+              <span class="text-muted-foreground">•</span>
+              <span class="font-mono text-primary font-semibold" id="sbi-active-dims">140 &times; 60 px</span>
+              <span class="text-muted-foreground">•</span>
+              <span class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold" id="sbi-active-kb">10.0 KB – 20.0 KB</span>
+            </div>
+            <span class="text-[11px] text-muted-foreground" id="sbi-active-rule">Black ballpoint ink only</span>
+          </div>
 
-            <a href="/sbi-clerk-signature-resize/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs flex flex-col justify-between">
-              <div>
-                <span class="text-2xl block mb-1 group-hover:scale-110 transition">✍️</span>
-                <span class="text-xs font-bold block text-foreground">Candidate Signature</span>
-                <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">10–20 KB • 140&times;60</span>
-                <p class="text-[10px] text-muted-foreground mt-1">Black ballpoint ink only, running cursive</p>
-              </div>
-              <span class="mt-3 inline-flex items-center justify-center text-xs text-primary font-bold group-hover:underline">Format Sign &rarr;</span>
-            </a>
+          <!-- Drag and Drop Box -->
+          <div
+            id="sbi-drop-area"
+            class="border-2 border-dashed border-primary/40 hover:border-primary rounded-xl p-6 sm:p-8 text-center bg-muted/20 hover:bg-primary/5 transition cursor-pointer flex flex-col items-center justify-center gap-2"
+          >
+            <input type="file" id="sbi-file-input" accept="image/jpeg,image/png,image/webp" class="hidden" />
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-2xl mb-1">
+              📥
+            </div>
+            <div class="font-bold text-sm text-foreground">
+              Drop image here or <span class="text-primary underline">browse from device</span>
+            </div>
+            <p class="text-xs text-muted-foreground">
+              Supports JPG, PNG, WEBP. Converted instantly to portal-ready JPEG in your browser.
+            </p>
+          </div>
 
-            <a href="/ibps-thumb-impression-resize/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs flex flex-col justify-between">
-              <div>
-                <span class="text-2xl block mb-1 group-hover:scale-110 transition">👍</span>
-                <span class="text-xs font-bold block text-foreground">Left Thumb (LTI)</span>
-                <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">20–50 KB • 240&times;240</span>
-                <p class="text-[10px] text-muted-foreground mt-1">Blue/black ink stamp, 3&times;3 cm clear ridges</p>
+          <!-- Real-time Result Preview & Download Area (Hidden until file selected) -->
+          <div id="sbi-result-area" class="hidden space-y-3 p-4 rounded-xl bg-card border border-border">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <img id="sbi-preview-img" src="" alt="Converted Preview" class="w-20 h-20 object-contain rounded-lg border border-border bg-slate-100 dark:bg-slate-900 p-1" />
+                <div class="space-y-1">
+                  <div class="text-xs font-bold text-foreground flex items-center gap-2">
+                    <span id="sbi-result-status-badge" class="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[11px] font-bold">
+                      ✅ Compliant
+                    </span>
+                    <span id="sbi-result-name">sbi_clerk_signature_140x60.jpg</span>
+                  </div>
+                  <div class="text-xs text-muted-foreground font-mono" id="sbi-result-details">
+                    140 &times; 60 px • 14.8 KB • JPG
+                  </div>
+                </div>
               </div>
-              <span class="mt-3 inline-flex items-center justify-center text-xs text-primary font-bold group-hover:underline">Format Thumb &rarr;</span>
-            </a>
+              <div class="flex items-center gap-2">
+                <a
+                  id="sbi-download-btn"
+                  href="#"
+                  download="sbi_clerk_signature_140x60.jpg"
+                  class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm flex items-center gap-1.5 transition cursor-pointer"
+                >
+                  <span>⬇️</span>
+                  <span>Download Formatted JPG</span>
+                </a>
+                <button
+                  type="button"
+                  id="sbi-reset-btn"
+                  class="px-3 py-2.5 rounded-xl bg-card border border-border hover:bg-muted text-muted-foreground text-xs font-semibold transition cursor-pointer"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </div>
 
-            <a href="/ibps-handwritten-declaration-resize/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs flex flex-col justify-between">
-              <div>
-                <span class="text-2xl block mb-1 group-hover:scale-110 transition">📝</span>
-                <span class="text-xs font-bold block text-foreground">Declaration Text</span>
-                <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">50–100 KB • 800&times;400</span>
-                <p class="text-[10px] text-muted-foreground mt-1">Candidate's own handwriting with DOB clause</p>
-              </div>
-              <span class="mt-3 inline-flex items-center justify-center text-xs text-primary font-bold group-hover:underline">Format Declaration &rarr;</span>
+          <!-- Deep-dive tool link -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-muted-foreground pt-2 border-t border-border/60">
+            <span>Need precision cropping, contrast cleanup, or background removal?</span>
+            <a href="/sbi-clerk-signature-resize/" id="sbi-advanced-tool-link" class="font-bold text-primary hover:underline flex items-center gap-1">
+              <span>Open Full Canvas Workspace</span>
+              <span>&rarr;</span>
             </a>
           </div>
         </div>
+
+        <script>
+          (function() {
+            const presets = {
+              sign: {
+                name: '✍️ Candidate Signature',
+                width: 140,
+                height: 60,
+                minKb: 10,
+                maxKb: 20,
+                rule: 'Black ballpoint ink only',
+                filename: 'sbi_clerk_signature_140x60.jpg',
+                toolUrl: '/sbi-clerk-signature-resize/'
+              },
+              photo: {
+                name: '📸 Passport Photograph',
+                width: 200,
+                height: 230,
+                minKb: 20,
+                maxKb: 50,
+                rule: 'Light background, within 3 months',
+                filename: 'sbi_clerk_photo_200x230.jpg',
+                toolUrl: '/sbi-clerk-photo-resize/'
+              },
+              thumb: {
+                name: '👍 Left Thumb Impression',
+                width: 240,
+                height: 240,
+                minKb: 20,
+                maxKb: 50,
+                rule: 'Blue or black ink, clear ridge detail',
+                filename: 'sbi_clerk_thumb_240x240.jpg',
+                toolUrl: '/ibps-thumb-impression-resize/'
+              },
+              decl: {
+                name: '📝 Handwritten Declaration',
+                width: 800,
+                height: 400,
+                minKb: 50,
+                maxKb: 100,
+                rule: "Candidate's own handwriting with DOB",
+                filename: 'sbi_clerk_declaration_800x400.jpg',
+                toolUrl: '/ibps-handwritten-declaration-resize/'
+              }
+            };
+
+            let currentPresetKey = 'sign';
+            let loadedImage = null;
+
+            const buttons = document.querySelectorAll('.sbi-preset-btn');
+            const dropArea = document.getElementById('sbi-drop-area');
+            const fileInput = document.getElementById('sbi-file-input');
+            const resultArea = document.getElementById('sbi-result-area');
+            const previewImg = document.getElementById('sbi-preview-img');
+            const downloadBtn = document.getElementById('sbi-download-btn');
+            const resetBtn = document.getElementById('sbi-reset-btn');
+            const nameEl = document.getElementById('sbi-active-name');
+            const dimsEl = document.getElementById('sbi-active-dims');
+            const kbEl = document.getElementById('sbi-active-kb');
+            const ruleEl = document.getElementById('sbi-active-rule');
+            const advLink = document.getElementById('sbi-advanced-tool-link');
+
+            function updatePresetUI(key) {
+              currentPresetKey = key;
+              const p = presets[key];
+              if (!p) return;
+
+              buttons.forEach(b => {
+                if (b.getAttribute('data-preset') === key) {
+                  b.className = 'sbi-preset-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-primary text-primary-foreground shadow-xs cursor-pointer';
+                } else {
+                  b.className = 'sbi-preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground cursor-pointer';
+                }
+              });
+
+              if (nameEl) nameEl.textContent = p.name;
+              if (dimsEl) dimsEl.textContent = p.width + ' × ' + p.height + ' px';
+              if (kbEl) kbEl.textContent = p.minKb + '.0 KB – ' + p.maxKb + '.0 KB';
+              if (ruleEl) ruleEl.textContent = p.rule;
+              if (advLink) advLink.href = p.toolUrl;
+
+              if (loadedImage) {
+                processImage(loadedImage);
+              }
+            }
+
+            buttons.forEach(b => {
+              b.addEventListener('click', () => {
+                const k = b.getAttribute('data-preset');
+                if (k) updatePresetUI(k);
+              });
+            });
+
+            if (dropArea && fileInput) {
+              dropArea.addEventListener('click', () => fileInput.click());
+              dropArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropArea.classList.add('border-primary', 'bg-primary/10');
+              });
+              ['dragleave', 'drop'].forEach(ev => {
+                dropArea.addEventListener(ev, () => {
+                  dropArea.classList.remove('border-primary', 'bg-primary/10');
+                });
+              });
+              dropArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+                  handleFile(e.dataTransfer.files[0]);
+                }
+              });
+              fileInput.addEventListener('change', () => {
+                if (fileInput.files && fileInput.files[0]) {
+                  handleFile(fileInput.files[0]);
+                }
+              });
+            }
+
+            function handleFile(file) {
+              if (!file.type.startsWith('image/')) return;
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                  loadedImage = img;
+                  processImage(img);
+                };
+                img.src = e.target.result;
+              };
+              reader.readAsDataURL(file);
+            }
+
+            function processImage(img) {
+              const p = presets[currentPresetKey];
+              const canvas = document.createElement('canvas');
+              canvas.width = p.width;
+              canvas.height = p.height;
+              const ctx = canvas.getContext('2d');
+
+              ctx.fillStyle = '#ffffff';
+              ctx.fillRect(0, 0, p.width, p.height);
+
+              const scale = Math.min(p.width / img.width, p.height / img.height);
+              const drawW = img.width * scale;
+              const drawH = img.height * scale;
+              const offsetX = (p.width - drawW) / 2;
+              const offsetY = (p.height - drawH) / 2;
+
+              ctx.drawImage(img, offsetX, offsetY, drawW, drawH);
+
+              function attempt(q) {
+                return new Promise(resolve => {
+                  canvas.toBlob(blob => {
+                    resolve(blob);
+                  }, 'image/jpeg', q);
+                });
+              }
+
+              attempt(0.92).then(blob => {
+                const kb = (blob.size / 1024);
+                if (kb > p.maxKb) {
+                  const targetQ = Math.max(0.4, 0.90 * (p.maxKb / kb));
+                  return attempt(targetQ);
+                }
+                return blob;
+              }).then(blob => {
+                const finalKb = (blob.size / 1024).toFixed(1);
+                const url = URL.createObjectURL(blob);
+
+                if (previewImg) previewImg.src = url;
+                if (downloadBtn) {
+                  downloadBtn.href = url;
+                  downloadBtn.download = p.filename;
+                }
+                const detailsEl = document.getElementById('sbi-result-details');
+                if (detailsEl) {
+                  detailsEl.textContent = p.width + ' × ' + p.height + ' px • ' + finalKb + ' KB (CRPD Compliant)';
+                }
+                const nameBadge = document.getElementById('sbi-result-name');
+                if (nameBadge) {
+                  nameBadge.textContent = p.filename;
+                }
+                if (resultArea) resultArea.classList.remove('hidden');
+              });
+            }
+
+            if (resetBtn) {
+              resetBtn.addEventListener('click', () => {
+                loadedImage = null;
+                if (fileInput) fileInput.value = '';
+                if (resultArea) resultArea.classList.add('hidden');
+              });
+            }
+          })();
+        </script>
       </section>
 
       <!-- Section 5: Prelims & Mains Pattern (No Sectional Cutoffs & 10:1 Ratio) -->
