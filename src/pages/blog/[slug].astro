@@ -437,6 +437,37 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           {post.excerpt}
         </p>
 
+        <!-- Compact Action Strip (Instant Above-the-fold Tool Discovery) -->
+        {post.quickTools && post.quickTools.length > 0 && (
+          <div class="my-3 p-3 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/5 to-card border-2 border-primary/30 shadow-xs space-y-2">
+            <div class="flex items-center justify-between px-1">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-primary flex items-center gap-1.5">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <span>⚡ Instant 1-Click Tool Launchpad</span>
+              </span>
+              <span class="text-[10px] text-muted-foreground font-mono hidden sm:inline">100% Free • No Sign-up • Zero Server Upload</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {post.quickTools.map(t => (
+                <a
+                  href={t.href}
+                  class="flex items-center gap-2 px-3 py-2 sm:py-2.5 rounded-xl bg-card border border-border hover:border-primary hover:bg-primary/5 transition font-semibold text-xs text-foreground shadow-2xs group"
+                >
+                  <span class="text-lg group-hover:scale-110 transition shrink-0">{t.icon || '⚡'}</span>
+                  <div class="min-w-0 flex-1 leading-tight">
+                    <div class="font-bold truncate text-foreground group-hover:text-primary transition">{t.label}</div>
+                    {t.sublabel && <div class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono truncate">{t.sublabel}</div>}
+                  </div>
+                  <span class="text-primary text-xs opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition hidden md:inline shrink-0">&rarr;</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
         <!-- Author / Editorial Badge & Social Share Bar -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-border/60">
           <div class="flex items-center gap-3 min-w-0">
@@ -487,7 +518,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
       )}
 
       <!-- Above-the-fold Quick Tool Conversion Card -->
-      {(post.guideTool || relatedPreset) && (
+      {(!post.quickTools && (post.guideTool || relatedPreset)) && (
         <section class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-primary/5 p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div class="space-y-1 min-w-0 flex-1">
             <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">

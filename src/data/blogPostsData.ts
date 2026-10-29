@@ -43,6 +43,7 @@ export interface BlogPost {
   tags: string[];
   featured?: boolean;
   relatedExamPreset?: string;
+  quickTools?: QuickToolLink[];
   guideTool?: { href: string; label: string; buttonText?: string };
   quickFacts?: QuickFact[];
   quickFacts_hi?: QuickFact[];
@@ -13935,10 +13936,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "sbi-clerk-2026-top-10-faq-junior-associates",
-    "title": "SBI Clerk 2026: Top 10 FAQs on Eligibility, State Selection, LPT & No-Sectional Cutoff Rules",
-    "metaTitle": "SBI Clerk Photo & Signature Resizer 2026: 140x60 Format [PDF]",
+    "title": "SBI Clerk 2026: Upload Specs, Photo & Signature Resizer, LPT Rules & 13 Crucial FAQs",
+    "metaTitle": "SBI Clerk 2026 Upload Specs & Resizer: Photo, 140x60 Sign, LTI & FAQs",
     "metaDescription": "Official SBI Clerk 2026 upload rules: 20–50 KB photo (200×230), 10–20 KB signature, thumb & exact declaration text. Download free printable PDF template.",
-    "excerpt": "Everything candidates ask about SBI Junior Associates: single-state application rule, Local Language Test (LPT) state mapping, the unique no-sectional-cutoffs policy, official 4-in-1 document upload specifications, and printable declaration template.",
+    "excerpt": "Official SBI Clerk (Junior Associates) candidate handbook: 2026 upload specs (photo, 140×60 sign, thumb & declaration), LPT state mapping, no-sectional cutoff scoring rules, and 13 crucial FAQs answered.",
     "category": "Career Opportunity",
     "publishDate": "Sept 20, 2026",
     "publishTime": "09:00 AM IST",
@@ -13959,6 +13960,32 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       "No Sectional Cutoff",
       "State Vacancy Rules",
       "Bank Jobs"
+    ],
+    "quickTools": [
+      {
+        "label": "Fix Sign (140×60)",
+        "sublabel": "10–20 KB Black Ink",
+        "href": "/sbi-clerk-signature-resize/",
+        "icon": "✍️"
+      },
+      {
+        "label": "Photo (200×230)",
+        "sublabel": "20–50 KB Color",
+        "href": "/sbi-clerk-photo-resize/",
+        "icon": "📸"
+      },
+      {
+        "label": "Thumb (240×240)",
+        "sublabel": "20–50 KB LTI",
+        "href": "/ibps-thumb-impression-resize/",
+        "icon": "👍"
+      },
+      {
+        "label": "Declaration",
+        "sublabel": "50–100 KB (800×400)",
+        "href": "/ibps-handwritten-declaration-resize/",
+        "icon": "📝"
+      }
     ],
     "relatedExamPreset": "sbi-clerk",
     "guideTool": {
@@ -14063,55 +14090,6 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       }
     ],
     "contentHtml": `
-      <!-- Above-the-fold Hero Action Grid: 1-Click Launchers -->
-      <div class="my-4 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-primary/5 border-2 border-primary/30 shadow-xs space-y-3">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-            <span>⚡</span>
-            <span>SBI Clerk 4-in-1 Quick Resizer Launchpad</span>
-          </div>
-          <span class="text-[11px] font-mono text-muted-foreground">Pre-calibrated to 2026 CRPD Portal Standards</span>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-          <a
-            href="/sbi-clerk-photo-resize/"
-            class="p-3 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs hover:shadow-xs flex flex-col items-center justify-between min-h-[90px]"
-          >
-            <span class="text-xl block mb-1 group-hover:scale-110 transition">📸</span>
-            <span class="text-xs font-bold text-foreground">Photo Resizer</span>
-            <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">20–50 KB (200&times;230)</span>
-            <span class="text-[11px] text-primary font-bold mt-1 group-hover:underline">Resize Photo &rarr;</span>
-          </a>
-          <a
-            href="/sbi-clerk-signature-resize/"
-            class="p-3 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs hover:shadow-xs flex flex-col items-center justify-between min-h-[90px]"
-          >
-            <span class="text-xl block mb-1 group-hover:scale-110 transition">✍️</span>
-            <span class="text-xs font-bold text-foreground">Sign (140&times;60)</span>
-            <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">10–20 KB (Black Ink)</span>
-            <span class="text-[11px] text-primary font-bold mt-1 group-hover:underline">Resize Sign &rarr;</span>
-          </a>
-          <a
-            href="/ibps-thumb-impression-resize/"
-            class="p-3 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs hover:shadow-xs flex flex-col items-center justify-between min-h-[90px]"
-          >
-            <span class="text-xl block mb-1 group-hover:scale-110 transition">👍</span>
-            <span class="text-xs font-bold text-foreground">Thumb (LTI)</span>
-            <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">20–50 KB (240&times;240)</span>
-            <span class="text-[11px] text-primary font-bold mt-1 group-hover:underline">Resize Thumb &rarr;</span>
-          </a>
-          <a
-            href="/ibps-handwritten-declaration-resize/"
-            class="p-3 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs hover:shadow-xs flex flex-col items-center justify-between min-h-[90px]"
-          >
-            <span class="text-xl block mb-1 group-hover:scale-110 transition">📝</span>
-            <span class="text-xs font-bold text-foreground">Declaration</span>
-            <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">50–100 KB (800&times;400)</span>
-            <span class="text-[11px] text-primary font-bold mt-1 group-hover:underline">Resize Text &rarr;</span>
-          </a>
-        </div>
-      </div>
-
       <!-- Direct Executive Summary Box -->
       <div class="my-6 p-4 rounded-xl bg-primary/5 border border-primary/20 text-xs sm:text-sm text-foreground/90 leading-relaxed">
         <strong>⚡ Direct Summary:</strong> Applying for <strong>SBI Clerk (Junior Associates) 2026</strong> on <code>sbi.co.in/careers</code> requires <strong>four mandatory digital uploads</strong>: Passport Photo (<strong>200 &times; 230 px, 20–50 KB</strong>), Candidate Signature (<strong>140 &times; 60 px, 10–20 KB in black ink</strong>), Left Thumb Impression (<strong>240 &times; 240 px, 20–50 KB</strong>), and Handwritten Declaration (<strong>800 &times; 400 px, 50–100 KB in candidate's own hand</strong>). SBI features <strong>NO sectional cut-offs</strong> in Prelims or Mains, but shortlists approximately <strong>10 times vacancies (10:1 ratio)</strong> for Mains. Junior Associates belong to a circle-specific cadre where <strong>inter-circle transfers are not permitted in clerical cadre</strong>. Download the official printable PDF handbook, examine the visual Do/Don't guide, and review state-wise LPT language mappings below.
@@ -14360,36 +14338,61 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         </div>
       </section>
 
-      <!-- Section 4: 4-in-1 Direct Resizing Toolkit -->
+      <!-- Section 4: 4-in-1 Client-Side Resizing Matrix -->
       <section id="resizing-toolkit" class="space-y-4 mt-8">
         <h2>4. Batch Resize All 4 SBI Clerk Documents (Client-Side &amp; 100% Free)</h2>
-        <p>Prepare and compress all four mandatory files in under 60 seconds with SignResize. All image processing occurs 100% locally on your device — your biometric files and personal documents are never transmitted to external servers.</p>
+        <p>Prepare and compress all four mandatory files in under 60 seconds with SignResize. All image processing occurs 100% locally in your browser sandbox — your biometric photos, signature, and thumb impression are never transmitted to or stored on external servers.</p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 my-4">
-          <a href="/sbi-clerk-photo-resize/" class="p-4 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs">
-            <span class="text-2xl block mb-1 group-hover:scale-110 transition">📸</span>
-            <span class="text-sm font-bold block text-foreground">Passport Photo</span>
-            <span class="text-xs text-muted-foreground font-mono">20–50 KB (200&times;230)</span>
-            <span class="mt-2 inline-flex items-center text-xs text-primary font-semibold group-hover:underline">Resize Photo (20–50 KB) &rarr;</span>
-          </a>
-          <a href="/sbi-clerk-signature-resize/" class="p-4 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs">
-            <span class="text-2xl block mb-1 group-hover:scale-110 transition">✍️</span>
-            <span class="text-sm font-bold block text-foreground">SBI Clerk Signature</span>
-            <span class="text-xs text-muted-foreground font-mono">10–20 KB (140&times;60)</span>
-            <span class="mt-2 inline-flex items-center text-xs text-primary font-semibold group-hover:underline">Format Sign (140&times;60) &rarr;</span>
-          </a>
-          <a href="/ibps-thumb-impression-resize/" class="p-4 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs">
-            <span class="text-2xl block mb-1 group-hover:scale-110 transition">👍</span>
-            <span class="text-sm font-bold block text-foreground">Left Thumb Impression</span>
-            <span class="text-xs text-muted-foreground font-mono">20–50 KB (240&times;240)</span>
-            <span class="mt-2 inline-flex items-center text-xs text-primary font-semibold group-hover:underline">Format Thumb (240&times;240) &rarr;</span>
-          </a>
-          <a href="/ibps-handwritten-declaration-resize/" class="p-4 rounded-xl bg-card border border-border hover:border-primary/50 text-center transition group shadow-xs">
-            <span class="text-2xl block mb-1 group-hover:scale-110 transition">📝</span>
-            <span class="text-sm font-bold block text-foreground">Handwritten Declaration</span>
-            <span class="text-xs text-muted-foreground font-mono">50–100 KB (800&times;400)</span>
-            <span class="mt-2 inline-flex items-center text-xs text-primary font-semibold group-hover:underline">Format Declaration &rarr;</span>
-          </a>
+        <div class="my-4 p-5 rounded-2xl bg-gradient-to-br from-card via-primary/5 to-card border-2 border-primary/20 space-y-4 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-3">
+            <div class="flex items-center gap-2 font-bold text-sm text-foreground">
+              <span>⚡</span>
+              <span>SBI Clerk 4-in-1 Calibration Matrix</span>
+            </div>
+            <span class="text-xs text-muted-foreground font-mono">Zero Server Upload • Instant Download</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <a href="/sbi-clerk-photo-resize/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs flex flex-col justify-between">
+              <div>
+                <span class="text-2xl block mb-1 group-hover:scale-110 transition">📸</span>
+                <span class="text-xs font-bold block text-foreground">Passport Photograph</span>
+                <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">20–50 KB • 200&times;230</span>
+                <p class="text-[10px] text-muted-foreground mt-1">Light background, 3.5&times;4.5 cm, within 3 months</p>
+              </div>
+              <span class="mt-3 inline-flex items-center justify-center text-xs text-primary font-bold group-hover:underline">Resize Photo &rarr;</span>
+            </a>
+
+            <a href="/sbi-clerk-signature-resize/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs flex flex-col justify-between">
+              <div>
+                <span class="text-2xl block mb-1 group-hover:scale-110 transition">✍️</span>
+                <span class="text-xs font-bold block text-foreground">Candidate Signature</span>
+                <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">10–20 KB • 140&times;60</span>
+                <p class="text-[10px] text-muted-foreground mt-1">Black ballpoint ink only, running cursive</p>
+              </div>
+              <span class="mt-3 inline-flex items-center justify-center text-xs text-primary font-bold group-hover:underline">Format Sign &rarr;</span>
+            </a>
+
+            <a href="/ibps-thumb-impression-resize/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs flex flex-col justify-between">
+              <div>
+                <span class="text-2xl block mb-1 group-hover:scale-110 transition">👍</span>
+                <span class="text-xs font-bold block text-foreground">Left Thumb (LTI)</span>
+                <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">20–50 KB • 240&times;240</span>
+                <p class="text-[10px] text-muted-foreground mt-1">Blue/black ink stamp, 3&times;3 cm clear ridges</p>
+              </div>
+              <span class="mt-3 inline-flex items-center justify-center text-xs text-primary font-bold group-hover:underline">Format Thumb &rarr;</span>
+            </a>
+
+            <a href="/ibps-handwritten-declaration-resize/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary text-center transition group shadow-2xs flex flex-col justify-between">
+              <div>
+                <span class="text-2xl block mb-1 group-hover:scale-110 transition">📝</span>
+                <span class="text-xs font-bold block text-foreground">Declaration Text</span>
+                <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">50–100 KB • 800&times;400</span>
+                <p class="text-[10px] text-muted-foreground mt-1">Candidate's own handwriting with DOB clause</p>
+              </div>
+              <span class="mt-3 inline-flex items-center justify-center text-xs text-primary font-bold group-hover:underline">Format Declaration &rarr;</span>
+            </a>
+          </div>
         </div>
       </section>
 
