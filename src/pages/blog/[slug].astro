@@ -297,6 +297,12 @@ function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: 
   // 5. Highlight syntax ==...==
   html = html.replace(/==(.*?)==/g, '<mark class="bg-amber-200/90 dark:bg-amber-900/60 text-amber-950 dark:text-amber-100 font-bold px-1.5 py-0.5 rounded border border-amber-400/40 dark:border-amber-600/40 selection:bg-amber-300 dark:selection:bg-amber-800">$1</mark>');
 
+  // 6. Ensure all specification tables are wrapped in an accessible, touch-friendly horizontal scroll container
+  html = html.replace(/(<div[^>]*class="[^"]*(?:overflow-x-auto|table-scroll-hint-wrapper)[^"]*"[^>]*>[\s\S]*?<\/table>\s*<\/div>)|(<table[\s\S]*?<\/table>)/gi, (match, wrapped, unwrapped) => {
+    if (wrapped) return wrapped;
+    return `<div class="overflow-x-auto my-4 rounded-xl border border-border shadow-2xs">${unwrapped}</div>`;
+  });
+
   return { processedHtml: html, navItems };
 }
 
@@ -1042,9 +1048,19 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         font-size: 0.8125rem !important;
         word-break: normal;
       }
-      :global(.article-prose .overflow-x-auto) {
-        -webkit-overflow-scrolling: touch;
+      :global(.article-prose .overflow-x-auto),
+      :global(.article-prose .table-scroll-hint-wrapper) {
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior-x: contain !important;
+        overscroll-behavior-y: auto !important;
+        touch-action: pan-x pan-y !important;
         scrollbar-width: thin;
+      }
+      :global(.article-prose table) {
+        touch-action: pan-x pan-y !important;
+      }
+      :global(.article-prose table *) {
+        touch-action: pan-x pan-y !important;
       }
       /* Subtle edge shadow/fade hint for mobile scrollable tables */
       @media (max-width: 640px) {
