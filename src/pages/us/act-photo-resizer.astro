@@ -1,0 +1,234 @@
+---
+// src/pages/us/act-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
+
+const pageTitle = "ACT Photo Resizer (ACT Student Portal Ticket 600x600 px) - SignResize";
+const pageDescription = "Free online ACT candidate photo resizer. Crop and resize student portraits to 600x600 pixels, square 1:1 aspect ratio, and under 5 MB in compliant JPEG or PNG format for your ACT test ticket.";
+const canonicalUrl = "https://signresize.in/us/act-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "act photo resizer, act student portal photo requirements, act test ticket photo upload size, act id photo format, act candidate photo rejected, crop photo for act registration";
+
+const actFaqs = [
+  {
+    q: "What are the official photo requirements for the ACT exam?",
+    a: "ACT requires an applicant headshot that is a square 1:1 aspect ratio, minimum 600×600 pixels, file size between 5 KB and 5 MB, in JPG or PNG format. Your face must be clearly visible, facing forward with eyes open, in front of a plain background."
+  },
+  {
+    q: "What is the deadline to upload my ACT test ticket photo?",
+    a: "Your photo must be submitted by the photo upload deadline for your registered test date (typically about one week prior to the test). If you miss this deadline, your registration will be cancelled and you will not be admitted to the test center."
+  },
+  {
+    q: "Can I use a casual selfie or school yearbook picture for the ACT?",
+    a: "Yes, provided the picture meets ACT standards: you must be the only person in the frame, facing the camera directly, without hats, dark sunglasses, or filters, against an uncluttered, plain background."
+  },
+  {
+    q: "Does SignResize store student pictures?",
+    a: "No. SignResize executes all image modifications locally inside your browser using HTML5 Canvas APIs. Zero student photos or data are ever saved on external servers."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#0d9488" />
+
+    <!-- Schema.org SoftwareApplication & HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "ACT Student Portal Ticket Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "1:1 Square 600x600 px photo crop for ACT test ticket",
+        "Auto-clamp file size between 5 KB and 5 MB",
+        "Biometric head and shoulder alignment guide",
+        "1-click plain background whitener tool",
+        "100% private in-browser canvas execution"
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Prepare Your ACT Test Ticket Photo",
+      "description": "Step-by-step instructions for uploading a valid candidate photo for the ACT registration portal.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Take a centered portrait",
+          "text": "Stand in front of a white or light-colored wall with even lighting and eyes looking at the lens."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload to SignResize ACT Resizer",
+          "text": "Select your photo. The tool sets the 600×600 px square canvas and checks file size limits."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Center head and shoulders",
+          "text": "Position your face inside the candidate guide oval."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download and submit to myACT",
+          "text": "Download the verified JPEG file and upload it to your myACT account before the deadline."
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <a href="/us/exams/" class="hover:text-primary transition">US Exams</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">ACT Photo Resizer</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20">
+              <span>📝 ACT National College Admissions Testing</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              ACT Candidate <span class="text-primary">Photo Resizer (600×600 px)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Format, crop, and compress your student portrait for your official ACT admission ticket on myACT.org. Meets all test day identity standards with 1:1 square ratio, under 5 MB, and clear facial visibility.
+            </p>
+          </div>
+
+          <!-- Quick Switch US Tools Dropdown -->
+          <USToolSwitcher currentTool="act" />
+        </div>
+      </section>
+
+      <!-- Background Guidance Notice -->
+      <div class="p-4 sm:p-5 rounded-2xl border-2 border-teal-500/30 bg-teal-500/5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 dark:text-teal-400">
+            <span>📷</span>
+            <span>ACT Ticket Rule: Plain Background with Full Face Visibility</span>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Ensure your photo does not include other people, shadows, or filters. Use the <strong>Make Background Pure White</strong> button in the editor below to instantly remove background clutter.
+          </p>
+        </div>
+        <a
+          href="/photo-background-remover/"
+          class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-teal-500/40 text-teal-700 dark:text-teal-300 hover:bg-teal-500/10 transition shadow-2xs"
+        >
+          <span>White BG Remover →</span>
+        </a>
+      </div>
+
+      <!-- Studio Workspace preloaded with us-act-photo -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="us-act-photo" />
+      </section>
+
+      <!-- Official ACT Specifications Summary Table -->
+      <section class="space-y-4">
+        <div class="border-b border-border/80 pb-2">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📋</span>
+            <span>Official ACT Candidate Ticket Photo Requirements</span>
+          </h2>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-border shadow-2xs">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-muted/60 text-foreground font-semibold border-b border-border">
+              <tr>
+                <th class="px-4 py-3">Parameter</th>
+                <th class="px-4 py-3">Official ACT Requirement</th>
+                <th class="px-4 py-3">SignResize Auto-Enforcement</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Dimensions</td>
+                <td class="px-4 py-3 font-mono">1:1 Square (600 × 600 px)</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Pre-configured 600×600 px canvas</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">File Size Bounds</td>
+                <td class="px-4 py-3 font-mono">Minimum 5 KB to Maximum 5 MB</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Ensures file is within bounds</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Framing</td>
+                <td class="px-4 py-3 font-mono">Centered headshot, eyes visible</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Face centering guide oval overlay</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">File Format</td>
+                <td class="px-4 py-3 font-mono">JPG, JPEG, or PNG</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Exports in compliant JPEG format</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <FaqSection items={actFaqs} title="ACT Candidate Photo FAQ" />
+    </main>
+
+    <Footer />
+  </body>
+</html>

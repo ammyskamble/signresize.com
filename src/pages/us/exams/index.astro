@@ -1,0 +1,370 @@
+---
+// src/pages/us/exams/index.astro
+import '../../../styles/global.css';
+import Header from '../../../components/Header.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import Footer from '../../../components/Footer.astro';
+import GoogleAnalytics from '../../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../../components/GoogleFonts.astro';
+import ThemeScript from '../../../components/ThemeScript.astro';
+
+const pageTitle = "US Exams Photo & Document Resizer Hub (SAT, ACT, LSAT, USMLE, Bar) - SignResize";
+const pageDescription = "Directory of official photo and document specifications for US standardized tests and licensing boards. Pre-configured resizers for College Board SAT/AP, ACT, LSAT, USMLE/ECFMG, and State Bar exams.";
+const canonicalUrl = "https://signresize.in/us/exams/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "us exam photo requirements, college board sat photo resizer, lsat photo requirements, ecfmg form 186 photo size, act ticket photo size, us standardized test photo resizer";
+
+const examsFaqs = [
+  {
+    q: "Why do US testing boards enforce strict photo upload requirements?",
+    a: "Standardized testing authorities (College Board, LSAC, ACT, FSMB) enforce biometric identification security to prevent test fraud, proxy test-takers, and identity theft. Uploaded candidate photos are cross-referenced with your government photo ID and displayed on test tickets and proctor check-in monitors."
+  },
+  {
+    q: "What is the universal dimension for US standardized test photos?",
+    a: "Nearly all major US examination authorities require a 1:1 square aspect ratio measuring at least 600×600 pixels (or 2×2 inches at 300 DPI) in JPEG or PNG format. Your head and shoulders must be centered facing forward against a plain light background."
+  },
+  {
+    q: "What is the difference between US visa/passport photos and exam photos?",
+    a: "While passport and DS-160 visa photos enforce strict 240 KB limits and biometric 50–69% head height ovals, academic exam portals vary in file size caps (e.g. ECFMG strictly allows only 150 KB, while College Board and LSAC allow up to 4–5 MB). SignResize automatically loads the exact parameters for each exam."
+  },
+  {
+    q: "Are my student identification photos saved on any cloud database?",
+    a: "No. SignResize processes 100% of image rendering, cropping, and compression inside your browser using HTML5 Canvas APIs. Zero biometric data, student photos, or documents are ever uploaded to external servers."
+  }
+];
+
+const examCategories = [
+  {
+    title: "College & Undergraduate Admissions",
+    icon: "🎓",
+    description: "Standardized testing and application portals for US college undergraduate entrance.",
+    exams: [
+      {
+        name: "College Board Digital SAT & AP",
+        authority: "The College Board",
+        specs: "600×600 px (1:1) | < 4 MB JPG/PNG",
+        href: "/us/sat-photo-resizer/",
+        badge: "Digital SAT Ticket",
+        color: "indigo"
+      },
+      {
+        name: "ACT Student Portal Ticket",
+        authority: "ACT, Inc.",
+        specs: "600×600 px (1:1) | 5 KB – 5 MB JPG",
+        href: "/us/act-photo-resizer/",
+        badge: "ACT Admission Ticket",
+        color: "teal"
+      },
+      {
+        name: "Common App Student Upload",
+        authority: "The Common Application",
+        specs: "600×600 px | < 200 KB – 500 KB",
+        href: "/us/common-app-photo-resizer/",
+        badge: "College Profiles",
+        color: "sky"
+      }
+    ]
+  },
+  {
+    title: "Law & Graduate School Admissions",
+    icon: "⚖️",
+    description: "Admissions and licensing testing for US law schools and post-graduate programs.",
+    exams: [
+      {
+        name: "LSAC / LSAT Candidate Photo",
+        authority: "Law School Admission Council (LSAC)",
+        specs: "600×600 px (1:1) | < 5 MB JPG",
+        href: "/us/lsat-photo-resizer/",
+        badge: "Prometric / ProctorU",
+        color: "amber"
+      }
+    ]
+  },
+  {
+    title: "Medical & Healthcare Licensing",
+    icon: "🩺",
+    description: "Biometric and notarization uploads for US medical licensure and international graduates.",
+    exams: [
+      {
+        name: "USMLE & ECFMG Form 186",
+        authority: "FSMB / ECFMG / Intealth",
+        specs: "600×600 px (2×2 in) | Strictly < 150 KB",
+        href: "/us/usmle-photo-resizer/",
+        badge: "NotaryCam Verified",
+        color: "rose"
+      }
+    ]
+  },
+  {
+    title: "Federal Employment & Immigration Workflows",
+    icon: "🏛️",
+    description: "Mandatory document compression and biometric compliance for federal agencies.",
+    exams: [
+      {
+        name: "USAJOBS Federal Application",
+        authority: "U.S. Office of Personnel Management (OPM)",
+        specs: "US Letter (8.5×11 in) | Strictly < 5 MB",
+        href: "/us/usajobs-document-resizer/",
+        badge: "Resume & SF-50",
+        color: "blue"
+      },
+      {
+        name: "USCIS OPT & STEM OPT (I-765)",
+        authority: "USCIS / Department of Homeland Security",
+        specs: "600×600 px (2×2 in) | < 240 KB JPG",
+        href: "/us/opt-stem-opt-photo-resizer/",
+        badge: "F-1 Work EAD",
+        color: "amber"
+      }
+    ]
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org WebPage & ItemList JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "US Standardized & Licensing Exams Photo Directory",
+      "url": canonicalUrl,
+      "description": pageDescription,
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "College Board SAT & AP Photo Resizer",
+            "url": "https://signresize.in/us/sat-photo-resizer/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ACT Student Portal Ticket Photo Resizer",
+            "url": "https://signresize.in/us/act-photo-resizer/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "LSAC / LSAT Candidate Photo Resizer",
+            "url": "https://signresize.in/us/lsat-photo-resizer/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "USMLE & ECFMG Form 186 Photo Resizer",
+            "url": "https://signresize.in/us/usmle-photo-resizer/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "USAJOBS Federal Resume & Document Compressor",
+            "url": "https://signresize.in/us/usajobs-document-resizer/"
+          }
+        ]
+      }
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">US Exams Hub</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+              <span>🇺🇸 Official United States Testing Standards</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              US Standardized Exams &amp; <span class="text-primary">Licensing Photo Directory</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed">
+              Official candidate photograph and document formatting specifications for US standardized admissions exams, medical certifications, law school admissions, and federal hiring. Select your exam below for instant auto-configured cropping.
+            </p>
+          </div>
+          <div class="shrink-0 flex items-center gap-2">
+            <a
+              href="/us/"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground text-xs font-bold transition border border-border"
+            >
+              <span>← Back to US Hub</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categorized Exams Directory Grid -->
+      <section class="space-y-8">
+        {examCategories.map((cat) => (
+          <div class="space-y-4">
+            <div class="flex items-center gap-2.5 pb-2 border-b border-border">
+              <span class="text-2xl">{cat.icon}</span>
+              <div>
+                <h2 class="text-lg sm:text-xl font-bold text-foreground">{cat.title}</h2>
+                <p class="text-xs text-muted-foreground">{cat.description}</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {cat.exams.map((exam) => (
+                <a
+                  href={exam.href}
+                  class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+                >
+                  <div class="space-y-1.5">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                        {exam.badge}
+                      </span>
+                      <span class="text-xs text-muted-foreground opacity-60 group-hover:opacity-100 transition">
+                        Open Tool →
+                      </span>
+                    </div>
+                    <h3 class="text-base font-bold text-foreground group-hover:text-primary transition">
+                      {exam.name}
+                    </h3>
+                    <p class="text-xs text-muted-foreground">
+                      {exam.authority}
+                    </p>
+                  </div>
+
+                  <div class="pt-2 border-t border-border/60 flex items-center justify-between text-[11px] font-mono text-muted-foreground">
+                    <span class="truncate">{exam.specs}</span>
+                    <span class="text-emerald-600 dark:text-emerald-400 font-bold">100% Free</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <!-- Consolidated Specifications Matrix -->
+      <section class="space-y-4">
+        <div class="border-b border-border pb-2">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📊</span>
+            <span>Comprehensive US Exam Photo Specifications Matrix</span>
+          </h2>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-border shadow-2xs">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-muted/60 text-foreground font-semibold border-b border-border">
+              <tr>
+                <th class="px-4 py-3">Exam / Testing Body</th>
+                <th class="px-4 py-3">Aspect Ratio &amp; Dimensions</th>
+                <th class="px-4 py-3">File Size Cap</th>
+                <th class="px-4 py-3">Key Requirement</th>
+                <th class="px-4 py-3 text-right">Direct Tool</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">College Board Digital SAT &amp; AP</td>
+                <td class="px-4 py-3 font-mono">1:1 Square (600×600 px)</td>
+                <td class="px-4 py-3 font-mono">&lt; 4 MB</td>
+                <td class="px-4 py-3 text-muted-foreground">Bluebook test ticket ID match</td>
+                <td class="px-4 py-3 text-right">
+                  <a href="/us/sat-photo-resizer/" class="font-bold text-primary hover:underline">Resize SAT →</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">ACT Student Portal Ticket</td>
+                <td class="px-4 py-3 font-mono">1:1 Square (600×600 px)</td>
+                <td class="px-4 py-3 font-mono">5 KB to 5 MB</td>
+                <td class="px-4 py-3 text-muted-foreground">National testing admission ticket</td>
+                <td class="px-4 py-3 text-right">
+                  <a href="/us/act-photo-resizer/" class="font-bold text-primary hover:underline">Resize ACT →</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">LSAC / LSAT Law Admissions</td>
+                <td class="px-4 py-3 font-mono">1:1 Square (600×600 px)</td>
+                <td class="px-4 py-3 font-mono">&lt; 5 MB</td>
+                <td class="px-4 py-3 text-muted-foreground">Prometric / ProctorU proctor check</td>
+                <td class="px-4 py-3 text-right">
+                  <a href="/us/lsat-photo-resizer/" class="font-bold text-primary hover:underline">Resize LSAT →</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">USMLE &amp; ECFMG Form 186</td>
+                <td class="px-4 py-3 font-mono">2×2 in (600×600 px @ 300 DPI)</td>
+                <td class="px-4 py-3 font-mono text-rose-600 dark:text-rose-400 font-bold">Strictly &le; 150 KB</td>
+                <td class="px-4 py-3 text-muted-foreground">NotaryCam online notarization</td>
+                <td class="px-4 py-3 text-right">
+                  <a href="/us/usmle-photo-resizer/" class="font-bold text-primary hover:underline">Resize ECFMG →</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">USAJOBS Federal Application</td>
+                <td class="px-4 py-3 font-mono">US Letter (8.5×11 in)</td>
+                <td class="px-4 py-3 font-mono text-blue-600 dark:text-blue-400 font-bold">Strictly &lt; 5 MB</td>
+                <td class="px-4 py-3 text-muted-foreground">Resume, SF-50, DD-214, Transcript</td>
+                <td class="px-4 py-3 text-right">
+                  <a href="/us/usajobs-document-resizer/" class="font-bold text-primary hover:underline">Compress Docs →</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <FaqSection items={examsFaqs} title="US Standardized Exams FAQ" />
+    </main>
+
+    <Footer />
+  </body>
+</html>
+

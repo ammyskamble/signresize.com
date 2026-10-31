@@ -1,0 +1,238 @@
+---
+// src/pages/us/sat-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
+
+const pageTitle = "College Board SAT & AP Photo Resizer (Digital SAT Ticket 600x600 px) - SignResize";
+const pageDescription = "Free online College Board candidate photo resizer for Digital SAT and AP Exam admission tickets. Crop and resize student photos to 600x600 pixels, square aspect ratio, and under 4 MB in compliant JPEG format.";
+const canonicalUrl = "https://signresize.in/us/sat-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "college board sat photo resizer, digital sat candidate photo requirements, sat test ticket photo size, resize photo for sat registration, college board ap photo resizer, sat photo rejected bluebook";
+
+const satFaqs = [
+  {
+    q: "What are the College Board photo requirements for the Digital SAT?",
+    a: "Your candidate photo must be a square aspect ratio (1:1), measuring at least 285×360 pixels up to 600×600 pixels or higher, under 4 MB in file size, and saved in JPEG or PNG format. Your face and shoulders must be clearly visible, facing forward with eyes open, in front of a plain light background."
+  },
+  {
+    q: "What happens if my SAT registration photo is rejected?",
+    a: "If your candidate photo does not meet College Board requirements, your registration will be flagged, your admission ticket will not be generated in the Bluebook app, and test center staff will deny you entry on test day."
+  },
+  {
+    q: "Can I take my SAT test ticket photo with a smartphone?",
+    a: "Yes. You can take a clear selfie or portrait using your phone camera. Stand in front of a plain light wall in bright, even lighting. Use SignResize to crop it into a perfect 1:1 square and adjust lighting or background in seconds."
+  },
+  {
+    q: "Are filters, sunglasses, or social media photos allowed?",
+    a: "No. The College Board strictly forbids filters, dramatic angles, hats (unless worn for religious or medical reasons), sunglasses, or photos where other people or distracting objects are visible."
+  },
+  {
+    q: "Does SignResize save or store high school student photos?",
+    a: "No. SignResize processes 100% of images locally inside your browser via HTML5 Canvas. We never transmit, store, or view student photos, ensuring full compliance with student privacy best practices."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4338ca" />
+
+    <!-- Schema.org SoftwareApplication & HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "College Board SAT & AP Candidate Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "1:1 Square crop for Digital SAT admission ticket",
+        "Compatible with College Board student registration portal",
+        "Automatic compression under 4 MB (JPEG / PNG)",
+        "Biometric head and shoulder alignment guide",
+        "1-click background whitener tool"
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Format Your Photo for the Digital SAT Test Ticket",
+      "description": "Step-by-step instructions for uploading a valid candidate photo to the College Board SAT registration portal.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Take a forward-facing portrait",
+          "text": "Stand in front of a white or light-colored background with neutral lighting and eyes open looking directly at the camera."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload to SignResize SAT Resizer",
+          "text": "Select your photo. The tool automatically sets the compliant 600×600 px square crop and under 4 MB file limit."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Center head and shoulders",
+          "text": "Use the pan and zoom controls to position your head within the candidate oval guide."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download and submit to College Board",
+          "text": "Download the processed JPEG image and upload it to your College Board SAT registration account."
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <a href="/us/exams/" class="hover:text-primary transition">US Exams</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">SAT &amp; AP Photo Resizer</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+              <span>✏️ College Board Standardized Testing (Digital SAT &amp; AP)</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              College Board SAT &amp; AP <span class="text-primary">Photo Resizer (600×600 px)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Format, crop, and compress your candidate photo for the Digital SAT and Advanced Placement (AP) admission ticket. Auto-configured for 600×600 px 1:1 square ratio, under 4 MB, and compliant lighting.
+            </p>
+          </div>
+
+          <!-- Quick Switch US Tools Dropdown -->
+          <USToolSwitcher currentTool="sat" />
+        </div>
+      </section>
+
+      <!-- Background Guidance -->
+      <div class="p-4 sm:p-5 rounded-2xl border-2 border-indigo-500/30 bg-indigo-500/5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-700 dark:text-indigo-400">
+            <span>📷</span>
+            <span>College Board Candidate Rule: Plain Light Background &amp; Forward Facing</span>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Test center proctors compare your Bluebook admission ticket photo directly against your government or school photo ID. Use the built-in <strong>Make Background Pure White</strong> button in the workspace to eliminate wall shadows, bedroom posters, or cluttered backgrounds.
+          </p>
+        </div>
+        <a
+          href="/photo-background-remover/"
+          class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-indigo-500/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-500/10 transition shadow-2xs"
+        >
+          <span>Standalone BG Remover →</span>
+        </a>
+      </div>
+
+      <!-- Studio Workspace preloaded with us-sat-photo -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="us-sat-photo" />
+      </section>
+
+      <!-- Digital SAT Test Day Photo Rules Summary -->
+      <section class="space-y-4">
+        <div class="border-b border-border/80 pb-2">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📋</span>
+            <span>College Board Official Candidate Photo Requirements</span>
+          </h2>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-border shadow-2xs">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-muted/60 text-foreground font-semibold border-b border-border">
+              <tr>
+                <th class="px-4 py-3">Requirement</th>
+                <th class="px-4 py-3">Official College Board Rule</th>
+                <th class="px-4 py-3">SignResize Enforcement</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Aspect Ratio</td>
+                <td class="px-4 py-3 font-mono">1:1 Square (Min 285×360 px up to 600×600 px)</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Locked at 600×600 px square canvas</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">File Size Cap</td>
+                <td class="px-4 py-3 font-mono">Maximum 4.0 MB (4,000 KB)</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Auto-compressed strictly ≤ 4,000 KB</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Framing &amp; Posture</td>
+                <td class="px-4 py-3 font-mono">Centered head and shoulders, eyes directly forward</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Interactive biometric face guide overlay</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Background</td>
+                <td class="px-4 py-3 font-mono">Plain, light, uniform without shadows</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">1-click AI pure white (#FFFFFF) replacement</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <FaqSection items={satFaqs} title="College Board SAT Photo FAQ" />
+    </main>
+
+    <Footer />
+  </body>
+</html>

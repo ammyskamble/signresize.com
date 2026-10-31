@@ -34,9 +34,9 @@ export function WorkspacePresetPicker({ presets, selected, mode, width, height, 
     selected?.id?.startsWith('us-') ||
     (typeof window !== 'undefined' && window.location.pathname.startsWith('/us'));
 
-  // Scope available presets: when in US context, only surface US & International presets
+  // Scope available presets: when in US context, only surface US presets
   const scopedPresets = isUS
-    ? presets.filter(p => p.country === 'US' || p.category === 'International')
+    ? presets.filter(p => p.country === 'US' || p.id.startsWith('us-'))
     : presets;
 
   // Robust search splitting on spaces and hyphens
@@ -63,7 +63,11 @@ export function WorkspacePresetPicker({ presets, selected, mode, width, height, 
 
   // Popular quick chips for the active tool mode
   const quickPresetIds = isUS
-    ? ['us-ds160', 'us-passport', 'us-opt-ead', 'us-greencard', 'us-commonapp']
+    ? (mode === 'photo'
+        ? ['us-ds160', 'us-passport', 'us-opt-ead', 'us-sat-photo', 'us-usmle-ecfmg']
+        : mode === 'document'
+        ? ['us-usajobs']
+        : ['us-digital-signature', 'us-passport-signature'])
     : mode === 'photo'
     ? [
         'ssc-cgl-photo',

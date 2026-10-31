@@ -8,6 +8,7 @@ import Footer from '../../components/Footer.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
 
 const pageTitle = "USCIS OPT & STEM OPT Photo Resizer (Form I-765 600x600 px & Under 240KB) - SignResize";
 const pageDescription = "Free online USCIS OPT & STEM OPT Photo Resizer. Crop and compress your 2x2 inch digital photo to 600x600 pixels, under 240 KB, JPEG format for online Form I-765 filing. Avoid RFE delays.";
@@ -158,48 +159,7 @@ const optFaqs = [
           </div>
 
           <!-- Quick Switch US Tools Dropdown -->
-          <div class="relative group shrink-0">
-            <button
-              type="button"
-              class="inline-flex items-center justify-between gap-2 px-3.5 py-2 rounded-xl bg-card border border-border hover:border-primary/50 text-foreground text-xs font-bold shadow-2xs transition cursor-pointer"
-            >
-              <span>🇺🇸 Switch US Tool</span>
-              <svg class="w-4 h-4 text-muted-foreground transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-
-            <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute right-0 top-full mt-1.5 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border-2 border-slate-200 dark:border-slate-700 p-2 z-50 space-y-1">
-              <a href="/us/passport-photo-print-sheet/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
-                <span class="text-base p-1 rounded bg-emerald-500/10 text-emerald-600">🖨️</span>
-                <div>
-                  <div class="group-hover/item:text-primary">4×6 Passport Print Sheet</div>
-                  <div class="text-[10px] text-muted-foreground font-normal">Walgreens / CVS $0.35 Hack</div>
-                </div>
-              </a>
-              <a href="/us/passport-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
-                <span class="text-base p-1 rounded bg-blue-500/10 text-blue-600">🛂</span>
-                <div>
-                  <div class="group-hover/item:text-primary">US Passport Photo Resizer</div>
-                  <div class="text-[10px] text-muted-foreground font-normal">2×2 Inch | 600×600 px</div>
-                </div>
-              </a>
-              <a href="/us/ds-160-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
-                <span class="text-base p-1 rounded bg-indigo-500/10 text-indigo-600">📄</span>
-                <div>
-                  <div class="group-hover/item:text-primary">DS-160 Visa Photo Resizer</div>
-                  <div class="text-[10px] text-muted-foreground font-normal">State Dept CEAC Validator</div>
-                </div>
-              </a>
-              <a href="/us/green-card-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
-                <span class="text-base p-1 rounded bg-emerald-500/10 text-emerald-600">🗽</span>
-                <div>
-                  <div class="group-hover/item:text-primary">USCIS Green Card &amp; DV</div>
-                  <div class="text-[10px] text-muted-foreground font-normal">DV Lottery Validator</div>
-                </div>
-              </a>
-            </div>
-          </div>
+          <USToolSwitcher currentTool="opt" />
         </div>
       </section>
 

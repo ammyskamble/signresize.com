@@ -107,11 +107,11 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-0 top-full pt-1 z-50 pointer-events-none group-hover:pointer-events-auto"
           style="width: 350px; max-width: calc(100vw - 2rem);"
         >
-          <div class="bg-white dark:bg-slate-900 rounded-xl shadow-[0_16px_36px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_45px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-700 p-2.5 ring-1 ring-black/5 dark:ring-white/10 pointer-events-auto space-y-1.5 text-xs max-h-[360px] overflow-y-auto">
+          <div class="bg-white dark:bg-slate-900 rounded-xl shadow-[0_16px_36px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_45px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-700 p-2.5 ring-1 ring-black/5 dark:ring-white/10 pointer-events-auto space-y-1.5 text-xs max-h-[440px] overflow-y-auto">
             
             <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-primary px-1 pb-1 border-b border-slate-100 dark:border-slate-800">
               <span class="flex items-center gap-1">🌐 Country Portals</span>
-              <span class="font-mono text-[9px] text-muted-foreground font-semibold">9 Countries</span>
+              <span class="font-mono text-[9px] text-muted-foreground font-semibold">9 Countries • 33 Tools</span>
             </div>
 
             <!-- 1-Click Country Flag Jump Strip -->
@@ -134,7 +134,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
                 <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-indigo-500/10 rounded-lg">
                   <span class="flex items-center gap-1.5"><span>🇺🇸</span><span>United States</span></span>
                   <div class="flex items-center gap-1">
-                    <span class="text-[9px] font-mono text-indigo-600 dark:text-indigo-400 font-bold">4 tools</span>
+                    <span class="text-[9px] font-mono text-indigo-600 dark:text-indigo-400 font-bold">11 tools</span>
                     <svg class="w-3 h-3 text-indigo-500 transition-transform duration-150 group-open/us:rotate-180" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
@@ -161,9 +161,33 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
                     <span class="truncate">🗽 USCIS Green Card &amp; DV</span>
                     <span class="text-[9px] font-mono text-muted-foreground shrink-0">sRGB</span>
                   </a>
+                  <a href="/us/usajobs-document-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🏛️ USAJOBS 5MB Document</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&lt;5 MB</span>
+                  </a>
+                  <a href="/us/sat-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">✏️ College Board SAT &amp; AP</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">600×600</span>
+                  </a>
+                  <a href="/us/act-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🎯 ACT Test Photo Resizer</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">600×750</span>
+                  </a>
+                  <a href="/us/lsat-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">⚖️ LSAT Candidate Photo</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">2×2 Inch</span>
+                  </a>
+                  <a href="/us/usmle-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🩺 USMLE &amp; ECFMG Form 186</span>
+                    <span class="text-[9px] font-mono text-rose-500 font-bold shrink-0">&lt;150 KB</span>
+                  </a>
                   <a href="/us/common-app-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
                     <span class="truncate">🎓 Common App Photo Upload</span>
                     <span class="text-[9px] font-mono text-muted-foreground shrink-0">&lt;200 KB</span>
+                  </a>
+                  <a href="/us/exams/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🎓 All US Exams Hub</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">Specs</span>
                   </a>
                   <a href="/us/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline">
                     <span>Explore US Hub</span>
@@ -1056,7 +1080,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           <summary class="flex items-center justify-between font-bold text-foreground cursor-pointer select-none">
             <div class="flex items-center gap-1.5">
               <span>🇺🇸</span>
-              <span>United States (4 Tools)</span>
+              <span>United States (11 Tools)</span>
             </div>
             <svg class="w-3 h-3 text-indigo-500 transition-transform group-open/usm:rotate-180" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -1068,7 +1092,13 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
             <a href="/us/ds-160-photo-resizer/" class="block py-0.5 hover:text-primary">📄 Form DS-160 Visa (600×600 px)</a>
             <a href="/us/passport-photo-resizer/" class="block py-0.5 hover:text-primary">🛂 US Passport 2×2 Inch</a>
             <a href="/us/green-card-photo-resizer/" class="block py-0.5 hover:text-primary">🗽 USCIS Green Card &amp; DV Lottery</a>
+            <a href="/us/usajobs-document-resizer/" class="block py-0.5 hover:text-primary">🏛️ USAJOBS 5MB Document</a>
+            <a href="/us/sat-photo-resizer/" class="block py-0.5 hover:text-primary">✏️ College Board SAT &amp; AP</a>
+            <a href="/us/act-photo-resizer/" class="block py-0.5 hover:text-primary">🎯 ACT Test Photo Resizer</a>
+            <a href="/us/lsat-photo-resizer/" class="block py-0.5 hover:text-primary">⚖️ LSAT Candidate Photo</a>
+            <a href="/us/usmle-photo-resizer/" class="block py-0.5 hover:text-primary">🩺 USMLE &amp; ECFMG Form 186</a>
             <a href="/us/common-app-photo-resizer/" class="block py-0.5 hover:text-primary">🎓 Common App Photo Upload</a>
+            <a href="/us/exams/" class="block py-0.5 hover:text-primary">🎓 All US Exams Hub</a>
             <a href="/us/" class="block py-0.5 text-indigo-600 dark:text-indigo-400 font-bold">🇺🇸 US Main Hub Page →</a>
           </div>
         </details>
@@ -1174,7 +1204,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           <summary class="flex items-center justify-between font-bold text-foreground cursor-pointer select-none">
             <div class="flex items-center gap-1.5">
               <span>🇳🇵</span>
-              <span>Nepal (Lok Sewa)</span>
+              <span>Nepal (1 Tool - Lok Sewa)</span>
             </div>
             <svg class="w-3 h-3 text-red-500 transition-transform group-open/npm:rotate-180" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -1191,7 +1221,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           <summary class="flex items-center justify-between font-bold text-foreground cursor-pointer select-none">
             <div class="flex items-center gap-1.5">
               <span>🇵🇭</span>
-              <span>Philippines (PRC LERIS)</span>
+              <span>Philippines (1 Tool - PRC LERIS)</span>
             </div>
             <svg class="w-3 h-3 text-blue-500 transition-transform group-open/phm:rotate-180" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -1208,7 +1238,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           <summary class="flex items-center justify-between font-bold text-foreground cursor-pointer select-none">
             <div class="flex items-center gap-1.5">
               <span>🇵🇰</span>
-              <span>Pakistan (FPSC &amp; PPSC)</span>
+              <span>Pakistan (4 Tools - FPSC &amp; PPSC)</span>
             </div>
             <svg class="w-3 h-3 text-emerald-500 transition-transform group-open/pkm:rotate-180" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -1216,7 +1246,9 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           </summary>
           <div class="pt-1.5 space-y-1 pl-1 font-medium border-t border-emerald-500/15 mt-1">
             <a href="/pk/fpsc-photo-resizer/" class="block py-0.5 hover:text-primary">📷 FPSC Photo (&le; 30 KB)</a>
+            <a href="/pk/css-exam-photo-resizer/" class="block py-0.5 hover:text-primary">⭐ CSS Exam Photo Resizer</a>
             <a href="/pk/ppsc-kppsc-spsc-bpsc-photo-resizer/" class="block py-0.5 hover:text-primary">📌 Provincial PSCs (PPSC/KPPSC)</a>
+            <a href="/pk/nadra-passport-cnic-photo-resizer/" class="block py-0.5 hover:text-primary">🪪 NADRA CNIC &amp; Passport</a>
             <a href="/pk/" class="block py-0.5 text-emerald-600 dark:text-emerald-400 font-bold">🇵🇰 PK Main Hub Page →</a>
           </div>
         </details>
@@ -1373,14 +1405,30 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
             </span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">Instant</span>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <a href="/us/common-app-photo-resizer/" class="text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group">
-              <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Common App Photo Upload</span>
-              <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">College Admissions Upload</span>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <a href="/us/usajobs-document-resizer/" class="text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group">
+              <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">USAJOBS 5MB Document</span>
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">OPM Resume &amp; SF-50</span>
             </a>
-            <a href="/photo-background-remover/" class="text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group">
-              <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">Pure White Background Remover</span>
-              <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">#FFFFFF State Dept Compliant</span>
+            <a href="/us/sat-photo-resizer/" class="text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group">
+              <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">College Board SAT &amp; AP</span>
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Digital SAT Ticket</span>
+            </a>
+            <a href="/us/usmle-photo-resizer/" class="text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group">
+              <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">USMLE &amp; ECFMG Form 186</span>
+              <span class="text-[10px] text-rose-500 font-mono font-bold">Strictly &lt;150 KB</span>
+            </a>
+            <a href="/us/lsat-photo-resizer/" class="text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group">
+              <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">LSAC / LSAT Candidate</span>
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">Prometric / ProctorU</span>
+            </a>
+            <a href="/us/act-photo-resizer/" class="text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group">
+              <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">ACT Student Ticket</span>
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono">myACT Candidate</span>
+            </a>
+            <a href="/us/exams/" class="text-left p-3 min-h-[48px] rounded-xl bg-slate-100/90 hover:bg-white dark:bg-slate-800/90 dark:hover:bg-slate-750 border border-slate-200/90 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xs transition flex flex-col justify-between group">
+              <span class="font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary">All US Exams Hub</span>
+              <span class="text-[10px] text-indigo-500 font-mono font-bold">Directory &amp; Specs</span>
             </a>
           </div>
         </div>

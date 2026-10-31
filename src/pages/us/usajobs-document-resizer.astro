@@ -1,0 +1,297 @@
+---
+// src/pages/us/usajobs-document-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
+
+const pageTitle = "USAJOBS Resume & Document Compressor (Under 5 MB OPM Limit) - SignResize";
+const pageDescription = "Free online USAJOBS document compressor. Compress federal resumes, SF-50, DD-214, transcripts, and OF-306 to strictly under 5 MB (5,000 KB) in US Letter size at 300 DPI for federal employment.";
+const canonicalUrl = "https://signresize.in/us/usajobs-document-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "usajobs compress resume under 5mb, usajobs document resizer, compress sf-50 under 5mb, usajobs file size limit, dd-214 compressor usajobs, federal resume document size, opm usajobs upload error 5mb";
+
+const usajobsFaqs = [
+  {
+    q: "What is the maximum file size limit for documents on USAJOBS?",
+    a: "The U.S. Office of Personnel Management (OPM) enforces a strict 5 MB (5,000 KB) maximum file size limit per document on the USAJOBS portal. Any resume, SF-50, DD-214, or transcript exceeding 5 MB will fail to upload and trigger a system error."
+  },
+  {
+    q: "Why do multi-page federal resumes and SF-50 forms exceed 5 MB?",
+    a: "Federal resumes are notoriously detailed (frequently 4 to 8 pages long), and official documents like SF-50 (Notification of Personnel Action), DD-214 (Certificate of Release or Discharge from Active Duty), and official transcripts are scanned at high resolutions with color graphics or agency seals. Uncompressed phone scans easily reach 10 MB to 25 MB."
+  },
+  {
+    q: "Will compressing my document make the text unreadable to federal hiring managers?",
+    a: "No. SignResize optimizes the underlying raster layers while locking standard US Letter dimensions (8.5×11 inches / 2550×3300 px at 300 DPI), ensuring that microscopic agency watermarks, dates, salary steps, and text remain crisp and legible."
+  },
+  {
+    q: "Are my confidential federal documents (SF-50, SSN, Clearances) uploaded to your server?",
+    a: "No. SignResize processes 100% of your documents locally in your web browser using HTML5 Canvas APIs. Zero files, social security numbers, military records, or personal data are ever uploaded, transmitted, or stored on external servers."
+  },
+  {
+    q: "What file formats does USAJOBS accept for document uploads?",
+    a: "USAJOBS officially accepts PDF, JPG, JPEG, PNG, DOCX, and TXT files. SignResize produces compliant, high-resolution JPEG and PDF-ready image files formatted to standard US Letter dimensions."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#2563eb" />
+
+    <!-- Schema.org SoftwareApplication & HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "USAJOBS Resume & Document Compressor",
+      "url": canonicalUrl,
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 Canvas and JavaScript",
+      "description": pageDescription,
+      "featureList": [
+        "Compress federal resumes strictly under 5 MB (5,000 KB)",
+        "Optimize SF-50, DD-214, OF-306, and college transcripts",
+        "Maintain crisp 300 DPI text legibility for HR specialists",
+        "Standard US Letter aspect ratio (8.5x11 inches / 2550x3300 px)",
+        "100% in-browser processing with zero cloud server retention"
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Compress Federal Documents Under 5 MB for USAJOBS",
+      "description": "Step-by-step instructions to compress and resize resumes, SF-50s, and DD-214s for the USAJOBS federal portal.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Upload your federal document scan",
+          "text": "Drop your scanned resume page, SF-50, DD-214, or transcript image into the tool."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Verify US Letter dimensions",
+          "text": "The preset automatically locks US Letter standard (8.5×11 inches / 2550×3300 px at 300 DPI)."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Apply document text enhancements",
+          "text": "Use the Document Contrast or Sharpen filters if your scan is faint or dark."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Export under 5,000 KB",
+          "text": "Click Process & Download. The resulting file is strictly clamped under 5 MB for immediate upload to USAJOBS."
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">USAJOBS Document Resizer</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+              <span>🏛️ U.S. Office of Personnel Management (OPM) Federal Employment</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              USAJOBS Resume &amp; Document <span class="text-primary">Compressor (&lt; 5 MB)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Compress federal resumes, SF-50s, DD-214 discharge papers, and college transcripts to strictly under 5 MB (5,000 KB). Preserves crisp 300 DPI text legibility for federal HR specialists and automated ATS screeners.
+            </p>
+          </div>
+
+          <!-- Quick Switch US Tools Dropdown -->
+          <USToolSwitcher currentTool="usajobs" />
+        </div>
+      </section>
+
+      <!-- Federal Privacy Banner: 100% Client-Side Processing -->
+      <div class="p-4 sm:p-5 rounded-2xl border-2 border-blue-500/30 bg-blue-500/5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 dark:text-blue-400">
+            <span>🛡️</span>
+            <span>100% In-Browser Privacy Protection for Sensitive Federal Records</span>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Your SF-50, DD-214, security clearance paperwork, and federal resumes contain sensitive PII (Social Security Numbers, home addresses, military discharge codes). SignResize processes all documents <strong>100% locally on your computer</strong> using HTML5 Canvas. Zero data is ever sent to or stored on external cloud servers.
+          </p>
+        </div>
+        <div class="shrink-0 flex items-center gap-2">
+          <span class="px-3 py-1.5 rounded-xl text-xs font-mono font-bold bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/20">
+            Zero Server Uploads
+          </span>
+        </div>
+      </div>
+
+      <!-- Studio Workspace preloaded with us-usajobs -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="us-usajobs" />
+      </section>
+
+      <!-- USAJOBS Official Document Guidelines & Strategy -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 space-y-4 bg-card border border-border p-6 rounded-2xl">
+          <h2 class="text-xl font-bold text-foreground">
+            How to Beat the USAJOBS 5 MB Upload Constraint
+          </h2>
+          <div class="space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p>
+              When applying for federal GS pay-scale vacancies on <a href="https://www.usajobs.gov" target="_blank" rel="noopener noreferrer" class="text-primary underline">USAJOBS.gov</a>, the Document Manager enforces an uncompromising <strong>5 MB per-file limit</strong>.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div class="p-3.5 rounded-xl bg-muted/40 border border-border">
+                <div class="font-bold text-foreground text-xs">📄 SF-50 (Notification of Personnel Action)</div>
+                <p class="text-[11px] text-muted-foreground mt-1">Multi-year federal employees often need to upload multiple SF-50s to prove Time-in-Grade. High-DPI scanner files quickly exceed 10 MB.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-muted/40 border border-border">
+                <div class="font-bold text-foreground text-xs">🎖️ DD-214 (Veteran Preference)</div>
+                <p class="text-[11px] text-muted-foreground mt-1">Member-4 copy required for 5-point or 10-point veterans' preference must clearly show character of service and separation codes.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-muted/40 border border-border">
+                <div class="font-bold text-foreground text-xs">🎓 College Transcripts</div>
+                <p class="text-[11px] text-muted-foreground mt-1">Official transcripts with registrar seals and course credit hours must be legible for qualification evaluation under OPM standards.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-muted/40 border border-border">
+                <div class="font-bold text-foreground text-xs">📝 Comprehensive Federal Resume</div>
+                <p class="text-[11px] text-muted-foreground mt-1">Federal resumes span 4–8 pages outlining KSA (Knowledge, Skills, and Abilities) narratives with exact weekly work hours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specifications Sidebar -->
+        <div class="space-y-4 bg-muted/30 border border-border p-6 rounded-2xl">
+          <h3 class="text-sm font-bold text-foreground uppercase tracking-wider">
+            OPM Document Intake Standards
+          </h3>
+          <dl class="space-y-3 text-xs">
+            <div>
+              <dt class="text-muted-foreground">Maximum File Size:</dt>
+              <dd class="font-mono font-bold text-foreground">5 MB (5,000 KB) per document</dd>
+            </div>
+            <div>
+              <dt class="text-muted-foreground">Standard Page Size:</dt>
+              <dd class="font-mono font-bold text-foreground">US Letter (8.5 × 11 in / 2550×3300 px)</dd>
+            </div>
+            <div>
+              <dt class="text-muted-foreground">Print Density:</dt>
+              <dd class="font-mono font-bold text-foreground">300 DPI (High Resolution)</dd>
+            </div>
+            <div>
+              <dt class="text-muted-foreground">Accepted Formats:</dt>
+              <dd class="font-mono font-bold text-foreground">JPG, JPEG, PDF, PNG, DOCX</dd>
+            </div>
+            <div>
+              <dt class="text-muted-foreground">Data Privacy:</dt>
+              <dd class="font-mono font-bold text-emerald-600 dark:text-emerald-400">100% Client-Side Rendered</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Technical Comparison Table -->
+      <section class="space-y-4">
+        <div class="border-b border-border/80 pb-2">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📋</span>
+            <span>USAJOBS Upload Specifications vs. SignResize Enforcements</span>
+          </h2>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-border shadow-2xs">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-muted/60 text-foreground font-semibold border-b border-border">
+              <tr>
+                <th class="px-4 py-3">Document Requirement</th>
+                <th class="px-4 py-3">USAJOBS Portal Limit</th>
+                <th class="px-4 py-3">SignResize Compression Engine</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">File Size Cap</td>
+                <td class="px-4 py-3 font-mono">Strictly &lt; 5.0 MB (5,000 KB)</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Binary clamp ensures output strictly ≤ 5000 KB</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Page Dimensions</td>
+                <td class="px-4 py-3 font-mono">Standard US Letter (8.5 × 11 in)</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Locked at 2550 × 3300 px at 300 DPI</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Text &amp; Seal Legibility</td>
+                <td class="px-4 py-3 font-mono">Must be clear for HR review</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Contrast &amp; sharpening filters preserve fine print</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Server Storage &amp; Privacy</td>
+                <td class="px-4 py-3 font-mono">Federal applicant PII</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Zero server transmission; 100% browser sandbox</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <FaqSection items={usajobsFaqs} title="USAJOBS Document Upload FAQ" />
+    </main>
+
+    <Footer />
+  </body>
+</html>

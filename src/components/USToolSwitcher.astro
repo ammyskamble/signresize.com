@@ -1,0 +1,182 @@
+---
+// src/components/USToolSwitcher.astro
+interface Props {
+  currentTool?: string;
+}
+
+const { currentTool = '' } = Astro.props;
+
+const tools = [
+  {
+    category: "Passport & Immigration",
+    items: [
+      {
+        id: "sheet",
+        name: "4×6 Passport Sheet ($0.35)",
+        desc: "Walgreens/CVS 6-Photo Print",
+        href: "/us/passport-photo-print-sheet/",
+        icon: "🖨️",
+        color: "emerald"
+      },
+      {
+        id: "passport",
+        name: "US Passport 2×2 Photo",
+        desc: "State Dept Biometric Resizer",
+        href: "/us/passport-photo-resizer/",
+        icon: "🇺🇸",
+        color: "purple"
+      },
+      {
+        id: "ds160",
+        name: "DS-160 Visa Photo Resizer",
+        desc: "State Dept CEAC Validator",
+        href: "/us/ds-160-photo-resizer/",
+        icon: "✈️",
+        color: "cyan"
+      },
+      {
+        id: "greencard",
+        name: "USCIS Green Card & DV",
+        desc: "DV Lottery Validator",
+        href: "/us/green-card-photo-resizer/",
+        icon: "🗽",
+        color: "emerald"
+      },
+      {
+        id: "opt",
+        name: "USCIS OPT / STEM OPT",
+        desc: "Form I-765 Online Filing",
+        href: "/us/opt-stem-opt-photo-resizer/",
+        icon: "🎓",
+        color: "amber"
+      }
+    ]
+  },
+  {
+    category: "Federal Jobs & Employment",
+    items: [
+      {
+        id: "usajobs",
+        name: "USAJOBS 5 MB Document Resizer",
+        desc: "OPM Resume & SF-50 Compressor",
+        href: "/us/usajobs-document-resizer/",
+        icon: "🏛️",
+        color: "blue"
+      }
+    ]
+  },
+  {
+    category: "Standardized & Board Exams",
+    items: [
+      {
+        id: "sat",
+        name: "College Board SAT & AP",
+        desc: "Digital SAT Ticket Photo",
+        href: "/us/sat-photo-resizer/",
+        icon: "✏️",
+        color: "indigo"
+      },
+      {
+        id: "usmle",
+        name: "USMLE & ECFMG Form 186",
+        desc: "Strict 150 KB Limit",
+        href: "/us/usmle-photo-resizer/",
+        icon: "🩺",
+        color: "rose"
+      },
+      {
+        id: "lsat",
+        name: "LSAC / LSAT Candidate Photo",
+        desc: "ProctorU / Test Center ID",
+        href: "/us/lsat-photo-resizer/",
+        icon: "⚖️",
+        color: "amber"
+      },
+      {
+        id: "act",
+        name: "ACT Student Ticket Photo",
+        desc: "Candidate Ticket Upload",
+        href: "/us/act-photo-resizer/",
+        icon: "📝",
+        color: "teal"
+      },
+      {
+        id: "commonapp",
+        name: "Common App Student Upload",
+        desc: "College Admissions Upload",
+        href: "/us/common-app-photo-resizer/",
+        icon: "🎓",
+        color: "sky"
+      }
+    ]
+  }
+];
+---
+
+<div class="relative group shrink-0">
+  <button
+    type="button"
+    class="inline-flex items-center justify-between gap-2 px-3.5 py-2 rounded-xl bg-card border border-border hover:border-primary/50 text-foreground text-xs font-bold shadow-2xs transition cursor-pointer"
+    aria-label="Switch US Tool Menu"
+  >
+    <span>🇺🇸 Switch US Tool</span>
+    <svg class="w-4 h-4 text-muted-foreground transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>
+  </button>
+
+  <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute right-0 top-full mt-1.5 w-72 max-h-[85vh] overflow-y-auto bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border-2 border-slate-200 dark:border-slate-700 p-2 z-50 space-y-2">
+    {tools.map((section, sIdx) => (
+      <div class={sIdx > 0 ? "pt-1.5 border-t border-slate-200 dark:border-slate-800" : ""}>
+        <div class="px-2 py-0.5 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+          {section.category}
+        </div>
+        <div class="space-y-0.5 mt-0.5">
+          {section.items.map((item) => {
+            const isActive = currentTool === item.id;
+            return (
+              <a
+                href={item.href}
+                class={`flex items-center gap-2.5 p-2 rounded-xl transition text-xs font-semibold ${
+                  isActive
+                    ? 'bg-primary/10 text-primary font-bold'
+                    : 'text-foreground hover:bg-slate-100 dark:hover:bg-slate-800'
+                } group/item`}
+              >
+                <span class="text-base p-1 rounded bg-slate-100 dark:bg-slate-800 shrink-0">
+                  {item.icon}
+                </span>
+                <div class="truncate">
+                  <div class={`truncate ${isActive ? 'text-primary' : 'group-hover/item:text-primary'}`}>
+                    {item.name}
+                  </div>
+                  <div class="text-[10px] text-muted-foreground font-normal truncate">
+                    {item.desc}
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+
+    <div class="pt-2 border-t border-slate-200 dark:border-slate-800 space-y-1">
+      <a
+        href="/us/exams/"
+        class="flex items-center justify-between p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 text-xs font-bold text-primary transition"
+      >
+        <span>Browse All US Exams Hub</span>
+        <span>→</span>
+      </a>
+      <a
+        href="/us/"
+        class="flex items-center justify-between p-2 rounded-xl bg-primary/10 hover:bg-primary/20 text-xs font-bold text-primary transition"
+      >
+        <span>Explore All US Hub</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</div>
+

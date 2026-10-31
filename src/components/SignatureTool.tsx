@@ -516,7 +516,20 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const modeConfig = MODE_CONFIG[targetType];
 
   const defaultList = effectiveInitialMode === 'photo' ? PHOTO_PRESETS : effectiveInitialMode === 'document' ? DOCUMENT_PRESETS : SIGNATURE_PRESETS;
-  const initialPreset = resolvedPreset || defaultList[0];
+  const isUSInitial = Boolean(
+    (typeof window !== 'undefined' && window.location.pathname.startsWith('/us')) ||
+    resolvedPreset?.country === 'US' ||
+    resolvedPreset?.id?.startsWith('us-') ||
+    initialPresetId?.startsWith('us-') ||
+    effectivePresetPropId?.startsWith('us-')
+  );
+  const initialPreset = resolvedPreset || (isUSInitial
+    ? (effectiveInitialMode === 'photo'
+        ? PHOTO_PRESETS.find(p => p.id === 'us-ds160')
+        : effectiveInitialMode === 'document'
+        ? DOCUMENT_PRESETS.find(p => p.id === 'us-usajobs')
+        : SIGNATURE_PRESETS.find(p => p.id === 'us-digital-signature'))
+    : null) || defaultList[0];
 
   // Photo-specific configuration
   const [showFaceGuide, setShowFaceGuide] = useState<boolean>(true);
@@ -596,7 +609,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   // Preset state
   const [selectedPreset, setSelectedPreset] = useState<ExamPreset | null>(initialPreset);
   const activeExamFamilyRef = useRef<string>(
-    (effectivePresetPropId || resolvedPreset?.id || initialPresetId || initialPreset?.id || 'ssc-cgl').toLowerCase()
+    (effectivePresetPropId || resolvedPreset?.id || initialPresetId || initialPreset?.id || (isUSInitial ? 'us-ds160' : 'ssc-cgl')).toLowerCase()
   );
 
   // Unit and dimension settings
@@ -771,7 +784,39 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
     let targetPreset: ExamPreset | undefined;
 
-    const isGate = examAnchor.includes('gate') || rawCurId.includes('gate') || curName.includes('gate') || curAuth.includes('gate');
+    const isUSContext = Boolean(
+      (typeof window !== 'undefined' && window.location.pathname.startsWith('/us')) ||
+      selectedPreset?.country === 'US' ||
+      selectedPreset?.id?.startsWith('us-') ||
+      examAnchor.startsWith('us-') ||
+      rawCurId.startsWith('us-') ||
+      matchesExam('us-', 'usajobs', 'ds-160', 'ds160', 'ecfmg', 'usmle', 'lsat', 'lsac', 'sat', 'act', 'commonapp', 'greencard')
+    );
+
+    // 0. United States (Federal Jobs, Immigration & Standardized Exams)
+    if (isUSContext) {
+      if (newType === 'signature') {
+        if (examAnchor.includes('passport')) {
+          targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'us-passport-signature') || SIGNATURE_PRESETS.find(p => p.id === 'us-digital-signature');
+        } else {
+          targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'us-digital-signature') || SIGNATURE_PRESETS.find(p => p.country === 'US');
+        }
+      } else if (newType === 'photo') {
+        if (examAnchor.includes('sat')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-sat-photo');
+        else if (examAnchor.includes('act')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-act-photo');
+        else if (examAnchor.includes('lsat') || examAnchor.includes('lsac')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-lsat-photo');
+        else if (examAnchor.includes('usmle') || examAnchor.includes('ecfmg')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-usmle-ecfmg');
+        else if (examAnchor.includes('opt') || examAnchor.includes('ead')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-opt-ead');
+        else if (examAnchor.includes('green') || examAnchor.includes('dv')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-greencard');
+        else if (examAnchor.includes('common')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-commonapp');
+        else if (examAnchor.includes('passport')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-passport');
+        else targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-ds160') || PHOTO_PRESETS.find(p => p.id === 'us-passport');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'us-usajobs') || DOCUMENT_PRESETS.find(p => p.country === 'US');
+      }
+    }
+
+    const isGate = !isUSContext && (examAnchor.includes('gate') || rawCurId.includes('gate') || curName.includes('gate') || curAuth.includes('gate'));
     const isJam = !isGate && (
       examAnchor.includes('iit-jam') ||
       examAnchor.startsWith('jam') ||
@@ -1033,10 +1078,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         (curAuth ? presets.find(p => p.authority && p.authority.toLowerCase() === curAuth) : undefined);
     }
 
-    // Default fallback: Never fall back to UK Visa photo for Indian/general users!
+    // Default fallback: Never fall back to Indian presets for US users!
     const defaultPreset = 
       targetPreset || 
       presets.find(p => p.id === examAnchor) ||
+      (isUSContext ? (newType === 'photo' ? (PHOTO_PRESETS.find(p => p.id === 'us-passport') || PHOTO_PRESETS.find(p => p.id === 'us-ds160')) : newType === 'document' ? DOCUMENT_PRESETS.find(p => p.id === 'us-usajobs') : (SIGNATURE_PRESETS.find(p => p.id === 'us-digital-signature') || SIGNATURE_PRESETS.find(p => p.country === 'US'))) : undefined) ||
       (isBdActive ? (newType === 'signature' ? SIGNATURE_PRESETS.find(p => p.id === 'teletalk-sign-bd') : PHOTO_PRESETS.find(p => p.id === 'teletalk-bd' || p.id === 'teletalk-photo-bd')) : undefined) ||
       presets.find(p => (!p.country || p.country === 'IN') && p.isPopular) ||
       presets.find(p => !p.country || p.country === 'IN') || 
@@ -1124,6 +1170,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     selectedPreset?.authority?.toLowerCase().includes('tnpsc') ||
     resolvedPreset?.id?.includes('tnpsc') ||
     initialPresetId?.includes('tnpsc')
+  );
+
+  const isUSActive = Boolean(
+    (typeof window !== 'undefined' && window.location.pathname.startsWith('/us')) ||
+    selectedPreset?.country === 'US' ||
+    selectedPreset?.id?.startsWith('us-') ||
+    resolvedPreset?.country === 'US' ||
+    resolvedPreset?.id?.startsWith('us-') ||
+    initialPresetId?.startsWith('us-') ||
+    effectivePresetPropId?.startsWith('us-')
   );
 
   const isBdActive = Boolean(
@@ -2778,7 +2834,27 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const isIndonesian = (typeof window !== 'undefined' && window.location.pathname.includes('/id')) || initialPreset?.country === 'ID' || selectedPreset?.country === 'ID';
 
   // Pinned Entrance Exams based on active mode
-  const PINNED_TOP_EXAMS = isBdActive
+  const PINNED_TOP_EXAMS = isUSActive
+    ? (targetType === 'photo'
+        ? [
+            { id: 'us-ds160', short: 'DS-160 Visa', label: 'Form DS-160 US Visa', specs: '600×600 • ≤240 KB' },
+            { id: 'us-passport', short: 'US Passport', label: 'US Passport 2×2 Inch', specs: '600×600 • ≤240 KB' },
+            { id: 'us-opt-ead', short: 'OPT / STEM EAD', label: 'USCIS OPT (Form I-765)', specs: '600×600 • ≤240 KB' },
+            { id: 'us-sat-photo', short: 'Digital SAT', label: 'College Board SAT & AP', specs: '600×600 • ≤4 MB' },
+            { id: 'us-usmle-ecfmg', short: 'USMLE / ECFMG', label: 'ECFMG Form 186 Photo', specs: '600×600 • ≤150 KB' },
+            { id: 'us-lsat-photo', short: 'LSAC / LSAT', label: 'LSAT Candidate Photo', specs: '600×600 • ≤5 MB' }
+          ]
+        : targetType === 'document'
+        ? [
+            { id: 'us-usajobs', short: 'USAJOBS 5MB', label: 'USAJOBS Federal Doc (Letter)', specs: 'Letter • ≤5 MB' },
+            { id: 'degree-certificate', short: 'Degree / Transcript', label: 'Official Transcript', specs: 'Letter • 300 DPI' },
+            { id: 'id-proof-card', short: 'ID / Passport Scan', label: 'Passport Scan', specs: 'Letter • 300 DPI' }
+          ]
+        : [
+            { id: 'us-digital-signature', short: 'US E-Signature', label: 'Electronic Signature (W-9/PDF)', specs: '600×200 • PNG/JPG' },
+            { id: 'us-passport-signature', short: 'Passport Sign', label: 'US Passport Renewal Sign', specs: '420×140 • ≤240 KB' }
+          ])
+    : isBdActive
     ? [
         { id: 'teletalk-bd', short: 'Teletalk Photo', label: 'Teletalk Photo 300×300', specs: '300×300 • ≤100 KB' },
         { id: 'teletalk-sign-bd', short: 'Teletalk Sign', label: 'Teletalk Signature 300×80', specs: '300×80 • ≤60 KB' },
@@ -3120,7 +3196,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         {/* Pinned Top 4 Exams Bar + Combobox Trigger */}
         <div className="flex flex-wrap items-center gap-2 pt-1">
           <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground shrink-0 flex items-center gap-1 mr-1">
-            <Sparkles className="w-3.5 h-3.5 text-primary" /> {isBdActive ? 'Top Bangladesh Formats:' : modeConfig.pinnedTitle}
+            <Sparkles className="w-3.5 h-3.5 text-primary" /> {isUSActive ? 'Top US Formats:' : isBdActive ? 'Top Bangladesh Formats:' : modeConfig.pinnedTitle}
           </span>
 
           {/* 4 Pinned Chips */}
@@ -4914,7 +4990,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
                         <Camera className="w-3.5 h-3.5 text-primary" />
-                        <span>{isBdActive ? 'Photo Compliance Tools (Bangladesh)' : selectedPreset?.shortCode ? `${selectedPreset.shortCode} Compliance Tools` : 'Photo Compliance Tools'}</span>
+                        <span>{isUSActive ? 'US Official Photo Standards' : isBdActive ? 'Photo Compliance Tools (Bangladesh)' : selectedPreset?.shortCode ? `${selectedPreset.shortCode} Compliance Tools` : 'Photo Compliance Tools'}</span>
                       </h3>
                       <span className="text-[10px] font-mono font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-md border border-primary/20">
                         Govt Norms

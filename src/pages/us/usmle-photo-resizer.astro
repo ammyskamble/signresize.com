@@ -1,0 +1,238 @@
+---
+// src/pages/us/usmle-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
+
+const pageTitle = "USMLE & ECFMG Form 186 Photo Resizer (Strictly Under 150 KB) - SignResize";
+const pageDescription = "Free online USMLE & ECFMG Form 186 photo resizer. Crop and compress your 2x2 inch digital photograph to 600x600 pixels and strictly under 150 KB in JPEG format for NotaryCam and Intealth certification.";
+const canonicalUrl = "https://signresize.in/us/usmle-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "ecfmg form 186 photo resizer, usmle photo upload size 150kb, notarycam ecfmg photo requirements, intealth form 186 photo upload error, usmle step 1 registration photo size, ecfmg 2x2 photo under 150 kb";
+
+const usmleFaqs = [
+  {
+    q: "What is the exact file size limit for ECFMG Form 186 photograph uploads?",
+    a: "The Educational Commission for Foreign Medical Graduates (ECFMG / Intealth) enforces a strict maximum file size of 150 KB for the applicant photograph on Form 186. Any photo exceeding 150 KB will fail to upload to the NotaryCam portal."
+  },
+  {
+    q: "Why do standard 2x2 passport photos fail the ECFMG portal upload?",
+    a: "Most online photo tools and pharmacy digital passport exports are compressed to 200 KB to 240 KB (tailored for State Department visa forms). ECFMG's portal rejects anything over 150 KB. SignResize features a specialized compression algorithm that guarantees your 600x600 px photo stays strictly between 50 KB and 145 KB."
+  },
+  {
+    q: "What are the dimensional and biometric rules for Form 186 / USMLE?",
+    a: "The photo must be 2×2 inches (600×600 pixels at 300 DPI) in square 1:1 aspect ratio, in JPEG (.jpg) format. The face must occupy between 50% and 69% of the vertical frame (from chin to crown) against a plain white or off-white background with no eyeglasses."
+  },
+  {
+    q: "Does ECFMG allow selfies or casual smartphone portraits?",
+    a: "Yes, provided the smartphone portrait adheres strictly to official passport standards: taken within the last 6 months, neutral facial expression, eyes looking forward, even lighting without shadows, and a solid white background. You can use our built-in Pure White Background replacer to ensure compliance."
+  },
+  {
+    q: "Are my medical licensing documents or photos saved on your servers?",
+    a: "No. SignResize executes 100% of image rendering, cropping, and compression locally inside your web browser using HTML5 Canvas APIs. Zero biometric captures or personal files are ever transmitted to or stored on external servers."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#e11d48" />
+
+    <!-- Schema.org SoftwareApplication & HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "USMLE & ECFMG Form 186 Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": [
+        "Strict compliance with ECFMG 150 KB JPEG upload limit",
+        "2x2 inch (600x600 px at 300 DPI) passport standard",
+        "50% to 69% biometric head height alignment guide",
+        "Pure white background replacement tool",
+        "100% private in-browser canvas processing"
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Prepare Your ECFMG Form 186 Photo Under 150 KB",
+      "description": "Step-by-step instructions for uploading a valid candidate photo for ECFMG NotaryCam certification.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Capture a passport-style portrait",
+          "text": "Stand 4 feet in front of a white wall in natural light with a neutral facial expression and no eyeglasses."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload to SignResize USMLE/ECFMG Resizer",
+          "text": "Select your photo. The tool automatically sets the 600×600 px canvas and clamps the file strictly under 150 KB."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Align head to biometric oval",
+          "text": "Adjust zoom and position until your face fills 50% to 69% of the frame."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download and submit to NotaryCam",
+          "text": "Download the verified JPEG file and upload it during your ECFMG Form 186 online notarization process."
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <a href="/us/exams/" class="hover:text-primary transition">US Exams</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">USMLE &amp; ECFMG Form 186 Photo Resizer</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
+              <span>🩺 FSMB / ECFMG / Intealth Medical Licensing &amp; NotaryCam</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              USMLE &amp; ECFMG Form 186 <span class="text-primary">Photo Resizer (&lt; 150 KB)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Crop, format, and compress your 2×2 inch photo for ECFMG Form 186 certification via NotaryCam and USMLE Step 1/2 CK registration. Guarantees 600×600 px resolution strictly under the mandatory 150 KB limit.
+            </p>
+          </div>
+
+          <!-- Quick Switch US Tools Dropdown -->
+          <USToolSwitcher currentTool="usmle" />
+        </div>
+      </section>
+
+      <!-- Urgent Guidance Alert: Strict 150 KB ECFMG Constraint -->
+      <div class="p-4 sm:p-5 rounded-2xl border-2 border-rose-500/30 bg-rose-500/5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-700 dark:text-rose-400">
+            <span>🚨</span>
+            <span>Critical ECFMG Constraint: Strict 150 KB Ceiling</span>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            The ECFMG online certification system rejects any photograph larger than <strong>150 KB</strong>. While standard US passport generators export files between 200–240 KB, our tool automatically balances JPEG chroma sub-sampling to keep your image crisp at 600×600 px while guaranteeing it stays under 150 KB.
+          </p>
+        </div>
+        <a
+          href="/photo-background-remover/"
+          class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-rose-500/40 text-rose-700 dark:text-rose-300 hover:bg-rose-500/10 transition shadow-2xs"
+        >
+          <span>White BG Remover →</span>
+        </a>
+      </div>
+
+      <!-- Studio Workspace preloaded with us-usmle-ecfmg -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="us-usmle-ecfmg" />
+      </section>
+
+      <!-- Specifications Summary Table -->
+      <section class="space-y-4">
+        <div class="border-b border-border/80 pb-2">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📋</span>
+            <span>Official ECFMG Form 186 Photo Specifications</span>
+          </h2>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-border shadow-2xs">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-muted/60 text-foreground font-semibold border-b border-border">
+              <tr>
+                <th class="px-4 py-3">Specification Parameter</th>
+                <th class="px-4 py-3">ECFMG / Intealth Official Requirement</th>
+                <th class="px-4 py-3">SignResize Auto-Enforcement</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">File Size Cap</td>
+                <td class="px-4 py-3 font-mono">Strictly &le; 150 KB</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Locked between 60 KB and 145 KB</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Dimensions &amp; DPI</td>
+                <td class="px-4 py-3 font-mono">2 × 2 inches (600 × 600 px @ 300 DPI)</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Exact 600×600 px square canvas</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Head Ratio</td>
+                <td class="px-4 py-3 font-mono">50% to 69% of vertical image height</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Interactive biometric face guide overlay</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Eyeglasses &amp; Headgear</td>
+                <td class="px-4 py-3 font-mono">No eyeglasses allowed</td>
+                <td class="px-4 py-3 text-rose-600 dark:text-rose-400 font-semibold">Remove before photographing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <FaqSection items={usmleFaqs} title="ECFMG Form 186 Photo FAQ" />
+    </main>
+
+    <Footer />
+  </body>
+</html>
