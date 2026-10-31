@@ -17,8 +17,11 @@ const isTechOrStandards = topic === 'standards' || topic === 'tech';
 const currentYear = new Date().getFullYear();
 const currentPath = Astro.url.pathname;
 const isBd = currentPath.startsWith('/bd');
+const isUS = currentPath.startsWith('/us');
 
-let examAlertTitle = isBd 
+let examAlertTitle = isUS
+  ? 'Never miss a US Passport, DS-160 Visa, or USCIS photo rule change'
+  : isBd 
   ? 'Never miss a 2026 BCS, Teletalk, Bangladesh Bank, or NTRCA deadline'
   : 'Never miss a 2026 SSC, State PSC, or Railway photo deadline';
 if (currentPath.includes('osssc')) {
@@ -50,7 +53,7 @@ if (currentPath.includes('osssc')) {
         <div class="space-y-1.5 max-w-xl">
           <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/25 text-indigo-200 border border-primary/50 text-[10px] font-mono font-bold tracking-wide shadow-xs">
             <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
-            {isBd ? 'FREE BD RECRUITMENT ALERTS' : isTechOrStandards ? 'DOCUMENT SECURITY & STANDARDS ALERTS' : 'FREE SARKARI EXAM ALERTS'}
+            {isUS ? 'US TRAVEL & IMMIGRATION PHOTO ALERTS' : isBd ? 'FREE BD RECRUITMENT ALERTS' : isTechOrStandards ? 'DOCUMENT SECURITY & STANDARDS ALERTS' : 'FREE SARKARI EXAM ALERTS'}
           </div>
           <h3 class="text-sm sm:text-base font-bold text-white tracking-tight">
             {isTechOrStandards 
@@ -58,7 +61,9 @@ if (currentPath.includes('osssc')) {
               : examAlertTitle}
           </h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            {isBd
+            {isUS
+              ? 'Get instant alerts when Department of State or USCIS biometric photo guidelines update.'
+              : isBd
               ? 'Get instant alerts when BPSC, Teletalk circulars, or Bank recruitment application windows go live.'
               : isTechOrStandards
               ? 'Get instant updates when NIST, Adobe AATL, or US/EU electronic signature compliance frameworks modify verification rules.'
@@ -75,7 +80,7 @@ if (currentPath.includes('osssc')) {
                 type="email"
                 id="subscriber-email"
                 required
-                placeholder={isBd ? "Enter email for Bangladesh job alerts..." : isTechOrStandards ? "Enter email for standards updates..." : "Enter email for exam updates..."}
+                placeholder={isUS ? "Enter email for US passport & visa alerts..." : isBd ? "Enter email for Bangladesh job alerts..." : isTechOrStandards ? "Enter email for standards updates..." : "Enter email for exam updates..."}
                 class="w-full px-2 py-1.5 text-xs bg-transparent text-white placeholder:text-slate-400 focus:outline-none"
               />
               <button
@@ -119,7 +124,9 @@ if (currentPath.includes('osssc')) {
         </div>
 
         <p class="text-xs leading-relaxed text-muted-foreground">
-          {isBd 
+          {isUS
+            ? 'Precision photo and document compression engine for US Passport, Form DS-160, and USCIS online applications. 100% in-browser, zero server storage.'
+            : isBd 
             ? 'Precision photo & signature compression engine for Bangladesh recruitment (47th BCS, Bangladesh Bank, DPE Primary, NTRCA, AllJobs Teletalk). 100% in-browser, zero server storage.'
             : 'Precision photo, signature, and marksheet compression engine for Indian competitive exams (SSC, UPSC, RRB, IBPS, NTA) and state recruitment portals. Zero server storage.'}
         </p>
@@ -128,7 +135,22 @@ if (currentPath.includes('osssc')) {
         <div class="pt-1 space-y-1.5">
           <div class="text-[10px] font-mono uppercase tracking-wider text-muted-foreground font-bold">Fast Lanes:</div>
           <div class="flex flex-wrap gap-1.5">
-            {isBd ? (
+            {isUS ? (
+              <>
+                <a href="/us/passport-photo-print-sheet/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 hover:-translate-y-0.5 transition-all" title="4x6 Passport Photo Print Sheet">
+                  <span>🖨️ 4×6 Print Sheet ($0.35)</span>
+                </a>
+                <a href="/us/ds-160-photo-resizer/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 hover:-translate-y-0.5 transition-all" title="Form DS-160 US Visa Photo 600x600">
+                  <span>📄 DS-160 Visa (600×600)</span>
+                </a>
+                <a href="/us/opt-stem-opt-photo-resizer/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/20 hover:bg-amber-500/20 hover:-translate-y-0.5 transition-all" title="USCIS Form I-765 OPT/EAD Photo">
+                  <span>🎓 USCIS OPT / EAD</span>
+                </a>
+                <a href="/photo-background-remover/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-purple-500/10 text-purple-200 border border-purple-500/20 hover:bg-purple-500/20 hover:-translate-y-0.5 transition-all" title="White Background Remover">
+                  <span>🪄 Pure White BG (#FFFFFF)</span>
+                </a>
+              </>
+            ) : isBd ? (
               <>
                 <a href="/bd/bcs-photo-signature-resizer/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:bg-amber-500/20 hover:-translate-y-0.5 transition-all" title="BCS & BPSC 300x300 / 300x80">
                   <span>🏛️ BCS &amp; BPSC</span>
@@ -166,9 +188,9 @@ if (currentPath.includes('osssc')) {
         <div class="pt-1.5 space-y-1.5">
           <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Share With Study Groups:</div>
           <SocialShare
-            url="https://signresize.in/"
-            title="SignResize: Free Online Photo & Signature Resizer for Govt Exams"
-            description="Fast, free, 100% in-browser photo and signature resizer for SSC, RRB, IBPS, UPSC, and State PSC exams."
+            url={isUS ? "https://signresize.in/us/" : "https://signresize.in/"}
+            title={isUS ? "SignResize US: Free 4x6 Passport Print Sheet & Visa Photo Resizer" : "SignResize: Free Online Photo & Signature Resizer for Govt Exams"}
+            description={isUS ? "Tile 2x2 passport photos on 4x6 sheets for Walgreens/CVS and format DS-160 & USCIS photos 100% free with in-browser privacy." : "Fast, free, 100% in-browser photo and signature resizer for SSC, RRB, IBPS, UPSC, and State PSC exams."}
             variant="inline"
           />
         </div>
@@ -242,10 +264,49 @@ if (currentPath.includes('osssc')) {
       <div class="space-y-2.5 lg:col-span-2 sm:col-span-1">
         <div class="flex items-center gap-1.5 border-b-2 border-purple-400 pb-1.5">
           <span class="text-xs">⚡</span>
-          <h3 class="font-extrabold text-purple-300 text-xs uppercase tracking-wider">{isBd ? 'Bangladesh Hub' : 'Active 2026 Hub'}</h3>
+          <h3 class="font-extrabold text-purple-300 text-xs uppercase tracking-wider">{isUS ? 'US Portal Hub' : isBd ? 'Bangladesh Hub' : 'Active 2026 Hub'}</h3>
         </div>
         <ul class="space-y-1">
-          {isBd ? (
+          {isUS ? (
+            <>
+              <li>
+                <a href="/us/passport-photo-print-sheet/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-emerald-300 transition-all group">
+                  <span class="truncate font-semibold text-emerald-400">4×6 Print Sheet ($0.35)</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">CVS/Walgreens</span>
+                </a>
+              </li>
+              <li>
+                <a href="/us/ds-160-photo-resizer/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-cyan-300 transition-all group">
+                  <span class="truncate">Form DS-160 US Visa</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">600×600 px</span>
+                </a>
+              </li>
+              <li>
+                <a href="/us/passport-photo-resizer/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-purple-300 transition-all group">
+                  <span class="truncate">US Passport Photo</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">2×2 Inch</span>
+                </a>
+              </li>
+              <li>
+                <a href="/us/opt-stem-opt-photo-resizer/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-amber-300 transition-all group">
+                  <span class="truncate">USCIS OPT / STEM OPT</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Form I-765</span>
+                </a>
+              </li>
+              <li>
+                <a href="/us/green-card-photo-resizer/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-rose-300 transition-all group">
+                  <span class="truncate">Green Card &amp; DV Lottery</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">USCIS</span>
+                </a>
+              </li>
+              <li>
+                <a href="/us/common-app-photo-resizer/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-sky-300 transition-all group">
+                  <span class="truncate">Common App Photo</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">College Upload</span>
+                </a>
+              </li>
+            </>
+          ) : isBd ? (
             <>
               <li>
                 <a href="/bd/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-cyan-300 transition-all group">
@@ -285,55 +346,57 @@ if (currentPath.includes('osssc')) {
               </li>
             </>
           ) : (
-            <li>
-              <a href="/government-jobs/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-rose-300 transition-all group">
-                <span class="truncate font-semibold text-cyan-400">Govt Jobs Calendar</span>
-                <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 group-hover:scale-105 transition-transform">LIVE</span>
-              </a>
-            </li>
+            <>
+              <li>
+                <a href="/government-jobs/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-rose-300 transition-all group">
+                  <span class="truncate font-semibold text-cyan-400">Govt Jobs Calendar</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 group-hover:scale-105 transition-transform">LIVE</span>
+                </a>
+              </li>
+              <li>
+                <a href="/rrb-ntpc-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-amber-300 transition-all group">
+                  <span class="truncate">RRB NTPC Signature</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 group-hover:scale-105 transition-transform">30–49K</span>
+                </a>
+              </li>
+              <li>
+                <a href="/rrb-alp-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-purple-300 transition-all group">
+                  <span class="truncate">RRB ALP &amp; Tech</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 group-hover:scale-105 transition-transform">140×60</span>
+                </a>
+              </li>
+              <li>
+                <a href="/rrb-group-d-photo-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-sky-300 transition-all group">
+                  <span class="truncate">RRB Group D Photo</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30 group-hover:scale-105 transition-transform">30–70K</span>
+                </a>
+              </li>
+              <li>
+                <a href="/ssc-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-emerald-300 transition-all group">
+                  <span class="truncate">SSC CGL Tier-1</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 group-hover:scale-105 transition-transform">Active</span>
+                </a>
+              </li>
+              <li>
+                <a href="/ssc-gd-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-blue-300 transition-all group">
+                  <span class="truncate">SSC GD Constable</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 group-hover:scale-105 transition-transform">2026</span>
+                </a>
+              </li>
+              <li>
+                <a href="/up-police-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-purple-300 transition-all group">
+                  <span class="truncate">UP Police Bharti</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 group-hover:scale-105 transition-transform">60K+</span>
+                </a>
+              </li>
+              <li>
+                <a href="/neet-photo-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-rose-300 transition-all group">
+                  <span class="truncate">NEET Photo (Name/Date)</span>
+                  <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 group-hover:scale-105 transition-transform">10–200K</span>
+                </a>
+              </li>
+            </>
           )}
-          <li>
-            <a href="/rrb-ntpc-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-amber-300 transition-all group">
-              <span class="truncate">RRB NTPC Signature</span>
-              <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 group-hover:scale-105 transition-transform">30–49K</span>
-            </a>
-          </li>
-          <li>
-            <a href="/rrb-alp-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-purple-300 transition-all group">
-              <span class="truncate">RRB ALP &amp; Tech</span>
-              <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 group-hover:scale-105 transition-transform">140×60</span>
-            </a>
-          </li>
-          <li>
-            <a href="/rrb-group-d-photo-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-sky-300 transition-all group">
-              <span class="truncate">RRB Group D Photo</span>
-              <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30 group-hover:scale-105 transition-transform">30–70K</span>
-            </a>
-          </li>
-          <li>
-            <a href="/ssc-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-emerald-300 transition-all group">
-              <span class="truncate">SSC CGL Tier-1</span>
-              <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 group-hover:scale-105 transition-transform">Active</span>
-            </a>
-          </li>
-          <li>
-            <a href="/ssc-gd-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-blue-300 transition-all group">
-              <span class="truncate">SSC GD Constable</span>
-              <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 group-hover:scale-105 transition-transform">2026</span>
-            </a>
-          </li>
-          <li>
-            <a href="/up-police-signature-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-purple-300 transition-all group">
-              <span class="truncate">UP Police Bharti</span>
-              <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 group-hover:scale-105 transition-transform">60K+</span>
-            </a>
-          </li>
-          <li>
-            <a href="/neet-photo-resize/" class="flex items-center justify-between py-1 px-1.5 rounded-md text-slate-300 hover:bg-slate-900 hover:text-rose-300 transition-all group">
-              <span class="truncate">NEET Photo (Name/Date)</span>
-              <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 group-hover:scale-105 transition-transform">10–200K</span>
-            </a>
-          </li>
         </ul>
       </div>
 
@@ -457,7 +520,7 @@ if (currentPath.includes('osssc')) {
     </div>
 
     <!-- Complete 65+ Exam & Portal Directory (Collapsible Accordion with Highlight Border) -->
-    {!focused && <div class="border-t border-indigo-500/30 pt-2">
+    {!focused && !isUS && <div class="border-t border-indigo-500/30 pt-2">
       <details class="group select-none rounded-2xl border border-indigo-500/40 bg-slate-900/80 hover:bg-slate-900 transition-all p-3 sm:p-4 shadow-lg">
         <summary class="flex items-center justify-between cursor-pointer list-none text-slate-300 hover:text-white transition-colors">
           <div class="flex items-center gap-2.5 text-xs font-semibold">

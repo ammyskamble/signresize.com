@@ -27,6 +27,9 @@ scratch/feedback-admin-access.txt
 # jetbrains setting folder
 .idea/
 
+# vscode setting folder
+.vscode/
+
 # wrangler
 .wrangler/
 

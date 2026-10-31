@@ -153,9 +153,28 @@ const passportFaqs = [
         </div>
       </section>
 
+      <!-- Prominent White Background Requirement Notice for US Portals -->
+      <div class="p-4 sm:p-5 rounded-2xl border-2 border-emerald-500/30 bg-emerald-500/5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
+            <span>🪄</span>
+            <span>Official US Requirement: 100% Plain White Background (#FFFFFF)</span>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            US Department of State &amp; USCIS strictly reject digital photos with room objects, textures, shadows, or colors. Upload your portrait below and use the built-in <strong>Make Background Pure White</strong> button in the workspace to automatically replace your background with compliant white (#FFFFFF).
+          </p>
+        </div>
+        <a
+          href="/photo-background-remover/"
+          class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-emerald-500/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/10 transition shadow-2xs"
+        >
+          <span>Standalone BG Remover →</span>
+        </a>
+      </div>
+
       <!-- Resizer Studio Tool Workspace initialized with US Passport Preset -->
       <section id="tool-workspace" class="scroll-mt-20">
-        <SignatureTool client:idle initialPresetId="us-passport" />
+        <SignatureTool client:load initialPresetId="us-passport" />
       </section>
 
       <!-- Technical Guidelines & Interlinking Section -->

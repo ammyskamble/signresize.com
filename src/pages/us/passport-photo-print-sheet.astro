@@ -1,0 +1,314 @@
+---
+// src/pages/us/passport-photo-print-sheet.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { USPhotoPrintSheet } from '../../components/USPhotoPrintSheet';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "US Passport Photo 4x6 Print Sheet (2x2 Inches for Walgreens & CVS) - SignResize";
+const pageDescription = "Free 4x6 US Passport Photo Print Sheet Generator. Tile 6 or 4 identical 2x2 inch photos on a 4x6 inch (1200x1800 px @ 300 DPI) sheet. Print at Walgreens, CVS, or Walmart for $0.35 instead of $19.99.";
+const canonicalUrl = "https://signresize.in/us/passport-photo-print-sheet/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "walgreens passport photo 4x6 sheet, print 2x2 passport photo at cvs, 4x6 passport photo template, cheap passport photo printing, print passport photos walgreens 35 cents, 2x2 photo sheet generator";
+
+const printSheetFaqs = [
+  {
+    q: "How does the $0.35 Walgreens & CVS passport photo hack work?",
+    a: "Pharmacies charge $16.99 to $21.99 when you ask them to take and print a 'passport photo'. However, ordering a standard digital 4x6 inch photo print on their website or app costs only $0.35 to $0.45. By generating a 4x6 sheet containing multiple 2x2 inch passport photos with SignResize, you order it as a routine 4x6 print, pick it up same-day, and cut out the photos with scissors."
+  },
+  {
+    q: "Why can't I just upload a single 2x2 photo to Walgreens Photo?",
+    a: "If you upload a single 2x2 square photo directly, the pharmacy printing kiosk will automatically stretch or zoom it to fill the entire 4x6 paper, ruining the required dimensions. You must upload a composite 4x6 inch template (1800x1200 pixels at 300 DPI) that contains the 2x2 photos already arranged at 100% scale."
+  },
+  {
+    q: "What paper type should I select when ordering prints?",
+    a: "Select glossy or matte photo-quality paper. Glossy paper is standard and accepted by the U.S. Department of State for passport applications. Avoid standard printer copy paper."
+  },
+  {
+    q: "What critical setting must I turn off when ordering on CVS or Walgreens?",
+    a: "Always ensure 'Fit to Frame' and 'Auto-Correct' are turned OFF in the pharmacy checkout preview. The file must print at 100% actual scale (unaltered) so that each cut-out measures exactly 2 x 2 inches (51 x 51 mm)."
+  },
+  {
+    q: "Are photos printed from this 4x6 sheet accepted by the US Department of State?",
+    a: "Yes. The Department of State requires physical photos to measure exactly 2 x 2 inches (51 x 51 mm), printed on photo-quality paper with a head height between 1 inch and 1 3/8 inches (50% to 69%) against a plain white background. As long as your original picture complies with biometric rules, the sheet output prints to 100% legal specifications."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org SoftwareApplication & HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "US Passport Photo 4x6 Print Sheet Generator",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "en-US",
+      "description": pageDescription,
+      "featureList": [
+        "Arrange 6 or 4 official 2x2 inch passport photos on 4x6 inch paper",
+        "Export 1800x1200 px @ 300 DPI high-resolution JPEG for Walgreens & CVS",
+        "US Department of State 50-69% biometric head guide overlay",
+        "Includes printable PDF option with 100% scale enforcement",
+        "100% in-browser private image processing"
+      ]
+    })} />
+
+    <!-- Schema.org HowTo JSON-LD for Printing at Walgreens/CVS -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Print US Passport Photos at Walgreens or CVS for Under $0.50",
+      "description": "Step-by-step guide to generating a 4x6 passport photo sheet and printing it as a routine photo print at pharmacies to save over $18.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Upload and align your passport photo",
+          "text": "Upload your portrait on SignResize, align your head with the 50-69% biometric guide oval, and download the 4x6 JPEG template."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Order a standard 4x6 photo print online",
+          "text": "Go to Walgreens Photo or CVS Photo website and upload the 4x6 template as a standard 4x6 print for approximately $0.35."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Disable cropping and auto-adjustments",
+          "text": "Turn off 'Fit to Frame' and 'Auto-Correct' in your cart to ensure 100% actual printing scale."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Pick up and cut out photos",
+          "text": "Collect your same-day print at the store and cut out the 2x2 inch photos along the dotted lines."
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">4×6 Passport Photo Print Sheet</span>
+      </nav>
+
+      <!-- Page Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span>🇺🇸 Pharmacy Print Hack: Pay $0.35 Instead of $19.99</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              US Passport Photo <span class="text-primary">4×6 Print Sheet Generator</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Arrange multiple 2×2 inch US Passport photos on a standard 4×6 inch (1800×1200 px @ 300 DPI) sheet. Download and order a regular 4×6 print at Walgreens, CVS, or Walmart for pennies.
+            </p>
+          </div>
+
+          <!-- Quick Switch US Tools Dropdown -->
+          <div class="relative group shrink-0">
+            <button
+              type="button"
+              class="inline-flex items-center justify-between gap-2 px-3.5 py-2 rounded-xl bg-card border border-border hover:border-primary/50 text-foreground text-xs font-bold shadow-2xs transition cursor-pointer"
+            >
+              <span>🇺🇸 Switch US Tool</span>
+              <svg class="w-4 h-4 text-muted-foreground transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute right-0 top-full mt-1.5 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border-2 border-slate-200 dark:border-slate-700 p-2 z-50 space-y-1">
+              <a href="/us/passport-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-blue-500/10 text-blue-600">🛂</span>
+                <div>
+                  <div class="group-hover/item:text-primary">Single 2×2 Photo Resizer</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">600×600 px | Digital Upload</div>
+                </div>
+              </a>
+              <a href="/us/ds-160-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-indigo-500/10 text-indigo-600">📄</span>
+                <div>
+                  <div class="group-hover/item:text-primary">DS-160 Visa Photo</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">600×600 px | &lt;240 KB</div>
+                </div>
+              </a>
+              <a href="/us/opt-stem-opt-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-amber-500/10 text-amber-600">🎓</span>
+                <div>
+                  <div class="group-hover/item:text-primary">OPT / STEM OPT Photo</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">Form I-765 Online Filing</div>
+                </div>
+              </a>
+              <a href="/us/green-card-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-emerald-500/10 text-emerald-600">🗽</span>
+                <div>
+                  <div class="group-hover/item:text-primary">USCIS Green Card &amp; DV</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">DV Lottery Validator</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prominent White Background Requirement Notice for US Portals -->
+      <div class="p-4 sm:p-5 rounded-2xl border-2 border-emerald-500/30 bg-emerald-500/5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
+            <span>🪄</span>
+            <span>Official US Requirement: 100% Plain White Background (#FFFFFF)</span>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            US Department of State &amp; USCIS strictly reject physical photos with room objects, textures, or shadows. Upload your portrait below and use the built-in <strong>Make Background Pure White</strong> button to automatically replace your background with compliant white (#FFFFFF) before printing.
+          </p>
+        </div>
+        <a
+          href="/photo-background-remover/"
+          class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-emerald-500/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/10 transition shadow-2xs"
+        >
+          <span>Standalone BG Remover →</span>
+        </a>
+      </div>
+
+      <!-- Interactive 4x6 Photo Print Sheet Tool -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <USPhotoPrintSheet client:load />
+      </section>
+
+      <!-- Educational Guide: The Pharmacy Hack Breakdown -->
+      <section class="space-y-6 pt-4 border-t border-border">
+        <div class="space-y-2">
+          <h2 class="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+            The Pharmacy Passport Photo Price Breakdown: In-Store vs. 4×6 Sheet
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Understanding why pharmacies charge steep markups and how our pre-formatted 4×6 print template bypasses the fee legally.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-border shadow-2xs">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-muted/60 text-foreground font-semibold border-b border-border">
+              <tr>
+                <th class="px-4 py-3">Pharmacy / Store</th>
+                <th class="px-4 py-3">In-Store "Passport Photo" (2 Photos)</th>
+                <th class="px-4 py-3">4×6 Digital Print (Using SignResize)</th>
+                <th class="px-4 py-3 text-emerald-600 dark:text-emerald-400">Your Savings</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Walgreens Photo</td>
+                <td class="px-4 py-3 text-rose-600 font-semibold">$16.99 – $18.99</td>
+                <td class="px-4 py-3 font-mono font-bold text-emerald-600">$0.39 (6 Photos)</td>
+                <td class="px-4 py-3 font-bold text-emerald-600">Save $17.60 (98%)</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">CVS Pharmacy</td>
+                <td class="px-4 py-3 text-rose-600 font-semibold">$16.99 – $19.99</td>
+                <td class="px-4 py-3 font-mono font-bold text-emerald-600">$0.42 (6 Photos)</td>
+                <td class="px-4 py-3 font-bold text-emerald-600">Save $18.57 (98%)</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Walmart Photo Center</td>
+                <td class="px-4 py-3 text-rose-600 font-semibold">$7.44 – $10.00</td>
+                <td class="px-4 py-3 font-mono font-bold text-emerald-600">$0.34 (6 Photos)</td>
+                <td class="px-4 py-3 font-bold text-emerald-600">Save $7.10 (95%)</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">USPS (Post Office)</td>
+                <td class="px-4 py-3 text-rose-600 font-semibold">$15.00</td>
+                <td class="px-4 py-3 font-mono font-bold text-emerald-600">N/A (Bring your print)</td>
+                <td class="px-4 py-3 font-bold text-emerald-600">Save $14.65 (97%)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4 Golden Rules for Submitting Physical US Passport Photos -->
+      <section class="p-6 rounded-3xl bg-card border border-border shadow-xs space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+          <span>🇺🇸</span>
+          <span>4 Official US Department of State Rules for Physical Prints</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-muted-foreground">
+          <div class="space-y-1 p-3.5 rounded-xl bg-muted/40 border border-border/60">
+            <div class="font-bold text-foreground">1. Exact 2×2 Inch Physical Dimensions</div>
+            <p>Cut photos must measure exactly 2×2 inches (51×51 mm). Our cutting lines are spaced with 600 px pixel-perfect boundaries.</p>
+          </div>
+          <div class="space-y-1 p-3.5 rounded-xl bg-muted/40 border border-border/60">
+            <div class="font-bold text-foreground">2. Biometric Head Height (1″ to 1 3/8″)</div>
+            <p>The distance from the bottom of your chin to the top of your head must measure between 50% and 69% of the total image height.</p>
+          </div>
+          <div class="space-y-1 p-3.5 rounded-xl bg-muted/40 border border-border/60">
+            <div class="font-bold text-foreground">3. Plain White or Off-White Background</div>
+            <p>No shadows, textured walls, or colored wallpapers. Stand 3-4 feet in front of a white wall in natural light.</p>
+          </div>
+          <div class="space-y-1 p-3.5 rounded-xl bg-muted/40 border border-border/60">
+            <div class="font-bold text-foreground">4. No Eyeglasses or Headwear</div>
+            <p>Eyeglasses are strictly banned by State Department regulations. Religious headwear requires a signed explanatory statement.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <FaqSection items={printSheetFaqs} title="Frequently Asked Questions (US 4×6 Passport Sheet)" />
+    </main>
+
+    <Footer />
+  </body>
+</html>
+

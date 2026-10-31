@@ -46,19 +46,24 @@ export const createSampleSignatureData = (text: string, subText: string, width =
 };
 
 // Synthetic Passport Photo Generator
-export const createSamplePhotoData = (name = 'RAHUL SHARMA', dop = '', width = 350, height = 450): string => {
+export const createSamplePhotoData = (name = 'RAHUL SHARMA', dop = '', width = 350, height = 450, bgColor?: string): string => {
   const canvas = document.createElement('canvas');
   canvas.width = width;
   canvas.height = height;
   const ctx = canvas.getContext('2d');
   if (!ctx) return '';
 
-  // Studio light background with subtle radial gradient
-  const bgGrad = ctx.createRadialGradient(width * 0.5, height * 0.35, 30, width * 0.5, height * 0.4, width * 0.7);
-  bgGrad.addColorStop(0, '#f8fafc');
-  bgGrad.addColorStop(1, '#e2e8f0');
-  ctx.fillStyle = bgGrad;
-  ctx.fillRect(0, 0, width, height);
+  if (bgColor) {
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, width, height);
+  } else {
+    // Studio light background with subtle radial gradient
+    const bgGrad = ctx.createRadialGradient(width * 0.5, height * 0.35, 30, width * 0.5, height * 0.4, width * 0.7);
+    bgGrad.addColorStop(0, '#f8fafc');
+    bgGrad.addColorStop(1, '#e2e8f0');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, width, height);
+  }
 
   // Candidate Shoulders / Formal Suit
   ctx.fillStyle = '#1e293b';
@@ -369,15 +374,28 @@ export const createSampleDocumentData = (title = 'CENTRAL BOARD OF SECONDARY EDU
 export const createSampleDataForMode = (
   mode: ToolTargetMode,
   title?: string,
-  sub?: string
+  sub?: string,
+  isUS = false
 ): { dataUrl: string; width: number; height: number; filename: string; size: number } => {
   if (mode === 'photo') {
+    if (isUS) {
+      const dataUrl = createSamplePhotoData('JOHN DOE', '', 600, 600);
+      return { dataUrl, width: 600, height: 600, filename: 'sample_us_passport_photo', size: 140000 };
+    }
     const dataUrl = createSamplePhotoData('RAHUL SHARMA', '', 350, 450);
     return { dataUrl, width: 350, height: 450, filename: 'sample_passport_photo', size: 55000 };
   }
   if (mode === 'document') {
+    if (isUS) {
+      const dataUrl = createSampleDocumentData('USAJOBS PORTAL', 'Federal Resume & SF-50 Proof', 600, 776);
+      return { dataUrl, width: 600, height: 776, filename: 'sample_usajobs_document', size: 145000 };
+    }
     const dataUrl = createSampleDocumentData('CENTRAL BOARD OF SECONDARY EDUCATION', 'Marksheet Certificate', 500, 700);
     return { dataUrl, width: 500, height: 700, filename: 'sample_marksheet_document', size: 145000 };
+  }
+  if (isUS) {
+    const dataUrl = createSampleSignatureData('John Doe', 'Form DS-160 / USCIS', 600, 200);
+    return { dataUrl, width: 600, height: 200, filename: 'sample_us_signature', size: 42000 };
   }
   const dataUrl = createSampleSignatureData(title || 'Sample Signature', sub || 'Candidate Form Spec', 600, 250);
   return { dataUrl, width: 600, height: 250, filename: 'sample_candidate_signature', size: 45200 };

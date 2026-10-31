@@ -1,0 +1,316 @@
+---
+// src/pages/us/opt-stem-opt-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+
+const pageTitle = "USCIS OPT & STEM OPT Photo Resizer (Form I-765 600x600 px & Under 240KB) - SignResize";
+const pageDescription = "Free online USCIS OPT & STEM OPT Photo Resizer. Crop and compress your 2x2 inch digital photo to 600x600 pixels, under 240 KB, JPEG format for online Form I-765 filing. Avoid RFE delays.";
+const canonicalUrl = "https://signresize.in/us/opt-stem-opt-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "opt photo resizer online, form i 765 photo requirements, stem opt photo upload 600x600, uscis opt ead photo size, crop photo for opt application, ead card photo validator free";
+
+const optFaqs = [
+  {
+    q: "What are the exact digital photo requirements for USCIS Form I-765 (OPT & STEM OPT)?",
+    a: "When filing Form I-765 online via myUSCIS, your 2x2 passport-style photo must be a square aspect ratio (1:1), measuring exactly 600x600 pixels minimum (up to 1200x1200 pixels maximum), in JPEG (.jpg) format, and strictly 240 KB or less in file size. The background must be pure white or off-white with neutral lighting."
+  },
+  {
+    q: "Why do USCIS photo rejections cause serious problems for OPT applicants?",
+    a: "If your digital photo fails automated or officer review, USCIS issues a Form I-797E Request for Evidence (RFE). An RFE freezes your application clock and typically delays Employment Authorization Document (EAD) card issuance by 60 to 90 days, which can force your employer to postpone your start date or revoke your offer."
+  },
+  {
+    q: "Can I use the same photo I used on my F-1 student visa stamp?",
+    a: "USCIS requires passport photos submitted with Form I-765 to be taken within the last 30 days. If your F-1 visa stamp or old I-20 was issued more than 6 months ago and you submit the identical picture, USCIS will immediately recognize it as outdated and reject it."
+  },
+  {
+    q: "Are eyeglasses permitted in the OPT EAD photograph?",
+    a: "No. Eyeglasses are strictly prohibited in all USCIS photographs unless you provide a signed doctor's medical exemption statement certifying recent eye surgery."
+  },
+  {
+    q: "Does SignResize store or upload my face scan to an external server?",
+    a: "No. SignResize processes 100% of your image cropping, face-oval alignment, and compression locally inside your web browser using HTML5 Canvas APIs. Zero biometric data or personal photographs ever touch an external cloud or database."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Schema.org SoftwareApplication & WebApplication JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "USCIS OPT & STEM OPT Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "en-US",
+      "description": pageDescription,
+      "featureList": [
+        "Resize photo to exact 600x600 pixels (1:1 square ratio)",
+        "Compress file weight strictly under 240 KB in pure JPEG format",
+        "Enforce 50-69% biometric chin-to-crown ratio overlay",
+        "Pre-configured for USCIS myUSCIS Form I-765 online submission",
+        "100% private in-browser client-side rendering"
+      ]
+    })} />
+
+    <!-- Schema.org HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Format and Upload Your Digital Photo for USCIS OPT Form I-765",
+      "description": "Step-by-step instructions for F-1 international students to crop, resize, and validate their OPT EAD photo for online USCIS submission.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Capture a recent portrait",
+          "text": "Stand 4 feet in front of a white wall in natural light with a neutral facial expression and no eyeglasses."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload to SignResize OPT Resizer",
+          "text": "Select your picture in the tool. The application automatically applies the 600x600 px square ratio and under 240 KB limit."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Align head to the biometric guide",
+          "text": "Adjust zoom and pan so that your head fills 50% to 69% of the frame from chin to crown."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download and attach to myUSCIS",
+          "text": "Download the verified JPEG file and upload it under the '2x2 Photo of You' section on your online Form I-765 application."
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">OPT &amp; STEM OPT Photo Resizer</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+              <span>🎓 F-1 International Student Work Authorization (Form I-765)</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              USCIS OPT &amp; STEM OPT <span class="text-primary">Photo Resizer (600×600 px)</span>
+            </h1>
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
+              Format, crop, and compress your passport photo for online Form I-765 OPT and STEM OPT Extension filing on myUSCIS. Guaranteed 600×600 px, under 240 KB, and 50–69% head height alignment to prevent costly RFE delays.
+            </p>
+          </div>
+
+          <!-- Quick Switch US Tools Dropdown -->
+          <div class="relative group shrink-0">
+            <button
+              type="button"
+              class="inline-flex items-center justify-between gap-2 px-3.5 py-2 rounded-xl bg-card border border-border hover:border-primary/50 text-foreground text-xs font-bold shadow-2xs transition cursor-pointer"
+            >
+              <span>🇺🇸 Switch US Tool</span>
+              <svg class="w-4 h-4 text-muted-foreground transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute right-0 top-full mt-1.5 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border-2 border-slate-200 dark:border-slate-700 p-2 z-50 space-y-1">
+              <a href="/us/passport-photo-print-sheet/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-emerald-500/10 text-emerald-600">🖨️</span>
+                <div>
+                  <div class="group-hover/item:text-primary">4×6 Passport Print Sheet</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">Walgreens / CVS $0.35 Hack</div>
+                </div>
+              </a>
+              <a href="/us/passport-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-blue-500/10 text-blue-600">🛂</span>
+                <div>
+                  <div class="group-hover/item:text-primary">US Passport Photo Resizer</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">2×2 Inch | 600×600 px</div>
+                </div>
+              </a>
+              <a href="/us/ds-160-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-indigo-500/10 text-indigo-600">📄</span>
+                <div>
+                  <div class="group-hover/item:text-primary">DS-160 Visa Photo Resizer</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">State Dept CEAC Validator</div>
+                </div>
+              </a>
+              <a href="/us/green-card-photo-resizer/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-xs font-semibold text-foreground group/item">
+                <span class="text-base p-1 rounded bg-emerald-500/10 text-emerald-600">🗽</span>
+                <div>
+                  <div class="group-hover/item:text-primary">USCIS Green Card &amp; DV</div>
+                  <div class="text-[10px] text-muted-foreground font-normal">DV Lottery Validator</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prominent White Background Requirement Notice for US Portals -->
+      <div class="p-4 sm:p-5 rounded-2xl border-2 border-emerald-500/30 bg-emerald-500/5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
+            <span>🪄</span>
+            <span>Official US Requirement: 100% Plain White Background (#FFFFFF)</span>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            US Department of State &amp; USCIS strictly reject digital photos with room objects, textures, shadows, or colors. Upload your portrait below and use the built-in <strong>Make Background Pure White</strong> button in the workspace to automatically replace your background with compliant white (#FFFFFF).
+          </p>
+        </div>
+        <a
+          href="/photo-background-remover/"
+          class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-emerald-500/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/10 transition shadow-2xs"
+        >
+          <span>Standalone BG Remover →</span>
+        </a>
+      </div>
+
+      <!-- Resizer Studio Tool Workspace Preloaded with OPT EAD Preset -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:load initialPresetId="us-opt-ead" />
+      </section>
+
+      <!-- Urgent Student Guidance: Avoiding RFEs on OPT -->
+      <section class="p-6 rounded-3xl bg-amber-500/5 border-2 border-amber-500/25 space-y-4">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">⚠️</span>
+          <div class="space-y-1">
+            <h2 class="text-lg font-bold text-foreground">
+              Why Photo Compliance is Critical for Your Post-Completion OPT / STEM OPT
+            </h2>
+            <p class="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+              Every year, thousands of international students receive a <strong>Form I-797E Request for Evidence (RFE)</strong> from USCIS solely due to rejected photographs (e.g. reused old photos, improper dimensions, or shadowing).
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 text-xs">
+          <div class="p-4 rounded-2xl bg-card border border-border shadow-2xs space-y-1">
+            <div class="font-bold text-foreground">⏱️ Avoid 60–90 Day Delays</div>
+            <p class="text-muted-foreground">An RFE stops the USCIS clock. Response review takes up to 90 additional days, delaying your EAD card and legal right to work.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-card border border-border shadow-2xs space-y-1">
+            <div class="font-bold text-foreground">📅 Must Be Taken Within 30 Days</div>
+            <p class="text-muted-foreground">USCIS cross-checks your visa stamp, SEVIS history, and passport. Submitting a photo older than 30 days is an automatic rejection flag.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-card border border-border shadow-2xs space-y-1">
+            <div class="font-bold text-foreground">🔒 100% In-Browser Privacy</div>
+            <p class="text-muted-foreground">SignResize never stores, logs, or transmits your facial image to external servers. Your biometric data remains strictly in your browser.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- USCIS Official Specifications Summary Table -->
+      <section class="space-y-4">
+        <div class="border-b border-border/80 pb-2">
+          <h2 class="text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📋</span>
+            <span>Official USCIS Digital Photo Requirements (Form I-765 Online)</span>
+          </h2>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-border shadow-2xs">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-muted/60 text-foreground font-semibold border-b border-border">
+              <tr>
+                <th class="px-4 py-3">Technical Parameter</th>
+                <th class="px-4 py-3">USCIS Online Specification</th>
+                <th class="px-4 py-3">How SignResize Auto-Enforces It</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Aspect Ratio &amp; Dimensions</td>
+                <td class="px-4 py-3 font-mono">1:1 Square | 600 × 600 pixels (min)</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Locked at exact 600×600 px canvas</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">File Size Bounds</td>
+                <td class="px-4 py-3 font-mono">Maximum 240 KB</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Binary clamp guarantees ≤ 240.0 KB</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">File Format</td>
+                <td class="px-4 py-3 font-mono">JPEG (.jpg / .jpeg)</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Exports in pure JPEG sRGB color</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Head Ratio</td>
+                <td class="px-4 py-3 font-mono">50% to 69% of image height</td>
+                <td class="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-semibold">Live biometric face guide oval overlay</td>
+              </tr>
+              <tr class="hover:bg-muted/20">
+                <td class="px-4 py-3 font-bold text-foreground">Eyeglasses &amp; Headwear</td>
+                <td class="px-4 py-3 font-mono">No eyeglasses allowed</td>
+                <td class="px-4 py-3 text-rose-600 dark:text-rose-400 font-semibold">Must be removed before capturing photo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <FaqSection items={optFaqs} title="Frequently Asked Questions (USCIS OPT Photo)" />
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
