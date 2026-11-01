@@ -1,0 +1,324 @@
+---
+// src/pages/us/bar-exam-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
+
+const pageTitle = "State Bar Exam Candidate Photo Resizer (600x600 px) - SignResize";
+const pageDescription = "Free online State Bar Exam candidate photo resizer for NY BOLE, California Bar, Florida Bar, and Texas BLE test takers. Crop and resize portrait photos to 2x2 inches (600x600 pixels) under 240 KB with white background for bar admission tickets and moral character applications.";
+const canonicalUrl = "https://signresize.in/us/bar-exam-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "ny bole photo upload requirements, california bar exam photo size, florida bar moral character photo, texas bar exam candidate photo, bar admission ticket photo resizer, ncbe candidate photo requirements";
+
+const barFaqs = [
+  {
+    q: "What are the photo specifications for the New York Bar Exam (NY BOLE)?",
+    a: "The New York Board of Law Examiners (NY BOLE) requires an official passport-style photograph: 2×2 inches (600×600 pixels), taken within the past 6 months, in JPEG format under 240 KB, featuring a plain white or light background with your full face centered and occupying 50% to 69% of the frame."
+  },
+  {
+    q: "What are the California State Bar photo rules for the bar exam and moral character application?",
+    a: "The State Bar of California requires an unretouched color head-and-shoulders photograph against a plain white background. The image is printed directly on your Test Center Admission Ticket and used by proctors to verify your identity. Glasses, hats, or dark lighting are strictly disallowed."
+  },
+  {
+    q: "Can I wear legal court attire or a dark suit in my Bar Exam photo?",
+    a: "Yes. Professional business attire (such as a suit jacket, dress shirt, or blouse) is recommended and fully accepted. However, academic graduation regalia (caps and gowns), law firm badges, and casual accessories like headphones or sunglasses must not appear in the photo."
+  },
+  {
+    q: "What happens if my Bar Exam photo is rejected?",
+    a: "If your photograph does not meet state board specifications, your application will be marked incomplete, your Notice to Appear / Admission Ticket will not be issued, and you may be assessed late re-upload administrative fees or disqualified from taking the examination."
+  },
+  {
+    q: "Does SignResize preserve attorney applicant data privacy?",
+    a: "Yes. In compliance with strict professional privacy requirements, SignResize executes 100% of processing locally inside your web browser. No candidate photos or identity metadata are uploaded to remote cloud servers."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4338ca" />
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "State Bar Exam Candidate Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 Canvas and JavaScript",
+      "description": pageDescription,
+      "featureList": [
+        "2x2 inch (600x600 px) crop for NY BOLE, CA Bar, and Florida Bar",
+        "Biometric head alignment guide (50% to 69% frame height)",
+        "Automatic compression under 240 KB JPEG",
+        "Instant white background remover tool",
+        "100% private in-browser generation with zero server retention"
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Your Candidate Photo for State Bar Exam Portals",
+      "description": "Step-by-step instructions to create a compliant passport-style photo for NY BOLE, CA Bar, and NCBE admissions.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Upload your professional headshot",
+          "text": "Select a clear portrait taken in professional attire without eyeglasses or hats."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Position face inside oval guide",
+          "text": "Center your head so your chin and crown span 50% to 69% of the square canvas."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Verify plain white background",
+          "text": "Click Make Background Pure White to remove any background wallpaper, shadows, or wall tint."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download 600×600 px JPEG",
+          "text": "Export your compliant photo under 240 KB ready for instant upload to your state bar portal."
+        }
+      ]
+    })} />
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "US Hub",
+          "item": "https://signresize.in/us/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Exams",
+          "item": "https://signresize.in/us/exams/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Bar Exam Photo Resizer",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <a href="/us/exams/" class="hover:text-primary transition">Exams</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">Bar Exam Photo Resizer</span>
+      </nav>
+
+      <!-- Hero Header Banner with USToolSwitcher Dropdown -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                NY BOLE &amp; CA Bar Compliant
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-mono text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 border border-indigo-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                600×600 px (2×2 Inches)
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              State Bar Exam <span class="text-primary">Candidate Photo Resizer</span>
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Format, crop, and compress candidate security photos for the New York Bar Exam (NY BOLE), California Bar, Florida Bar, and Texas BLE. Meets exact 2×2 inch, 600×600 px, plain white background, and 240 KB standards for test admission tickets.
+            </p>
+          </div>
+
+          <div class="shrink-0 flex items-center gap-2">
+            <USToolSwitcher currentTool="bar" />
+          </div>
+        </div>
+
+        <!-- Quick Spec Chips -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-border/60">
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Dimensions</div>
+            <div class="text-xs font-bold text-foreground font-mono">2×2 in (600×600 px)</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">File Weight</div>
+            <div class="text-xs font-bold text-foreground font-mono">&le; 240 KB (JPEG)</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Biometric Head Ratio</div>
+            <div class="text-xs font-bold text-foreground font-mono">50% to 69% of height</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Background</div>
+            <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 font-mono">100% Plain White</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Tool Container -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:idle initialPresetId="us-bar-exam-photo" />
+      </section>
+
+      <!-- State Bar Board Requirements Table -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-6">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>⚖️</span>
+            <span>Major State Bar Examiner Photo Rules Comparison</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Official photographic requirements across top legal examination jurisdictions in the United States.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🏛️</span>
+              <span>1. New York (NY BOLE)</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Upload a 2×2 inch square color photo showing your head and shoulders against a white background. No eyewear or head coverings unless religious. Printed onto your NY BOLE Candidate ID card.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🌴</span>
+              <span>2. State Bar of California</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Required for the Bar Exam Admit Ticket and Moral Character Application. Must be a high-resolution color portrait with neutral lighting, no dark shadows, and plain white background.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>⭐</span>
+              <span>3. Texas BLE &amp; Florida Bar</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Follows standard US passport specifications: 600×600 pixels, strictly under 240 KB JPEG, eyes directly at camera with neutral expression. Used for biometric test day admission.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>❓</span>
+            <span>Frequently Asked Questions About Bar Exam Candidate Photos</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Clear answers to common questions regarding photo upload guidelines for law school graduates.
+          </p>
+        </div>
+
+        <FaqSection faqs={barFaqs} />
+      </section>
+
+      <!-- Cross-Links to Related Tools -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <h3 class="text-sm font-bold text-foreground uppercase tracking-wider">Related Legal &amp; Professional Examination Tools</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <a href="/us/lsat-photo-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">⚖️</span>
+            <div>
+              <div class="font-bold text-foreground">LSAT / LSAC Photo Resizer</div>
+              <div class="text-[10px] text-muted-foreground">Law school admission ticket photo</div>
+            </div>
+          </a>
+          <a href="/us/cpa-exam-photo-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">📊</span>
+            <div>
+              <div class="font-bold text-foreground">NASBA CPA Exam Photo</div>
+              <div class="text-[10px] text-muted-foreground">Uniform CPA Notice to Schedule photo</div>
+            </div>
+          </a>
+          <a href="/us/electronic-signature/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">✍️</span>
+            <div>
+              <div class="font-bold text-foreground">US Electronic Signature</div>
+              <div class="text-[10px] text-muted-foreground">Sign legal NDAs &amp; contracts with PNG</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+

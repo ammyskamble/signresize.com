@@ -790,7 +790,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       selectedPreset?.id?.startsWith('us-') ||
       examAnchor.startsWith('us-') ||
       rawCurId.startsWith('us-') ||
-      matchesExam('us-', 'usajobs', 'ds-160', 'ds160', 'ecfmg', 'usmle', 'lsat', 'lsac', 'sat', 'act', 'commonapp', 'greencard')
+      matchesExam('us-', 'usajobs', 'ds-160', 'ds160', 'ecfmg', 'usmle', 'lsat', 'lsac', 'sat', 'act', 'commonapp', 'greencard', 'nclex', 'bar', 'cpa', 'realid', 'real-id')
     );
 
     // 0. United States (Federal Jobs, Immigration & Standardized Exams)
@@ -806,13 +806,17 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         else if (examAnchor.includes('act')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-act-photo');
         else if (examAnchor.includes('lsat') || examAnchor.includes('lsac')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-lsat-photo');
         else if (examAnchor.includes('usmle') || examAnchor.includes('ecfmg')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-usmle-ecfmg');
+        else if (examAnchor.includes('nclex') || examAnchor.includes('nursing')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-nclex-photo');
+        else if (examAnchor.includes('bar')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-bar-exam-photo');
+        else if (examAnchor.includes('cpa') || examAnchor.includes('nasba')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-cpa-exam-photo');
         else if (examAnchor.includes('opt') || examAnchor.includes('ead')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-opt-ead');
         else if (examAnchor.includes('green') || examAnchor.includes('dv')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-greencard');
         else if (examAnchor.includes('common')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-commonapp');
         else if (examAnchor.includes('passport')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-passport');
         else targetPreset = PHOTO_PRESETS.find(p => p.id === 'us-ds160') || PHOTO_PRESETS.find(p => p.id === 'us-passport');
       } else if (newType === 'document') {
-        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'us-usajobs') || DOCUMENT_PRESETS.find(p => p.country === 'US');
+        if (examAnchor.includes('real') || examAnchor.includes('dmv')) targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'us-realid-document');
+        else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'us-usajobs') || DOCUMENT_PRESETS.find(p => p.id === 'us-realid-document') || DOCUMENT_PRESETS.find(p => p.country === 'US');
       }
     }
 
@@ -3391,66 +3395,63 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       {/* ========================================================================= */}
       {/* 🚀 PRIMARY DEDICATED EXAM RESIZER SELECTOR (Signature / Photo / Documents) */}
       {/* ========================================================================= */}
-      {!studioModeTabs && !isNtpcActive && !isCoastGuardActive && !isTnpscActive && <div className="mode-selector p-3 sm:p-4 rounded-2xl border-2 border-primary/30 bg-card shadow-sm space-y-3 min-h-[185px] sm:min-h-[110px]">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-2.5">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
-              <Zap className="w-4 h-4" />
+      {!studioModeTabs && !isNtpcActive && !isCoastGuardActive && !isTnpscActive && <div className="mode-selector p-2.5 sm:p-3.5 rounded-2xl border-2 border-primary/30 bg-card shadow-xs space-y-2 sm:space-y-2.5">
+        <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-1.5">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-6 h-6 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0">
+              <Zap className="w-3.5 h-3.5" />
             </div>
-            <div>
-              <h2 className="text-xs sm:text-sm font-extrabold text-foreground flex items-center gap-2">
-                <span>Select Dedicated Exam Resizer Mode</span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-200 border border-emerald-500/40">
-                  ⚡ Exam Presets
+            <div className="min-w-0">
+              <h2 className="text-xs sm:text-sm font-extrabold text-foreground flex items-center gap-1.5 truncate">
+                <span>Dedicated Exam Resizer Mode</span>
+                <span className="px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-emerald-100 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-200 border border-emerald-500/40 hidden sm:inline">
+                  ⚡ Official Specs
                 </span>
               </h2>
-              <p className="text-[11px] text-muted-foreground">
-                Official specifications for SSC, UPSC, IBPS, RRB, NEET, State PSCs and PAN Card.
-              </p>
             </div>
           </div>
 
-          <span className="text-[11px] font-mono text-muted-foreground">
-            Active Mode: <strong className="text-primary capitalize">{targetType} Resizer</strong>
+          <span className="text-[10px] sm:text-[11px] font-mono text-muted-foreground shrink-0">
+            Active: <strong className="text-primary capitalize">{targetType}</strong>
           </span>
         </div>
 
         {isWbpscActive && (
-          <div className="p-3 rounded-xl bg-primary/5 border border-primary/20 space-y-2">
-            <p className="text-sm font-semibold">WBPSC image preparation</p>
-            <p className="text-xs text-muted-foreground">These are editable defaults. Match the pixels, KB limits and ink instructions shown in your active application before exporting.</p>
+          <div className="p-2.5 rounded-xl bg-primary/5 border border-primary/20 space-y-1.5">
+            <p className="text-xs font-semibold">WBPSC image preparation</p>
+            <p className="text-[11px] text-muted-foreground">Match pixels, KB limits and ink instructions shown in your application.</p>
             <div className="flex flex-wrap gap-2">
-              <button type="button" onClick={() => selectWbpscSection('signature')} className="min-h-11 rounded-lg border border-border px-3 text-xs font-semibold hover:bg-muted">Signature default: 140 x 60 px / 10-20 KB</button>
-              <button type="button" onClick={() => selectWbpscSection('photo')} className="min-h-11 rounded-lg border border-border px-3 text-xs font-semibold hover:bg-muted">Photo default: 138 x 177 px / 20-100 KB</button>
+              <button type="button" onClick={() => selectWbpscSection('signature')} className="rounded-lg border border-border px-2.5 py-1 text-xs font-semibold hover:bg-muted">Signature: 140 x 60 px / 10-20 KB</button>
+              <button type="button" onClick={() => selectWbpscSection('photo')} className="rounded-lg border border-border px-2.5 py-1 text-xs font-semibold hover:bg-muted">Photo: 138 x 177 px / 20-100 KB</button>
             </div>
           </div>
         )}
 
-        {/* 3 Large Mode Buttons */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+        {/* 3 Compact Segmented Mode Buttons (1 row on mobile, full card on desktop) */}
+        <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 pt-0.5">
           <button
             id="mode-tab-signature"
             type="button"
             aria-label="Switch to Signature Resizer Mode"
             onClick={() => switchTargetType('signature')}
-            className={`p-3 rounded-xl border text-left transition flex items-center justify-between group cursor-pointer ${
+            className={`p-1.5 sm:p-2.5 rounded-xl border text-center sm:text-left transition flex flex-col sm:flex-row items-center justify-center sm:justify-between group cursor-pointer ${
               targetType === 'signature'
-                ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/20'
+                ? 'bg-primary text-primary-foreground border-primary shadow-xs ring-2 ring-primary/20'
                 : 'bg-card border-border hover:bg-muted/60 text-foreground'
             }`}
           >
-            <div className="flex items-center gap-2.5">
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${targetType === 'signature' ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'}`}>
-                <PenTool className="w-4 h-4" />
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2.5 min-w-0">
+              <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center shrink-0 ${targetType === 'signature' ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'}`}>
+                <PenTool className="w-3.5 h-3.5" />
               </div>
-              <div>
-                <div className="font-bold text-xs">{isTnpscActive ? 'TNPSC Signature' : isCoastGuardActive ? 'Coast Guard Signature' : isWbpscActive ? 'WBPSC Signature' : t.tool.signatureMode}</div>
-                <div className={`text-[10px] ${targetType === 'signature' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {isTnpscActive ? '140×60 px • 10–20 KB • Cursive Blue/Black Ink' : isCoastGuardActive ? '10–100 KB • Signature.jpg' : isWbpscActive ? '140×60 px • 10–20 KB • Cursive Black Ink' : t.tool.signatureSub}
+              <div className="min-w-0 text-center sm:text-left">
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isTnpscActive ? 'Signature' : isCoastGuardActive ? 'Signature' : isWbpscActive ? 'Signature' : t.tool.signatureMode}</div>
+                <div className={`hidden sm:block text-[10px] truncate ${targetType === 'signature' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
+                  {isTnpscActive ? '140×60 px • 10–20 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '140×60 px • 10–20 KB' : t.tool.signatureSub}
                 </div>
               </div>
             </div>
-            {targetType === 'signature' && <Check className="w-4 h-4 text-white" />}
+            {targetType === 'signature' && <Check className="w-3.5 h-3.5 text-white hidden sm:inline shrink-0 ml-1" />}
           </button>
 
           <button
@@ -3458,24 +3459,24 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             type="button"
             aria-label="Switch to Passport Photo Resizer Mode"
             onClick={() => switchTargetType('photo')}
-            className={`p-3 rounded-xl border text-left transition flex items-center justify-between group cursor-pointer ${
+            className={`p-1.5 sm:p-2.5 rounded-xl border text-center sm:text-left transition flex flex-col sm:flex-row items-center justify-center sm:justify-between group cursor-pointer ${
               targetType === 'photo'
-                ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/20'
+                ? 'bg-primary text-primary-foreground border-primary shadow-xs ring-2 ring-primary/20'
                 : 'bg-card border-border hover:bg-muted/60 text-foreground'
             }`}
           >
-            <div className="flex items-center gap-2.5">
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${targetType === 'photo' ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'}`}>
-                <Camera className="w-4 h-4" />
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2.5 min-w-0">
+              <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center shrink-0 ${targetType === 'photo' ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'}`}>
+                <Camera className="w-3.5 h-3.5" />
               </div>
-              <div>
-                <div className="font-bold text-xs">{isTnpscActive ? 'TNPSC Passport Photo' : isCoastGuardActive ? 'Coast Guard Photo' : isWbpscActive ? 'WBPSC Passport Photo' : t.tool.photoMode}</div>
-                <div className={`text-[10px] ${targetType === 'photo' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {isTnpscActive ? '200×230 px • 20–50 KB • Name & Date (Clause 3)' : isCoastGuardActive ? '10–100 KB • Separate live capture in portal' : isWbpscActive ? '138×177 px • 20–100 KB • White Background' : t.tool.photoSub}
+              <div className="min-w-0 text-center sm:text-left">
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isTnpscActive ? 'Passport Photo' : isCoastGuardActive ? 'Photo' : isWbpscActive ? 'Photo' : t.tool.photoMode}</div>
+                <div className={`hidden sm:block text-[10px] truncate ${targetType === 'photo' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
+                  {isTnpscActive ? '200×230 px • 20–50 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '138×177 px • 20–100 KB' : t.tool.photoSub}
                 </div>
               </div>
             </div>
-            {targetType === 'photo' && <Check className="w-4 h-4 text-white" />}
+            {targetType === 'photo' && <Check className="w-3.5 h-3.5 text-white hidden sm:inline shrink-0 ml-1" />}
           </button>
 
           <button
@@ -3483,24 +3484,24 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             type="button"
             aria-label="Switch to Document Resizer Mode"
             onClick={() => switchTargetType('document')}
-            className={`p-3 rounded-xl border text-left transition flex items-center justify-between group cursor-pointer ${
+            className={`p-1.5 sm:p-2.5 rounded-xl border text-center sm:text-left transition flex flex-col sm:flex-row items-center justify-center sm:justify-between group cursor-pointer ${
               targetType === 'document'
-                ? 'bg-primary text-primary-foreground border-primary shadow-sm ring-2 ring-primary/20'
+                ? 'bg-primary text-primary-foreground border-primary shadow-xs ring-2 ring-primary/20'
                 : 'bg-card border-border hover:bg-muted/60 text-foreground'
             }`}
           >
-            <div className="flex items-center gap-2.5">
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${targetType === 'document' ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'}`}>
-                <FileText className="w-4 h-4" />
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2.5 min-w-0">
+              <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center shrink-0 ${targetType === 'document' ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'}`}>
+                <FileText className="w-3.5 h-3.5" />
               </div>
-              <div>
-                <div className="font-bold text-xs">{isTnpscActive ? 'TNPSC Certificates & PSTM' : isCoastGuardActive ? 'Coast Guard Documents' : isWbpscActive ? 'WBPSC Admit Card & Docs' : t.tool.documentMode}</div>
-                <div className={`text-[10px] ${targetType === 'document' ? 'text-primary-foreground font-semibold' : 'text-slate-600 dark:text-slate-300 font-medium'}`}>
-                  {isTnpscActive ? 'SSLC / Community / PSTM • 50–200 KB' : isCoastGuardActive ? 'Identity proof 50–150 KB • Check other fields' : isWbpscActive ? 'Madhyamik Age Proof / Caste (100–300 KB)' : t.tool.documentSub}
+              <div className="min-w-0 text-center sm:text-left">
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isTnpscActive ? 'Documents' : isCoastGuardActive ? 'Documents' : isWbpscActive ? 'Documents' : t.tool.documentMode}</div>
+                <div className={`hidden sm:block text-[10px] truncate ${targetType === 'document' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
+                  {isTnpscActive ? '50–200 KB' : isCoastGuardActive ? '50–150 KB' : isWbpscActive ? '100–300 KB' : t.tool.documentSub}
                 </div>
               </div>
             </div>
-            {targetType === 'document' && <Check className="w-4 h-4 text-white" />}
+            {targetType === 'document' && <Check className="w-3.5 h-3.5 text-white hidden sm:inline shrink-0 ml-1" />}
           </button>
         </div>
       </div>

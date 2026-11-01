@@ -98,7 +98,12 @@ const usFaqs = [
         "USCIS Green Card & DV Lottery Photo Converter",
         "Common App Student Photo Upload Resizer",
         "US Passport Photo 4x6 Print Sheet (Walgreens / CVS $0.35 Hack)",
-        "USCIS OPT & STEM OPT Form I-765 Photo Resizer"
+        "USCIS OPT & STEM OPT Form I-765 Photo Resizer",
+        "State DMV REAL ID Document Resizer (<5 MB, 300 DPI)",
+        "US Business Electronic Signature Maker (W-9, 1099, I-9)",
+        "NCLEX-RN & NCLEX-PN Candidate Photo Resizer",
+        "State Bar Exam Candidate Photo Resizer (NY BOLE & CA Bar)",
+        "NASBA Uniform CPA Exam Candidate Photo Resizer"
       ]
     })} />
   </head>
@@ -136,25 +141,6 @@ const usFaqs = [
           <USToolSwitcher currentTool="hub" />
         </div>
       </section>
-
-      <!-- Prominent White Background Requirement Notice for US Portals -->
-      <div class="p-4 sm:p-5 rounded-2xl border-2 border-emerald-500/30 bg-emerald-500/5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div class="space-y-1">
-          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
-            <span>🪄</span>
-            <span>Official US Requirement: 100% Plain White Background (#FFFFFF)</span>
-          </div>
-          <p class="text-xs text-muted-foreground leading-relaxed">
-            US Department of State &amp; USCIS strictly reject photos with room objects, textures, or shadows. Upload your portrait below and use the <strong>Make Background Pure White</strong> button in the tool to automatically replace your background with compliant white (#FFFFFF).
-          </p>
-        </div>
-        <a
-          href="/photo-background-remover/"
-          class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-emerald-500/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/10 transition shadow-2xs"
-        >
-          <span>Standalone BG Remover →</span>
-        </a>
-      </div>
 
       <!-- Resizer Studio Workspace --> preloaded with US DS-160 Preset -->
       <section id="tool-workspace" class="scroll-mt-20">
@@ -416,6 +402,116 @@ const usFaqs = [
             </div>
             <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
               <span>Resize ACT Photo</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool: REAL ID Document Resizer -->
+          <a
+            href="/us/real-id-document-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl font-bold">
+                🪪
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                State DMV REAL ID Document Resizer
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Scan, crop, and compress utility bills, birth certificates, and W-2s strictly under 5 MB at 300 DPI for state DMV portals.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Resize REAL ID Docs</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool: US Electronic Signature Maker -->
+          <a
+            href="/us/electronic-signature/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold">
+                ✍️
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                US Electronic Signature Maker
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Create legally binding, high-resolution electronic signatures with transparent background PNG export for Form W-9, 1099, I-9, and leases.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Create US Signature</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool: NCLEX Nursing Photo Resizer -->
+          <a
+            href="/us/nclex-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold">
+                🩺
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                NCLEX Nursing Candidate Photo
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Pearson VUE &amp; State Board of Nursing (BON) candidate photo resizer. 2×2 inch (600×600 px) under 240 KB for ATT issuing.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Resize NCLEX Photo</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool: State Bar Exam Photo Resizer -->
+          <a
+            href="/us/bar-exam-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl font-bold">
+                ⚖️
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                State Bar Exam Candidate Photo
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Format official portrait photos for NY BOLE, California Bar, Florida Bar, and Texas BLE test admission tickets and moral character review.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Resize Bar Photo</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+
+          <!-- Tool: CPA Exam Photo Resizer -->
+          <a
+            href="/us/cpa-exam-photo-resizer/"
+            class="group p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all flex flex-col justify-between space-y-3"
+          >
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl font-bold">
+                📊
+              </div>
+              <h3 class="font-bold text-base text-foreground group-hover:text-primary transition">
+                NASBA CPA Exam Candidate Photo
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Uniform CPA Examination Notice to Schedule (NTS) photo resizer. 2×2 in, 600×600 px strictly under 200 KB for Prometric check-in.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
+              <span>Resize CPA Photo</span>
               <span class="group-hover:translate-x-1 transition-transform">→</span>
             </div>
           </a>

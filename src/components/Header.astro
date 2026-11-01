@@ -20,6 +20,18 @@ const isUS = currentPath.startsWith('/us');
 const isInternational = currentPath.startsWith('/us') || currentPath.startsWith('/uk') || currentPath.startsWith('/ca') || currentPath.startsWith('/au') || currentPath.startsWith('/id') || currentPath.startsWith('/bd') || currentPath.startsWith('/np') || currentPath.startsWith('/ph') || currentPath.startsWith('/pk');
 ---
 
+<style is:global>
+  /* Dropdown panel pinning when clicked open */
+  [data-nav-group][data-open="true"] .nav-dropdown-panel {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  [data-nav-group][data-open="true"] .dropdown-chevron {
+    transform: rotate(180deg) !important;
+  }
+</style>
+
 <header data-focused={focused ? 'true' : undefined} data-development={import.meta.env.DEV ? 'true' : undefined} class="sticky top-0 z-40 w-full max-w-full border-b border-border/80 bg-card/95 backdrop-blur-md transition-colors">
   {focused && !isHome && !isUS && <ExamNewsTicker />}
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-3">
@@ -54,6 +66,187 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
         <span>Home</span>
       </a>
 
+      <!-- 2. Tools Dropdown Suite (All Online Tools & Generators) -->
+      <div class="relative group py-2" id="tools-nav-group" data-nav-group="tools">
+        <button
+          type="button"
+          id="tools-menu-btn"
+          data-dropdown-btn="tools"
+          class:list={[
+            "px-2.5 lg:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1 font-semibold cursor-pointer",
+            (isSign || isPhoto || isDoc || isCompress)
+              ? "bg-primary/10 text-primary border border-primary/25 shadow-2xs"
+              : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+          ]}
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span>Tools</span>
+          <svg class="dropdown-chevron w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+
+        <!-- Dropdown: All Resizing, Generator & Background Tools (Organized 2-Column Suite) -->
+        <div
+          id="tools-dropdown-panel"
+          class="nav-dropdown-panel invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-0 top-full pt-1.5 z-50 pointer-events-none group-hover:pointer-events-auto before:content-[''] before:absolute before:-top-3 before:inset-x-0 before:h-3"
+          style="width: 560px; max-width: calc(100vw - 2rem);"
+        >
+          <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-slate-200 dark:border-slate-700 p-3 ring-1 ring-black/5 dark:ring-white/10 pointer-events-auto space-y-2.5">
+            <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-primary px-1 border-b border-slate-100 dark:border-slate-800 pb-1.5">
+              <span>All Resizing &amp; Generation Tools</span>
+              <span class="font-mono text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">SUITE</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <!-- Column 1: Core Resizers & Inking -->
+              <div class="space-y-0.5">
+                <div class="text-[9px] font-bold text-muted-foreground uppercase px-2 py-0.5">Resizing &amp; Inking</div>
+                <a
+                  href="/resize-signature-to-10kb-20kb/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shrink-0">✍️</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Signature Resizer</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">10–20 KB for exams</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/photo-resizer/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-sky-500/10 text-sky-600 dark:text-sky-400 shrink-0">📷</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Photo Resizer</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">20–50 KB &amp; 3.5×4.5 cm</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/document-resizer/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">📄</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Document Resizer</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Certificates to 100–300 KB</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/compress-image-to-kb/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 shrink-0">⚡</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Compress Image</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Custom target KB size</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/signature-generator/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-400 shrink-0">✨</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Signature Generator</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Instant cursive fonts</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/electronic-signature/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-teal-500/10 text-teal-600 dark:text-teal-400 shrink-0">🖋️</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">eSign Pad</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Draw digital signature</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Column 2: Background Cleaners & Presets -->
+              <div class="space-y-0.5">
+                <div class="text-[9px] font-bold text-muted-foreground uppercase px-2 py-0.5">Background Cleaners</div>
+                <a
+                  href="/background-remover/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-primary/10 text-primary shrink-0">🪄</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Signature BG Remover</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Paper clean &amp; PNG ink</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/photo-background-remover/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 shrink-0">👤</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Photo BG Remover</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Portrait cutouts &amp; colour</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/make-signature-background-white/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 shrink-0">🧹</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Make 100% White</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Clear yellow tint &amp; shadow</div>
+                  </div>
+                </a>
+
+                <div class="text-[9px] font-bold text-muted-foreground uppercase px-2 pt-1 pb-0.5">Presets &amp; Guides</div>
+                {isUS ? (
+                  <a
+                    href="/us/passport-photo-print-sheet/"
+                    class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                  >
+                    <span class="text-sm p-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">🖨️</span>
+                    <div class="min-w-0">
+                      <div class="font-bold text-xs group-hover/item:text-primary truncate">4×6 Passport Sheet</div>
+                      <div class="text-[10px] text-muted-foreground leading-tight">$0.35 print hack</div>
+                    </div>
+                  </a>
+                ) : (
+                  <a
+                    href="/ssc-cgl-signature-resize/"
+                    class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                  >
+                    <span class="text-sm p-1 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0">🎨</span>
+                    <div class="min-w-0">
+                      <div class="font-bold text-xs group-hover/item:text-primary truncate">SSC CGL Preset</div>
+                      <div class="text-[10px] text-muted-foreground leading-tight">140×60 px &amp; 10–20 KB</div>
+                    </div>
+                  </a>
+                )}
+
+                <a
+                  href="/blog/how-to-change-signature-in-outlook/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shrink-0">📧</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Outlook Signature Guide</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Web &amp; desktop setup</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- 2. Photo Resizer -->
 
       <a
@@ -82,10 +275,10 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
       </a>
 
       <!-- International Tab Dropdown -->
-      <div class="relative group py-2" id="international-nav-group">
+      <div class="relative group py-2" id="international-nav-group" data-nav-group="intl">
         <button
           type="button"
-          id="international-menu-btn"
+          id="international-menu-btn" data-dropdown-btn="intl"
           class:list={[
             "px-2.5 lg:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1 font-semibold cursor-pointer",
             isInternational
@@ -96,7 +289,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           aria-haspopup="true"
         >
           <span>🌐 International</span>
-          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+          <svg class="dropdown-chevron w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
         </button>
@@ -104,7 +297,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
         <!-- Dropdown: International Country Hubs & Tools (Compressed & Fast) -->
         <div
           id="international-dropdown-panel"
-          class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-0 top-full pt-1 z-50 pointer-events-none group-hover:pointer-events-auto"
+          class="nav-dropdown-panel invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-0 top-full pt-1.5 z-50 pointer-events-none group-hover:pointer-events-auto before:content-[''] before:absolute before:-top-3 before:inset-x-0 before:h-3"
           style="width: 350px; max-width: calc(100vw - 2rem);"
         >
           <div class="bg-white dark:bg-slate-900 rounded-xl shadow-[0_16px_36px_rgba(0,0,0,0.22)] dark:shadow-[0_20px_45px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-700 p-2.5 ring-1 ring-black/5 dark:ring-white/10 pointer-events-auto space-y-1.5 text-xs max-h-[440px] overflow-y-auto">
@@ -441,153 +634,18 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
         </div>
       </div>
 
-      <!-- 4. Signature Tab (Generator Tools Only) -->
-      <div class="relative group py-2" id="signature-nav-group">
-        <button
-          type="button"
-          id="signature-menu-btn"
-          class:list={[
-            "px-2.5 lg:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1 font-semibold cursor-pointer",
-            isSign
-              ? "bg-primary/10 text-primary border border-primary/25 shadow-2xs"
-              : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
-          ]}
-          aria-expanded="false"
-          aria-haspopup="true"
-        >
-          <span>Signature</span>
-          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </button>
-
-        <!-- Dropdown: All Signature Generator & Editing Tools -->
-        <div
-          id="signature-dropdown-panel"
-          class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-0 top-full pt-1 z-50 pointer-events-none group-hover:pointer-events-auto"
-          style="width: 360px; max-width: calc(100vw - 2rem);"
-        >
-          <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-slate-200 dark:border-slate-700 p-3.5 ring-1 ring-black/5 dark:ring-white/10 pointer-events-auto space-y-3">
-            <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-primary px-1 border-b border-slate-100 dark:border-slate-800 pb-1.5">
-              <span>Signature Tools &amp; Generators</span>
-              <span class="font-mono text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded">SUITE</span>
-            </div>
-
-            <div class="space-y-1">
-              <!-- 1. Signature Resizer -->
-              <a
-                href="/resize-signature-to-10kb-20kb/"
-                class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-              >
-                <span class="text-base p-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shrink-0">✍️</span>
-                <div>
-                  <div class="font-bold text-xs group-hover/item:text-primary">Signature Resizer (10–20 KB)</div>
-                  <div class="text-[10px] text-muted-foreground leading-tight">Crop &amp; compress signature for SSC, Bank, Railway exams</div>
-                </div>
-              </a>
-
-              <!-- 2. Signature Generator -->
-              <a
-                href="/signature-generator/"
-                class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-              >
-                <span class="text-base p-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 shrink-0">✨</span>
-                <div>
-                  <div class="font-bold text-xs group-hover/item:text-primary">Signature Generator</div>
-                  <div class="text-[10px] text-muted-foreground leading-tight">Type name → instant cursive &amp; calligraphy fonts</div>
-                </div>
-              </a>
-
-              <!-- 3. Electronic Signature Pad -->
-              <a
-                href="/electronic-signature/"
-                class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-              >
-                <span class="text-base p-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">🖋️</span>
-                <div>
-                  <div class="font-bold text-xs group-hover/item:text-primary">Electronic Signature (eSign Pad)</div>
-                  <div class="text-[10px] text-muted-foreground leading-tight">Draw digital signature for PDFs, contracts &amp; forms</div>
-                </div>
-              </a>
-
-              <!-- 4. Popular Tool: US or India -->
-              {isUS ? (
-                <a
-                  href="/us/passport-photo-print-sheet/"
-                  class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-                >
-                  <span class="text-base p-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">🖨️</span>
-                  <div>
-                    <div class="font-bold text-xs group-hover/item:text-primary">4×6 Passport Photo Print Sheet ($0.35)</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">Tile 6 prints for CVS, Walgreens &amp; Walmart kiosks</div>
-                  </div>
-                </a>
-              ) : (
-                <a
-                  href="/ssc-cgl-signature-resize/"
-                  class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-                >
-                  <span class="text-base p-1 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0">🎨</span>
-                  <div>
-                    <div class="font-bold text-xs group-hover/item:text-primary">SSC CGL Photo &amp; Signature (10–20 KB)</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">Official 140×60 px &amp; 3.5×4.5 cm preset for SSC CGL 2026</div>
-                  </div>
-                </a>
-              )}
-
-              <!-- 5. Background Shadow Cleaner -->
-              <a href="/background-remover/" class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item">
-                <span class="text-base p-1 rounded-lg bg-primary/10 text-primary shrink-0" aria-hidden="true">◐</span>
-                <div><div class="font-bold text-xs group-hover/item:text-primary">Signature Background Remover</div><div class="text-[10px] text-muted-foreground leading-tight">Paper cleanup, transparent PNG &amp; white JPG</div></div>
-              </a>
-              <a href="/photo-background-remover/" class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item">
-                <span class="text-base p-1 rounded-lg bg-rose-500/10 text-rose-600 dark:text-rose-400 shrink-0" aria-hidden="true">👤</span>
-                <div><div class="font-bold text-xs group-hover/item:text-primary">Photo Background Remover</div><div class="text-[10px] text-muted-foreground leading-tight">Portrait cutouts, white &amp; colour backgrounds</div></div>
-              </a>
-              <a
-                href="/make-signature-background-white/"
-                class="flex items-start gap-2.5 p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-              >
-                <span class="text-base p-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 shrink-0">🧹</span>
-                <div>
-                  <div class="font-bold text-xs group-hover/item:text-primary">Make Background 100% White</div>
-                  <div class="text-[10px] text-muted-foreground leading-tight">Remove paper yellow tint &amp; camera shadows</div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Outlook Signature Guide Featured Banner in Dropdown -->
-            <div class="pt-2 border-t border-slate-200 dark:border-slate-700/60">
-              <a
-                href="/blog/how-to-change-signature-in-outlook/"
-                class="flex items-center justify-between p-2 rounded-xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 hover:border-primary/40 transition group/guide"
-              >
-                <div class="flex items-center gap-2">
-                  <span class="text-sm">📧</span>
-                  <div>
-                    <div class="text-[11px] font-bold text-primary group-hover/guide:underline">How to Change Signature in Outlook</div>
-                    <div class="text-[9px] text-muted-foreground">Complete 2026 Desktop, Web &amp; Mobile Guide</div>
-                  </div>
-                </div>
-                <span class="text-xs text-primary font-bold">→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- 5. EXAMS & JOBS MERGED MEGA MENU -->
       {!isUS && (
-      <div class="relative group py-2" id="exams-nav-group">
+      <div class="relative group py-2" id="exams-nav-group" data-nav-group="exams">
         <button
           type="button"
-          id="exams-menu-btn"
+          id="exams-menu-btn" data-dropdown-btn="exams"
           class="px-2 lg:px-2.5 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
           aria-expanded="false"
           aria-haspopup="true"
         >
           <span>Exams &amp; Jobs</span>
-          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+          <svg class="dropdown-chevron w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
         </button>
@@ -595,7 +653,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
         <!-- Dropdown Panel (High-Density Mega Menu) -->
         <div
           id="exams-dropdown-panel"
-          class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-1/2 -translate-x-1/2 mt-1 w-[820px] max-w-[96vw] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_45px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_50px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-800 p-3 sm:p-3.5 z-50 ring-1 ring-black/5 dark:ring-white/10 pointer-events-none group-hover:pointer-events-auto"
+          class="nav-dropdown-panel invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-1/2 -translate-x-1/2 top-full pt-1.5 w-[820px] max-w-[96vw] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_45px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_50px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-800 p-3 sm:p-3.5 z-50 ring-1 ring-black/5 dark:ring-white/10 pointer-events-none group-hover:pointer-events-auto before:content-[''] before:absolute before:-top-3 before:inset-x-0 before:h-3"
         >
           <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 text-xs">
             
@@ -944,17 +1002,10 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
   <!-- Live Scrolling Exam News Headline Ticker -->
   {!focused && !isHome && !isUS && <ExamNewsTicker />}
 
-  <!-- Mobile Navigation Dropdown Backdrop Overlay -->
-  <div
-    id="mobile-menu-backdrop"
-    class="hidden lg:hidden fixed inset-0 bg-slate-950/40 backdrop-blur-xs z-40 transition-opacity"
-    aria-hidden="true"
-  ></div>
-
-  <!-- Mobile Navigation Ultra-Compact Squeezed Dropdown Menu -->
+  <!-- Mobile Navigation Ultra-Compact Squeezed Dropdown Menu (Floating cleanly beneath sticky header) -->
   <div
     id="mobile-menu-drawer"
-    class="hidden lg:hidden relative z-50 border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-2.5 py-2.5 shadow-xl rounded-b-2xl transition-all max-h-[calc(100dvh-4.25rem)] overflow-y-auto overscroll-contain"
+    class="hidden lg:hidden absolute left-0 right-0 top-full z-50 border-b border-slate-200/90 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-2.5 py-2.5 shadow-xl rounded-b-2xl transition-all max-h-[calc(100dvh-4.25rem)] overflow-y-auto overscroll-contain"
   >
     <!-- Top Row: Home + Lang Pills + Blog + Jobs + Search (All Accessible Hit Areas) -->
     <div class="flex items-center gap-1.5 pb-2 border-b border-slate-100 dark:border-slate-800/80 flex-wrap sm:flex-nowrap">
@@ -1011,63 +1062,105 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
       </button>
     </div>
 
-    <!-- Quick Tools: Balanced 3×3 Grid (9 Distinct Studio Tools) -->
-    <div class="grid grid-cols-3 gap-1.5 py-2">
-      <a href="/resize-signature-to-10kb-20kb/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
-        <span class="text-base leading-none">✍️</span>
-        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Sign Resizer</span>
-        <span class="text-[8px] font-mono text-muted-foreground leading-none">10–20 KB</span>
-      </a>
+    <!-- Quick Tools: Balanced 2-Column Grid (10 Distinct Studio Tools) -->
+    <div class="pt-2 pb-1">
+      <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-primary px-1 mb-1.5">
+        <span>🛠️ All Online Tools</span>
+        <span class="font-mono text-[9px] text-muted-foreground">10 Tools</span>
+      </div>
+      <div class="grid grid-cols-2 gap-1.5">
+        <a href="/resize-signature-to-10kb-20kb/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+          <span class="text-base shrink-0">✍️</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">Sign Resizer</div>
+            <div class="text-[9px] font-mono text-muted-foreground leading-none">10–20 KB</div>
+          </div>
+        </a>
 
-      <a href="/photo-resizer/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
-        <span class="text-base leading-none">📷</span>
-        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Photo Resizer</span>
-        <span class="text-[8px] font-mono text-muted-foreground leading-none">20–50 KB</span>
-      </a>
+        <a href="/photo-resizer/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+          <span class="text-base shrink-0">📷</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">Photo Resizer</div>
+            <div class="text-[9px] font-mono text-muted-foreground leading-none">20–50 KB</div>
+          </div>
+        </a>
 
-      <a href="/document-resizer/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
-        <span class="text-base leading-none">📄</span>
-        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Doc Resizer</span>
-        <span class="text-[8px] font-mono text-muted-foreground leading-none">100–300 KB</span>
-      </a>
+        <a href="/document-resizer/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+          <span class="text-base shrink-0">📄</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">Doc Resizer</div>
+            <div class="text-[9px] font-mono text-muted-foreground leading-none">100–300 KB</div>
+          </div>
+        </a>
 
-      <a href="/compress-image-to-kb/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
-        <span class="text-base leading-none">⚡</span>
-        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Compress Image</span>
-        <span class="text-[8px] font-mono text-muted-foreground leading-none">Custom Target</span>
-      </a>
+        <a href="/compress-image-to-kb/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+          <span class="text-base shrink-0">⚡</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">Compress Image</div>
+            <div class="text-[9px] font-mono text-muted-foreground leading-none">Custom Target</div>
+          </div>
+        </a>
 
-      <a href="/signature-generator/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
-        <span class="text-base leading-none">✨</span>
-        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Sign Generator</span>
-        <span class="text-[8px] font-mono text-muted-foreground leading-none">Cursive Fonts</span>
-      </a>
+        <a href="/signature-generator/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+          <span class="text-base shrink-0">✨</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">Sign Generator</div>
+            <div class="text-[9px] font-mono text-muted-foreground leading-none">Cursive Fonts</div>
+          </div>
+        </a>
 
-      <a href="/electronic-signature/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
-        <span class="text-base leading-none">🖋️</span>
-        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">eSign Pad</span>
-        <span class="text-[8px] font-mono text-muted-foreground leading-none">Draw Digital</span>
-      </a>
+        <a href="/electronic-signature/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+          <span class="text-base shrink-0">🖋️</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">eSign Pad</div>
+            <div class="text-[9px] font-mono text-muted-foreground leading-none">Draw Digital</div>
+          </div>
+        </a>
 
-      <a href="/ssc-cgl-signature-resize/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
-        <span class="text-base leading-none">🎨</span>
-        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">SSC Preset</span>
-        <span class="text-[8px] font-mono text-muted-foreground leading-none">140×60 px</span>
-      </a>
+        <a href="/background-remover/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+          <span class="text-base shrink-0">🪄</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">Sign BG</div>
+            <div class="text-[9px] font-mono text-muted-foreground leading-none">Paper Clean</div>
+          </div>
+        </a>
 
-      <a href="/background-remover/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
-        <span class="text-base leading-none">🪄</span>
-        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Sign BG</span>
-        <span class="text-[8px] font-mono text-muted-foreground leading-none">Paper Clean</span>
-      </a>
+        <a href="/photo-background-remover/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+          <span class="text-base shrink-0">👤</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">Photo BG</div>
+            <div class="text-[9px] font-mono text-muted-foreground leading-none">Portrait Cutout</div>
+          </div>
+        </a>
 
-      <a href="/photo-background-remover/" class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition text-center group min-h-[58px]">
-        <span class="text-base leading-none">👤</span>
-        <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight">Photo BG</span>
-        <span class="text-[8px] font-mono text-muted-foreground leading-none">Portrait Cutout</span>
-      </a>
+        <a href="/make-signature-background-white/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+          <span class="text-base shrink-0">🧹</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">100% White</div>
+            <div class="text-[9px] font-mono text-muted-foreground leading-none">Remove Shadows</div>
+          </div>
+        </a>
+
+        {isUS ? (
+          <a href="/us/passport-photo-print-sheet/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+            <span class="text-base shrink-0">🖨️</span>
+            <div class="min-w-0">
+              <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">4×6 Print Sheet</div>
+              <div class="text-[9px] font-mono text-muted-foreground leading-none">$0.35 Kiosk</div>
+            </div>
+          </a>
+        ) : (
+          <a href="/ssc-cgl-signature-resize/" class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-primary/10 dark:hover:bg-primary/15 border border-slate-200/70 dark:border-slate-700/70 transition group min-h-[46px]">
+            <span class="text-base shrink-0">🎨</span>
+            <div class="min-w-0">
+              <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary leading-tight truncate">SSC CGL Preset</div>
+              <div class="text-[9px] font-mono text-muted-foreground leading-none">140×60 px</div>
+            </div>
+          </a>
+        )}
+      </div>
     </div>
-
+    
     <!-- International Portals Strip -->
     <div class="pt-1.5 border-t border-slate-100 dark:border-slate-800/80">
       <div class="text-[9px] font-bold uppercase tracking-wider text-primary px-1 mb-1 flex items-center justify-between">
@@ -1269,6 +1362,9 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
     </div>
   </div>
 </header>
+
+<!-- Full-viewport Backdrop for Mobile Navigation Drawer -->
+<div id="mobile-menu-backdrop" class="hidden lg:hidden fixed inset-0 bg-slate-950/40 backdrop-blur-xs z-30 transition-opacity touch-none" aria-hidden="true"></div>
 
 <!-- Full-viewport Backdrop for Header Search Dropdown -->
 <div id="header-search-backdrop" class="hidden fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 transition-opacity" aria-hidden="true"></div>
@@ -2262,7 +2358,6 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
     mobileToggle?.setAttribute('aria-expanded', 'true');
     hamburgerIcon?.classList.add('hidden');
     closeIcon?.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
   }
 
   function closeMobileMenu() {
@@ -2271,7 +2366,6 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
     mobileToggle?.setAttribute('aria-expanded', 'false');
     hamburgerIcon?.classList.remove('hidden');
     closeIcon?.classList.add('hidden');
-    document.body.style.overflow = '';
   }
 
   function toggleMobileMenu() {
@@ -2306,109 +2400,80 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
   });
 
   // -------------------------------------------------------------------------
-  // 🌐 Desktop Navigation Dropdowns (International, Signature, Exams & Jobs)
+  // 🌐 Desktop Navigation Dropdowns (International, Tools, Exams & Jobs)
   // -------------------------------------------------------------------------
   const intlBtn = document.getElementById('international-menu-btn');
   const intlPanel = document.getElementById('international-dropdown-panel');
   const intlGroup = document.getElementById('international-nav-group');
 
-  const signBtn = document.getElementById('signature-menu-btn');
-  const signPanel = document.getElementById('signature-dropdown-panel');
-  const signGroup = document.getElementById('signature-nav-group');
+  const toolsBtn = document.getElementById('tools-menu-btn') || document.getElementById('signature-menu-btn');
+  const toolsPanel = document.getElementById('tools-dropdown-panel') || document.getElementById('signature-dropdown-panel');
+  const toolsGroup = document.getElementById('tools-nav-group') || document.getElementById('signature-nav-group');
 
   const examsBtn = document.getElementById('exams-menu-btn');
   const examsPanel = document.getElementById('exams-dropdown-panel');
   const examsGroup = document.getElementById('exams-nav-group');
 
-  let activePinnedDropdown = null; // 'intl' | 'sign' | 'exams' | null
+  const navDropdowns = [
+    { name: 'intl', btn: intlBtn, panel: intlPanel, group: intlGroup },
+    { name: 'tools', btn: toolsBtn, panel: toolsPanel, group: toolsGroup },
+    { name: 'exams', btn: examsBtn, panel: examsPanel, group: examsGroup },
+  ];
 
-  function closeAllDropdowns(returnFocus = false) {
-    if (intlPanel) {
-      intlPanel.classList.remove('!visible', '!opacity-100', '!pointer-events-auto');
-      intlBtn?.setAttribute('aria-expanded', 'false');
-    }
-    if (signPanel) {
-      signPanel.classList.remove('!visible', '!opacity-100', '!pointer-events-auto');
-      signBtn?.setAttribute('aria-expanded', 'false');
-    }
-    if (examsPanel) {
-      examsPanel.classList.remove('!visible', '!opacity-100', '!pointer-events-auto');
-      examsBtn?.setAttribute('aria-expanded', 'false');
-    }
-    if (returnFocus) {
-      if (activePinnedDropdown === 'intl') intlBtn?.focus();
-      else if (activePinnedDropdown === 'sign') signBtn?.focus();
-      else if (activePinnedDropdown === 'exams') examsBtn?.focus();
-    }
-    activePinnedDropdown = null;
+  function closeAllNavDropdowns(returnFocusTo = null) {
+    navDropdowns.forEach((item) => {
+      if (item.group) {
+        item.group.removeAttribute('data-open');
+        item.btn?.setAttribute('aria-expanded', 'false');
+      }
+    });
+    returnFocusTo?.focus();
   }
 
-  function openDropdown(name) {
-    closeAllDropdowns(false);
-    if (name === 'intl') {
-      intlPanel?.classList.add('!visible', '!opacity-100', '!pointer-events-auto');
-      intlBtn?.setAttribute('aria-expanded', 'true');
-      activePinnedDropdown = 'intl';
-    } else if (name === 'sign') {
-      signPanel?.classList.add('!visible', '!opacity-100', '!pointer-events-auto');
-      signBtn?.setAttribute('aria-expanded', 'true');
-      activePinnedDropdown = 'sign';
-    } else if (name === 'exams') {
-      examsPanel?.classList.add('!visible', '!opacity-100', '!pointer-events-auto');
-      examsBtn?.setAttribute('aria-expanded', 'true');
-      activePinnedDropdown = 'exams';
+  function toggleNavDropdown(targetItem) {
+    if (!targetItem.group || !targetItem.panel) return;
+    const isPinned = targetItem.group.getAttribute('data-open') === 'true';
+
+    if (isPinned) {
+      // Clicking an already pinned dropdown unpins/closes it
+      targetItem.group.removeAttribute('data-open');
+      targetItem.btn?.setAttribute('aria-expanded', 'false');
+    } else {
+      // Close other dropdowns first, then pin this one open
+      navDropdowns.forEach((item) => {
+        if (item.group && item.group !== targetItem.group) {
+          item.group.removeAttribute('data-open');
+          item.btn?.setAttribute('aria-expanded', 'false');
+        }
+      });
+      targetItem.group.setAttribute('data-open', 'true');
+      targetItem.btn?.setAttribute('aria-expanded', 'true');
     }
   }
 
-  intlBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (activePinnedDropdown === 'intl') {
-      closeAllDropdowns(false);
-    } else {
-      openDropdown('intl');
-    }
-  });
+  navDropdowns.forEach((item) => {
+    if (!item.btn || !item.group) return;
 
-  signBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (activePinnedDropdown === 'sign') {
-      closeAllDropdowns(false);
-    } else {
-      openDropdown('sign');
-    }
-  });
+    // Click / touch toggle
+    item.btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleNavDropdown(item);
+    });
 
-  examsBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (activePinnedDropdown === 'exams') {
-      closeAllDropdowns(false);
-    } else {
-      openDropdown('exams');
-    }
-  });
+    // When mouse enters one group, close any other dropdown that was pinned open via click
+    item.group.addEventListener('mouseenter', () => {
+      navDropdowns.forEach((other) => {
+        if (other.group && other.group !== item.group && other.group.getAttribute('data-open') === 'true') {
+          other.group.removeAttribute('data-open');
+          other.btn?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
 
-  // When hovering on a different dropdown group, dismiss any click-pinned other dropdown
-  intlGroup?.addEventListener('mouseenter', () => {
-    if (activePinnedDropdown && activePinnedDropdown !== 'intl') {
-      closeAllDropdowns(false);
-    }
-  });
-  signGroup?.addEventListener('mouseenter', () => {
-    if (activePinnedDropdown && activePinnedDropdown !== 'sign') {
-      closeAllDropdowns(false);
-    }
-  });
-  examsGroup?.addEventListener('mouseenter', () => {
-    if (activePinnedDropdown && activePinnedDropdown !== 'exams') {
-      closeAllDropdowns(false);
-    }
-  });
-
-  // Clicking any link or preset button inside dropdowns closes them
-  [intlPanel, signPanel, examsPanel].forEach((panel) => {
-    panel?.querySelectorAll('a, button').forEach((clickable) => {
+    // Clicking any link or preset button inside dropdowns closes them
+    item.panel?.querySelectorAll('a, button.preset-btn').forEach((clickable) => {
       clickable.addEventListener('click', () => {
-        closeAllDropdowns(false);
+        closeAllNavDropdowns();
       });
     });
   });
@@ -2424,20 +2489,19 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
       closeMobileMenu();
     }
 
-    if (
-      activePinnedDropdown &&
-      !intlGroup?.contains(e.target) &&
-      !signGroup?.contains(e.target) &&
-      !examsGroup?.contains(e.target)
-    ) {
-      closeAllDropdowns(false);
+    const clickedInsideAnyNav = navDropdowns.some(
+      (item) => item.group && item.group.contains(e.target)
+    );
+    if (!clickedInsideAnyNav) {
+      closeAllNavDropdowns();
     }
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      if (activePinnedDropdown) {
-        closeAllDropdowns(true);
+      const openItem = navDropdowns.find((item) => item.group?.getAttribute('data-open') === 'true');
+      if (openItem) {
+        closeAllNavDropdowns(openItem.btn);
       }
       if (mobileDrawer && !mobileDrawer.classList.contains('hidden')) {
         closeMobileMenu();

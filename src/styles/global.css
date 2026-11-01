@@ -332,3 +332,228 @@ table {
   touch-action: pan-x pan-y !important;
 }
 
+
+
+/* ========================================================================= */
+/* 🚀 COMPACT PAGE TOP ARCHITECTURE (Applied sitewide, excludes homepage)   */
+/* ========================================================================= */
+
+/* 1. Main Container Top Padding & Spacing */
+body:not(.home-workspace) main {
+  padding-top: 0.75rem !important;
+}
+
+@media (max-width: 640px) {
+  body:not(.home-workspace) main {
+    padding-top: 0.5rem !important;
+  }
+}
+
+/* Reduce vertical gaps between breadcrumbs, hero banners, alerts, and tool workspace */
+body:not(.home-workspace) main.space-y-8 > :not([hidden]) ~ :not([hidden]),
+body:not(.home-workspace) main.space-y-6 > :not([hidden]) ~ :not([hidden]),
+body:not(.home-workspace) main.space-y-5 > :not([hidden]) ~ :not([hidden]),
+body:not(.home-workspace) main.space-y-10 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.875rem !important; /* 14px instead of 24-40px */
+}
+
+/* 2. Breadcrumb Navigation Strip */
+body:not(.home-workspace) nav[aria-label="Breadcrumb"],
+body:not(.home-workspace) main > nav:first-child {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0.125rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1.25 !important;
+}
+
+/* 3. Hero Header Section / Banner */
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace),
+body:not(.home-workspace) main > nav + section:not(#tool-workspace),
+body:not(.home-workspace) main > div:first-child > section {
+  padding: 0.875rem 1.125rem !important; /* 14px 18px instead of 24px 28px */
+  border-radius: 0.875rem !important;
+}
+
+/* Tighter hero interior spacing */
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) > div,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) > div {
+  gap: 0.625rem !important;
+}
+
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .space-y-2,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .space-y-2,
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .space-y-1\.5,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .space-y-1\.5 {
+  gap: 0.375rem !important;
+}
+
+/* H1 Headings */
+body:not(.home-workspace) main h1 {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem) !important; /* 20px - 28px */
+  line-height: 1.2 !important;
+  letter-spacing: -0.025em !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Subheadings / Paragraph descriptions */
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) p,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) p {
+  font-size: 0.8125rem !important; /* 13px */
+  line-height: 1.4 !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* Quick Spec & Matrix Badges */
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-2 > div,
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-4 > div,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .flex.shrink-0 > div,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .grid > div {
+  padding: 0.375rem 0.625rem !important; /* 6px 10px */
+  border-radius: 0.625rem !important;
+}
+
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-2 > div > div:first-child,
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-4 > div > div:first-child,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .flex.shrink-0 > div > div:first-child {
+  font-size: 8px !important;
+  line-height: 1.2 !important;
+}
+
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-2 > div > div:last-child,
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-4 > div > div:last-child,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .flex.shrink-0 > div > div:last-child {
+  font-size: 11px !important;
+  line-height: 1.3 !important;
+}
+
+/* 4. Notice / Warning / Background Requirement Alert Bars */
+body:not(.home-workspace) main > div[class*="border-emerald-500"],
+body:not(.home-workspace) main > div[class*="border-amber-500"],
+body:not(.home-workspace) main > div[class*="bg-emerald-500/5"],
+body:not(.home-workspace) main > div[class*="bg-amber-500/10"],
+body:not(.home-workspace) main > aside[class*="border-amber-500"] {
+  padding: 0.5rem 0.875rem !important;
+  border-radius: 0.75rem !important;
+}
+
+body:not(.home-workspace) main > div[class*="border-emerald-500"] p,
+body:not(.home-workspace) main > div[class*="border-amber-500"] p {
+  font-size: 0.75rem !important;
+  line-height: 1.35 !important;
+}
+
+/* 5. Tool Container / Workspace */
+body:not(.home-workspace) #tool-workspace {
+  margin-top: 0.625rem !important;
+}
+
+body:not(.home-workspace) #tool-workspace > * + * {
+  margin-top: 0.625rem !important;
+}
+
+/* Compact quick-upload banner */
+body:not(.home-workspace) #tool-workspace .quick-upload {
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.75rem !important;
+}
+
+body:not(.home-workspace) #tool-workspace .quick-upload p.font-bold {
+  font-size: 0.8125rem !important;
+  line-height: 1.25 !important;
+}
+
+body:not(.home-workspace) #tool-workspace .quick-upload p.text-muted-foreground {
+  font-size: 0.6875rem !important;
+  line-height: 1.25 !important;
+}
+
+body:not(.home-workspace) #tool-workspace .quick-upload button {
+  padding: 0.4rem 0.875rem !important;
+  font-size: 0.75rem !important;
+  min-height: 36px !important;
+  border-radius: 0.625rem !important;
+}
+
+/* Compact Exam Preset Selector */
+body:not(.home-workspace) #exam-preset-selector {
+  padding: 0.625rem 0.875rem !important;
+  border-radius: 0.875rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+body:not(.home-workspace) #exam-preset-selector > * + * {
+  margin-top: 0.375rem !important;
+}
+
+body:not(.home-workspace) #exam-preset-selector [class*="bg-amber-500"] {
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.625rem !important;
+}
+
+body:not(.home-workspace) #exam-preset-selector [class*="bg-amber-500"] p {
+  font-size: 0.6875rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Mode Selector 3 Buttons Card */
+body:not(.home-workspace) .mode-selector {
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.75rem !important;
+  min-height: auto !important;
+}
+
+body:not(.home-workspace) .mode-selector button {
+  padding: 0.5rem 0.625rem !important;
+  border-radius: 0.625rem !important;
+}
+
+/* Teletalk Banner */
+body:not(.home-workspace) .teletalk-banner {
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.75rem !important;
+}
+
+/* Studio Editor Grid & Controls */
+body:not(.home-workspace) #tool-workspace :is(.studio-editor, .studio-export) {
+  padding-top: 0 !important;
+}
+
+body:not(.home-workspace) .crop-options {
+  padding: 0.375rem 0.625rem !important;
+}
+
+/* Document Suite & Exam Notice Cards */
+body:not(.home-workspace) main > aside[aria-label*="Document Suite"],
+body:not(.home-workspace) main > aside[aria-label*="Notice"],
+body:not(.home-workspace) main > aside[class*="border-primary"] {
+  padding: 0.625rem 0.875rem !important;
+  border-radius: 0.75rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+body:not(.home-workspace) main > aside[aria-label*="Document Suite"] p,
+body:not(.home-workspace) main > aside[aria-label*="Notice"] p {
+  font-size: 0.75rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Mobile Footer Compacting */
+@media (max-width: 640px) {
+  footer[role="contentinfo"] {
+    padding-top: 1.75rem !important;
+    padding-bottom: 2rem !important;
+  }
+  footer[role="contentinfo"] .grid-cols-1 {
+    gap: 1.5rem !important;
+  }
+  footer[role="contentinfo"] .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.25rem !important;
+  }
+  footer[role="contentinfo"] .p-5 {
+    padding: 0.875rem 1rem !important;
+  }
+}

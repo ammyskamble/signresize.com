@@ -248,7 +248,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
   <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
     <Header />
 
-    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-6 space-y-5 sm:space-y-6">
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-5 space-y-3.5 sm:space-y-4">
       
       <!-- Breadcrumb Bar -->
       <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
@@ -258,7 +258,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
       </nav>
 
       <!-- Hero Header Banner with Exam Badges -->
-      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-sm backdrop-blur">
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-3.5 sm:p-5 shadow-xs backdrop-blur">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div class="space-y-2">
             <div class="flex items-center gap-2 flex-wrap">
@@ -316,20 +316,22 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
               )}
           </div>
 
-          <!-- Quick Matrix Badges -->
-          <div class="flex items-center gap-2 flex-wrap shrink-0">
-            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
-              <div class="text-[9px] uppercase font-bold text-muted-foreground">{examData.pixelNote ? 'Tool canvas' : 'Dimensions'}</div>
-              <div class="text-xs font-bold text-foreground font-mono">{examData.widthPx} × {examData.heightPx} PX</div>
+          <!-- Quick Matrix Badges (Compact Spec Chip Rail) -->
+          <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap shrink-0 pt-1 sm:pt-0">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-card border border-border shadow-2xs text-xs">
+              <span class="text-[10px] uppercase font-bold text-muted-foreground">{examData.pixelNote ? 'Canvas' : 'Pixels'}:</span>
+              <span class="font-bold text-foreground font-mono">{examData.widthPx}×{examData.heightPx} px</span>
             </div>
-            <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
-              <div class="text-[9px] uppercase font-bold text-muted-foreground">{isPreparationGuide ? 'Default size range' : 'Size Range'}</div>
-              <div class="text-xs font-bold text-primary font-mono">{examData.minKb} – {examData.maxKb} KB</div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-card border border-border shadow-2xs text-xs">
+              <span class="text-[10px] uppercase font-bold text-muted-foreground">Weight:</span>
+              <span class="font-bold text-primary font-mono">{examData.minKb}–{examData.maxKb} KB</span>
             </div>
-            {!examData.hidePhysicalSize && <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-xs">
-              <div class="text-[9px] uppercase font-bold text-muted-foreground">Centimeters</div>
-              <div class="text-xs font-bold text-foreground font-mono">{examData.widthCm} × {examData.heightCm} CM</div>
-            </div>}
+            {!examData.hidePhysicalSize && (
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-card border border-border shadow-2xs text-xs">
+                <span class="text-[10px] uppercase font-bold text-muted-foreground">Size:</span>
+                <span class="font-bold text-foreground font-mono">{examData.widthCm}×{examData.heightCm} cm</span>
+              </div>
+            )}
           </div>
         </div>
 

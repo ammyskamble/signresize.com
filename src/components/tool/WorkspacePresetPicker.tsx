@@ -64,9 +64,9 @@ export function WorkspacePresetPicker({ presets, selected, mode, width, height, 
   // Popular quick chips for the active tool mode
   const quickPresetIds = isUS
     ? (mode === 'photo'
-        ? ['us-ds160', 'us-passport', 'us-opt-ead', 'us-sat-photo', 'us-usmle-ecfmg']
+        ? ['us-ds160', 'us-passport', 'us-opt-ead', 'us-sat-photo', 'us-usmle-ecfmg', 'us-nclex-photo', 'us-bar-exam-photo']
         : mode === 'document'
-        ? ['us-usajobs']
+        ? ['us-usajobs', 'us-realid-document']
         : ['us-digital-signature', 'us-passport-signature'])
     : mode === 'photo'
     ? [

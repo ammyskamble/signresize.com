@@ -161,25 +161,6 @@ const usmleFaqs = [
         </div>
       </section>
 
-      <!-- Urgent Guidance Alert: Strict 150 KB ECFMG Constraint -->
-      <div class="p-4 sm:p-5 rounded-2xl border-2 border-rose-500/30 bg-rose-500/5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div class="space-y-1">
-          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-700 dark:text-rose-400">
-            <span>🚨</span>
-            <span>Critical ECFMG Constraint: Strict 150 KB Ceiling</span>
-          </div>
-          <p class="text-xs text-muted-foreground leading-relaxed">
-            The ECFMG online certification system rejects any photograph larger than <strong>150 KB</strong>. While standard US passport generators export files between 200–240 KB, our tool automatically balances JPEG chroma sub-sampling to keep your image crisp at 600×600 px while guaranteeing it stays under 150 KB.
-          </p>
-        </div>
-        <a
-          href="/photo-background-remover/"
-          class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-rose-500/40 text-rose-700 dark:text-rose-300 hover:bg-rose-500/10 transition shadow-2xs"
-        >
-          <span>White BG Remover →</span>
-        </a>
-      </div>
-
       <!-- Studio Workspace preloaded with us-usmle-ecfmg -->
       <section id="tool-workspace" class="scroll-mt-20">
         <SignatureTool client:load initialPresetId="us-usmle-ecfmg" />

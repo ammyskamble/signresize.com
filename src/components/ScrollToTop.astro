@@ -1,6 +1,6 @@
 ---
 // src/components/ScrollToTop.astro
-// Floating Scroll-to-Top ("Upside") Button with smooth animation and smart viewport detection
+// Floating Scroll-to-Top ("Upside") Button with robust mobile touch handling, smooth animation, and smart viewport detection
 ---
 
 <!-- Floating Scroll to Top ("Upside") Button -->
@@ -9,10 +9,10 @@
   type="button"
   aria-label="Scroll to top of page"
   title="Scroll to top (Upside)"
-  class="fixed bottom-28 right-4 sm:bottom-[80px] sm:right-5 z-40 p-2 sm:p-2.5 rounded-full bg-card/95 dark:bg-slate-800/95 text-foreground border border-border/80 shadow-md backdrop-blur-md opacity-0 translate-y-3 pointer-events-none transition-all duration-300 hover:text-primary hover:border-primary/50 hover:bg-card hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary/50 group cursor-pointer"
+  class="fixed bottom-16 right-4 sm:bottom-[76px] sm:right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-card/95 dark:bg-slate-900/95 text-foreground border-2 border-border/80 shadow-lg hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-primary/20 backdrop-blur-md opacity-0 translate-y-3 pointer-events-none transition-all duration-200 hover:text-primary hover:border-primary/60 hover:bg-card hover:scale-105 active:scale-90 focus:outline-none focus:ring-2 focus:ring-primary/50 group cursor-pointer select-none touch-manipulation"
 >
   <svg
-    class="w-5 h-5 transition-transform duration-200 group-hover:-translate-y-0.5"
+    class="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:-translate-y-1"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -26,12 +26,17 @@
 <script>
   (() => {
     const btn = document.getElementById('scroll-to-top-btn');
-    if (!btn) return;
+    const footerBackToTop = document.getElementById('footer-back-to-top');
 
     let isVisible = false;
 
+    function getScrollTop() {
+      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    }
+
     function handleScroll() {
-      const scrolled = window.scrollY > 280;
+      if (!btn) return;
+      const scrolled = getScrollTop() > 180;
       if (scrolled !== isVisible) {
         isVisible = scrolled;
         if (scrolled) {
@@ -44,12 +49,57 @@
       }
     }
 
-    btn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
+    function scrollToTop(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      // Native smooth scroll to top across window, html, and body
+      try {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      } catch (err) {
+        window.scrollTo(0, 0);
+      }
+
+      if (document.documentElement) {
+        try {
+          document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+        } catch (err) {
+          document.documentElement.scrollTop = 0;
+        }
+      }
+
+      if (document.body) {
+        try {
+          document.body.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+        } catch (err) {
+          document.body.scrollTop = 0;
+        }
+      }
+    }
+
+    if (btn) {
+      // Both click and touchend for instantaneous mobile response
+      btn.addEventListener('click', scrollToTop);
+      btn.addEventListener('touchend', scrollToTop, { passive: false });
+    }
+
+    if (footerBackToTop) {
+      footerBackToTop.addEventListener('click', scrollToTop);
+    }
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     // Check initial scroll position

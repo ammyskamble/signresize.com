@@ -1,0 +1,323 @@
+---
+// src/pages/us/cpa-exam-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
+
+const pageTitle = "NASBA CPA Exam Candidate Photo Resizer (600x600 px) - SignResize";
+const pageDescription = "Free online NASBA Uniform CPA Exam candidate photo resizer. Crop and resize your test center photo to 2x2 inches (600x600 pixels) under 200 KB with pure white background for CPA Candidate Portal, Notice to Schedule (NTS), and Prometric ID check.";
+const canonicalUrl = "https://signresize.in/us/cpa-exam-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "nasba cpa exam photo requirements, cpa candidate portal photo upload, uniform cpa notice to schedule photo size, prometric cpa photo guidelines, aicpa candidate picture size, cpa exam photo resizer";
+
+const cpaFaqs = [
+  {
+    q: "What are the NASBA CPA Exam photo upload requirements?",
+    a: "NASBA requires candidates to submit a recent passport-style color photo: exactly 2×2 inches (600×600 pixels), taken within the past 6 months, saved in JPEG format with a file size strictly under 200 KB. The image must feature a plain white background, neutral facial expression, and your full head centered."
+  },
+  {
+    q: "How does Prometric verify candidate photos on CPA Exam test day?",
+    a: "When you arrive at the Prometric testing facility for any CPA exam section (AUD, FAR, REG, or Discipline), proctors compare your live appearance and government ID against the photo transmitted via your NASBA Notice to Schedule (NTS). A clear, compliant photograph ensures seamless biometric check-in."
+  },
+  {
+    q: "Are eyeglasses permitted in NASBA CPA exam photos?",
+    a: "No. In accordance with updated national biometric identification standards, eyeglasses must be removed for CPA candidate photos unless a documented medical exception signed by an ophthalmologist is provided."
+  },
+  {
+    q: "Can I take my CPA exam candidate photo with a smartphone?",
+    a: "Yes. You can take a well-lit photo using a smartphone portrait mode against a wall, upload it to SignResize, center your face within the biometric oval guide, click 'Make Background Pure White', and download a compressed 600×600 px JPEG under 200 KB."
+  },
+  {
+    q: "Does SignResize store or log CPA candidate photos?",
+    a: "No. All cropping, resizing, background cleaning, and JPEG compression take place 100% client-side inside your browser canvas. No sensitive candidate images or personal identity data are transmitted to any remote server."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4338ca" />
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "NASBA CPA Exam Candidate Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 Canvas and JavaScript",
+      "description": pageDescription,
+      "featureList": [
+        "2x2 inch (600x600 px) crop for NASBA CPA Candidate Portal",
+        "Biometric head alignment guide (50% to 69% frame height)",
+        "Automatic compression under 200 KB JPEG",
+        "One-click pure white background enhancer",
+        "100% private in-browser generation with zero server storage"
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Prepare Your Candidate Photo for NASBA CPA Exam Portal",
+      "description": "Step-by-step instructions to create an approved passport-style photo for NASBA CPA examination registration.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Upload candidate portrait",
+          "text": "Select a clear color headshot taken without eyeglasses or hats."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Align with NASBA oval guide",
+          "text": "Position your face so your head height spans between 50% and 69% of the square canvas."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Apply pure white background",
+          "text": "Click Make Background Pure White to eliminate wall shadows, patterns, or off-white tints."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download 600×600 px JPEG",
+          "text": "Export your compliant photo under 200 KB ready for instant upload to the NASBA CPA portal."
+        }
+      ]
+    })} />
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "US Hub",
+          "item": "https://signresize.in/us/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Exams",
+          "item": "https://signresize.in/us/exams/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "CPA Exam Photo Resizer",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <a href="/us/exams/" class="hover:text-primary transition">Exams</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">CPA Exam Photo Resizer</span>
+      </nav>
+
+      <!-- Hero Header Banner with USToolSwitcher Dropdown -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                NASBA &amp; Prometric Approved
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-mono text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 border border-indigo-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                600×600 px (2×2 Inches)
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              NASBA Uniform CPA Exam <span class="text-primary">Candidate Photo Resizer</span>
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Crop, center, and compress your official candidate identification photo for the NASBA CPA Candidate Portal, Notice to Schedule (NTS), and Prometric testing centers. Meets exact 2×2 inch, 600×600 px, pure white background, and &le;200 KB standards.
+            </p>
+          </div>
+
+          <div class="shrink-0 flex items-center gap-2">
+            <USToolSwitcher currentTool="cpa" />
+          </div>
+        </div>
+
+        <!-- Quick Spec Chips -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-border/60">
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Dimensions</div>
+            <div class="text-xs font-bold text-foreground font-mono">2×2 in (600×600 px)</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">File Limit</div>
+            <div class="text-xs font-bold text-foreground font-mono">&le; 200 KB (JPEG)</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Head Height</div>
+            <div class="text-xs font-bold text-foreground font-mono">50% – 69% of frame</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Background</div>
+            <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 font-mono">100% Pure White</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Tool Container -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:idle initialPresetId="us-cpa-exam-photo" />
+      </section>
+
+      <!-- NASBA CPA Exam Photographic Guidelines -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-6">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📊</span>
+            <span>NASBA Uniform CPA Examination Photo Upload Guidelines</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Strict requirements enforced by State Boards of Accountancy and Prometric biometric testing centers.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🪪</span>
+              <span>1. Notice to Schedule (NTS) Match</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Your photo is embedded into your NASBA profile and printed on your Notice to Schedule. Prometric proctors will visually compare this image with your primary unexpired government ID at check-in.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🚫</span>
+              <span>2. No Eyeglasses or Shadows</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Eyeglasses cause glare and frame obstruction that trigger automated portal rejections. Remove glasses, headbands, and earbuds. Ensure even lighting with zero shadows behind your head.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>⚖️</span>
+              <span>3. Exact 200 KB Maximum Size</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              The NASBA Candidate Portal rejects files exceeding 200 KB. SignResize automatically optimizes JPEG compression curves to maintain razor-sharp biometric facial clarity under the 200 KB threshold.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>❓</span>
+            <span>Frequently Asked Questions About NASBA CPA Exam Photos</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Essential answers for accounting graduates preparing for the CPA exam.
+          </p>
+        </div>
+
+        <FaqSection faqs={cpaFaqs} />
+      </section>
+
+      <!-- Cross-Links to Related Tools -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <h3 class="text-sm font-bold text-foreground uppercase tracking-wider">Related Professional Licensing &amp; Identity Tools</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <a href="/us/bar-exam-photo-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">⚖️</span>
+            <div>
+              <div class="font-bold text-foreground">State Bar Exam Photo</div>
+              <div class="text-[10px] text-muted-foreground">NY BOLE, CA Bar &amp; NCBE candidate photo</div>
+            </div>
+          </a>
+          <a href="/us/nclex-photo-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">🩺</span>
+            <div>
+              <div class="font-bold text-foreground">NCLEX Nursing Photo</div>
+              <div class="text-[10px] text-muted-foreground">Pearson VUE &amp; State BON candidate photo</div>
+            </div>
+          </a>
+          <a href="/us/electronic-signature/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">✍️</span>
+            <div>
+              <div class="font-bold text-foreground">US Electronic Signature</div>
+              <div class="text-[10px] text-muted-foreground">Sign W-9, 1099, &amp; CPA firm documents</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

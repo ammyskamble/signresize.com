@@ -1,0 +1,341 @@
+---
+// src/pages/us/real-id-document-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
+
+const pageTitle = "State DMV REAL ID Document Resizer (<5 MB US Letter 300 DPI) - SignResize";
+const pageDescription = "Free online State DMV REAL ID document resizer. Compress and format scanned residency proof, utility bills, birth certificates, and W-2 identity documents to strictly under 5 MB in US Letter size at 300 DPI for CA DMV, NY DMV, Texas DPS, and Florida HSMV portals.";
+const canonicalUrl = "https://signresize.in/us/real-id-document-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "real id document upload resizer, ca dmv real id document upload size, ny dmv real id upload proof, texas real id document size limit, florida real id residency upload, compress documents under 5mb real id, real id document pre-verification";
+
+const realIdFaqs = [
+  {
+    q: "What is the file size and dimension limit for State DMV REAL ID document uploads?",
+    a: "Most state DMVs (including California DMV, New York DMV, Texas DPS, and Florida Highway Safety) enforce a strict maximum file size of 5 MB (5,000 KB) per uploaded document page. Scans should be standard US Letter (8.5×11 inches / 2550×3300 px at 300 DPI) in JPEG, PNG, or PDF format with all four corners visible."
+  },
+  {
+    q: "Which documents are required for the REAL ID online pre-verification application?",
+    a: "You generally need three types of documents: (1) One Proof of Identity (Valid US Passport, certified US Birth Certificate, or Permanent Resident Card); (2) One Proof of Social Security Number (Social Security Card, W-2 form, or SSA-1099); and (3) Two separate Proofs of State Residency (mortgage statement, residential lease, utility bill, bank statement, or auto insurance policy) displaying your full legal name and physical address."
+  },
+  {
+    q: "Why do DMV portals reject phone photos of utility bills and birth certificates?",
+    a: "State DMV computer vision scanners automatically reject uploads due to three common errors: file sizes exceeding 5 MB, warped or angled phone photos where document corners are cropped, and reflections or camera shadows that obscure account numbers, seals, or dates. SignResize cleans paper yellowing, crops exactly to US Letter, and compresses files under 5 MB while preserving 300 DPI text sharpness."
+  },
+  {
+    q: "Do I still need to bring original physical documents to my in-person DMV appointment?",
+    a: "Yes. Pre-uploading your documents to the DMV online portal accelerates your appointment and verifies compliance ahead of time, but federal DHS regulations mandate that you must present original or certified physical copies of your documents to the DMV examiner during your counter visit."
+  },
+  {
+    q: "Is my confidential identity information (SSN, passport number) safe on SignResize?",
+    a: "100% safe. SignResize processes all documents entirely client-side inside your web browser using HTML5 Canvas and WebAssembly. Your sensitive tax forms, birth certificates, and utility bills are never transmitted to external servers, cloud databases, or third parties."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4338ca" />
+
+    <!-- Schema.org SoftwareApplication & HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "State DMV REAL ID Document Resizer & Compressor",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 Canvas and JavaScript",
+      "description": pageDescription,
+      "featureList": [
+        "Compress identity documents and utility bills strictly under 5 MB",
+        "Pre-configured for CA DMV, NY DMV, Texas DPS, and Florida HSMV portals",
+        "Standard US Letter aspect ratio (8.5x11 inches / 2550x3300 px at 300 DPI)",
+        "Document contrast filter for clean text and official seal clarity",
+        "100% private in-browser processing with zero server uploads"
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize and Compress Documents for State DMV REAL ID Pre-Upload",
+      "description": "Step-by-step instructions to format and compress proof of identity and residency documents for DMV online pre-verification.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Upload your document image or scan",
+          "text": "Select your scanned utility bill, lease agreement, birth certificate, or passport image."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Lock US Letter 300 DPI standard",
+          "text": "The preset automatically selects 2550×3300 pixels (8.5×11 inches at 300 DPI) for crisp federal scanner readability."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Enhance text contrast and legibility",
+          "text": "Use the Document Contrast slider to eliminate paper shadows, creases, or uneven mobile lighting."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download compliant file under 5 MB",
+          "text": "Click Process & Download to export your document under the 5,000 KB DMV upload limit."
+        }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "US Hub",
+          "item": "https://signresize.in/us/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "REAL ID Document Resizer",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">REAL ID Document Resizer</span>
+      </nav>
+
+      <!-- Hero Header Banner with USToolSwitcher Dropdown -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                Official State DMV Standard
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Strictly Under 5 MB Limit
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              State DMV <span class="text-primary">REAL ID Document Resizer</span> &amp; Compressor
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Compress and crop identity documents, birth certificates, and utility bill residency proofs strictly under 5 MB in 300 DPI US Letter size for California DMV, New York DMV, Texas DPS, and Florida HSMV online pre-verification portals.
+            </p>
+          </div>
+
+          <div class="shrink-0 flex items-center gap-2">
+            <USToolSwitcher currentTool="realid" />
+          </div>
+        </div>
+
+        <!-- Quick Spec Chips -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-border/60">
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Max File Size</div>
+            <div class="text-xs font-bold text-foreground font-mono">&lt; 5 MB (5,000 KB)</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Target Size</div>
+            <div class="text-xs font-bold text-foreground font-mono">US Letter (8.5×11 in)</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Resolution</div>
+            <div class="text-xs font-bold text-foreground font-mono">300 DPI (2550×3300 px)</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Privacy</div>
+            <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 font-mono">100% In-Browser</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Tool Container -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:idle initialPresetId="us-realid-document" />
+      </section>
+
+      <!-- REAL ID Document Requirements Matrix -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-6">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📋</span>
+            <span>Official State DMV REAL ID Pre-Verification Checklist</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            The federal REAL ID Act requires state licensing agencies to verify identity and address proofs before issuing compliant driver licenses and identification cards.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🪪</span>
+              <span>1. Proof of Identity</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Submit <strong>one original or certified copy</strong> establishing your full legal name and date of birth:
+            </p>
+            <ul class="space-y-1 list-disc list-inside text-muted-foreground">
+              <li>Valid, unexpired US Passport or Passport Card</li>
+              <li>Certified US Birth Certificate issued by vital stats</li>
+              <li>Permanent Resident Card (Form I-551)</li>
+              <li>Certificate of Naturalization (Form N-550)</li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🔢</span>
+              <span>2. Proof of Social Security</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Submit <strong>one document</strong> displaying your full legal name and complete 9-digit SSN:
+            </p>
+            <ul class="space-y-1 list-disc list-inside text-muted-foreground">
+              <li>Original Social Security Card (unlaminated)</li>
+              <li>W-2 Form showing employer name and full SSN</li>
+              <li>SSA-1099 or non-SSA-1099 tax form</li>
+              <li>Recent paystub showing full 9-digit SSN</li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🏡</span>
+              <span>3. Proof of State Residency (2x)</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Submit <strong>two separate documents</strong> showing your physical home street address (no P.O. Boxes):
+            </p>
+            <ul class="space-y-1 list-disc list-inside text-muted-foreground">
+              <li>Electric, gas, water, or internet utility bill</li>
+              <li>Mortgage statement or residential lease agreement</li>
+              <li>Bank, credit union, or credit card statement</li>
+              <li>Homeowners or auto insurance policy</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Warning Callout -->
+        <div class="p-4 rounded-xl border-l-4 border-amber-500 bg-amber-500/10 text-xs text-amber-900 dark:text-amber-200 space-y-1">
+          <div class="font-bold flex items-center gap-1.5">
+            <span>⚠️</span>
+            <span>Federal Enforcement Notice: May 7, 2025 Deadline</span>
+          </div>
+          <p class="leading-relaxed">
+            Beginning May 7, 2025, TSA security checkpoints at all US commercial airports and secure federal facilities will require a REAL ID-compliant driver's license, permit, or US passport. Standard driver licenses marked "Federal Limits Apply" or "Not for Federal Identification" will no longer be accepted for domestic commercial flights.
+          </p>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>❓</span>
+            <span>Frequently Asked Questions About REAL ID Document Formatting</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Clear answers to common questions regarding document pre-upload requirements across California, New York, Texas, and Florida DMVs.
+          </p>
+        </div>
+
+        <FaqSection faqs={realIdFaqs} />
+      </section>
+
+      <!-- Cross-Links to Related Tools -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <h3 class="text-sm font-bold text-foreground uppercase tracking-wider">Related US Identity &amp; Federal Tools</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <a href="/us/passport-photo-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">🛂</span>
+            <div>
+              <div class="font-bold text-foreground">US Passport Photo (2×2")</div>
+              <div class="text-[10px] text-muted-foreground">State Dept 600×600 px resizer</div>
+            </div>
+          </a>
+          <a href="/us/usajobs-document-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">🏛️</span>
+            <div>
+              <div class="font-bold text-foreground">USAJOBS 5MB Document</div>
+              <div class="text-[10px] text-muted-foreground">Federal resume &amp; SF-50 compressor</div>
+            </div>
+          </a>
+          <a href="/us/electronic-signature/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">✍️</span>
+            <div>
+              <div class="font-bold text-foreground">US Electronic Signature</div>
+              <div class="text-[10px] text-muted-foreground">Sign W-9 &amp; leases with transparent PNG</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+

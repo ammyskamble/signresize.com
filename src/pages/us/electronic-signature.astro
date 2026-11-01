@@ -1,0 +1,358 @@
+---
+// src/pages/us/electronic-signature.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import { SignatureCreatorTool } from '../../components/SignatureCreatorTool';
+import FaqSection from '../../components/FaqSection.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
+
+const pageTitle = "Free US Electronic Signature Maker | Sign W-9, 1099, I-9 & Leases - SignResize";
+const pageDescription = "Free online electronic signature pad for US tax forms, contracts, and leases. Draw smooth e-signatures on screen with finger or mouse. Export high-resolution transparent PNGs for IRS Form W-9, 1099, Form I-9, and PDF agreements under US ESIGN Act standards.";
+const canonicalUrl = "https://signresize.in/us/electronic-signature/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "w9 electronic signature transparent png, sign 1099 form online free, us business digital signature maker, lease agreement signature png, free esign pad for pdfs, esign act ueta compliant signature, form i9 electronic signature";
+
+const usSignFaqs = [
+  {
+    q: "Is an electronic signature drawn online legally valid in the United States?",
+    a: "Yes. Under the federal Electronic Signatures in Global and National Commerce Act (ESIGN Act, 15 U.S.C. § 7001) and the Uniform Electronic Transactions Act (UETA) adopted by 49 states and US territories, electronic signatures carry the same legal weight, enforceability, and validity as traditional ink-on-paper signatures when all parties intend to sign."
+  },
+  {
+    q: "Does the IRS accept electronic signatures on Form W-9 and Form 1099?",
+    a: "Yes. The IRS permits electronic signatures on Form W-9 (Request for Taxpayer Identification Number and Certification) and Form 1099 reporting as long as the electronic signature demonstrates the signer's intent to authenticate the form, verifies the signer's identity, and is affixed to an unaltered document."
+  },
+  {
+    q: "Why is a transparent PNG signature better than a scanned phone photo for PDF forms?",
+    a: "When you take a phone photo of a paper signature, it comes with an uneven grayish-yellow background. Dropping that image onto a digital PDF creates an unsightly opaque white box that obscures form lines and text underneath. SignResize generates an authentic transparent PNG with zero background pixels, allowing your handwritten ink to blend naturally over any PDF signature line."
+  },
+  {
+    q: "How do I insert my downloaded signature PNG into a PDF document?",
+    a: "In Adobe Acrobat Reader, open your PDF, click Tools → Fill & Sign → Add Signature → Image, and select your downloaded SignResize PNG. In Apple Preview on macOS, click the Markup toolbar icon → Sign → Create Signature. In Google Docs or Microsoft Word, click Insert → Image → In Front of Text, and position it directly onto the signature block."
+  },
+  {
+    q: "Does SignResize store or record my electronic signature on external servers?",
+    a: "Never. SignResize processes 100% of your signature strokes locally in your web browser memory using HTML5 Canvas. We do not transmit, record, log, or store your biometric signature data on any cloud server, preserving complete personal and corporate privacy."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4338ca" />
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "US Business Electronic Signature Maker (Transparent PNG)",
+      "url": canonicalUrl,
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 Canvas and JavaScript",
+      "description": pageDescription,
+      "featureList": [
+        "Touch, mouse, and stylus responsive drawing canvas",
+        "Transparent PNG export with zero background artifacts",
+        "Compliant with US ESIGN Act and UETA guidelines",
+        "Optimized for IRS Form W-9, 1099, Form I-9, and lease contracts",
+        "100% private in-browser generation with zero server retention"
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Create a Transparent PNG Signature for US Tax Forms and Leases",
+      "description": "Step-by-step instructions to draw, customize, and export an electronic signature for PDF documents.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Draw on the digital signature pad",
+          "text": "Sign naturally on the canvas using your finger on mobile/tablet or mouse on desktop."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Select ink color & stroke thickness",
+          "text": "Choose Official Black (#000000) or Executive Navy Blue (#001f3f) to match official US document standards."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Export transparent PNG",
+          "text": "Click Download Transparent PNG. The signature exports with an invisible background ready to place directly over PDF lines."
+        }
+      ]
+    })} />
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "US Hub",
+          "item": "https://signresize.in/us/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "US Electronic Signature",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Breadcrumb Navigation -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/us/" class="hover:text-primary transition">US Hub</a>
+        <span>/</span>
+        <span class="text-foreground font-semibold">US Electronic Signature</span>
+      </nav>
+
+      <!-- Hero Header Banner with USToolSwitcher Dropdown -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                US ESIGN Act &amp; UETA Ready
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-mono text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 border border-indigo-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                Transparent PNG (No White Box)
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              Free US <span class="text-primary">Electronic Signature</span> Maker
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Create smooth, legally admissible electronic signatures online. Export high-resolution transparent PNG files to sign IRS Form W-9, 1099-NEC, Form I-9, NDA agreements, and residential apartment leases without printing or scanning.
+            </p>
+          </div>
+
+          <div class="shrink-0 flex items-center gap-2">
+            <USToolSwitcher currentTool="esign" />
+          </div>
+        </div>
+
+        <!-- Quick Spec Chips -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-border/60">
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Output Format</div>
+            <div class="text-xs font-bold text-foreground font-mono">Transparent PNG</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Standard Inks</div>
+            <div class="text-xs font-bold text-foreground font-mono">Black &amp; Navy Blue</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Federal Legal Standard</div>
+            <div class="text-xs font-bold text-foreground font-mono">15 U.S.C. § 7001</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Data Privacy</div>
+            <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 font-mono">Zero Server Storage</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature Studio Container -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <div class="rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-xs">
+          <SignatureCreatorTool client:idle initialTab="draw" />
+        </div>
+      </section>
+
+      <!-- US Legal Compliance & Document Guide -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-6">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>⚖️</span>
+            <span>US Legal Admissibility &amp; Federal Tax Form Standards</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            How electronic signatures comply with federal regulations across common US business, legal, and employment workflows.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🏛️</span>
+              <span>IRS Form W-9 &amp; 1099</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              When onboarding as an independent 1099 contractor, vendors require a signed Form W-9. Under IRS Announcement 2020-4, the IRS accepts digital signatures as long as the form includes the signature date and TIN certification.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>💼</span>
+              <span>USCIS Remote Form I-9</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Employees completing Section 1 of Form I-9 Employment Eligibility Verification can sign electronically. USCIS regulations (8 CFR § 274a.2) permit electronic signatures that show identity verification and clear intent.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🏠</span>
+              <span>Residential Leases &amp; NDAs</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Real estate lease agreements, non-disclosure agreements (NDAs), and consulting agreements signed with digital transparent PNGs are fully binding in all 50 states under state adoption of the Uniform Electronic Transactions Act.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Add to PDF Step-by-Step Guide -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📄</span>
+            <span>How to Place Your Transparent PNG Signature into Any PDF</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Follow these 3 quick steps to sign documents seamlessly without expensive subscription software.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 rounded-xl border border-border bg-card space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">
+              1
+            </div>
+            <div class="font-bold text-foreground">Adobe Acrobat Reader (Free)</div>
+            <p class="text-muted-foreground leading-relaxed">
+              Open your PDF in free Acrobat Reader. Click <strong>Fill &amp; Sign</strong> on the right pane → click <strong>Add Signature</strong> → select <strong>Image</strong> → choose your downloaded PNG → click to position on the signature line.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-card space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">
+              2
+            </div>
+            <div class="font-bold text-foreground">Apple Preview (macOS)</div>
+            <p class="text-muted-foreground leading-relaxed">
+              Open the document in Preview. Click the <strong>Markup Toolbar icon</strong> (pencil tip) → click the <strong>Signature button</strong> → click Create Signature or drop your transparent PNG directly onto the document canvas.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-card space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">
+              3
+            </div>
+            <div class="font-bold text-foreground">Google Docs &amp; Word</div>
+            <p class="text-muted-foreground leading-relaxed">
+              Click <strong>Insert → Image → Upload from computer</strong>. Select your transparent PNG. Set text wrapping to <strong>In Front of Text</strong> and drag the signature over the signature line.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>❓</span>
+            <span>Frequently Asked Questions About Electronic Signatures</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Essential guidance regarding legality, formatting, and usage of digital signatures across US institutions.
+          </p>
+        </div>
+
+        <FaqSection faqs={usSignFaqs} />
+      </section>
+
+      <!-- Cross-Links to Related Tools -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <h3 class="text-sm font-bold text-foreground uppercase tracking-wider">Related US Immigration &amp; Identity Tools</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <a href="/us/real-id-document-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">🪪</span>
+            <div>
+              <div class="font-bold text-foreground">State DMV REAL ID Resizer</div>
+              <div class="text-[10px] text-muted-foreground">Residency &amp; utility bill compressor</div>
+            </div>
+          </a>
+          <a href="/us/usajobs-document-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">🏛️</span>
+            <div>
+              <div class="font-bold text-foreground">USAJOBS 5MB Document</div>
+              <div class="text-[10px] text-muted-foreground">Federal resume &amp; SF-50 compressor</div>
+            </div>
+          </a>
+          <a href="/us/opt-stem-opt-photo-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">🎓</span>
+            <div>
+              <div class="font-bold text-foreground">USCIS OPT / STEM EAD</div>
+              <div class="text-[10px] text-muted-foreground">Form I-765 photo resizer</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
