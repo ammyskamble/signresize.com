@@ -111,13 +111,20 @@ const usFaqs = [
   <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
     <Header />
 
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6">
       <!-- US Hero Header with Tools Interlinking Dropdown -->
-      <section class="space-y-4">
+      <section class="space-y-3">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div class="space-y-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
-              <span>🇺🇸 Official United States Standards (DS-160, Passport, USCIS, Common App)</span>
+          <div class="space-y-1.5">
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+              <nav aria-label="Breadcrumb" class="inline-flex items-center gap-1.5 text-muted-foreground">
+                <a href="/" class="hover:text-primary transition">Home</a>
+                <span class="text-muted-foreground/50">/</span>
+                <span class="text-foreground font-semibold">US Suite</span>
+              </nav>
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+                <span>🇺🇸 16 Official Standards</span>
+              </div>
             </div>
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
               US Visa &amp; Passport Photo Resizer <span class="text-primary">(600×600 px / 2×2 Inch)</span>
@@ -126,23 +133,12 @@ const usFaqs = [
               Free online tool to crop, resize, and compress photographs to exact US State Department &amp; USCIS guidelines. Pre-configured for Form DS-160, US Passport renewals, Green Card / DV Lottery, and Common App uploads.
             </p>
           </div>
-        </div>
-
-        <!-- US Tools Interlinking Dropdown Selector Bar -->
-        <div class="p-3 rounded-2xl bg-card border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
-          <div class="flex items-center gap-2">
-            <span class="text-lg">🛠️</span>
-            <div>
-              <div class="text-xs font-bold text-foreground">US Tools Quick Switch Menu:</div>
-              <div class="text-[11px] text-muted-foreground">Jump directly to any official US immigration, exam, or federal tool</div>
-            </div>
-          </div>
 
           <USToolSwitcher currentTool="hub" />
         </div>
       </section>
 
-      <!-- Resizer Studio Workspace --> preloaded with US DS-160 Preset -->
+      <!-- Resizer Studio Workspace preloaded with US DS-160 Preset -->
       <section id="tool-workspace" class="scroll-mt-20">
         <SignatureTool client:idle initialPresetId="us-ds160" />
       </section>

@@ -129,24 +129,22 @@ const lsatFaqs = [
   <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
     <Header />
 
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
-      <!-- Breadcrumb Navigation -->
-      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
-        <a href="/" class="hover:text-primary transition">Home</a>
-        <span>/</span>
-        <a href="/us/" class="hover:text-primary transition">US Hub</a>
-        <span>/</span>
-        <a href="/us/exams/" class="hover:text-primary transition">US Exams</a>
-        <span>/</span>
-        <span class="text-foreground font-semibold">LSAC / LSAT Candidate Photo Resizer</span>
-      </nav>
-
-      <!-- Hero Header -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6">
       <section class="space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="space-y-1.5">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                        <div class="flex flex-wrap items-center gap-2 text-xs">
+              <nav aria-label="Breadcrumb" class="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                <a href="/" class="hover:text-primary transition">Home</a>
+                <span class="text-muted-foreground/50">/</span>
+                <a href="/us/" class="hover:text-primary transition">US Hub</a>
+                <span class="text-muted-foreground/50">/</span>
+                <a href="/us/exams/" class="hover:text-primary transition">Exams</a>
+                <span class="text-muted-foreground/50">/</span>
+              </nav>
+  <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
               <span>⚖️ Law School Admission Council (LSAC) Law School Admissions</span>
+            </div>
             </div>
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
               LSAC / LSAT Candidate <span class="text-primary">Photo Resizer (600×600 px)</span>

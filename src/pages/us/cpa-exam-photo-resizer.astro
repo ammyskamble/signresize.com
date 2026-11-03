@@ -164,23 +164,19 @@ const cpaFaqs = [
   <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
     <Header />
 
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
-      <!-- Breadcrumb Navigation -->
-      <nav class="flex items-center gap-2 text-xs text-muted-foreground">
-        <a href="/" class="hover:text-primary transition">Home</a>
-        <span>/</span>
-        <a href="/us/" class="hover:text-primary transition">US Hub</a>
-        <span>/</span>
-        <a href="/us/exams/" class="hover:text-primary transition">Exams</a>
-        <span>/</span>
-        <span class="text-foreground font-semibold">CPA Exam Photo Resizer</span>
-      </nav>
-
-      <!-- Hero Header Banner with USToolSwitcher Dropdown -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6">
       <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur space-y-4">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div class="space-y-1.5">
             <div class="flex items-center gap-2 flex-wrap">
+              <nav aria-label="Breadcrumb" class="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                <a href="/" class="hover:text-primary transition">Home</a>
+                <span class="text-muted-foreground/50">/</span>
+                <a href="/us/" class="hover:text-primary transition">US Hub</a>
+                <span class="text-muted-foreground/50">/</span>
+                <a href="/us/exams/" class="hover:text-primary transition">Exams</a>
+                <span class="text-muted-foreground/50">/</span>
+              </nav>
               <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 NASBA &amp; Prometric Approved

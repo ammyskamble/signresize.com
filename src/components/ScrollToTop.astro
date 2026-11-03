@@ -8,8 +8,9 @@
   id="scroll-to-top-btn"
   type="button"
   aria-label="Scroll to top of page"
-  title="Scroll to top (Upside)"
-  class="fixed bottom-16 right-4 sm:bottom-[76px] sm:right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-card/95 dark:bg-slate-900/95 text-foreground border-2 border-border/80 shadow-lg hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-primary/20 backdrop-blur-md opacity-0 translate-y-3 pointer-events-none transition-all duration-200 hover:text-primary hover:border-primary/60 hover:bg-card hover:scale-105 active:scale-90 focus:outline-none focus:ring-2 focus:ring-primary/50 group cursor-pointer select-none touch-manipulation"
+  title="Back to top"
+  hidden
+  class="fixed bottom-16 right-4 sm:bottom-[76px] sm:right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-card/95 dark:bg-slate-900/95 text-foreground border-2 border-border/80 shadow-lg hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-primary/20 backdrop-blur-md transition-all duration-200 hover:text-primary hover:border-primary/60 hover:bg-card hover:scale-105 active:scale-90 focus:outline-none focus:ring-2 focus:ring-primary/50 group cursor-pointer select-none touch-manipulation"
 >
   <svg
     class="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:-translate-y-1"
@@ -23,86 +24,35 @@
   </svg>
 </button>
 
+<style>
+  #scroll-to-top-btn[hidden] { display: none; }
+  #scroll-to-top-btn { bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
+  @media (prefers-reduced-motion: reduce) {
+    #scroll-to-top-btn, #scroll-to-top-btn svg { transition: none; }
+  }
+</style>
+
 <script>
-  (() => {
-    const btn = document.getElementById('scroll-to-top-btn');
-    const footerBackToTop = document.getElementById('footer-back-to-top');
+  const button = document.getElementById('scroll-to-top-btn');
+  const footerLink = document.getElementById('footer-back-to-top');
 
-    let isVisible = false;
+  function updateVisibility() {
+    if (button) button.hidden = window.scrollY <= 180;
+  }
 
-    function getScrollTop() {
-      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    }
+  function backToTop(event: Event) {
+    event.preventDefault();
+    // One action for mouse, touch and keyboard. Avoid competing scroll animations.
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
+  }
 
-    function handleScroll() {
-      if (!btn) return;
-      const scrolled = getScrollTop() > 180;
-      if (scrolled !== isVisible) {
-        isVisible = scrolled;
-        if (scrolled) {
-          btn.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
-          btn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-        } else {
-          btn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-          btn.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
-        }
-      }
-    }
-
-    function scrollToTop(e) {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-
-      // Native smooth scroll to top across window, html, and body
-      try {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'smooth'
-        });
-      } catch (err) {
-        window.scrollTo(0, 0);
-      }
-
-      if (document.documentElement) {
-        try {
-          document.documentElement.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-          });
-        } catch (err) {
-          document.documentElement.scrollTop = 0;
-        }
-      }
-
-      if (document.body) {
-        try {
-          document.body.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-          });
-        } catch (err) {
-          document.body.scrollTop = 0;
-        }
-      }
-    }
-
-    if (btn) {
-      // Both click and touchend for instantaneous mobile response
-      btn.addEventListener('click', scrollToTop);
-      btn.addEventListener('touchend', scrollToTop, { passive: false });
-    }
-
-    if (footerBackToTop) {
-      footerBackToTop.addEventListener('click', scrollToTop);
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // Check initial scroll position
-    handleScroll();
-  })();
+  button?.addEventListener('click', backToTop);
+  footerLink?.addEventListener('click', backToTop);
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  window.addEventListener('pageshow', updateVisibility);
+  updateVisibility();
 </script>

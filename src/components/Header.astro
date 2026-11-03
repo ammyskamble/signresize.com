@@ -327,7 +327,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
                 <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-indigo-500/10 rounded-lg">
                   <span class="flex items-center gap-1.5"><span>🇺🇸</span><span>United States</span></span>
                   <div class="flex items-center gap-1">
-                    <span class="text-[9px] font-mono text-indigo-600 dark:text-indigo-400 font-bold">11 tools</span>
+                    <span class="text-[9px] font-mono text-indigo-600 dark:text-indigo-400 font-bold">16 tools</span>
                     <svg class="w-3 h-3 text-indigo-500 transition-transform duration-150 group-open/us:rotate-180" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
@@ -376,6 +376,26 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
                   </a>
                   <a href="/us/common-app-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
                     <span class="truncate">🎓 Common App Photo Upload</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&lt;200 KB</span>
+                  </a>
+                  <a href="/us/real-id-document-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🪪 REAL ID DMV Document</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&lt;5 MB</span>
+                  </a>
+                  <a href="/us/electronic-signature/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">✍️ US Electronic Signature</span>
+                    <span class="text-[9px] font-mono text-emerald-600 dark:text-emerald-400 font-bold shrink-0">Transparent</span>
+                  </a>
+                  <a href="/us/nclex-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🩺 NCLEX Nursing Candidate</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">600×600</span>
+                  </a>
+                  <a href="/us/bar-exam-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">⚖️ State Bar Exam Photo</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">2×2 Inch</span>
+                  </a>
+                  <a href="/us/cpa-exam-photo-resizer/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">📊 NASBA CPA Exam Photo</span>
                     <span class="text-[9px] font-mono text-muted-foreground shrink-0">&lt;200 KB</span>
                   </a>
                   <a href="/us/exams/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
@@ -1173,7 +1193,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           <summary class="flex items-center justify-between font-bold text-foreground cursor-pointer select-none">
             <div class="flex items-center gap-1.5">
               <span>🇺🇸</span>
-              <span>United States (11 Tools)</span>
+              <span>United States (16 Tools)</span>
             </div>
             <svg class="w-3 h-3 text-indigo-500 transition-transform group-open/usm:rotate-180" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -1191,6 +1211,11 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
             <a href="/us/lsat-photo-resizer/" class="block py-0.5 hover:text-primary">⚖️ LSAT Candidate Photo</a>
             <a href="/us/usmle-photo-resizer/" class="block py-0.5 hover:text-primary">🩺 USMLE &amp; ECFMG Form 186</a>
             <a href="/us/common-app-photo-resizer/" class="block py-0.5 hover:text-primary">🎓 Common App Photo Upload</a>
+            <a href="/us/real-id-document-resizer/" class="block py-0.5 hover:text-primary">🪪 REAL ID DMV Document (&lt;5 MB)</a>
+            <a href="/us/electronic-signature/" class="block py-0.5 hover:text-primary">✍️ US Electronic Signature (Transparent PNG)</a>
+            <a href="/us/nclex-photo-resizer/" class="block py-0.5 hover:text-primary">🩺 NCLEX Nursing Candidate Photo</a>
+            <a href="/us/bar-exam-photo-resizer/" class="block py-0.5 hover:text-primary">⚖️ State Bar Exam Candidate Photo</a>
+            <a href="/us/cpa-exam-photo-resizer/" class="block py-0.5 hover:text-primary">📊 NASBA CPA Exam Photo (&lt;200 KB)</a>
             <a href="/us/exams/" class="block py-0.5 hover:text-primary">🎓 All US Exams Hub</a>
             <a href="/us/" class="block py-0.5 text-indigo-600 dark:text-indigo-400 font-bold">🇺🇸 US Main Hub Page →</a>
           </div>

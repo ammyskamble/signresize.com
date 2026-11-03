@@ -161,44 +161,28 @@ const npFaqs: FaqItem[] = [
 
 const generalFaqs: FaqItem[] = [
   {
-    q: "How to resize signature?",
-    summary: "To resize a signature, upload your photo to SignResize, select your target dimensions or exam preset, toggle the Clean White Paper filter, and download your compliant JPG in seconds.",
-    details: "Our in-browser canvas engine allows you to specify exact dimensions in pixels or centimeters (such as 140×60 px or 4×2 cm) and lock file weight strictly between 10 KB and 20 KB with zero server uploads."
+    "q": "How do I resize a signature?",
+    "a": "Upload a clear image of your handwritten signature, crop unused paper, set the required dimensions and KB bounds, then download and inspect the JPG."
   },
   {
-    q: "What are the exact SSC signature dimensions?",
-    summary: "The exact SSC signature dimensions are 140 pixels width by 60 pixels height (approx 4.0 cm × 2.0 cm) with a file size strictly between 10 KB and 20 KB in JPG format.",
-    details: "The signature must be signed using a black ink pen on clean unruled white paper in natural running cursive handwriting. Signatures written in ALL CAPS / BLOCK letters are automatically disqualified by SSC OTR gateways."
+    "q": "Which dimensions should I use for my exam?",
+    "a": "Read the notice and upload field for your exact exam and cycle. There is no universal signature pixel size for every recruitment. Exam-specific pages explain the sources and any uncertainty."
   },
   {
-    q: "How to resize photo and signature?",
-    summary: "Resize photos to 3.5 × 4.5 cm (20–50 KB) and signatures to 4.0 × 2.0 cm (10–20 KB) using the one-click exam presets on SignResize.",
-    details: "For government portals, photographs and signatures use distinct aspect ratios and file constraints. SignResize provides dedicated presets for both documents to ensure first-attempt acceptance."
+    "q": "How do I resize a photo and signature?",
+    "a": "Prepare them separately using Photo or Signature mode. Match each upload field’s dimensions, format and file-size limits; do not assume both images share the same requirements."
   },
   {
-    q: "How to resize signature in 20 KB?",
-    summary: "To resize a signature under 20 KB, upload your image to SignResize and select the 10–20 KB preset to automatically compress the file without losing stroke sharpness.",
-    details: "Our real-time canvas compression engine iteratively calculates optimal JPEG quantization factors so your file never exceeds 20.0 KB while preserving crisp handwriting edges."
+    "q": "Does a file-size check guarantee acceptance?",
+    "a": "No. File checks compare the exported image with your selected settings. The authority also considers image quality, identity and its own application rules."
   },
   {
-    q: "Signature resize 10 to 20 KB: How does it work?",
-    summary: "Signature resize 10 to 20 KB uses dual-boundary binary search quantization inside your browser to guarantee the final file lands strictly between 10.0 KB and 19.9 KB.",
-    details: "This eliminates rejection from strict recruitment servers that enforce both a 10 KB floor (to prevent unreadable blur) and a 20 KB ceiling (to conserve gateway bandwidth)."
+    "q": "How do pixels, centimeters and KB differ?",
+    "a": "Pixels describe width and height; KB measures file size. Centimeters depend on DPI. At 200 DPI, 140 × 60 pixels is about 1.78 × 0.76 cm, not 4 × 2 cm."
   },
   {
-    q: "How do I change the width and height of my signature?",
-    summary: "To change width and height, choose your preferred unit (px, cm, mm, or inches) under Custom Dimensions in SignResize and type your target measurements.",
-    details: "You can toggle 'Lock Aspect Ratio' or drag the interactive crop box handles directly on the canvas workspace to frame your signature with precision."
-  },
-  {
-    q: "How can I resize my signature online?",
-    summary: "You can resize your signature online for free by uploading your photo to SignResize.in, choosing your exam preset, and clicking Download.",
-    details: "The entire process takes under 10 seconds and processes 100% inside your browser memory with zero files sent to external servers."
-  },
-  {
-    q: "How to make a signature background pure white online without Photoshop?",
-    summary: "Toggle the 'Clean White Paper' filter on SignResize to instantly turn yellowed paper, phone photo shadows, and dark room lighting into pure #FFFFFF white paper.",
-    details: "Our adaptive brightness algorithm bleaches the paper background while keeping your original black or blue ink lines dark, sharp, and high-contrast."
+    "q": "How can I clean the paper background?",
+    "a": "Try Clean White Paper and compare the preview with your original. Reduce or disable cleanup if thin strokes disappear. Rescan an unreadable original rather than relying on compression to restore detail."
   }
 ];
 

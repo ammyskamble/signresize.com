@@ -99,7 +99,7 @@ body.home-workspace #exam-day-toolkit a { padding: 14px; }
 }
 .home-workspace header[data-focused="true"] #header-search-trigger > span { display: none; }
 .home-workspace header[data-focused="true"] > div.h-16 { height: 56px; }
-.home-workspace #scroll-to-top-btn { display: none; }
+
 .home-workspace main > section:first-child .grid > div:first-child > div:first-child > span:first-child,
 .home-workspace main > section:first-child .grid > div:first-child > div:last-child { display: none; }
 .home-workspace .workspace-exam-select { border: 0 !important; padding: 0 !important; }

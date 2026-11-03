@@ -6,8 +6,7 @@ import Header from '../components/Header.astro';
 import { SignatureTool } from '../components/SignatureTool';
 import ExamDirectory from '../components/ExamDirectory.astro';
 import '../styles/home-workspace.css';
-import GuideSection from '../components/GuideSection.astro';
-import SeoContentSection from '../components/SeoContentSection.astro';
+import SignaturePreparationGuide from '../components/SignaturePreparationGuide.astro';
 import FaqSection from '../components/FaqSection.astro';
 import PortalDiagnostics from '../components/PortalDiagnostics.astro';
 import ChangelogSection from '../components/ChangelogSection.astro';
@@ -24,7 +23,7 @@ import ApplicationPreparationCards from '../components/ApplicationPreparationCar
 
 
 const pageTitle = "Resize Signature Online - Free Signature & Photo Resizer Studio";
-const pageDescription = "Free online signature & photo resizer studio. Crop signatures, set custom dimensions in cm/pixels, compress to exact KB limits, whiten paper backgrounds & export for SSC, UPSC, RRB & official portals.";
+const pageDescription = "Resize signatures online with custom pixel dimensions and KB limits. Crop, clean paper backgrounds and download JPG files privately in your browser.";
 const canonicalUrl = "https://signresize.in/";
 const ogImageUrl = "https://signresize.in/og-image.png";
 const keywordsContent = "resize signature, signature resize, signature resizer, signature compressor, resize signature online, crop signature online, signature resize online, online signature resizer, photo and signature resizer, make signature background white, signature resize in cm, pan card signature resize";
@@ -137,7 +136,7 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
       },
       "featureList": [
         "Interactive signature, photo and document resizing studio",
-        "Custom width and height in cm, mm, and pixels (140x60 px, 200 DPI standards)",
+        "Custom width and height in cm, mm, and pixels",
         "Official presets for SSC, RRB, UPSC, IBPS, State PSCs and PAN Card",
         "Dual-boundary file size compression (10-20 KB, 20-50 KB, 50-100 KB)",
         "Clean White Paper 3.0 background shadow remover (#FFFFFF pure white)",
@@ -168,7 +167,7 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
         {
           "@type": "HowToStep",
           "name": "Select Exam Preset or Target KB",
-          "text": "Select your exam preset (e.g., SSC 140x60 px) or adjust the target file size slider between 10 KB and 20 KB.",
+          "text": "Choose a preset after checking your exam notice, or enter the required pixel dimensions and KB bounds.",
           "position": 3
         },
         {
@@ -275,7 +274,7 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
               Trending:
             </span>
             <button type="button" data-hero-preset="rrb-railway" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
-              🚆 RRB NTPC / ALP <span class="text-[10px] text-slate-400 font-normal">(140×60)</span>
+              🚆 RRB NTPC <span class="text-[10px] text-slate-400 font-normal">(upload guide)</span>
             </button>
             <button type="button" data-hero-preset="ssc-gd-constable" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
               🛡️ SSC GD <span class="text-[10px] text-slate-400 font-normal">(10–20 KB)</span>
@@ -407,8 +406,8 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
         <h2 class="text-lg font-bold">Portal Submission Standards</h2>
         <p class="text-xs text-muted-foreground">Open the guidance you need. Check your current exam notice before submitting.</p>
 
-        <details><summary>How to prepare your signature or photo</summary><GuideSection /></details>
-        <details><summary>Dimensions, DPI and preparation guidance</summary><SeoContentSection /></details>
+        <SignaturePreparationGuide />
+
 
 
 

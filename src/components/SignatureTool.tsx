@@ -4714,12 +4714,31 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
                           {/* Face Guideline Overlay for Photo Mode */}
                           {targetType === 'photo' && showFaceGuide && (
-                            <div className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center p-2 opacity-60">
-                              <svg className="w-full h-full" viewBox="0 0 100 130" fill="none">
-                                <ellipse cx="50" cy="42" rx="26" ry="32" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" className="text-primary" />
-                                <line x1="30" y1="40" x2="70" y2="40" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" className="text-primary/70" />
-                                <path d="M15 125 C 25 85, 75 85, 85 125" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" className="text-primary" />
-                              </svg>
+                            <div className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center p-1 sm:p-2 opacity-70">
+                              {(isUSActive || crop.width === crop.height) ? (
+                                <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+                                  {/* Biometric Head Oval (50%-69% of photo height) */}
+                                  <ellipse cx="50" cy="46" rx="21" ry="29" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 2" className="text-primary" />
+                                  {/* Crown / Top of Head Line (~17% from top) */}
+                                  <line x1="20" y1="17" x2="80" y2="17" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" className="text-emerald-500/80" />
+                                  {/* Eye Level Line (~42% from top / 58% from bottom) */}
+                                  <line x1="16" y1="42" x2="84" y2="42" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 2" className="text-cyan-500" />
+                                  {/* Chin Baseline (~75% from top) */}
+                                  <line x1="20" y1="75" x2="80" y2="75" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" className="text-rose-500/80" />
+                                  {/* Shoulders arc */}
+                                  <path d="M12 98 C 24 84, 76 84, 88 98" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 2" className="text-primary/60" />
+                                  {/* Micro Indicator Labels */}
+                                  <text x="50" y="14" textAnchor="middle" fill="currentColor" className="text-[4.5px] font-bold text-emerald-600 dark:text-emerald-400">Crown (Top of Head)</text>
+                                  <text x="84" y="44" textAnchor="start" fill="currentColor" className="text-[4.5px] font-semibold text-cyan-600 dark:text-cyan-400">Eye Level</text>
+                                  <text x="50" y="79.5" textAnchor="middle" fill="currentColor" className="text-[4.5px] font-bold text-rose-600 dark:text-rose-400">Chin (50–69% Head)</text>
+                                </svg>
+                              ) : (
+                                <svg className="w-full h-full" viewBox="0 0 100 130" fill="none">
+                                  <ellipse cx="50" cy="42" rx="26" ry="32" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" className="text-primary" />
+                                  <line x1="30" y1="40" x2="70" y2="40" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" className="text-primary/70" />
+                                  <path d="M15 125 C 25 85, 75 85, 85 125" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" className="text-primary" />
+                                </svg>
+                              )}
                             </div>
                           )}
 
@@ -5019,8 +5038,14 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                       {/* Face Guide Toggle */}
                       <label className="flex items-center justify-between p-3 rounded-xl bg-muted/30 border border-border cursor-pointer hover:bg-muted/50 transition">
                         <div>
-                          <span className="text-xs font-semibold text-foreground block">Face &amp; Shoulder Alignment Guide</span>
-                          <span className="text-[10px] text-muted-foreground">Displays passport alignment oval &amp; eye level line</span>
+                          <span className="text-xs font-semibold text-foreground block">
+                            {isUSActive ? 'US Biometric 50%–69% Alignment Guide' : 'Face & Shoulder Alignment Guide'}
+                          </span>
+                          <span className="text-[10px] text-muted-foreground">
+                            {isUSActive
+                              ? 'State Dept standard: head 50%–69% of height, eye level & chin baseline'
+                              : 'Displays passport alignment oval & eye level line'}
+                          </span>
                         </div>
                         <input
                           type="checkbox"
