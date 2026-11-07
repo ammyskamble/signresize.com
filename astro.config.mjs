@@ -184,7 +184,9 @@ export default defineConfig({
         const blogSlug = new URL(url).pathname.match(/\/(?:blog)\/([^/]+)\/$/)?.[1];
         const post = BLOG_POSTS.find(post => post.slug === blogSlug);
         const modified = post && new Date((post.lastUpdated || post.publishDate).replace(/Sept\b/i, 'Sep'));
-        if (modified && !Number.isNaN(modified.getTime())) {
+        if (new URL(url).pathname === '/teletalk-photo-signature-resize/') {
+          item.lastmod = '2026-11-06';
+        } else if (modified && !Number.isNaN(modified.getTime())) {
           item.lastmod = modified.toISOString().slice(0, 10);
         } else {
           // Omit fake static lastmod for tools and static pages.

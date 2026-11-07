@@ -463,6 +463,7 @@ GUIDANCE_PAGE_UPDATES['rrb-ntpc-signature-resize'] = {
     'Complete live photograph capture inside the RRB application. Follow the separate certificate instructions if requesting an SC/ST free travel pass.',
   ],
   faqs: [
+    { q: 'What is the NTPC signature size?', a: 'For NTPC Graduate CEN 06/2025 and the Undergraduate CEN 07/2025 FAQ, use a JPG/JPEG of 30–49 KB, at least 140 × 60 pixels. Sign in black ink on white paper within the 35 × 20 mm box, and check the notice for your own CEN.' },
     { q: 'Is the RRB NTPC signature size 30–49 KB or 30–70 KB?', a: 'The verified CEN 06/2025 notice and CEN 07/2025 FAQ specify 30–49 KB JPG/JPEG. We corrected this page’s old 30–70 KB setting. These sources do not establish the rules for every older or later CEN.' },
     { q: 'Does RRB require exactly 140 × 60 pixels?', a: 'The reviewed sources describe 140 × 60 pixels as a minimum. This tool starts at 280 × 160 pixels, which exceeds both minimum dimensions and has the same proportions as the separately stated 35 × 20 mm box. It is a preparation choice, not an exact-pixel mandate.' },
     { q: 'Can I sign with blue ink?', a: 'The reviewed NTPC sources specify black ink on white paper. The general Railway advice that previously allowed blue ink should not be applied to these CENs.' },
@@ -473,7 +474,7 @@ GUIDANCE_PAGE_UPDATES['rrb-ntpc-signature-resize'] = {
 };
 EXAM_GUIDANCE['rrb-ntpc-signature-resize'] = {
   reviewedOn: '2026-10-28',
-  title: 'NTPC signature requirements: check your CEN',
+  title: 'NTPC signature size: requirements for your CEN',
   cycle: 'Graduate CEN 06/2025 · Undergraduate CEN 07/2025 FAQ',
   summary: 'Both verified references give the same signature limits. They also require live photograph capture in the RRB application. A newer recruitment cycle must be checked separately.',
   rows: [

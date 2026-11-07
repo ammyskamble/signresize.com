@@ -1,5 +1,65 @@
 [
   {
+    "id": "isro-hsfc-medical-officer-2026",
+    "title": "ISRO HSFC Medical Officer SD · 02/RMT/2026",
+    "label": "ISRO HSFC Medical Officer",
+    "opensOn": "2026-10-09",
+    "closesOn": "2026-11-08",
+    "closingTime": null,
+    "toolUrl": "/photo-resizer/",
+    "sourceUrl": "https://www.isro.gov.in/ViewAllOpportunities.html",
+    "verifiedOn": "2026-11-06",
+    "verification": "ISRO current opportunities; check notice for closing time"
+  },
+  {
+    "id": "isro-sdsc-technical-2026",
+    "title": "ISRO SDSC SHAR Technical & Support Posts · 03/2026",
+    "label": "ISRO SDSC Technical Posts",
+    "opensOn": "2026-10-19",
+    "closesOn": "2026-11-09",
+    "closingTime": null,
+    "toolUrl": "/photo-resizer/",
+    "sourceUrl": "https://www.isro.gov.in/SDSCRecruitment26.html",
+    "verifiedOn": "2026-11-06",
+    "verification": "ISRO recruitment notice; check notice for closing time"
+  },
+  {
+    "id": "rrb-ntpc-graduate-2026",
+    "title": "RRB NTPC Graduate · CEN 06/2026",
+    "label": "RRB NTPC Graduate",
+    "opensOn": "2026-10-08",
+    "closesOn": "2026-11-06",
+    "closingTime": "23:59:00",
+    "toolUrl": "/rrb-ntpc-signature-resize/",
+    "sourceUrl": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2321873&lang=2&reg=48",
+    "verifiedOn": "2026-11-06",
+    "verification": "Ministry of Railways press release"
+  },
+  {
+    "id": "cwc-direct-recruitment-2026",
+    "title": "CWC Assistant Manager & Junior Executive · 2026/01",
+    "label": "CWC AM & Junior Executive",
+    "opensOn": "2026-10-17",
+    "closesOn": "2026-11-15",
+    "closingTime": "23:59:00",
+    "toolUrl": "/document-resizer/",
+    "sourceUrl": "https://www.cwceportal.com/careers",
+    "verifiedOn": "2026-11-06",
+    "verification": "CWC career portal and detailed advertisement"
+  },
+  {
+    "id": "rrb-station-master-2026",
+    "title": "RRB Station Master · CEN 08/2026",
+    "label": "RRB Station Master",
+    "opensOn": "2026-10-27",
+    "closesOn": "2026-11-25",
+    "closingTime": null,
+    "toolUrl": "/rrb-ntpc-signature-resize/",
+    "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2329071&lang=1&reg=3",
+    "verifiedOn": "2026-11-06",
+    "verification": "Ministry of Railways press release; closing time not independently verified"
+  },
+  {
     "id": "nicl-ao-2026",
     "title": "NICL AO · 321 posts",
     "label": "NICL AO",

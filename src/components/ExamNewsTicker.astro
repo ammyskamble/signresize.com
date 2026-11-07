@@ -49,8 +49,8 @@ const isBd = Astro.url.pathname.startsWith('/bd');
           </div>
         </div>
         <div class="flex items-center gap-2 shrink-0">
-          <a href="/government-jobs/" class="hidden sm:inline-flex items-center gap-1 text-[11px] text-primary hover:underline font-semibold whitespace-nowrap">
-            <span>Job Calendar</span>
+          <a href="/application-dates/" class="inline-flex items-center gap-1 text-[11px] text-primary hover:underline font-semibold whitespace-nowrap">
+            <span>All dates</span>
             <span>↗</span>
           </a>
           <button type="button" aria-label="Dismiss application deadlines" class="shrink-0 w-6 h-6 rounded-md hover:bg-muted text-muted-foreground hover:text-foreground flex items-center justify-center text-xs transition cursor-pointer">✕</button>
@@ -68,15 +68,14 @@ const isBd = Astro.url.pathname.startsWith('/bd');
     const update = () => {
       if (strip.hidden || document.hidden) return;
       const now = new Date(), active = activeApplications(windows, now);
-      const soon = active.filter(item => daysUntilClose(item, now) < 7);
       const heading = strip.querySelector('[data-deadline-heading]');
       const links = strip.querySelector('[data-deadline-links]');
       if (!heading || !links) return;
-      heading.textContent = soon.length ? 'Closing this week' : 'Application dates';
+      heading.textContent = 'Application dates';
       const fragment = document.createDocumentFragment();
-      for (const item of (soon.length ? soon : active).slice(0, 3)) {
+      for (const item of active.slice(0, 3)) {
         const link = document.createElement('a'), count = document.createElement('span');
-        link.href = item.toolUrl;
+        link.href = '/application-dates/';
         link.className = 'inline-flex items-center gap-1 text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/20 bg-background hover:bg-primary/10 text-foreground transition whitespace-nowrap shadow-2xs';
         link.append(item.label + ' ');
         count.className = 'text-primary font-semibold';

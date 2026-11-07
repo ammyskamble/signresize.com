@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { build } from 'esbuild';
 const result = await build({ stdin: { contents: "export * from './src/utils/examDayTools'; export * from './src/utils/applicationWindows'; export { createPdfFromJpegBlob } from './src/utils/pdfGenerator';", resolveDir: process.cwd() }, bundle: true, write: false, platform: 'node', format: 'esm' });
-const { PHOTO_SHEET: sheet, photoSheetPositions, coverCrop, lightingSummary, activeApplications, daysUntilClose, createPdfFromJpegBlob } = await import(`data:text/javascript;base64,${Buffer.from(result.outputFiles[0].text).toString('base64')}`);
+const { PHOTO_SHEET: sheet, photoSheetPositions, coverCrop, lightingSummary, activeApplications, upcomingApplications, daysUntilClose, createPdfFromJpegBlob } = await import(`data:text/javascript;base64,${Buffer.from(result.outputFiles[0].text).toString('base64')}`);
 const positions = photoSheetPositions();
 assert.equal(positions.length, 8);
 for (const p of positions) {
@@ -27,6 +27,8 @@ assert.equal(activeApplications([item], new Date('2026-10-21T11:59:59Z')).length
 assert.equal(activeApplications([item], new Date('2026-10-21T12:00:00Z')).length, 0);
 assert.equal(daysUntilClose(item, new Date('2026-10-15T18:30:00Z')), 5);
 assert.equal(activeApplications([{ ...item, closingTime: null }], new Date('2026-10-21T18:30:00Z')).length, 0);
+assert.equal(upcomingApplications([item], new Date('2026-10-14T18:29:00Z')).length, 1);
+assert.equal(upcomingApplications([item], new Date('2026-10-14T18:30:00Z')).length, 0);
 assert.match(lightingSummary(new Uint8ClampedArray(64 * 64 * 4), 64).label, /Too dark/);
 for (const slug of ['photo-with-name-and-date-maker', 'admit-card-photo-print-sheet', 'handwritten-declaration-resizer', 'live-webcam-photo-checker', 'rrb-ntpc-undergraduate-document-guide']) {
   const html = fs.readFileSync(`dist/${slug}/index.html`, 'utf8');

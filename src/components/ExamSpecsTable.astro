@@ -13,9 +13,9 @@ const { country = 'IN' } = Astro.props;
 const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
 
 const bdCustomUrls: Record<string, string> = {
-  'teletalk-bd': '/bd/',
-  'teletalk-photo-bd': '/bd/',
-  'teletalk-sign-bd': '/bd/',
+  'teletalk-bd': '/teletalk-photo-signature-resize/',
+  'teletalk-photo-bd': '/teletalk-photo-signature-resize/',
+  'teletalk-sign-bd': '/teletalk-photo-signature-resize/',
   'bpsc-bd': '/bd/bcs-photo-signature-resizer/',
   'bcs-photo-300x300': '/bd/bcs-photo-signature-resizer/',
   'bcs-signature-300x80': '/bd/bcs-photo-signature-resizer/',
@@ -41,7 +41,10 @@ const countryPresetsMap = {
   ALL: EXAM_PRESETS,
 };
 
-const displayPresets = countryPresetsMap[country] || countryPresetsMap['IN'];
+const ntpcPreset = EXAM_PRESETS.find((preset) => preset.id === 'rrb-ntpc');
+const displayPresets = (countryPresetsMap[country] || countryPresetsMap['IN'])
+  .filter((preset) => preset.id !== 'rrb-ntpc')
+  .map((preset) => preset.id === 'rrb-railway' && ntpcPreset ? ntpcPreset : preset);
 const quickMatrixPresets = displayPresets.slice(0, 8);
 
 const countryTitles = {
@@ -129,7 +132,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
                     )}
                     <div class="text-[10px] text-muted-foreground">{preset.authority}</div>
                   </td>
-                  <td class="py-3 px-3.5 font-mono text-foreground font-bold">{preset.widthPx} × {preset.heightPx} px</td>
+                  <td class="py-3 px-3.5 font-mono text-foreground font-bold">{preset.widthPx} × {preset.heightPx} px{preset.id === 'rrb-ntpc' && <span class="block text-xs font-normal">Tool canvas</span>}</td>
                   <td class="py-3 px-3.5 font-mono text-muted-foreground">
                     {preset.heightPx === 80 ? '~3.5 × 0.93 cm (Pixel-strict)' : preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : 'Ratio locked'}
                   </td>
@@ -142,9 +145,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
                     )}
                   </td>
                   <td class="py-3 px-3.5 text-right">
-                    <a href={`#tool-workspace?preset=${preset.id}`} data-preset-id={preset.id} aria-label={`Resize for ${preset.name}`} class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
-                      Apply Preset
-                    </a>
+                    {preset.id === 'rrb-ntpc' ? <a href="/rrb-ntpc-signature-resize/" class="inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground">NTPC signature size</a> : <a href={`#tool-workspace?preset=${preset.id}`} data-preset-id={preset.id} aria-label={`Resize for ${preset.name}`} class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">Apply Preset</a>}
                   </td>
                 </tr>
               );
@@ -250,7 +251,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
                     aria-label={`View dedicated page for ${preset.name} specifications`}
                     class="font-semibold text-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 group"
                   >
-                    <span>{preset.name}</span>
+                    <span>{country === 'BD' && preset.id === 'teletalk-bd' ? 'Teletalk Photo Resize — 300×300 px, under 100 KB' : country === 'BD' && preset.id === 'teletalk-sign-bd' ? 'Teletalk Signature Resize — 300×80 px, under 60 KB' : preset.name}</span>
                     <span class="text-[10px] text-primary opacity-60 group-hover:opacity-100 transition-opacity">→</span>
                   </a>
                 ) : dedicatedSlug ? (
@@ -270,7 +271,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
                 </div>
               </td>
               <td class="py-3 px-4 font-mono font-medium text-foreground">
-                {preset.widthPx} × {preset.heightPx} px
+                {preset.widthPx} × {preset.heightPx} px{preset.id === 'rrb-ntpc' && <span class="block text-xs font-normal">Tool canvas</span>}
               </td>
               <td class="py-3 px-4 font-mono text-muted-foreground">
                 {preset.heightPx === 80 ? '~3.5 × 0.93 cm (Pixel-strict)' : preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : '-'}
@@ -289,14 +290,14 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
               </td>
               <td class="py-3 px-4 text-right">
                 <div class="flex items-center justify-end gap-2">
-                  <a
+                  {country === 'BD' ? <a href={customUrl || (dedicatedSlug ? getExamPageUrl(dedicatedSlug) : `/?preset=${encodeURIComponent(preset.id)}#tool-workspace`)} class="inline-flex items-center justify-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-muted hover:bg-primary hover:text-primary-foreground border border-border">Open tool</a> : preset.id === 'rrb-ntpc' ? <a href="/rrb-ntpc-signature-resize/" class="inline-flex items-center justify-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-muted hover:bg-primary hover:text-primary-foreground border border-border">NTPC signature size</a> : <a
                     href={`#tool-workspace?preset=${preset.id}`}
                     data-preset-id={preset.id}
                     aria-label={`Resize for ${preset.name}`}
                     class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-muted hover:bg-primary hover:text-primary-foreground border border-border transition active:scale-95 cursor-pointer"
                   >
                     Apply Preset
-                  </a>
+                  </a>}
                 </div>
               </td>
             </tr>

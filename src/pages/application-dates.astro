@@ -1,0 +1,29 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import { ApplicationCalendar } from '../components/ApplicationCalendar';
+---
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <ThemeScript />
+    <GoogleFonts />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Government Exam Application Dates | SignResize</title>
+    <meta name="description" content="Browse listed application opening and closing dates for major national recruitments, with links to their sources." />
+    <link rel="canonical" href="https://signresize.in/application-dates/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="min-h-screen flex flex-col bg-background text-foreground">
+    <Header />
+    <main class="w-full max-w-4xl mx-auto px-4 py-8 flex-1 space-y-6">
+      <div class="space-y-2"><a href="/" class="text-sm text-primary underline">Home</a><h1 class="text-2xl sm:text-3xl font-bold">Government exam application dates</h1><p class="text-sm text-muted-foreground">Selected major central and national recruitments. Dates are in India time and can change; check the linked notice or application portal before applying. This list is not exhaustive.</p></div>
+      <ApplicationCalendar client:load />
+    </main>
+    <Footer />
+  </body>
+</html>

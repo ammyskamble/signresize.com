@@ -1396,33 +1396,39 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'appsc-tspsc-signature-resize',
     presetId: 'appsc-tspsc',
-    pageTitle: 'APPSC & TGPSC Signature Resize 10 to 30 KB - SignResize',
-    metaDescription: 'Resize signature for APPSC & TGPSC (Group 1, 2, 3, 4). Format to 140x60 px (3.5x1.5 cm), 10 KB to 30 KB JPG in black ink.',
+    pageTitle: 'Andhra Pradesh & Telangana PSC Signature Resizer - SignResize',
+    metaDescription: 'Prepare a signature for Andhra Pradesh or Telangana PSC applications. Check your own portal instructions and use the relevant dedicated resizer.',
     keywords: 'appsc signature resize, tspsc signature resize, tgpsc group 1 signature size, appsc group 2 signature format, andhra telangana psc signature resizer',
-    h1: 'APPSC & TGPSC Signature Resize (10 KB – 30 KB)',
-    subheading: 'Standard 3.5×1.5 cm (140×60 px) specifications compliant with Andhra Pradesh & Telangana PSC OTR portals.',
+    h1: 'Andhra Pradesh & Telangana PSC Signature Resizer',
+    subheading: 'Requirements vary by commission and application. Choose the relevant resizer and confirm the instructions in your portal.',
     authority: 'APPSC & Telangana Public Service Commission (TGPSC)',
     targetExams: 'APPSC / TGPSC Group 1, Group 2, Group 3, Group 4, Assistant Executive Engineers (AEE), Polytechnic Lecturers',
     widthPx: 140,
     heightPx: 60,
     widthCm: 3.5,
     heightCm: 1.5,
-    minKb: 10,
-    maxKb: 30,
+    minKb: 1,
+    maxKb: 29,
     recommendedKb: 20,
     dpi: 200,
-    ink: 'Black Ink Pen Only',
+    ink: 'Check your application instructions',
     aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'Signatures in CAPITAL LETTERS are strictly rejected. Black ink on white unruled paper is mandatory.',
+    guidanceLabel: 'Check your application instructions',
+    verifiedOn: '2026-11-07',
+    physicalSizeNote: 'The physical size is from the Andhra Pradesh form; the editable pixel canvas and DPI are tool defaults.',
+    pixelNote: '140 × 60 px is an editable tool canvas, not a verified requirement for either commission.',
+    sources: [{ label: 'Andhra Pradesh APPSC Other Employees OTPR form', url: 'https://otpr-psc.ap.gov.in/OTPRForms/OtherEmployeesOneTimeProfileRegistrationForm' }],
+    relatedTools: ['appsc-signature-resize', 'tspsc-signature-resize'],
+    strictNotice: 'This preset is a starting point, not a guarantee of acceptance. Andhra Pradesh and Telangana instructions can differ; check the relevant portal.',
     tips: [
       'Sign with a black ballpoint pen on plain white paper.',
-      'Keep file size strictly between 10 KB and 30 KB.',
+      'Check the file-size limit in the application you are using.',
       'Do not crop too close to characters to avoid cutting diacritics or dots.'
     ],
     faqs: [
       {
         q: 'What is the signature requirement for APPSC and TGPSC OTR?',
-        a: 'Both APPSC and TGPSC require signatures sized 3.5 cm × 1.5 cm with file size between 10 KB and 30 KB in JPG format.'
+        a: 'Requirements can differ. The Andhra Pradesh APPSC form describes a separate 3.5 × 1.5 cm JPG/JPEG signature of 30 KB; check your own application for its exact limit. Consult TGPSC separately for Telangana requirements.'
       }
     ]
   },
@@ -2114,37 +2120,43 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'appsc-signature-resize',
     presetId: 'appsc-preset',
-    pageTitle: 'APPSC Signature Resize 10 to 30 KB (140x60 px, 3.5x1.5 cm) - SignResize',
-    metaDescription: 'Free APPSC signature resize tool. Resize signature to 10 to 30 KB, 140x60 px (3.5x1.5 cm) at 200 DPI for Andhra Pradesh Public Service Commission (APPSC Group 1, 2, OTPR) portal.',
+    pageTitle: 'APPSC Andhra Pradesh Signature Resizer Under 30 KB - SignResize',
+    metaDescription: 'Prepare a JPG signature for Andhra Pradesh APPSC OTPR. Check the official 3.5 × 1.5 cm guidance and your application’s file-size limit.',
     keywords: 'appsc signature resize, appsc signature size 10 to 30 kb, appsc otpr signature upload, appsc group 1 2 signature, andhra psc signature compressor',
-    h1: 'APPSC Signature Resize & Cropper (10 KB – 30 KB)',
-    subheading: 'Exact 140×60 px (3.5×1.5 cm) dimensions with 10–30 KB compression strictly adhering to Andhra Pradesh Public Service Commission (APPSC OTPR) guidelines.',
+    h1: 'APPSC Andhra Pradesh Signature Resizer (Under 30 KB)',
+    subheading: 'Prepare a separate JPG signature for Andhra Pradesh OTPR. The official form specifies 3.5 × 1.5 cm and 30 KB; check your particular application before uploading.',
     authority: 'Andhra Pradesh Public Service Commission (APPSC)',
     targetExams: 'APPSC Group 1, APPSC Group 2, Group 4, Panchayat Secretary, AEE, Forest Beat Officer, APPSC OTPR',
     widthPx: 140,
     heightPx: 60,
     widthCm: 3.5,
     heightCm: 1.5,
-    minKb: 10,
-    maxKb: 30,
+    minKb: 1,
+    maxKb: 29,
     recommendedKb: 20,
     dpi: 200,
-    ink: 'Black Ballpoint Ink Only',
+    ink: 'Check your application instructions',
     aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'APPSC mandates signatures in natural running handwriting with black ballpoint pen on plain white paper. Block/capital letters will cause OTPR rejection.',
+    guidanceLabel: 'Andhra Pradesh OTPR guidance',
+    verifiedOn: '2026-11-07',
+    physicalSizeNote: 'The physical size is from the Andhra Pradesh form; the editable pixel canvas and DPI are tool defaults.',
+    pixelNote: '140 × 60 px is an editable canvas, not an official pixel requirement.',
+    sources: [{ label: 'Andhra Pradesh APPSC Other Employees OTPR form', url: 'https://otpr-psc.ap.gov.in/OTPRForms/OtherEmployeesOneTimeProfileRegistrationForm' }],
+    relatedTools: ['tspsc-signature-resize'],
+    strictNotice: 'The cited Andhra Pradesh form asks for a separate 3.5 × 1.5 cm JPG/JPEG signature of 30 KB. A 1–29 KB tool target leaves a margin below 30 KB; 1 KB is not an official minimum. Confirm your application notice.',
     tips: [
       'Sign in a 3.5 cm × 1.5 cm box on clean, unruled white paper with black ballpoint pen.',
       'Crop closely to remove excess white margins and shadows.',
-      'Keep the file size strictly between 10.0 KB and 30.0 KB in JPG/JPEG format.'
+      'Download a legible JPG/JPEG below 30 KB and check the exact instructions for your application.'
     ],
     faqs: [
       {
         q: 'What is the official APPSC signature size for 2026?',
-        a: 'The official APPSC signature dimensions are 140 × 60 pixels (3.5 cm × 1.5 cm) with file size strictly between 10 KB and 30 KB in JPG format.'
+        a: 'The Andhra Pradesh Other Employees OTPR form specifies a separate JPG/JPEG signature measuring 3.5 × 1.5 cm and 30 KB in size. The 140 × 60 pixel canvas and 1–29 KB target are tool settings, not published official minimum or pixel requirements. Check your specific notice.'
       },
       {
         q: 'Which pen ink is required for APPSC OTPR signature upload?',
-        a: 'APPSC requires black ballpoint ink on clean white paper. Signatures written in capital letters will be disqualified.'
+        a: 'Use a clear signature on white paper and check the ink and signature instructions for your specific APPSC application.'
       }
     ]
   },
@@ -2826,12 +2838,12 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   // 4b. SBI Clerk Photo
   {
     slug: 'sbi-clerk-photo-resize',
-    presetId: 'ibps-sbi-photo',
+    presetId: 'sbi-clerk-photo',
     pageTitle: 'SBI Clerk Photo Resize: 20–50 KB (200×230 px) | SignResize',
-    metaDescription: 'Resize and crop passport photo for SBI Clerk (Junior Associate) 2026 online. Exact 200×230 px (3.5×4.5 cm), 20 to 50 KB JPG with light background. Free & private.',
+    metaDescription: 'Resize and crop passport photo for SBI Clerk (Junior Associate) 2026 online. Preferred 200×230 px (3.5×4.5 cm), 20 to 50 KB JPG with light background. Free & private.',
     keywords: 'sbi clerk photo resize, sbi clerk photo size, sbi clerk photo resizer, sbi image resizer, sbi photo size 20 to 50 kb, sbi photo resizer, sbi junior associate photo format, sbi photo and signature size converter',
     h1: 'SBI Clerk Photo Resize & Crop Tool (20 KB – 50 KB)',
-    subheading: 'Official 200×230 px (3.5×4.5 cm) passport photo format with strict 20–50 KB bounds for State Bank of India Junior Associate application portal.',
+    subheading: 'Preferred 200×230 px passport photo setting with 20–50 KB bounds for State Bank of India Junior Associate application portal.',
     authority: 'State Bank of India (SBI)',
     targetExams: 'SBI Clerk (Junior Associate, Customer Support & Sales) 2026, SBI PO, SBI SO',
     widthPx: 200,
@@ -2844,17 +2856,22 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Light / Pure White Background',
     aspectRatioLabel: '3.5:4.5 (~200×230 px)',
-    strictNotice: 'SBI portal requires a recent colored passport photograph taken against a light or pure white background within 3 months. No caps, dark spectacles, or shadow obstructions.',
+    guidanceLabel: 'SBI Junior Associate guidance',
+    verifiedOn: '2026-11-07',
+    pixelNote: 'SBI describes 200 × 230 pixels as preferred; check your application notice.',
+    physicalSizeNote: 'The photo size is 3.5 × 4.5 cm; pixel dimensions are preferred, not an exact conversion.',
+    sources: [{ label: 'SBI Junior Associate photo and signature FAQ', url: 'https://sbi.co.in/web/careers/junior-associate' }],
+    strictNotice: 'SBI portal requires a recent colored passport photograph taken against a light or pure white background within 3 months. Caps and dark spectacles are not allowed; religious headwear may be worn if it does not cover the face.',
     tips: [
       'Ensure your face occupies 75% to 80% of the image frame with both ears visible.',
       'Take the photo against a plain white wall or background in even, natural lighting.',
-      'Do not wear tinted glasses, hats, or religious headgear that conceals facial features.',
+      'Do not wear tinted glasses or hats; religious headwear is allowed if it does not cover the face.',
       'Compress to 30–45 KB to safely sit inside the 20 KB to 50 KB limit.'
     ],
     faqs: [
       {
         q: 'What is the SBI Clerk photo size for 2026 application?',
-        a: 'The official SBI Clerk photo specification is 200 × 230 pixels (approx. 3.5 cm × 4.5 cm) in JPG/JPEG format, with a file size strictly between 20.0 KB and 50.0 KB on a light or white background.'
+        a: 'SBI lists 200 × 230 pixels as the preferred photo dimensions (photo size 3.5 cm × 4.5 cm) in JPG/JPEG format, with a file size strictly between 20.0 KB and 50.0 KB on a light or white background.'
       },
       {
         q: 'Are spectacles allowed in the SBI Clerk passport photo?',

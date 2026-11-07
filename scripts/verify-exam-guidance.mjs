@@ -38,7 +38,11 @@ for (const slug of Object.keys(EXAM_GUIDANCE)) {
   const html = readFileSync(`dist/${slug}/index.html`, 'utf8');
   assert.ok(html.includes(`href="https://signresize.in/${slug}/"`), `${slug}: missing self canonical`);
   assert.equal((html.match(/<h1\b/g) || []).length, 1, `${slug}: H1 count`);
-  assert.ok(html.indexOf('id="exam-requirements-heading"') < html.indexOf('id="exam-tool"'), `${slug}: requirements must precede tool`);
+  const requirementsPosition = html.indexOf('id="exam-requirements-heading"');
+  const toolPosition = html.indexOf('id="exam-tool"');
+  assert.ok(requirementsPosition >= 0 && toolPosition >= 0, `${slug}: missing requirements or tool`);
+  assert.ok(slug === 'rrb-ntpc-signature-resize' ? toolPosition < requirementsPosition : requirementsPosition < toolPosition, `${slug}: unexpected requirements/tool order`);
+  if (slug === 'rrb-ntpc-signature-resize') assert.ok(html.includes('href="#exam-tool"'), `${slug}: missing tool shortcut`);
   assert.ok(!html.includes('SSC CGL 2026 Document Matrix'), `${slug}: obsolete template`);
   for (const source of page.sources) assert.ok(html.includes(source.url.replaceAll('&', '&amp;')));
 }

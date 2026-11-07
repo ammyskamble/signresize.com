@@ -18,7 +18,7 @@ const directoryPresets = presets.map(p => ({
   id: p.id, name: p.name, authority: p.authority, category: groupFor(p), targetType: p.targetType || 'signature', widthPx: p.widthPx, heightPx: p.heightPx, minKb: p.minKb, maxKb: p.maxKb, format: p.format,
   dimensions: p.widthCm && p.heightCm ? `${p.widthCm} × ${p.heightCm} cm` : `${(p.widthPx / p.dpi * 2.54).toFixed(2)} × ${(p.heightPx / p.dpi * 2.54).toFixed(2)} cm at ${p.dpi} DPI`,
   search: `${p.name} ${p.shortCode || ''} ${p.id} ${p.authority} ${p.category} ${p.targetType || 'signature'}`.toLowerCase(),
-  href: links.get(p.id) || (p.country && !['IN', 'GLOBAL'].includes(p.country) ? `/${p.country.toLowerCase()}/` : p.targetType === 'photo' ? '/photo-resizer/' : p.targetType === 'document' ? '/document-resizer/' : '/resize-signature-to-10kb-20kb/'),
+  href: ['teletalk-bd', 'teletalk-photo-bd', 'teletalk-sign-bd'].includes(p.id) ? '/teletalk-photo-signature-resize/' : links.get(p.id) || (p.country && !['IN', 'GLOBAL'].includes(p.country) ? `/${p.country.toLowerCase()}/` : p.targetType === 'photo' ? '/photo-resizer/' : p.targetType === 'document' ? '/document-resizer/' : '/resize-signature-to-10kb-20kb/'),
 }));
 const initialPresets = directoryPresets.slice(0, 10);
 ---
@@ -28,6 +28,7 @@ const initialPresets = directoryPresets.slice(0, 10);
     <div><h2 class="text-lg font-bold">Find your exam preset</h2><p class="text-xs text-muted-foreground">Search signature, photo and document requirements. Follow your current exam notice.</p></div>
     <label class="text-xs font-semibold">Search exams<input id="exam-directory-search" type="search" placeholder="SSC CGL, UPSC, IBPS, marksheet…" class="block mt-1 rounded-lg border border-input bg-background px-3 py-2 text-sm w-full sm:w-72" /></label>
   </div>
+  <p class="text-xs text-muted-foreground">Bangladesh: <a class="font-semibold text-primary underline" href="/teletalk-photo-signature-resize/">Teletalk photo and signature resize</a></p>
   <div class="flex flex-wrap gap-2" role="group" aria-label="Filter exam directory">{tabs.map(([key, label]) => <button type="button" data-directory-tab={key} aria-pressed={key === 'all'} class="min-h-[44px] inline-flex items-center rounded-lg border border-border px-3 py-2 text-xs font-semibold"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={tabIcons[key]} /></svg>{label}</button>)}</div>
   <p id="exam-directory-count" role="status" class="text-xs text-muted-foreground">Showing {initialPresets.length} of {directoryPresets.length} presets</p>
   <div class="max-h-[380px] overflow-auto rounded-lg border border-border" tabIndex="0" aria-label="Exam preset table">
@@ -57,7 +58,9 @@ const initialPresets = directoryPresets.slice(0, 10);
     const type = document.createElement('td'); type.className = 'p-3 capitalize'; type.textContent = preset.targetType;
     const dimensions = document.createElement('td'); dimensions.className = 'p-3 whitespace-nowrap'; dimensions.append(`${preset.widthPx} × ${preset.heightPx} px`); const cm = document.createElement('div'); cm.className = 'text-muted-foreground'; cm.textContent = preset.dimensions; dimensions.append(cm);
     const size = document.createElement('td'); size.className = 'p-3 whitespace-nowrap'; size.append(`${preset.minKb}–${preset.maxKb} KB`); const format = document.createElement('div'); format.className = 'text-muted-foreground'; format.textContent = preset.format; size.append(format);
-    const action = document.createElement('td'); action.className = 'p-3'; const button = document.createElement('button'); button.type = 'button'; button.dataset.usePreset = preset.id; button.className = 'min-h-[44px] rounded-lg bg-primary text-primary-foreground px-3 py-2 font-semibold whitespace-nowrap'; button.setAttribute('aria-label', `Use ${preset.name} preset`); button.textContent = 'Use preset'; action.append(button);
+    const action = document.createElement('td'); action.className = 'p-3';
+    if (['teletalk-bd', 'teletalk-photo-bd', 'teletalk-sign-bd'].includes(preset.id)) { const toolLink = document.createElement('a'); toolLink.href = '/teletalk-photo-signature-resize/'; toolLink.className = 'inline-flex min-h-[44px] items-center rounded-lg bg-primary text-primary-foreground px-3 py-2 font-semibold whitespace-nowrap'; toolLink.textContent = 'Open tool'; action.append(toolLink); }
+    else { const button = document.createElement('button'); button.type = 'button'; button.dataset.usePreset = preset.id; button.className = 'min-h-[44px] rounded-lg bg-primary text-primary-foreground px-3 py-2 font-semibold whitespace-nowrap'; button.setAttribute('aria-label', `Use ${preset.name} preset`); button.textContent = 'Use preset'; action.append(button); }
     row.append(exam, type, dimensions, size, action); return row;
   };
   function filterRows() {

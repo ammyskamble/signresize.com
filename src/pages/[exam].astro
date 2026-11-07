@@ -57,7 +57,8 @@ const isNtpc = examData.slug === 'rrb-ntpc-signature-resize';
 const isPreparationGuide = isWbpsc || isBpsc || isCoastGuard || isNtpc || isJam;
 const isTnpsc = examData.slug.includes('tnpsc');
 const isBanking = examData.slug.includes('sbi') || examData.slug.includes('ibps');
-const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc;
+const isMaharashtraPolice = examData.slug === 'maharashtra-police-signature-resize';
+const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc || isMaharashtraPolice;
 const relatedTools = (examData.relatedTools || [])
   .filter(slug => slug !== examData.slug)
   .map(slug => {
@@ -102,7 +103,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
 ---
 
 <!doctype html>
-<html lang="en-IN" class="scroll-smooth">
+<html lang={examData.slug === 'teletalk-photo-signature-resize' ? 'en-BD' : 'en-IN'} class="scroll-smooth">
   <head>
     <ThemeScript />
     <!-- Google tag (gtag.js) -->
@@ -292,6 +293,10 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
             <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
               {examData.subheading} Applicable for <strong>{examData.targetExams}</strong>.
             </p>
+            {isNtpc && <div class="flex flex-wrap items-center gap-3 pt-1">
+              <a href="#exam-tool" class="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Resize your signature ↓</a>
+              <a href="#exam-requirements-heading" class="inline-flex min-h-11 items-center text-sm font-semibold text-primary underline underline-offset-4">View size requirements</a>
+            </div>}
               {examData.slug === 'lsat-india-signature-resize' && <aside class="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm space-y-2" aria-label="Legacy exam notice"><strong class="text-amber-800 dark:text-amber-200">Legacy LSAT—India preset</strong><p>LSAT—India has been discontinued. This page preserves the historical preset; it is not a current registration guide. Check your law school’s current admission route.</p><div class="flex flex-wrap gap-4 font-semibold text-primary"><a href="/clat-signature-resize/">CLAT signature tool →</a><a href="/ailet-signature-resize/">AILET signature tool →</a><a href="https://www.chitkara.edu.in/blogs/law-entrance-exams-after-12th-clat-lsat-cuet/" target="_blank" rel="noopener noreferrer">University admission guidance ↗</a></div></aside>}
               {examData.slug === 'uppsc-signature-resize' && (
                 <aside class="mt-4 rounded-2xl border border-primary/30 bg-primary/10 p-4 text-xs space-y-2 shadow-xs" aria-label="UPPSC RO ARO Notice">
@@ -346,7 +351,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
         )}
       </section>
 
-      {examGuidance && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
+      {examGuidance && !isNtpc && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
 
       {relatedTools.length > 0 && !hasDocumentSuite && !examGuidance && !isCoastGuard && !isTnpsc && (
         <nav class="flex flex-wrap gap-2 text-xs" aria-label="Related signature tools">
@@ -911,18 +916,85 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
         </aside>
       )}
 
+      {isMaharashtraPolice && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="Maharashtra Police Recruitment Candidate Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-lg">👮‍♂️</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">Maharashtra Police Bharti 2026 Candidate Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official 4-Page Master PDF</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Official specifications for mahapolice.gov.in &amp; MahaIT portal: 160×200 px photo (5–20 KB) and 256×64 px signature (5–20 KB, black ink, no CAPITAL letters). Download the updated 4-page handbook covering PET, SRPF, Driver test, syllabus &amp; document checklist:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/downloads/maharashtra-police-bharti-2026-physical-chart-and-syllabus-mr.pdf"
+                download="Maharashtra-Police-Bharti-2026-Handbook-Marathi.pdf"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 bg-primary text-primary-foreground border border-primary shadow-xs hover:opacity-95"
+              >
+                <span>📥</span>
+                <span>PDF डाऊनलोड (मराठी आवृत्ती)</span>
+              </a>
+              <a
+                href="/downloads/maharashtra-police-bharti-2026-physical-chart-and-syllabus-en.pdf"
+                download="Maharashtra-Police-Bharti-2026-Handbook-English.pdf"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 bg-card text-foreground border border-border hover:border-primary/50 shadow-2xs"
+              >
+                <span>📥</span>
+                <span>Download PDF (English)</span>
+              </a>
+              <a
+                href="/mr/blog/maharashtra-police-bharti-2026-top-10-faq-guide/"
+                class="px-3 py-2 rounded-xl text-xs font-semibold text-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border"
+              >
+                <span>🚩</span>
+                <span>मराठी मार्गदर्शक</span>
+              </a>
+              <a
+                href="/blog/maharashtra-police-bharti-2026-top-10-faq-guide/"
+                class="px-3 py-2 rounded-xl text-xs font-semibold text-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border"
+              >
+                <span>📘</span>
+                <span>English Guide</span>
+              </a>
+              <a
+                href="/blog/maharashtra-police-bharti-2026-top-10-faq-guide/#running-practice-planner"
+                class="px-3 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border"
+              >
+                ⏱️ Running Planner →
+              </a>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-border/50 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+            <span class="flex items-center gap-1.5">
+              <span>⚠️</span>
+              <span><strong>Strict MahaIT Rule:</strong> Signatures in ALL CAPITAL / BLOCK letters or blue ink cause automatic portal disqualification.</span>
+            </span>
+            <span class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+              ✓ Ground (50M) • Written (100M - No Negative Marking) • NCC Bonus (+5M)
+            </span>
+          </div>
+        </aside>
+      )}
+
       <!-- Main Interactive Resizer Tool Workspace -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
         <!-- Left Side: Interactive Tool Workspace -->
         <div class={(isCoastGuard || isTnpsc) ? "lg:col-span-12 space-y-6" : "lg:col-span-8 space-y-6"}>
           <div id="exam-tool" class="scroll-mt-20 bg-transparent sm:bg-card border-0 sm:border border-border rounded-2xl p-0 sm:p-6 shadow-none sm:shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
+            {isNtpc && <div class="mb-4 space-y-1"><h2 class="text-xl font-bold text-foreground">Resize your NTPC signature</h2><p class="text-sm text-muted-foreground">Upload your signature, adjust the crop, then download the JPG. The 2025 NTPC preset starts at 30–49 KB; check your active CEN.</p><p class="text-sm text-muted-foreground">Other photo and document presets are available below. For CEN 06/2025, the photo is captured live in the RRB application; an SC/ST certificate for a free travel pass must be a clear PDF under 400 KB. Check the final PDF size and your active notice.</p></div>}
             <SignatureTool 
               client:idle
               initialPresetId={examData.presetId} 
               initialMode={examData.slug.includes('photo') ? 'photo' : 'signature'} 
             />
           </div>
+
+          {isNtpc && examGuidance && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
 
           {(isCoastGuard || isTnpsc) && relevantBlogPosts.length > 0 && (
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1174,7 +1246,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
                       <td class="px-4 py-2 text-muted-foreground">Recommended target ~{examData.recommendedKb} KB</td>
                     </tr>
                     <tr>
-                      <td class="px-4 py-2 font-medium text-foreground">{examData.slug.includes('photo') ? 'Background & Face Requirement' : 'Mandatory Ink Requirement'}</td>
+                      <td class="px-4 py-2 font-medium text-foreground">{examData.slug.includes('photo') ? 'Background & Face Requirement' : examData.slug === 'appsc-signature-resize' || examData.slug === 'appsc-tspsc-signature-resize' ? 'Ink guidance' : 'Mandatory Ink Requirement'}</td>
                       <td class="px-4 py-2 font-medium text-foreground">{examData.ink}</td>
                       <td class="px-4 py-2 text-muted-foreground">{examData.slug.includes('photo') ? 'Plain studio lighting without shadows or tinted glasses' : 'Unruled white paper (no notebook lines)'}</td>
                     </tr>
@@ -1212,7 +1284,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
 
             <!-- Tailored Pro Tips for Rejection-Proof Uploads -->
             )}
-            {examData.sources && <SignatureCropExamples />}
+            {examData.sources && !examData.slug.includes('photo') && <SignatureCropExamples />}
             <div class="space-y-3 pt-4 border-t border-border">
               <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
                 <span>🛡️</span> {isPreparationGuide ? 'Preparation checklist' : `4 Rules to Avoid ${examData.slug.includes('photo') ? 'Photo' : 'Signature'} Rejection`} for {examData.authority}

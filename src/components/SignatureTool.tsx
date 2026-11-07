@@ -705,9 +705,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   }, [sourceImage, uploadError, compactStudio]);
 
   // Apply an exam preset
-  const applyPreset = useCallback((preset: ExamPreset) => {
+  const applyPreset = useCallback((preset: ExamPreset, preserveExamContext = false, suppressToast = false) => {
     setSelectedPreset(preset);
-    if (!GENERIC_DOC_PRESET_IDS.has(preset.id)) {
+    if (!preserveExamContext && !GENERIC_DOC_PRESET_IDS.has(preset.id)) {
       activeExamFamilyRef.current = preset.id.toLowerCase();
     }
     setWidth(preset.widthPx);
@@ -751,7 +751,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     // Automatically close the preset selection pop-up upon picking any preset
     setIsExamDropdownOpen(false);
 
-    if (!focusedWorkspace) addToast(
+    if (!focusedWorkspace && !suppressToast) addToast(
       `Applied ${preset.name} (${preset.widthPx}×${preset.heightPx} px, ${preset.minKb}–${preset.maxKb} KB)`,
       'Preset Applied',
       'success'
@@ -764,16 +764,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     const presets = newType === 'photo' ? PHOTO_PRESETS : newType === 'document' ? DOCUMENT_PRESETS : SIGNATURE_PRESETS;
     
     // Auto-map to current exam family (e.g. IIT JAM, GATE, NICL AO, Coast Guard, SSC, UPSC, RRB, Banking)
-    const rawCurId = (selectedPreset?.id || '').toLowerCase();
-    const isGenericDoc = GENERIC_DOC_PRESET_IDS.has(rawCurId);
-
-    // Persistent anchor ensures switching to Document mode and returning does not lose the active exam context
-    const examAnchor = (!isGenericDoc && rawCurId)
-      ? rawCurId
-      : (activeExamFamilyRef.current || (effectivePresetPropId || resolvedPreset?.id || initialPresetId || '').toLowerCase());
-
-    const curName = (selectedPreset?.name || resolvedPreset?.name || '').toLowerCase();
-    const curAuth = (selectedPreset?.authority || resolvedPreset?.authority || '').toLowerCase();
+    // Keep the user's selected exam when a mode uses a generic supporting preset.
+    const examAnchor = activeExamFamilyRef.current || (effectivePresetPropId || resolvedPreset?.id || initialPresetId || '').toLowerCase();
+    const contextPreset = ALL_COMBINED_PRESETS.find(preset => preset.id.toLowerCase() === examAnchor);
+    const rawCurId = examAnchor;
+    const curName = (contextPreset?.name || '').toLowerCase();
+    const curAuth = (contextPreset?.authority || '').toLowerCase();
 
     const matchesExam = (...tokens: string[]) => {
       return tokens.some(token => {
@@ -786,8 +782,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
     const isUSContext = Boolean(
       (typeof window !== 'undefined' && window.location.pathname.startsWith('/us')) ||
-      selectedPreset?.country === 'US' ||
-      selectedPreset?.id?.startsWith('us-') ||
+      contextPreset?.country === 'US' ||
       examAnchor.startsWith('us-') ||
       rawCurId.startsWith('us-') ||
       matchesExam('us-', 'usajobs', 'ds-160', 'ds160', 'ecfmg', 'usmle', 'lsat', 'lsac', 'sat', 'act', 'commonapp', 'greencard', 'nclex', 'bar', 'cpa', 'realid', 'real-id')
@@ -877,7 +872,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         else if (examAnchor.includes('clerk')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-clerk') || SIGNATURE_PRESETS.find(p => p.id === 'ibps-clerk');
         else targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-signature') || SIGNATURE_PRESETS.find(p => p.id === 'ibps-sbi');
       } else if (newType === 'photo') {
-        targetPreset = PHOTO_PRESETS.find(p => p.id === 'ibps-photo') || PHOTO_PRESETS.find(p => p.id === 'ibps-sbi-photo');
+        targetPreset = (examAnchor.includes('sbi') ? PHOTO_PRESETS.find(p => p.id === 'sbi-clerk-photo') : undefined) || PHOTO_PRESETS.find(p => p.id === 'ibps-photo') || PHOTO_PRESETS.find(p => p.id === 'ibps-sbi-photo');
       } else if (newType === 'document') {
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'handwritten-declaration') || DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc');
       }
@@ -1064,6 +1059,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th') || DOCUMENT_PRESETS[0];
       }
     }
+    // Andhra Pradesh APPSC: keep the same exam family across all three modes.
+    else if (examAnchor === 'appsc-preset' || examAnchor === 'appsc-photo' || examAnchor === 'appsc-document') {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'appsc-preset');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'appsc-photo');
+      else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'appsc-document');
+    }
     // 24. State Public Service Commissions (UPPSC, BPSC, MPSC, RPSC, KPSC, OPSC, GPSC, etc.)
     else if (matchesExam('state-psc', 'uppsc', 'bpsc', 'mpsc', 'kpsc', 'rpsc', 'gpsc', 'opsc', 'hpsc', 'appsc', 'tspsc', 'apsc', 'mppsc')) {
       if (newType === 'signature') {
@@ -1092,7 +1093,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       presets.find(p => !p.country || p.country === 'IN') || 
       presets[0];
 
-    applyPreset(defaultPreset);
+    applyPreset(defaultPreset, true, examAnchor === 'rrb-ntpc' && newType === 'photo');
+    // NTPC uses live photo capture; do not present a different exam's photo preset as its rule.
+    if (examAnchor === 'rrb-ntpc' && newType === 'photo') setSelectedPreset(null);
     if (newType === 'photo') {
       setLockAspect(true);
       setShowFaceGuide(true);
@@ -2889,9 +2892,6 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     : isJam2027Active
     ? ALL_COMBINED_PRESETS.filter(preset => ['iit-jam', 'iit-jam-photo'].includes(preset.id))
         .map(preset => ({ id: preset.id, short: preset.id === 'iit-jam' ? 'JAM Signature' : 'JAM Photo', label: preset.name, specs: `${preset.widthPx}×${preset.heightPx} • ${preset.minKb}–${preset.maxKb} KB` }))
-    : isNtpcActive
-    ? SIGNATURE_PRESETS.filter(preset => preset.id === 'rrb-ntpc')
-        .map(preset => ({ id: preset.id, short: preset.shortCode, label: preset.name, specs: `${preset.widthPx}×${preset.heightPx} • ${preset.minKb}–${preset.maxKb} KB` }))
     : isBpscActive
     ? SIGNATURE_PRESETS.filter(preset => ['bpsc', 'bpsc-tre-hindi-sign', 'bpsc-tre-english-sign'].includes(preset.id))
         .map(preset => ({ id: preset.id, short: preset.shortCode, label: preset.name, specs: `${preset.widthPx}×${preset.heightPx} • ${preset.minKb}–${preset.maxKb} KB` }))
@@ -2916,6 +2916,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'id-proof-card', short: 'ID Card (Aadhaar)', label: 'ID Proof', specs: 'Card • 50–200 KB' }
       ]
     : [
+        ...(isNtpcActive ? [{ id: 'rrb-ntpc', short: 'RRB NTPC', label: 'RRB NTPC Signature', specs: '280×160 • 30–49 KB' }] : []),
         { id: 'ssc-cgl', short: 'SSC CGL', label: 'SSC CGL 2026', specs: '140×60 • 10–20 KB' },
         { id: 'ssc-general', short: 'SSC Guide', label: 'SSC preparation preset', specs: '600×200 • 10–20 KB' },
         { id: 'upsc-civil-services', short: 'UPSC', label: 'UPSC (IAS, NDA)', specs: '350×350 • 20–300 KB' },
@@ -2923,11 +2924,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'rrb-railway', short: 'RRB', label: 'RRB Railways', specs: '140×60 • 10–20 KB' }
       ];
 
-  const currentPresetList = targetType === 'photo'
-    ? PHOTO_PRESETS
-    : targetType === 'document'
-    ? DOCUMENT_PRESETS
-    : SIGNATURE_PRESETS;
+  const currentPresetList = useMemo(() => {
+    const presets = targetType === 'photo' ? PHOTO_PRESETS : targetType === 'document' ? DOCUMENT_PRESETS : SIGNATURE_PRESETS;
+    return presets.filter((preset, index) => presets.findIndex(item => item.id === preset.id) === index);
+  }, [targetType]);
 
   // Filter presets for search inside combobox (searches current mode list first, falls back to all presets)
   const comboboxFilteredPresets = useMemo(() => {
@@ -2938,17 +2938,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       p.shortCode?.toLowerCase().includes(q) ||
       p.authority?.toLowerCase().includes(q) ||
       p.category?.toLowerCase().includes(q) ||
-      (p.country && p.country.toLowerCase().includes(q)) ||
-      p.notes?.toLowerCase().includes(q)
+      (p.country && p.country.toLowerCase().includes(q))
     ));
     if (matchesCurrent.length > 0) return matchesCurrent;
-    return ALL_COMBINED_PRESETS.filter((p) => (
+    return ALL_COMBINED_PRESETS.filter((preset, index) => ALL_COMBINED_PRESETS.findIndex(item => item.id === preset.id) === index).filter((p) => (
       p.name?.toLowerCase().includes(q) ||
       p.shortCode?.toLowerCase().includes(q) ||
       p.authority?.toLowerCase().includes(q) ||
       p.category?.toLowerCase().includes(q) ||
-      (p.country && p.country.toLowerCase().includes(q)) ||
-      p.notes?.toLowerCase().includes(q)
+      (p.country && p.country.toLowerCase().includes(q))
     ));
   }, [comboboxSearch, currentPresetList]);
 
@@ -3156,6 +3154,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   // Consolidated Exam Selector Dropdown & Search System
   const renderPresetSelector = () => {
     const isPinnedActive = PINNED_TOP_EXAMS.some((item) => item.id === selectedPreset?.id);
+    const examContext = ALL_COMBINED_PRESETS.find(preset => preset.id.toLowerCase() === activeExamFamilyRef.current);
 
     return (
       <div id="exam-preset-selector" className="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs space-y-3 relative scroll-mt-24" ref={comboboxRef}>
@@ -3163,6 +3162,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         {/* Top Header: Title & Active Preset Badge */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
+            {examContext && selectedPreset?.id !== examContext.id && <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-primary/10 text-primary border border-primary/20">Exam: {examContext.shortCode}</span>}
             <div className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-wider text-muted-foreground">
               <Zap className="w-4 h-4 text-primary" />
               <span>{targetType === 'photo' ? 'Govt Exam Photo Presets:' : targetType === 'document' ? 'Document & Certificate Presets:' : 'Govt Exam Presets:'}</span>
@@ -3362,6 +3362,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-bold"><Upload className="w-4 h-4" />Upload image</button>
         </div>
       )}
+      {activeExamFamilyRef.current === 'rrb-ntpc' && targetType === 'photo' && <p role="note" className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-foreground">The reviewed NTPC 2025 notices require live photo capture in the RRB application. No NTPC photo upload preset is selected. Other photo presets are for different applications.</p>}
+      {activeExamFamilyRef.current === 'rrb-ntpc' && targetType === 'document' && <p role="note" className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-foreground">For a CEN 06/2025 SC/ST free travel pass, export the certificate as PDF and check that the final PDF is clear and under 400 KB. The selected document preset does not verify the PDF size.</p>}
       {backgroundTransferNotice && <p role="status" className="rounded-xl border border-primary/25 bg-primary/5 p-3 text-sm">{backgroundTransferNotice}</p>}
       {!compactStudio && uploadError && <div id="upload-feedback" className="scroll-mt-32">
         <UploadChecks
@@ -3395,7 +3397,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       {/* ========================================================================= */}
       {/* 🚀 PRIMARY DEDICATED EXAM RESIZER SELECTOR (Signature / Photo / Documents) */}
       {/* ========================================================================= */}
-      {!studioModeTabs && !isNtpcActive && !isCoastGuardActive && !isTnpscActive && <div className="mode-selector p-2.5 sm:p-3.5 rounded-2xl border-2 border-primary/30 bg-card shadow-xs space-y-2 sm:space-y-2.5">
+      {!studioModeTabs && !isCoastGuardActive && !isTnpscActive && <div className="mode-selector p-2.5 sm:p-3.5 rounded-2xl border-2 border-primary/30 bg-card shadow-xs space-y-2 sm:space-y-2.5">
         <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-1.5">
           <div className="flex items-center gap-2 min-w-0">
             <div className="w-6 h-6 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0">
@@ -3593,7 +3595,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   <span>3. Certificates & PSTM</span>
                 </button>
               </div>
-            ) : studioModeTabs && !isNtpcActive && (
+            ) : studioModeTabs && (
               <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
                 {(isJam2027Active ? (['signature', 'photo'] as const) : (['signature', 'photo', 'document'] as const)).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
                   {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
@@ -4434,7 +4436,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           <span>3. Certificates & PSTM</span>
                         </button>
                       </div>
-                    ) : studioModeTabs && !isNtpcActive && (
+                    ) : studioModeTabs && (
                       <div className="studio-mode-tabs" role="group" aria-label="Studio image type">
                         {(isJam2027Active ? (['signature', 'photo'] as const) : (['signature', 'photo', 'document'] as const)).map((type, index) => <button key={type} type="button" data-mode={type} data-step={`0${index + 1}`} aria-pressed={targetType === type} onClick={() => switchTargetType(type)}>
                           {type === 'signature' ? <PenTool className="w-4 h-4" /> : type === 'photo' ? <Camera className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
