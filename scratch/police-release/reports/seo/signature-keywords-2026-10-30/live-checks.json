@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://signresize.in/",
+    "error": "fetch failed"
+  },
+  {
+    "url": "https://signresize.in/robots.txt",
+    "error": "fetch failed"
+  },
+  {
+    "url": "https://signresize.in/sitemap-index.xml",
+    "error": "fetch failed"
+  },
+  {
+    "url": "https://signresize.in/signature-resizer/",
+    "error": "fetch failed"
+  },
+  {
+    "url": "https://signresize.in/resize-signature-to-10kb-20kb/",
+    "error": "fetch failed"
+  }
+]

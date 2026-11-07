@@ -1,0 +1,10 @@
+---
+import UtilityPage from '../layouts/UtilityPage.astro';
+import { SignatureTool } from '../components/SignatureTool';
+---
+<UtilityPage title="Photo with Name and Date Maker" description="Add your name and date of photograph to a clean white strip. Crop your photo and export a 20–50 KB JPG privately in your browser.">
+  <div class="rounded-2xl bg-card border border-border p-4 text-sm space-y-2"><h2 class="font-bold">Use the photograph date, not today’s date</h2><p class="text-muted-foreground">Enter your name and the date the photograph was taken in the Name &amp; Date controls below. Use a name strip only when your notification asks for one. This does not replace a live photo capture or a physical slate required by a portal.</p></div>
+  <section class="rounded-2xl bg-card border border-border p-3 sm:p-5"><SignatureTool client:load initialPresetId="ibps-sbi-photo" initialMode="photo" initialNameDateStamp={true} /></section>
+  <div class="grid sm:grid-cols-3 gap-4 text-sm">{['1. Upload a recent photo and crop with enough room below your face.', '2. Confirm your name and actual photograph date in the stamp controls.', '3. Inspect the downloaded JPG and confirm your portal’s pixel and KB limits.'].map(step => <p class="p-4 rounded-xl border border-border bg-card">{step}</p>)}</div>
+  <a class="text-primary text-sm font-semibold" href="/admit-card-photo-print-sheet/">Need printed copies? Make an eight-photo sheet →</a>
+</UtilityPage>

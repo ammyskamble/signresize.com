@@ -1,0 +1,17 @@
+---
+const examples = [
+  { title: 'Complete, clear crop', note: 'Keep every stroke visible on clean white paper.', kind: 'complete' },
+  { title: 'Clipped crop', note: 'Widen or reposition the crop when strokes are cut off.', kind: 'clipped' },
+  { title: 'Blurred image', note: 'Rescan the original; compression cannot restore missing detail.', kind: 'blurred' },
+];
+---
+<section class="space-y-3 pt-4 border-t border-border" aria-label="Signature crop examples">
+  <h3 class="text-sm font-bold">Check your signature crop before uploading</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+    {examples.map(example => <figure class="rounded-xl border border-border p-3 space-y-2">
+      <img src={`/images/signature-crops/${example.kind}.svg`} alt={example.title} width="280" height="100" loading="lazy" decoding="async" class="w-full h-auto rounded-lg bg-white border border-border" />
+      <figcaption class="text-xs space-y-1"><p class="font-semibold">{example.title}</p><p class="text-muted-foreground">{example.note}</p></figcaption>
+    </figure>)}
+  </div>
+  <p class="text-xs text-muted-foreground">Illustrations show crop quality only. Submit a scan or photograph of your own physical handwritten signature, following the official exam instructions.</p>
+</section>

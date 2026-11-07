@@ -1,0 +1,177 @@
+---
+// src/pages/terms.astro - Terms and Conditions
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+
+const pageTitle = "Terms and Conditions | SignResize.in";
+const pageDescription = "Read the Terms and Conditions of SignResize.in. Understand user rights, acceptable usage policies, intellectual property, and limitations of liability.";
+const lastUpdated = "September 2026";
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href="https://signresize.in/terms/" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content="https://signresize.in/terms/" />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://signresize.in/og-image.png" />
+
+    <!-- Favicon & PWA Icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Async Google Fonts -->
+    <GoogleFonts />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Home
+        </a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Terms &amp; Conditions</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="border-b border-border pb-6 space-y-2">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+          Terms &amp; Conditions
+        </h1>
+        <p class="text-xs text-muted-foreground font-mono">
+          Last Updated: {lastUpdated} | Effective Date: September 2026
+        </p>
+      </div>
+
+      <div class="space-y-8 text-sm leading-relaxed text-muted-foreground">
+        
+        <!-- Section 1 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">1. Acceptance of Terms</h2>
+          <p>
+            By accessing or using <strong>SignResize.in</strong> (the "Service", "Website"), you agree to be bound by these Terms and Conditions ("Terms"). If you disagree with any part of these terms, you must not use our website.
+          </p>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">2. Description of Service</h2>
+          <p>
+            SignResize.in provides a free, client-side web utility allowing users to crop, resize, adjust dimensions (in centimeters, millimeters, and pixels), and compress images to specific kilobyte thresholds (such as 10 KB – 20 KB) for government exam portals, job applications, and personal documentation.
+          </p>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">3. Acceptable Use Policy</h2>
+          <p>
+            You agree to use SignResize.in only for lawful purposes. You specifically agree that you will NOT:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Use this service to forge, counterfeit, or falsify signatures or official government seals of another individual or organization.</li>
+            <li>Attempt to reverse engineer, disrupt, inject malicious payloads, or overwhelm the website's infrastructure.</li>
+            <li>Use automated bots or scrapers to abuse the bandwidth or assets of the website.</li>
+          </ul>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">4. Independent Utility &amp; Non-Affiliation Disclaimer</h2>
+          <p>
+            SignResize.in is an independent utility software developed for educational and application preparation assistance. We are <strong>not affiliated, endorsed, certified, or officially connected</strong> with the Staff Selection Commission (SSC), Union Public Service Commission (UPSC), Railway Recruitment Board (RRB), National Testing Agency (NTA), Institute of Banking Personnel Selection (IBPS), NSDL, UTIITSL, or any central/state government recruiting agency.
+          </p>
+          <p>
+            While we strive to keep all dimension and size specifications updated according to public recruitment notifications, official requirements may change without notice. Users are solely responsible for verifying their files against the official notification guidelines before submission.
+          </p>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">5. Disclaimer of Warranties</h2>
+          <p>
+            The service is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind, whether express or implied. SignResize.in does not warrant that:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>The functions provided by the website will be uninterrupted or error-free.</li>
+            <li>Your resized signature will guarantee acceptance by any exam authority or third-party portal.</li>
+          </ul>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">6. Limitation of Liability</h2>
+          <p>
+            In no event shall SignResize.in, its owners, developers, or affiliates be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from the use of, or inability to use, this service—including but not limited to the rejection of an examination application, missed application deadlines, or data corruption on your local device.
+          </p>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">7. Intellectual Property</h2>
+          <p>
+            The software architecture, website layout, algorithms, logo, and textual documentation on SignResize.in are the proprietary property of SignResize.in and are protected by applicable intellectual property and copyright laws. All user-processed images remain the sole property and responsibility of the user.
+          </p>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">8. Changes to These Terms</h2>
+          <p>
+            We reserve the right to revise or modify these Terms at any time without prior notice. Your continued use of the website following any changes signifies your acceptance of the updated terms.
+          </p>
+        </section>
+
+        <!-- Section 9 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">9. Contact Information</h2>
+          <p>
+            For any questions or legal inquiries regarding these Terms and Conditions, please contact us at <a href="/contact/" class="text-primary underline font-semibold">our Contact page</a> or via email at <!--email_off--><strong class="text-foreground font-mono">legal@signresize.in</strong><!--/email_off-->.
+          </p>
+        </section>
+
+      </div>
+
+      <!-- Back to Main Tool CTA -->
+      <div class="pt-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="text-xs text-muted-foreground">Ready to crop, resize, or compress your signature?</span>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-sm hover:opacity-90 transition active:scale-98"
+        >
+          <span>← Go to Main Signature Resizer Tool</span>
+        </a>
+      </div>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

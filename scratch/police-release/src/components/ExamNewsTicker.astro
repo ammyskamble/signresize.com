@@ -1,0 +1,105 @@
+---
+const isBd = Astro.url.pathname.startsWith('/bd');
+---
+
+{isBd ? (
+  <div class="exam-alert-bar w-full border-t border-border/60 bg-amber-500/5 backdrop-blur-xs">
+    <div class="max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-1.5">
+      <section aria-label="Bangladesh recruitment portals" class="flex items-center justify-between gap-3 text-xs min-w-0">
+        <div class="flex items-center gap-2.5 min-w-0 flex-1">
+          <span class="shrink-0 font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1.5 whitespace-nowrap text-[11px] sm:text-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+            BD Portals Active
+          </span>
+          <div class="flex items-center gap-2 overflow-x-auto flex-1 min-w-0 py-0.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <a href="/bd/bcs-photo-signature-resizer/" class="inline-flex items-center gap-1 text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-amber-500/30 bg-background hover:bg-amber-500/10 text-foreground transition whitespace-nowrap shadow-2xs">
+              <span>47th BCS &amp; BPSC Cadre</span> <span class="text-amber-600 dark:text-amber-400 font-semibold">· 300×300 / 300×80</span> →
+            </a>
+            <a href="/bd/bangladesh-bank-photo-signature-resizer/" class="inline-flex items-center gap-1 text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-amber-500/30 bg-background hover:bg-amber-500/10 text-foreground transition whitespace-nowrap shadow-2xs">
+              <span>Bangladesh Bank Officer</span> <span class="text-amber-600 dark:text-amber-400 font-semibold">· 600×600 High-Res</span> →
+            </a>
+            <a href="/bd/primary-teacher-dpe-photo-resizer/" class="inline-flex items-center gap-1 text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-amber-500/30 bg-background hover:bg-amber-500/10 text-foreground transition whitespace-nowrap shadow-2xs">
+              <span>DPE Primary Assistant Teacher</span> <span class="text-amber-600 dark:text-amber-400 font-semibold">· Teletalk Validated</span> →
+            </a>
+            <a href="/bd/ntrca-photo-signature-resizer/" class="inline-flex items-center gap-1 text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-amber-500/30 bg-background hover:bg-amber-500/10 text-foreground transition whitespace-nowrap shadow-2xs">
+              <span>19th NTRCA Registration</span> <span class="text-amber-600 dark:text-amber-400 font-semibold">· Open</span> →
+            </a>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="/bd/" class="hidden sm:inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 hover:underline font-semibold whitespace-nowrap">
+            <span>Bangladesh Hub</span>
+            <span>↗</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+) : (
+  <div class="exam-alert-bar w-full border-t border-border/60 bg-muted/30 backdrop-blur-xs">
+    <div class="max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-1.5">
+      <section data-deadline-strip aria-label="Application deadlines" class="flex items-center justify-between gap-3 text-xs min-w-0">
+        <div class="flex items-center gap-2.5 min-w-0 flex-1">
+          <span data-deadline-heading class="shrink-0 font-bold text-primary flex items-center gap-1.5 whitespace-nowrap text-[11px] sm:text-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Application dates
+          </span>
+          <div data-deadline-links class="flex items-center gap-2 overflow-x-auto flex-1 min-w-0 py-0.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <span class="text-muted-foreground whitespace-nowrap text-[11px]">Checking calendar…</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="/government-jobs/" class="hidden sm:inline-flex items-center gap-1 text-[11px] text-primary hover:underline font-semibold whitespace-nowrap">
+            <span>Job Calendar</span>
+            <span>↗</span>
+          </a>
+          <button type="button" aria-label="Dismiss application deadlines" class="shrink-0 w-6 h-6 rounded-md hover:bg-muted text-muted-foreground hover:text-foreground flex items-center justify-center text-xs transition cursor-pointer">✕</button>
+        </div>
+      </section>
+    </div>
+  </div>
+)}
+<script>
+  import windows from '../data/applicationWindows.json';
+  import { activeApplications, daysUntilClose } from '../utils/applicationWindows';
+  document.querySelectorAll<HTMLElement>('[data-deadline-strip]').forEach(strip => {
+    if (window.location.pathname.startsWith('/bd')) return;
+    try { strip.hidden = sessionStorage.getItem('signresize-deadlines-dismissed') === 'yes'; } catch {}
+    const update = () => {
+      if (strip.hidden || document.hidden) return;
+      const now = new Date(), active = activeApplications(windows, now);
+      const soon = active.filter(item => daysUntilClose(item, now) < 7);
+      const heading = strip.querySelector('[data-deadline-heading]');
+      const links = strip.querySelector('[data-deadline-links]');
+      if (!heading || !links) return;
+      heading.textContent = soon.length ? 'Closing this week' : 'Application dates';
+      const fragment = document.createDocumentFragment();
+      for (const item of (soon.length ? soon : active).slice(0, 3)) {
+        const link = document.createElement('a'), count = document.createElement('span');
+        link.href = item.toolUrl;
+        link.className = 'inline-flex items-center gap-1 text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/20 bg-background hover:bg-primary/10 text-foreground transition whitespace-nowrap shadow-2xs';
+        link.append(item.label + ' ');
+        count.className = 'text-primary font-semibold';
+        const days = daysUntilClose(item, now);
+        count.textContent = `· ${days === 0 ? 'closes today' : `${days}d left`}`;
+        link.append(count, ' →'); fragment.append(link);
+      }
+      if (!active.length) {
+        const link = document.createElement('a'); link.href = '/government-jobs/';
+        link.className = 'text-muted-foreground whitespace-nowrap';
+        link.textContent = 'No confirmed open windows · Browse tools →'; fragment.append(link);
+      }
+      links.replaceChildren(fragment);
+    };
+    update();
+    const timer = window.setInterval(update, 60_000);
+    document.addEventListener('visibilitychange', update);
+    strip.querySelector('button')?.addEventListener('click', () => {
+      strip.hidden = true; clearInterval(timer); document.removeEventListener('visibilitychange', update);
+      try { sessionStorage.setItem('signresize-deadlines-dismissed', 'yes'); } catch {}
+    });
+  });
+</script>
+<style is:global>
+  .exam-alert-bar:has(section[hidden]) { display: none; }
+</style>

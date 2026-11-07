@@ -1,0 +1,20 @@
+---
+// src/components/ThemeScript.astro
+// Inline blocking script in <head> to prevent Flash of Unstyled Theme (FOUT/FOUC)
+// Ensures instant theme match across localhost and production before first paint
+---
+<script is:inline>
+  (function () {
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {
+      // Storage access blocked or unavailable
+    }
+  })();
+</script>

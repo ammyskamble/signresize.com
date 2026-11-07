@@ -1,0 +1,215 @@
+{
+  "reviewDate": "2026-10-17",
+  "project": "signresize.in",
+  "scope": "Signature background positioning strategy",
+  "searchConsole": {
+    "queryPerformance": {
+      "siteUrl": "sc-domain:signresize.in",
+      "startDate": "2026-09-17",
+      "endDate": "2026-10-14",
+      "dimensions": [
+        "query"
+      ],
+      "searchType": "web",
+      "rowCount": 11,
+      "rows": [
+        {
+          "keys": [
+            "add white background to signature"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 4
+        },
+        {
+          "keys": [
+            "background white"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 2
+        },
+        {
+          "keys": [
+            "create transparent signature"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 14
+        },
+        {
+          "keys": [
+            "make background white for signature"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 10
+        },
+        {
+          "keys": [
+            "make sign background white"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 9
+        },
+        {
+          "keys": [
+            "make signature background white online"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0,
+          "position": 5.4
+        },
+        {
+          "keys": [
+            "sign background remover"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 8
+        },
+        {
+          "keys": [
+            "sign background white"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 10
+        },
+        {
+          "keys": [
+            "tnpsc photo white background change"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 5
+        },
+        {
+          "keys": [
+            "transparent signature maker"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 85
+        },
+        {
+          "keys": [
+            "white background signature"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0,
+          "position": 8
+        }
+      ],
+      "pagination": {
+        "limit": 1000,
+        "offset": 0,
+        "returned": 11,
+        "hasMore": false,
+        "note": "Showing all 11 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-10-14",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-10-15",
+        "settledThrough": "2026-10-14",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-10-08",
+          "endDate": "2026-10-17",
+          "dataState": "all"
+        }
+      }
+    },
+    "pagePerformance": {
+      "siteUrl": "sc-domain:signresize.in",
+      "startDate": "2026-09-17",
+      "endDate": "2026-10-14",
+      "dimensions": [
+        "page"
+      ],
+      "searchType": "web",
+      "rowCount": 1,
+      "rows": [
+        {
+          "keys": [
+            "https://signresize.in/make-signature-background-white/"
+          ],
+          "clicks": 1,
+          "impressions": 27,
+          "ctr": 3.7037037037037033,
+          "position": 8.592592592592592
+        }
+      ],
+      "pagination": {
+        "limit": 100,
+        "offset": 0,
+        "returned": 1,
+        "hasMore": false,
+        "note": "Showing all 1 rows."
+      },
+      "dataSource": "api",
+      "settledThrough": "2026-10-14",
+      "dataMaturity": {
+        "firstIncompleteDate": "2026-10-15",
+        "settledThrough": "2026-10-14",
+        "dateBasis": "America/Los_Angeles",
+        "source": "gsc-api-metadata",
+        "probe": {
+          "searchType": "web",
+          "startDate": "2026-10-08",
+          "endDate": "2026-10-17",
+          "dataState": "all"
+        }
+      }
+    }
+  },
+  "accessLimitations": {
+    "openSEO": "No callable OpenSEO tools exposed; plugin discovery returned no matching plugin.",
+    "ahrefs": {
+      "error": "McpServerError: { \"error\": \"Insufficient plan\" }",
+      "error_code": "UNAVAILABLE",
+      "error_data": {
+        "type": "json_rpc_error",
+        "code": -32001,
+        "message": "{ \"error\": \"Insufficient plan\" }",
+        "data": {
+          "x-request-id": "a58047a075e76e765d00b2c0592e365c"
+        }
+      }
+    },
+    "keywordMetrics": "Unknown; no usable volume, difficulty or CPC returned."
+  },
+  "evidence": {
+    "repository": [
+      "src/pages/background-remover.astro",
+      "src/pages/make-signature-background-white.astro",
+      "src/components/BackgroundRemoverTool.tsx",
+      "public/workers/paper-background-v1.js",
+      "public/workers/portrait-background-v1.js",
+      "src/utils/imageProcessor.ts",
+      "reports/signature-comparison/comparison.png"
+    ],
+    "web": [
+      "https://www.remove.bg/f/remove-signature-background",
+      "https://www.remove.bg/b/how-to-remove-background-from-signature/",
+      "https://www.remove.bg/f/overview",
+      "https://github.com/imgly/background-removal-js",
+      "https://www.pixelcorelab.com/tools/background-remover/signature"
+    ]
+  }
+}

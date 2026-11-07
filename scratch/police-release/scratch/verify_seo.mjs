@@ -1,0 +1,13 @@
+import fs from 'fs';
+const html = fs.readFileSync('dist/blog/ssc-cgl-2026-top-10-faq-aspirants-guide/index.html', 'utf8');
+const title = html.match(/<title>(.*?)<\/title>/)?.[1];
+const desc = html.match(/<meta name="description" content="(.*?)"/)?.[1];
+console.log(`Title (${title?.length} chars): ${title}`);
+console.log(`Meta Description (${desc?.length} chars): ${desc}`);
+const internalLinks = [...html.matchAll(/href="(\/(?:ssc-signature-resize|photo-resizer|document-resizer|compress-image-to-kb|government-jobs)\/)"/g)].map(m => m[1]);
+console.log('Internal Links:', [...new Set(internalLinks)]);
+console.log('H2 Count:', (html.match(/<h2/g) || []).length);
+console.log('H3 Count:', (html.match(/<h3/g) || []).length);
+console.log('Has FAQPage Schema:', html.includes('"@type":"FAQPage"'));
+console.log('Has BlogPosting Schema:', html.includes('"@type":"BlogPosting"'));
+console.log('Has BreadcrumbList Schema:', html.includes('"@type":"BreadcrumbList"'));

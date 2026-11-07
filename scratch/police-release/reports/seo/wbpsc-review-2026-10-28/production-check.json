@@ -1,0 +1,33 @@
+{
+  "deployment": "https://e6e0d315.signresize.pages.dev",
+  "checkedAt": "2026-10-28T15:22:10.414Z",
+  "results": [
+    {
+      "url": "https://signresize.in/",
+      "status": 200,
+      "title": "Resize Signature Online - Free Signature &amp; Photo Resizer Studio",
+      "canonical": "https://signresize.in/",
+      "newGuidance": null,
+      "noticeLinked": null,
+      "oldSuiteClaim": null
+    },
+    {
+      "url": "https://signresize.in/wbpsc-signature-resize/",
+      "status": 200,
+      "title": "WBPSC Signature Resize | Size Settings &amp; Upload Guide",
+      "canonical": "https://signresize.in/wbpsc-signature-resize/",
+      "newGuidance": true,
+      "noticeLinked": true,
+      "oldSuiteClaim": false
+    },
+    {
+      "url": "https://signresize.in/wbpsc-photo-resize/",
+      "status": 200,
+      "title": "WBPSC Photo Resize | Size Settings &amp; Upload Guide",
+      "canonical": "https://signresize.in/wbpsc-photo-resize/",
+      "newGuidance": true,
+      "noticeLinked": true,
+      "oldSuiteClaim": false
+    }
+  ]
+}

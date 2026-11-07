@@ -1,0 +1,559 @@
+/* 🚀 Inter Variable Self-Hosted Web Font with font-display: optional to eliminate FOYT/FOUT swap CLS */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: optional;
+  font-weight: 100 900;
+  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: optional;
+  font-weight: 100 900;
+  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Inter Fallback Metric Override: Prevents FOYT/FOUT Layout Shift by matching Arial to Inter's metrics */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  ascent-override: 90%;
+  descent-override: 22.5%;
+  line-gap-override: 0%;
+  size-adjust: 107.5%;
+}
+
+@import 'tailwindcss';
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter Variable', 'Inter', 'Noto Sans Devanagari', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-cyan-glow: var(--cyan-glow);
+  --color-success: var(--success);
+
+  --radius-card: 0.75rem;
+  --radius-button: 0.5rem;
+}
+
+:root {
+  --background: oklch(0.978 0.005 250);
+  --foreground: oklch(0.18 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 260);
+  --muted: oklch(0.94 0.008 250);
+  --muted-foreground: oklch(0.46 0.03 260);
+  --border: oklch(0.89 0.012 250);
+  --input: oklch(0.89 0.012 250);
+  --ring: oklch(0.52 0.22 260);
+  --primary: oklch(0.52 0.22 260);
+  --primary-foreground: oklch(0.99 0 0);
+  --accent: oklch(0.94 0.04 220);
+  --accent-foreground: oklch(0.35 0.18 250);
+  --cyan-glow: oklch(0.78 0.15 210);
+  --success: oklch(0.62 0.17 145);
+}
+
+.dark {
+  --background: oklch(0.12 0.015 260);
+  --foreground: oklch(0.98 0.005 250);
+  --card: oklch(0.155 0.018 260);
+  --card-foreground: oklch(0.98 0.005 250);
+  --muted: oklch(0.19 0.02 260);
+  --muted-foreground: oklch(0.68 0.02 260);
+  --border: oklch(0.24 0.02 260);
+  --input: oklch(0.24 0.02 260);
+  --ring: oklch(0.65 0.22 255);
+  --primary: oklch(0.65 0.22 255);
+  --primary-foreground: oklch(0.10 0.02 260);
+  --accent: oklch(0.24 0.05 240);
+  --accent-foreground: oklch(0.85 0.12 220);
+  --cyan-glow: oklch(0.75 0.18 205);
+  --success: oklch(0.68 0.18 145);
+}
+
+/* 🟢 Theme 2: Emerald Mint (Sarkari Trust Green) */
+html.theme-emerald {
+  --primary: oklch(0.56 0.18 155);
+  --primary-foreground: oklch(0.99 0 0);
+  --ring: oklch(0.56 0.18 155);
+  --accent: oklch(0.94 0.04 155);
+  --accent-foreground: oklch(0.28 0.15 155);
+  --cyan-glow: oklch(0.75 0.16 165);
+}
+html.dark.theme-emerald {
+  --primary: oklch(0.68 0.19 155);
+  --primary-foreground: oklch(0.10 0.03 155);
+  --ring: oklch(0.68 0.19 155);
+  --accent: oklch(0.20 0.05 155);
+  --accent-foreground: oklch(0.85 0.12 155);
+  --cyan-glow: oklch(0.72 0.17 165);
+}
+
+/* 🟠 Theme 3: Saffron Amber (Vibrant Energy) */
+html.theme-amber {
+  --primary: oklch(0.62 0.19 45);
+  --primary-foreground: oklch(0.99 0 0);
+  --ring: oklch(0.62 0.19 45);
+  --accent: oklch(0.95 0.05 55);
+  --accent-foreground: oklch(0.35 0.16 45);
+  --cyan-glow: oklch(0.78 0.16 70);
+}
+html.dark.theme-amber {
+  --primary: oklch(0.72 0.19 50);
+  --primary-foreground: oklch(0.12 0.03 45);
+  --ring: oklch(0.72 0.19 50);
+  --accent: oklch(0.24 0.06 45);
+  --accent-foreground: oklch(0.88 0.12 55);
+  --cyan-glow: oklch(0.75 0.16 65);
+}
+
+/* 🟣 Theme 4: Royal Violet (Futuristic Studio Purple) */
+html.theme-purple {
+  --primary: oklch(0.56 0.24 295);
+  --primary-foreground: oklch(0.99 0 0);
+  --ring: oklch(0.56 0.24 295);
+  --accent: oklch(0.94 0.05 295);
+  --accent-foreground: oklch(0.35 0.18 295);
+  --cyan-glow: oklch(0.75 0.18 310);
+}
+html.dark.theme-purple {
+  --primary: oklch(0.68 0.22 295);
+  --primary-foreground: oklch(0.10 0.03 295);
+  --ring: oklch(0.68 0.22 295);
+  --accent: oklch(0.22 0.06 295);
+  --accent-foreground: oklch(0.88 0.12 295);
+  --cyan-glow: oklch(0.72 0.18 310);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  opacity: 0.3;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Compact the top header margins and padding */
+.tool-header-section {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Hide non-essential step guides on desktop resizer view */
+.resizer-step-guide {
+  display: none;
+}
+
+/* Align studio toolbar inline */
+.studio-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Prevent horizontal viewport overflow and left-right dragging */
+html {
+  scroll-padding-top: 5.5rem; /* Ensures anchor links clear the sticky header (h-16 = 64px) */
+}
+
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+/* ⚡ Hero Project-Related Animation Keyframes */
+@keyframes scanLine {
+  0%, 100% {
+    top: 6%;
+    opacity: 0.3;
+  }
+  50% {
+    top: 88%;
+    opacity: 1;
+  }
+}
+
+@keyframes drawSignPath {
+  0% {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    opacity: 0.4;
+  }
+  45%, 85% {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes floatPill {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulseGlowBorder {
+  0%, 100% {
+    border-color: rgba(79, 70, 229, 0.3);
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.15);
+  }
+  50% {
+    border-color: rgba(79, 70, 229, 0.7);
+    box-shadow: 0 0 25px rgba(79, 70, 229, 0.35);
+  }
+}
+
+.animate-scan-line {
+  animation: scanLine 2.8s ease-in-out infinite;
+}
+
+.animate-draw-sign {
+  animation: drawSignPath 3.5s ease-in-out infinite;
+}
+
+.animate-float-pill {
+  animation: floatPill 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlowBorder 3s ease-in-out infinite;
+}
+
+/* 🚀 Core Web Vitals & Rendering Performance Accelerators */
+#exam-specs,
+#guide,
+#seo-content,
+#faq,
+#troubleshooting,
+#changelog,
+#author-editorial,
+footer[role="contentinfo"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+/* The footer sits on slate-950 even in the light theme. Keep its compact
+   metadata and links above the WCAG AA contrast threshold independently of
+   the page theme tokens. */
+footer[role="contentinfo"] .text-slate-300,
+footer[role="contentinfo"] .text-muted-foreground {
+  color: #e2e8f0;
+}
+
+footer[role="contentinfo"] .text-primary {
+  color: #c4b5fd;
+}
+
+/* Optimize image and media rendering */
+img, svg {
+  shape-rendering: auto;
+}
+
+/* 📱 Mobile Touch Speed & Zero Tap-Delay */
+a, button, input, select, textarea, [role="button"], label {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth kinetic scrolling */
+@media (max-width: 768px) {
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* Ensure horizontal scroll containers and specification tables never trap or lock vertical page scrolling */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto !important;
+  touch-action: pan-x pan-y !important;
+}
+
+.overflow-x-auto table,
+table {
+  touch-action: pan-x pan-y !important;
+}
+
+
+
+/* ========================================================================= */
+/* 🚀 COMPACT PAGE TOP ARCHITECTURE (Applied sitewide, excludes homepage)   */
+/* ========================================================================= */
+
+/* 1. Main Container Top Padding & Spacing */
+body:not(.home-workspace) main {
+  padding-top: 0.75rem !important;
+}
+
+@media (max-width: 640px) {
+  body:not(.home-workspace) main {
+    padding-top: 0.5rem !important;
+  }
+}
+
+/* Reduce vertical gaps between breadcrumbs, hero banners, alerts, and tool workspace */
+body:not(.home-workspace) main.space-y-8 > :not([hidden]) ~ :not([hidden]),
+body:not(.home-workspace) main.space-y-6 > :not([hidden]) ~ :not([hidden]),
+body:not(.home-workspace) main.space-y-5 > :not([hidden]) ~ :not([hidden]),
+body:not(.home-workspace) main.space-y-10 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.875rem !important; /* 14px instead of 24-40px */
+}
+
+/* 2. Breadcrumb Navigation Strip */
+body:not(.home-workspace) nav[aria-label="Breadcrumb"],
+body:not(.home-workspace) main > nav:first-child {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0.125rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1.25 !important;
+}
+
+/* 3. Hero Header Section / Banner */
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace),
+body:not(.home-workspace) main > nav + section:not(#tool-workspace),
+body:not(.home-workspace) main > div:first-child > section {
+  padding: 0.875rem 1.125rem !important; /* 14px 18px instead of 24px 28px */
+  border-radius: 0.875rem !important;
+}
+
+/* Tighter hero interior spacing */
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) > div,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) > div {
+  gap: 0.625rem !important;
+}
+
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .space-y-2,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .space-y-2,
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .space-y-1\.5,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .space-y-1\.5 {
+  gap: 0.375rem !important;
+}
+
+/* H1 Headings */
+body:not(.home-workspace) main h1 {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem) !important; /* 20px - 28px */
+  line-height: 1.2 !important;
+  letter-spacing: -0.025em !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Subheadings / Paragraph descriptions */
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) p,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) p {
+  font-size: 0.8125rem !important; /* 13px */
+  line-height: 1.4 !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* Quick Spec & Matrix Badges */
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-2 > div,
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-4 > div,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .flex.shrink-0 > div,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .grid > div {
+  padding: 0.375rem 0.625rem !important; /* 6px 10px */
+  border-radius: 0.625rem !important;
+}
+
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-2 > div > div:first-child,
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-4 > div > div:first-child,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .flex.shrink-0 > div > div:first-child {
+  font-size: 8px !important;
+  line-height: 1.2 !important;
+}
+
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-2 > div > div:last-child,
+body:not(.home-workspace) main > section:first-of-type:not(#tool-workspace) .grid-cols-4 > div > div:last-child,
+body:not(.home-workspace) main > nav + section:not(#tool-workspace) .flex.shrink-0 > div > div:last-child {
+  font-size: 11px !important;
+  line-height: 1.3 !important;
+}
+
+/* 4. Notice / Warning / Background Requirement Alert Bars */
+body:not(.home-workspace) main > div[class*="border-emerald-500"],
+body:not(.home-workspace) main > div[class*="border-amber-500"],
+body:not(.home-workspace) main > div[class*="bg-emerald-500/5"],
+body:not(.home-workspace) main > div[class*="bg-amber-500/10"],
+body:not(.home-workspace) main > aside[class*="border-amber-500"] {
+  padding: 0.5rem 0.875rem !important;
+  border-radius: 0.75rem !important;
+}
+
+body:not(.home-workspace) main > div[class*="border-emerald-500"] p,
+body:not(.home-workspace) main > div[class*="border-amber-500"] p {
+  font-size: 0.75rem !important;
+  line-height: 1.35 !important;
+}
+
+/* 5. Tool Container / Workspace */
+body:not(.home-workspace) #tool-workspace {
+  margin-top: 0.625rem !important;
+}
+
+body:not(.home-workspace) #tool-workspace > * + * {
+  margin-top: 0.625rem !important;
+}
+
+/* Compact quick-upload banner */
+body:not(.home-workspace) #tool-workspace .quick-upload {
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.75rem !important;
+}
+
+body:not(.home-workspace) #tool-workspace .quick-upload p.font-bold {
+  font-size: 0.8125rem !important;
+  line-height: 1.25 !important;
+}
+
+body:not(.home-workspace) #tool-workspace .quick-upload p.text-muted-foreground {
+  font-size: 0.6875rem !important;
+  line-height: 1.25 !important;
+}
+
+body:not(.home-workspace) #tool-workspace .quick-upload button {
+  padding: 0.4rem 0.875rem !important;
+  font-size: 0.75rem !important;
+  min-height: 36px !important;
+  border-radius: 0.625rem !important;
+}
+
+/* Compact Exam Preset Selector */
+body:not(.home-workspace) #exam-preset-selector {
+  padding: 0.625rem 0.875rem !important;
+  border-radius: 0.875rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+body:not(.home-workspace) #exam-preset-selector > * + * {
+  margin-top: 0.375rem !important;
+}
+
+body:not(.home-workspace) #exam-preset-selector [class*="bg-amber-500"] {
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.625rem !important;
+}
+
+body:not(.home-workspace) #exam-preset-selector [class*="bg-amber-500"] p {
+  font-size: 0.6875rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Mode Selector 3 Buttons Card */
+body:not(.home-workspace) .mode-selector {
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.75rem !important;
+  min-height: auto !important;
+}
+
+body:not(.home-workspace) .mode-selector button {
+  padding: 0.5rem 0.625rem !important;
+  border-radius: 0.625rem !important;
+}
+
+/* Teletalk Banner */
+body:not(.home-workspace) .teletalk-banner {
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.75rem !important;
+}
+
+/* Studio Editor Grid & Controls */
+body:not(.home-workspace) #tool-workspace :is(.studio-editor, .studio-export) {
+  padding-top: 0 !important;
+}
+
+body:not(.home-workspace) .crop-options {
+  padding: 0.375rem 0.625rem !important;
+}
+
+/* Document Suite & Exam Notice Cards */
+body:not(.home-workspace) main > aside[aria-label*="Document Suite"],
+body:not(.home-workspace) main > aside[aria-label*="Notice"],
+body:not(.home-workspace) main > aside[class*="border-primary"] {
+  padding: 0.625rem 0.875rem !important;
+  border-radius: 0.75rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+body:not(.home-workspace) main > aside[aria-label*="Document Suite"] p,
+body:not(.home-workspace) main > aside[aria-label*="Notice"] p {
+  font-size: 0.75rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Mobile Footer Compacting */
+@media (max-width: 640px) {
+  footer[role="contentinfo"] {
+    padding-top: 1.75rem !important;
+    padding-bottom: 2rem !important;
+  }
+  footer[role="contentinfo"] .grid-cols-1 {
+    gap: 1.5rem !important;
+  }
+  footer[role="contentinfo"] .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.25rem !important;
+  }
+  footer[role="contentinfo"] .p-5 {
+    padding: 0.875rem 1rem !important;
+  }
+}

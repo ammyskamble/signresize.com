@@ -1,0 +1,210 @@
+---
+// src/pages/privacy.astro - Privacy Policy (AdSense, GDPR, CCPA Compliant)
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+
+const pageTitle = "Privacy Policy | SignResize.in";
+const pageDescription = "Read the official Privacy Policy for SignResize.in. Learn how we protect your personal data, our 100% client-side zero-upload processing, cookie policies, and Google AdSense compliance.";
+const lastUpdated = "October 17, 2026";
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href="https://signresize.in/privacy/" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content="https://signresize.in/privacy/" />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://signresize.in/og-image.png" />
+
+    <!-- Favicon & PWA Icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Async Google Fonts -->
+    <GoogleFonts />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Home
+        </a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Privacy Policy</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="border-b border-border pb-6 space-y-2">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+          <span>● Strict 100% In-Browser Privacy</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+          Privacy Policy
+        </h1>
+        <p class="text-xs text-muted-foreground font-mono">
+          Last Updated: {lastUpdated} | Effective Date: September 2026
+        </p>
+      </div>
+
+      <!-- Core Privacy Guarantee Card -->
+      <div class="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-foreground space-y-2">
+        <div class="flex items-center gap-2 font-bold text-emerald-700 dark:text-emerald-400 text-sm">
+          <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span>Zero Server Upload Guarantee</span>
+        </div>
+        <p class="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 leading-relaxed">
+          At <strong>SignResize.in</strong>, we believe biometric signatures, photographs, and thumb impressions are sensitive personal identifiers. All image resizing, cropping, compression, and filtering occur <strong>entirely inside your web browser</strong> using HTML5 Canvas &amp; WebAssembly. No image files or signature drawings are ever sent to, processed by, or saved on any remote servers.
+        </p>
+      </div>
+
+      <!-- Legal Policy Sections -->
+      <div class="space-y-8 text-sm leading-relaxed text-muted-foreground">
+        
+        <!-- Section 1 -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">1. Information We Do NOT Collect</h2>
+          <p>
+            Because SignResize operates strictly client-side:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>We do <strong>not</strong> collect, transmit, store, or view the images, signatures, identity photos, or thumb impressions you load into the tool.</li>
+            <li>We do <strong>not</strong> require you to register, provide your real name, phone number, email address, Aadhaar number, PAN number, or examination roll number.</li>
+            <li>Once you close or refresh your browser tab, all locally held canvas memory is instantly purged by your device operating system.</li>
+          </ul>
+        </section>
+
+        <!-- Section 2: Log Files & Standard Web Telemetry -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">2. Log Files &amp; Web Telemetry</h2>
+          <p>
+            Like most standard websites, SignResize.in collects anonymous web server log information to ensure network reliability and protect against DDoS attacks. This may include:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Internet Protocol (IP) addresses (anonymized/truncated)</li>
+            <li>Browser type and version (e.g., Chrome, Safari, Firefox, Edge)</li>
+            <li>Internet Service Provider (ISP)</li>
+            <li>Date, time stamp, and referring/exit pages</li>
+            <li>Number of clicks for aggregate traffic diagnostics</li>
+          </ul>
+          <p>
+            This data is not linked to any personally identifiable information and is used exclusively for platform maintenance and performance optimization.
+          </p>
+        </section>
+
+        <!-- Section 3: Google AdSense & Third-Party Cookies (AdSense Policy Requirement) -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">3. Google AdSense &amp; Advertising Cookies</h2>
+          <p>
+            SignResize.in may display advertisements served by <strong>Google AdSense</strong> and other third-party ad networks to fund the free availability of this service.
+          </p>
+          <div class="p-4 rounded-xl border border-border bg-card space-y-2 text-xs">
+            <p>
+              <strong>Google DoubleClick DART Cookies:</strong> Google, as a third-party vendor, uses cookies to serve ads on SignResize.in based on prior visits to this or other websites across the internet.
+            </p>
+            <p>
+              Users may opt out of the use of the DART cookie or personalized advertising by visiting the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">Google Ad and Content Network Privacy Policy</a> or through <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-semibold">AboutAds.info</a>.
+            </p>
+          </div>
+          <p>
+            Third-party ad servers or networks use technologies like cookies, JavaScript, or Web Beacons in their respective advertisements. They automatically receive your IP address when this occurs. SignResize.in has no access to or control over these cookies used by third-party advertisers.
+          </p>
+        </section>
+
+        <!-- Section 4: GDPR Compliance (European Union Users) -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">4. GDPR Data Protection Rights</h2>
+          <p>
+            Under the General Data Protection Regulation (GDPR), users are entitled to the following rights:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>Right to access:</strong> You have the right to request copies of your personal data.</li>
+            <li><strong>Right to rectification:</strong> You have the right to request correction of inaccurate information.</li>
+            <li><strong>Right to erasure:</strong> You can request deletion of personal data you voluntarily submit in feedback or contact messages. Images processed by our tools stay on your device.</li>
+            <li><strong>Right to object to processing:</strong> You may object to our processing of your personal data.</li>
+          </ul>
+        </section>
+
+        <!-- Section 5: CCPA / CPRA Notice (California Residents) -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">5. CCPA / CPRA Privacy Rights (Do Not Sell My Info)</h2>
+          <p>
+            Under the California Consumer Privacy Act (CCPA):
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>We do <strong>not</strong> sell, rent, or trade your personal data or uploaded signature documents to any data brokers or commercial third parties.</li>
+            <li>California consumers have the right to request disclosure of categories and specific pieces of personal data collected, or request deletion of data.</li>
+          </ul>
+        </section>
+
+        <!-- Section 6: Children's Online Privacy Protection (COPPA) -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">6. Children's Information (COPPA)</h2>
+          <p>
+            Protecting the privacy of young children is paramount. SignResize.in does not knowingly collect any Personal Identifiable Information from children under the age of 13. If a parent or guardian believes that SignResize.in has personally identifiable information in its database, please contact us immediately, and we will promptly remove such records.
+          </p>
+        </section>
+
+        <section id="visitor-feedback" class="space-y-3 scroll-mt-24">
+          <h2 class="text-lg font-bold text-foreground">7. Voluntary Feedback &amp; Contact Messages</h2>
+          <p>When you choose a satisfaction rating, it is sent to our feedback database. If you then send a comment, problem report, suggestion, or contact message, we store the text you submit and any optional name or email address you provide.</p>
+          <p>Feedback records include the page path, tool, mobile or desktop category, browser family, time, and website version. We use these records to investigate problems, compare improvements, and respond when you supply an email address. These records are stored in Cloudflare D1 and are available to the website administrator through a protected dashboard.</p>
+          <p>Your tool images, signatures, identity documents, file contents, and original filenames are not attached to feedback. Please avoid including personal document information in your message. We do not store raw IP addresses in feedback records; daily keyed identifiers are used to limit spam and login attempts. Identifiers older than one day are pruned during subsequent feedback requests.</p>
+          <p>We retain feedback for support and website improvement. You can request removal of a submitted message through our contact page, providing its approximate date and relevant details so we can locate it. Closing the browser does not delete feedback you have submitted.</p>
+        </section>
+
+        <!-- Section 8: Updates & Contact -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">8. Contact Us Regarding Privacy</h2>
+          <p>
+            If you have questions, feedback, or concerns regarding this Privacy Policy or our client-side processing practices, please reach out through our <a href="/contact/" class="text-primary underline font-semibold">Contact Page</a> or via email at <!--email_off--><strong class="text-foreground font-mono">privacy@signresize.in</strong><!--/email_off-->.
+          </p>
+        </section>
+
+      </div>
+
+      <!-- Back to Main Tool CTA -->
+      <div class="pt-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="text-xs text-muted-foreground">Looking to resize or compress your signature securely?</span>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-sm hover:opacity-90 transition active:scale-98"
+        >
+          <span>← Go to Main Signature Resizer Tool</span>
+        </a>
+      </div>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

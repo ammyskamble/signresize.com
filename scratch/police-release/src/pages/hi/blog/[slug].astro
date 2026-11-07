@@ -1,0 +1,499 @@
+---
+// src/pages/hi/blog/[slug].astro
+import '../../../styles/global.css';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import GoogleAnalytics from '../../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../../components/GoogleFonts.astro';
+import ThemeScript from '../../../components/ThemeScript.astro';
+import SocialShare from '../../../components/SocialShare.astro';
+import { BLOG_POSTS, type BlogPost, getBlogPostTitle, getBlogPostExcerpt, getBlogPostContent } from '../../../data/blogPostsData';
+import { EXAM_PRESETS } from '../../../data/examPresets';
+import { EXAM_PAGES_DATA } from '../../../data/examPagesData';
+import { getExamPageUrl } from '../../../utils/examPageUrls';
+
+export function getStaticPaths() {
+  return BLOG_POSTS.filter((post) => Boolean(post.contentHtml_hi)).map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+const translatedTitle = getBlogPostTitle(post, 'hi');
+const translatedExcerpt = getBlogPostExcerpt(post, 'hi');
+const translatedContent = getBlogPostContent(post, 'hi');
+
+const pageTitle = post.metaTitle_hi || `${translatedTitle} | SignResize हिंदी`;
+const pageDescription = post.metaDescription_hi || translatedExcerpt;
+const canonicalUrl = `https://signresize.in/hi/blog/${post.slug}/`;
+
+const relatedPreset = post.relatedExamPreset
+  ? EXAM_PRESETS.find(p => p.id === post.relatedExamPreset)
+  : null;
+
+let relatedExamSlug = 'ssc-signature-resize';
+if (post.country === 'BD') relatedExamSlug = 'teletalk-photo-signature-resize';
+else if (post.country === 'PK') relatedExamSlug = 'pk/ppsc-signature-resize';
+else if (post.country === 'PH') relatedExamSlug = 'ph/prc-photo-signature-resize-philippines';
+else if (post.country === 'NP') relatedExamSlug = 'np/lok-sewa-photo-resize-nepal';
+else if (post.relatedExamPreset) {
+  const matchedPage = EXAM_PAGES_DATA.find(p => p.presetId === post.relatedExamPreset || p.slug === post.relatedExamPreset);
+  if (matchedPage) relatedExamSlug = matchedPage.slug;
+}
+
+const scoredPosts = BLOG_POSTS.filter(p => p.slug !== post.slug && Boolean(p.contentHtml_hi)).map(other => {
+  let score = 0;
+  if (other.category === post.category) score += 3;
+  if (other.relatedExamPreset && post.relatedExamPreset && other.relatedExamPreset === post.relatedExamPreset) score += 5;
+  return { post: other, score };
+});
+
+scoredPosts.sort((a, b) => b.score - a.score);
+const relatedPosts = scoredPosts.slice(0, 3).map(s => s.post);
+
+const quickFacts = (post.quickFacts_hi && post.quickFacts_hi.length > 0) ? post.quickFacts_hi : post.quickFacts;
+const faqs = (post.faqs_hi && post.faqs_hi.length > 0) ? post.faqs_hi : post.faqs;
+
+function cleanSchemaText(text: string): string {
+  if (!text) return '';
+  return text
+    .replace(/<[^>]*>?/gm, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/(\*\*|__)(.*?)\1/g, '$2')
+    .replace(/(\*|_)(.*?)\1/g, '$2')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/==/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function formatHighlightMarkup(html: string): string {
+  if (!html) return '';
+  return html.replace(/==(.*?)==/g, '<mark class="bg-primary/15 text-foreground font-semibold px-1.5 py-0.5 rounded-sm selection:bg-primary/30">$1</mark>');
+}
+
+function toIsoDate(dateStr?: string): string {
+  if (!dateStr) return "2026-09-20";
+  try {
+    const d = new Date(dateStr);
+    if (!isNaN(d.getTime())) return d.toISOString().split('T')[0];
+  } catch {}
+  return "2026-09-20";
+}
+
+const publishedIso = toIsoDate(post.publishDate);
+const modifiedIso = toIsoDate(post.lastUpdated || post.publishDate);
+
+// Dynamic Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "होम",
+      "item": "https://signresize.in/hi/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "हिंदी ब्लॉग",
+      "item": "https://signresize.in/hi/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": translatedTitle,
+      "item": canonicalUrl
+    }
+  ]
+};
+
+// Dynamic BlogPosting Schema
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": post.category === 'Guidelines & Tips' ? ["BlogPosting", "TechArticle"] : "BlogPosting",
+  "headline": translatedTitle,
+  "description": translatedExcerpt,
+  "inLanguage": "hi",
+  "image": ["https://signresize.in/favicon-96x96.png"],
+  "datePublished": publishedIso,
+  "dateModified": modifiedIso,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "author": {
+    "@type": "Organization",
+    "name": post.author,
+    "url": "https://signresize.in/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SignResize",
+    "url": "https://signresize.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://signresize.in/favicon-96x96.png"
+    }
+  }
+};
+
+// Dynamic FAQPage Schema
+const faqSchema = (faqs && faqs.length > 0) ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": cleanSchemaText(faq.question),
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": cleanSchemaText(faq.answer)
+    }
+  }))
+} : null;
+---
+
+<!doctype html>
+<html lang="hi" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={`https://signresize.in/blog/${post.slug}/`} />
+    <link rel="alternate" hreflang="hi" href={`https://signresize.in/hi/blog/${post.slug}/`} />
+    {Boolean(post.contentHtml_mr) && (
+      <link rel="alternate" hreflang="mr" href={`https://signresize.in/mr/blog/${post.slug}/`} />
+    )}
+    <link rel="alternate" hreflang="x-default" href={`https://signresize.in/blog/${post.slug}/`} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <GoogleFonts />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:image" content="https://signresize.in/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content="https://signresize.in/og-image.png" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 pt-4 sm:pt-8 pb-20 sm:pb-8 space-y-6 w-full min-w-0 overflow-x-hidden">
+      
+      <!-- Top Navigation & Language Switcher Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-3">
+        <nav class="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
+          <a href="/hi/" class="hover:text-primary transition flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            होम
+          </a>
+          <span>/</span>
+          <a href="/hi/blog/" class="hover:text-primary transition">हिंदी ब्लॉग</a>
+          <span>/</span>
+          <span class="text-foreground font-medium truncate max-w-[200px]">{translatedTitle}</span>
+        </nav>
+
+        <!-- Dynamic Language Switcher Bar -->
+        <div class="flex items-center gap-1.5 text-xs bg-muted/60 p-1 rounded-xl border border-border/60">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-2">📖 भाषा बदले:</span>
+          <a href={`/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🇬🇧 English</a>
+          <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇮🇳 हिंदी</a>
+          {post.contentHtml_mr && <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🚩 मराठी</a>}
+        </div>
+      </div>
+
+      <!-- Article Header -->
+      <article class="space-y-6">
+        <header class="space-y-3">
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span class="px-2.5 py-0.5 rounded-full font-bold bg-primary/10 text-primary border border-primary/20">{post.category}</span>
+            <span class="text-muted-foreground font-mono">• {post.publishDate}</span>
+            <span class="text-muted-foreground font-mono">• {post.readTime_hi || post.readTime}</span>
+          </div>
+
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground tracking-tight leading-tight">
+            {translatedTitle}
+          </h1>
+
+          <p class="text-sm sm:text-base text-muted-foreground leading-relaxed italic border-l-4 border-primary/40 pl-3 py-1 bg-muted/20 rounded-r-xl">
+            {translatedExcerpt}
+          </p>
+
+          <div class="flex items-center justify-between pt-2 text-xs border-t border-border/60">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-foreground">{post.author}</span>
+              <span class="text-muted-foreground">• {post.authorRole_hi || post.authorRole}</span>
+            </div>
+            <SocialShare title={translatedTitle} url={canonicalUrl} />
+          </div>
+        </header>
+
+        <!-- Quick Facts Banner (if available) -->
+        {quickFacts && quickFacts.length > 0 && (
+          <section class="rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-card via-primary/5 to-card p-4 sm:p-6 shadow-xs space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+                <span>⚡</span>
+                <span>त्वरित मुख्य तथ्य एवं परीक्षा सारांश (Quick Facts)</span>
+              </div>
+              <span class="text-[11px] text-muted-foreground font-mono">Official Benchmarks</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
+              {quickFacts.map((fact) => (
+                <div class="p-2.5 sm:p-3 rounded-xl bg-card border border-border/70 space-y-1 min-w-0">
+                  <div class="text-[10px] sm:text-[11px] font-semibold text-muted-foreground uppercase tracking-wide truncate">
+                    {fact.label}
+                  </div>
+                  <div class="text-xs sm:text-sm font-bold text-foreground break-words">
+                    {fact.value}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <!-- Fast Tool Callout Banner -->
+        <div class="p-4 rounded-2xl bg-gradient-to-r from-card to-primary/10 border border-primary/30 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
+          <div>
+            <h3 class="font-bold text-sm text-foreground">क्या आपको फोटो या हस्ताक्षर रिसाइझ करना है?</h3>
+            <p class="text-xs text-muted-foreground">100% मुफ्त और सुरक्षित - बिना किसी सर्वर अपलोड के तुरंत आकार बदलें।</p>
+          </div>
+          <a           href={getExamPageUrl(relatedExamSlug)} class="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition whitespace-nowrap shadow-2xs">
+            रिसाइझर टूल खोलें &rarr;
+          </a>
+        </div>
+
+        <!-- Main Body Content -->
+        <div class="article-prose prose dark:prose-invert max-w-none prose-sm sm:prose-base space-y-4">
+          <Fragment set:html={translatedContent} />
+        </div>
+
+        <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
+        {faqs && faqs.length > 0 && (
+          <section id="faqs" class="space-y-4 pt-6 border-t border-border scroll-mt-20">
+            <div class="space-y-1">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
+                <span>❓</span> अक्सर पूछे जाने वाले प्रश्न (FAQ)
+              </div>
+              <h2 class="text-xl sm:text-3xl font-extrabold text-foreground tracking-tight break-words">
+                महत्वपूर्ण प्रश्नोत्तर ({faqs.length} स्पष्टीकरण)
+              </h2>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
+                आधिकारिक अधिसूचना, आयोग के दिशानिर्देशों और सफल अभ्यर्थियों के अनुभवों पर आधारित प्रामाणिक उत्तर।
+              </p>
+            </div>
+
+            <div class="space-y-3 pt-2">
+              {faqs.map((faq, idx) => (
+                <details class="group rounded-2xl border border-border bg-card p-3.5 sm:p-5 transition-all hover:border-primary/40 open:border-primary/50 open:bg-primary/5 open:shadow-xs cursor-pointer" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                  <summary class="flex items-start justify-between gap-3 font-bold text-foreground text-sm sm:text-base list-none select-none">
+                    <div class="flex items-start gap-2.5">
+                      <span class="px-2 py-0.5 rounded-md text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20 shrink-0 mt-0.5">
+                        Q{idx + 1}
+                      </span>
+                      <span itemprop="name" class="group-open:text-primary transition break-words">{faq.question}</span>
+                    </div>
+                    <span class="shrink-0 text-muted-foreground group-open:rotate-180 group-open:text-primary transition-transform duration-200 mt-1">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="mt-3 pl-0 sm:pl-9 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300 border-t border-border/50 pt-3 prose prose-slate dark:prose-invert max-w-none break-words">
+                    <div itemprop="text">
+                      <Fragment set:html={formatHighlightMarkup(faq.answer)} />
+                    </div>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+      </article>
+
+      <!-- Related Posts Section -->
+      {relatedPosts.length > 0 && (
+        <section class="space-y-4 pt-8 border-t border-border">
+          <h3 class="text-lg font-bold text-foreground">संबंधित लेख (Related Articles)</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {relatedPosts.map(rel => (
+              <a href={`/hi/blog/${rel.slug}/`} class="p-4 rounded-2xl bg-card border border-border hover:border-primary transition space-y-2 group">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary">{rel.category}</span>
+                <h4 class="font-bold text-xs sm:text-sm text-foreground group-hover:text-primary transition line-clamp-2">
+                  {getBlogPostTitle(rel, 'hi')}
+                </h4>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+    </main>
+
+    <!-- Sticky Mobile Conversion Banner -->
+    <div class="fixed bottom-0 inset-x-0 z-40 p-2.5 bg-background/95 backdrop-blur-md border-t border-border shadow-lg sm:hidden flex items-center justify-between gap-3">
+      <div class="min-w-0 flex-1 pl-1">
+        <div class="text-xs font-bold text-foreground truncate">{post.guideTool?.label || 'फोटो व हस्ताक्षर रिसाइज़र'}</div>
+        <div class="text-[10px] text-muted-foreground truncate">140×60 px • 10–20 KB &amp; 20–50 KB</div>
+      </div>
+      <a href={post.guideTool?.href || `/${relatedExamSlug}/`} class="px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-sm hover:opacity-95 shrink-0 flex items-center gap-1 transition">
+        <span>रिसाइज़ करें</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+
+    <Footer />
+
+    <style>
+      /* Ensure dark containers never blend their text or tables into light mode */
+      :global(.article-prose [class*="bg-slate-900"]),
+      :global(.article-prose [class*="bg-slate-950"]),
+      :global(.article-prose [class*="bg-gradient-"]) {
+        color: #f8fafc !important;
+      }
+      :global(.article-prose [class*="bg-slate-900"] p),
+      :global(.article-prose [class*="bg-slate-950"] p),
+      :global(.article-prose [class*="bg-slate-900"] li),
+      :global(.article-prose [class*="bg-slate-950"] li) {
+        color: #cbd5e1 !important;
+      }
+      :global(.article-prose [class*="bg-slate-900"] h2),
+      :global(.article-prose [class*="bg-slate-950"] h2),
+      :global(.article-prose [class*="bg-slate-900"] h3),
+      :global(.article-prose [class*="bg-slate-950"] h3),
+      :global(.article-prose [class*="bg-slate-900"] h4),
+      :global(.article-prose [class*="bg-slate-950"] h4),
+      :global(.article-prose [class*="bg-slate-900"] h5),
+      :global(.article-prose [class*="bg-slate-950"] h5) {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        color: #ffffff !important;
+      }
+      :global(.article-prose [class*="bg-card"] h2),
+      :global(.article-prose [class*="bg-card"] h3),
+      :global(.article-prose [class*="bg-card"] h4),
+      :global(.article-prose [class*="bg-card"] h5),
+      :global(.article-prose [class*="bg-gradient-"] h2),
+      :global(.article-prose [class*="bg-gradient-"] h3),
+      :global(.article-prose [class*="bg-gradient-"] h4),
+      :global(.article-prose [class*="bg-gradient-"] h5) {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        color: var(--color-foreground) !important;
+      }
+      :global(.article-prose [class*="bg-slate-900"] table),
+      :global(.article-prose [class*="bg-slate-950"] table),
+      :global(.article-prose [class*="bg-gradient-"] table) {
+        color: #f8fafc !important;
+      }
+      :global(.article-prose [class*="bg-slate-900"] th),
+      :global(.article-prose [class*="bg-slate-950"] th),
+      :global(.article-prose [class*="bg-gradient-"] th) {
+        color: #ffffff !important;
+        background-color: rgba(30, 41, 59, 0.9) !important;
+      }
+      :global(.article-prose [class*="bg-slate-900"] td),
+      :global(.article-prose [class*="bg-slate-950"] td),
+      :global(.article-prose [class*="bg-gradient-"] td) {
+        color: #cbd5e1 !important;
+      }
+      :global(.article-prose table) {
+        color: var(--color-foreground);
+      }
+      :global(.article-prose th) {
+        color: var(--color-foreground);
+      }
+      :global(.article-prose td) {
+        color: var(--color-foreground);
+      }
+      :global(.article-prose h2) {
+        position: relative;
+        font-size: 1.25rem;
+        line-height: 1.35;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--color-foreground);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding: 0.6rem 0.85rem 0.6rem 0.95rem;
+        border-left: 5px solid var(--color-primary);
+        border-radius: 0 0.85rem 0.85rem 0;
+        background: linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 12%, transparent), color-mix(in srgb, var(--color-primary) 3%, transparent) 80%, transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+      @media (min-width: 640px) {
+        :global(.article-prose h2) {
+          font-size: 1.45rem;
+          padding: 0.75rem 1rem 0.75rem 1.15rem;
+        }
+      }
+      :global(.article-prose h3) {
+        position: relative;
+        font-size: 1.1rem;
+        line-height: 1.4;
+        font-weight: 700;
+        color: var(--color-foreground);
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        padding-left: 0.75rem;
+        border-left: 3px solid color-mix(in srgb, var(--color-primary) 70%, transparent);
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+      @media (min-width: 640px) {
+        :global(.article-prose h3) {
+          font-size: 1.2rem;
+          padding-left: 0.85rem;
+        }
+      }
+      :global(.article-prose blockquote) {
+        border-left-color: var(--color-primary);
+        background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+        padding: 0.85rem 1.25rem;
+        border-radius: 0 0.75rem 0.75rem 0;
+        font-style: normal;
+      }
+    </style>
+  </body>
+</html>

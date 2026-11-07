@@ -1,0 +1,15 @@
+---
+import SignatureCropExamples from './SignatureCropExamples.astro';
+---
+<div class="space-y-4 text-sm leading-relaxed">
+  <ol class="list-decimal pl-5 space-y-2">
+    <li>Read the upload instructions for your application. Note the image format, pixel dimensions and minimum and maximum file size.</li>
+    <li>Upload a clear scan or photograph of your own handwritten signature. Crop unused paper while keeping every stroke visible.</li>
+    <li>Choose the matching preset or enter custom dimensions and KB bounds. Use paper cleanup only if it preserves the original strokes.</li>
+    <li>Download the JPG, reopen it at actual size and inspect its clarity. Check the file properties and the application preview before submitting.</li>
+  </ol>
+  <p>Pixels describe the image grid; KB describes file size. Neither determines the other. Physical sizes also depend on resolution: at 200 DPI, 140 × 60 pixels is about 1.78 × 0.76 cm, not 4 × 2 cm.</p>
+  <p>For a specific file-size task, use the <a class="text-primary underline" href="/resize-signature-to-10kb-20kb/">10–20 KB signature resizer</a>. For photographs, use the <a class="text-primary underline" href="/photo-resizer/">photo resizer</a>. Use the exam directory for notice-specific guidance.</p>
+  <SignatureCropExamples />
+  <p class="text-muted-foreground">A tool preset is a starting point. Meeting its file checks does not guarantee acceptance by an examining authority.</p>
+</div>

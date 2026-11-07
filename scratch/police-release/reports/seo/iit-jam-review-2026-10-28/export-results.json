@@ -1,0 +1,16 @@
+[
+  {
+    "file": "jam-2027_signature_560x160_50kb.jpg",
+    "format": "JPEG",
+    "width": 560,
+    "height": 160,
+    "bytes": 51200
+  },
+  {
+    "file": "jam-photo_photo_420x540_50kb.jpg",
+    "format": "JPEG",
+    "width": 420,
+    "height": 540,
+    "bytes": 51200
+  }
+]

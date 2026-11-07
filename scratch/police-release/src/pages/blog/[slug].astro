@@ -1,0 +1,1214 @@
+---
+// src/pages/blog/[slug].astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import { WebcamChecker } from '../../components/WebcamChecker';
+import { PoliceRunningPlanner } from '../../components/PoliceRunningPlanner';
+import SocialShare from '../../components/SocialShare.astro';
+import { BLOG_POSTS, type BlogPost } from '../../data/blogPostsData';
+import { EXAM_PRESETS, ALL_COMBINED_PRESETS } from '../../data/examPresets';
+import { EXAM_PAGES_DATA } from '../../data/examPagesData';
+import { EXAM_GUIDANCE } from '../../data/examGuidance';
+import { getExamPageUrl } from '../../utils/examPageUrls';
+
+export function getStaticPaths() {
+  return BLOG_POSTS.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+const pageTitle = post.metaTitle || (post.title.length > 50 ? `${post.title.slice(0, 48)}... | SignResize` : `${post.title} | SignResize`);
+const pageDescription = post.metaDescription || post.excerpt;
+const canonicalUrl = `https://signresize.in/blog/${post.slug}/`;
+
+// Find related preset if specified
+const relatedPreset = post.relatedExamPreset
+  ? ALL_COMBINED_PRESETS.find(p => p.id === post.relatedExamPreset) || EXAM_PRESETS.find(p => p.id === post.relatedExamPreset)
+  : null;
+
+const focusedPreset = post.relatedExamPreset || (/sbi-clerk/i.test(post.slug) ? 'sbi-clerk' : /sbi-po/i.test(post.slug) ? 'sbi-po' : /sbi/i.test(post.slug) ? 'sbi-signature' : /iit-jam/i.test(post.slug) ? 'iit-jam' : undefined);
+
+// Determine related exam page slug based on explicit country or preset mapping
+let relatedExamSlug = 'ssc-signature-resize';
+if (post.country === 'BD') {
+  relatedExamSlug = 'teletalk-photo-signature-resize';
+} else if (post.country === 'PK') {
+  relatedExamSlug = 'pk/ppsc-signature-resize';
+} else if (post.country === 'PH') {
+  relatedExamSlug = 'ph/prc-photo-signature-resize-philippines';
+} else if (post.country === 'NP') {
+  relatedExamSlug = 'np/lok-sewa-photo-resize-nepal';
+} else if (post.country === 'US') {
+  relatedExamSlug = 'us/ds-160-photo-resizer';
+} else if (post.country === 'ID') {
+  relatedExamSlug = 'id/cpns-sscasn-photo-resizer';
+} else if (focusedPreset) {
+  const matchedPage = EXAM_PAGES_DATA.find(p => p.presetId === focusedPreset || p.slug === focusedPreset);
+  if (matchedPage) {
+    relatedExamSlug = matchedPage.slug;
+  }
+}
+
+const isPkiCompliancePost = post.country === 'US' || (post.tags && post.tags.some(t => /pki|nist|digital signature|esign|cryptograph/i.test(t)));
+const isWbpscPost = Boolean(post.tags && post.tags.some(t => /wbpsc|wbcs/i.test(t)));
+const isOssscPost = Boolean(post.slug?.includes("osssc") || (post.tags && post.tags.some(t => /osssc/i.test(t))));
+// Route exam-specific articles to their own guidance instead of a generic SSC CTA.
+const guidanceSlug = post.slug.startsWith('ssc-cgl-') ? 'ssc-cgl-signature-resize'
+  : post.slug.startsWith('ssc-chsl-') ? 'ssc-chsl-signature-resize'
+  : post.slug.startsWith('ssc-mts-') ? 'ssc-mts-signature-resize'
+  : post.slug.startsWith('ctet-') ? 'ctet-signature-resize'
+  : post.slug.startsWith('ssc-live-photo-') ? 'ssc-photo-resize'
+  : null;
+const sourceGuide = guidanceSlug ? EXAM_PAGES_DATA.find(page => page.slug === guidanceSlug) : null;
+if (guidanceSlug) relatedExamSlug = guidanceSlug;
+
+// Intelligent Related Posts selection:
+// Calculate relevance score for all other posts based on category, tags, and cluster overlap
+const scoredPosts = BLOG_POSTS.filter(p => p.slug !== post.slug).map(other => {
+  let score = 0;
+  if (other.category === post.category) score += 3;
+  if (other.relatedExamPreset && post.relatedExamPreset && other.relatedExamPreset === post.relatedExamPreset) score += 5;
+  if (other.tags && post.tags) {
+    const sharedTags = other.tags.filter(t => post.tags.includes(t));
+    score += sharedTags.length * 2;
+  }
+  // High-value cross-relevance bonuses (e.g. general mistake guide relevant to all)
+  if (other.slug === 'top-5-mistakes-photo-signature-rejection-govt-exams') score += 1;
+  return { post: other, score };
+});
+
+scoredPosts.sort((a, b) => b.score - a.score);
+const relatedPosts = scoredPosts.slice(0, 3).map(s => s.post);
+
+// Date formatting helper for Schema
+function toIsoDate(dateStr?: string): string {
+  if (!dateStr) return "2026-09-20";
+  try {
+    const parsed = new Date(dateStr);
+    if (!isNaN(parsed.getTime())) {
+      return parsed.toISOString().split('T')[0];
+    }
+  } catch {}
+  return "2026-09-20";
+}
+
+const publishedIso = toIsoDate(post.publishDate);
+const modifiedIso = toIsoDate(post.lastUpdated || post.publishDate);
+
+// Dynamic Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://signresize.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://signresize.in/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": post.title,
+      "item": canonicalUrl
+    }
+  ]
+};
+
+// Dynamic BlogPosting & TechArticle Schema
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": post.category === 'Guidelines & Tips' ? ["BlogPosting", "TechArticle"] : "BlogPosting",
+  "headline": post.title,
+  "description": post.excerpt,
+  "image": ["https://signresize.in/favicon-96x96.png"],
+  "datePublished": publishedIso,
+  "dateModified": modifiedIso,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "author": {
+    "@type": "Organization",
+    "name": post.author,
+    "url": "https://signresize.in/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SignResize",
+    "url": "https://signresize.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://signresize.in/favicon-96x96.png"
+    }
+  }
+};
+
+// Helper to sanitize text for JSON-LD Schemas (removing markdown markup and HTML tags)
+function cleanSchemaText(text: string): string {
+  if (!text) return '';
+  return text
+    .replace(/<[^>]*>?/gm, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/(\*\*|__)(.*?)\1/g, '$2')
+    .replace(/(\*|_)(.*?)\1/g, '$2')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/==/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+interface NavItem {
+  id: string;
+  title: string;
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/<[^>]*>/g, '')
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+function decodeHtmlEntities(str: string): string {
+  if (!str) return '';
+  return str
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&ldquo;|&rdquo;/g, '"')
+    .replace(/&lsquo;|&rsquo;/g, "'")
+    .replace(/&mdash;/g, '—')
+    .replace(/&ndash;/g, '–')
+    .replace(/&hellip;/g, '…')
+    .replace(/&bull;/g, '•')
+    .replace(/&nbsp;/g, ' ');
+}
+
+// Process article HTML to inject missing IDs on <h2>, adjust sticky offsets, and format markups
+function processArticleContent(rawHtml: string, faqs?: any[]): { processedHtml: string; navItems: NavItem[] } {
+  if (!rawHtml) return { processedHtml: '', navItems: [] };
+
+  let html = rawHtml;
+  const navItems: NavItem[] = [];
+  const registeredIds = new Set<string>();
+
+  // 1. First ensure all <h2> tags have an id attribute and scroll-mt-28 sm:scroll-mt-32 to clear the 104px sticky header
+  html = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs, content) => {
+    const rawText = decodeHtmlEntities(content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
+    const idMatch = attrs.match(/id="([^"]+)"/);
+    let id = idMatch ? idMatch[1] : slugify(rawText);
+    if (!id) id = `section-h2-${navItems.length + 1}`;
+
+    let updatedAttrs = attrs;
+    if (!updatedAttrs.includes('id=')) {
+      updatedAttrs = ` id="${id}"${updatedAttrs}`;
+    }
+    if (!updatedAttrs.includes('scroll-mt-')) {
+      if (updatedAttrs.includes('class="')) {
+        updatedAttrs = updatedAttrs.replace(/class="([^"]*)"/, 'class="$1 scroll-mt-40 sm:scroll-mt-44"');
+      } else {
+        updatedAttrs = ` class="scroll-mt-40 sm:scroll-mt-44"${updatedAttrs}`;
+      }
+    }
+
+    // Auto-inject alias anchor for numeric sections like #section-5 or #section-1
+    let prefix = '';
+    const sectionNumMatch = rawText.match(/(?:^|\b)(?:section\s+)?(\d+)[\.\-\)]\s*/i);
+    if (sectionNumMatch && id !== `section-${sectionNumMatch[1]}`) {
+      prefix = `<span id="section-${sectionNumMatch[1]}" class="scroll-mt-40 sm:scroll-mt-44 block -mt-6 pt-6"></span>`;
+    }
+
+    return `${prefix}<h2${updatedAttrs}>${content}</h2>`;
+  });
+
+  // 2. Parse all <h2> elements (including those inside <section id="...">) in order
+  const h2Regex = /<h2[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/gi;
+  let h2Match: RegExpExecArray | null;
+  while ((h2Match = h2Regex.exec(html)) !== null) {
+    const id = h2Match[1];
+    const rawTitle = decodeHtmlEntities(h2Match[2].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
+    const cleanTitle = rawTitle
+      .replace(/^([\p{Extended_Pictographic}\u2000-\u3300\uFE00-\uFE0F\s]*\d+[\.\-\)]\s*)+/u, '')
+      .replace(/^[*_~`]+|[*_~`]+$/g, '')
+      .replace(/[*_~`]/g, '')
+      .trim() || rawTitle;
+
+    if (!registeredIds.has(id)) {
+      registeredIds.add(id);
+      navItems.push({ id, title: cleanTitle });
+    }
+  }
+
+  // 3. Fallback: if still empty, check for known landmark IDs in the HTML
+  if (navItems.length === 0) {
+    const knownLandmarks = [
+      { id: 'overview', title: 'Overview & Context' },
+      { id: 'master-specs', title: 'Master Specifications' },
+      { id: 'diagnostic-failures', title: 'Rejection Traps & Fixes' },
+      { id: 'online-workflow', title: 'Step-by-Step Workflow' },
+      { id: 'dedicated-tools', title: 'Dedicated Resizer Tools' },
+      { id: 'shooting-guide', title: 'Smartphone Shooting Guide' },
+      { id: 'fee-payment-guide', title: 'Fee Payment Blueprint' },
+      { id: 'ppsc-planner-guide', title: 'Planner & Exam Schedule' },
+      { id: 'privacy-guarantee', title: 'Security & Privacy Guarantee' },
+      { id: 'exam-pattern', title: 'Exam Pattern' },
+      { id: 'document-specs', title: 'Document Specs' },
+      { id: 'strategy', title: 'Preparation Strategy' }
+    ];
+
+    for (const landmark of knownLandmarks) {
+      if (html.includes(`id="${landmark.id}"`) && !registeredIds.has(landmark.id)) {
+        registeredIds.add(landmark.id);
+        navItems.push(landmark);
+      }
+    }
+  }
+
+  // Always append FAQs if present
+  if (faqs && faqs.length > 0) {
+    navItems.push({ id: 'faqs', title: `Frequently Asked Questions (${faqs.length} Clarified)` });
+  }
+
+  // 4. Adjust sticky jump bars from `sticky top-4` or `sticky top-20` to `sticky top-28 sm:top-[116px]` to clear the sticky header and announcement strip
+  html = html.replace(/sticky top-(?:4|20)/g, 'sticky top-28 sm:top-[116px]');
+
+  // 5. Highlight syntax ==...==
+  html = html.replace(/==(.*?)==/g, '<mark class="bg-amber-200/90 dark:bg-amber-900/60 text-amber-950 dark:text-amber-100 font-bold px-1.5 py-0.5 rounded border border-amber-400/40 dark:border-amber-600/40 selection:bg-amber-300 dark:selection:bg-amber-800">$1</mark>');
+
+  // 6. Ensure all specification tables are wrapped in an accessible, touch-friendly horizontal scroll container
+  html = html.replace(/(<div[^>]*class="[^"]*(?:overflow-x-auto|table-scroll-hint-wrapper)[^"]*"[^>]*>[\s\S]*?<\/table>\s*<\/div>)|(<table[\s\S]*?<\/table>)/gi, (match, wrapped, unwrapped) => {
+    if (wrapped) return wrapped;
+    return `<div class="overflow-x-auto my-4 rounded-xl border border-border shadow-2xs">${unwrapped}</div>`;
+  });
+
+  return { processedHtml: html, navItems };
+}
+
+function formatHighlightMarkup(html: string): string {
+  if (!html) return '';
+  return html.replace(/==(.*?)==/g, '<mark class="bg-amber-200/90 dark:bg-amber-900/60 text-amber-950 dark:text-amber-100 font-bold px-1.5 py-0.5 rounded border border-amber-400/40 dark:border-amber-600/40 selection:bg-amber-300 dark:selection:bg-amber-800">$1</mark>');
+}
+
+const { processedHtml, navItems } = processArticleContent(post.contentHtml, post.faqs);
+
+
+// Dynamic FAQPage Schema
+const faqSchema = (post.faqs && post.faqs.length > 0) ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": post.faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": cleanSchemaText(f.answer)
+    }
+  }))
+} : null;
+---
+
+<!doctype html>
+<html lang={post.country === 'US' ? 'en-US' : 'en-IN'} class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={`https://signresize.in/blog/${post.slug}/`} />
+    {Boolean(post.contentHtml_hi) && (
+      <link rel="alternate" hreflang="hi" href={`https://signresize.in/hi/blog/${post.slug}/`} />
+    )}
+    {Boolean(post.contentHtml_mr) && (
+      <link rel="alternate" hreflang="mr" href={`https://signresize.in/mr/blog/${post.slug}/`} />
+    )}
+    <link rel="alternate" hreflang="x-default" href={`https://signresize.in/blog/${post.slug}/`} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <GoogleFonts />
+
+    <!-- Open Graph & Social Cards -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:image" content="https://signresize.in/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content="https://signresize.in/og-image.png" />
+
+    <!-- Article & Breadcrumb Schemas -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    {faqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    )}
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-6 sm:pt-10 md:pt-12 pb-20 sm:pb-12 space-y-6 sm:space-y-8 w-full min-w-0">
+      
+      <!-- Breadcrumbs & Language Switcher Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-3">
+        <nav class="flex flex-wrap items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 font-medium" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition flex items-center gap-1 text-slate-700 dark:text-slate-300">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+          </a>
+          <span>/</span>
+          <a href="/blog/" class="hover:text-primary transition text-slate-700 dark:text-slate-300">Blog</a>
+          <span>/</span>
+          <span class="text-foreground font-semibold truncate max-w-[150px] sm:max-w-xs md:max-w-md">{post.title}</span>
+        </nav>
+
+        <!-- Language Switcher Bar / Edition Tag -->
+        {post.country === 'US' ? (
+          <div class="flex items-center gap-1.5 text-xs bg-slate-100 dark:bg-slate-800/80 px-3 py-1 rounded-xl border border-border text-slate-700 dark:text-slate-300">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-primary">🇺🇸 US Edition:</span>
+            <span class="font-semibold text-foreground">Federal ESIGN & PKI Standards</span>
+          </div>
+        ) : (
+          <div class="flex items-center gap-1.5 text-xs bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl border border-border">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 px-2">📖 Read In:</span>
+            <a href={`/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇬🇧 English</a>
+            {post.contentHtml_hi && <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-slate-700 dark:text-slate-300 hover:text-foreground font-semibold transition">🇮🇳 हिंदी</a>}
+            {post.contentHtml_mr && <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-slate-700 dark:text-slate-300 hover:text-foreground font-semibold transition">🚩 मराठी</a>}
+          </div>
+        )}
+      </div>
+
+      <!-- Article Header -->
+      <header id="article-header" class="space-y-3 sm:space-y-4 border-b border-border pb-5 sm:pb-6 scroll-mt-32 sm:scroll-mt-36">
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 shrink-0">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span>{post.category}</span>
+          </span>
+          <span class="px-2.5 py-1 rounded-md text-slate-700 dark:text-slate-300 font-mono font-medium bg-slate-100 dark:bg-slate-800/80 border border-border flex items-center gap-1 shrink-0">
+            <span>📅</span> {post.publishDate}
+          </span>
+          <span class="px-2.5 py-1 rounded-md font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 flex items-center gap-1.5 font-mono shadow-xs shrink-0">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Updated: {post.lastUpdated || post.publishDate}</span>
+          </span>
+          <span class="px-2.5 py-1 rounded-md text-slate-700 dark:text-slate-300 font-mono font-medium bg-slate-100 dark:bg-slate-800/80 border border-border flex items-center gap-1 shrink-0">
+            ⏱️ {post.readTime}
+          </span>
+        </div>
+
+        <!-- Highlighted Main Headline (H1) with Matching Ambient Animation -->
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-card border border-primary/25 p-3.5 sm:p-6 shadow-xs scroll-mt-32 sm:scroll-mt-36">
+          <!-- Ambient animated glowing flares matching hero banner -->
+          <div class="absolute -right-8 -top-8 w-44 h-44 bg-primary/15 dark:bg-primary/25 rounded-full blur-2xl pointer-events-none animate-pulse"></div>
+          <div class="absolute left-1/3 -bottom-10 w-36 h-36 bg-cyan-glow/10 rounded-full blur-xl pointer-events-none animate-pulse" style="animation-duration: 4s;"></div>
+          <h1 class="relative text-xl sm:text-3xl lg:text-[2.5rem] font-extrabold tracking-tight text-foreground leading-[1.3] break-words hyphens-auto">
+            {post.title}
+          </h1>
+        </div>
+
+        <!-- Highlighted Subheadline Excerpt -->
+        <p class="text-sm sm:text-base md:text-lg text-foreground/90 font-medium leading-relaxed pl-3 sm:pl-4 border-l-4 border-primary bg-primary/5 py-2.5 rounded-r-xl break-words">
+          {post.excerpt}
+        </p>
+
+        <!-- Compact Action Strip (Instant Above-the-fold Tool Discovery) -->
+        {post.quickTools && post.quickTools.length > 0 && (
+          <div class="my-3 p-3 rounded-2xl bg-gradient-to-r from-primary/15 via-primary/5 to-card border-2 border-primary/30 shadow-xs space-y-2">
+            <div class="flex items-center justify-between px-1">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-primary flex items-center gap-1.5">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <span>⚡ Instant 1-Click Tool Launchpad</span>
+              </span>
+              <span class="text-[10px] text-muted-foreground font-mono hidden sm:inline">100% Free • No Sign-up • Zero Server Upload</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {post.quickTools.map(t => (
+                <a
+                  href={t.href}
+                  class="flex items-center gap-2 px-3 py-2 sm:py-2.5 rounded-xl bg-card border border-border hover:border-primary hover:bg-primary/5 transition font-semibold text-xs text-foreground shadow-2xs group"
+                >
+                  <span class="text-lg group-hover:scale-110 transition shrink-0">{t.icon || '⚡'}</span>
+                  <div class="min-w-0 flex-1 leading-tight">
+                    <div class="font-bold truncate text-foreground group-hover:text-primary transition">{t.label}</div>
+                    {t.sublabel && <div class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono truncate">{t.sublabel}</div>}
+                  </div>
+                  <span class="text-primary text-xs opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition hidden md:inline shrink-0">&rarr;</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Author / Editorial Badge & Social Share Bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-border/60">
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="w-9 h-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center font-bold text-primary text-sm shrink-0">
+              SR
+            </div>
+            <div class="text-xs min-w-0">
+              <div class="font-bold text-foreground truncate">{post.author}</div>
+              <div class="text-slate-600 dark:text-slate-400 font-medium truncate">{post.authorRole}</div>
+            </div>
+          </div>
+
+          <!-- Inline Social Share Bar -->
+          <div class="overflow-x-auto max-w-full pb-0.5 scrollbar-none">
+            <SocialShare
+              url={canonicalUrl}
+              title={post.title}
+              description={post.excerpt}
+              variant="inline"
+            />
+          </div>
+        </div>
+      </header>
+
+      {post.slug === 'maharashtra-police-bharti-2026-top-10-faq-guide' && <PoliceRunningPlanner client:visible />}
+
+      <!-- Executive Summary / Quick Facts Banner (if available) -->
+      {post.quickFacts && post.quickFacts.length > 0 && (
+        <section class="rounded-2xl border border-primary/25 bg-gradient-to-br from-card via-primary/5 to-card p-3 sm:p-4 shadow-xs space-y-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+              <span>⚡</span>
+              <span>Official Benchmarks &amp; Eligibility Summary</span>
+            </div>
+            <span class="text-[10px] text-muted-foreground font-mono">CRPD 2026</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-0.5">
+            {post.quickFacts.map((fact) => (
+              <div class="p-2 sm:p-2.5 rounded-xl bg-card border border-border space-y-0.5 min-w-0 shadow-2xs">
+                <div class="text-[10px] font-bold text-muted-foreground uppercase tracking-wide truncate">
+                  {fact.label}
+                </div>
+                <div class="text-xs font-bold text-foreground break-words leading-tight">
+                  {fact.value}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Above-the-fold Quick Tool Conversion Card -->
+      {(!post.quickTools && (post.guideTool || relatedPreset)) && (
+        <section class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-primary/5 p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="space-y-1 min-w-0 flex-1">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+              <span>⚡</span>
+              <span>Official Application Tool</span>
+            </div>
+            <h3 class="text-sm sm:text-base font-bold text-foreground truncate">
+              {post.guideTool?.label || (relatedPreset ? `${relatedPreset.name} (${relatedPreset.minKb}–${relatedPreset.maxKb} KB)` : 'Universal Photo & Signature Resizer')}
+            </h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              {relatedPreset ? `Pre-calibrated to official ${relatedPreset.widthPx}×${relatedPreset.heightPx} px & ${relatedPreset.minKb}–${relatedPreset.maxKb} KB bounds. Zero-upload, client-side processing.` : 'Format your signature and photograph to official government portal specifications in 10–20 KB instantly.'}
+            </p>
+          </div>
+          <a
+            href={post.guideTool?.href || (relatedPreset ? getExamPageUrl(relatedExamSlug) : `/${relatedExamSlug}/`)}
+            class="w-full sm:w-auto px-5 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-95 transition shadow-sm flex items-center justify-center gap-2 shrink-0"
+          >
+            <span>Open Direct Tool</span>
+            <span>&rarr;</span>
+          </a>
+        </section>
+      )}
+
+      <!-- MAIN 2-COLUMN READING ZONE (Ends after Topic Tags) -->
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-8 items-start relative">
+        
+        <!-- Left Column: Article Content -->
+        <article class="min-w-0 space-y-6 sm:space-y-8">
+          <!-- Mobile / Tablet Compact TOC (Visible on < lg screens) -->
+          {navItems.length > 0 && (
+            <nav id="table-of-contents" class="lg:hidden rounded-xl border border-border bg-muted/30 p-3.5 sm:p-5 space-y-2.5 scroll-mt-28 sm:scroll-mt-36">
+              <span id="toc" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <div class="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+                <div class="flex items-center gap-2 text-xs font-bold text-foreground uppercase tracking-wider">
+                  <span>📑</span>
+                  <span>Quick Navigation &amp; Key Sections</span>
+                </div>
+                <span class="text-[10px] text-muted-foreground font-mono">Jump to Section</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 sm:gap-2 text-xs">
+                {navItems.map((item, idx) => (
+                  <a
+                    href={`#${item.id}`}
+                    class:list={[
+                      "px-2.5 py-1.5 min-h-[34px] inline-flex items-center gap-1.5 rounded-lg border transition font-medium text-xs shadow-2xs",
+                      item.id === 'faqs'
+                        ? "bg-blue-100/80 dark:bg-cyan-950/60 text-blue-800 dark:text-cyan-300 border-blue-300 dark:border-cyan-700/60 hover:bg-blue-200/80 dark:hover:bg-cyan-900/60 font-bold"
+                        : "bg-card border-border text-slate-800 dark:text-slate-200 hover:border-blue-500 hover:text-blue-700 dark:hover:text-cyan-300"
+                    ]}
+                  >
+                    <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400">{idx + 1}.</span>
+                    <span>{item.title}</span>
+                  </a>
+                ))}
+              </div>
+            </nav>
+          )}
+
+          {sourceGuide && guidanceSlug && (
+            <aside class="my-5 rounded-xl border border-primary/30 bg-primary/5 p-4 space-y-2" aria-label="Source-checked upload guidance">
+              <h2 class="font-bold">Check the source notice before preparing your files</h2>
+              <p class="text-sm text-muted-foreground">{EXAM_GUIDANCE[guidanceSlug].caution}</p>
+              <a href={`/${guidanceSlug}/`} class="inline-flex min-h-11 items-center font-semibold text-primary underline">{sourceGuide.h1} →</a>
+              <p class="text-xs text-muted-foreground">Source scope: {sourceGuide.guidanceLabel}. Reviewed {sourceGuide.verifiedOn}. Older preparation advice in this article may use different presets; compare it with the cited notice.</p>
+            </aside>
+          )}
+
+          <div class="article-prose prose prose-slate dark:prose-invert max-w-none w-full min-w-0 break-words prose-p:leading-relaxed prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-li:text-slate-700 dark:prose-li:text-slate-300">
+            {post.slug === 'ssc-live-photo-webcam-guidelines-troubleshooting-2026' && <section class="mb-6 space-y-3"><h2 class="text-xl font-bold">Try your webcam before opening SSC</h2><WebcamChecker client:visible /></section>}
+            <Fragment set:html={processedHtml} />
+          </div>
+
+          <!-- Prominent Social Share Card after Article -->
+          <SocialShare
+            url={canonicalUrl}
+            title={post.title}
+            description={post.excerpt}
+            variant="card"
+            badgeText={post.guideTool ? 'Share this image preparation guide' : isPkiCompliancePost ? "Share this Technical & Compliance Guide with Colleagues" : isOssscPost ? "Share this OSSSC 2026 Exam Guide with Aspirants & Study Groups" : isWbpscPost ? "Share this WBPSC Exam Guide with Aspirants & Study Groups" : "Share this Official Exam Guide with Aspirants & Study Groups"}
+            subtext={post.guideTool ? 'Help someone prepare a clear image and check their final export.' : isPkiCompliancePost ? "Help your team, developers, and compliance leads master PKI and legal digital signatures." : isOssscPost ? "Help fellow candidates format their OSSSC photos and 10–20 KB signatures correctly and bypass portal errors." : isWbpscPost ? "Help fellow aspirants format their WBPSC photos and signatures correctly and bypass portal errors." : "Help fellow candidates avoid application rejections on official exam portals."}
+          />
+
+          <!-- Interactive FAQ Accordion Section (Rendered if faqs array exists) -->
+          {post.faqs && post.faqs.length > 0 && (
+            <section id="faqs" class="space-y-4 pt-6 border-t border-border scroll-mt-28 sm:scroll-mt-36">
+              <span id="faq" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="frequently-asked-questions" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="10-frequently-asked-questions" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="12-frequently-asked-questions" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="section-6" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="section-9" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <span id="section-10" class="scroll-mt-28 sm:scroll-mt-36 block -mt-6 pt-6"></span>
+              <div class="space-y-1">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
+                  <span>❓</span> {post.guideTool ? 'Image preparation FAQs' : isPkiCompliancePost ? 'Technical & Regulatory FAQs' : 'Candidate FAQs'}
+                </div>
+                <h2 class="text-xl sm:text-3xl font-extrabold text-foreground tracking-tight break-words">
+                  Frequently Asked Questions ({post.faqs.length} Clarified)
+                </h2>
+                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
+                  {post.guideTool ? 'Practical answers about this workflow and its limits.' : isPkiCompliancePost
+                    ? 'Authoritative answers verified against technical RFC specifications, NIST standards, and legal compliance frameworks.'
+                    : isWbpscPost
+                      ? 'Authoritative answers verified against official WBPSC recruitment notifications and commission portal upload benchmarks.'
+                      : 'Use the official sources referenced in this article to confirm current requirements.'}
+                </p>
+              </div>
+
+              <div class="space-y-3 pt-2">
+                {post.faqs.map((faq, idx) => (
+                  <details class="group rounded-2xl border border-border bg-card p-3.5 sm:p-5 transition-all hover:border-primary/40 open:border-primary/50 open:bg-primary/5 open:shadow-xs cursor-pointer" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary class="flex items-start justify-between gap-3 font-bold text-foreground text-sm sm:text-base list-none select-none">
+                      <div class="flex items-start gap-2.5">
+                        <span class="px-2 py-0.5 rounded-md text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20 shrink-0 mt-0.5">
+                          Q{idx + 1}
+                        </span>
+                        <span itemprop="name" class="group-open:text-primary transition break-words">{faq.question}</span>
+                      </div>
+                      <span class="shrink-0 text-muted-foreground group-open:rotate-180 group-open:text-primary transition-transform duration-200 mt-1">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
+                    </summary>
+                    <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="mt-3 pl-0 sm:pl-9 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300 border-t border-border/50 pt-3 prose prose-slate dark:prose-invert max-w-none break-words">
+                      <div itemprop="text">
+                        <Fragment set:html={formatHighlightMarkup(faq.answer)} />
+                      </div>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <!-- Educational & Fair Use Disclaimer Box -->
+          <section class="rounded-xl border border-border bg-slate-100/70 dark:bg-slate-900/50 p-3.5 sm:p-4 text-xs space-y-1.5 shadow-2xs">
+            <div class="flex items-center gap-1.5 font-bold text-foreground text-[11px] uppercase tracking-wider">
+              <span>⚖️</span>
+              <span>Educational Disclaimer &amp; Fair Use Notice</span>
+            </div>
+            <p class="leading-relaxed text-[11px] text-slate-700 dark:text-slate-300 break-words font-medium">
+              SignResize.in is an independent, non-governmental document utility and candidate educational guidance platform. All references to public examinations (including SSC, UPSC, RRB, IBPS, and State PSCs), syllabus topics, and government portals are made strictly under nominative fair use for descriptive, identification, and educational assistance. SignResize is neither affiliated with, nor endorsed, sponsored, or certified by any government commission or commercial coaching entity.
+            </p>
+          </section>
+
+          <!-- In-Article Dynamic Resizer Tool Callout -->
+          {relatedPreset && (
+            <section class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/5 via-card to-card p-4 sm:p-6 shadow-xs space-y-3">
+              <div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
+                <span>⚡ Recommended Instant Tool</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-foreground break-words">
+                Resize Documents for {relatedPreset.name}
+              </h3>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
+                Official Specs: {relatedPreset.widthPx}&times;{relatedPreset.heightPx} px ({relatedPreset.widthCm}&times;{relatedPreset.heightCm} cm), file size strictly {relatedPreset.minKb} to {relatedPreset.maxKb} KB ({relatedPreset.inkRequirement}).
+              </p>
+              <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3">
+                <a
+                  href={getExamPageUrl(relatedExamSlug)}
+                  class="w-full sm:w-auto px-4 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shadow-xs flex items-center justify-center gap-1.5"
+                >
+                  <span>Launch {relatedPreset.shortCode} Preset Resizer</span>
+                  <span>&rarr;</span>
+                </a>
+                <a
+                  href="/#tool-workspace"
+                  class="w-full sm:w-auto px-4 py-2.5 min-h-[42px] rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:bg-muted transition flex items-center justify-center"
+                >
+                  Universal 10-20KB Tool
+                </a>
+              </div>
+            </section>
+          )}
+
+          <!-- Tags -->
+          <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-4 border-t border-border">
+            <span class="text-xs font-semibold text-muted-foreground shrink-0">Topics:</span>
+            {post.tags.map(tag => (
+              <span class="text-xs px-2.5 py-0.5 rounded-lg bg-muted text-muted-foreground border border-border break-words">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </article>
+
+        <!-- Right Column: Sticky Sidebar (Never clips the CTA button) -->
+        <aside class="hidden lg:flex flex-col gap-3 sticky top-20 blog-sticky-sidebar">
+          
+          <!-- Scrollable TOC Card -->
+          {navItems.length > 0 && (
+            <nav class="bg-card border border-border rounded-xl p-4 overflow-y-auto flex-1 min-h-0 shadow-2xs scrollbar-thin">
+              <div class="flex items-center justify-between mb-2.5 border-b border-border/60 pb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                  <span class="text-primary">📑</span> Table of Contents
+                </span>
+                <span class="text-[10px] text-muted-foreground font-mono bg-muted px-1.5 py-0.5 rounded">{navItems.length} Sections</span>
+              </div>
+              
+              <ol class="space-y-1 text-xs leading-snug" id="desktop-toc-list">
+                {navItems.map((item, idx) => (
+                  <li>
+                    <a
+                      href={`#${item.id}`}
+                      class:list={[
+                        "toc-desktop-link group not-italic flex items-start gap-2 px-2.5 py-1.5 rounded-lg text-slate-700 dark:text-slate-300 hover:text-blue-700 dark:hover:text-cyan-300 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition text-xs leading-snug font-medium",
+                        item.id === 'faqs' ? "font-semibold text-blue-700 dark:text-cyan-300" : ""
+                      ]}
+                      data-target={item.id}
+                    >
+                      <span class="text-[10px] font-mono font-bold not-italic text-slate-500 dark:text-slate-400 group-hover:text-blue-700 dark:group-hover:text-cyan-300 shrink-0 mt-0.5">
+                        {idx + 1}.
+                      </span>
+                      <span class="line-clamp-2 not-italic font-normal">{item.title}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
+
+          <!-- Pinned Tool CTA Card (shrink-0 prevents clipping) -->
+          <div class="shrink-0 bg-slate-50 dark:bg-slate-800/90 border border-indigo-500/20 rounded-xl p-4 shadow-sm">
+            <div class="text-xs font-semibold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+              <span>⚡</span>
+              <span>Instant Preset Resizer</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 mb-3">
+              {post.guideTool?.label || (relatedPreset ? `${relatedPreset.name} (${relatedPreset.minKb}–${relatedPreset.maxKb} KB)` : 'Universal Photo & Signature Resizer (10–20 KB)')}
+            </p>
+            <a
+              href={post.guideTool?.href || (relatedPreset ? getExamPageUrl(relatedExamSlug) : `/${relatedExamSlug}/`)}
+              class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2.5 px-4 rounded-lg transition shadow-2xs"
+            >
+              Open Resizer Canvas &rarr;
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- FULL-WIDTH BOTTOM DISCOVERY ZONE (Outside the 2-column grid) -->
+      {relatedPosts.length > 0 && (
+        <section class="border-t border-border pt-8 sm:pt-10 mt-12 mb-10 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+              <span>📚</span>
+              <span>{isPkiCompliancePost ? 'Related Technical & Document Standards Guides' : 'Related High-Yield Preparation Guides'}</span>
+            </h3>
+            <a href="/blog/" class="text-xs text-primary font-semibold hover:underline">
+              View All Guides &rarr;
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            {relatedPosts.map(p => (
+              <a
+                href={`/blog/${p.slug}/`}
+                class="p-4 sm:p-5 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-sm transition group flex flex-col justify-between space-y-3 min-w-0"
+              >
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">
+                      {p.category}
+                    </span>
+                    <span class="text-[10px] text-muted-foreground font-mono">{p.readTime}</span>
+                  </div>
+                  <h4 class="font-bold text-sm sm:text-base text-foreground group-hover:text-primary transition line-clamp-2 break-words leading-snug">
+                    {p.title}
+                  </h4>
+                  <p class="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                    {p.excerpt}
+                  </p>
+                </div>
+                <div class="text-xs text-primary font-bold flex items-center gap-1 pt-2 border-t border-border/40 group-hover:translate-x-0.5 transition">
+                  <span>Read Guide</span>
+                  <span>&rarr;</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </main>
+
+    <!-- Sticky Mobile Conversion Action Strip -->
+    {post.quickTools && post.quickTools.length > 0 ? (
+      <div class="fixed bottom-0 inset-x-0 z-40 px-2 py-2 bg-background/95 backdrop-blur-md border-t border-border shadow-lg md:hidden flex items-center justify-between gap-1.5">
+        <a
+          href="/sbi-clerk-signature-resize/"
+          class="flex-1 min-w-0 py-2 px-1.5 rounded-lg bg-primary text-primary-foreground font-bold text-[11px] text-center shadow-xs truncate hover:opacity-90 transition"
+        >
+          ✍️ Fix Sign (140×60)
+        </a>
+        <a
+          href="/sbi-clerk-photo-resize/"
+          class="flex-1 min-w-0 py-2 px-1.5 rounded-lg bg-card border border-border hover:border-primary text-foreground font-semibold text-[11px] text-center shadow-2xs truncate transition"
+        >
+          📸 Fix Photo
+        </a>
+        <a
+          href="/ibps-handwritten-declaration-resize/"
+          class="flex-1 min-w-0 py-2 px-1.5 rounded-lg bg-card border border-border hover:border-primary text-foreground font-semibold text-[11px] text-center shadow-2xs truncate transition"
+        >
+          📝 Declaration
+        </a>
+      </div>
+    ) : (
+      <div class="fixed bottom-0 inset-x-0 z-40 p-2.5 bg-background/95 backdrop-blur-md border-t border-border shadow-lg sm:hidden flex items-center justify-between gap-3">
+        <div class="min-w-0 flex-1 pl-1">
+          <div class="text-xs font-bold text-foreground truncate">{post.guideTool?.label || 'Photo & Signature Resizer'}</div>
+          <div class="text-[10px] text-muted-foreground truncate">{relatedPreset ? `${relatedPreset.widthPx}×${relatedPreset.heightPx} px • ${relatedPreset.minKb}–${relatedPreset.maxKb} KB (${relatedPreset.inkRequirement})` : '140×60 px • 10–20 KB & 20–50 KB'}</div>
+        </div>
+        <a href={post.guideTool?.href || `/${relatedExamSlug}/`} class="px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-sm hover:opacity-95 shrink-0 flex items-center gap-1 transition">
+          <span>Resize Now</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    )}
+
+    <Footer topic={isPkiCompliancePost ? 'standards' : 'exams'} />
+
+    <style>
+      .blog-sticky-sidebar {
+        max-height: calc(100vh - 6.5rem);
+        max-height: calc(100dvh - 6.5rem);
+      }
+      :global(.article-prose) {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        color: var(--color-foreground);
+      }
+      :global(.article-prose p) {
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      /* Anti-Blending Fail-Safes for Dark Cards & Tables */
+      :global(.article-prose [class*="bg-slate-900"]),
+      :global(.article-prose [class*="bg-slate-950"]) {
+        color: #f8fafc !important;
+      }
+      :global(.article-prose [class*="bg-slate-900"] p),
+      :global(.article-prose [class*="bg-slate-950"] p),
+      :global(.article-prose [class*="bg-slate-900"] li),
+      :global(.article-prose [class*="bg-slate-950"] li) {
+        color: #cbd5e1 !important;
+      }
+      /* Prevent global h2/h3/h4/h5 banner styles from distorting card titles */
+      :global(.article-prose [class*="bg-slate-900"] h2),
+      :global(.article-prose [class*="bg-slate-950"] h2),
+      :global(.article-prose [class*="bg-slate-900"] h3),
+      :global(.article-prose [class*="bg-slate-950"] h3),
+      :global(.article-prose [class*="bg-slate-900"] h4),
+      :global(.article-prose [class*="bg-slate-950"] h4),
+      :global(.article-prose [class*="bg-slate-900"] h5),
+      :global(.article-prose [class*="bg-slate-950"] h5) {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        color: #ffffff !important;
+      }
+      :global(.article-prose [class*="bg-card"] h2),
+      :global(.article-prose [class*="bg-card"] h3),
+      :global(.article-prose [class*="bg-card"] h4),
+      :global(.article-prose [class*="bg-card"] h5),
+      :global(.article-prose [class*="bg-gradient-"] h2),
+      :global(.article-prose [class*="bg-gradient-"] h3),
+      :global(.article-prose [class*="bg-gradient-"] h4),
+      :global(.article-prose [class*="bg-gradient-"] h5) {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+        color: var(--color-foreground) !important;
+      }
+      /* Dark Container Table Anti-Blending */
+      :global(.article-prose [class*="bg-slate-900"] table),
+      :global(.article-prose [class*="bg-slate-950"] table),
+      :global(.article-prose [class*="bg-gradient-"] table) {
+        color: #f8fafc !important;
+      }
+      :global(.article-prose [class*="bg-slate-900"] th),
+      :global(.article-prose [class*="bg-slate-950"] th),
+      :global(.article-prose [class*="bg-gradient-"] th) {
+        color: #ffffff !important;
+        background-color: rgba(30, 41, 59, 0.9) !important;
+      }
+      :global(.article-prose [class*="bg-slate-900"] td),
+      :global(.article-prose [class*="bg-slate-950"] td),
+      :global(.article-prose [class*="bg-gradient-"] td) {
+        color: #cbd5e1 !important;
+      }
+      :global(.article-prose table) {
+        color: inherit;
+      }
+      :global(.article-prose th) {
+        color: inherit;
+      }
+      :global(.article-prose td) {
+        color: inherit;
+      }
+      :global(.article-prose h2) {
+        position: relative;
+        font-size: 1.25rem;
+        line-height: 1.35;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--color-foreground) !important;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding: 0.6rem 0.85rem 0.6rem 0.95rem;
+        border-left: 5px solid var(--color-primary);
+        border-radius: 0 0.85rem 0.85rem 0;
+        background: linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 12%, transparent), color-mix(in srgb, var(--color-primary) 3%, transparent) 80%, transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+      }
+      @media (min-width: 640px) {
+        :global(.article-prose h2) {
+          font-size: 1.6rem;
+          padding: 0.85rem 1.35rem 0.85rem 1.25rem;
+          border-left-width: 6px;
+          margin-top: 2.5rem;
+          margin-bottom: 1.25rem;
+        }
+      }
+      :global(.article-prose h3) {
+        font-size: 1.1rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--color-foreground);
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        padding: 0.4rem 0.75rem;
+        border-left: 3px solid color-mix(in srgb, var(--color-primary) 65%, transparent);
+        border-radius: 0 0.5rem 0.5rem 0;
+        background: color-mix(in srgb, var(--color-primary) 6%, transparent);
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+      }
+      @media (min-width: 640px) {
+        :global(.article-prose h3) {
+          font-size: 1.3rem;
+          margin-top: 2rem;
+          margin-bottom: 0.85rem;
+          padding: 0.45rem 0.85rem;
+        }
+      }
+      :global(.article-prose h4) {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--color-foreground);
+        margin-top: 1.25rem;
+        margin-bottom: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0.65rem;
+        border-radius: 0.5rem;
+        background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+        border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+      }
+      @media (min-width: 640px) {
+        :global(.article-prose h4) {
+          font-size: 1rem;
+          margin-top: 1.5rem;
+          margin-bottom: 0.6rem;
+          padding: 0.3rem 0.75rem;
+        }
+      }
+      /* Prevent pre and code blocks from blowing out mobile viewport */
+      :global(.article-prose pre) {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        white-space: pre !important;
+        word-break: normal !important;
+        -webkit-overflow-scrolling: touch !important;
+        border-radius: 0.75rem !important;
+        padding: 0.75rem 1rem !important;
+        font-size: 0.75rem !important;
+        line-height: 1.5 !important;
+      }
+      :global(.article-prose code) {
+        word-break: break-word;
+        font-family: var(--font-mono);
+      }
+      :global(.article-prose pre code) {
+        word-break: normal;
+        white-space: pre;
+      }
+      /* Ensure all tables stretch 100% cleanly without ghost columns on the right */
+      :global(.article-prose table) {
+        display: table !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        border-collapse: collapse !important;
+      }
+      :global(.article-prose th),
+      :global(.article-prose td) {
+        padding: 0.65rem 0.85rem !important;
+        font-size: 0.8125rem !important;
+        word-break: normal;
+      }
+      :global(.article-prose .overflow-x-auto),
+      :global(.article-prose .table-scroll-hint-wrapper) {
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior-x: contain !important;
+        overscroll-behavior-y: auto !important;
+        touch-action: pan-x pan-y !important;
+        scrollbar-width: thin;
+      }
+      :global(.article-prose table) {
+        touch-action: pan-x pan-y !important;
+      }
+      :global(.article-prose table *) {
+        touch-action: pan-x pan-y !important;
+      }
+      /* Subtle edge shadow/fade hint for mobile scrollable tables */
+      @media (max-width: 640px) {
+        :global(.article-prose .table-scroll-hint-wrapper) {
+          position: relative;
+        }
+        :global(.article-prose .table-scroll-hint-wrapper::after) {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 28px;
+          background: linear-gradient(to left, var(--card), transparent);
+          pointer-events: none;
+          z-index: 10;
+          border-top-right-radius: 1rem;
+          border-bottom-right-radius: 1rem;
+        }
+      }
+      /* Quick Jump Pill Horizontal Scroll Mask & Touch Styling */
+      :global(.quick-jump-wrapper) {
+        position: relative;
+      }
+      :global(.quick-jump-wrapper .overflow-x-auto) {
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+      }
+      :global(.quick-jump-fade-mask) {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 3.5rem;
+        background: linear-gradient(to left, var(--card), transparent);
+        z-index: 10;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+      /* Desktop & Mobile TOC Typography Uniformity */
+      :global(.toc-desktop-link),
+      :global(.toc-desktop-link *) {
+        font-style: normal !important;
+      }
+      /* Responsive container adjustments */
+      :global(.article-prose [class*="border-l-2"]) {
+        margin-left: 0.75rem !important;
+        padding-left: 1rem !important;
+      }
+      @media (min-width: 640px) {
+        :global(.article-prose [class*="border-l-2"]) {
+          margin-left: 1rem !important;
+          padding-left: 1.5rem !important;
+        }
+      }
+      :global(.article-prose [class*="-left-[33px]"]) {
+        left: -23px !important;
+        width: 1.35rem !important;
+        height: 1.35rem !important;
+        font-size: 0.7rem !important;
+      }
+      @media (min-width: 640px) {
+        :global(.article-prose [class*="-left-[33px]"]) {
+          left: -33px !important;
+          width: 1.5rem !important;
+          height: 1.5rem !important;
+          font-size: 0.75rem !important;
+        }
+      }
+      /* Ensure images are fluid */
+      :global(.article-prose img) {
+        max-width: 100% !important;
+        height: auto !important;
+        border-radius: 0.75rem;
+      }
+      /* Unordered & Ordered lists mobile padding */
+      :global(.article-prose ul),
+      :global(.article-prose ol) {
+        padding-left: 1.25rem !important;
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+      :global(.article-prose li) {
+        margin-top: 0.35rem;
+        margin-bottom: 0.35rem;
+      }
+    </style>
+
+    <script>
+      function initTocScrollSpy() {
+        const tocLinks = document.querySelectorAll('.toc-desktop-link');
+        if (!tocLinks.length) return;
+
+        const headingIds = Array.from(tocLinks).map(link => link.getAttribute('data-target')).filter(Boolean);
+        const headings = headingIds.map(id => document.getElementById(id)).filter(Boolean);
+
+        if (!headings.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const currentId = entry.target.id;
+              tocLinks.forEach(link => {
+                const isMatch = link.getAttribute('data-target') === currentId;
+                if (isMatch) {
+                  link.classList.add(
+                    'text-blue-900',
+                    'dark:text-cyan-200',
+                    'font-bold',
+                    'bg-blue-100',
+                    'dark:bg-cyan-950/70',
+                    'border-l-[3px]',
+                    'border-blue-600',
+                    'dark:border-cyan-400',
+                    'shadow-2xs'
+                  );
+                  link.classList.remove('text-slate-700', 'dark:text-slate-300', 'font-medium');
+                } else {
+                  link.classList.remove(
+                    'text-blue-900',
+                    'dark:text-cyan-200',
+                    'font-bold',
+                    'bg-blue-100',
+                    'dark:bg-cyan-950/70',
+                    'border-l-[3px]',
+                    'border-blue-600',
+                    'dark:border-cyan-400',
+                    'shadow-2xs'
+                  );
+                  link.classList.add('text-slate-700', 'dark:text-slate-300', 'font-medium');
+                }
+              });
+            }
+          });
+        }, {
+          rootMargin: '-10% 0px -70% 0px',
+          threshold: 0
+        });
+
+        headings.forEach(h => observer.observe(h));
+      }
+
+      document.addEventListener('DOMContentLoaded', initTocScrollSpy);
+      document.addEventListener('astro:page-load', initTocScrollSpy);
+    </script>
+  </body>
+</html>

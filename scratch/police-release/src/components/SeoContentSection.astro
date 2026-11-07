@@ -1,0 +1,664 @@
+---
+// src/components/SeoContentSection.astro
+---
+
+<article id="seo-guide" class="space-y-10 pt-12 border-t border-border text-foreground">
+  <!-- Section Header -->
+  <div class="max-w-3xl mx-auto text-center space-y-3">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+      Official Aspirant Guide
+    </div>
+    <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+      Online Signature Resize &amp; Compression Guide
+    </h2>
+    <p class="text-sm sm:text-base text-muted-foreground leading-relaxed">
+      Learn how to perform <strong>signature resize 10 to 20 kb</strong>, set <strong>signature resize width and height in cm</strong>, and ensure full compliance for <strong>SSC, PAN Card, RRB, NSDL</strong>, and <strong>thumb impression</strong> uploads.
+    </p>
+  </div>
+
+  <!-- Main Editorial Content -->
+  <div class="max-w-4xl mx-auto space-y-8 text-sm sm:text-base leading-relaxed text-muted-foreground">
+
+    <!-- 1. Overview & Problem -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Why You Need a Dedicated Signature Resizer &amp; Compressor
+      </h3>
+      <p>
+        Every year, millions of applicants register for competitive exams and government portals such as the Staff Selection Commission (SSC), Railway Recruitment Boards (RRB), Institute of Banking Personnel Selection (IBPS), UPSC, and Income Tax PAN Card services. Yet, thousands face application rejection due to a simple technical error: an incorrectly sized signature or thumb impression.
+      </p>
+      <p>
+        Government registration servers use automated scripts that validate digital files against strict criteria. If a notification states the file must be between 10 KB and 20 KB, an upload of 9.8 KB or 20.2 KB is rejected instantly. Similarly, wrong aspect ratios make signatures appear stretched or unreadable on admit cards.
+      </p>
+      <p>
+        This is why a dedicated <strong>signature resizer</strong> and <strong>signature compressor</strong> is essential. Instead of complex photo editors that blur ink strokes, an intelligent <strong>sign resize</strong> platform lets you configure target pixels, centimeter scales, and exact kilobyte boundaries with automated precision.
+      </p>
+    </section>
+
+    <!-- 2. Step-by-Step 10 to 20 KB -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        How to Resize Signature 10 to 20 KB Online Without Losing Quality
+      </h3>
+      <p>
+        Completing a <strong>signature resize 10 to 20 kb</strong> is standard for Indian exam portals. (For dedicated dual-boundary compression, see our <a href="/resize-signature-to-10kb-20kb/" class="text-primary hover:underline font-semibold">10 to 20 KB signature resizer tool</a>.) Follow these four simple steps to <strong>resize signature</strong> files accurately:
+      </p>
+      <ol class="list-decimal pl-5 space-y-2 text-foreground/90 font-normal">
+        <li>
+          <strong>Capture or Draw Signature:</strong> Sign in running cursive hand with a black ballpoint pen on plain white paper, or use our digital signature pad to draw directly with your finger or stylus.
+        </li>
+        <li>
+          <strong>Upload Image:</strong> Select your photo. SignResize processes your file 100% locally in your browser with zero server uploads for total privacy.
+        </li>
+        <li>
+          <strong>Choose Preset or Custom Size:</strong> Select presets like <em>SSC (140×60 px, 10–20 KB)</em> or adjust the slider between 10 KB and 20 KB (recommended target: 15 KB).
+        </li>
+        <li>
+          <strong>Clean Background &amp; Download:</strong> Turn on the <em>Clean White Paper</em> filter to remove photo shadows and tap <em>Download JPG</em>.
+        </li>
+      </ol>
+      <p class="text-xs sm:text-sm bg-muted/50 p-3.5 rounded-xl border border-border text-foreground/80">
+        <strong>How it works:</strong> Unlike basic tools that degrade quality, SignResize employs client-side binary search compression. It checks quantization levels iteratively to hit your 10–20 KB target while keeping ink lines sharp.
+      </p>
+    </section>
+
+    <!-- 3. Width & Height in CM -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Signature Resize Width and Height in CM: DPI Conversion Guide
+      </h3>
+      <p>
+        Official recruitment bulletins often state dimensions in physical units. For instance, SSC requires <strong>4.0 cm × 2.0 cm</strong>, PAN card mandates <strong>4.5 cm × 2.0 cm</strong>, and NEET specifies <strong>3.5 cm × 1.5 cm</strong>.
+      </p>
+      <p>
+        When configuring <strong>signature resize width and height in cm</strong>, convert centimeters to pixels using the standard formula:
+      </p>
+      <div class="p-3 rounded-xl bg-muted/60 font-mono text-center text-xs sm:text-sm text-foreground border border-border font-semibold">
+        Pixels = (Centimeters / 2.54) × DPI
+      </div>
+      <p>
+        Most government portals recommend <strong>200 DPI</strong> resolution for clear scanning. Here is a quick reference table:
+      </p>
+
+      <!-- Conversion Table -->
+      <div class="overflow-x-auto rounded-xl border border-border">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-muted/80 text-foreground font-semibold border-b border-border">
+            <tr>
+              <th class="py-2 px-3">Portal / Exam</th>
+              <th class="py-2 px-3">Dimensions (CM)</th>
+              <th class="py-2 px-3">Standard Pixels</th>
+              <th class="py-2 px-3">Allowed File Size</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border/60">
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">SSC (CGL, CHSL, MTS)</td>
+              <td class="py-2 px-3 font-mono">4.0 cm × 2.0 cm</td>
+              <td class="py-2 px-3 font-mono">140 × 60 px</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">10 KB – 20 KB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">PAN Card (NSDL/UTIITSL)</td>
+              <td class="py-2 px-3 font-mono">4.5 cm × 2.0 cm</td>
+              <td class="py-2 px-3 font-mono">400 × 200 px (200 DPI)</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">10 KB – 50 KB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">RRB Railways (NTPC, ALP)</td>
+              <td class="py-2 px-3 font-mono">4.0 cm × 2.0 cm</td>
+              <td class="py-2 px-3 font-mono">140 × 60 px</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">10 KB – 20 KB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">Left Thumb Impression</td>
+              <td class="py-2 px-3 font-mono">3.0 cm × 3.0 cm</td>
+              <td class="py-2 px-3 font-mono">240 × 240 px (200 DPI)</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">10 KB – 50 KB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3 font-medium text-foreground">NTA NEET / JEE Main</td>
+              <td class="py-2 px-3 font-mono">3.5 cm × 1.5 cm</td>
+              <td class="py-2 px-3 font-mono">140 × 60 px</td>
+              <td class="py-2 px-3 font-mono text-primary font-bold">4 KB – 30 KB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Portal-Specific Requirements -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Exam Requirements: SSC, PAN Card, RRB &amp; Thumb Impression
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- SSC Card -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/ssc-signature-resize/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>SSC Signature Resize (CGL, CHSL, MTS)</span>
+              <span class="text-xs text-primary font-mono">10–20 KB →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>ssc signature resize</strong>, the Staff Selection Commission requires 140 × 60 pixels (4.0 cm × 2.0 cm) and 10 KB to 20 KB. Sign in black ink on white paper. Use our dedicated <a href="/ssc-signature-resize/" class="text-primary underline font-medium">SSC Signature Resize Tool</a> to meet all official parameters.
+          </p>
+        </div>
+
+        <!-- PAN Card Card -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/pan-card-signature-resize/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>PAN Card Signature Resize &amp; NSDL Guidelines</span>
+              <span class="text-xs text-primary font-mono">&lt;50 KB →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            Applying through NSDL or UTIITSL requires compliant files. Use our dedicated <a href="/pan-card-signature-resize/" class="text-primary underline font-medium">PAN Card Signature Resizer</a> (4.5 cm × 2.0 cm, under 50 KB) and <a href="/pan-card-photo-resize/" class="text-primary underline font-medium">PAN Card Photo Resizer</a> (213×213 px at 200 DPI).
+          </p>
+        </div>
+
+        <!-- RRB Card -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/rrb-signature-resize/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>RRB Signature Resize (Railways NTPC &amp; Group D)</span>
+              <span class="text-xs text-primary font-mono">10–20 KB →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            In railway recruitments, <a href="/rrb-signature-resize/" class="text-primary underline font-medium">RRB signature resize</a> requires 140 × 60 pixels and 10 to 20 KB file size in running cursive script.
+          </p>
+        </div>
+
+        <!-- Thumb Impression Card -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/thumb-impression-resize/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>Left Thumb Impression Resizing Rules</span>
+              <span class="text-xs text-primary font-mono">Square 1:1 →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            Examinations like IBPS, SSC, RRB, and NEET require a clear left thumb mark. Use our dedicated <a href="/thumb-impression-resize/" class="text-primary underline font-medium">Thumb Impression Resizer</a> to crop to 3.0 × 3.0 cm (240×240 px) and compress to 10–50 KB with sharp ridge clarity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Solving "Signature size should be at least 20kb" -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Fixing: "Signature Size Should Be at Least 20KB" Error
+      </h3>
+      <p>
+        While many need to shrink files, some portals show the reverse error: <strong>"signature size should be at least 20kb"</strong>. Portals such as UPSC (Civil Services, NDA, CDS), state PSCs, and universities require a minimum file size (e.g., 20 KB to 50 KB or 20 KB to 300 KB).
+      </p>
+      <p>
+        When you crop a small signature, basic compressors shrink it down to 6 KB or 8 KB, causing instant rejection. SignResize solves this with dual-boundary controls: set your minimum threshold (20 KB) and maximum target (50 KB). The engine optimizes encoding to keep your image sharp and securely above 20 KB.
+      </p>
+    </section>
+
+    <!-- 6. Comparison: SignResize vs PI7 -->
+    <section class="space-y-5 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <div class="space-y-2">
+        <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+          Feature Comparison: SignResize vs PI7 Tools (pi7, pdf pi7 org)
+        </h3>
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          Many applicants search for legacy tools such as <strong>pi7</strong>, <strong>pdf pi7 org</strong>, <strong>pi7 image</strong>, or the <strong>pi7 image tool</strong>. While widely used, SignResize provides an instantaneous, privacy-first alternative engineered specifically for modern competitive exam portals:
+        </p>
+      </div>
+
+      <!-- Side-by-Side Comparison Table -->
+      <div class="overflow-x-auto rounded-xl border border-border shadow-2xs">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-muted/80 text-foreground font-semibold border-b border-border">
+            <tr>
+              <th class="py-3 px-4 w-1/3">Feature / Capability</th>
+              <th class="py-3 px-4 w-1/3 bg-primary/10 text-primary font-bold">
+                <span class="flex items-center gap-1.5">
+                  <span>SignResize.in</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-primary text-white font-mono uppercase">2026 Engine</span>
+                </span>
+              </th>
+              <th class="py-3 px-4 w-1/3 text-muted-foreground">
+                Legacy PI7 &amp; Server Tools
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border/60 text-xs">
+            <tr class="hover:bg-muted/20 transition">
+              <td class="py-3 px-4 font-medium text-foreground">
+                <div class="font-bold">Client-Side Privacy</div>
+                <div class="text-[11px] text-muted-foreground">Do files leave your device?</div>
+              </td>
+              <td class="py-3 px-4 bg-primary/5 font-semibold text-emerald-600 dark:text-emerald-400">
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-[10px] font-bold">✓</span>
+                  100% In-Browser (0 Bytes Uploaded)
+                </span>
+              </td>
+              <td class="py-3 px-4 text-muted-foreground">
+                <span class="inline-flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+                  <span class="w-4 h-4 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-[10px] font-bold">!</span>
+                  Uploads to Remote Servers
+                </span>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-muted/20 transition">
+              <td class="py-3 px-4 font-medium text-foreground">
+                <div class="font-bold">Dual-Boundary Compression</div>
+                <div class="text-[11px] text-muted-foreground">Guaranteed 10–20 KB or 20–50 KB range</div>
+              </td>
+              <td class="py-3 px-4 bg-primary/5 font-semibold text-emerald-600 dark:text-emerald-400">
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-[10px] font-bold">✓</span>
+                  Binary-Search Floor &amp; Ceiling Guard
+                </span>
+              </td>
+              <td class="py-3 px-4 text-muted-foreground">
+                <span class="inline-flex items-center gap-1.5 text-red-500">
+                  <span class="w-4 h-4 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center text-[10px] font-bold">✕</span>
+                  Single target slider (often undershoots)
+                </span>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-muted/20 transition">
+              <td class="py-3 px-4 font-medium text-foreground">
+                <div class="font-bold">Paper Shadow Bleach Filter</div>
+                <div class="text-[11px] text-muted-foreground">Cleans yellow mobile phone shadows</div>
+              </td>
+              <td class="py-3 px-4 bg-primary/5 font-semibold text-emerald-600 dark:text-emerald-400">
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-[10px] font-bold">✓</span>
+                  Clean White Paper 3.0 (#FFFFFF output)
+                </span>
+              </td>
+              <td class="py-3 px-4 text-muted-foreground">
+                <span class="inline-flex items-center gap-1.5 text-red-500">
+                  <span class="w-4 h-4 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center text-[10px] font-bold">✕</span>
+                  None (Leaves gray/yellow paper tint)
+                </span>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-muted/20 transition">
+              <td class="py-3 px-4 font-medium text-foreground">
+                <div class="font-bold">Official Exam Aspect Ratio Presets</div>
+                <div class="text-[11px] text-muted-foreground">SSC 140×60, UPSC 350×350, PAN 4.5×2 cm</div>
+              </td>
+              <td class="py-3 px-4 bg-primary/5 font-semibold text-emerald-600 dark:text-emerald-400">
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-[10px] font-bold">✓</span>
+                  1-Click Presets for 30+ Indian Exams
+                </span>
+              </td>
+              <td class="py-3 px-4 text-muted-foreground">
+                <span class="inline-flex items-center gap-1.5 text-muted-foreground">
+                  Manual width/height inputs only
+                </span>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-muted/20 transition">
+              <td class="py-3 px-4 font-medium text-foreground">
+                <div class="font-bold">Processing Speed &amp; Wait Timers</div>
+                <div class="text-[11px] text-muted-foreground">Time from upload to download</div>
+              </td>
+              <td class="py-3 px-4 bg-primary/5 font-semibold text-emerald-600 dark:text-emerald-400">
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-[10px] font-bold">✓</span>
+                  Instant 0-Second Preview &amp; Download
+                </span>
+              </td>
+              <td class="py-3 px-4 text-muted-foreground">
+                <span class="inline-flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+                  5–15 Second queue countdowns
+                </span>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-muted/20 transition">
+              <td class="py-3 px-4 font-medium text-foreground">
+                <div class="font-bold">Digital Signature Touch Pad</div>
+                <div class="text-[11px] text-muted-foreground">Draw with finger/stylus on screen</div>
+              </td>
+              <td class="py-3 px-4 bg-primary/5 font-semibold text-emerald-600 dark:text-emerald-400">
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-[10px] font-bold">✓</span>
+                  Included Free (Direct Finger Drawing)
+                </span>
+              </td>
+              <td class="py-3 px-4 text-muted-foreground">
+                <span class="inline-flex items-center gap-1.5 text-red-500">
+                  <span class="w-4 h-4 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center text-[10px] font-bold">✕</span>
+                  Not Supported (Requires pre-scanned file)
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Quick Summary Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
+        <div class="p-4 rounded-xl border border-border bg-muted/30 space-y-1.5">
+          <div class="font-bold text-foreground text-sm flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            Zero Server Uploads
+          </div>
+          <p class="text-xs text-muted-foreground">
+            Unlike pi7 image tool or pdf pi7 org which upload files to remote servers, SignResize works 100% locally in your browser. Your signature never leaves your device.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-border bg-muted/30 space-y-1.5">
+          <div class="font-bold text-foreground text-sm flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Instant Real-Time Crop
+          </div>
+          <p class="text-xs text-muted-foreground">
+            Lock official aspect ratios (140:60, 4:2, 1:1, 3:1) and preview exact KB output in real time without repetitive trial downloads.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-border bg-muted/30 space-y-1.5">
+          <div class="font-bold text-foreground text-sm flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            Clean White Background
+          </div>
+          <p class="text-xs text-muted-foreground">
+            Mobile photos often suffer from yellow shadows. The Clean White Paper filter removes background tint while keeping ink strokes crisp.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Complete Signature Ecosystem Guide: Generator, Electronic Signature & Maker -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Signature Generator vs. Electronic Signature vs. Scanned Paper Signature
+      </h3>
+      <p>
+        Depending on the platform and document type you are submitting, different signature formats are legally and technically mandated:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <div class="font-bold text-foreground text-sm flex items-center gap-2">
+            <span>✨</span>
+            <a href="/signature-generator/" class="hover:text-primary underline">Signature Generator</a>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Converts typed text into realistic cursive calligraphy fonts. Best for email sign-offs, personal branding, blog authors, and digital presentation watermarks.
+          </p>
+          <div class="text-[10px] font-mono text-primary font-bold">Use for: Emails, Invoices, Branding</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <div class="font-bold text-foreground text-sm flex items-center gap-2">
+            <span>🖋️</span>
+            <a href="/electronic-signature/" class="hover:text-primary underline">Electronic Signature (eSign)</a>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Freehand touchscreen or mouse drawing pad with stroke-smoothing technology. Generates high-definition transparent PNGs to sign PDF documents and contracts.
+          </p>
+          <div class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">Use for: PDF Contracts, NDAs, Agreements</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <div class="font-bold text-foreground text-sm flex items-center gap-2">
+            <span>✍️</span>
+            <a href="/#tool-workspace" class="hover:text-primary underline">Scanned Paper Signature</a>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Wet-ink physical handwriting on white paper photographed via smartphone and processed with our 10–20 KB dual-boundary compressor.
+          </p>
+          <div class="text-[10px] font-mono text-indigo-600 dark:text-indigo-400 font-bold">Mandatory for: SSC, UPSC, IBPS, RRB</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. How to Make Signature Background White Online -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        How to Make Signature Background Pure White Online (#FFFFFF)
+      </h3>
+      <p>
+        The most frequent reason recruitment portals reject a candidate's signature is a dark, yellowish, or shadowed background caused by smartphone camera shadows and poor indoor room lighting.
+      </p>
+      <div class="p-4 rounded-xl bg-muted/30 border border-border space-y-2 text-xs text-muted-foreground">
+        <div class="font-bold text-foreground text-sm flex items-center gap-2">
+          <span>🧹</span> Clean White Paper 3.0 Algorithm
+        </div>
+        <p>
+          SignResize features an in-browser adaptive thresholding filter. When you enable the <strong>Clean White Paper</strong> toggle:
+        </p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>It scans pixel brightness curves and automatically bleaches yellow and gray paper tones to clean #FFFFFF pure white.</li>
+          <li>It preserves the deep contrast of your original ballpoint or gel pen strokes, preventing thin lines from breaking or becoming pixelated.</li>
+          <li>It eliminates shadow gradients cast by your phone or hand when capturing the photo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10. Cropping & Auto-Fit Guidelines -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        How to Crop a Mobile Camera Signature Photo to Exact 140×60 Pixels
+      </h3>
+      <p>
+        When you photograph a signature with your smartphone, the camera captures a massive 12-megapixel or 48-megapixel image (e.g., 4000 × 3000 pixels) where the signature occupies only a small portion in the middle.
+      </p>
+      <ol class="list-decimal pl-5 space-y-2 text-xs sm:text-sm text-muted-foreground">
+        <li>
+          <strong class="text-foreground">Click Auto-Fit Signature:</strong> Our computer vision edge-detector identifies ink stroke bounds and tightly wraps the crop box around your signature.
+        </li>
+        <li>
+          <strong class="text-foreground">Lock 7:3 Aspect Ratio:</strong> Standard portals (like SSC, RRB, and IBPS) use a 7:3 aspect ratio (140 px by 60 px). Locking this ratio prevents distortion and squishing.
+        </li>
+        <li>
+          <strong class="text-foreground">Leave 10% Margin:</strong> Avoid cutting off loops or dots of your signature. Allow a small white margin of 5–10 pixels around all edges.
+        </li>
+      </ol>
+    </section>
+
+    <!-- 11. US & International Photo Standards (DS-160, Passport, USCIS, Common App) -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        United States &amp; International Visa / Exam Photo Specifications Guide
+      </h3>
+      <p>
+        For applicants submitting documents to international portals—specifically in the United States, Bangladesh, Nepal, Philippines, and Pakistan—photographs must meet exact digital parameter standards. Failing to comply with digital image standards often leads to portal upload rejections or application processing delays.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+        <!-- DS-160 -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/us/ds-160-photo-resizer/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>Form DS-160 US Visa Photo (600×600 px)</span>
+              <span class="text-xs text-primary font-mono">&lt;240 KB →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>Form DS-160 (US Nonimmigrant Visa)</strong>, the Department of State requires a square 1:1 aspect ratio, minimum 600×600 pixels (up to 1200×1200 px), JPEG format, and a file size strictly equal to or under 240 KB. Eyeglasses are not permitted, and the head height must occupy 50% to 69% of the photo height.
+          </p>
+        </div>
+
+        <!-- US Passport -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/us/passport-photo-resizer/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>US Passport Photo (2×2 Inches / 600×600 px)</span>
+              <span class="text-xs text-primary font-mono">2×2 Inch →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            Physical US passport photos measure 2 × 2 inches (51 × 51 mm). When submitting digital applications for online passport renewals, photos must be formatted to 600×600 pixels, JPEG, max 240 KB, against a plain white or off-white background with both eyes open.
+          </p>
+        </div>
+
+        <!-- USCIS Green Card & DV Lottery -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/us/green-card-photo-resizer/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>USCIS Green Card &amp; DV Lottery Photo</span>
+              <span class="text-xs text-primary font-mono">sRGB 24-Bit →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            USCIS online uploads and the official <strong>Diversity Visa (DV) Lottery</strong> mandate digital photographs in 24-bit sRGB color space, 600×600 pixel square dimensions, and compression under 240 KB with a maximum compression ratio of 20:1.
+          </p>
+        </div>
+
+        <!-- Common App -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/us/common-app-photo-resizer/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>Common App &amp; College Admissions Uploads</span>
+              <span class="text-xs text-primary font-mono">&lt;200 KB →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            US University application portals (via Common App, Coalition, or direct portal uploads) require clear student headshots and passport identification scans optimized under 200 KB or 500 KB limits.
+          </p>
+        </div>
+        <!-- UKVI & UK Section -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/uk/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>UK Visas (UKVI) &amp; HM Passport Office (600×750 px)</span>
+              <span class="text-xs text-primary font-mono">45×35 mm →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>UK Visas and Immigration (UKVI)</strong> and <strong>HM Passport Office digital renewals</strong>, GOV.UK requires a 4:5 vertical aspect ratio (minimum 600×750 pixels), 50 KB to 6 MB file weight, and plain light gray background without eyeglasses.
+          </p>
+        </div>
+
+        <!-- Canada IRCC & Passport Section -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/ca/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>Canada IRCC PR, Study Permit &amp; Passport (420×540 px / 50×70 mm)</span>
+              <span class="text-xs text-primary font-mono">35×45 mm →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>IRCC Express Entry, PR Applications, Study &amp; Work Permits</strong>, Canada requires minimum 420×540 pixels (35×45 mm aspect ratio), 240 KB to 4 MB JPEG format. <strong>Canadian Passport photos</strong> use a 50×70 mm frame (600×840 px) on a plain white background.
+          </p>
+        </div>
+
+        <!-- Australia ImmiAccount & Passport Section -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/au/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>Australia ImmiAccount Visa &amp; Passport (600×750 px / 35×45 mm)</span>
+              <span class="text-xs text-primary font-mono">45×35 mm →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>ImmiAccount Visa Applications (Subclass 500 Student, 189/190 Skilled, 600 Visitor, 482/485 Work)</strong> and <strong>Australian Passport Office</strong> (passports.gov.au), Australia requires 600×750 pixels (35×45 mm aspect ratio), 50 KB to 5 MB JPEG format on a plain light gray or white background with head height 32 to 36 mm.
+          </p>
+        </div>
+
+        <!-- Pakistan FPSC, CSS, PPSC & NADRA Section -->
+        <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+          <h4 class="font-bold text-foreground text-sm sm:text-base">
+            <a href="/pk/" class="hover:text-primary hover:underline flex items-center justify-between">
+              <span>Pakistan FPSC, CSS, Provincial PSCs (PPSC/KPPSC/SPSC/BPSC) &amp; NADRA</span>
+              <span class="text-xs text-primary font-mono">200×230 px / ≤25–30 KB →</span>
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm">
+            For <strong>Federal Public Service Commission (FPSC)</strong>, <strong>CSS Competitive Exams</strong>, and <strong>Provincial Commissions (PPSC, KPPSC, SPSC, BPSC)</strong>, Pakistan requires 200×230 pixel scans under 25–30 KB. For <strong>NADRA Pak-Identity CNIC and Passport Renewals</strong>, 3.5×4.5 cm (350×450 px) photos with pure white backgrounds are required.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Global Country Portals Summary -->
+    <section class="space-y-4 bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs">
+      <h3 class="text-xl sm:text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+        Global International Standards: AU, CA, UK, US, BD, NP, PH, &amp; PK
+      </h3>
+      <p>
+        SignResize provides pre-configured international presets across multiple countries:
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+        <a href="/au/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇦🇺</span> <span>Australia</span>
+          </div>
+          <div class="text-muted-foreground">600×750 px (ImmiAccount Visas &amp; Passport Office)</div>
+        </a>
+        <a href="/ca/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇨🇦</span> <span>Canada</span>
+          </div>
+          <div class="text-muted-foreground">420×540 px &amp; 50×70 mm (IRCC PR, Study Permit, Passport)</div>
+        </a>
+        <a href="/uk/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇬🇧</span> <span>United Kingdom</span>
+          </div>
+          <div class="text-muted-foreground">600×750 px (UKVI, HM Passport, UCAS)</div>
+        </a>
+        <a href="/us/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇺🇸</span> <span>United States</span>
+          </div>
+          <div class="text-muted-foreground">600×600 px (DS-160, Passport, USCIS, Common App)</div>
+        </a>
+        <a href="/bd/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇧🇩</span> <span>Teletalk Bangladesh</span>
+          </div>
+          <div class="text-muted-foreground">300×300 px Photo &amp; 300×80 px Signature</div>
+        </a>
+        <a href="/np/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇳🇵</span> <span>Loksewa Nepal</span>
+          </div>
+          <div class="text-muted-foreground">350×300 px Photo for Lok Sewa Aayog</div>
+        </a>
+        <a href="/ph/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇵🇭</span> <span>PRC Philippines</span>
+          </div>
+          <div class="text-muted-foreground">2×2 Inch Passport Photo for LERIS</div>
+        </a>
+        <a href="/pk/" class="p-3 rounded-xl border border-border bg-muted/20 hover:border-primary transition space-y-1 font-sans">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <span>🇵🇰</span> <span>FPSC &amp; PPSC Pakistan</span>
+          </div>
+          <div class="text-muted-foreground">Passport Photo (&le;30 KB) &amp; CNIC Uploads for FPSC/PPSC</div>
+        </a>
+      </div>
+    </section>
+  </div>
+</article>
+

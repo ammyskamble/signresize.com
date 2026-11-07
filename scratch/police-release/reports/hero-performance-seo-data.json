@@ -1,0 +1,37 @@
+{
+  "measuredAt": "2026-10-16T14:43:24.621Z",
+  "heroHTML": {
+    "rawBytes": 4675,
+    "gzipBytes": 1841
+  },
+  "heroCSSMinified": {
+    "rawBytes": 5366,
+    "gzipBytes": 1717
+  },
+  "heroJSMinified": {
+    "rawBytes": 707,
+    "gzipBytes": 401
+  },
+  "compressedComponentSum": 3959,
+  "homepageHTML": {
+    "rawBytes": 420669,
+    "gzipBytes": 69872
+  },
+  "externalHeroAssets": [],
+  "h1": "Online Signature Resizer Your signature. Perfectly sized.",
+  "title": "Resize Signature Online (10 to 20 KB) - Free Signature Resizer",
+  "canonical": "https://signresize.in/",
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "schemas": [
+    [
+      "SoftwareApplication",
+      "WebApplication"
+    ],
+    "HowTo",
+    "BreadcrumbList",
+    "Organization",
+    "Person",
+    "FAQPage"
+  ],
+  "note": "Component gzip figures are separate compression estimates, not a measured network transfer or before/after Lighthouse result."
+}

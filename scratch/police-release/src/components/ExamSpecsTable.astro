@@ -1,0 +1,416 @@
+---
+// ExamSpecsTable.astro
+import { EXAM_PRESETS, CATEGORIES } from '../data/examPresets';
+import { EXAM_PAGES_DATA } from '../data/examPagesData';
+import { getExamPageUrl } from '../utils/examPageUrls';
+
+interface Props {
+  country?: 'PK' | 'PH' | 'BD' | 'NP' | 'IN' | 'ALL';
+}
+
+const { country = 'IN' } = Astro.props;
+
+const presetSlugMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p.slug]));
+
+const bdCustomUrls: Record<string, string> = {
+  'teletalk-bd': '/bd/',
+  'teletalk-photo-bd': '/bd/',
+  'teletalk-sign-bd': '/bd/',
+  'bpsc-bd': '/bd/bcs-photo-signature-resizer/',
+  'bcs-photo-300x300': '/bd/bcs-photo-signature-resizer/',
+  'bcs-signature-300x80': '/bd/bcs-photo-signature-resizer/',
+  'bpsc-sign-bd': '/bd/bcs-photo-signature-resizer/',
+  'bangladesh-bank-photo-bd': '/bd/bangladesh-bank-photo-signature-resizer/',
+  'bangladesh-bank-sign-bd': '/bd/bangladesh-bank-photo-signature-resizer/',
+  'bb-photo-600x600': '/bd/bangladesh-bank-photo-signature-resizer/',
+  'bb-signature-300x80': '/bd/bangladesh-bank-photo-signature-resizer/',
+  'dpe-primary-teacher-bd': '/bd/primary-teacher-dpe-photo-resizer/',
+  'dpe-primary-sign-bd': '/bd/primary-teacher-dpe-photo-resizer/',
+  'ntrca-teacher-bd': '/bd/ntrca-photo-signature-resizer/',
+  'ntrca-sign-bd': '/bd/ntrca-photo-signature-resizer/',
+  'dgme-medical-photo-bd': '/bd/medical-admission-photo-resizer/',
+  'dgme-medical-sign-bd': '/bd/medical-admission-photo-resizer/',
+};
+
+const countryPresetsMap = {
+  PK: EXAM_PRESETS.filter((p) => p.country === 'PK'),
+  PH: EXAM_PRESETS.filter((p) => p.country === 'PH'),
+  BD: EXAM_PRESETS.filter((p) => p.country === 'BD'),
+  NP: EXAM_PRESETS.filter((p) => p.country === 'NP'),
+  IN: EXAM_PRESETS.filter((p) => !p.country || p.country === 'IN'),
+  ALL: EXAM_PRESETS,
+};
+
+const displayPresets = countryPresetsMap[country] || countryPresetsMap['IN'];
+const quickMatrixPresets = displayPresets.slice(0, 8);
+
+const countryTitles = {
+  PK: "Official Pakistan Recruitment Photo & Signature Guidelines",
+  PH: "Official Philippines Board Exam & Civil Service Guidelines",
+  BD: "Official Bangladesh Teletalk & BPSC Upload Guidelines",
+  NP: "Official Nepal Lok Sewa Aayog Upload Guidelines",
+  IN: "Official Signature Dimensions & Size Guidelines",
+  ALL: "Official Global Exam Upload Guidelines",
+};
+
+const countrySubtitles = {
+  PK: "Verified technical requirements for PPSC Punjab Public Service Commission, FPSC CSS, NTS, and NADRA portals.",
+  PH: "Verified technical requirements for PRC LERIS 2x2 photos, CSC Civil Service Exam, and DFA Passport.",
+  BD: "Verified technical requirements for Teletalk 300×300 photos and 300×80 signatures across all Bangladesh portals.",
+  NP: "Verified technical requirements for Lok Sewa Aayog PSC and e-Passport applications in Nepal.",
+  IN: "Verified technical requirements across all major Indian competitive exams and government application portals.",
+  ALL: "Verified technical requirements across all competitive exams and government recruitment portals.",
+};
+
+const titleText = countryTitles[country] || countryTitles['IN'];
+const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
+---
+
+<section id="exam-specs" class="space-y-6 pt-6">
+  <div class="space-y-2 text-center max-w-2xl mx-auto">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+      Exam Upload Guidance
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+      {titleText}
+    </h2>
+    <p class="text-sm text-muted-foreground">
+      {subtitleText}
+    </p>
+  </div>
+
+  {/* Quick Specification Matrix Across Major Entrance Exams (Hidden on BD route to avoid duplicate tables) */}
+  {country !== 'BD' && (
+    <div class="rounded-2xl border-2 border-primary/25 bg-card shadow-sm overflow-hidden space-y-3 p-4 sm:p-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/70 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+          <h3 class="font-bold text-sm sm:text-base text-foreground">
+            Quick Specification Matrix (Top Most-Applied)
+          </h3>
+        </div>
+        <a href="#exam-specs-search" class="text-xs text-primary hover:underline font-medium inline-flex items-center gap-1">
+          <span>Search all {displayPresets.length} guidelines below</span>
+          <span>↓</span>
+        </a>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-border/80">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-muted/70 text-muted-foreground font-bold uppercase text-[11px] tracking-wider border-b border-border">
+            <tr>
+              <th class="py-3 px-3.5">Exam / Authority</th>
+              <th class="py-3 px-3.5">Pixel Dimensions</th>
+              <th class="py-3 px-3.5">Physical Dimensions</th>
+              <th class="py-3 px-3.5">File Size Range</th>
+              <th class="py-3 px-3.5">Ink &amp; Rules</th>
+              <th class="py-3 px-3.5 text-right">Instant Preset</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border/60 font-medium">
+            {quickMatrixPresets.map((preset) => {
+              const dedicatedSlug = presetSlugMap.get(preset.id);
+              const customUrl = bdCustomUrls[preset.id];
+              return (
+                <tr class="hover:bg-muted/40 transition">
+                  <td class="py-3 px-3.5">
+                    {customUrl ? (
+                      <a href={customUrl} class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                        <span>{preset.name}</span>
+                        <span class="text-[10px] text-primary">→</span>
+                      </a>
+                    ) : dedicatedSlug ? (
+                      <a href={getExamPageUrl(dedicatedSlug)} class="font-bold text-foreground hover:text-primary hover:underline inline-flex items-center gap-1">
+                        <span>{preset.name}</span>
+                        <span class="text-[10px] text-primary">→</span>
+                      </a>
+                    ) : (
+                      <span class="font-bold text-foreground">{preset.name}</span>
+                    )}
+                    <div class="text-[10px] text-muted-foreground">{preset.authority}</div>
+                  </td>
+                  <td class="py-3 px-3.5 font-mono text-foreground font-bold">{preset.widthPx} × {preset.heightPx} px</td>
+                  <td class="py-3 px-3.5 font-mono text-muted-foreground">
+                    {preset.heightPx === 80 ? '~3.5 × 0.93 cm (Pixel-strict)' : preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : 'Ratio locked'}
+                  </td>
+                  <td class="py-3 px-3.5 font-mono font-bold text-primary">{preset.minKb} KB – {preset.maxKb} KB</td>
+                  <td class="py-3 px-3.5 text-xs text-muted-foreground">
+                    {preset.targetType === 'photo' || preset.heightPx === preset.widthPx ? (
+                      <><span class="font-medium text-foreground">Plain White / Light Background</span>: {preset.notes}</>
+                    ) : (
+                      <><span class="font-medium text-foreground">{preset.inkRequirement}</span>: {preset.notes}</>
+                    )}
+                  </td>
+                  <td class="py-3 px-3.5 text-right">
+                    <a href={`#tool-workspace?preset=${preset.id}`} data-preset-id={preset.id} aria-label={`Resize for ${preset.name}`} class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-primary text-primary-foreground hover:opacity-90 shadow-2xs transition">
+                      Apply Preset
+                    </a>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  <!-- Search & Category Filter Toolbar for Exam Specs Table -->
+  <div class="p-4 rounded-2xl border border-border bg-card shadow-xs space-y-3">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div class="text-xs font-bold text-foreground flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Filter {displayPresets.length} Official Exam Guidelines:</span>
+      </div>
+      <div class="relative w-full sm:w-80">
+        <svg class="w-4 h-4 text-muted-foreground absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input
+          id="exam-specs-search"
+          type="text"
+          placeholder="Search exam guidelines..."
+          aria-label="Search by exam name or authority"
+          class="w-full pl-9 pr-9 py-2.5 text-base sm:text-xs rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+        />
+        <button
+          type="button"
+          id="exam-specs-clear"
+          aria-label="Clear exam specifications search"
+          class="hidden absolute right-1.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground w-8 h-8 flex items-center justify-center rounded-lg hover:bg-muted/60 cursor-pointer text-xs"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs for Bangladesh -->
+    {country === 'BD' && (
+      <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-border/70">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mr-1">Categories:</span>
+        {[
+          { id: 'All', label: 'All (17)' },
+          { id: 'Teletalk', label: 'Teletalk & Govt (8)' },
+          { id: 'Banks', label: 'Banks (3)' },
+          { id: 'Admission', label: 'University Admission (4)' },
+          { id: 'Specialized', label: 'Specialized (2)' }
+        ].map((cat, idx) => (
+          <button
+            type="button"
+            data-bd-category={cat.id}
+            class={`bd-cat-filter-btn px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer ${
+              idx === 0
+                ? 'bg-primary text-primary-foreground font-bold shadow-xs'
+                : 'bg-muted/70 hover:bg-muted text-foreground border border-border/70'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <div class="overflow-x-auto rounded-xl border border-border bg-card shadow-sm">
+    <table class="w-full text-left text-xs sm:text-sm" id="exam-specs-table">
+      <thead class="bg-muted/60 border-b border-border text-muted-foreground font-semibold uppercase tracking-wider text-[11px]">
+        <tr>
+          <th class="py-3.5 px-4">Exam / Portal</th>
+          <th class="py-3.5 px-4">Required Dimensions</th>
+          <th class="py-3.5 px-4">Physical / Ratio</th>
+          <th class="py-3.5 px-4">Allowed File Size</th>
+          <th class="py-3.5 px-4">Background &amp; Ink Rules</th>
+          <th class="py-3.5 px-4 text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-border/60">
+        {displayPresets.map((preset) => {
+          const dedicatedSlug = presetSlugMap.get(preset.id);
+          const customUrl = bdCustomUrls[preset.id];
+          
+          let bdCategory = 'Teletalk';
+          const pId = preset.id.toLowerCase();
+          if (pId.includes('bank')) bdCategory = 'Banks';
+          else if (pId.includes('du') || pId.includes('buet') || pId.includes('medical') || pId.includes('gst')) bdCategory = 'Admission';
+          else if (pId.includes('nsi') || pId.includes('btrc')) bdCategory = 'Specialized';
+
+          return (
+            <tr
+              class="hover:bg-muted/30 transition-colors exam-spec-row"
+              data-name={preset.name.toLowerCase()}
+              data-code={preset.shortCode.toLowerCase()}
+              data-authority={preset.authority.toLowerCase()}
+              data-category={preset.category}
+              data-bd-category={bdCategory}
+            >
+              <td class="py-3 px-4">
+                {customUrl ? (
+                  <a
+                    href={customUrl}
+                    aria-label={`View dedicated page for ${preset.name} specifications`}
+                    class="font-semibold text-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 group"
+                  >
+                    <span>{preset.name}</span>
+                    <span class="text-[10px] text-primary opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                  </a>
+                ) : dedicatedSlug ? (
+                  <a
+                    href={getExamPageUrl(dedicatedSlug)}
+                    aria-label={`View dedicated page for ${preset.name} specifications`}
+                    class="font-semibold text-foreground hover:text-primary hover:underline transition-colors inline-flex items-center gap-1 group"
+                  >
+                    <span>{preset.name}</span>
+                    <span class="text-[10px] text-primary opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                  </a>
+                ) : (
+                  <div class="font-semibold text-foreground">{preset.name}</div>
+                )}
+                <div class="text-[11px] text-muted-foreground flex items-center gap-1.5 pt-0.5">
+                  <span>{preset.authority}</span>
+                </div>
+              </td>
+              <td class="py-3 px-4 font-mono font-medium text-foreground">
+                {preset.widthPx} × {preset.heightPx} px
+              </td>
+              <td class="py-3 px-4 font-mono text-muted-foreground">
+                {preset.heightPx === 80 ? '~3.5 × 0.93 cm (Pixel-strict)' : preset.widthCm ? `${preset.widthCm} × ${preset.heightCm} cm` : '-'}
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20">
+                  {preset.minKb} KB – {preset.maxKb} KB
+                </span>
+              </td>
+              <td class="py-3 px-4 text-xs text-muted-foreground max-w-xs">
+                {preset.targetType === 'photo' || preset.heightPx === preset.widthPx || preset.widthPx === 360 ? (
+                  <><span class="font-medium text-foreground">Plain White / Light Background</span>: {preset.notes}</>
+                ) : (
+                  <><span class="font-medium text-foreground">{preset.inkRequirement}</span>: {preset.notes}</>
+                )}
+              </td>
+              <td class="py-3 px-4 text-right">
+                <div class="flex items-center justify-end gap-2">
+                  <a
+                    href={`#tool-workspace?preset=${preset.id}`}
+                    data-preset-id={preset.id}
+                    aria-label={`Resize for ${preset.name}`}
+                    class="apply-preset-btn inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-muted hover:bg-primary hover:text-primary-foreground border border-border transition active:scale-95 cursor-pointer"
+                  >
+                    Apply Preset
+                  </a>
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+        <!-- Empty State Row when filter has 0 results -->
+        <tr id="exam-specs-empty" class="hidden">
+          <td colspan="6" class="py-12 px-4 text-center">
+            <div class="max-w-xs mx-auto space-y-2">
+              <div class="text-2xl">🔍</div>
+              <div class="font-bold text-foreground text-sm">No exam specifications found</div>
+              <div class="text-xs text-muted-foreground">Try searching for a different exam like BCS, Teletalk, or Bank.</div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+  function initExamSpecsTable() {
+    const searchInput = document.getElementById('exam-specs-search') as HTMLInputElement | null;
+    const clearBtn = document.getElementById('exam-specs-clear') as HTMLButtonElement | null;
+    const emptyRow = document.getElementById('exam-specs-empty') as HTMLTableRowElement | null;
+    const bdCatButtons = document.querySelectorAll('.bd-cat-filter-btn');
+    const rows = document.querySelectorAll('.exam-spec-row') as NodeListOf<HTMLTableRowElement>;
+    let activeBdCategory = 'All';
+
+    function filterRows() {
+      const query = (searchInput?.value || '').toLowerCase().trim();
+
+      if (clearBtn) {
+        if (query) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+      }
+
+      let visibleCount = 0;
+      rows.forEach((row) => {
+        const name = row.getAttribute('data-name') || '';
+        const code = row.getAttribute('data-code') || '';
+        const auth = row.getAttribute('data-authority') || '';
+        const bdCat = row.getAttribute('data-bd-category') || '';
+
+        const matchesSearch = !query || name.includes(query) || code.includes(query) || auth.includes(query);
+        const matchesCategory = activeBdCategory === 'All' || bdCat === activeBdCategory;
+
+        if (matchesSearch && matchesCategory) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      if (emptyRow) {
+        if (visibleCount === 0) {
+          emptyRow.classList.remove('hidden');
+        } else {
+          emptyRow.classList.add('hidden');
+        }
+      }
+    }
+
+    searchInput?.addEventListener('input', filterRows);
+
+    clearBtn?.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+        filterRows();
+      }
+    });
+
+    bdCatButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        bdCatButtons.forEach((b) => {
+          b.classList.remove('bg-primary', 'text-primary-foreground', 'font-bold', 'shadow-xs');
+          b.classList.add('bg-muted/70', 'text-foreground', 'border', 'border-border/70');
+        });
+        btn.classList.remove('bg-muted/70', 'text-foreground', 'border', 'border-border/70');
+        btn.classList.add('bg-primary', 'text-primary-foreground', 'font-bold', 'shadow-xs');
+
+        activeBdCategory = btn.getAttribute('data-bd-category') || 'All';
+        filterRows();
+      });
+    });
+
+    // Apply Preset button handler
+    document.querySelectorAll('.apply-preset-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const presetId = btn.getAttribute('data-preset-id');
+        if (presetId) {
+          window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: presetId }));
+          const url = new URL(window.location.href);
+          url.searchParams.set('preset', presetId);
+          window.history.replaceState({}, '', url.toString());
+
+          const target = document.getElementById('tool-workspace');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  }
+
+  // Initialize on load and on client-side navigation
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initExamSpecsTable);
+  } else {
+    initExamSpecsTable();
+  }
+</script>

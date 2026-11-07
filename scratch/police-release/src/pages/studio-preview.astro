@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+import '../styles/compact-studio.css';
+import { SignatureTool } from '../components/SignatureTool';
+import ThemeScript from '../components/ThemeScript.astro';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Compact Studio — Local Preview | SignResize</title>
+    <ThemeScript />
+  </head>
+  <body class="studio-page bg-background text-foreground">
+    <header class="studio-header">
+      <a href="/" class="studio-brand">SignResize<span>.in</span></a>
+      <nav aria-label="Site"><span class="preview-label">Local preview</span><a href="/">Current layout</a><a href="/#exam-day-toolkit">All tools</a></nav>
+    </header>
+    <main>
+      <h1 class="studio-title">Signature, photo & document studio</h1>
+      <SignatureTool compactStudio initialLang="en" client:load />
+    </main>
+    <footer class="studio-page-footer"><span>Private, in-browser processing</span><a href="/privacy/">Privacy</a><a href="/">Return to homepage</a></footer>
+  </body>
+</html>

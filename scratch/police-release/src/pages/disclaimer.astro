@@ -1,0 +1,139 @@
+---
+// src/pages/disclaimer.astro - Disclaimer
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+
+const pageTitle = "Disclaimer | SignResize.in";
+const pageDescription = "Official non-affiliation disclaimer and educational use declaration for SignResize.in.";
+const lastUpdated = "September 2026";
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href="https://signresize.in/disclaimer/" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content="https://signresize.in/disclaimer/" />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://signresize.in/og-image.png" />
+
+    <!-- Favicon & PWA Icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Async Google Fonts -->
+    <GoogleFonts />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Home
+        </a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Disclaimer</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="border-b border-border pb-6 space-y-2">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+          Disclaimer
+        </h1>
+        <p class="text-xs text-muted-foreground font-mono">
+          Last Updated: {lastUpdated}
+        </p>
+      </div>
+
+      <div class="space-y-8 text-sm leading-relaxed text-muted-foreground">
+        
+        <!-- Non-affiliation notice -->
+        <section class="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-foreground space-y-2">
+          <h2 class="text-base font-bold text-amber-900 dark:text-amber-300 flex items-center gap-2">
+            <span>⚠️ Official Non-Affiliation Declaration</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed">
+            <strong>SignResize.in</strong> is an independent software tool and is <strong>NOT</strong> affiliated, associated, authorized, endorsed by, or in any way officially connected with the <strong>Staff Selection Commission (SSC)</strong>, <strong>Union Public Service Commission (UPSC)</strong>, <strong>Railway Recruitment Boards (RRB)</strong>, <strong>National Testing Agency (NTA)</strong>, <strong>Institute of Banking Personnel Selection (IBPS)</strong>, <strong>NSDL e-Gov (Protean)</strong>, <strong>UTIITSL</strong>, or any other Central or State government organization in India.
+          </p>
+        </section>
+
+        <!-- General Educational & Utility Disclaimer -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">1. Educational &amp; Productivity Purpose</h2>
+          <p>
+            The information and tools provided on SignResize.in are for general educational, illustrative, and formatting assistance purposes only. All specifications (including pixel dimensions, aspect ratios, file size bounds in kilobytes, and scanning DPI thresholds) are compiled from publicly released recruitment advertisements and official portal FAQs.
+          </p>
+        </section>
+
+        <!-- Accuracy & User Responsibility -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">2. Examination Rules &amp; User Verification</h2>
+          <p>
+            Recruiting authorities and exam boards frequently revise upload criteria across different exam cycles. While we make every effort to keep our preset values up-to-date:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Users are strongly advised to check the official notification PDF of their specific exam before final application submission.</li>
+            <li>SignResize.in accepts no responsibility or liability for application rejections resulting from outdated, mismatched, or altered rules by recruiting bodies.</li>
+          </ul>
+        </section>
+
+        <!-- Trademarks & Names -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">3. Trademarks &amp; Brand Names</h2>
+          <p>
+            All names, logos, acronyms, and registered trademarks (such as SSC, UPSC, RRB, NSDL, IBPS, IIT GATE, NEET) mentioned on this website belong to their respective trademark holders. Reference to these entities is purely for descriptive, comparative, and identification purposes and does not imply any partnership or endorsement.
+          </p>
+        </section>
+
+        <!-- Contact -->
+        <section class="space-y-3">
+          <h2 class="text-lg font-bold text-foreground">4. Questions &amp; Inquiries</h2>
+          <p>
+            If you have questions regarding this disclaimer, please visit our <a href="/contact/" class="text-primary underline font-semibold">Contact Us</a> page.
+          </p>
+        </section>
+
+      </div>
+
+      <!-- Back to Main Tool CTA -->
+      <div class="pt-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="text-xs text-muted-foreground">Ready to prepare your signature with exact official compliance?</span>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-sm hover:opacity-90 transition active:scale-98"
+        >
+          <span>← Go to Main Signature Resizer Tool</span>
+        </a>
+      </div>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

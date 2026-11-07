@@ -1,0 +1,224 @@
+{
+  "source": "https://ahrefs.com/keyword-generator/?country=us&input=outlook%20signature",
+  "collectedAt": "2026-10-06T18:21:24.428Z",
+  "market": "United States",
+  "target": "https://signresize.in/blog/how-to-change-signature-in-outlook/",
+  "scope": "All 20 visible phrase-match rows and all 20 visible question rows. Full lists are gated behind Ahrefs Starter; no gated results collected. Volume values are the displayed estimate buckets; missing KD is null.",
+  "reportedTotals": {
+    "phraseMatch": 2435,
+    "questions": 6483
+  },
+  "phraseMatch": [
+    {
+      "keyword": "outlook signature",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to change outlook signature",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "outlook signature setup",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "change outlook signature",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "outlook signature generator",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "outlook signature change",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "outlook signature templates",
+      "volume": ">100",
+      "difficulty": "Hard"
+    },
+    {
+      "keyword": "how to update outlook signature",
+      "volume": ">100",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to edit outlook signature",
+      "volume": ">100",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "update outlook signature",
+      "volume": ">100",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "new outlook signature location",
+      "volume": ">100",
+      "difficulty": null
+    },
+    {
+      "keyword": "microsoft outlook signature",
+      "volume": ">100",
+      "difficulty": null
+    },
+    {
+      "keyword": "edit outlook signature",
+      "volume": ">100",
+      "difficulty": null
+    },
+    {
+      "keyword": "outlook signature settings",
+      "volume": ">100",
+      "difficulty": null
+    },
+    {
+      "keyword": "outlook signature template",
+      "volume": ">100",
+      "difficulty": null
+    },
+    {
+      "keyword": "outlook signature block",
+      "volume": ">100",
+      "difficulty": null
+    },
+    {
+      "keyword": "outlook signature not showing",
+      "volume": ">100",
+      "difficulty": null
+    },
+    {
+      "keyword": "outlook signature creator",
+      "volume": ">100",
+      "difficulty": null
+    },
+    {
+      "keyword": "how to set up outlook signature",
+      "volume": ">100",
+      "difficulty": null
+    },
+    {
+      "keyword": "outlook signature examples",
+      "volume": ">100",
+      "difficulty": null
+    }
+  ],
+  "questions": [
+    {
+      "keyword": "how to change signature in outlook",
+      "volume": ">10,000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to add signature in outlook",
+      "volume": ">10,000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to add a signature in outlook",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to change email signature in outlook",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to edit signature in outlook",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to update signature in outlook",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to create a signature in outlook",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to make a signature in outlook",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to create signature in outlook",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to change outlook signature",
+      "volume": ">1000",
+      "difficulty": "Easy"
+    },
+    {
+      "keyword": "how to set up signature in outlook",
+      "volume": ">1000",
+      "difficulty": null
+    },
+    {
+      "keyword": "how to add email signature in outlook",
+      "volume": ">1000",
+      "difficulty": null
+    },
+    {
+      "keyword": "how to change your signature in outlook",
+      "volume": ">1000",
+      "difficulty": null
+    },
+    {
+      "keyword": "how to create email signature in outlook",
+      "volume": ">1000",
+      "difficulty": null
+    },
+    {
+      "keyword": "how to change my signature in outlook",
+      "volume": ">1000",
+      "difficulty": null
+    },
+    {
+      "keyword": "how do i change my signature in outlook",
+      "volume": ">1000",
+      "difficulty": null
+    },
+    {
+      "keyword": "how to create an email signature in outlook",
+      "volume": ">1000",
+      "difficulty": null
+    },
+    {
+      "keyword": "how to create signature in outlook 365",
+      "volume": ">1000",
+      "difficulty": null
+    },
+    {
+      "keyword": "how to add an email signature in outlook",
+      "volume": ">1000",
+      "difficulty": null
+    },
+    {
+      "keyword": "how to edit email signature in outlook",
+      "volume": ">1000",
+      "difficulty": null
+    }
+  ],
+  "contentMapping": {
+    "changeEditUpdate": "Platform instructions and quick answer",
+    "createAddSetup": "How to Add, Create or Set Up an Outlook Signature",
+    "templatesExamplesBlock": "Outlook Signature Templates, Examples and Signature Blocks",
+    "generatorCreator": "Outlook Signature Generator or Creator",
+    "locationSettings": "New Outlook and web instructions",
+    "notShowing": "Troubleshooting"
+  },
+  "researchLog": "Collected free US Ahrefs results; OpenSEO MCP unavailable. Prioritized task intent without invented exact volume or KD."
+}

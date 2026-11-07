@@ -1,0 +1,55 @@
+{
+  "/": {
+    "javascriptFiles": 15,
+    "rawBytes": 474655,
+    "gzipBytes": 132502,
+    "files": [
+      "Header.astro_astro_type_script_index_0_lang.Bgr8wT-K.js",
+      "ClosingSoon.D2SyATZ3.js",
+      "react.BD8HKe6g.js",
+      "jsx-runtime.CLZHvIGH.js",
+      "applicationWindows.CvhFYJ9h.js",
+      "client.DMyhPBnr.js",
+      "client.D4jIdbYB.js",
+      "SignatureTool.DTNemGHu.js",
+      "preload-helper.FRKb0__z.js",
+      "download.DFOtJFc-.js",
+      "imageProcessor.DbtMIAQZ.js",
+      "trash.BclSaRY7.js",
+      "x.BEZPE7By.js",
+      "pdfGenerator.CsiWtAmg.js",
+      "ChatLauncher.astro_astro_type_script_index_0_lang.CFVHFk23.js"
+    ]
+  },
+  "/admit-card-photo-print-sheet/": {
+    "javascriptFiles": 12,
+    "rawBytes": 227926,
+    "gzipBytes": 73987,
+    "files": [
+      "ExamNewsTicker.astro_astro_type_script_index_0_lang.xXgoHbQ3.js",
+      "applicationWindows.CvhFYJ9h.js",
+      "Header.astro_astro_type_script_index_0_lang.Bgr8wT-K.js",
+      "PhotoPrintSheet.6_DB_bvU.js",
+      "react.BD8HKe6g.js",
+      "jsx-runtime.CLZHvIGH.js",
+      "preload-helper.FRKb0__z.js",
+      "examDayTools.1_gnUiJc.js",
+      "pdfGenerator.CsiWtAmg.js",
+      "client.DMyhPBnr.js",
+      "client.D4jIdbYB.js",
+      "ChatLauncher.astro_astro_type_script_index_0_lang.CFVHFk23.js"
+    ]
+  },
+  "/about/": {
+    "javascriptFiles": 5,
+    "rawBytes": 23563,
+    "gzipBytes": 7414,
+    "files": [
+      "ExamNewsTicker.astro_astro_type_script_index_0_lang.xXgoHbQ3.js",
+      "applicationWindows.CvhFYJ9h.js",
+      "Header.astro_astro_type_script_index_0_lang.Bgr8wT-K.js",
+      "ChatLauncher.astro_astro_type_script_index_0_lang.CFVHFk23.js",
+      "preload-helper.FRKb0__z.js"
+    ]
+  }
+}

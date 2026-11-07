@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>ICG : Sign in</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="shortcut icon" href="/images/logo_icg.png" type="image/x-icon">
+	<link rel="stylesheet" href="/css/app.css">
+	<link rel="stylesheet" href="/fontawesome-free-5.15.1-web/css/all.min.css">
+	<link rel="stylesheet" href="/css/testSecurity.css">
+	<style>
+		img:not(#captchaImage) {
+			filter: drop-shadow(0px 5px 5px #32596a);
+		}
+
+		#captchaImage {
+			filter: none !important;
+		}
+
+		#password {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+				"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+				"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		}
+
+		.glass-card .form-control {
+			background-color: rgba(255, 255, 255, 0.65);
+			border: 1px solid rgba(0, 0, 0, 0.12);
+			border-radius: 8px;
+			height: 38px;
+			font-size: 14px;
+			color: #1e293b;
+			padding: 0.35rem 0.75rem;
+			transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out;
+		}
+
+		.glass-card .form-control:focus {
+			background-color: rgba(255, 255, 255, 0.95);
+			border-color: #007bff;
+			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.18);
+		}
+
+		/* Modern Glass Alerts */
+		.glass-card .alert {
+			border-radius: 8px;
+			padding: 0.65rem 0.9rem;
+			font-size: 13.5px;
+			font-weight: 500;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-bottom: 1.25rem;
+			border: 1px solid transparent;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+			line-height: 1.4;
+		}
+
+		.glass-card .alert .alert-icon {
+			font-size: 16px;
+			flex-shrink: 0;
+		}
+
+		.glass-card .alert-danger {
+			background-color: rgba(254, 242, 242, 0.94);
+			border: 1px solid #fecaca;
+			border-left: 4px solid #ef4444;
+			color: #991b1b;
+		}
+
+		.glass-card .alert-danger .alert-icon {
+			color: #ef4444;
+		}
+
+		.glass-card .alert-success {
+			background-color: rgba(240, 253, 244, 0.94);
+			border: 1px solid #bbf7d0;
+			border-left: 4px solid #22c55e;
+			color: #166534;
+		}
+
+		.glass-card .alert-success .alert-icon {
+			color: #22c55e;
+		}
+
+		.glass-card .alert h4,
+		.glass-card .alert h5 {
+			margin: 0;
+			font-size: 13.5px;
+			font-weight: 500;
+			line-height: 1.4;
+			color: inherit;
+		}
+
+		/* Login Footer Links */
+		.login-footer-links {
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+		}
+
+		.login-footer-links a {
+			color: #007bff;
+			text-decoration: underline;
+			font-size: 13.5px;
+			font-weight: 600;
+			white-space: nowrap;
+			transition: color 0.15s ease-in-out;
+		}
+
+		.login-footer-links a:hover {
+			color: #0056b3;
+			text-decoration: underline;
+		}
+
+		@media (max-width: 380px) {
+			.login-footer-links .link-separator {
+				display: none;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="auth">
+
+		<div class="container-fluid px-3 px-md-5">
+			<div class="row justify-content-end">
+				<div class="col-md-5 col-sm-12 ml-auto" style="max-width: 440px; width: 100%;">
+					<div class="card glass-card">
+						<div class="card-body">
+							<div class="text-center">
+								<img src="/images/logo_icg.png" height="140">
+								<h5 style="margin-top: 2%;">
+									Indian Coast Guard <br><span>CGEPT-01/2027 &amp; 02/2027</span>
+								</h5>
+								<h3 style="margin-top: 20px;">Sign In</h3>
+
+							</div>
+							<form action="/candidate/login" id="userForm" method="post" autocomplete="off"><input type="hidden" name="_csrf" value="-W6nsEgv9XmNjB97njzFKSdEa6BdNIYQOg1cRV4X0LCdByOlnQ_FhisfzECg6ioY_BHxTR8lRsJoVeI9DjRtdG0l4Ij7ZkLD"/>
+								
+								
+								<div class="form-group position-relative has-icon-left mb-3">
+									<label for="username" class="mb-1">Email Id<span style="color: red; font-size: 16px; margin-left: 2px;">*</span></label>
+									<div class="position-relative">
+										<input type="text" class="form-control" id="username"
+											placeholder=" Email Id" name="username" autofocus="autofocus"
+											maxlength="70" onkeypress="clearErrorBoxes()">
+										<div class="form-control-icon">
+											<i data-feather="user"></i>
+										</div>
+									</div>
+									<div id="emailError"></div>
+								</div>
+								<div class="form-group position-relative has-icon-left mb-3">
+									<label for="password" class="mb-1">Password<span style="color: red; font-size: 16px; margin-left: 2px;">*</span></label>
+									<div class="position-relative">
+										<input type="text" class="form-control showBullets" id="password"
+											placeholder="Password" name="password" onkeypress="clearErrorBoxes()"
+											oninput="changeName()">
+										<div class="form-control-icon " style="float: left;">
+											<i data-feather="lock"></i>
+										</div>
+										<div class="form-control-icon has-icon-right" style="left: unset; right: 0"
+											onclick="myFunction()" id="showPass">
+											<i class="fas fa-eye" id="showEye"></i>
+										</div>
+									</div>
+									<div id="passwordError"></div>
+									<div class="text-right mt-1">
+										<a href="password/forgot" tabindex="-1" style="color: #007bff; text-decoration: none; font-size: 13px; font-weight: 500;">Forgot password?</a>
+									</div>
+								</div>
+								<div class="form-group mb-3">
+									<div class="d-flex align-items-center" style="gap: 8px;">
+										<img src="/candidate/captcha/img?d=1793203425818" id="captchaImage"
+											class="rounded" alt="captcha-image"
+											style="height: 38px; width: 145px; object-fit: cover; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;">
+										<button type="button" class="btn btn-link text-secondary p-0 d-flex align-items-center justify-content-center"
+											id="refreshCaptchaButton" tabindex="-1" title="Refresh Captcha"
+											style="width: 32px; height: 38px; border: none; background: transparent; cursor: pointer; flex-shrink: 0;">
+											<em data-feather="refresh-cw" style="width: 18px; height: 18px;"></em>
+										</button>
+										<div style="flex: 1; min-width: 0;">
+											<input type="text" name="Ctext" id="Cid" maxlength="5"
+												placeholder="Enter Captcha" class="valAlphaNum form-control"
+												onkeypress="clearErrorBoxes()" style="height: 38px; font-size: 14px;">
+										</div>
+									</div>
+									<div id="captchaError"></div>
+								</div>
+								<div class="mt-4 mb-2">
+									<div class="d-flex justify-content-center align-items-center" style="gap: 15px;">
+										
+										
+										<button class="btn btn-primary" id="loginSubmit" style="border-radius: 8px; font-weight: 600; min-width: 135px; height: 38px; box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);">
+											Login
+										</button>
+									</div>
+								</div>
+								<!-- <small><center>
+										Designed &amp; Developed by <a rel="nofollow noopener"
+											href="https://cdac.in">C-DAC</a>, Pune
+									</center></small> -->
+							</form>
+							<div class="login-footer-links mt-3 pt-3 text-center">
+								<div class="d-flex justify-content-center align-items-center flex-wrap" style="gap: 8px 14px;">
+									<a href="/docs/CGEPT012027_Adv_Bilingual.pdf" target="_blank" rel="nofollow noopener">Advertisement</a>
+									<span class="link-separator text-muted" style="opacity: 0.4;">|</span>
+									<a href="/formats/CGEPT_Formats.zip" download="CGEPT_Info_Formats.zip" rel="nofollow noopener">Info & Formats</a>
+									<span class="link-separator text-muted" style="opacity: 0.4;">|</span>
+									<a href="/docs/Frequently_Asked_Questions.pdf" target="_blank" rel="nofollow noopener">FAQ</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/feather-icons/feather.min.js"></script>
+	<script src="/js/app.js"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/crypto.js"></script>
+	<script src="/js/signinForCaptcha.js"></script>
+
+	<script type="text/javascript">
+	
+   	  document.addEventListener("contextmenu", e => e.preventDefault());
+    document.onkeydown = function(e) {
+      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && ["I", "C", "J"].includes(e.key)) || (e.ctrlKey && ["U"])) {
+        return false;
+      }
+    };  
+		function changeName() {
+			if ($("#password").hasClass("showBullets")) {
+				document.getElementById("password").style.fontFamily = "text-security-disc";
+				document.getElementById("showEye").className = ("fas fa-eye");
+			} else {
+				document.getElementById("showEye").className = ("fas fa-eye-slash");
+				document.getElementById("password").style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+			}
+		}
+		function myFunction() {
+			if ($("#password").hasClass("showBullets")) {
+				document.getElementById("password").style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+				document.getElementById("showEye").className = ("fas fa-eye-slash")
+				document.getElementById("password").className = ("form-control hideBullets")
+			} else {
+				document.getElementById("password").style.fontFamily = "text-security-disc";
+				document.getElementById("showEye").className = ("fas fa-eye");
+				document.getElementById("password").className = ("form-control showBullets");
+			}
+		}
+	</script>
+
+</body>
+
+</html>

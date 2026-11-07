@@ -1,0 +1,563 @@
+---
+// src/pages/blog/index.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import ExamDayToolkit from '../../components/ExamDayToolkit.astro';
+import ApplicationPreparationCards from '../../components/ApplicationPreparationCards.astro';
+import { BLOG_POSTS } from '../../data/blogPostsData';
+import { EXAM_PAGES_DATA } from '../../data/examPagesData';
+import { PAN_INDIA_GOV_JOBS } from '../../data/governmentJobsData';
+import SocialShare from '../../components/SocialShare.astro';
+
+const pageTitle = "Exam Study Guides, Preparation Tips & Document Guidelines | SignResize Blog";
+const pageDescription = "In-depth exam preparation articles, step-by-step photo & signature upload guides, study strategies, and career tips for SSC, UPSC, IBPS, RRB, and State PSC aspirants.";
+const canonicalUrl = "https://signresize.in/blog/";
+
+function parseBlogDate(dateStr: string): number {
+  if (!dateStr) return 0;
+  const normalized = dateStr.replace(/Sept\b/i, 'Sep');
+  const timestamp = new Date(normalized).getTime();
+  return isNaN(timestamp) ? 0 : timestamp;
+}
+
+// Arrange all blog posts by date in descending order (most recently published/deployed first)
+const sortedPosts = [...BLOG_POSTS].sort((a, b) => {
+  const timeA = parseBlogDate(a.publishDate);
+  const timeB = parseBlogDate(b.publishDate);
+  return timeB - timeA;
+});
+
+const featuredPost = sortedPosts.find(p => p.featured) || sortedPosts[0];
+const featuredExamPage = featuredPost.relatedExamPreset
+  ? EXAM_PAGES_DATA.find(p => p.presetId === featuredPost.relatedExamPreset || p.slug === featuredPost.relatedExamPreset)
+  : null;
+const featuredToolUrl = featuredExamPage ? `/${featuredExamPage.slug}/` : '/#tool-workspace';
+
+const regularPosts = sortedPosts.filter(p => p.slug !== featuredPost.slug);
+
+// Categories
+const categories = ['All', 'Exam Alerts', 'Study Prep', 'Guidelines & Tips', 'Career Opportunity'];
+
+const categoryCounts: Record<string, number> = {
+  All: sortedPosts.length,
+  'Exam Alerts': sortedPosts.filter(p => p.category === 'Exam Alerts').length,
+  'Study Prep': sortedPosts.filter(p => p.category === 'Study Prep').length,
+  'Guidelines & Tips': sortedPosts.filter(p => p.category === 'Guidelines & Tips').length,
+  'Career Opportunity': sortedPosts.filter(p => p.category === 'Career Opportunity').length,
+};
+
+// Dynamic upcoming deadlines from live governmentJobsData
+const todayIso = new Date().toISOString().slice(0, 10);
+const activeDeadlines = PAN_INDIA_GOV_JOBS
+  .filter(j => j.lastDate >= todayIso)
+  .sort((a, b) => a.lastDate.localeCompare(b.lastDate))
+  .slice(0, 3)
+  .map(j => {
+    const dateObj = new Date(j.lastDate + 'T00:00:00Z');
+    const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+    const diffDays = Math.ceil((new Date(j.lastDate).getTime() - new Date(todayIso).getTime()) / (1000 * 60 * 60 * 24));
+    return {
+      label: j.shortCode || j.title,
+      date: formattedDate,
+      urgent: diffDays <= 5,
+      vacancies: j.vacancies,
+      url: j.toolPresetSlug ? `/${j.toolPresetSlug}/` : `/government-jobs/#${j.id}`
+    };
+  });
+
+const quickDeadlines = activeDeadlines.length > 0 ? activeDeadlines : [
+  { label: 'UPPSC PCS 2026', date: 'Oct 20', urgent: true, vacancies: '620 Posts', url: '/uppsc-signature-resize/' },
+  { label: 'Odisha Govt', date: 'Oct 22', urgent: false, vacancies: '3,028 Posts', url: '/osssc-signature-resize/' },
+  { label: 'UPSSSC Lekhpal', date: 'Oct 25', urgent: false, vacancies: '8,085 Posts', url: '/up-police-signature-resize/' },
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <GoogleFonts />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-6 space-y-5 sm:space-y-6 w-full min-w-0 overflow-x-hidden">
+      
+      <!-- Breadcrumbs & Language Switcher Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-3">
+        <nav class="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+          </a>
+          <span>/</span>
+          <span class="text-foreground font-medium">Exam Blog &amp; Preparation</span>
+        </nav>
+
+        <!-- Language Switcher Bar -->
+        <div class="flex items-center gap-1.5 text-xs bg-muted/60 p-1 rounded-xl border border-border/60">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-2">Language:</span>
+          <a href="/blog/" class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇬🇧 English</a>
+          <a href="/hi/blog/" class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🇮🇳 हिंदी</a>
+          <a href="/mr/blog/" class="px-2.5 py-1 rounded-lg hover:bg-card text-muted-foreground hover:text-foreground font-medium transition">🚩 मराठी</a>
+        </div>
+      </div>
+
+      <!-- Hero / Command Header Banner with Matching Animations & Metrics -->
+      <section class="relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur">
+        <!-- Ambient animated glowing flares matching site design -->
+        <div class="absolute -right-12 -top-12 w-60 h-60 bg-primary/10 dark:bg-primary/20 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+        <div class="absolute right-1/4 -bottom-16 w-48 h-48 bg-cyan-glow/10 rounded-full blur-2xl pointer-events-none animate-pulse" style="animation-duration: 4s;"></div>
+
+        <div class="relative flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div class="space-y-2.5 sm:space-y-3 flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <span>Daily Exam Desk &amp; Aspirant Hub</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Updated Daily at 09:00 AM IST
+              </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground break-words leading-tight">
+              Exam Alerts, Study Strategy &amp; <span class="text-primary">Career Guidance</span>
+            </h1>
+            <p class="text-xs sm:text-sm lg:text-base text-muted-foreground max-w-3xl leading-relaxed break-words">
+              Real-time updates on ongoing government exam deadlines, syllabus analysis, expert preparation routines, and official document upload standards for SSC, UPSC, RRB, and State PSCs.
+            </p>
+          </div>
+
+          <!-- Quick Matrix Metrics Badges (matching homepage & job directory hero) -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-2 sm:gap-2.5 shrink-0 pt-1 lg:pt-0">
+            <div class="px-3.5 py-2.5 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Articles</div>
+              <div class="text-sm sm:text-base font-bold text-primary font-mono">{sortedPosts.length}+ Guides</div>
+            </div>
+            <div class="px-3.5 py-2.5 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Publishing</div>
+              <div class="text-sm sm:text-base font-bold text-foreground font-mono">Daily 9 AM</div>
+            </div>
+            <div class="px-3.5 py-2.5 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Guidelines</div>
+              <div class="text-sm sm:text-base font-bold text-emerald-600 dark:text-emerald-400 font-mono">Official</div>
+            </div>
+            <div class="px-3.5 py-2.5 rounded-xl bg-card border border-border text-center shadow-xs">
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Resizer Tools</div>
+              <div class="text-sm sm:text-base font-bold text-foreground font-mono">100% Free</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Active Exam Deadlines Strip (editorial summary — full directory at /government-jobs/) -->
+      <section class="rounded-2xl border border-amber-500/25 bg-gradient-to-r from-amber-500/5 via-card to-primary/5 p-3.5 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start gap-3 min-w-0">
+          <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg shrink-0">📅</div>
+          <div class="space-y-2 min-w-0 flex-1">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-xs font-bold text-foreground">Upcoming Application Deadlines</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">Quick Reminder</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              {quickDeadlines.map((d) => (
+                <span class:list={[
+                  "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-semibold border",
+                  d.urgent
+                    ? "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30"
+                    : "bg-muted text-muted-foreground border-border"
+                ]}>
+                  {d.urgent && <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>}
+                  {d.label} — <span class="font-mono">{d.date}</span>
+                </span>
+              ))}
+            </div>
+            <p class="text-[11px] text-muted-foreground">For all vacancies, filters, official portals &amp; full details →</p>
+          </div>
+        </div>
+        <a
+          href="/government-jobs/"
+          class="w-full sm:w-auto px-4 py-2.5 min-h-[40px] rounded-xl bg-primary hover:opacity-90 text-primary-foreground text-xs font-bold transition shadow-xs shrink-0 text-center flex items-center justify-center gap-1.5"
+        >
+          <span>Browse All Govt Jobs</span>
+          <span>→</span>
+        </a>
+      </section>
+
+      <!-- Search & Category Filters Toolbar -->
+      <div class="space-y-3 pt-2 border-b border-border pb-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="relative flex-1 max-w-md w-full">
+            <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-muted-foreground">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              id="blog-search-input"
+              type="text"
+              placeholder="Search articles, exams, preparation guides..."
+              aria-label="Search articles"
+              class="w-full pl-9 pr-9 py-2.5 sm:py-2 min-h-[42px] rounded-xl bg-background border border-border text-sm sm:text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+            />
+            <button
+              type="button"
+              id="blog-search-clear"
+              aria-label="Clear article search"
+              class="hidden absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-xs text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted/60 cursor-pointer"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div class="flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
+            <span id="blog-search-count">{regularPosts.length}</span>
+            <span>articles</span>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs (Swipeable on mobile with smooth touch scrolling) -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1.5 pt-0.5 scrollbar-none touch-pan-x overscroll-x-contain -mx-1 px-1">
+          {categories.map((cat, idx) => (
+            <button
+              type="button"
+              class:list={[
+                "category-filter-btn px-3.5 py-1.5 min-h-[38px] rounded-xl text-xs font-semibold transition cursor-pointer shrink-0 inline-flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95",
+                idx === 0
+                  ? "bg-primary text-primary-foreground shadow-xs"
+                  : "bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground border border-border"
+              ]}
+              data-category={cat}
+            >
+              <span>{cat}</span>
+              <span class:list={[
+                "px-1.5 py-0.5 rounded-full text-[10px] font-mono",
+                idx === 0
+                  ? "bg-primary-foreground/20 text-primary-foreground"
+                  : "bg-background/80 text-muted-foreground border border-border"
+              ]}>
+                {categoryCounts[cat] || 0}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Featured Article Banner (Synchronized with Search & Filter) -->
+      <section
+        id="featured-post-section"
+        class="rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card via-card/90 to-primary/10 p-4 sm:p-6 lg:p-8 shadow-md transition-all duration-200"
+        data-category={featuredPost.category}
+        data-title={featuredPost.title.toLowerCase()}
+        data-excerpt={featuredPost.excerpt.toLowerCase()}
+        data-tags={featuredPost.tags.join(' ').toLowerCase()}
+      >
+        <div class="flex flex-col lg:flex-row gap-5 lg:gap-6 items-start justify-between">
+          <div class="space-y-3 flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30 shrink-0">
+                Featured • {featuredPost.category}
+              </span>
+              <span class="text-xs text-muted-foreground font-mono flex flex-wrap items-center gap-1">
+                <span>📅</span> {featuredPost.publishDate} • ⏱️ {featuredPost.readTime}
+              </span>
+            </div>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground hover:text-primary transition break-words leading-snug">
+              <a href={`/blog/${featuredPost.slug}/`}>
+                {featuredPost.title}
+              </a>
+            </h2>
+            <p class="text-muted-foreground text-xs sm:text-sm lg:text-base leading-relaxed break-words">
+              {featuredPost.excerpt}
+            </p>
+            <div class="flex flex-wrap items-center gap-1.5 pt-1">
+              {featuredPost.tags.map(tag => (
+                <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-muted text-muted-foreground border border-border">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0 w-full lg:w-56 pt-1 sm:pt-2">
+            <a
+              href={`/blog/${featuredPost.slug}/`}
+              class="w-full px-4 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm text-center shadow-xs hover:opacity-90 transition flex items-center justify-center gap-1.5"
+            >
+              <span>Read Full Guide</span>
+              <span>&rarr;</span>
+            </a>
+            <a
+              href={featuredToolUrl}
+              class="w-full px-4 py-2.5 min-h-[42px] rounded-xl bg-card border border-primary/30 text-primary font-semibold text-xs sm:text-sm text-center hover:bg-primary/5 transition flex items-center justify-center gap-1.5"
+            >
+              <span>⚡ Open Resizer Tool</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Articles Grid (Arranged by Date Descending) -->
+      <section class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>📚</span> Latest Articles &amp; Daily Preparation
+          </h2>
+          <span class="text-[11px] sm:text-xs font-mono text-muted-foreground">
+            Arranged by Date (Newest First)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" id="posts-container">
+          {regularPosts.map((post) => (
+            <article 
+              class="post-card rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-md transition p-4 sm:p-5 flex flex-col justify-between space-y-3 sm:space-y-4"
+              data-category={post.category}
+              data-title={post.title.toLowerCase()}
+              data-excerpt={post.excerpt.toLowerCase()}
+              data-tags={post.tags.join(' ').toLowerCase()}
+            >
+              <div class="space-y-2 sm:space-y-2.5 min-w-0">
+                <div class="flex items-center justify-between text-xs gap-2">
+                  <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 shrink-0">
+                    {post.category}
+                  </span>
+                  <span class="text-muted-foreground font-mono text-[11px] shrink-0">
+                    ⏱️ {post.readTime}
+                  </span>
+                </div>
+                <h3 class="font-bold text-sm sm:text-base text-foreground hover:text-primary transition line-clamp-2 break-words leading-snug">
+                  <a href={`/blog/${post.slug}/`}>
+                    {post.title}
+                  </a>
+                </h3>
+                <p class="text-xs text-muted-foreground line-clamp-3 leading-relaxed break-words">
+                  {post.excerpt}
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-border flex items-center justify-between text-xs gap-2">
+                <span class="text-muted-foreground font-mono text-[11px] flex items-center gap-1 shrink-0">
+                  <span>📅</span> {post.publishDate}
+                </span>
+                <a
+                  href={`/blog/${post.slug}/`}
+                  class="text-primary font-bold hover:underline inline-flex items-center gap-1 py-1 px-2 -mr-2 rounded-lg hover:bg-primary/5 active:bg-primary/10 transition"
+                >
+                  <span>Read Guide</span>
+                  <span>&rarr;</span>
+                </a>
+              </div>
+            </article>
+          ))}
+
+          <!-- Empty State when no articles match filter or search -->
+          <div id="blog-no-results" class="hidden col-span-full py-12 text-center bg-muted/20 border border-border/80 rounded-2xl p-6 sm:p-8 space-y-2">
+            <div class="text-3xl">🔍</div>
+            <div class="font-bold text-foreground text-sm">No articles found</div>
+            <p class="text-xs text-muted-foreground max-w-sm mx-auto">
+              No preparation guides match your search. Try searching for SSC, UPSC, RRB, IBPS, or clear filters.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Share Banner on Blog Index -->
+      <SocialShare
+        url={canonicalUrl}
+        title="SignResize Govt Exam Blog & Preparation Guides"
+        description="Read comprehensive guides, syllabus blueprints, and official photo/signature resize rules for all Indian recruitment exams."
+        variant="card"
+        badgeText="Share SignResize Study Room with Aspirants"
+      />
+
+      <!-- Student Assistant CTA Box -->
+      <!-- Candidate Preparation & Exam Toolkit -->
+      <ApplicationPreparationCards />
+      <ExamDayToolkit />
+
+      <section class="rounded-2xl border border-border bg-muted/40 p-4 sm:p-8 text-center space-y-3">
+        <h3 class="text-lg sm:text-xl font-bold text-foreground break-words">Applying for Any Government Exam Today?</h3>
+        <p class="text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed break-words">
+          SignResize provides officially calibrated 1-click presets for SSC, UPSC, IBPS, RRB, and State PSCs with 100% private, client-side processing.
+        </p>
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
+          <a
+            href="/#tool-workspace"
+            class="w-full sm:w-auto px-5 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 transition shadow-xs flex items-center justify-center"
+          >
+            Launch Signature Resizer
+          </a>
+          <a
+            href="/photo-resizer/"
+            class="w-full sm:w-auto px-5 py-2.5 min-h-[42px] rounded-xl bg-card border border-border text-foreground font-semibold text-xs sm:text-sm hover:bg-muted transition flex items-center justify-center"
+          >
+            Resize Passport Photo
+          </a>
+        </div>
+      </section>
+
+      <!-- Educational & Fair Use Disclaimer Box -->
+      <section class="rounded-xl border border-border/80 bg-muted/30 p-4 sm:p-5 text-xs text-muted-foreground space-y-1.5">
+        <div class="flex items-center gap-1.5 font-semibold text-foreground text-[11px] uppercase tracking-wider">
+          <span>⚖️</span>
+          <span>Educational Disclaimer &amp; Fair Use Notice</span>
+        </div>
+        <p class="leading-relaxed text-[11px]">
+          SignResize.in is an independent candidate utility and educational information resource. Examination names, acronyms (SSC, UPSC, RRB, IBPS, State PSCs), commission details, and curriculum outlines are referenced solely for descriptive, identification, and educational candidate guidance under nominative fair use. SignResize is neither affiliated with, nor endorsed, sponsored, or certified by any government recruitment body, examination commission, or commercial coaching institute.
+        </p>
+      </section>
+
+    </main>
+
+    <Footer />
+
+
+
+    <!-- Client-side Category Filter & Live Search Script -->
+    <script is:inline>
+      (() => {
+        const buttons = document.querySelectorAll('.category-filter-btn');
+        const cards = document.querySelectorAll('.post-card');
+        const featuredSection = document.getElementById('featured-post-section');
+        const blogSearchInput = document.getElementById('blog-search-input');
+        const searchClear = document.getElementById('blog-search-clear');
+        const countEl = document.getElementById('blog-search-count');
+        const noResultsEl = document.getElementById('blog-no-results');
+
+        let currentCategory = 'All';
+
+        function filterBlogPosts() {
+          const query = (blogSearchInput?.value || '').toLowerCase().trim();
+
+          if (searchClear) {
+            if (query) {
+              searchClear.classList.remove('hidden');
+            } else {
+              searchClear.classList.add('hidden');
+            }
+          }
+
+          let gridCount = 0;
+          cards.forEach(card => {
+            const cardCat = card.getAttribute('data-category') || '';
+            const cardTitle = card.getAttribute('data-title') || '';
+            const cardExcerpt = card.getAttribute('data-excerpt') || '';
+            const cardTags = card.getAttribute('data-tags') || '';
+
+            const matchesCat = currentCategory === 'All' || cardCat === currentCategory;
+            const matchesQuery = !query || cardTitle.includes(query) || cardExcerpt.includes(query) || cardTags.includes(query);
+
+            if (matchesCat && matchesQuery) {
+              card.style.display = 'flex';
+              gridCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          // Check if featured post matches active filters
+          let featuredVisible = false;
+          if (featuredSection) {
+            const featCat = featuredSection.getAttribute('data-category') || '';
+            const featTitle = featuredSection.getAttribute('data-title') || '';
+            const featExcerpt = featuredSection.getAttribute('data-excerpt') || '';
+            const featTags = featuredSection.getAttribute('data-tags') || '';
+
+            const matchesCat = currentCategory === 'All' || featCat === currentCategory;
+            const matchesQuery = !query || featTitle.includes(query) || featExcerpt.includes(query) || featTags.includes(query);
+
+            if (matchesCat && matchesQuery) {
+              featuredSection.style.display = '';
+              featuredVisible = true;
+            } else {
+              featuredSection.style.display = 'none';
+              featuredVisible = false;
+            }
+          }
+
+          const totalVisible = gridCount + (featuredVisible ? 1 : 0);
+
+          if (countEl) {
+            countEl.textContent = String(totalVisible);
+          }
+
+          if (noResultsEl) {
+            if (totalVisible === 0) {
+              noResultsEl.classList.remove('hidden');
+            } else {
+              noResultsEl.classList.add('hidden');
+            }
+          }
+        }
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            buttons.forEach(b => {
+              b.classList.remove('bg-primary', 'text-primary-foreground', 'shadow-xs');
+              b.classList.add('bg-muted', 'text-muted-foreground');
+              const countBadge = b.querySelector('span:last-child');
+              if (countBadge) {
+                countBadge.classList.remove('bg-primary-foreground/20', 'text-primary-foreground');
+                countBadge.classList.add('bg-background/80', 'text-muted-foreground');
+              }
+            });
+            btn.classList.remove('bg-muted', 'text-muted-foreground');
+            btn.classList.add('bg-primary', 'text-primary-foreground', 'shadow-xs');
+            const activeBadge = btn.querySelector('span:last-child');
+            if (activeBadge) {
+              activeBadge.classList.remove('bg-background/80', 'text-muted-foreground');
+              activeBadge.classList.add('bg-primary-foreground/20', 'text-primary-foreground');
+            }
+
+            currentCategory = btn.getAttribute('data-category') || 'All';
+            filterBlogPosts();
+          });
+        });
+
+        blogSearchInput?.addEventListener('input', filterBlogPosts);
+
+        searchClear?.addEventListener('click', () => {
+          if (blogSearchInput) {
+            blogSearchInput.value = '';
+            blogSearchInput.focus();
+            filterBlogPosts();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

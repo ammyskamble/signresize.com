@@ -1,0 +1,58 @@
+---
+// src/components/ScrollToTop.astro
+// Floating Scroll-to-Top ("Upside") Button with robust mobile touch handling, smooth animation, and smart viewport detection
+---
+
+<!-- Floating Scroll to Top ("Upside") Button -->
+<button
+  id="scroll-to-top-btn"
+  type="button"
+  aria-label="Scroll to top of page"
+  title="Back to top"
+  hidden
+  class="fixed bottom-16 right-4 sm:bottom-[76px] sm:right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-card/95 dark:bg-slate-900/95 text-foreground border-2 border-border/80 shadow-lg hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-primary/20 backdrop-blur-md transition-all duration-200 hover:text-primary hover:border-primary/60 hover:bg-card hover:scale-105 active:scale-90 focus:outline-none focus:ring-2 focus:ring-primary/50 group cursor-pointer select-none touch-manipulation"
+>
+  <svg
+    class="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:-translate-y-1"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2.5"
+    aria-hidden="true"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
+<style>
+  #scroll-to-top-btn[hidden] { display: none; }
+  #scroll-to-top-btn { bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
+  @media (prefers-reduced-motion: reduce) {
+    #scroll-to-top-btn, #scroll-to-top-btn svg { transition: none; }
+  }
+</style>
+
+<script>
+  const button = document.getElementById('scroll-to-top-btn');
+  const footerLink = document.getElementById('footer-back-to-top');
+
+  function updateVisibility() {
+    if (button) button.hidden = window.scrollY <= 180;
+  }
+
+  function backToTop(event: Event) {
+    event.preventDefault();
+    // One action for mouse, touch and keyboard. Avoid competing scroll animations.
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
+  }
+
+  button?.addEventListener('click', backToTop);
+  footerLink?.addEventListener('click', backToTop);
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  window.addEventListener('pageshow', updateVisibility);
+  updateVisibility();
+</script>

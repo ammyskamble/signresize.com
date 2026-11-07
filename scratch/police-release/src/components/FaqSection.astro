@@ -1,0 +1,255 @@
+---
+// FaqSection.astro
+export interface FaqItem {
+  q: string;
+  a?: string;
+  summary?: string;
+  details?: string;
+}
+
+interface Props {
+  country?: 'PK' | 'PH' | 'BD' | 'NP' | 'IN' | 'UK' | 'US' | 'ALL';
+  faqs?: FaqItem[];
+  title?: string;
+  description?: string;
+}
+
+const { country = 'IN', faqs: customFaqs, title, description } = Astro.props;
+
+const ukFaqs: FaqItem[] = [
+  {
+    q: "What are the exact digital photo dimensions required for UKVI visa applications?",
+    summary: "Your digital photo for UK Visas and Immigration (UKVI) must be a vertical orientation with minimum dimensions of 600×750 pixels (45×35 mm aspect ratio).",
+    details: "The file size must be strictly between 50 KB and 6 MB in JPEG (.jpg) format on a plain light gray or cream background."
+  },
+  {
+    q: "What is the standard digital photo size for HM Passport Office online renewals?",
+    summary: "HM Passport Office digital passport renewals require a minimum pixel size of 600×750 pixels (45×35 mm aspect ratio) and file size between 50 KB and 10 MB.",
+    details: "Must be taken against a plain light-colored background with a neutral expression and no eyeglasses."
+  },
+  {
+    q: "What are the UCAS student profile photo and document scan requirements?",
+    summary: "UCAS university applications require a passport-style headshot (600×750 px) and legibly compressed document scans under 2 MB.",
+    details: "Transcripts, passports, and English test certificates should be clear and compressed to prevent portal upload timeout errors."
+  },
+  {
+    q: "Can I wear eyeglasses or head coverings in UK visa photos?",
+    summary: "Eyeglasses are strictly prohibited unless required for documented medical reasons. Head coverings are permitted solely for religious or medical purposes.",
+    details: "The face must remain completely visible from hairline to bottom of chin without shadows."
+  }
+];
+
+const usFaqs: FaqItem[] = [
+  {
+    q: "What are the digital photo requirements for US Form DS-160 visa applications?",
+    summary: "Form DS-160 requires a square 1:1 aspect ratio, minimum 600×600 pixels (up to 1200×1200 px), JPEG format, and max file size of 240 KB.",
+    details: "Head height must occupy 50% to 69% of the frame. Eyeglasses are strictly not allowed."
+  },
+  {
+    q: "What is the US Passport photo size in pixels?",
+    summary: "Digital US passport renewals require a square 600×600 pixel image (2×2 inches at 300 DPI) under 240 KB in JPEG format.",
+    details: "The photo must be taken in color against a plain white or off-white background within the last 6 months."
+  },
+  {
+    q: "What are the photo rules for USCIS Green Card and DV Lottery entries?",
+    summary: "USCIS uploads and Diversity Visa Lottery require 24-bit sRGB color space, 600×600 pixels, and file weight ≤ 240 KB with max compression 20:1.",
+    details: "Shadows on the face or background will cause automated disqualification by DOS photo validation tools."
+  },
+  {
+    q: "What is the Common App student profile photo size?",
+    summary: "Common App and US college admission portals require clear student headshots and passport scans compressed under 200 KB or 500 KB.",
+    details: "Images should be crisp JPEG format with facial features clearly recognizable."
+  }
+];
+
+const pkFaqs: FaqItem[] = [
+  {
+    q: "How to resize photo and signature for PPSC Pakistan?",
+    summary: "Select the PPSC Pakistan preset on SignResize to format photo and signature to 200×230 pixels under 25 KB.",
+    details: "Punjab Public Service Commission (PPSC) online portal strictly limits uploads to 25 KB in JPG format."
+  },
+  {
+    q: "What is the FPSC CSS exam photo size requirement?",
+    summary: "FPSC requires a photograph under 30 KB and signature under 25 KB with 200×230 px dimensions.",
+    details: "Federal Public Service Commission (FPSC) CSS Competitive Examination online portal validates file sizes upon upload."
+  },
+  {
+    q: "How to format photo for NTS Pakistan recruitment?",
+    summary: "Upload your photo, select NTS Pakistan preset, and crop to 200×230 px under 30 KB.",
+    details: "NTS job tests require crisp facial photos on plain light backgrounds."
+  },
+  {
+    q: "What are the signature rules for NADRA CNIC and Pak-Identity portal?",
+    summary: "Sign with black ink on white paper, scan or take a photo, and resize under 25 KB using SignResize.",
+    details: "Ensure no shadows or paper yellowing; toggle the Clean White Paper filter before exporting."
+  }
+];
+
+const phFaqs: FaqItem[] = [
+  {
+    q: "How to resize 2x2 photo for PRC LERIS Philippines?",
+    summary: "Select the PRC Philippines preset to format your photo to 2×2 inches (600×600 pixels) under 100 KB.",
+    details: "Professional Regulation Commission (PRC LERIS) board exam applications mandate a 2x2 inch photo with plain white background."
+  },
+  {
+    q: "What is the photo size requirement for Civil Service Commission (CSC) CSE?",
+    summary: "CSC requires a 1.5×2.0 inch passport-style photo (450×600 px) under 100 KB on a white background.",
+    details: "Civil Service Exam applications require neutral expression, bare face, and high sharpness."
+  },
+  {
+    q: "How to format photo for DFA Passport appointment?",
+    summary: "Format your photo to 4.5×3.5 cm (413×531 px) under 100 KB using the DFA Philippines preset.",
+    details: "Department of Foreign Affairs (DFA) online appointment system accepts standard passport photos in JPG format."
+  }
+];
+
+const bdFaqs: FaqItem[] = [
+  {
+    q: "What is the Teletalk Bangladesh photo and signature size for 2026?",
+    summary: "Teletalk requires an exact 300×300 pixel photo (≤ 100 KB) and an exact 300×80 pixel signature (≤ 60 KB) in JPG format.",
+    details: "This standard applies across Teletalk All Jobs (alljobs.teletalk.com.bd), BPSC (BCS Exam), NTRCA, and Directorate of Primary Education (DPE). The server validator automatically blocks any image that deviates by even 1 pixel."
+  },
+  {
+    q: "What are Bangladesh Bank Combined Banks photo & signature requirements?",
+    summary: "Bangladesh Bank e-Recruitment (erecruitment.bb.org.bd) requires a 600×600 px photo (≤ 100 KB) and a 300×80 px signature (≤ 60 KB).",
+    details: "This applies to Officer General, Cash Officer, and Senior Officer posts across Sonali, Janata, Agrani, Rupali, and Bangladesh Krishi Bank. The background must be clean white or light grey."
+  },
+  {
+    q: "How to resize photo for DPE Primary School Assistant Teacher recruitment?",
+    summary: "Select the 'DPE Primary Assistant Teacher' preset to export an exact 300×300 px photo under 100 KB and a 300×80 px signature under 60 KB.",
+    details: "Directorate of Primary Education applications run on dpe.teletalk.com.bd. Uploading an off-center or low-resolution image can result in admit card disqualification."
+  },
+  {
+    q: "What is the photo size for Dhaka University (DU) undergraduate admission?",
+    summary: "Dhaka University (admission.eis.du.ac.bd) mandates a 360×480 px (3:4 ratio) portrait photo between 30 KB and 100 KB in JPG format.",
+    details: "Ensure ears and forehead are clearly visible with a plain neutral background. SignResize's DU preset automatically locks the 3:4 aspect ratio and sets resolution to 360×480 px."
+  },
+  {
+    q: "Why does Teletalk show 'Photo dimensions must be 300x300 pixels' error?",
+    summary: "This error occurs when the uploaded JPG is off by even 1 pixel (e.g., 301×300 or 299×299).",
+    details: "SignResize guarantees exact integer pixel dimensions (300×300 px for photo and 300×80 px for signature) and strictly keeps file sizes within 10–100 KB so Teletalk accepts it on the first attempt."
+  },
+  {
+    q: "Why does Teletalk reject .png, .webp, or uppercase .JPG files?",
+    summary: "Many older Teletalk sub-portals enforce legacy file-extension validation that strictly checks for lowercase '.jpg' extensions.",
+    details: "Uploading uppercase '.JPG', '.PNG', or '.webp' files results in immediate rejection on alljobs.teletalk.com.bd. SignResize always encodes baseline sRGB JPEG and names every download with clean lowercase '.jpg' (e.g. teletalk_photo_300x300.jpg)."
+  },
+  {
+    q: "Does SignResize pass the built-in Teletalk Photo & Signature Validator check?",
+    summary: "Yes. All images processed through SignResize are 100% pre-calibrated to pass the official validator at alljobs.teletalk.com.bd.",
+    details: "Teletalk's validator checks Image.width === 300, Image.height === 300, and file.size <= 102400 bytes (or 300x80 and <= 61440 bytes for signatures). Our in-browser validator reproduces this exact test client-side before you download."
+  }
+];
+
+const npFaqs: FaqItem[] = [
+  {
+    q: "What is the photo size limit for Lok Sewa Aayog Nepal?",
+    summary: "Lok Sewa Aayog requires a passport-size photo (3.5×4.5 cm / 350×450 px) strictly under 50 KB in JPG format.",
+    details: "Public Service Commission Nepal (psc.gov.np) rejects files over 50 KB automatically during form upload."
+  },
+  {
+    q: "How to resize signature for Nepal Lok Sewa portal?",
+    summary: "Select the Lok Sewa Nepal Signature preset to set 350×150 px dimensions and compress under 50 KB.",
+    details: "Ensure signature is clear in dark black ink on spotless white paper."
+  },
+  {
+    q: "What is the photo requirement for Nepal e-Passport pre-enrollment?",
+    summary: "Upload 35×45 mm biometric photo under 300 KB with plain white background.",
+    details: "Department of Passports Nepal requires clear facial features without headwear or eyeglasses."
+  }
+];
+
+const generalFaqs: FaqItem[] = [
+  {
+    "q": "How do I resize a signature?",
+    "a": "Upload a clear image of your handwritten signature, crop unused paper, set the required dimensions and KB bounds, then download and inspect the JPG."
+  },
+  {
+    "q": "Which dimensions should I use for my exam?",
+    "a": "Read the notice and upload field for your exact exam and cycle. There is no universal signature pixel size for every recruitment. Exam-specific pages explain the sources and any uncertainty."
+  },
+  {
+    "q": "How do I resize a photo and signature?",
+    "a": "Prepare them separately using Photo or Signature mode. Match each upload field’s dimensions, format and file-size limits; do not assume both images share the same requirements."
+  },
+  {
+    "q": "Does a file-size check guarantee acceptance?",
+    "a": "No. File checks compare the exported image with your selected settings. The authority also considers image quality, identity and its own application rules."
+  },
+  {
+    "q": "How do pixels, centimeters and KB differ?",
+    "a": "Pixels describe width and height; KB measures file size. Centimeters depend on DPI. At 200 DPI, 140 × 60 pixels is about 1.78 × 0.76 cm, not 4 × 2 cm."
+  },
+  {
+    "q": "How can I clean the paper background?",
+    "a": "Try Clean White Paper and compare the preview with your original. Reduce or disable cleanup if thin strokes disappear. Rescan an unreadable original rather than relying on compression to restore detail."
+  }
+];
+
+const countryFaqMap: Record<string, FaqItem[]> = {
+  PK: pkFaqs,
+  PH: phFaqs,
+  BD: bdFaqs,
+  NP: npFaqs,
+  UK: ukFaqs,
+  US: usFaqs,
+  IN: generalFaqs,
+  ALL: generalFaqs,
+};
+
+const rawFaqs = customFaqs && customFaqs.length > 0 ? customFaqs : (countryFaqMap[country] || generalFaqs);
+
+const faqs = rawFaqs.map((item) => ({
+  q: item.q,
+  summary: item.summary || item.a || '',
+  details: item.details || '',
+}));
+---
+
+<section id="faq" class="space-y-6 pt-12 border-t border-border">
+  <div class="max-w-2xl mx-auto text-center space-y-2">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+      Got Questions?
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+      {title || "Frequently Asked Questions (FAQ)"}
+    </h2>
+    <p class="text-sm text-muted-foreground">
+      {description || "Authoritative answers regarding photo & signature specifications, file size rules, and official portal compliance."}
+    </p>
+  </div>
+
+  <div class="max-w-3xl mx-auto space-y-3">
+    {faqs.map((faq) => (
+      <details class="group p-4 rounded-xl border border-border bg-card shadow-xs transition-all open:ring-1 open:ring-primary/40">
+        <summary class="flex items-center justify-between font-semibold text-foreground text-sm cursor-pointer list-none select-none">
+          <span>{faq.q}</span>
+          <span class="w-5 h-5 flex items-center justify-center rounded-full bg-muted text-muted-foreground group-open:rotate-180 transition-transform shrink-0 ml-2">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <p class="pt-3 text-xs sm:text-sm leading-relaxed">
+          {faq.summary && <strong class="text-foreground font-semibold block sm:inline">{faq.summary}</strong>}{" "}
+          {faq.details && <span class="text-muted-foreground">{faq.details}</span>}
+        </p>
+      </details>
+    ))}
+  </div>
+
+  <!-- FAQ Schema for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `${f.summary} ${f.details}`.trim()
+      }
+    }))
+  })} />
+</section>
+

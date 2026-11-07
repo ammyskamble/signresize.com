@@ -1,0 +1,48 @@
+---
+// src/components/GoogleFonts.astro
+// Self-hosted Inter: preloaded for instant LCP text render (no render-block, font-display:optional in CSS).
+// Noto Devanagari: conditionally loaded only when Hindi or Marathi scripts are active.
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isDevanagariNeeded = lang === 'hi' || lang === 'mr' || currentPath.startsWith('/hi') || currentPath.startsWith('/mr');
+---
+
+<!-- Self-hosted Inter Variable: preloaded, render-non-blocking (font-display:optional in global.css) -->
+<link
+  rel="preload"
+  href="/fonts/inter-latin-wght-normal.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin="anonymous"
+/>
+
+{isDevanagariNeeded && (
+  <>
+    <!-- Preconnect to Google Fonts (DNS + TLS warm-up for regional scripts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Noto Sans Devanagari async stylesheet for Hindi & Marathi -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+  </>
+)}

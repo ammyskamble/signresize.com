@@ -1,0 +1,117 @@
+---
+// src/pages/photo-resizer.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import { SignatureTool } from '../components/SignatureTool';
+
+const pageTitle = "Photo Resizer: Custom Pixels & KB Size | SignResize";
+const pageDescription = "Resize photos with custom pixel dimensions and KB limits. Crop and download JPG files privately in your browser; check your application’s upload rules.";
+const canonicalUrl = "https://signresize.in/photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "passport photo resizer, photo resize 20 to 50 kb, ssc photo resize, upsc photo size 350x350, ibps photo resize, neet passport photo size, 3.5x4.5 cm photo resize, date of photo on photo, ssc cgl photo resizer, compress photo to 20 kb";
+
+const photoFaqs = [
+  {
+    "q": "Is 20–50 KB correct for every application?",
+    "a": "No. Read your application’s photo instructions and set its minimum and maximum file sizes. The general photo preset is a starting point, not a rule for every exam."
+  },
+  {
+    "q": "Do centimeters specify the pixel dimensions?",
+    "a": "Only with a resolution value. Use the exact pixel dimensions when supplied. Do not equate different aspect ratios, such as 200 × 230 px and 3.5 × 4.5 cm."
+  },
+  {
+    "q": "Should I add my name and the photo date?",
+    "a": "Add a strip only when your current application explicitly requires it. It must not cover the face or replace a required live photo capture."
+  },
+  {
+    "q": "Can this replace live photo capture?",
+    "a": "No. If the application requires a live photograph, complete that step inside the official application."
+  },
+  {
+    "q": "Are my photographs uploaded for processing?",
+    "a": "Resizing and compression run in your browser. Your uploaded images are not sent to our server for processing."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- PWA & Mobile Meta Tags -->
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="SignResize Photo" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <GoogleFonts />
+
+    <!-- SoftwareApplication & WebApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "featureList": ["Custom pixel dimensions and KB limits", "Photo cropping and JPG export", "Optional name and date strip", "Local browser processing"]
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-5 space-y-6">
+      <section class="rounded-2xl border border-border bg-card p-5 space-y-3">
+        <h1 class="text-2xl sm:text-4xl font-bold">Photo Resizer: Set Pixels and KB Size</h1>
+        <p>Upload your photo, choose a crop and set the file-size limits required by your application. Download a JPG and inspect the face and edges before submitting.</p>
+        <p class="text-sm text-muted-foreground">A passport-style crop is not a universal passport or exam specification. Use the current official instructions, including live capture when required.</p>
+      </section>
+      <section aria-label="Photo resizing workspace" class="bg-card border border-border rounded-2xl p-3 sm:p-5 min-h-[680px]">
+        <SignatureTool client:idle initialMode="photo" initialPresetId="passport-general-photo" />
+      </section>
+      <section class="rounded-2xl border border-border bg-card p-5 space-y-3">
+        <h2 class="text-xl font-bold">Before you upload the photo</h2>
+        <ul class="list-disc pl-5 space-y-2"><li>Read the current notice for format, dimensions, file size, background and photo age.</li><li>Keep the face clear and crop without stretching. Compression cannot restore a blurred original.</li><li>Add a name or date strip only if your application asks for one.</li><li>Reopen the exported JPG, check its properties and inspect the application preview.</li></ul>
+        <nav class="flex flex-wrap gap-4" aria-label="Photo application guidance"><a class="text-primary underline" href="/ssc-cgl-signature-resize/">SSC CGL live photo guidance</a><a class="text-primary underline" href="/iit-jam-photo-resize/">IIT JAM photo requirements</a><a class="text-primary underline" href="/wbpsc-photo-resize/">WBPSC photo preparation</a><a class="text-primary underline" href="/">Signature resizer</a></nav>
+      </section>
+      <section class="space-y-4"><h2 class="text-xl font-bold">Photo resizing questions</h2>{photoFaqs.map(faq => <details class="rounded-xl border border-border bg-card p-4"><summary class="font-semibold cursor-pointer">{faq.q}</summary><p class="pt-3 text-sm">{faq.a}</p></details>)}</section>
+    </main>
+    <Footer />
+  </body>
+</html>

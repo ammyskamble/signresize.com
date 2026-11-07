@@ -1,0 +1,201 @@
+---
+// src/pages/resize-signature-to-10kb-20kb.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import SignatureCropExamples from '../components/SignatureCropExamples.astro';
+import { SignatureTool } from '../components/SignatureTool';
+
+const pageTitle = "Resize Signature to 10–20 KB Online | SignResize";
+const pageDescription = "Resize a handwritten signature to a 10–20 KB JPG. Adjust pixel dimensions, crop and preview privately in your browser before downloading.";
+const canonicalUrl = "https://signresize.in/resize-signature-to-10kb-20kb/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "resize signature to 10 to 20 kb, signature resize 10 to 20 kb online, signature resize 10 to 20 kb, signature compressor 10 to 20 kb, ssc signature resize 10 to 20 kb, rrb signature resize 10 to 20 kb, resize signature online 10 to 20 kb, signature resize 20kb, compress signature to 20kb";
+
+const faqs = [
+  {
+    "q": "Does 10–20 KB imply a particular pixel size?",
+    "a": "No. File size and pixel dimensions are separate requirements. This tool starts with a 600 × 200 px preparation canvas; change it to match your upload instructions."
+  },
+  {
+    "q": "How do I prepare a signature between 10 and 20 KB?",
+    "a": "Upload your handwritten signature, crop without clipping strokes, set the minimum to 10 KB and maximum to 20 KB, then download and inspect the JPG."
+  },
+  {
+    "q": "Will a file in this range be accepted by every exam?",
+    "a": "No. Some applications use different ranges or require a different format, crop or ink. Follow the notice for your exact exam and cycle."
+  },
+  {
+    "q": "What if a small file is still blurry?",
+    "a": "Start with a clearer scan. Adding bytes or enlarging the image does not recover detail lost in the original."
+  },
+  {
+    "q": "Are my images uploaded for processing?",
+    "a": "Image processing takes place in your browser. Your uploaded signature is not sent to our server for resizing."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <GoogleFonts />
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "Signature Resize 10 to 20 KB Online Tool",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "applicationSubCategory": "Document Compression Utility",
+      "operatingSystem": "All",
+      "description": pageDescription,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "featureList": [
+        "Strict 10 KB to 20 KB dual-boundary compression",
+        "Editable pixel dimensions and crop",
+        "Clean White Paper 3.0 shadow remover",
+        "100% in-browser client-side privacy",
+        "JPG download with file checks"
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Signature to 10 to 20 KB Online",
+      "description": "Step-by-step instructions to resize, crop, and compress a signature image to exact 10 KB to 20 KB file bounds for government exam portal uploads.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Sign on Plain White Paper",
+          "text": "Sign on white paper using the ink required by your application.",
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload to Resizer",
+          "text": "Upload your photo or scan to the online tool workspace.",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Lock 10-20 KB Target Range",
+          "text": "Set the minimum to 10 KB and maximum to 20 KB, and check the required pixel dimensions.",
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Clean Background & Download JPG",
+          "text": "Preview optional paper cleanup, download the JPG and check its file size and legibility.",
+          "position": 4
+        }
+      ]
+    })} />
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Resize Signature 10 to 20 KB",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-5 space-y-6">
+      <nav aria-label="Breadcrumb" class="text-sm"><a class="text-primary underline" href="/">Home</a> / 10–20 KB signature resizer</nav>
+      <section class="rounded-2xl border border-border bg-card p-5 space-y-3">
+        <h1 class="text-2xl sm:text-4xl font-bold">Resize Signature to 10–20 KB Online</h1>
+        <p>Prepare a JPG between 10 KB and 20 KB. Upload your handwritten signature, crop unused paper and set the pixel dimensions required by your application.</p>
+        <p class="text-sm text-muted-foreground">The starting canvas is 600 × 200 px, an editable preparation setting. A KB range does not imply one mandatory pixel size or guarantee portal acceptance.</p>
+      </section>
+      <section id="signature-workspace" aria-label="Signature resizing workspace" class="bg-card border border-border rounded-2xl p-3 sm:p-5 min-h-[680px]">
+        <SignatureTool client:idle defaultPresetId="ssc-general" />
+      </section>
+      <section class="rounded-2xl border border-border bg-card p-5 space-y-4">
+        <h2 class="text-xl font-bold">Check the exported signature</h2>
+        <ol class="list-decimal pl-5 space-y-2"><li>Match the width, height and JPG format to your application instructions.</li><li>Set both file-size bounds: 10 KB minimum and 20 KB maximum.</li><li>Download, reopen the image at actual size and ensure every stroke is legible.</li><li>Check the application's upload preview before submitting.</li></ol>
+        <SignatureCropExamples />
+      </section>
+      <section class="rounded-2xl border border-border bg-card p-5 space-y-3">
+        <h2 class="text-xl font-bold">Use guidance for your exact exam</h2>
+        <p>Requirements differ by recruitment. Follow the source notices on the relevant page before selecting a preset.</p>
+        <nav class="flex flex-wrap gap-4" aria-label="Exam-specific signature guidance"><a class="text-primary underline" href="/ssc-signature-resize/">SSC</a><a class="text-primary underline" href="/ibps-signature-resize/">IBPS</a><a class="text-primary underline" href="/rrb-ntpc-signature-resize/">RRB NTPC</a><a class="text-primary underline" href="/iit-jam-signature-resize/">IIT JAM</a></nav>
+      </section>
+      <section class="space-y-4"><h2 class="text-xl font-bold">10–20 KB signature questions</h2>{faqs.map(faq => <details class="rounded-xl border border-border bg-card p-4"><summary class="font-semibold cursor-pointer">{faq.q}</summary><p class="pt-3 text-sm">{faq.a}</p></details>)}</section>
+    </main>
+    <Footer />
+  </body>
+</html>

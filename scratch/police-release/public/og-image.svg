@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="logo-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d81456" />
+      <stop offset="25%" stop-color="#2010e5" />
+      <stop offset="100%" stop-color="#eca0ff" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="0" y="0" width="1200" height="10" fill="url(#brand)" />
+  
+  <g transform="translate(100, 140)">
+    <g>
+      <rect width="70" height="70" rx="14.35" fill="url(#logo-gradient)" />
+      <g transform="scale(0.116667)">
+        <g transform="translate(149, 149) rotate(3, 151, 151)">
+          <svg width="302" height="302" viewBox="0 0 24 24" fill="#ffffff" fill-opacity="0.9" stroke="rgba(6, 6, 6, 1)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19 7-7 3 3-7 7-3-3z" />
+            <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+            <path d="m2 2 7.586 7.586" />
+            <circle cx="11" cy="11" r="2" />
+          </svg>
+        </g>
+      </g>
+    </g>
+    <text x="90" y="48" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#ffffff">SignResize<tspan fill="#eca0ff">.in</tspan></text>
+    
+    <text x="0" y="140" font-family="system-ui, sans-serif" font-size="52" font-weight="800" fill="#ffffff">
+      Online Signature Resizer &amp; Compressor
+    </text>
+    <text x="0" y="205" font-family="system-ui, sans-serif" font-size="34" font-weight="600" fill="#93c5fd">
+      Resize Signature to 10KB - 20KB &amp; Exact Dimensions in CM
+    </text>
+    <text x="0" y="270" font-family="system-ui, sans-serif" font-size="22" font-weight="400" fill="#94a3b8">
+      SSC • PAN Card (NSDL) • RRB • IBPS • UPSC • Thumb Impression
+    </text>
+    
+    <rect x="0" y="320" width="300" height="50" rx="12" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.5" />
+    <text x="150" y="352" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#34d399" text-anchor="middle">100% Client-Side &amp; Private</text>
+
+    <rect x="320" y="320" width="320" height="50" rx="12" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1.5" />
+    <text x="480" y="352" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#60a5fa" text-anchor="middle">Guaranteed 10-20 KB Target</text>
+  </g>
+</svg>

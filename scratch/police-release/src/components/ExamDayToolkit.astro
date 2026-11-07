@@ -1,0 +1,25 @@
+---
+const { lang = 'en' } = Astro.props;
+const copy = {
+  en: { eyebrow: 'FROM APPLICATION TO EXAM DAY', title: 'A little preparation. One less upload problem.', intro: 'Prepare your photos, handwritten declaration, and print sheet before opening the application portal.', actions: ['Name & date on photo', '8-photo print sheet', 'Handwritten declaration', 'Webcam pre-check'] },
+  hi: { eyebrow: 'आवेदन से परीक्षा के दिन तक', title: 'फोटो और दस्तावेज़ पहले से तैयार रखें।', intro: 'आवेदन पोर्टल खोलने से पहले फोटो, हस्तलिखित घोषणा और प्रिंट शीट तैयार करें।', actions: ['फोटो पर नाम और तारीख', '8 फोटो की प्रिंट शीट', 'हस्तलिखित घोषणा', 'वेबकैम जाँच'] },
+  mr: { eyebrow: 'अर्जापासून परीक्षेच्या दिवसापर्यंत', title: 'फोटो आणि कागदपत्रे आधीच तयार ठेवा.', intro: 'MPSC, महा TET, MH SET, पोलीस भरती आणि तलाठी अर्जासाठी संबंधित जाहिरातीतील फोटो व सहीचे नियम तपासा.', actions: ['फोटोवर नाव आणि तारीख', '8 फोटोची प्रिंट शीट', 'हस्तलिखित घोषणापत्र', 'वेबकॅम तपासणी'] },
+};
+const text = copy[lang as keyof typeof copy] || copy.en;
+const descriptions = lang === 'hi'
+  ? ['नाम और फोटो की तारीख जोड़ें। 20–50 KB JPG डाउनलोड करें।', '6 × 4 इंच शीट पर आठ 35 × 45 mm फोटो तैयार करें।', 'अधिसूचना का सही पाठ और अपना हस्तलिखित स्कैन जाँचें।', 'कैमरा, रोशनी और चेहरे की स्थिति अपने डिवाइस पर जाँचें।']
+  : lang === 'mr'
+  ? ['नाव आणि फोटोची तारीख जोडा. 20–50 KB JPG डाउनलोड करा.', '6 × 4 इंच शीटवर आठ 35 × 45 mm फोटो तयार करा.', 'जाहिरातीतील अचूक मजकूर आणि हस्तलिखित स्कॅन तपासा.', 'कॅमेरा, प्रकाश आणि चेहऱ्याची स्थिती आपल्या डिव्हाइसवर तपासा.']
+  : null;
+const tools = [
+  { href: '/photo-with-name-and-date-maker/', icon: 'Aa', desc: 'Add a neat white name strip. Export a 20–50 KB JPG.' },
+  { href: '/admit-card-photo-print-sheet/', icon: '▦', desc: 'Arrange eight 35 × 45 mm photos on a 4 × 6 inch sheet.' },
+  { href: '/handwritten-declaration-resizer/', icon: '✎', desc: 'Copy the required wording, check your scan, then resize.' },
+  { href: '/live-webcam-photo-checker/', icon: '◎', desc: 'Check camera access, lighting, and framing on your device.' },
+];
+---
+<section id="exam-day-toolkit" class="rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/5 via-card to-card p-5 sm:p-7 space-y-5">
+  <div class="flex flex-wrap items-end justify-between gap-4"><div class="space-y-2 max-w-2xl"><p class="text-[10px] font-bold tracking-[0.2em] text-primary">{text.eyebrow}</p><h2 class="text-xl sm:text-2xl font-extrabold tracking-tight">{text.title}</h2><p class="text-sm text-muted-foreground">{text.intro}</p></div><span class="text-xs text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 rounded-full px-3 py-1">Private by design</span></div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">{tools.map((tool, i) => <a href={tool.href} class="group rounded-2xl bg-background border border-border p-4 hover:border-primary/50 hover:shadow-md transition space-y-3"><span class="inline-flex h-9 w-9 items-center justify-center bg-primary/10 text-primary rounded-xl font-bold text-lg">{tool.icon}</span><h3 class="text-sm font-bold group-hover:text-primary">{text.actions[i]} <span aria-hidden="true">↗</span></h3><p class="text-xs leading-relaxed text-muted-foreground">{descriptions?.[i] || tool.desc}</p></a>)}</div>
+  {lang === 'mr' && <div class="flex flex-wrap gap-3 text-xs font-semibold text-primary"><a href="/mpsc-signature-resize/">MPSC फोटो आणि सही</a><a href="/state-tet-signature-resize/">महा TET / MH SET</a><a href="/maharashtra-police-signature-resize/">पोलीस भरती</a></div>}
+</section>

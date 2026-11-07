@@ -1,0 +1,32 @@
+
+--- PDF PAGE 1 ---
+VARIOUS EXAMPLES FOR DOCUMENT VERIFICATION AT STAGE-I
+Name E- admit Name in ID ID Card ID Card No. on ICG decision
+card Card the ID card
+number in E-
+proof
+admit card
+Akshay Vijay Akshay Vijay Aadhaar - Aadhaar - Allowed
+Shinde Shinde
+123456789147 123456789147
+Akshay Vijay Shinde Akshay Aadhaar - Aadhaar - Allowed (as few
+Shinde Vijay
+123456789147 123456789147 states writes
+surname first)
+Akshay Vijay Akshay Vijay Aadhaar – PAN - Not Allowed
+Shinde Shinde
+ABCDE1234F ABCDE1234F (False
+information
+about ID card)
+Akshay Vijay Akshay Vijay PAN - PAN - Not Allowed
+Shinde Side
+ABCDE1234F ABCDE1234F (not acceptable
+due to name
+mismatch in ID
+card)
+Akshay Shinde Akshay Vijay PAN - PAN - Not Allowed
+Shinde
+ABCDE1234F ABCDE1234F (not acceptable
+due to name
+mismatch in
+ID card)

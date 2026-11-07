@@ -1,0 +1,667 @@
+import type {
+  UnitType,
+  OutputFormat,
+  CropArea,
+  FilterOptions,
+  ProcessedImageResult,
+} from '../types';
+
+/**
+ * Converts length between pixels and real-world print units (cm, mm, in) at a given DPI.
+ */
+export function convertUnits(
+  val: number,
+  from: UnitType,
+  to: UnitType,
+  dpi: number = 200
+): number {
+  if (from === to) return val;
+
+  // Convert `from` unit to inches first
+  let inches = 0;
+  switch (from) {
+    case 'in':
+      inches = val;
+      break;
+    case 'cm':
+      inches = val / 2.54;
+      break;
+    case 'mm':
+      inches = val / 25.4;
+      break;
+    case 'px':
+      inches = val / dpi;
+      break;
+  }
+
+  // Convert inches to `to` unit
+  switch (to) {
+    case 'in':
+      return Number(inches.toFixed(3));
+    case 'cm':
+      return Number((inches * 2.54).toFixed(2));
+    case 'mm':
+      return Number((inches * 25.4).toFixed(1));
+    case 'px':
+      return Math.round(inches * dpi);
+  }
+}
+
+/**
+ * Formats byte size into human readable string (KB or MB)
+ */
+export function formatFileSize(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  const kb = bytes / 1024;
+  if (kb < 1024) return `${kb.toFixed(1)} KB`;
+  return `${(kb / 1024).toFixed(2)} MB`;
+}
+
+/**
+ * Smart Paper Cleaner & Contrast Filter
+ * Eliminates smartphone paper yellowing/shadows while keeping ink razor-sharp.
+ */
+export function applySignatureFilters(
+  ctx: CanvasRenderingContext2D,
+  width: number,
+  height: number,
+  filters: FilterOptions
+): void {
+  const { cleanPaper, brightness, contrast, blackAndWhite } = filters;
+
+  // ⚡ Bypass completely if all filters are default
+  if (!cleanPaper && brightness === 0 && contrast === 0 && !blackAndWhite) {
+    return;
+  }
+
+  const imgData = ctx.getImageData(0, 0, width, height);
+  const data = imgData.data;
+
+  // Precompute 256-byte Lookup Table (LUT) for brightness & contrast (O(1) lookups)
+  const hasAdjustments = brightness !== 0 || contrast !== 0;
+  let lut: Uint8Array | null = null;
+  if (hasAdjustments) {
+    lut = new Uint8Array(256);
+    const contrastFactor = (259 * (contrast + 255)) / (255 * (259 - contrast));
+    const brightnessOffset = (brightness / 50) * 128;
+    for (let i = 0; i < 256; i++) {
+      let v = i;
+      if (brightness !== 0) v = Math.min(255, Math.max(0, v + brightnessOffset));
+      if (contrast !== 0) v = Math.min(255, Math.max(0, contrastFactor * (v - 128) + 128));
+      lut[i] = v | 0;
+    }
+  }
+
+  for (let i = 0; i < data.length; i += 4) {
+    let r = lut ? lut[data[i]] : data[i];
+    let g = lut ? lut[data[i + 1]] : data[i + 1];
+    let b = lut ? lut[data[i + 2]] : data[i + 2];
+
+    // Fast integer luminance approximation of Rec. 709 (0.2126*R + 0.7152*G + 0.0722*B)
+    const lum = (r * 54 + g * 183 + b * 19) >> 8;
+
+    // 2. Clean Paper Algorithm (bitwise integer blending)
+    if (cleanPaper) {
+      if (lum > 155) {
+        const blend = (lum - 155) / 100;
+        r = Math.min(255, (r + (255 - r) * blend) | 0);
+        g = Math.min(255, (g + (255 - g) * blend) | 0);
+        b = Math.min(255, (b + (255 - b) * blend) | 0);
+      } else {
+        r = (r * 217) >> 8; // approx * 0.85
+        g = (g * 217) >> 8;
+        b = (b * 217) >> 8;
+      }
+    }
+
+    // 3. Black and White Monochrome
+    if (blackAndWhite) {
+      const bwLum = (r * 77 + g * 150 + b * 29) >> 8;
+      const val = bwLum > 160 ? 255 : (bwLum * 179) >> 8;
+      r = val;
+      g = val;
+      b = val;
+    }
+
+    data[i] = r;
+    data[i + 1] = g;
+    data[i + 2] = b;
+  }
+
+  ctx.putImageData(imgData, 0, 0);
+}
+
+/**
+ * Draws the transformed crop directly at the requested output size.
+ * Avoids retaining an extra full-resolution bitmap for large uploads.
+ */
+export function renderProcessedCanvas(
+  sourceImage: HTMLImageElement | CanvasImageSource,
+  sourceNaturalWidth: number,
+  sourceNaturalHeight: number,
+  crop: CropArea,
+  targetWidth: number,
+  targetHeight: number,
+  rotation: number = 0,
+  flipH: boolean = false,
+  flipV: boolean = false,
+  filters: FilterOptions
+): HTMLCanvasElement {
+  const is90or270 = rotation === 90 || rotation === 270;
+  const intermediateW = is90or270 ? sourceNaturalHeight : sourceNaturalWidth;
+  const intermediateH = is90or270 ? sourceNaturalWidth : sourceNaturalHeight;
+
+  const outputCanvas = document.createElement('canvas');
+  outputCanvas.width = targetWidth;
+  outputCanvas.height = targetHeight;
+  const outCtx = outputCanvas.getContext('2d', { willReadFrequently: true });
+  if (!outCtx) throw new Error('Canvas 2D context unavailable');
+
+  outCtx.fillStyle = '#FFFFFF';
+  outCtx.fillRect(0, 0, targetWidth, targetHeight);
+
+  outCtx.imageSmoothingEnabled = true;
+  outCtx.imageSmoothingQuality = 'high';
+
+  // Draw cropped section stretched to target dimensions with clamped coordinates
+  const safeCropX = Math.max(0, Math.min(intermediateW - 1, crop.x));
+  const safeCropY = Math.max(0, Math.min(intermediateH - 1, crop.y));
+  const safeCropW = Math.max(1, Math.min(intermediateW - safeCropX, crop.width));
+  const safeCropH = Math.max(1, Math.min(intermediateH - safeCropY, crop.height));
+
+  outCtx.save();
+  outCtx.scale(targetWidth / safeCropW, targetHeight / safeCropH);
+  outCtx.translate(intermediateW / 2 - safeCropX, intermediateH / 2 - safeCropY);
+  outCtx.rotate((rotation * Math.PI) / 180);
+  outCtx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+  outCtx.drawImage(
+    sourceImage,
+    -sourceNaturalWidth / 2,
+    -sourceNaturalHeight / 2,
+    sourceNaturalWidth,
+    sourceNaturalHeight
+  );
+  outCtx.restore();
+
+  // Step 3: Apply filter enhancements
+  applySignatureFilters(outCtx, targetWidth, targetHeight, filters);
+
+  return outputCanvas;
+}
+
+/**
+ * Smart Auto-Fit: Detects signature ink pixels on unruled paper
+ * Returns tight bounding box with comfortable padding so candidate doesn't need to manually hunt for signature boundaries.
+ */
+export function detectSignatureBoundingBox(
+  sourceImage: HTMLImageElement,
+  naturalW: number,
+  naturalH: number,
+  rotation: number = 0,
+  flipH: boolean = false,
+  flipV: boolean = false,
+  paddingPercent: number = 0.12
+): CropArea {
+  const is90or270 = rotation === 90 || rotation === 270;
+  const currentW = is90or270 ? naturalH : naturalW;
+  const currentH = is90or270 ? naturalW : naturalH;
+
+  // Downsample to max 500px dimension for ultra-fast scanning (< 3ms)
+  const scale = Math.min(1, 500 / Math.max(currentW, currentH));
+  const scanW = Math.max(50, Math.round(currentW * scale));
+  const scanH = Math.max(50, Math.round(currentH * scale));
+
+  const canvas = document.createElement('canvas');
+  canvas.width = scanW;
+  canvas.height = scanH;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    return { x: 0, y: 0, width: currentW, height: currentH };
+  }
+
+  // Draw rotated/flipped
+  const rotRad = (rotation * Math.PI) / 180;
+  ctx.save();
+  ctx.translate(scanW / 2, scanH / 2);
+  ctx.rotate(rotRad);
+  ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+  ctx.drawImage(
+    sourceImage,
+    (-naturalW * scale) / 2,
+    (-naturalH * scale) / 2,
+    naturalW * scale,
+    naturalH * scale
+  );
+  ctx.restore();
+
+  const imgData = ctx.getImageData(0, 0, scanW, scanH);
+  const data = imgData.data;
+
+  let minX = scanW;
+  let maxX = 0;
+  let minY = scanH;
+  let maxY = 0;
+  let darkPixelCount = 0;
+
+  // Scan for pixels noticeably darker than white paper background (luminance < 205)
+  for (let y = 0; y < scanH; y++) {
+    for (let x = 0; x < scanW; x++) {
+      const idx = (y * scanW + x) * 4;
+      const r = data[idx];
+      const g = data[idx + 1];
+      const b = data[idx + 2];
+      const a = data[idx + 3];
+
+      if (a > 50) {
+        const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+        if (lum < 205) {
+          darkPixelCount++;
+          if (x < minX) minX = x;
+          if (x > maxX) maxX = x;
+          if (y < minY) minY = y;
+          if (y > maxY) maxY = y;
+        }
+      }
+    }
+  }
+
+  // Fallback if no signature detected (blank sheet or low contrast)
+  if (darkPixelCount < 15 || minX >= maxX || minY >= maxY) {
+    return {
+      x: Math.round(currentW * 0.05),
+      y: Math.round(currentH * 0.1),
+      width: Math.round(currentW * 0.9),
+      height: Math.round(currentH * 0.8)
+    };
+  }
+
+  // Convert back to natural coordinates
+  const origMinX = minX / scale;
+  const origMaxX = maxX / scale;
+  const origMinY = minY / scale;
+  const origMaxY = maxY / scale;
+
+  const rawW = origMaxX - origMinX;
+  const rawH = origMaxY - origMinY;
+
+  // Apply padding around detected ink
+  const padX = rawW * paddingPercent;
+  const padY = rawH * paddingPercent;
+
+  const cropX = Math.max(0, Math.floor(origMinX - padX));
+  const cropY = Math.max(0, Math.floor(origMinY - padY));
+  const cropW = Math.min(currentW - cropX, Math.ceil(rawW + padX * 2));
+  const cropH = Math.min(currentH - cropY, Math.ceil(rawH + padY * 2));
+
+  return {
+    x: cropX,
+    y: cropY,
+    width: Math.max(20, cropW),
+    height: Math.max(20, cropH)
+  };
+}
+
+/**
+ * Renders Candidate Name and Date of Photo (DoP) onto canvas bottom strip.
+ * Strictly required by SSC, UPPSC, NEET, and BPSC guidelines.
+ */
+export function applyNameAndDateStamp(
+  canvas: HTMLCanvasElement,
+  candidateName: string,
+  dateOfPhoto: string
+): void {
+  if (!candidateName.trim() && !dateOfPhoto.trim()) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const w = canvas.width;
+  const h = canvas.height;
+
+  // Banner height: approx 16-20% of image height
+  const bannerH = Math.max(26, Math.round(h * 0.18));
+  const bannerY = h - bannerH;
+
+  // Solid white banner with crisp top border
+  ctx.fillStyle = '#FFFFFF';
+  ctx.fillRect(0, bannerY, w, bannerH);
+  ctx.strokeStyle = '#1e293b';
+  ctx.lineWidth = Math.max(1, Math.round(h * 0.003));
+  ctx.beginPath();
+  ctx.moveTo(0, bannerY);
+  ctx.lineTo(w, bannerY);
+  ctx.stroke();
+
+  // Typography
+  ctx.fillStyle = '#000000';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  const hasBoth = Boolean(candidateName.trim() && dateOfPhoto.trim());
+  const fontSize = Math.max(9, Math.round(bannerH * (hasBoth ? 0.36 : 0.55)));
+  ctx.font = `bold ${fontSize}px sans-serif`;
+
+  if (hasBoth) {
+    ctx.fillText(candidateName.trim().toUpperCase(), w / 2, bannerY + bannerH * 0.32, w * 0.94);
+    ctx.font = `600 ${Math.max(8, fontSize - 1)}px monospace`;
+    ctx.fillText(`DOP: ${dateOfPhoto.trim()}`, w / 2, bannerY + bannerH * 0.72, w * 0.94);
+  } else {
+    const text = candidateName.trim() ? candidateName.trim().toUpperCase() : `DOP: ${dateOfPhoto.trim()}`;
+    ctx.fillText(text, w / 2, bannerY + bannerH * 0.5, w * 0.94);
+  }
+}
+
+/**
+ * Enhanced document scan filter for marksheets, caste certificates, and documents.
+ * Boosts text clarity, removes phone shadows, and sharpens print characters.
+ */
+export function applyDocumentFilters(
+  ctx: CanvasRenderingContext2D,
+  width: number,
+  height: number,
+  contrastBoost: number = 25
+): void {
+  const imgData = ctx.getImageData(0, 0, width, height);
+  const data = imgData.data;
+  const factor = (259 * (contrastBoost + 255)) / (255 * (259 - contrastBoost));
+  const lut = new Uint8Array(256);
+  for (let i = 0; i < 256; i++) {
+    lut[i] = Math.min(255, Math.max(0, factor * (i - 128) + 128)) | 0;
+  }
+
+  for (let i = 0; i < data.length; i += 4) {
+    let r = lut[data[i]];
+    let g = lut[data[i + 1]];
+    let b = lut[data[i + 2]];
+
+    // Integer luminance
+    const lum = (r * 77 + g * 150 + b * 29) >> 8;
+    if (lum > 175) {
+      const boost = ((lum - 175) * 40) >> 6; // fast bitshift approximation of / 80 * 40
+      r = Math.min(255, r + boost);
+      g = Math.min(255, g + boost);
+      b = Math.min(255, b + boost);
+    } else if (lum < 110) {
+      r = (r * 225) >> 8; // approx * 0.88
+      g = (g * 225) >> 8;
+      b = (b * 225) >> 8;
+    }
+
+    data[i] = r;
+    data[i + 1] = g;
+    data[i + 2] = b;
+  }
+  ctx.putImageData(imgData, 0, 0);
+}
+
+/**
+ * Encodes at the highest quality first, then searches lower qualities if needed.
+ * Optional dimension reduction limits work for large images. JPEG comments can
+ * meet minimum file sizes without encoding the same pixels again.
+ */
+export async function compressCanvasToTargetSize(
+  canvas: HTMLCanvasElement,
+  format: OutputFormat,
+  minKb: number,
+  maxKb: number,
+  targetKb?: number,
+  preserveDimensions = false,
+  targetDpi: number = 200
+): Promise<ProcessedImageResult> {
+  const desiredKb = targetKb || (minKb + maxKb) / 2;
+  const mimeType = format;
+
+  // 1. Lossless PNG special path
+  if (mimeType === 'image/png') {
+    const blob = await new Promise<Blob>((resolve) =>
+      canvas.toBlob((b) => resolve(b || new Blob()), 'image/png')
+    );
+    const sizeBytes = blob.size;
+    const sizeKb = Number((sizeBytes / 1024).toFixed(2));
+    return {
+      blob,
+      dataUrl: URL.createObjectURL(blob),
+      width: canvas.width,
+      height: canvas.height,
+      sizeBytes,
+      sizeKb,
+      format: 'PNG',
+      withinTargetBounds: sizeBytes >= minKb * 1024 && sizeBytes <= maxKb * 1024,
+    };
+  }
+
+  // 2. Ultra-Fast Dimension Capping
+  // When target is small (e.g. 20KB-100KB), working on a 4000x3000 canvas is 25x slower and mathematically impossible to reach 20KB.
+  let maxAllowedDim = 2048;
+  if (desiredKb <= 25) maxAllowedDim = 900;
+  else if (desiredKb <= 60) maxAllowedDim = 1280;
+  else if (desiredKb <= 120) maxAllowedDim = 1600;
+  else if (desiredKb <= 250) maxAllowedDim = 1920;
+
+  let workCanvas = canvas;
+  const curMaxDim = Math.max(canvas.width, canvas.height);
+  if (!preserveDimensions && curMaxDim > maxAllowedDim) {
+    const scale = maxAllowedDim / curMaxDim;
+    const scaledCanvas = document.createElement('canvas');
+    scaledCanvas.width = Math.max(20, Math.round(canvas.width * scale));
+    scaledCanvas.height = Math.max(20, Math.round(canvas.height * scale));
+    const sCtx = scaledCanvas.getContext('2d');
+    if (sCtx) {
+      sCtx.imageSmoothingEnabled = true;
+      sCtx.imageSmoothingQuality = 'high';
+      sCtx.drawImage(canvas, 0, 0, scaledCanvas.width, scaledCanvas.height);
+      workCanvas = scaledCanvas;
+    }
+  }
+
+  // Try maximum quality first. Most preset-sized images already fit in one encode.
+  let low = 0.08;
+  let high = 0.98;
+  let currentQuality = high;
+  let bestBlob: Blob | null = null;
+  let bestDiff = Infinity;
+
+  for (let iter = 0; iter < 4; iter++) {
+    const testBlob = await new Promise<Blob>((resolve) =>
+      workCanvas.toBlob((b) => resolve(b || new Blob()), mimeType, currentQuality)
+    );
+
+    const testKb = testBlob.size / 1024;
+    const diff = Math.abs(testKb - desiredKb);
+
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      bestBlob = testBlob;
+    }
+
+    // Stop once compliant. An undersized maximum-quality JPEG needs padding,
+    // not three more encodes that can only make it smaller.
+    if ((testKb >= minKb && testKb <= maxKb) ||
+        (iter === 0 && testKb < minKb && mimeType === 'image/jpeg')) {
+      bestBlob = testBlob;
+      break;
+    }
+
+    if (testKb > desiredKb) {
+      high = currentQuality;
+    } else {
+      low = currentQuality;
+    }
+
+    currentQuality = (low + high) / 2;
+  }
+
+  // 4. Fallback if lowest quality still exceeds maxKb
+  if (!preserveDimensions && bestBlob && bestBlob.size / 1024 > maxKb * 1.05 && workCanvas.width > 60 && workCanvas.height > 60) {
+    const currentKb = bestBlob.size / 1024;
+    const resizeScale = Math.max(0.25, Math.min(0.92, Math.sqrt(desiredKb / currentKb) * 0.96));
+    const downCanvas = document.createElement('canvas');
+    downCanvas.width = Math.max(30, Math.round(workCanvas.width * resizeScale));
+    downCanvas.height = Math.max(30, Math.round(workCanvas.height * resizeScale));
+    const dCtx = downCanvas.getContext('2d');
+    if (dCtx) {
+      dCtx.imageSmoothingEnabled = true;
+      dCtx.imageSmoothingQuality = 'high';
+      dCtx.drawImage(workCanvas, 0, 0, downCanvas.width, downCanvas.height);
+      workCanvas = downCanvas;
+
+      const downBlob = await new Promise<Blob>((resolve) =>
+        downCanvas.toBlob((b) => resolve(b || new Blob()), mimeType, 0.75)
+      );
+      if (downBlob) {
+        bestBlob = downBlob;
+      }
+    }
+  }
+
+  if (!bestBlob) {
+    bestBlob = await new Promise<Blob>((resolve) =>
+      workCanvas.toBlob((b) => resolve(b || new Blob()), mimeType, 0.8)
+    );
+  }
+
+  let finalBlob = bestBlob;
+  let finalKb = finalBlob.size / 1024;
+
+  // 5. Safe JPEG Comment Padding if below minKb
+  if (finalKb < minKb && mimeType === 'image/jpeg') {
+    const bytesNeeded = Math.ceil(minKb * 1024) - finalBlob.size;
+    if (bytesNeeded > 0) {
+      finalBlob = await padJpegWithComments(finalBlob, bytesNeeded);
+      finalKb = finalBlob.size / 1024;
+    }
+  }
+
+  // 6. Embed standard JFIF DPI resolution header for NSDL / UTIITSL / government portal scanners
+  if (mimeType === 'image/jpeg' && targetDpi > 0) {
+    finalBlob = await setJpegDpi(finalBlob, targetDpi);
+  }
+
+  const finalSizeBytes = finalBlob.size;
+  const roundedKb = Number((finalSizeBytes / 1024).toFixed(2));
+  const dataUrl = URL.createObjectURL(finalBlob);
+
+  return {
+    blob: finalBlob,
+    dataUrl,
+    width: workCanvas.width,
+    height: workCanvas.height,
+    sizeBytes: finalSizeBytes,
+    sizeKb: roundedKb,
+    format: mimeType === 'image/jpeg' ? 'JPG' : 'WebP',
+    withinTargetBounds: finalSizeBytes >= minKb * 1024 && finalSizeBytes <= maxKb * 1024,
+  };
+}
+
+/**
+ * Sets or injects the standard JFIF APP0 (0xFFE0) resolution header to specify exact DPI
+ * (Dots Per Inch) in the JPEG binary stream. This ensures Windows property inspector,
+ * Photoshop, and strict government application upload validators (NSDL 200 DPI, UTIITSL 300/600 DPI)
+ * detect the exact required resolution.
+ */
+export async function setJpegDpi(jpegBlob: Blob, dpi: number = 200): Promise<Blob> {
+  if (dpi <= 0) return jpegBlob;
+  try {
+    const arrayBuffer = await jpegBlob.arrayBuffer();
+    const bytes = new Uint8Array(arrayBuffer);
+
+    // Verify JPEG SOI marker (0xFF, 0xD8)
+    if (bytes[0] !== 0xff || bytes[1] !== 0xd8) {
+      return jpegBlob;
+    }
+
+    const dpiVal = Math.round(dpi);
+
+    // Check if an APP0 (0xFFE0) JFIF marker already exists immediately after SOI
+    if (bytes[2] === 0xff && bytes[3] === 0xe0) {
+      // Check for 'JFIF\0' at offset 6..10
+      if (
+        bytes[6] === 0x4a && // 'J'
+        bytes[7] === 0x46 && // 'F'
+        bytes[8] === 0x49 && // 'I'
+        bytes[9] === 0x46 && // 'F'
+        bytes[10] === 0x00
+      ) {
+        // Offset 13: Density units (1 = dots per inch)
+        bytes[13] = 1;
+        // Offset 14, 15: Xdensity (16-bit big-endian)
+        bytes[14] = (dpiVal >> 8) & 0xff;
+        bytes[15] = dpiVal & 0xff;
+        // Offset 16, 17: Ydensity (16-bit big-endian)
+        bytes[16] = (dpiVal >> 8) & 0xff;
+        bytes[17] = dpiVal & 0xff;
+        return new Blob([bytes], { type: 'image/jpeg' });
+      }
+    }
+
+    // If no APP0 marker exists, construct an 18-byte JFIF APP0 segment:
+    // [0xFF, 0xE0, length(16)=0x00, 0x10, 'J', 'F', 'I', 'F', 0x00, ver_hi=1, ver_lo=2, units=1, dpiX_hi, dpiX_lo, dpiY_hi, dpiY_lo, 0, 0]
+    const jfifSegment = new Uint8Array([
+      0xff, 0xe0,
+      0x00, 0x10,
+      0x4a, 0x46, 0x49, 0x46, 0x00, // JFIF\0
+      0x01, 0x02,                   // Version 1.02
+      0x01,                         // Units: 1 = dots per inch (DPI)
+      (dpiVal >> 8) & 0xff, dpiVal & 0xff, // Xdensity
+      (dpiVal >> 8) & 0xff, dpiVal & 0xff, // Ydensity
+      0x00, 0x00                    // No thumbnail
+    ]);
+
+    // Insert jfifSegment right after SOI (offset 2)
+    const parts: BlobPart[] = [
+      bytes.slice(0, 2),
+      jfifSegment,
+      bytes.slice(2)
+    ];
+    return new Blob(parts, { type: 'image/jpeg' });
+  } catch (err) {
+    console.warn('Failed to embed DPI in JPEG:', err);
+    return jpegBlob;
+  }
+}
+
+/**
+ * Adds JPEG COM segments to meet a minimum size without changing image pixels.
+ */
+async function padJpegWithComments(jpegBlob: Blob, extraBytes: number): Promise<Blob> {
+  try {
+    const arrayBuffer = await jpegBlob.arrayBuffer();
+    const bytes = new Uint8Array(arrayBuffer);
+
+    // Verify JPEG SOI marker (0xFF, 0xD8)
+    if (bytes[0] !== 0xff || bytes[1] !== 0xd8) {
+      return jpegBlob;
+    }
+
+    // Insert COM segment safely AFTER any existing APP0 (JFIF) or APPn markers
+    // This preserves standard JFIF SOI+APP0 structure required by browser decoders
+    let insertPos = 2; // Default position right after SOI
+    while (insertPos + 4 < bytes.length && bytes[insertPos] === 0xff) {
+      const marker = bytes[insertPos + 1];
+      if ((marker >= 0xe0 && marker <= 0xef) || marker === 0xfe) {
+        const segLen = (bytes[insertPos + 2] << 8) | bytes[insertPos + 3];
+        insertPos += 2 + segLen;
+      } else {
+        break;
+      }
+    }
+
+    const parts: BlobPart[] = [jpegBlob.slice(0, insertPos)];
+    let remaining = Math.max(4, extraBytes);
+    while (remaining > 0) {
+      // A segment has a four-byte header and a 16-bit length including two
+      // length bytes. Leave enough room for the next header when splitting.
+      let segmentSize = Math.min(remaining, 65537);
+      if (remaining > segmentSize && remaining - segmentSize < 4) segmentSize -= 4;
+      const payload = new Uint8Array(segmentSize - 4);
+      payload.fill(32);
+      const length = payload.length + 2;
+      parts.push(new Uint8Array([0xff, 0xfe, length >> 8, length & 0xff]), payload);
+      remaining -= segmentSize;
+    }
+    parts.push(jpegBlob.slice(insertPos));
+    return new Blob(parts, { type: 'image/jpeg' });
+  } catch (e) {
+    console.warn('Could not pad JPEG, using original blob', e);
+    return jpegBlob;
+  }
+}

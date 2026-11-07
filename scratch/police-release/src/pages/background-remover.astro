@@ -1,0 +1,10 @@
+---
+import UtilityPage from '../layouts/UtilityPage.astro';
+import BackgroundRemoverTool from '../components/BackgroundRemoverTool';
+import BackgroundGuideContent from '../components/BackgroundGuideContent.astro';
+---
+<UtilityPage title="Signature Background Remover – Transparent PNG or White JPG" heading="Remove Background from Your Signature" description="Clean paper shadows from a handwritten signature. Download a transparent PNG for documents or a white JPG for forms, then continue to resizing when you need dimensions or a KB limit." eyebrow="SIGNATURE CLEANUP" bodyClass="bg-remover-page" compactIntro analytics>
+  <nav class="background-nav" aria-label="Background tools"><a href="/photo-background-remover/">Photo background remover</a><a href="/make-signature-background-white/">Make signature background white</a><a href="/#tool-workspace">Signature resizer</a></nav>
+  <BackgroundRemoverTool client:load />
+  <BackgroundGuideContent kind="signature" />
+</UtilityPage>

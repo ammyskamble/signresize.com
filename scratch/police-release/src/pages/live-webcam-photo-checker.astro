@@ -1,0 +1,8 @@
+---
+import UtilityPage from '../layouts/UtilityPage.astro';
+import { WebcamChecker } from '../components/WebcamChecker';
+---
+<UtilityPage title="Live Webcam Photo Pre-Check" description="Test camera access, lighting, and face framing before using an exam portal. Your preview stays on your device; no photos, audio, or video are recorded.">
+  <WebcamChecker client:load />
+  <p class="rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground">This practice check cannot certify acceptance by SSC, BPSC, UPPSC, or another portal. Complete the actual live capture in the official application. A saved photo or this preview cannot replace it.</p>
+</UtilityPage>

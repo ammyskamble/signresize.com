@@ -1,0 +1,58 @@
+{
+  "reviewDate": "2026-10-17",
+  "scope": "Photo background removal query-page baseline",
+  "result": {
+    "siteUrl": "sc-domain:signresize.in",
+    "startDate": "2026-09-17",
+    "endDate": "2026-10-14",
+    "dimensions": [
+      "query",
+      "page"
+    ],
+    "searchType": "web",
+    "rowCount": 2,
+    "rows": [
+      {
+        "keys": [
+          "tnpsc photo white background change",
+          "https://signresize.in/mp-police-photo-resize/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "tnpsc photo white background change",
+          "https://signresize.in/neet-photo-resize/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      }
+    ],
+    "pagination": {
+      "limit": 100,
+      "offset": 0,
+      "returned": 2,
+      "hasMore": false,
+      "note": "Showing all 2 rows."
+    },
+    "dataSource": "api",
+    "settledThrough": "2026-10-14",
+    "dataMaturity": {
+      "firstIncompleteDate": "2026-10-15",
+      "settledThrough": "2026-10-14",
+      "dateBasis": "America/Los_Angeles",
+      "source": "gsc-api-metadata",
+      "probe": {
+        "searchType": "web",
+        "startDate": "2026-10-08",
+        "endDate": "2026-10-17",
+        "dataState": "all"
+      }
+    }
+  }
+}

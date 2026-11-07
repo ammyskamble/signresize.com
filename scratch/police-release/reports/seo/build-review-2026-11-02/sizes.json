@@ -1,0 +1,58 @@
+[
+  {
+    "path": "/",
+    "bytes": 441313,
+    "gzipBytes": 80607,
+    "afterBytes": 371021,
+    "afterGzipBytes": 66488
+  },
+  {
+    "path": "/photo-resizer",
+    "bytes": 242938,
+    "gzipBytes": 41452,
+    "afterBytes": 235846,
+    "afterGzipBytes": 40129
+  },
+  {
+    "path": "/resize-signature-to-10kb-20kb",
+    "bytes": 249491,
+    "gzipBytes": 43792,
+    "afterBytes": 239920,
+    "afterGzipBytes": 41784
+  },
+  {
+    "path": "/wbpsc-signature-resize",
+    "bytes": 262249,
+    "gzipBytes": 46067,
+    "afterBytes": 261227,
+    "afterGzipBytes": 45932
+  },
+  {
+    "path": "/bpsc-signature-resize",
+    "bytes": 259530,
+    "gzipBytes": 45764,
+    "afterBytes": 258508,
+    "afterGzipBytes": 45614
+  },
+  {
+    "path": "/indian-coast-guard-signature-resize",
+    "bytes": 244440,
+    "gzipBytes": 43618,
+    "afterBytes": 243418,
+    "afterGzipBytes": 43477
+  },
+  {
+    "path": "/iit-jam-signature-resize",
+    "bytes": 256020,
+    "gzipBytes": 45123,
+    "afterBytes": 254998,
+    "afterGzipBytes": 44978
+  },
+  {
+    "path": "/rrb-ntpc-signature-resize",
+    "bytes": 256777,
+    "gzipBytes": 45353,
+    "afterBytes": 255755,
+    "afterGzipBytes": 45207
+  }
+]

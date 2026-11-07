@@ -1,0 +1,314 @@
+---
+// src/pages/us/nclex-photo-resizer.astro
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import { SignatureTool } from '../../components/SignatureTool';
+import FaqSection from '../../components/FaqSection.astro';
+import Footer from '../../components/Footer.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import GoogleFonts from '../../components/GoogleFonts.astro';
+import ThemeScript from '../../components/ThemeScript.astro';
+import USToolSwitcher from '../../components/USToolSwitcher.astro';
+
+const pageTitle = "NCLEX Nursing Exam Candidate Photo Resizer (600x600 px) - SignResize";
+const pageDescription = "Free online NCLEX candidate photo resizer for NCLEX-RN and NCLEX-PN nursing licensure registration. Crop and resize portrait photos to 2x2 inches (600x600 pixels) under 240 KB with pure white background for Pearson VUE Authorization to Test (ATT).";
+const canonicalUrl = "https://signresize.in/us/nclex-photo-resizer/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "nclex photo requirements, pearson vue nursing photo upload, nclex rn att photo resizer, state board of nursing photo size, nclex pn candidate photo, nursing license photo 2x2 white background";
+
+const nclexFaqs = [
+  {
+    q: "What are the official photo requirements for NCLEX-RN and NCLEX-PN registration?",
+    a: "Your candidate photo must be a square aspect ratio (1:1), measuring 2×2 inches (600×600 pixels at 300 DPI), under 240 KB in JPEG format, taken within the last 6 months in front of a plain white or off-white background. Your head must occupy between 50% and 69% of the total image height (1 to 1 3/8 inches from chin to hair top)."
+  },
+  {
+    q: "Why do Pearson VUE and State Boards of Nursing reject candidate photos?",
+    a: "Common reasons for rejection include colored or textured backgrounds (e.g. hospital corridors or patterned wallpaper), wearing nursing scrubs, lab coats, or uniforms, wearing eyeglasses, head tilted or looking away, shadows on the face or wall, and files exceeding the portal KB limit. SignResize features a built-in White Background Remover to ensure compliance."
+  },
+  {
+    q: "Can I wear nursing scrubs or a stethoscope in my NCLEX photo?",
+    a: "No. State licensing boards and testing centers prohibit uniforms, medical scrubs, lab coats, and visible accessories like stethoscopes in candidate identification photos. Wear standard everyday street clothing with a contrasting color to the white background."
+  },
+  {
+    q: "Are prescription eyeglasses permitted in the NCLEX test photo?",
+    a: "No. In accordance with Pearson VUE and federal biometric standards, eyeglasses must be removed for candidate photos to avoid glare, reflections, and frames obstructing the eyes, even if you wear glasses daily during clinical practice."
+  },
+  {
+    q: "When do I need to submit my photo during the NCLEX licensure process?",
+    a: "Depending on your state (e.g., California BRN, New York State Education Dept, Texas BON, Florida Board of Nursing), you must upload a compliant 2×2 passport-style photo when filing your initial Application for Licensure by Examination before your Authorization to Test (ATT) is granted."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Web Fonts & Favicons -->
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#4338ca" />
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "NCLEX Nursing Exam Candidate Photo Resizer",
+      "url": canonicalUrl,
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 Canvas and JavaScript",
+      "description": pageDescription,
+      "featureList": [
+        "2x2 inch (600x600 px) square crop for Pearson VUE Authorization to Test",
+        "Biometric head ratio guide (50% to 69% chin-to-crown ratio)",
+        "Automatic compression under 240 KB JPEG",
+        "1-click background whitener tool for hospital or home photos",
+        "100% in-browser processing with zero cloud server retention"
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Your Candidate Photo for NCLEX-RN and NCLEX-PN",
+      "description": "Step-by-step instructions to create a compliant 2x2 inch white background photo for Pearson VUE and State Boards of Nursing.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Upload your portrait photo",
+          "text": "Select a clear portrait taken in regular street clothing without eyeglasses or hats."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Align head within biometric guides",
+          "text": "Position your face so your crown and chin fit naturally within the oval guide line (50%–69% of image height)."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Ensure pure white background",
+          "text": "Use the Make Background Pure White button if your room background has shadows, tint, or furniture."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download 600×600 px file under 240 KB",
+          "text": "Click Process & Download to export your Pearson VUE compliant JPEG ready for State BON upload."
+        }
+      ]
+    })} />
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "US Hub",
+          "item": "https://signresize.in/us/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "NCLEX Photo Resizer",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6">
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <nav aria-label="Breadcrumb" class="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                <a href="/" class="hover:text-primary transition">Home</a>
+                <span class="text-muted-foreground/50">/</span>
+                <a href="/us/" class="hover:text-primary transition">US Hub</a>
+                <span class="text-muted-foreground/50">/</span>
+                <a href="/us/exams/" class="hover:text-primary transition">Exams</a>
+                <span class="text-muted-foreground/50">/</span>
+              </nav>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Pearson VUE &amp; State BON Standard
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-mono text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 border border-indigo-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                600×600 px (2×2 Inches)
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              NCLEX Nursing Exam <span class="text-primary">Candidate Photo Resizer</span>
+            </h1>
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Format, crop, and compress your portrait photo for NCLEX-RN and NCLEX-PN candidate registration. Meets exact Pearson VUE and State Board of Nursing (BON) specifications: 2×2 inches, 600×600 pixels, plain white background, and under 240 KB.
+            </p>
+          </div>
+
+          <div class="shrink-0 flex items-center gap-2">
+            <USToolSwitcher currentTool="nclex" />
+          </div>
+        </div>
+
+        <!-- Quick Spec Chips -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-border/60">
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Dimensions</div>
+            <div class="text-xs font-bold text-foreground font-mono">2×2 in (600×600 px)</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">File Limit</div>
+            <div class="text-xs font-bold text-foreground font-mono">&le; 240 KB (JPEG)</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Head Height</div>
+            <div class="text-xs font-bold text-foreground font-mono">50% to 69% of image</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-card border border-border">
+            <div class="text-[10px] text-muted-foreground uppercase font-semibold">Background</div>
+            <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 font-mono">100% Plain White</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Studio Tool Container -->
+      <section id="tool-workspace" class="scroll-mt-20">
+        <SignatureTool client:idle initialPresetId="us-nclex-photo" />
+      </section>
+
+      <!-- NCLEX Requirements Matrix -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-6">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>🩺</span>
+            <span>NCSBN &amp; State Board of Nursing Candidate Photo Rules</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Follow these essential biometric guidelines to avoid delays in receiving your Authorization to Test (ATT) notification.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>👤</span>
+              <span>1. Posture &amp; Expression</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Face the camera directly with both ears visible and eyes open. Maintain a neutral facial expression or natural smile with teeth together. No tilted angles or artistic portrait stances.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>👕</span>
+              <span>2. Dress Code (No Scrubs)</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Wear standard professional everyday street clothing. Nursing scrubs, lab coats, military uniforms, and hospital badges are strictly prohibited in identification photos.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-muted/20 space-y-2">
+            <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+              <span>🚫</span>
+              <span>3. Glasses &amp; Headwear</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Eyeglasses and sunglasses must be removed. Hats and hairbands are not permitted unless worn daily for documented religious beliefs, provided they do not cast shadows over your face.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+            <span>❓</span>
+            <span>Frequently Asked Questions About NCLEX Photo Requirements</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">
+            Clear answers to common candidate questions regarding state nursing board verification and test day entry.
+          </p>
+        </div>
+
+        <FaqSection faqs={nclexFaqs} />
+      </section>
+
+      <!-- Cross-Links to Related Tools -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-xs space-y-4">
+        <h3 class="text-sm font-bold text-foreground uppercase tracking-wider">Related Healthcare &amp; Board Exam Tools</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <a href="/us/usmle-photo-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">🩺</span>
+            <div>
+              <div class="font-bold text-foreground">USMLE &amp; ECFMG Form 186</div>
+              <div class="text-[10px] text-muted-foreground">Strictly &lt;150 KB photo tool</div>
+            </div>
+          </a>
+          <a href="/us/bar-exam-photo-resizer/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">⚖️</span>
+            <div>
+              <div class="font-bold text-foreground">State Bar Exam Photo</div>
+              <div class="text-[10px] text-muted-foreground">Bar admission ticket photo resizer</div>
+            </div>
+          </a>
+          <a href="/us/passport-photo-print-sheet/" class="p-3 rounded-xl border border-border hover:border-primary/50 transition flex items-center gap-2.5">
+            <span class="text-xl">🖨️</span>
+            <div>
+              <div class="font-bold text-foreground">4×6 Passport Photo Sheet</div>
+              <div class="text-[10px] text-muted-foreground">Print 6 photos at CVS for $0.35</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+

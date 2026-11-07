@@ -1,0 +1,241 @@
+---
+// src/pages/about.astro - About Us
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+
+const pageTitle = "About Us | SignResize.in";
+const pageDescription = "Learn about SignResize.in — the mission behind our 100% client-side, zero-upload signature resizing tool built for students and job aspirants across India.";
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href="https://signresize.in/about/" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content="https://signresize.in/about/" />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://signresize.in/og-image.png" />
+
+    <!-- Favicon & PWA Icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Async Google Fonts -->
+    <GoogleFonts />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Home
+        </a>
+        <span>/</span>
+        <span class="text-foreground font-medium">About Us</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="border-b border-border pb-6 space-y-3">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+          <span>🇮🇳 Built for Indian Aspirants &amp; Citizens</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+          About SignResize.in
+        </h1>
+        <p class="text-base text-muted-foreground leading-relaxed">
+          Empowering millions of students and job applicants with instant, private, and mathematically precise signature resizing tools.
+        </p>
+      </div>
+
+      <!-- Mission Overview -->
+      <section class="space-y-4 text-sm sm:text-base leading-relaxed text-muted-foreground">
+        <h2 class="text-xl font-bold text-foreground">Our Mission: Simplifying Sarkari Application Prep</h2>
+        <p>
+          Every year, millions of Indian applicants apply for competitive recruitment exams such as <strong>SSC (CGL, CHSL, GD, MTS)</strong>, <strong>UPSC</strong>, <strong>Banking (IBPS PO &amp; Clerk)</strong>, <strong>Railway (RRB NTPC, ALP, Group D)</strong>, and identity documents like <strong>PAN Cards (NSDL/UTIITSL)</strong>.
+        </p>
+        <p>
+          Unfortunately, thousands of applications face rejection or server upload errors due to strict, unforgiving requirements: <em>"Signature must be between 10 KB to 20 KB"</em>, <em>"Width must be exactly 140 pixels and height 60 pixels"</em>, or <em>"Resolution must be 200 DPI on clean white paper"</em>.
+        </p>
+        <p>
+          <strong>SignResize.in</strong> was founded with a singular purpose: to provide a completely free, lightning-fast, and 100% private web utility that eliminates technical friction for aspirants in every corner of India.
+        </p>
+      </section>
+
+      <!-- Why We Are Different Grid -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-foreground">Why SignResize is Different</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          
+          <div class="p-5 rounded-2xl border border-border bg-card shadow-xs space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-base">
+              🔒
+            </div>
+            <h3 class="font-bold text-foreground text-sm">100% Client-Side Privacy</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Unlike traditional image converters that upload your personal signature to remote cloud databases, our engine processes every single byte inside your browser using HTML5 Canvas &amp; WebAssembly. Your signature never leaves your phone or laptop.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl border border-border bg-card shadow-xs space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-base">
+              ⚖️
+            </div>
+            <h3 class="font-bold text-foreground text-sm">Dual-Boundary Compression</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Standard compressors only let you reduce size. Our dual-boundary algorithm ensures your output file lands precisely between both minimum and maximum limits (e.g., strictly 10.0 KB to 20.0 KB) so portals never reject your upload.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl border border-border bg-card shadow-xs space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-base">
+              📐
+            </div>
+            <h3 class="font-bold text-foreground text-sm">Centimeter to Pixel Precision</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Official notifications often specify sizes in Centimeters (e.g., 4.0 cm × 2.0 cm) or Inches. Our built-in unit converter automatically calculates exact pixel dimensions at 200 DPI standard scanning density.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl border border-border bg-card shadow-xs space-y-2">
+            <div class="w-8 h-8 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-base">
+              ✍️
+            </div>
+            <h3 class="font-bold text-foreground text-sm">Digital Drawing Canvas</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              No paper or scanner handy? Sign directly on your mobile screen with your finger or stylus, crop to dimensions, and download an official-compliant JPEG in seconds.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Engineering Team & Verification Methodology (E-E-A-T) -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-foreground">Engineering &amp; Document Verification Team</h2>
+        
+        <div class="p-5 sm:p-6 rounded-2xl border border-primary/20 bg-card shadow-xs space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/60 pb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-indigo-600 text-white font-bold flex items-center justify-center text-lg shrink-0 shadow-xs border border-primary/30">
+                AK
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-foreground">
+                  Ammy Kamble &bull; Lead Technical Architect
+                </h3>
+                <p class="text-xs text-muted-foreground">
+                  Systems Engineer &bull; Client-Side Canvas &amp; WebAssembly Performance Lead
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                ✓ Lead Author &amp; Developer
+              </span>
+              <a
+                href="https://github.com/ammyskamble"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-2.5 py-1 rounded-lg border border-border text-xs font-semibold hover:border-primary/50 transition flex items-center gap-1"
+                aria-label="Ammy Kamble on GitHub"
+              >
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+                <span>@ammyskamble</span>
+              </a>
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Lead software engineer and creator of SignResize. With a focus on client-side security and browser-native graphics, Ammy designed the dual-boundary binary search JPEG compressor and Clean White Paper 3.0 algorithms. He actively audits examination notification bulletins (SSC, UPSC, NSDL, IBPS, RRB) to keep dimension, DPI, and kilobyte upload boundaries strictly up to date.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-1 text-xs">
+            <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-1.5">
+              <div class="font-bold text-foreground flex items-center gap-1.5">
+                <span class="text-primary font-mono text-sm">01</span>
+                <span>Zero-Upload Guarantee</span>
+              </div>
+              <p class="text-[11px] text-muted-foreground leading-relaxed">
+                All image processing runs in your device's browser memory via HTML5 Canvas. We maintain zero cloud upload servers for user images.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-1.5">
+              <div class="font-bold text-foreground flex items-center gap-1.5">
+                <span class="text-primary font-mono text-sm">02</span>
+                <span>Portal Test Suite</span>
+              </div>
+              <p class="text-[11px] text-muted-foreground leading-relaxed">
+                Outputs are rigorously tested against live validator constraints of SSC OTR, UPSC Online (upsconline.nic.in), NSDL Protean, and RRB.
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-1.5">
+              <div class="font-bold text-foreground flex items-center gap-1.5">
+                <span class="text-primary font-mono text-sm">03</span>
+                <span>Byte-Precision Floor</span>
+              </div>
+              <p class="text-[11px] text-muted-foreground leading-relaxed">
+                Dual-boundary binary search ensures files strictly respect both floor limits (&ge; 10 KB, &ge; 20 KB) and ceiling caps (&le; 20 KB, &le; 50 KB).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Commitment to Accessibility & Quality -->
+      <section class="p-6 rounded-2xl bg-muted/30 border border-border space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        <h2 class="text-base font-bold text-foreground">Our Commitment to Quality and Accessibility</h2>
+        <p>
+          SignResize.in is designed to work smoothly on entry-level Android smartphones with low 3G/4G connectivity, as well as desktop workstations in cyber cafes and schools. We require no app installs, no registration, and no software licenses.
+        </p>
+        <p>
+          Have questions, suggestions, or want to report an updated exam specification? Visit our <a href="/contact/" class="text-primary underline font-semibold">Contact Page</a> or reach our editorial team directly at <!--email_off--><a href="mailto:support@signresize.in" class="text-primary underline font-semibold">support@signresize.in</a><!--/email_off-->.
+        </p>
+      </section>
+
+      <!-- Back to Main Tool CTA -->
+      <div class="pt-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="text-xs text-muted-foreground">Ready to crop, resize, or compress your signature?</span>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-sm hover:opacity-90 transition active:scale-98"
+        >
+          <span>← Go to Main Signature Resizer Tool</span>
+        </a>
+      </div>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

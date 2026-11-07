@@ -1,0 +1,10 @@
+---
+import UtilityPage from '../layouts/UtilityPage.astro';
+import BackgroundRemoverTool from '../components/BackgroundRemoverTool';
+import BackgroundGuideContent from '../components/BackgroundGuideContent.astro';
+---
+<UtilityPage title="Photo Background Remover – White or Transparent" heading="Remove Background from a Portrait Photo" description="Give your portrait a white, transparent or custom-colour background. Preview the edges, then download or continue to photo resizing. Your image stays on your device." eyebrow="PORTRAIT CLEANUP" bodyClass="bg-remover-page" compactIntro analytics>
+  <nav class="background-nav" aria-label="Background tools"><a href="/background-remover/">Signature background remover</a><a href="/photo-resizer/">Photo resizer</a></nav>
+  <BackgroundRemoverTool initialMode="photo" client:load />
+  <BackgroundGuideContent kind="photo" />
+</UtilityPage>

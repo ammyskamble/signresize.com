@@ -1,0 +1,474 @@
+---
+// src/pages/index.astro
+import '../styles/global.css';
+import '../styles/minimal-borders.css';
+import Header from '../components/Header.astro';
+import { SignatureTool } from '../components/SignatureTool';
+import ExamDirectory from '../components/ExamDirectory.astro';
+import '../styles/home-workspace.css';
+import SignaturePreparationGuide from '../components/SignaturePreparationGuide.astro';
+import FaqSection from '../components/FaqSection.astro';
+import PortalDiagnostics from '../components/PortalDiagnostics.astro';
+import ChangelogSection from '../components/ChangelogSection.astro';
+import AuthorBioSection from '../components/AuthorBioSection.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import { BLOG_POSTS } from '../data/blogPostsData';
+import ExamDayToolkit from '../components/ExamDayToolkit.astro';
+import { ClosingSoon } from '../components/ClosingSoon';
+
+import ApplicationPreparationCards from '../components/ApplicationPreparationCards.astro';
+
+
+const pageTitle = "Resize Signature Online - Free Signature & Photo Resizer Studio";
+const pageDescription = "Resize signatures online with custom pixel dimensions and KB limits. Crop, clean paper backgrounds and download JPG files privately in your browser.";
+const canonicalUrl = "https://signresize.in/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const keywordsContent = "resize signature, signature resize, signature resizer, signature compressor, resize signature online, crop signature online, signature resize online, online signature resizer, photo and signature resizer, make signature background white, signature resize in cm, pan card signature resize";
+
+// Top High-Yield Examination Guides for Sitewide PageRank Flow
+const seenGuides = new Set<string>();
+const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLowerCase().replace(/[^a-z0-9]/g, ''); if (seenGuides.has(guide.slug) || seenGuides.has(titleKey)) return false; seenGuides.add(guide.slug); seenGuides.add(titleKey); return true; }).slice(0, 6);
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <!-- Instant Theme Detection Script (Prevents FOUT/FOUC) -->
+    <ThemeScript />
+
+    <!-- Google tag (gtag.js) -->
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywordsContent} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Multilingual Alternate Language Tags for SEO (hreflang) -->
+    <link rel="alternate" hreflang="en" href="https://signresize.in/" />
+    <link rel="alternate" hreflang="en-IN" href="https://signresize.in/" />
+    <link rel="alternate" hreflang="hi" href="https://signresize.in/hi/" />
+    <link rel="alternate" hreflang="hi-IN" href="https://signresize.in/hi/" />
+    <link rel="alternate" hreflang="mr" href="https://signresize.in/mr/" />
+    <link rel="alternate" hreflang="mr-IN" href="https://signresize.in/mr/" />
+    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
+
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:secure_url" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SignResize - Online Signature Resize and Compressor Tool" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="SignResize - Online Signature Resize and Compressor Tool" />
+
+    <!-- Async Google Fonts (Inter & JetBrains Mono) -->
+    <GoogleFonts />
+
+    <!-- Favicon & PWA Icons / Capabilities -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="SignResize" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- SoftwareApplication & WebApplication Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "SignResize - Online Signature & Photo Resizer Studio",
+      "url": "https://signresize.in/",
+      "applicationCategory": "UtilityApplication",
+      "applicationSubCategory": "Document & Image Processing Utility",
+      "operatingSystem": "Web Browser, Android, iOS, Windows, macOS, Linux",
+      "softwareVersion": "2026.2.4",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
+      "description": "Free online signature, photo, and document resizer. Crop signatures, customize width and height in cm or pixels, compress to exact KB bounds, and clean background shadows for government exams and official forms.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ammy Kamble",
+        "jobTitle": "Lead Technical Architect",
+        "url": "https://github.com/ammyskamble",
+        "sameAs": [
+          "https://github.com/ammyskamble",
+          "https://signresize.in/about/"
+        ]
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Ammy Kamble",
+        "url": "https://github.com/ammyskamble"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SignResize",
+        "url": "https://signresize.in/"
+      },
+      "featureList": [
+        "Interactive signature, photo and document resizing studio",
+        "Custom width and height in cm, mm, and pixels",
+        "Official presets for SSC, RRB, UPSC, IBPS, State PSCs and PAN Card",
+        "Dual-boundary file size compression (10-20 KB, 20-50 KB, 50-100 KB)",
+        "Clean White Paper 3.0 background shadow remover (#FFFFFF pure white)",
+        "100% client-side privacy with zero server uploads (HTML5 Canvas & WebAssembly)",
+        "Instant portal-ready JPG download without compression lag"
+      ]
+    })} />
+
+    <!-- HowTo Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Crop and Resize Signature Online to Exact Dimensions",
+      "description": "Step-by-step guide to crop, whiten background, and compress signature and photo files to exact dimension and kilobyte specifications.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Sign on Clean White Paper",
+          "text": "Sign using a black ballpoint pen on plain, unruled white paper in your natural running handwriting.",
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload Image to SignResize",
+          "text": "Upload the photograph or scan to the SignResize online workspace.",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Select Exam Preset or Target KB",
+          "text": "Choose a preset after checking your exam notice, or enter the required pixel dimensions and KB bounds.",
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Clean White Paper & Download",
+          "text": "Enable the Clean White Paper filter to remove shadows, preview the output file size, and download your portal-ready JPG.",
+          "position": 4
+        }
+      ]
+    })} />
+
+    <!-- BreadcrumbList Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Signature Resize Tool",
+          "item": "https://signresize.in/#tool-workspace"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Exam Guidelines",
+          "item": "https://signresize.in/#exam-specs"
+        }
+      ]
+    })} />
+
+    <!-- Organization Schema (E-E-A-T) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SignResize",
+      "url": "https://signresize.in/",
+      "logo": "https://signresize.in/logo.svg",
+      "description": "Free client-side online signature resize and compression platform engineered for Indian competitive exams.",
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://github.com/ammyskamble/signresize.com",
+        "https://x.com/signresize"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@signresize.in",
+        "availableLanguage": ["English", "Hindi"]
+      }
+    })} />
+
+
+    <!-- Person / Editorial Specialist Schema (E-E-A-T) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ammy Kamble",
+      "jobTitle": "Lead Technical Architect & Systems Engineer",
+      "url": "https://github.com/ammyskamble",
+      "sameAs": [
+        "https://github.com/ammyskamble",
+        "https://signresize.in/about/"
+      ],
+      "knowsAbout": [
+        "Client-Side Image Processing",
+        "HTML5 Canvas & WebAssembly",
+        "Indian Government Recruitment Document Standards",
+        "Dual-Boundary JPEG Quantization"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "SignResize",
+        "url": "https://signresize.in/"
+      }
+    })} />
+  </head>
+
+  <body class="home-workspace minimal-borders bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <!-- Navigation Header -->
+    <Header />
+
+    <!-- Main Container (Command Center & Assistant Architecture) -->
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-5 space-y-5">
+
+      <section class="workspace-intro creative-hero" aria-label="Signature resizer introduction">
+        <div class="hero-copy">
+          <p class="hero-eyebrow"><span aria-hidden="true"></span> FREE SIGNATURE &amp; PHOTO RESIZER STUDIO</p>
+          <h1 class="font-bold tracking-tight">Resize Signature Online<br /><span class="hero-headline-accent">To Exact KB &amp; Pixels.</span></h1>
+          <p class="hero-description">Crop, resize, and compress signatures and photos for SSC, UPSC, IBPS, and RRB. Set dimensions in cm/pixels, whiten paper shadows, and download portal-ready JPGs.</p>
+          <div class="hero-actions">
+            <a class="hero-start" href="#tool-workspace">Resize my signature <span aria-hidden="true">↗</span></a>
+            <a class="hero-presets" href="#exam-specs">Browse exam presets <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-quick-presets flex flex-wrap items-center gap-1.5 pt-1.5 text-xs" aria-label="Trending exam presets">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-extrabold bg-amber-500/15 text-amber-300 border border-amber-500/30 uppercase tracking-wider shrink-0 shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+              Trending:
+            </span>
+            <button type="button" data-hero-preset="rrb-railway" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🚆 RRB NTPC <span class="text-[10px] text-slate-400 font-normal">(upload guide)</span>
+            </button>
+            <button type="button" data-hero-preset="ssc-gd-constable" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🛡️ SSC GD <span class="text-[10px] text-slate-400 font-normal">(10–20 KB)</span>
+            </button>
+            <button type="button" data-hero-preset="ssc-cgl" class="px-2.5 py-1 rounded-lg bg-primary/20 hover:bg-primary/30 text-white border border-primary/40 font-bold transition cursor-pointer shadow-2xs inline-flex items-center gap-1">
+              ★ SSC CGL 2026
+            </button>
+            <button type="button" data-hero-preset="ibps-sbi" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🏦 IBPS / SBI
+            </button>
+            <button type="button" data-hero-preset="ctet-photo" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              📝 CTET Photo
+            </button>
+            <button type="button" data-hero-preset="upsc-civil-services" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🏛️ UPSC IAS
+            </button>
+            <button type="button" data-hero-preset="neet-ug-photo" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 font-semibold transition cursor-pointer hover:border-primary/50 shadow-2xs inline-flex items-center gap-1">
+              🩺 NEET Photo
+            </button>
+            <a href="/resize-signature-to-10kb-20kb/" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 font-bold transition inline-flex items-center gap-1 shadow-2xs">
+              ⚡ 10–20 KB Tool
+            </a>
+            <a href="/photo-with-name-and-date-maker/" class="px-2.5 py-1 rounded-lg bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-300 border border-indigo-500/30 font-bold transition inline-flex items-center gap-1 shadow-2xs">
+              🏷️ Name &amp; Date
+            </a>
+          </div>
+          <p class="hero-privacy"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2 16 5v5c0 4-6 7-6 7s-6-3-6-7V5l6-3Z" stroke="currentColor" stroke-width="1.4"/><path d="m7 9 2 2 4-4" stroke="currentColor" stroke-width="1.4"/></svg> Your images stay on your device <span>·</span> Free. No signup.</p>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a paper signature becoming a resized JPG">
+          <svg class="hero-transformation" width="560" height="300" viewBox="0 0 560 300" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="hero-paper-tone" x1="30" y1="40" x2="280" y2="230" gradientUnits="userSpaceOnUse"><stop stop-color="#f6f1e6"/><stop offset="1" stop-color="#d6d1c9"/></linearGradient>
+              <linearGradient id="hero-trail-tone"><stop stop-color="#a78bfa" stop-opacity="0"/><stop offset=".6" stop-color="#a78bfa"/><stop offset="1" stop-color="#6ee7db"/></linearGradient>
+              <linearGradient id="hero-scan-tone" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a78bfa" stop-opacity="0"/><stop offset="1" stop-color="#a78bfa" stop-opacity=".32"/></linearGradient>
+              <path id="hero-signature-stroke" pathLength="1" d="M55 98C80 80 91 30 83 34C62 44 54 115 82 103C109 91 119 32 111 39C99 53 100 106 120 95C139 83 145 60 139 65C132 72 135 98 150 90C169 79 174 65 170 70C162 83 164 97 179 88C192 77 202 68 200 77C196 93 209 90 220 80C235 65 241 65 234 80C228 95 248 80 258 73C276 60 270 91 290 80L320 65M83 116C145 99 238 104 341 93"/>
+            </defs>
+            <circle cx="313" cy="145" r="127" stroke="#a78bfa" stroke-opacity=".13"/>
+            <circle cx="313" cy="145" r="98" stroke="#a78bfa" stroke-opacity=".12" stroke-dasharray="2 9"/>
+            <g class="hero-source-sheet">
+              <rect x="39" y="56" width="256" height="183" rx="9" fill="#000" fill-opacity=".18"/>
+              <rect x="31" y="46" width="256" height="183" rx="9" fill="url(#hero-paper-tone)"/>
+              <text x="50" y="69" fill="#77716b" font-size="9" letter-spacing="2">ORIGINAL SCAN</text>
+              <path d="M50 87H265M50 110H265M50 133H265M50 156H265M50 179H265M50 202H265" stroke="#77716b" stroke-opacity=".13"/>
+              <use href="#hero-signature-stroke" transform="translate(25 75) scale(.68)" stroke="#514b55" stroke-width="3" stroke-linecap="round"/>
+              <g class="hero-scan-beam"><rect x="48" y="85" width="56" height="114" fill="url(#hero-scan-tone)"/><path d="M104 85V199" stroke="#8b5cf6" stroke-width="2"/></g>
+            </g>
+            <path class="hero-transfer" d="M208 209C275 286 378 278 414 199" stroke="url(#hero-trail-tone)" stroke-width="2" stroke-dasharray="5 6"/>
+            <g class="hero-output-sheet">
+              <rect x="267" y="108" width="253" height="139" rx="12" fill="#000" fill-opacity=".2"/>
+              <rect x="258" y="99" width="253" height="139" rx="12" fill="#fff"/>
+              <text x="276" y="122" fill="#64748b" font-size="9" letter-spacing="1.4">THE RIGHT FIT</text>
+              <rect x="438" y="111" width="55" height="18" rx="9" fill="#ede9fe"/><text x="450" y="123" fill="#6d28d9" font-size="9" font-weight="600">.JPG</text>
+              <path d="M276 151V141H286M483 141H493V151M493 199V209H483M286 209H276V199" stroke="#8b5cf6" stroke-opacity=".6"/>
+              <use class="hero-output-ink" href="#hero-signature-stroke" transform="translate(263 118) scale(.62)" stroke="#252136" stroke-width="3" stroke-linecap="round"/>
+              <text x="276" y="226" fill="#64748b" font-size="9">140 × 60 px</text><text x="417" y="226" fill="#6d28d9" font-size="9">10–20 KB target</text>
+            </g>
+            <g class="hero-done"><circle cx="500" cy="96" r="18" fill="#b8f5da"/><path d="m492 96 5 5 10-11" stroke="#176847" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+          </svg>
+          <div class="hero-art-caption"><span>01 Scan <i>→</i> 02 Refine <i>→</i> 03 Resize <small>Illustration</small></span><button type="button" id="hero-motion" aria-label="Pause hero animation" aria-pressed="false">Pause Ⅱ</button></div>
+        </div>
+      </section>
+      <ClosingSoon planner client:idle />
+      <!-- Main Interactive Resizer Studio (Full-Width Studio Command Center) -->
+      <section id="tool-workspace" class="scroll-mt-20 bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
+        <SignatureTool focusedWorkspace client:idle />
+      </section>
+
+      <ExamDayToolkit />
+      <ExamDirectory />
+      <PortalDiagnostics />
+      <FaqSection title="Questions about resizing and downloads" description="Find help with image sizes, file limits and preparing your upload. Check your current exam notice for its requirements." />
+
+      <!-- 2026 Examination Master Guides & Document Guidelines (SEO & Authority Hub) -->
+      <section id="home-resources" class="bg-card border border-border rounded-2xl p-5 sm:p-6 shadow-sm space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border pb-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/10 text-primary border border-primary/20">
+                2026 RECRUITMENT CALENDAR
+              </span>
+              <span class="text-xs text-muted-foreground font-medium">Free Candidate Handbooks</span>
+            </div>
+            <h2 class="text-lg sm:text-2xl font-extrabold text-foreground">
+              Official Examination Master Guides &amp; Study Strategies
+            </h2>
+            <p class="text-xs text-muted-foreground max-w-2xl leading-relaxed">
+              Step-by-step scoring blueprints, photo/signature guidelines, and timetable strategies for upcoming Central &amp; State government examinations.
+            </p>
+          </div>
+          <a
+            href="/blog/"
+            class="px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 text-foreground border border-border text-xs font-semibold transition shrink-0 self-start sm:self-center flex items-center gap-1.5"
+          >
+            <span>View All Guides</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {topGuides.map((guide) => (
+            <a
+              href={`/blog/${guide.slug}/`}
+              class="p-4 rounded-xl border border-border bg-muted/15 hover:bg-card hover:border-primary/40 hover:shadow-md transition group flex flex-col justify-between space-y-3"
+            >
+              <div class="space-y-2">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">
+                    {guide.category}
+                  </span>
+                  <span class="text-[10px] text-muted-foreground font-mono">{guide.readTime}</span>
+                </div>
+                <h3 class="font-bold text-xs sm:text-sm text-foreground group-hover:text-primary transition line-clamp-2 leading-snug">
+                  {guide.title}
+                </h3>
+                <p class="text-[11px] text-muted-foreground line-clamp-2 leading-relaxed">
+                  {guide.excerpt}
+                </p>
+              </div>
+              <div class="text-xs text-primary font-bold flex items-center justify-between pt-2 border-t border-border/50">
+                <span>Read Master Guide</span>
+                <span class="group-hover:translate-x-1 transition">&rarr;</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="portal-standards" class="rounded-xl border border-border bg-card p-4 space-y-3">
+        <h2 class="text-lg font-bold">Portal Submission Standards</h2>
+        <p class="text-xs text-muted-foreground">Open the guidance you need. Check your current exam notice before submitting.</p>
+
+        <SignaturePreparationGuide />
+
+
+
+
+      </section>
+      <details class="home-preparation rounded-xl border border-border bg-card p-4">
+        <summary class="font-semibold cursor-pointer">Exam-specific application checklists</summary>
+        <div class="space-y-4 mt-4"><ApplicationPreparationCards /></div>
+      </details>
+
+      <section id="technical-trust" class="space-y-3">
+        <h2 class="text-lg font-bold">About the engine and its author</h2>
+        <details class="rounded-lg border border-border bg-card p-3"><summary class="cursor-pointer text-sm font-semibold">Engine changelog and portal rule updates</summary><ChangelogSection /></details>
+        <AuthorBioSection />
+      </section>
+    </main>
+
+    <!-- Global Footer -->
+    <Footer focused />
+
+    <script>
+      const motionControl = document.getElementById('hero-motion');
+      const heroArt = document.querySelector<HTMLElement>('.hero-art');
+      if (motionControl && heroArt) {
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let visible = false;
+        let manuallyPaused = false;
+        const syncMotion = () => {
+          heroArt.dataset.motionRunning = String(visible && !document.hidden && !reducedMotion.matches && !manuallyPaused);
+        };
+        syncMotion();
+        const observer = new IntersectionObserver(entries => {
+          visible = entries[0].isIntersecting;
+          syncMotion();
+        });
+        observer.observe(heroArt);
+        document.addEventListener('visibilitychange', syncMotion);
+        reducedMotion.addEventListener('change', syncMotion);
+        motionControl.addEventListener('click', () => {
+          manuallyPaused = !manuallyPaused;
+          motionControl.setAttribute('aria-pressed', String(manuallyPaused));
+          motionControl.setAttribute('aria-label', manuallyPaused ? 'Resume hero animation' : 'Pause hero animation');
+          motionControl.textContent = manuallyPaused ? 'Play ▷' : 'Pause Ⅱ';
+          syncMotion();
+        });
+      }
+
+      // Hero Quick Preset Activator
+      document.querySelectorAll<HTMLButtonElement>('[data-hero-preset]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const preset = btn.getAttribute('data-hero-preset');
+          if (preset) {
+            document.querySelectorAll<HTMLButtonElement>('[data-hero-preset]').forEach(b => {
+              b.setAttribute('aria-pressed', String(b === btn));
+            });
+            window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: preset }));
+            const studio = document.getElementById('tool-workspace') || document.getElementById('studio-container');
+            studio?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>
