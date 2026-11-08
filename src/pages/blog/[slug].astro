@@ -54,6 +54,8 @@ if (post.country === 'BD') {
   relatedExamSlug = 'us/ds-160-photo-resizer';
 } else if (post.country === 'ID') {
   relatedExamSlug = 'id/cpns-sscasn-photo-resizer';
+} else if (post.country === 'BR') {
+  relatedExamSlug = 'signature-generator';
 } else if (focusedPreset) {
   const matchedPage = EXAM_PAGES_DATA.find(p => p.presetId === focusedPreset || p.slug === focusedPreset);
   if (matchedPage) {
@@ -139,7 +141,7 @@ const articleSchema = {
   "@type": post.category === 'Guidelines & Tips' ? ["BlogPosting", "TechArticle"] : "BlogPosting",
   "headline": post.title,
   "description": post.excerpt,
-  "image": ["https://signresize.in/favicon-96x96.png"],
+  "image": [post.ogImage ? `https://signresize.in${post.ogImage}` : "https://signresize.in/favicon-96x96.png"],
   "datePublished": publishedIso,
   "dateModified": modifiedIso,
   "mainEntityOfPage": {
@@ -332,7 +334,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
 ---
 
 <!doctype html>
-<html lang={post.country === 'US' ? 'en-US' : 'en-IN'} class="scroll-smooth">
+<html lang={post.country === 'US' ? 'en-US' : (post.country === 'BR' ? 'pt-BR' : 'en-IN')} class="scroll-smooth">
   <head>
     <ThemeScript />
     <GoogleAnalytics />
@@ -342,14 +344,25 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="en" href={`https://signresize.in/blog/${post.slug}/`} />
-    {Boolean(post.contentHtml_hi) && (
-      <link rel="alternate" hreflang="hi" href={`https://signresize.in/hi/blog/${post.slug}/`} />
+    {post.alternateLanguages ? (
+      <>
+        {post.alternateLanguages.map(alt => (
+          <link rel="alternate" hreflang={alt.lang.toLowerCase()} href={`https://signresize.in/blog/${alt.slug}/`} />
+        ))}
+        <link rel="alternate" hreflang="x-default" href={`https://signresize.in/blog/${post.alternateLanguages[0].slug}/`} />
+      </>
+    ) : (
+      <>
+        <link rel="alternate" hreflang="en" href={`https://signresize.in/blog/${post.slug}/`} />
+        {Boolean(post.contentHtml_hi) && (
+          <link rel="alternate" hreflang="hi" href={`https://signresize.in/hi/blog/${post.slug}/`} />
+        )}
+        {Boolean(post.contentHtml_mr) && (
+          <link rel="alternate" hreflang="mr" href={`https://signresize.in/mr/blog/${post.slug}/`} />
+        )}
+        <link rel="alternate" hreflang="x-default" href={`https://signresize.in/blog/${post.slug}/`} />
+      </>
     )}
-    {Boolean(post.contentHtml_mr) && (
-      <link rel="alternate" hreflang="mr" href={`https://signresize.in/mr/blog/${post.slug}/`} />
-    )}
-    <link rel="alternate" hreflang="x-default" href={`https://signresize.in/blog/${post.slug}/`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -365,11 +378,11 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="SignResize" />
-    <meta property="og:image" content="https://signresize.in/og-image.png" />
+    <meta property="og:image" content={post.ogImage ? `https://signresize.in${post.ogImage}` : "https://signresize.in/og-image.png"} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
-    <meta name="twitter:image" content="https://signresize.in/og-image.png" />
+    <meta name="twitter:image" content={post.ogImage ? `https://signresize.in${post.ogImage}` : "https://signresize.in/og-image.png"} />
 
     <!-- Article & Breadcrumb Schemas -->
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -408,9 +421,24 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
         ) : (
           <div class="flex items-center gap-1.5 text-xs bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl border border-border">
             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 px-2">📖 Read In:</span>
-            <a href={`/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇬🇧 English</a>
-            {post.contentHtml_hi && <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-slate-700 dark:text-slate-300 hover:text-foreground font-semibold transition">🇮🇳 हिंदी</a>}
-            {post.contentHtml_mr && <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-slate-700 dark:text-slate-300 hover:text-foreground font-semibold transition">🚩 मराठी</a>}
+            {post.alternateLanguages ? (
+              post.alternateLanguages.map(alt => (
+                <a
+                  href={`/blog/${alt.slug}/`}
+                  class={alt.slug === post.slug 
+                    ? "px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs" 
+                    : "px-2.5 py-1 rounded-lg hover:bg-card text-slate-700 dark:text-slate-300 hover:text-foreground font-semibold transition"}
+                >
+                  {alt.label}
+                </a>
+              ))
+            ) : (
+              <>
+                <a href={`/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg bg-primary text-primary-foreground font-bold shadow-2xs">🇬🇧 English</a>
+                {post.contentHtml_hi && <a href={`/hi/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-slate-700 dark:text-slate-300 hover:text-foreground font-semibold transition">🇮🇳 हिंदी</a>}
+                {post.contentHtml_mr && <a href={`/mr/blog/${post.slug}/`} class="px-2.5 py-1 rounded-lg hover:bg-card text-slate-700 dark:text-slate-300 hover:text-foreground font-semibold transition">🚩 मराठी</a>}
+              </>
+            )}
           </div>
         )}
       </div>
@@ -541,20 +569,22 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <div class="space-y-1 min-w-0 flex-1">
             <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
               <span>⚡</span>
-              <span>Official Application Tool</span>
+              <span>{post.country === 'BR' ? 'Ferramenta Recomendada' : 'Official Application Tool'}</span>
             </div>
             <h3 class="text-sm sm:text-base font-bold text-foreground truncate">
               {post.guideTool?.label || (relatedPreset ? `${relatedPreset.name} (${relatedPreset.minKb}–${relatedPreset.maxKb} KB)` : 'Universal Photo & Signature Resizer')}
             </h3>
             <p class="text-xs text-muted-foreground leading-relaxed">
-              {relatedPreset ? `Pre-calibrated to official ${relatedPreset.widthPx}×${relatedPreset.heightPx} px & ${relatedPreset.minKb}–${relatedPreset.maxKb} KB bounds. Zero-upload, client-side processing.` : 'Format your signature and photograph to official government portal specifications in 10–20 KB instantly.'}
+              {post.country === 'BR'
+                ? 'Crie sua assinatura digitalizada com fundo transparente e redimensione para 300×100 px abaixo de 50 KB sem distorção.'
+                : (relatedPreset ? `Pre-calibrated to official ${relatedPreset.widthPx}×${relatedPreset.heightPx} px & ${relatedPreset.minKb}–${relatedPreset.maxKb} KB bounds. Zero-upload, client-side processing.` : 'Format your signature and photograph to official government portal specifications in 10–20 KB instantly.')}
             </p>
           </div>
           <a
             href={post.guideTool?.href || (relatedPreset ? getExamPageUrl(relatedExamSlug) : `/${relatedExamSlug}/`)}
             class="w-full sm:w-auto px-5 py-2.5 min-h-[42px] rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-95 transition shadow-sm flex items-center justify-center gap-2 shrink-0"
           >
-            <span>Open Direct Tool</span>
+            <span>{post.guideTool?.buttonText || (post.country === 'BR' ? 'Abrir Ferramenta Grátis' : 'Open Direct Tool')}</span>
             <span>&rarr;</span>
           </a>
         </section>
@@ -676,10 +706,12 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <section class="rounded-xl border border-border bg-slate-100/70 dark:bg-slate-900/50 p-3.5 sm:p-4 text-xs space-y-1.5 shadow-2xs">
             <div class="flex items-center gap-1.5 font-bold text-foreground text-[11px] uppercase tracking-wider">
               <span>⚖️</span>
-              <span>Educational Disclaimer &amp; Fair Use Notice</span>
+              <span>{post.country === 'BR' ? 'Aviso Legal e Uso Educacional' : 'Educational Disclaimer & Fair Use Notice'}</span>
             </div>
             <p class="leading-relaxed text-[11px] text-slate-700 dark:text-slate-300 break-words font-medium">
-              SignResize.in is an independent, non-governmental document utility and candidate educational guidance platform. All references to public examinations (including SSC, UPSC, RRB, IBPS, and State PSCs), syllabus topics, and government portals are made strictly under nominative fair use for descriptive, identification, and educational assistance. SignResize is neither affiliated with, nor endorsed, sponsored, or certified by any government commission or commercial coaching entity.
+              {post.country === 'BR'
+                ? 'SignResize.in é uma plataforma independente de utilitários de documentos e guias práticos. Todas as menções ao Microsoft Outlook, Windows e Office 365 são feitas sob uso justo e nominativo para identificação e auxílio técnico do usuário. O SignResize não possui afiliação, endosso ou vínculo comercial com a Microsoft Corporation.'
+                : 'SignResize.in is an independent, non-governmental document utility and candidate educational guidance platform. All references to public examinations (including SSC, UPSC, RRB, IBPS, and State PSCs), syllabus topics, and government portals are made strictly under nominative fair use for descriptive, identification, and educational assistance. SignResize is neither affiliated with, nor endorsed, sponsored, or certified by any government commission or commercial coaching entity.'}
             </p>
           </section>
 
