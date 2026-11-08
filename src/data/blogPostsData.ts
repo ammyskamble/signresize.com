@@ -2704,53 +2704,8 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     contentHtml: `
-  <!-- Sticky Quick-Jump Pill Bar -->
-  <div class="mt-3 mb-6 p-3 rounded-2xl bg-card border border-border shadow-xs backdrop-blur-md sticky top-28 sm:top-[116px] z-20 relative quick-jump-wrapper">
-    <div class="text-[11px] font-bold text-muted-foreground uppercase tracking-wider px-2 mb-1.5 flex items-center justify-between">
-      <span class="flex items-center gap-1.5"><span class="text-primary">⚡</span> Quick Jump Navigation:</span>
-      <span class="text-[10px] text-muted-foreground font-medium flex items-center gap-1 opacity-70">
-        <span>Scroll</span> <span>&rarr;</span>
-      </span>
-    </div>
-    <div class="relative">
-      <div class="quick-jump-fade-mask"></div>
-      <div class="flex items-center gap-1.5 overflow-x-auto scrollbar-thin pb-1 text-xs whitespace-nowrap pr-8">
-      <a href="#document-specs" class="px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary font-bold transition flex items-center gap-1 shrink-0">
-        <span>📸</span> <span>138×177 Specs</span>
-      </a>
-      <a href="#visual-checklist" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold transition flex items-center gap-1 shrink-0">
-        <span>🛡️</span> <span>Do vs Don't</span>
-      </a>
-      <a href="#instant-resizers" class="px-2.5 py-1 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition flex items-center gap-1 shrink-0 shadow-2xs">
-        <span>🛠️</span> <span>Resize Now</span>
-      </a>
-      <a href="#eligibility-criteria" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
-        <span>🎓</span> <span>Eligibility & Age</span>
-      </a>
-      <a href="#pmt-pet-standards" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
-        <span>🏃</span> <span>PMT / PET Benchmarks</span>
-      </a>
-      <a href="#salary-structure" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
-        <span>💰</span> <span>Salary Slip (ROPA)</span>
-      </a>
-      <a href="#exam-syllabus" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
-        <span>📝</span> <span>Prelims & Mains</span>
-      </a>
-      <a href="#selection-timeline" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
-        <span>🗺️</span> <span>5-Stage Roadmap</span>
-      </a>
-      <a href="#official-portals" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
-        <span>🏛️</span> <span>PRB Portals</span>
-      </a>
-      <a href="#faqs" class="px-2.5 py-1 rounded-lg bg-muted hover:bg-muted/80 text-foreground font-semibold transition flex items-center gap-1 shrink-0">
-        <span>❓</span> <span>10 FAQs</span>
-      </a>
-    </div>
-    </div>
-  </div>
-
   <!-- Notification & Scrutiny Alert Banner with Direct PDF Download -->
-  <div class="mt-8 mb-6 p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-foreground space-y-3 shadow-xs">
+  <div class="mb-6 p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-foreground space-y-3 shadow-xs">
     <div class="flex items-center justify-between flex-wrap gap-2">
       <div class="flex items-center gap-2">
         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-600 text-white shrink-0">
@@ -2952,9 +2907,10 @@ export const BLOG_POSTS: BlogPost[] = [
         <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">📖</span>
         <span>Educational Qualification Benchmark</span>
       </h3>
-      <p class="text-xs text-muted-foreground leading-relaxed">
-        The applicant must have passed the <strong>Madhyamik Examination (10th Standard)</strong> from the West Bengal Board of Secondary Education (WBBSE) or its equivalent examination from any board recognized by the State Government or Central Government. Candidates awaiting final 10th-standard results are not eligible.
-      </p>
+      <ul class="text-xs text-muted-foreground space-y-1.5 leading-relaxed">
+        <li>• <strong>Constable &amp; Lady Constable:</strong> Must have passed <strong>Madhyamik (Class 10th)</strong> from WBBSE or recognized equivalent board.</li>
+        <li>• <strong>Sub-Inspector (UB &amp; AB):</strong> Must possess a <strong>Bachelor's Degree in any discipline</strong> from a recognized university.</li>
+      </ul>
       <div class="p-2.5 rounded-xl bg-muted/50 text-[11px] text-foreground font-medium flex items-center gap-2">
         <span>🗣️</span> <span><strong>Language Requirement:</strong> Must be fluent in reading, writing, and speaking Bengali (except permanent residents of Darjeeling and Kalimpong hill sub-divisions).</span>
       </div>
@@ -2966,9 +2922,10 @@ export const BLOG_POSTS: BlogPost[] = [
         <span class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">🎂</span>
         <span>Age Limit & Reservation Window</span>
       </h3>
-      <p class="text-xs text-muted-foreground leading-relaxed">
-        Candidates must not be less than <strong>18 years</strong> and not more than <strong>30 years</strong> as of <strong>1st January of the recruitment year</strong>. Statutory relaxations apply as follows:
-      </p>
+      <ul class="text-xs text-muted-foreground space-y-1 leading-relaxed">
+        <li>• <strong>Constable Cadre:</strong> <strong>18 to 30 Years</strong> as of 1st January of recruitment year.</li>
+        <li>• <strong>Sub-Inspector (SI):</strong> <strong>20 to 30 Years</strong> as of 1st January of recruitment year.</li>
+      </ul>
       <div class="overflow-x-auto">
         <table class="w-full text-[11px] border-collapse">
           <thead>
@@ -3036,33 +2993,45 @@ export const BLOG_POSTS: BlogPost[] = [
         </thead>
         <tbody class="divide-y divide-border">
           <tr class="hover:bg-muted/20">
-            <td class="p-3 font-medium text-foreground">Male (General, OBC, SC)</td>
+            <td class="p-3 font-medium text-foreground">Constable &amp; SI Unarmed (Male - UR/OBC/SC)</td>
             <td class="p-3 font-bold text-foreground">167 cm</td>
-            <td class="p-3 font-bold text-foreground">57 kg</td>
-            <td class="p-3 text-muted-foreground">78 cm with 5 cm expansion (83 cm)</td>
+            <td class="p-3 font-bold text-foreground">57 kg (SI: 56 kg)</td>
+            <td class="p-3 text-muted-foreground">78 cm with 5 cm expansion (SI: 79–84 cm)</td>
           </tr>
           <tr class="hover:bg-muted/20">
-            <td class="p-3 font-medium text-foreground">Male (Gorkhas, Garhwalis, Rajbanshis, ST)</td>
+            <td class="p-3 font-medium text-foreground">Constable &amp; SI Unarmed (Male - Gorkha/ST)</td>
             <td class="p-3 font-bold text-foreground">160 cm</td>
-            <td class="p-3 font-bold text-foreground">53 kg</td>
+            <td class="p-3 font-bold text-foreground">53 kg (SI: 52 kg)</td>
+            <td class="p-3 text-muted-foreground">76 cm with 5 cm expansion (SI: 74–79 cm)</td>
+          </tr>
+          <tr class="hover:bg-muted/20 bg-primary/5">
+            <td class="p-3 font-bold text-primary">SI Armed Branch (Male - UR/OBC/SC)</td>
+            <td class="p-3 font-extrabold text-primary">173 cm</td>
+            <td class="p-3 font-extrabold text-primary">60 kg</td>
+            <td class="p-3 font-bold text-primary">81 cm with 5 cm expansion (86 cm)</td>
+          </tr>
+          <tr class="hover:bg-muted/20 bg-primary/5">
+            <td class="p-3 font-medium text-foreground">SI Armed Branch (Male - Gorkha/ST)</td>
+            <td class="p-3 font-bold text-foreground">163 cm</td>
+            <td class="p-3 font-bold text-foreground">54 kg</td>
             <td class="p-3 text-muted-foreground">76 cm with 5 cm expansion (81 cm)</td>
           </tr>
           <tr class="hover:bg-muted/20">
-            <td class="p-3 font-medium text-foreground">Female / Lady Constable (General, OBC, SC)</td>
+            <td class="p-3 font-medium text-foreground">Lady Constable &amp; Lady SI (UR/OBC/SC)</td>
             <td class="p-3 font-bold text-foreground">160 cm</td>
-            <td class="p-3 font-bold text-foreground">49 kg</td>
+            <td class="p-3 font-bold text-foreground">49 kg (Lady SI: 45 kg)</td>
             <td class="p-3 text-muted-foreground">Not Applicable</td>
           </tr>
           <tr class="hover:bg-muted/20">
-            <td class="p-3 font-medium text-foreground">Female (Gorkhas, Garhwalis, Rajbanshis, ST)</td>
-            <td class="p-3 font-bold text-foreground">152 cm</td>
-            <td class="p-3 font-bold text-foreground">45 kg</td>
+            <td class="p-3 font-medium text-foreground">Lady Constable &amp; Lady SI (Gorkha/ST)</td>
+            <td class="p-3 font-bold text-foreground">152 cm (Lady SI: 155 cm)</td>
+            <td class="p-3 font-bold text-foreground">45 kg (Lady SI: 40 kg)</td>
             <td class="p-3 text-muted-foreground">Not Applicable</td>
           </tr>
           <tr class="hover:bg-muted/20">
-            <td class="p-3 font-medium text-foreground">Third Gender Candidates</td>
-            <td class="p-3 font-bold text-foreground">163 cm</td>
-            <td class="p-3 font-bold text-foreground">53 kg</td>
+            <td class="p-3 font-medium text-foreground">Third Gender Candidates (Constable &amp; SI)</td>
+            <td class="p-3 font-bold text-foreground">163 cm (Hill/ST: 155 cm)</td>
+            <td class="p-3 font-bold text-foreground">52 kg (Hill/ST: 48 kg)</td>
             <td class="p-3 text-muted-foreground">Not Applicable</td>
           </tr>
         </tbody>
@@ -3306,6 +3275,30 @@ export const BLOG_POSTS: BlogPost[] = [
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <!-- Dedicated Sub-Inspector (SI) 2-Stage Scheme Card -->
+  <div class="my-6 p-5 rounded-2xl bg-card border-2 border-primary/25 space-y-3">
+    <div class="flex items-center justify-between border-b border-border pb-2.5">
+      <h3 class="text-sm sm:text-base font-bold text-foreground flex items-center gap-2">
+        <span>📝</span> WBP Sub-Inspector (SI) 2-Stage Examination Pattern
+      </h3>
+      <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[11px] font-bold">Total Merit: 230 Marks</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+      <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-1.5">
+        <div class="font-bold text-foreground">Stage 1: Preliminary Screening (200 Marks)</div>
+        <p class="text-muted-foreground leading-relaxed">
+          100 MCQs in 90 mins: General Studies (50 Qs / 100 Marks), Logical Reasoning (25 Qs / 50 Marks), Arithmetic (25 Qs / 50 Marks). Penalty: 0.50 marks (1/4th) per wrong answer. Strictly qualifying; not counted in final merit ranking.
+        </p>
+      </div>
+      <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-1.5">
+        <div class="font-bold text-foreground">Stage 2: Final Combined Mains (200 Marks)</div>
+        <p class="text-muted-foreground leading-relaxed">
+          3 Conventional Descriptive Papers: Paper I GS &amp; Arithmetic (100 Marks, 2 hrs), Paper II English (50 Marks, 1 hr), Paper III Bengali/Regional (50 Marks, 1 hr) + Personality Test (30 Marks, min 8 qualifying marks). Total: 230 Marks.
+        </p>
+      </div>
     </div>
   </div>
 
