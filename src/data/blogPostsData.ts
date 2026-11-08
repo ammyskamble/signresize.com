@@ -2576,8 +2576,9 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: 'Age Limit Window', value: '18 to 30 Years (General/EWS); 5-yr relaxation for SC/ST, 3-yr for OBC' },
       { label: 'Pay Matrix Scale', value: 'ROPA-2019 Level-6 (Basic ₹22,700 to ₹58,500; Gross ~₹32,500/month)' },
       { label: 'Selection Scheme', value: 'Prelims (100 Marks) + PMT/PET + Final Written (85 Marks) + Interview (15 Marks)' },
-      { label: 'Male PET Benchmark', value: '1600 Meters Run in 6 Minutes 30 Seconds' },
-      { label: 'Female PET Benchmark', value: '800 Meters Run in 4 Minutes 00 Seconds' },
+      { label: 'Constable Male PET Benchmark', value: '1600 Meters Run in 6 Minutes 30 Seconds' },
+      { label: 'Lady Constable PET Benchmark', value: '800 Meters Run in 4 Minutes 00 Seconds' },
+      { label: 'Sub-Inspector (SI) PET Benchmark', value: 'Male SI: 800m in 3m 00s | Lady SI: 400m in 2m 00s | TG SI: 400m in 1m 40s' },
       { label: 'Photograph Specs', value: '138 × 177 px (4.5×3.5 cm) | 10 KB to 50 KB JPG (White BG, 75-80% Face)' },
       { label: 'Signature Specs', value: '138 × 59 px (3.5×1.5 cm) | 5 KB to 20 KB JPG (Black Ink Running Hand, No CAPS)' },
       { label: 'Official Portals', value: 'prb.wb.gov.in & wbpolice.gov.in' }
@@ -2590,8 +2591,9 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: 'आयु सीमा', value: '18 से 30 वर्ष (एससी/एसटी को 5 वर्ष और ओबीसी को 3 वर्ष की छूट)' },
       { label: 'वेतनमान', value: 'ROPA-2019 लेवल-6 (मूल वेतन ₹22,700; सकल ~₹32,500 प्रति माह)' },
       { label: 'चयन प्रक्रिया', value: 'प्रारंभिक परीक्षा + PMT/PET + मुख्य लिखित परीक्षा + इंटरव्यू' },
-      { label: 'पुरुष दौड़ मानक', value: '1600 मीटर दौड़ अधिकतम 6 मिनट 30 सेकंड में' },
-      { label: 'महिला दौड़ मानक', value: '800 मीटर दौड़ अधिकतम 4 मिनट 00 सेकंड में' },
+      { label: 'कांस्टेबल पुरुष दौड़ मानक', value: '1600 मीटर दौड़ अधिकतम 6 मिनट 30 सेकंड में' },
+      { label: 'महिला कांस्टेबल दौड़ मानक', value: '800 मीटर दौड़ अधिकतम 4 मिनट 00 सेकंड में' },
+      { label: 'सब-इंस्पेक्टर (SI) दौड़ मानक', value: 'पुरुष SI: 800m (3m 00s) | महिला SI: 400m (2m 00s) | TG SI: 400m (1m 40s)' },
       { label: 'फोटो माप', value: '138 × 177 पिक्सल | 10 KB से 50 KB JPG (सफेद बैकग्राउंड)' },
       { label: 'हस्ताक्षर माप', value: '138 × 59 पिक्सल | 5 KB से 20 KB JPG (काली स्याही, रनिंग हैंड)' },
       { label: 'आधिकारिक पोर्टल', value: 'prb.wb.gov.in व wbpolice.gov.in' }
@@ -2604,13 +2606,18 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: 'वयोमर्यादा', value: '18 ते 30 वर्षे (SC/ST: 5 वर्षे सवलत, OBC: 3 वर्षे सवलत)' },
       { label: 'वेतन श्रेणी', value: 'ROPA-2019 लेव्हल-6 (मूळ वेतन ₹22,700; एकूण ~₹32,500 दरमहा)' },
       { label: 'निवड प्रक्रिया', value: 'पूर्व परीक्षा (100 गुण) + PMT/PET + मुख्य परीक्षा (85 गुण) + मुलाखत' },
-      { label: 'पुरुष धावणे चाचणी', value: '1600 मीटर धावणे 6 मिनिटे 30 सेकंदात' },
-      { label: 'महिला धावणे चाचणी', value: '800 मीटर धावणे 4 मिनिटे 00 सेकंदात' },
+      { label: 'कॉन्स्टेबल पुरुष धावणे चाचणी', value: '1600 मीटर धावणे 6 मिनिटे 30 सेकंदात' },
+      { label: 'महिला कॉन्स्टेबल धावणे चाचणी', value: '800 मीटर धावणे 4 मिनिटे 00 सेकंदात' },
+      { label: 'पोलीस उपनिरीक्षक (SI) धावणे चाचणी', value: 'पुरुष SI: 800m (3m 00s) | महिला SI: 400m (2m 00s) | तृतीयपंथी: 400m (1m 40s)' },
       { label: 'फोटो आकार', value: '138 × 177 पिक्सेल | 10 KB ते 50 KB JPG (पांढरी पार्श्वभूमी)' },
       { label: 'स्वाक्षरी आकार', value: '138 × 59 पिक्सेल | 5 KB ते 20 KB JPG (काळी शाई, चालू हस्ताक्षर)' },
       { label: 'अधिकृत पोर्टल', value: 'prb.wb.gov.in व wbpolice.gov.in' }
     ],
     faqs: [
+      {
+        question: 'What is the WBP SI running time and distance?',
+        answer: 'For West Bengal Police Sub-Inspector (SI - Unarmed and Armed Branch), the Physical Efficiency Test (PET) requires Male candidates to run 800 metres within 3 minutes 00 seconds. Lady SI candidates (Unarmed Branch) must run 400 metres within 2 minutes 00 seconds, and Transgender SI candidates must run 400 metres within 1 minute 40 seconds. The PET is strictly qualifying in nature with timing tracked via automated RFID sensor mats on ground day.'
+      },
       {
         question: 'What is the minimum educational qualification required for WB Police Constable?',
         answer: 'Candidates must have passed the Madhyamik Examination from the West Bengal Board of Secondary Education (WBBSE) or its equivalent examination recognized by the state or central government. Candidates appearing in or awaiting results of the 10th standard cannot apply.'
@@ -2654,6 +2661,10 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     faqs_hi: [
       {
+        question: 'WB पुलिस SI (सब-इंस्पेक्टर) दौड़ का समय और दूरी क्या है?',
+        answer: 'पश्चिम बंगाल पुलिस सब-इंस्पेक्टर (SI) शारीरिक दक्षता परीक्षा (PET) में पुरुष उम्मीदवारों को 800 मीटर की दौड़ 3 मिनट 00 सेकंड में पूरी करनी होती है। महिला SI उम्मीदवारों को 400 मीटर की दौड़ 2 मिनट 00 सेकंड में और ट्रांसजेंडर उम्मीदवारों को 400 मीटर की दौड़ 1 मिनट 40 सेकंड में पूरी करनी होती है। यह परीक्षा केवल क्वालिफाइंग है और समय का मापन RFID चिप्स द्वारा किया जाता है।'
+      },
+      {
         question: 'WB पुलिस कांस्टेबल के लिए न्यूनतम शैक्षणिक योग्यता क्या है?',
         answer: 'उम्मीदवार को पश्चिम बंगाल माध्यमिक शिक्षा बोर्ड (WBBSE) से माध्यमिक (10वीं) परीक्षा या सरकार द्वारा मान्यता प्राप्त समकक्ष परीक्षा उत्तीर्ण होना अनिवार्य है।'
       },
@@ -2675,6 +2686,10 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     faqs_mr: [
+      {
+        question: 'पश्चिम बंगाल पोलीस SI धावणे चाचणी अंतर आणि वेळ काय आहे?',
+        answer: 'WBP पोलीस उपनिरीक्षक (SI) शारीरिक चाचणीमध्ये पुरुष उमेदवारांना 800 मीटर धावणे 3 मिनिटे 00 सेकंदात, महिला SI उमेदवारांना 400 मीटर धावणे 2 मिनिटे 00 सेकंदात आणि तृतीयपंथी उमेदवारांना 400 मीटर धावणे 1 मिनिट 40 सेकंदात पूर्ण करणे अनिवार्य आहे. ही चाचणी केवळ पात्रता (Qualifying) स्वरूपाची असून RFID चिप्सद्वारे स्वयंचलित वेळ मोजली जाते.'
+      },
       {
         question: 'पश्चिम बंगाल पोलीस भरतीसाठी किमान शैक्षणिक पात्रता काय आहे?',
         answer: 'उमेदवार पश्चिम बंगाल माध्यमिक शिक्षण मंडळातून (WBBSE) 10वी (माध्यमिक) परीक्षा किंवा मान्यताप्राप्त समकक्ष परीक्षा उत्तीर्ण असावा.'
@@ -2770,7 +2785,7 @@ export const BLOG_POSTS: BlogPost[] = [
     <div class="space-y-1 text-xs sm:text-sm">
       <h3 class="font-bold text-blue-900 dark:text-blue-300 text-sm">Kolkata Police (KP) vs West Bengal Police (WBP) Standards Clarification</h3>
       <p class="leading-relaxed">
-        The West Bengal Police Recruitment Board (WBPRB) administers the joint recruitment examination for both <strong>West Bengal Police (WBP)</strong> and <strong>Kolkata Police (KP)</strong>. While Kolkata Police operates within the municipal limits of Kolkata (white uniform) and WBP manages all state district territories (khaki uniform), <strong>all eligibility conditions, PMT/PET physical benchmarks (1600m run in 6m 30s), and document upload standards (138×177 px photo, 138×59 px cursive signature) are 100% identical</strong>. The presets provided on this page serve applications for both forces interchangeably.
+        The West Bengal Police Recruitment Board (WBPRB) administers the joint recruitment examination for both <strong>West Bengal Police (WBP)</strong> and <strong>Kolkata Police (KP)</strong>. While Kolkata Police operates within the municipal limits of Kolkata (white uniform) and WBP manages all state district territories (khaki uniform), <strong>all eligibility conditions, PMT/PET physical benchmarks (Constable: 1600m run in 6m 30s; Sub-Inspector: 800m run in 3m 00s), and document upload standards (138×177 px photo, 138×59 px cursive signature) are 100% identical</strong>. The presets provided on this page serve applications for both forces interchangeably.
       </p>
     </div>
   </div>
@@ -3055,41 +3070,109 @@ export const BLOG_POSTS: BlogPost[] = [
     </div>
   </div>
 
-  <div class="my-6 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
-    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
-      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>⏱️</span> Physical Efficiency Test (PET) Running Benchmarks</span>
-      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs animate-pulse">
+  <!-- Subsection 3A: WBP SI Running Time and Distance (Exact High-Intent Heading) -->
+  <div class="mt-8 mb-3">
+    <h3 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+      <span>⏱️</span> WBP SI Running Time and Distance (PET) <span class="text-xs sm:text-sm font-normal text-muted-foreground">(পশ্চিমবঙ্গ পুলিশ SI দৌড়ের সময় ও দূরত্ব)</span>
+    </h3>
+    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium mt-1">
+      Sub-Inspector (SI - Unarmed &amp; Armed Branch) running events are strictly <strong>qualifying in nature (no marks assigned)</strong>. Radio Frequency Identification Device (RFID) ankle chips track start-to-finish timing:
+    </p>
+  </div>
+
+  <div class="my-4 rounded-2xl border-2 border-primary/30 bg-card/80 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-primary/10 border-b border-primary/20 flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-primary font-bold"><span>👮‍♂️</span> Sub-Inspector (SI) Official PET Running Benchmarks &amp; Pace Splits</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs">
         <span>👉</span> Swipe table
       </span>
     </div>
-    <div class="pointer-events-none absolute top-10 bottom-0 right-0 w-8 bg-gradient-to-l from-card via-card/90 to-transparent sm:hidden z-10"></div>
     <div class="overflow-x-auto relative">
-      <table class="w-full text-xs sm:text-sm border-collapse min-w-[500px]">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[550px]">
+        <thead>
+          <tr class="bg-muted/60 text-muted-foreground text-left border-b border-border">
+            <th class="p-3 font-semibold">Candidate Cadre &amp; Gender</th>
+            <th class="p-3 font-semibold">Running Distance</th>
+            <th class="p-3 font-semibold">Qualifying Cutoff Time</th>
+            <th class="p-3 font-semibold">Target Lap Splits (400m Track)</th>
+            <th class="p-3 font-semibold">Pace Required</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-bold text-foreground">Male SI (Unarmed &amp; Armed Branch)</td>
+            <td class="p-3 font-bold text-primary">800 Meters (0.8 km)</td>
+            <td class="p-3 font-extrabold text-emerald-600 dark:text-emerald-400">3 Minutes 00 Seconds (3:00 min)</td>
+            <td class="p-3 font-mono text-xs">22.5s/100m • 45s/200m • 1:30/400m lap</td>
+            <td class="p-3 font-mono text-xs text-muted-foreground">3:45 min/km</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-bold text-foreground">Lady SI (Unarmed Branch)</td>
+            <td class="p-3 font-bold text-primary">400 Meters (0.4 km)</td>
+            <td class="p-3 font-extrabold text-emerald-600 dark:text-emerald-400">2 Minutes 00 Seconds (2:00 min)</td>
+            <td class="p-3 font-mono text-xs">30.0s/100m • 60s/200m • 2:00/400m lap</td>
+            <td class="p-3 font-mono text-xs text-muted-foreground">5:00 min/km</td>
+          </tr>
+          <tr class="hover:bg-muted/20">
+            <td class="p-3 font-bold text-foreground">Transgender SI (UB &amp; AB)</td>
+            <td class="p-3 font-bold text-primary">400 Meters (0.4 km)</td>
+            <td class="p-3 font-extrabold text-emerald-600 dark:text-emerald-400">1 Minute 40 Seconds (1:40 min)</td>
+            <td class="p-3 font-mono text-xs">25.0s/100m • 50s/200m • 1:40/400m lap</td>
+            <td class="p-3 font-mono text-xs text-muted-foreground">4:10 min/km</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Subsection 3B: Constable PET Running Standards -->
+  <div class="mt-8 mb-3">
+    <h3 class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+      <span>🏃</span> WBP &amp; Kolkata Police Constable PET Running Standards
+    </h3>
+    <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium mt-1">
+      Constable and Lady Constable candidates run outdoor track laps monitored by automated timing sensors. Passing requires crossing the RFID sensor mat within the precise second:
+    </p>
+  </div>
+
+  <div class="my-4 rounded-2xl border border-border bg-card/60 overflow-hidden shadow-xs relative table-scroll-hint-wrapper">
+    <div class="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-border flex items-center justify-between text-xs font-semibold">
+      <span class="flex items-center gap-1.5 text-foreground font-bold"><span>⏱️</span> Constable &amp; Lady Constable PET Benchmarks</span>
+      <span class="text-[11px] text-primary font-bold sm:hidden flex items-center gap-1 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25 shadow-2xs">
+        <span>👉</span> Swipe table
+      </span>
+    </div>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-xs sm:text-sm border-collapse min-w-[550px]">
         <thead>
           <tr class="bg-muted/40 text-muted-foreground text-left border-b border-border">
             <th class="p-3 font-semibold">Recruitment Cadre</th>
             <th class="p-3 font-semibold">Running Event Distance</th>
             <th class="p-3 font-semibold">Maximum Qualifying Time</th>
-            <th class="p-3 font-semibold">Measurement Technology</th>
+            <th class="p-3 font-semibold">Target Lap Splits (400m Track)</th>
+            <th class="p-3 font-semibold">Measurement Method</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-border">
           <tr class="hover:bg-muted/20">
-            <td class="p-3 font-medium text-foreground">Constable (Male)</td>
+            <td class="p-3 font-medium text-foreground">Constable (Male - WBP &amp; KP)</td>
             <td class="p-3 font-bold text-foreground">1600 Meters (1.6 km)</td>
             <td class="p-3 font-bold text-primary">6 Minutes 30 Seconds</td>
+            <td class="p-3 font-mono text-xs">~1:37.5 / 400m lap (4 laps) • 4:04 min/km</td>
             <td class="p-3 text-muted-foreground">Automated RFID Sensor Mats</td>
           </tr>
           <tr class="hover:bg-muted/20">
             <td class="p-3 font-medium text-foreground">Lady Constable (Female)</td>
             <td class="p-3 font-bold text-foreground">800 Meters (0.8 km)</td>
             <td class="p-3 font-bold text-primary">4 Minutes 00 Seconds</td>
+            <td class="p-3 font-mono text-xs">~2:00 / 400m lap (2 laps) • 5:00 min/km</td>
             <td class="p-3 text-muted-foreground">Automated RFID Sensor Mats</td>
           </tr>
           <tr class="hover:bg-muted/20">
             <td class="p-3 font-medium text-foreground">Third Gender Constables</td>
             <td class="p-3 font-bold text-foreground">800 Meters (0.8 km)</td>
             <td class="p-3 font-bold text-primary">3 Minutes 30 Seconds</td>
+            <td class="p-3 font-mono text-xs">~1:45 / 400m lap (2 laps) • 4:22 min/km</td>
             <td class="p-3 text-muted-foreground">Automated RFID Sensor Mats</td>
           </tr>
         </tbody>

@@ -8,6 +8,7 @@ import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 import { WebcamChecker } from '../../components/WebcamChecker';
 import { PoliceRunningPlanner } from '../../components/PoliceRunningPlanner';
+import { WbPoliceRunningPlanner } from '../../components/WbPoliceRunningPlanner';
 import SocialShare from '../../components/SocialShare.astro';
 import { BLOG_POSTS, type BlogPost } from '../../data/blogPostsData';
 import { EXAM_PRESETS, ALL_COMBINED_PRESETS } from '../../data/examPresets';
@@ -507,6 +508,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
       </header>
 
       {post.slug === 'maharashtra-police-bharti-2026-top-10-faq-guide' && <PoliceRunningPlanner client:visible />}
+      {post.slug === 'wb-police-constable-si-2026-physical-test-syllabus-photo-signature-guide' && <WbPoliceRunningPlanner client:visible />}
 
       <!-- Executive Summary / Quick Facts Banner (if available) -->
       {post.quickFacts && post.quickFacts.length > 0 && (
