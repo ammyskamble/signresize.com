@@ -58,7 +58,8 @@ const isPreparationGuide = isWbpsc || isBpsc || isCoastGuard || isNtpc || isJam;
 const isTnpsc = examData.slug.includes('tnpsc');
 const isBanking = examData.slug.includes('sbi') || examData.slug.includes('ibps');
 const isMaharashtraPolice = examData.slug === 'maharashtra-police-signature-resize';
-const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc || isMaharashtraPolice;
+const isWbPolice = examData.slug === 'wb-police-signature-resize' || examData.slug === 'wb-police-photo-resize';
+const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc || isMaharashtraPolice || isWbPolice;
 const relatedTools = (examData.relatedTools || [])
   .filter(slug => slug !== examData.slug)
   .map(slug => {
@@ -975,6 +976,63 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
             </span>
             <span class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
               ✓ Ground (50M) • Written (100M - No Negative Marking) • NCC Bonus (+5M)
+            </span>
+          </div>
+        </aside>
+      )}
+
+      {isWbPolice && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="West Bengal Police Recruitment Candidate Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-lg">👮‍♂️</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">West Bengal &amp; Kolkata Police Candidate Suite 2026</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official 4-Page Master PDF</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Official specifications for prb.wb.gov.in &amp; wbpolice.gov.in: 138×177 px photo (10–50 KB) and 138×59 px signature (5–20 KB, black ink, cursive only). Download the updated 4-page handbook covering PMT, PET, Kolkata vs WBP, NVF/HG quota, syllabus &amp; document checklist:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/downloads/wb-police-constable-si-2026-physical-chart-and-syllabus-bn.pdf"
+                download="WB-Police-Constable-SI-2026-Handbook-Bengali.pdf"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 bg-primary text-primary-foreground border border-primary shadow-xs hover:opacity-95"
+              >
+                <span>📥</span>
+                <span>PDF ডাউনলোড (বাংলা সংস্করণ)</span>
+              </a>
+              <a
+                href="/downloads/wb-police-constable-si-2026-physical-chart-and-syllabus-en.pdf"
+                download="WB-Police-Constable-SI-2026-Handbook-English.pdf"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 bg-card text-foreground border border-border hover:border-primary/50 shadow-2xs"
+              >
+                <span>📥</span>
+                <span>Download PDF (English)</span>
+              </a>
+              <a
+                href="/blog/wb-police-constable-si-2026-physical-test-syllabus-photo-signature-guide/"
+                class="px-3 py-2 rounded-xl text-xs font-semibold text-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border"
+              >
+                <span>📘</span>
+                <span>Complete Guide &amp; FAQs</span>
+              </a>
+              <a
+                href={examData.slug === 'wb-police-photo-resize' ? '/wb-police-signature-resize/' : '/wb-police-photo-resize/'}
+                class="px-3 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border"
+              >
+                {examData.slug === 'wb-police-photo-resize' ? '✍️ Signature Resizer →' : '📸 Photo Resizer →'}
+              </a>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-border/50 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+            <span class="flex items-center gap-1.5">
+              <span>⚠️</span>
+              <span><strong>Strict WBPRB Rule:</strong> Signatures in CAPITAL / BLOCK letters or blue ink cause automatic portal disqualification.</span>
+            </span>
+            <span class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+              ✓ PMT/PET Standards • Constable Single Exam (85M) • SI Mains (200M) • 12-Point DV Checklist
             </span>
           </div>
         </aside>

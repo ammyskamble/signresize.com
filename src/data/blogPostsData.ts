@@ -2750,12 +2750,17 @@ export const BLOG_POSTS: BlogPost[] = [
       <strong>Scrutiny Warning:</strong> West Bengal Police Recruitment Board conducts algorithmic checks on uploaded photographs and signatures. Any signature rendered in CAPITAL / BLOCK LETTERS, or photographs with tinted spectacles, non-white backgrounds, or low contrast are automatically flagged for rejection without opportunity for revision. Format compliant credentials instantly using the <a href="/wb-police-photo-resize/" class="text-primary font-bold underline">WB Police Photo Tool</a> and <a href="/wb-police-signature-resize/" class="text-primary font-bold underline">WB Police Signature Tool</a>.
     </p>
 
-    <!-- Direct Official PDF Download Button -->
-    <div class="pt-1 flex flex-wrap gap-2.5 items-center">
-      <a href="https://prb.wb.gov.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-bold text-xs hover:opacity-90 transition shadow-xs">
-        <span>📄</span> Download Official WBPRB Notification PDF (prb.wb.gov.in) &rarr;
+    <!-- Direct Official PDF Download Button & Dual-Language Handbooks -->
+    <div class="pt-2 flex flex-wrap gap-2.5 items-center">
+      <a href="/downloads/wb-police-constable-si-2026-physical-chart-and-syllabus-bn.pdf" download="WB-Police-Constable-SI-2026-Handbook-Bengali.pdf" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-95 transition shadow-xs">
+        <span>📥</span> ডাউনলোড ৪-পৃষ্ঠা মাস্টার PDF (বাংলা সংস্করণ)
       </a>
-      <span class="text-[11px] text-muted-foreground">Direct access to official government gazette portal</span>
+      <a href="/downloads/wb-police-constable-si-2026-physical-chart-and-syllabus-en.pdf" download="WB-Police-Constable-SI-2026-Handbook-English.pdf" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card border border-border text-foreground font-bold text-xs hover:border-primary/50 transition shadow-2xs">
+        <span>📥</span> Download 4-Page Master PDF (English)
+      </a>
+      <a href="https://prb.wb.gov.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-semibold text-xs hover:opacity-90 transition shadow-2xs">
+        <span>📄</span> Official Gazette (prb.wb.gov.in) &rarr;
+      </a>
     </div>
   </div>
 
