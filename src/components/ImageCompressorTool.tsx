@@ -15,10 +15,11 @@ import type { OutputFormat } from '../types';
 import FeedbackPrompt from './FeedbackPrompt';
 import { formatFileSize, compressCanvasToTargetSize } from '../utils/imageProcessor';
 
-const KB_PRESETS = [10, 20, 50, 100, 200, 300, 500];
+const KB_PRESETS = [15, 20, 30, 40, 50, 100, 200, 500];
 
 export const ImageCompressorTool: React.FC = () => {
   const [hasDownloaded, setHasDownloaded] = useState(false);
+  const [sizeMode, setSizeMode] = useState<'reduce' | 'increase'>('reduce');
   const [sourceImage, setSourceImage] = useState<HTMLImageElement | null>(null);
   const [sourceFileName, setSourceFileName] = useState<string>('image');
   const [sourceOriginalSize, setSourceOriginalSize] = useState<number>(0);
@@ -119,15 +120,17 @@ export const ImageCompressorTool: React.FC = () => {
         }
       }
 
-      const minKb = Math.max(1, debouncedTargetKb * 0.85);
-      const maxKb = debouncedTargetKb;
+      const activeFormat = sizeMode === 'increase' ? 'image/jpeg' : format;
+      const minKb = sizeMode === 'increase' ? debouncedTargetKb : Math.max(1, debouncedTargetKb * 0.85);
+      const maxKb = sizeMode === 'increase' ? Math.max(debouncedTargetKb + 15, Math.round(debouncedTargetKb * 1.15)) : debouncedTargetKb;
 
       const result = await compressCanvasToTargetSize(
         canvas,
-        format,
+        activeFormat,
         minKb,
         maxKb,
-        debouncedTargetKb
+        debouncedTargetKb,
+        sizeMode === 'increase'
       );
 
       if (isCurrent) {
@@ -151,15 +154,16 @@ export const ImageCompressorTool: React.FC = () => {
     return () => {
       isCurrent = false;
     };
-  }, [sourceImage, debouncedTargetKb, format]);
+  }, [sourceImage, debouncedTargetKb, format, sizeMode]);
 
 
   const handleDownload = () => {
     if (!compressedResult) return;
-    const ext = format === 'image/png' ? 'png' : format === 'image/webp' ? 'webp' : 'jpg';
+    const activeFormat = sizeMode === 'increase' ? 'image/jpeg' : format;
+    const ext = activeFormat === 'image/png' ? 'png' : activeFormat === 'image/webp' ? 'webp' : 'jpg';
     const link = document.createElement('a');
     link.href = compressedResult.url;
-    link.download = `${sourceFileName}-compressed-${compressedResult.sizeKb}kb.${ext}`;
+    link.download = `${sourceFileName}-${sizeMode === 'increase' ? 'increased' : 'compressed'}-${compressedResult.sizeKb}kb.${ext}`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -199,13 +203,57 @@ export const ImageCompressorTool: React.FC = () => {
     }
   };
 
-  const percentReduction =
+  const percentChange =
     sourceOriginalSize && compressedResult
-      ? Math.max(0, Math.round(((sourceOriginalSize - compressedResult.sizeBytes) / sourceOriginalSize) * 100))
+      ? Math.round(((compressedResult.sizeBytes - sourceOriginalSize) / sourceOriginalSize) * 100)
       : 0;
+  const percentReduction = Math.max(0, -percentChange);
+  const percentIncrease = Math.max(0, percentChange);
+
+  const handleSizeModeChange = (nextMode: 'reduce' | 'increase') => {
+    setSizeMode(nextMode);
+    if (nextMode === 'increase' && format !== 'image/jpeg') {
+      setFormat('image/jpeg');
+    }
+  };
 
   return (
     <div class="space-y-6">
+      {/* Mode Selector Bar (Available Both Before & After Upload) */}
+      <div class="flex flex-wrap items-center justify-between gap-2 p-2 rounded-2xl border border-border bg-muted/30">
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <button
+            type="button"
+            onClick={() => handleSizeModeChange('reduce')}
+            aria-pressed={sizeMode === 'reduce'}
+            class={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
+              sizeMode === 'reduce'
+                ? 'bg-primary text-primary-foreground shadow-xs'
+                : 'bg-card text-foreground border border-border hover:bg-muted'
+            }`}
+          >
+            ↓ Reduce Size (Max KB)
+          </button>
+          <button
+            type="button"
+            onClick={() => handleSizeModeChange('increase')}
+            aria-pressed={sizeMode === 'increase'}
+            class={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
+              sizeMode === 'increase'
+                ? 'bg-emerald-600 text-white shadow-xs'
+                : 'bg-card text-foreground border border-border hover:bg-muted'
+            }`}
+          >
+            ↑ Increase Size (Min KB)
+          </button>
+        </div>
+        <span class="text-[11px] text-muted-foreground px-2">
+          {sizeMode === 'increase'
+            ? 'Safely increases undersized JPGs above minimum KB without stretching pixels'
+            : 'Reduces image size in KB below exam portal maximum limits'}
+        </span>
+      </div>
+
       {/* Upload Zone or Image Active View */}
       {!sourceImage ? (
         <div
@@ -222,10 +270,14 @@ export const ImageCompressorTool: React.FC = () => {
           </div>
           <div class="space-y-1">
             <h3 class="text-base sm:text-lg font-bold text-foreground">
-              Drop Document, Certificate or Photo Here
+              {sizeMode === 'increase'
+                ? 'Drop Photo or Signature to Increase Size in KB'
+                : 'Drop Photo, Signature, Certificate or Marksheet Here'}
             </h3>
             <p class="text-xs sm:text-sm text-muted-foreground">
-              Supports JPG, PNG, WebP • 100% In-Browser Private • Instant Compression
+              {sizeMode === 'increase'
+                ? 'Supports JPG, PNG, WebP • Increases tiny files above 20 KB / 50 KB • 100% In-Browser'
+                : 'Supports JPG, PNG, WebP • Reduce size to 20 KB, 50 KB, 100 KB • 100% In-Browser Private'}
             </p>
           </div>
           <button
@@ -254,10 +306,12 @@ export const ImageCompressorTool: React.FC = () => {
               <div>
                 <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
                   <Sparkles class="w-4 h-4 text-primary" />
-                  Target File Size (KB)
+                  {sizeMode === 'increase' ? 'Minimum Target File Size (KB)' : 'Maximum Target File Size (KB)'}
                 </h3>
                 <p class="text-xs text-muted-foreground">
-                  Select a common exam preset or type your custom KB limit.
+                  {sizeMode === 'increase'
+                    ? 'Select the minimum KB required by your form (e.g. "should be at least 20 KB" or 50 KB).'
+                    : 'Select a common exam preset or type your custom KB limit to reduce file size.'}
                 </p>
               </div>
 
@@ -342,26 +396,40 @@ export const ImageCompressorTool: React.FC = () => {
 
             {/* Format Selector */}
             <div class="space-y-2 pt-2 border-t border-border">
-              <label class="text-xs font-semibold text-foreground">Output Format:</label>
+              <div class="flex items-center justify-between gap-2 flex-wrap">
+                <label class="text-xs font-semibold text-foreground">Output Format:</label>
+                {sizeMode === 'increase' && (
+                  <span class="text-[11px] text-emerald-700 dark:text-emerald-300 font-medium">
+                    JPG padding adds clean bytes without stretching pixels
+                  </span>
+                )}
+              </div>
               <div class="grid grid-cols-3 gap-2">
                 {[
                   { id: 'image/jpeg' as OutputFormat, label: 'JPG / JPEG (Govt Default)' },
                   { id: 'image/webp' as OutputFormat, label: 'WebP (Ultra Small)' },
                   { id: 'image/png' as OutputFormat, label: 'PNG (Lossless)' }
-                ].map((f) => (
-                  <button
-                    key={f.id}
-                    type="button"
-                    onClick={() => setFormat(f.id)}
-                    class={`p-2 rounded-xl text-xs text-center border transition ${
-                      format === f.id
-                        ? 'border-primary bg-primary/10 text-primary font-bold'
-                        : 'border-border bg-card text-muted-foreground hover:bg-muted'
-                    }`}
-                  >
-                    {f.label}
-                  </button>
-                ))}
+                ].map((f) => {
+                  const disabledInIncrease = sizeMode === 'increase' && f.id !== 'image/jpeg';
+                  return (
+                    <button
+                      key={f.id}
+                      type="button"
+                      disabled={disabledInIncrease}
+                      onClick={() => setFormat(f.id)}
+                      title={disabledInIncrease ? 'Switch to Reduce Size mode for WebP/PNG export' : undefined}
+                      class={`p-2 rounded-xl text-xs text-center border transition ${
+                        format === f.id
+                          ? 'border-primary bg-primary/10 text-primary font-bold'
+                          : disabledInIncrease
+                            ? 'border-border bg-muted/40 text-muted-foreground opacity-50 cursor-not-allowed'
+                            : 'border-border bg-card text-muted-foreground hover:bg-muted'
+                      }`}
+                    >
+                      {f.label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -376,16 +444,20 @@ export const ImageCompressorTool: React.FC = () => {
             </div>
 
             <div class="p-3 rounded-xl border border-border bg-card text-center">
-              <div class="text-[10px] text-muted-foreground uppercase font-semibold">Compressed Size</div>
+              <div class="text-[10px] text-muted-foreground uppercase font-semibold">
+                {sizeMode === 'increase' ? 'Increased Size' : 'Reduced Size'}
+              </div>
               <div class="font-mono text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400">
                 {compressedResult ? `${compressedResult.sizeKb} KB` : '...'}
               </div>
             </div>
 
             <div class="p-3 rounded-xl border border-border bg-card text-center">
-              <div class="text-[10px] text-muted-foreground uppercase font-semibold">Reduction</div>
+              <div class="text-[10px] text-muted-foreground uppercase font-semibold">
+                {percentIncrease > 0 ? 'Size Increased' : 'Reduction'}
+              </div>
               <div class="font-mono text-xs sm:text-sm font-bold text-primary">
-                {percentReduction > 0 ? `-${percentReduction}%` : 'Optimal'}
+                {percentIncrease > 0 ? `+${percentIncrease}%` : percentReduction > 0 ? `-${percentReduction}%` : 'Exact Match'}
               </div>
             </div>
 
@@ -402,7 +474,7 @@ export const ImageCompressorTool: React.FC = () => {
             <div class="flex items-center justify-between">
               <div class="text-xs font-semibold text-foreground flex items-center gap-1.5">
                 <FileImage class="w-4 h-4 text-primary" />
-                <span>Compressed Preview ({sourceFileName})</span>
+                <span>{sizeMode === 'increase' ? 'Output Preview' : 'Reduced Preview'} ({sourceFileName})</span>
               </div>
               <div class="flex items-center gap-2">
                 <button

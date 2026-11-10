@@ -7,13 +7,25 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
 import { SignatureTool } from '../components/SignatureTool';
 
-const pageTitle = "Photo Resizer: Custom Pixels & KB Size | SignResize";
-const pageDescription = "Resize photos with custom pixel dimensions and KB limits. Crop and download JPG files privately in your browser; check your application’s upload rules.";
+const pageTitle = "Photo Resizer in KB & Pixels (20–50 KB Size Reducer) | SignResize";
+const pageDescription = "Free photo resizer in KB and pixels. Resize, crop, and reduce photo size to 20–50 KB or under 100 KB, or increase small JPGs to minimum KB in your browser.";
 const canonicalUrl = "https://signresize.in/photo-resizer/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "passport photo resizer, photo resize 20 to 50 kb, ssc photo resize, upsc photo size 350x350, ibps photo resize, neet passport photo size, 3.5x4.5 cm photo resize, date of photo on photo, ssc cgl photo resizer, compress photo to 20 kb";
+const keywordsContent = "photo resizer in kb, photo size reducer, photo resize 20 to 50 kb, passport photo resizer, photo size increase in kb, photo size should be maximum 100kb, photo ka size kaise kam kare, photo ka size kaise badhaye, 3.5x4.5 cm photo resize";
 
 const photoFaqs = [
+  {
+    "q": "How do I use this photo resizer in KB (20 to 50 KB or maximum 100 KB)?",
+    "a": "Upload your photo, set your application's pixel or centimeter dimensions, and enter the minimum and maximum KB bounds (for example 20–50 KB, or 10–100 KB when a form says 'photo size should be maximum 100kb'). Inspect the clarity and actual file size before downloading JPG."
+  },
+  {
+    "q": "Can this Photo Size Reducer also increase photo size in KB (photo ka size badhaye)?",
+    "a": "Yes. If your form shows a minimum size error such as 'file size should be at least 20kb', set Min KB to the required floor (for instance 20 KB or 30 KB) and export as JPG. SignResize increases the JPG byte size without stretching pixel dimensions. If the original photo is too blurry or low-resolution, capture a clearer photo first. To adjust KB without cropping pixels, try the Photo Size Reducer & KB Increaser tool."
+  },
+  {
+    "q": "How do I fix 'photo size should be maximum 100kb' (meaning in hindi) and reduce photo size?",
+    "a": "This error means your uploaded image exceeds the 100 KB portal ceiling (Hindi meaning: आपकी फोटो की फाइल साइज 100 KB से अधिक है, इसे 100 KB या कम रखें). Set Max KB to 95–100 KB in SignResize, export JPG, and recheck file properties before uploading."
+  },
   {
     "q": "Is 20–50 KB correct for every application?",
     "a": "No. Read your application’s photo instructions and set its minimum and maximum file sizes. The general photo preset is a starting point, not a rule for every exam."
@@ -90,17 +102,18 @@ const photoFaqs = [
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "All",
       "description": pageDescription,
-      "featureList": ["Custom pixel dimensions and KB limits", "Photo cropping and JPG export", "Optional name and date strip", "Local browser processing"]
+      "featureList": ["Photo resizer in KB (20 to 50 KB, under 100 KB, custom limits)", "Custom pixel and centimeter dimensions", "Minimum KB floor padding and Photo Size Reducer", "Optional name and date strip", "Local browser processing"]
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": photoFaqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })} />
   </head>
 
   <body class="bg-background text-foreground min-h-screen flex flex-col">
     <Header />
     <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-5 space-y-6">
       <section class="rounded-2xl border border-border bg-card p-5 space-y-3">
-        <h1 class="text-2xl sm:text-4xl font-bold">Photo Resizer: Set Pixels and KB Size</h1>
-        <p>Upload your photo, choose a crop and set the file-size limits required by your application. Download a JPG and inspect the face and edges before submitting.</p>
-        <p class="text-sm text-muted-foreground">A passport-style crop is not a universal passport or exam specification. Use the current official instructions, including live capture when required.</p>
+        <h1 class="text-2xl sm:text-4xl font-bold">Photo Resizer in KB &amp; Pixels (Size Reducer &amp; Increaser)</h1>
+        <p>Upload your photo, choose a crop, and resize or reduce photo size in KB (such as <strong>20 KB to 50 KB</strong> or <strong>under 100 KB</strong>). Need to fix a minimum file-size warning? Set <strong>Min KB</strong> to safely increase tiny JPGs without stretching pixels.</p>
+        <p class="text-sm text-muted-foreground">A general preset is a starting point, not a universal passport or exam rule. Check your notice's pixel/cm size and live capture rules; need KB-only reduction or increase without cropping? Use the <a class="text-primary underline font-semibold" href="/compress-image-to-kb/">Photo Size Reducer &amp; KB Tool</a>.</p>
       </section>
       <section aria-label="Photo resizing workspace" class="bg-card border border-border rounded-2xl p-3 sm:p-5 min-h-[680px]">
         <SignatureTool client:idle initialMode="photo" initialPresetId="passport-general-photo" />

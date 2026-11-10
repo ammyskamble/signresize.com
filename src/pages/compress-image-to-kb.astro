@@ -7,28 +7,40 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleFonts from '../components/GoogleFonts.astro';
 import { ImageCompressorTool } from '../components/ImageCompressorTool';
 
-const pageTitle = "Compress Image to KB Online (20KB, 50KB, 100KB, 200KB) - SignResize";
-const pageDescription = "Free online image compressor to exact target KB. Compress JPG, PNG, and WebP photos, certificates, and marksheets to 20 KB, 50 KB, 100 KB, or 200 KB. 100% private, zero server upload.";
+const pageTitle = "Photo Size Reducer & KB Increaser (20KB, 50KB, 100KB) - SignResize";
+const pageDescription = "Free photo size reducer and KB increaser online. Reduce image size in KB (15KB, 20KB, 50KB, 100KB) or increase small JPGs to minimum KB without blurring pixels.";
 const canonicalUrl = "https://signresize.in/compress-image-to-kb/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "compress image to kb, compress image to 20 kb, compress image to 50 kb, compress image to 100 kb, compress image to 200 kb, compress photo to 20 kb, reduce image size in kb, compress marksheet, image compressor online free";
+const keywordsContent = "photo size reducer, compress image to kb, reduce image size in kb, photo size increase in kb, compress image to 20 kb, compress image to 50 kb, compress image to 100 kb, photo size should be maximum 100kb, signature size should be at least 20kb, photo ka size kaise kam kare, photo ka size kaise badhaye";
 
 const faqs = [
   {
-    q: "How to compress an image to 20 KB or 50 KB online?",
-    a: "Upload your photo or document into the SignResize Image Compressor. Select either the 20 KB or 50 KB preset button (or type your exact target KB in the custom input). The tool immediately performs iterative canvas compression to reduce the file size without pixelating text, and you can download your JPG/PNG instantly."
+    q: "How to use this Photo Size Reducer to reduce photo to 20 KB, 50 KB, or 100 KB?",
+    a: "Upload your photo, certificate, or signature into the workspace, keep 'Reduce Size (Max KB)' selected, and click 20 KB, 50 KB, or 100 KB (or type any target like 15 KB, 30 KB, or 40 KB). Your browser reduces the file size immediately while preserving sharp text and facial edges."
   },
   {
-    q: "Will compressing my certificate or marksheet make the text unreadable?",
-    a: "No. SignResize uses advanced high-frequency edge-preserving compression algorithms on your browser's HTML5 canvas. Even when compressing documents to 50 KB or 100 KB, text characters and roll numbers remain sharp and legible for exam portal scrutiny."
+    q: "How to increase photo or signature size in KB (fix 'should be at least 20kb' error)?",
+    a: "Switch to the 'Increase Size (Min KB)' tab above the upload box, select JPG format, and enter the minimum KB required by your form (such as 20 KB, 30 KB, or 50 KB). SignResize safely adds standard JPG metadata padding to lift undersized files above the minimum floor without stretching or blurring pixels. (If your original image has very low pixel resolution, capture a clearer scan first.)"
   },
   {
-    q: "What image formats are supported for compression?",
-    a: "You can upload JPG, JPEG, PNG, WebP, GIF, and standard smartphone camera photos. You can export the compressed output as standard JPEG (accepted by all government portals), WebP, or PNG."
+    q: "How do I fix 'photo size should be maximum 100kb' or 'signature size should be between 10 kb and 20 kb'?",
+    a: "When an application portal shows 'photo size should be maximum 100kb', select Reduce Size and choose 100 KB (or 50 KB). If it says 'signature size should be between 10 kb and 20 kb', use our dedicated 10–20 KB Signature Resizer or set 20 KB here and check the final downloaded file size. (Hindi meaning: आपकी फोटो या हस्ताक्षर फाइल की साइज पोर्टल की तय KB सीमा से बाहर है — सही KB सेट करके दोबारा डाउनलोड करें।)"
   },
   {
-    q: "Is it safe to compress government ID cards and sensitive certificates here?",
-    a: "Yes, 100%. SignResize runs entirely on your device's client-side browser memory. Zero bytes are uploaded to external servers or cloud databases, guaranteeing absolute privacy for your Aadhaar card, PAN card, caste certificates, and marksheets."
+    q: "Photo ka size kaise kam kare ya badhaye online (फोटो का साइज कैसे कम करें)?",
+    a: "Photo ka size kam karne ke liye 'Reduce Size (Max KB)' par apna target KB (20 KB, 50 KB, ya 100 KB) chunein. Agar form me minimum KB mang raha hai aur photo chhoti pad rahi hai, toh 'Increase Size (Min KB)' chunkar photo ka size badhaye. Complete Hindi guide ke liye SignResize Hindi (/hi/) page bhi dekhein."
+  },
+  {
+    q: "Will reducing my certificate or marksheet make the text unreadable?",
+    a: "No. SignResize uses iterative HTML5 canvas quantization in your browser to keep characters, roll numbers, and edges sharp even at 50 KB or 100 KB."
+  },
+  {
+    q: "What image formats are supported for reducing or increasing KB?",
+    a: "You can upload JPG, JPEG, PNG, and WebP photos or scans. Reducing size supports JPG, WebP, and PNG exports; increasing undersized files to minimum KB uses standard JPG format."
+  },
+  {
+    q: "Is it safe to upload government ID cards and certificates here?",
+    a: "Yes, 100%. SignResize runs entirely in your browser memory on your own device. Zero bytes are uploaded to external servers."
   }
 ];
 ---
@@ -167,10 +179,10 @@ const faqs = [
               </span>
             </div>
             <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-              Compress Image to <span class="text-primary">Target KB</span> (20KB, 50KB, 100KB)
+              Photo Size Reducer &amp; <span class="text-primary">Target KB</span> Tool
             </h1>
             <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
-              Fast, lossless-quality in-browser compressor for photos, certificates, marksheets, and admit cards. Shrink any image to exact kilobyte limits required by government recruitment and admission portals.
+              Reduce image size in KB (<strong>15KB, 20KB, 30KB, 40KB, 50KB, 100KB, 200KB</strong>) or <strong>increase small JPGs above minimum KB thresholds</strong> (fix <em>"should be at least 20kb"</em> or <em>"maximum 100kb"</em> portal errors). 100% private in-browser engine.
             </p>
           </div>
 
@@ -202,14 +214,14 @@ const faqs = [
           <!-- Guide Section -->
           <div class="bg-card border border-border rounded-2xl p-5 shadow-sm space-y-4">
             <h2 class="text-base font-bold text-foreground flex items-center gap-2">
-              <span>📖</span> How Target KB Compression Works
+              <span>📖</span> How Reducing &amp; Increasing Image Size in KB Works
             </h2>
             <div class="space-y-3 text-xs text-muted-foreground leading-relaxed">
               <p>
-                Most online document portals enforce hard ceilings on file uploads: <strong>SSC (20 KB)</strong>, <strong>IBPS (20–50 KB)</strong>, <strong>UPSC (20–300 KB)</strong>, and <strong>NTA/State PSCs (100–300 KB)</strong>. If your file is 1 KB over the limit, the server automatically rejects the upload.
+                <strong>1. Reduce Size (Max KB):</strong> Application forms commonly limit photos or documents to <strong>20 KB, 50 KB, or 100 KB maximum</strong>. SignResize uses iterative binary-search compression on your browser's canvas to lower file size while keeping text and faces crisp.
               </p>
               <p>
-                SignResize's binary-search quantization engine evaluates iterative compression quality directly on your local device. It pinpoints the exact compression factor that yields the maximum visual clarity while ensuring the file size strictly remains below your specified KB threshold.
+                <strong>2. Increase Size (Min KB):</strong> Many portals reject tiny mobile crops with errors like <em>"file size should be at least 20kb"</em> or require <strong>20–50 KB</strong> minimum bounds. Switch to <strong>Increase Size (Min KB)</strong> mode above to safely lift undersized JPGs above your target floor using legal JPEG comment padding without stretching pixels. Check your notice's pixel dimensions separately on the <a href="/photo-resizer/" class="text-primary font-semibold underline">Photo Resizer in KB</a> page when resizing dimensions too.
               </p>
             </div>
 

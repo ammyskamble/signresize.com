@@ -79,6 +79,7 @@ export const GUIDANCE_PAGE_UPDATES: Record<string, Partial<ExamPageInfo>> = {
     strictNotice: 'Do not apply one SSC preset to every recruitment. Confirm the exam, cycle and live form requirements.',
     faqs: [
       { q: 'Which SSC signature tool should I use?', a: 'Use this overview for general preparation, then open the CGL, CHSL or MTS page matching your application. Each page identifies the notice it covers.' },
+      { q: 'What is SSC signature size in pixels, KB, and cm?', a: 'In KB, the cited CGL, CHSL, and MTS notices request 10–20 KB in JPG/JPEG format (fixing errors like "signature size should be between 10 kb and 20 kb"). In centimeters, CGL and CHSL show a 6 × 2 cm / 4 × 2 cm discrepancy between main text and appendix, while MTS states about 6 × 2 cm. Because those notices do not fix one universal pixel count, SignResize defaults to a 600 × 200 px working canvas and lets you switch units between px and cm as needed.' },
       { q: 'Is 140 × 60 px a universal SSC requirement?', a: 'The notices reviewed here do not establish that universal pixel requirement. A tool preset is a preparation choice, not proof that SSC requires those pixels.' },
       { q: 'Can this tool replace SSC live photo capture?', a: 'No. Complete live capture inside the official SSC application. Our webcam checker can help you practise lighting and framing only.' },
     ],
@@ -96,6 +97,7 @@ export const GUIDANCE_PAGE_UPDATES: Record<string, Partial<ExamPageInfo>> = {
     strictNotice: conflict,
     faqs: [
       { q: 'What signature file does the CGL 2026 notice request?', a: 'A scanned JPG/JPEG of 10–20 KB. Section 9.6 says about 6 × 2 cm; Annexure IV says about 4 × 2 cm. Confirm the intended dimensions with the active form or SSC.' },
+      { q: 'What is SSC CGL signature size in pixels, KB, and cm (and how to fix "should be between 10 kb and 20 kb")?', a: 'The CGL 2026 notice requests 10–20 KB JPG/JPEG (so files under 10 KB or over 20 KB trigger "signature size should be between 10 kb and 20 kb"), and cites 6 × 2 cm (§9.6) or 4 × 2 cm (Annexure IV) in cm. Because the notice does not mandate a fixed pixel grid, the tool opens on a 600 × 200 px working canvas with Min KB = 10 and Max KB = 20.' },
       { q: 'Why does the CGL source link have 2025 in its filename?', a: 'At our review on 20 October 2026, the linked SSC file opens with “Combined Graduate Level Examination, 2026”. We identify the cycle from the document, not its filename.' },
       { q: 'Do I upload a resized passport photo for CGL?', a: 'The cited application instructions use live photo capture. Do not substitute an edited or pre-existing photo for that step.' },
     ],
@@ -219,6 +221,7 @@ for (const target of ['signature', 'photo'] as const) {
     ],
     faqs: [
       { q: 'Is the CTET signature minimum 3 KB or 4 KB?', a: 'The September 2026 bulletin specifies 3–30 KB. We corrected the previous 4 KB tool minimum to match that source.' },
+      ...(photo ? [{ q: 'How do I fix "photo size should be maximum 100kb" on the CTET portal?', a: 'CTET requires candidate photographs in JPG/JPEG between 10 KB and 100 KB (3.5 × 4.5 cm). If your camera file triggers "photo size should be maximum 100kb" or falls below 10 KB, select this preset (Min KB = 10, Max KB = 100) and inspect the preview JPG before uploading.' }] : []),
       { q: 'Are exact pixels or 200 DPI mandatory?', a: 'The cited upload section specifies centimeters and file-size ranges. It does not mandate exact pixels or 200 DPI. Our pixel canvas is a processing default.' },
       { q: 'Where can I check the CTET 2022 photo and signature size?', a: 'Use the separately labelled December 2022 archive linked above. Do not use an old session’s page as the authority for a later application.' },
     ],
@@ -433,15 +436,15 @@ export const NTPC_SOURCES = {
   graduate: 'https://rrbsecunderabad.gov.in/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish.pdf',
   undergraduate: 'https://rrbsecunderabad.gov.in/wp-content/uploads/2025/10/FAQs-CEN_07_2025_NTPC-UG_Hindi_English.pdf',
 };
-const ntpcCaution = 'Verified sources: CEN 06/2025 Graduate and CEN 07/2025 Undergraduate FAQ. Check your active CEN before using these settings. A 2026-cycle specification has not been verified in this review. File checks do not certify RRB acceptance.';
+const ntpcCaution = 'Sources reviewed: CEN 06/2025 Graduate, CEN 07/2025 Undergraduate FAQ, and the separate Station Master CEN 08/2026 notification. Follow the instructions and signature-box dimensions for your own CEN. File checks do not certify RRB acceptance.';
 GUIDANCE_PAGE_UPDATES['rrb-ntpc-signature-resize'] = {
-  pageTitle: 'RRB NTPC Signature Resize 30–49 KB | Size & Upload Guide',
-  metaDescription: 'Resize an RRB NTPC signature to 30–49 KB JPG. Check black-ink rules, minimum pixels, signing-box guidance and live photo steps against your CEN.',
-  keywords: 'rrb ntpc signature resize, ntpc signature resize, rrb ntpc signature size, rrb ntpc ug signature size, rrb signature 30 to 49 kb',
-  h1: 'RRB NTPC signature resize: 30–49 KB',
-  subheading: 'Prepare a clear JPG signature in black ink on white paper. Read the Graduate and Undergraduate source scope below, then match your active CEN before uploading.',
-  targetExams: 'Verified references: NTPC Graduate CEN 06/2025 and Undergraduate CEN 07/2025',
-  guidanceLabel: '2025 CEN sources reviewed',
+  pageTitle: 'RRB NTPC & Station Master Signature Resize 30–49 KB | SignResize',
+  metaDescription: 'Prepare an RRB NTPC or Station Master signature as a 30–49 KB JPG/JPEG, at least 140×60 px, in black ink on white paper. Follow the correct CEN and scan-box dimensions.',
+  keywords: 'rrb ntpc signature resize, ntpc signature resize, rrb ntpc signature size, rrb ntpc ug signature size, rrb station master signature size, rrb station master signature size in kb, station master signature size, rrb ntpc station master signature size, rrb signature 30 to 49 kb',
+  h1: 'RRB NTPC & Station Master Signature Resize: 30–49 KB',
+  subheading: 'Prepare a clear JPG/JPEG signature in black ink on white paper. NTPC and Station Master have separate CENs, so match the file range and scan-box instructions to your active recruitment notice.',
+  targetExams: 'RRB NTPC Graduate/Undergraduate CENs; separate RRB Station Master CEN 08/2026',
+  guidanceLabel: 'CEN-specific sources reviewed',
   widthPx: 280, heightPx: 160, widthCm: 0, heightCm: 0,
   minKb: 30, maxKb: 49, recommendedKb: 40, dpi: 200,
   hidePhysicalSize: true,
@@ -453,6 +456,7 @@ GUIDANCE_PAGE_UPDATES['rrb-ntpc-signature-resize'] = {
   sources: [
     { label: 'CEN 06/2025 Graduate: section 14.5.1, PDF page 22', url: `${NTPC_SOURCES.graduate}#page=22` },
     { label: 'CEN 07/2025 Undergraduate FAQ: Q60 and Q73–74, pages 12, 14–15', url: `${NTPC_SOURCES.undergraduate}#page=15` },
+    { label: 'CEN 08/2026 Station Master: signature instructions, para 16.6', url: 'https://rrb.indianrailways.gov.in/-/image/1793016771817CEN_08_2026_StationMaster.pdf/examsDocuments' },
     { label: 'RRB application portal: confirm your active CEN', url: 'https://www.rrbapply.gov.in/' },
   ],
   relatedTools: ['rrb-ntpc-undergraduate-document-guide'],
@@ -463,7 +467,8 @@ GUIDANCE_PAGE_UPDATES['rrb-ntpc-signature-resize'] = {
     'Complete live photograph capture inside the RRB application. Follow the separate certificate instructions if requesting an SC/ST free travel pass.',
   ],
   faqs: [
-    { q: 'What is the NTPC signature size?', a: 'For NTPC Graduate CEN 06/2025 and the Undergraduate CEN 07/2025 FAQ, use a JPG/JPEG of 30–49 KB, at least 140 × 60 pixels. Sign in black ink on white paper within the 35 × 20 mm box, and check the notice for your own CEN.' },
+    { q: 'What is the NTPC signature size?', a: 'Use a JPG/JPEG of 30–49 KB and at least 140 × 60 pixels for the reviewed RRB NTPC guidance. Sign in black ink on white paper and confirm the requirements in your active CEN.' },
+    { q: 'What is the signature size for RRB Station Master?', a: 'Station Master CEN 08/2026 is a separate recruitment notice. Use a 30–49 KB JPG/JPEG signature of at least 140 × 60 pixels, signed in black ink on white paper and centred in the 50 × 20 mm box.' },
     { q: 'Is the RRB NTPC signature size 30–49 KB or 30–70 KB?', a: 'The verified CEN 06/2025 notice and CEN 07/2025 FAQ specify 30–49 KB JPG/JPEG. We corrected this page’s old 30–70 KB setting. These sources do not establish the rules for every older or later CEN.' },
     { q: 'Does RRB require exactly 140 × 60 pixels?', a: 'The reviewed sources describe 140 × 60 pixels as a minimum. This tool starts at 280 × 160 pixels, which exceeds both minimum dimensions and has the same proportions as the separately stated 35 × 20 mm box. It is a preparation choice, not an exact-pixel mandate.' },
     { q: 'Can I sign with blue ink?', a: 'The reviewed NTPC sources specify black ink on white paper. The general Railway advice that previously allowed blue ink should not be applied to these CENs.' },

@@ -5850,7 +5850,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
                   <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-1">
-                      <label htmlFor="min-kb-input" className="text-muted-foreground text-[11px] block">Min KB (Floor)</label>
+                      <label htmlFor="min-kb-input" className="text-muted-foreground text-[11px] block" title="Automatically pads tiny JPGs up to this minimum KB without blurring pixels">Min KB (Increase Floor)</label>
                       <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background min-h-[44px]">
                         <button
                           type="button"
@@ -5881,7 +5881,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     </div>
 
                     <div className="space-y-1">
-                      <label htmlFor="max-kb-input" className="text-muted-foreground text-[11px] block">Max KB (Ceiling)</label>
+                      <label htmlFor="max-kb-input" className="text-muted-foreground text-[11px] block" title="Automatically compresses oversized uploads below this maximum KB limit">Max KB (Reduce Limit)</label>
                       <div className="flex items-center border border-border rounded-lg overflow-hidden bg-background min-h-[44px]">
                         <button
                           type="button"

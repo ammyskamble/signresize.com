@@ -1,6 +1,6 @@
 ---
 const issues = [
-  { title: 'File size', problem: 'The portal says the file is too small or too large.', fix: 'Select the correct exam preset, check both KB limits, and reprocess. Review the exact byte size in Export file checks before downloading.' },
+  { title: 'File size (Reduce / Increase KB)', problem: 'Errors like "signature size should be at least 20kb", "between 10 kb and 20 kb", or "photo size should be maximum 100kb".', fix: 'Set both Min KB (Increase Floor) and Max KB (Reduce Limit) in Target File Bounds. For undersized JPGs below a minimum floor, setting Min KB safely adds JPEG padding without stretching pixels—or use the Photo Size Reducer & KB Increaser (/compress-image-to-kb/). Review the exact byte size in Export checks before downloading.' },
   { title: 'Blur or cropping', problem: 'The signature is stretched, blurry, or missing strokes.', fix: 'Use a clearer original, lock the correct aspect ratio and adjust the crop to include all strokes. Enlarging a tiny image cannot recover lost detail.' },
   { title: 'File format', problem: 'The portal rejects the image type.', fix: 'Export in the format required by the notice, usually JPG. Renaming a PNG, WebP or PDF file does not convert it.' },
   { title: 'Background & ink', problem: 'The paper has shadows, or the ink does not follow the notice.', fix: 'Try Clean White Paper for a signature scan and inspect the output. Retake photos on the required background. Check ink colour and handwriting yourself.' },

@@ -3348,39 +3348,43 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'rrb-ntpc-signature-resize',
     presetId: 'rrb-ntpc',
-    pageTitle: 'RRB NTPC Signature Resize 30 to 70 KB Online (CEN 05 & 06/2024 / 2026) - SignResize',
-    metaDescription: 'Official RRB NTPC signature resizer for rrbapply.gov.in portal. Resize signature strictly to 30 to 70 KB (140x60 px) in black ink on white paper for Graduate & Undergraduate CEN posts. 100% free.',
-    keywords: 'rrb ntpc signature resize, rrb ntpc signature size 30 to 70 kb, rrbapply signature resizer, rrb ntpc photo and signature size 2026, cen 05 2024 signature, cen 06 2024 signature size, rrb ntpc admit card signature',
-    h1: 'RRB NTPC Signature Resizer (30 KB – 70 KB)',
-    subheading: 'Official CEN standards for rrbapply.gov.in: 140×60 px format strictly compressed between 30 KB and 70 KB in running black ink for Graduate & 12th-level posts.',
+    pageTitle: 'RRB NTPC & Station Master Signature Size 30–49 KB | SignResize',
+    metaDescription: 'Prepare an RRB NTPC or Station Master signature as a 30–49 KB JPG/JPEG, at least 140×60 px, in black ink on white paper. Confirm your active CEN before upload.',
+    keywords: 'rrb ntpc signature resize, rrb station master signature size, rrb station master signature size in kb, station master signature size, rrb ntpc station master signature size, rrb signature 30 to 49 kb',
+    h1: 'RRB NTPC & Station Master Signature Resizer (30–49 KB)',
+    subheading: 'Prepare a JPG/JPEG signature between 30 KB and 49 KB, at least 140×60 px. Use black ink on white paper and check the instructions for your active CEN.',
     authority: 'Railway Recruitment Boards (RRB)',
-    targetExams: 'RRB NTPC Graduate (CEN 05/2024), RRB NTPC Undergraduate (CEN 06/2024 & CEN 07/2026), Station Master, Goods Train Manager, Senior Clerk, Junior Clerk, Accounts Clerk',
-    widthPx: 140,
-    heightPx: 60,
-    widthCm: 4.0,
-    heightCm: 2.0,
+    targetExams: 'RRB NTPC Graduate and Undergraduate posts; RRB Station Master CEN 08/2026 (separate recruitment notice)',
+    widthPx: 280,
+    heightPx: 160,
+    widthCm: 0,
+    heightCm: 0,
     minKb: 30,
-    maxKb: 70,
-    recommendedKb: 50,
+    maxKb: 49,
+    recommendedKb: 40,
     dpi: 200,
     ink: 'Black Ballpoint Pen Only (Running Handwriting)',
-    aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'Files below 30.0 KB are automatically REJECTED by the RRB server. Signatures in CAPITAL / BLOCK LETTERS will disqualify the candidate. Live photo capture is used on the application portal.',
+    aspectRatioLabel: '7:4 preparation canvas; 140×60 px minimum',
+    strictNotice: 'Use JPG/JPEG between 30 KB and 49 KB and meet the minimum 140×60 px requirement. Sign in running handwriting with black ink on white paper. Confirm the active CEN before upload.',
     relatedTools: ['rrb-signature-resize', 'rrb-alp-signature-resize', 'rrb-group-d-photo-resize', 'photo-resizer'],
     tips: [
       'Sign with a black ballpoint pen on plain, unruled white paper. Do not use gel pens or blue ink.',
       'Crop tightly around the signature strokes leaving small margins so the signature fills 80% of the box.',
-      'Verify that the exported file is strictly at or above 30.0 KB and below 70.0 KB before uploading to rrbapply.gov.in.',
+      'Verify the exported JPG/JPEG is between 30 KB and 49 KB and at least 140×60 px; confirm the active CEN before uploading.',
       'Do not submit signatures in ALL CAPS or initials only; sign in your natural cursive hand.'
     ],
     faqs: [
       {
-        q: 'What is the required signature size for RRB NTPC 2026 on rrbapply.gov.in?',
-        a: 'Under current RRB Centralized Employment Notices (CEN 05/2024, 06/2024, and subsequent cycles), the signature must be in JPG/JPEG format, with dimensions of 140 × 60 pixels, and a file size strictly between 30 KB and 70 KB (minimum 30 KB).'
+        q: 'What is the required signature size for RRB NTPC?',
+        a: 'For the reviewed RRB NTPC CENs, use JPG/JPEG between 30 KB and 49 KB, at least 140 × 60 pixels, in black ink on white paper, centred in the 35 × 20 mm box specified by those notices.'
+      },
+      {
+        q: 'What is the signature size for RRB Station Master CEN 08/2026?',
+        a: 'Use JPG/JPEG between 30 KB and 49 KB, at least 140 × 60 pixels, in black ink on white paper, centred in the 50 × 20 mm box. Station Master CEN 08/2026 is a separate recruitment notice.'
       },
       {
         q: 'Why does the RRB portal reject signatures smaller than 30 KB?',
-        a: 'The modern RRB recruitment server automatically validates file sizes against a strict 30 KB lower bound to prevent severe compression artifacts that could hinder biometric identity verification during CBT and document verification.'
+        a: 'The reviewed RRB NTPC guidance sets a 30 KB lower bound. Check the complete 30–49 KB range and other upload requirements in your active CEN.'
       },
       {
         q: 'Can I upload a saved photo file for RRB NTPC?',

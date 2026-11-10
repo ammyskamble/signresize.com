@@ -9628,17 +9628,17 @@ signatures in capital letters will be rejected summarily without any corresponde
   },
   {
     slug: "rrb-ntpc-2026-master-document-rules-preparation-strategy",
-    title: "RRB NTPC 2026: Scanned Document Upload Rules, Sectional Weightage & High-Yield Preparation Strategy",
-    excerpt: "Complete candidate guide for Railway RRB NTPC 2026: CBT-1 marking scheme, 10-20KB signature rules, photograph guidelines, step-by-step navigation, and speed calculation methods.",
+    title: "RRB NTPC & Station Master 2026: Signature Rules, Document Upload & Exam Preparation",
+    excerpt: "Separate RRB NTPC and Station Master upload guidance, including the Station Master CEN 08/2026 signature rule, NTPC documents, and exam preparation.",
     category: "Study Prep",
     publishDate: "Oct 19, 2026",
-    lastUpdated: "Oct 19, 2026",
+    lastUpdated: "Nov 10, 2026",
     author: "SignResize Academic Research Desk",
     authorRole: "Railway Recruitment Strategy Desk",
     readTime: "8 min read",
     featured: false,
-    tags: ["RRB NTPC", "Railway Exams", "CBT 1 Prep", "Signature 10-20KB", "Maths Shortcuts", "Document Guidelines"],
-    relatedExamPreset: "rrb-railway",
+    tags: ["RRB NTPC", "RRB Station Master", "Railway Exams", "Signature 30-49 KB", "Document Guidelines"],
+    relatedExamPreset: "rrb-ntpc",
     quickFacts: [],
     contentHtml: `
 <h2>RRB NTPC 2026: Master Examination Overview &amp; Selection Stages</h2>
@@ -9666,10 +9666,14 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       </div>
 
       <h2>Document Upload Compliance for Railway Portals</h2>
-      <p>Railway recruitment notices explicitly enforce strict parameters for candidate photo and scanned signature uploads:</p>
+      <p>Railway recruitment notices explicitly enforce strict parameters for candidate photo and scanned signature uploads. Check the active CEN because requirements can vary by recruitment cycle.</p>
+
+      <h2>RRB Station Master Signature Size</h2>
+      <p><strong>RRB Station Master signature size: 30–49 KB JPG/JPEG, at least 140×60 pixels, in black ink on white paper.</strong> Station Master has a separate recruitment notice, CEN 08/2026; apply that notice's instructions, including its 50×20 mm signature box, rather than assuming it is an NTPC CEN.</p>
+      <p>The numeric file-size and minimum-pixel limits match the reviewed NTPC guidance, but the recruitment notice and signing box differ. Prepare the image with the <a href="/rrb-ntpc-signature-resize/" class="text-primary underline font-semibold">RRB signature resizer</a>, then confirm the final crop and file against CEN 08/2026.</p>
       <ul>
         <li><strong>Scanned Passport Photo:</strong> Clear color photograph against a light white background taken within 3 months. File size must range between <strong>20 KB and 50 KB</strong> in JPG/JPEG format. Spectacles with tint or flash glare will be rejected.</li>
-        <li><strong>Candidate Signature:</strong> Must be signed in running handwriting on clean white unruled paper using a black ballpoint pen. File weight must be between <strong>10 KB and 20 KB</strong> (140 &times; 60 pixels). Capital letter signatures trigger immediate cancellation.</li>
+        <li><strong>Candidate Signature:</strong> For the reviewed NTPC guidance, use running handwriting in black ink on white paper, as a <strong>30–49 KB JPG/JPEG</strong> measuring at least <strong>140×60 pixels</strong>. Check the active CEN before upload.</li>
       </ul>
 
       <div class="my-8 p-6 rounded-2xl bg-card border border-border shadow-sm">
@@ -9684,7 +9688,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
           </div>
           <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">2</div>
-            <span class="font-bold text-xs text-foreground">Crop 140x60 Ratio</span>
+            <span class="font-bold text-xs text-foreground">Meet 140×60 px minimum</span>
             <span class="text-[10px] sm:text-[11px] text-muted-foreground">Remove surrounding excess paper</span>
           </div>
           <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
@@ -9694,7 +9698,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
           </div>
           <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">4</div>
-            <span class="font-bold text-xs text-foreground">Target 10-20 KB</span>
+            <span class="font-bold text-xs text-foreground">Target 30-49 KB</span>
             <span class="text-[10px] sm:text-[11px] text-muted-foreground">Compress for zero portal error</span>
           </div>
         </div>
@@ -9702,10 +9706,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
 
       <div class="my-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
         <h4 class="text-base font-bold text-foreground">Need RRB Signature &amp; Photo Formatted?</h4>
-        <p class="text-xs sm:text-sm text-muted-foreground mt-1">Use our dedicated RRB Railway preset to crop, clean dark shadows, and compress into the exact 10–20 KB bound in seconds.</p>
+        <p class="text-xs sm:text-sm text-muted-foreground mt-1">Use the dedicated NTPC page to prepare a 30–49 KB signature, then check the active CEN before uploading.</p>
         <div class="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 mt-3">
-          <a href="/rrb-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition w-full sm:w-auto">
-            Open RRB Resizer &rarr;
+        <a href="/rrb-ntpc-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition w-full sm:w-auto">
+            <span>rrb station master signature size</span> &rarr;
           </a>
           <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition w-full sm:w-auto">
             Resize Passport Photo &rarr;
@@ -9723,7 +9727,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
           </div>
           <div class="relative">
             <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</div>
-            <h4 class="font-bold text-foreground text-sm">Upload Photo (20-50 KB) &amp; Signature (10-20 KB)</h4>
+            <h4 class="font-bold text-foreground text-sm">Complete photo and signature uploads per the active CEN</h4>
             <p class="text-xs text-muted-foreground mt-1">Upload JPEG files formatted with SignResize. Verify that your signature image displays clearly without horizontal stretch.</p>
           </div>
           <div class="relative">
@@ -9737,7 +9741,12 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       <h2>Recommended Daily Study Strategy</h2>
       <p>Divide your daily preparation into 3 focused blocks: 2 hours for Arithmetic speed drills, 1.5 hours for Logical Reasoning puzzle practice, and 2 hours for General Science and Current Affairs revision.</p>
     `,
-    faqs: []
+    faqs: [
+      {
+        question: "What is the signature size for RRB Station Master?",
+        answer: "For Station Master CEN 08/2026, use a JPG/JPEG signature between 30 KB and 49 KB, at least 140×60 pixels, signed in black ink on white paper, and centre it in the 50×20 mm box. Station Master has a separate CEN; follow that notice rather than assuming it is an NTPC post."
+      }
+    ]
   },
 
   {

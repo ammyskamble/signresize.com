@@ -10,10 +10,10 @@ import SignatureCropExamples from '../components/SignatureCropExamples.astro';
 import { SignatureTool } from '../components/SignatureTool';
 
 const pageTitle = "Resize Signature to 10–20 KB Online | SignResize";
-const pageDescription = "Resize a handwritten signature to a 10–20 KB JPG. Adjust pixel dimensions, crop and preview privately in your browser before downloading.";
+const pageDescription = "Resize signature to 10–20 KB (or 15–100 KB) JPG. Set custom pixels or 3.5 × 1.5 cm units, crop cleanly, and increase minimum KB limits in your browser.";
 const canonicalUrl = "https://signresize.in/resize-signature-to-10kb-20kb/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "resize signature to 10 to 20 kb, signature resize 10 to 20 kb online, signature resize 10 to 20 kb, signature compressor 10 to 20 kb, ssc signature resize 10 to 20 kb, rrb signature resize 10 to 20 kb, resize signature online 10 to 20 kb, signature resize 20kb, compress signature to 20kb";
+const keywordsContent = "signature resize 10 to 20 kb, resize signature to 10 to 20 kb, resize signature to 20kb, resize signature to 50kb, resize signature to 100kb, resize signature to 3.5 cm x 1.5 cm, signature size should be between 10 kb and 20 kb, signature size should be at least 20kb, signature ka size kaise badhaye, signature compressor 10 to 20 kb";
 
 const faqs = [
   {
@@ -31,6 +31,22 @@ const faqs = [
   {
     "q": "What if a small file is still blurry?",
     "a": "Start with a clearer scan. Adding bytes or enlarging the image does not recover detail lost in the original."
+  },
+  {
+    "q": "Can I resize a signature to 15 KB, 20 KB, 30 KB, 40 KB, 50 KB, or 100 KB?",
+    "a": "Yes. While this page defaults to the common 10–20 KB range, you can type any custom Min KB and Max KB target (for example 10–15 KB, 10–30 KB, 20–40 KB, 20–50 KB, or under 100 KB) inside Target File Bounds before downloading."
+  },
+  {
+    "q": "How do I resize a signature to 3.5 cm × 1.5 cm or another centimeter size?",
+    "a": "In the dimension unit selector inside the workspace, switch from px to cm, check the DPI value required by your application (for example 100 or 200 DPI), and enter 3.5 cm width × 1.5 cm height or the exact measurements stated in your recruitment notice."
+  },
+  {
+    "q": "How do I fix 'signature size should be at least 20kb' or increase signature KB size?",
+    "a": "Tiny scans often fall below a 20 KB minimum limit (signature ka size kaise badhaye). Set Min KB (Increase Floor) to 20 and Max KB to 30 or 50 in JPG format: SignResize pads clean JPEG comment bytes without stretching or blurring your strokes. If pixels are too small, upload a clearer high-res photo first."
+  },
+  {
+    "q": "What does 'signature size should be between 10 kb and 20 kb' mean (meaning in hindi)?",
+    "a": "It means your uploaded signature file must measure at least 10 KB and at most 20 KB on disk. (Hindi meaning: आपके हस्ताक्षर की फाइल साइज 10 KB से कम और 20 KB से ज्यादा नहीं होनी चाहिए।) Set Min KB = 10 and Max KB = 20, export JPG, and confirm the final KB check shows Ready."
   },
   {
     "q": "Are my images uploaded for processing?",
@@ -179,7 +195,7 @@ const faqs = [
       <section class="rounded-2xl border border-border bg-card p-5 space-y-3">
         <h1 class="text-2xl sm:text-4xl font-bold">Resize Signature to 10–20 KB Online</h1>
         <p>Prepare a JPG between 10 KB and 20 KB. Upload your handwritten signature, crop unused paper and set the pixel dimensions required by your application.</p>
-        <p class="text-sm text-muted-foreground">The starting canvas is 600 × 200 px, an editable preparation setting. A KB range does not imply one mandatory pixel size or guarantee portal acceptance.</p>
+        <p class="text-sm text-muted-foreground">The starting canvas is 600 × 200 px, an editable preparation setting. Switch units to set <strong>cm</strong> (such as 3.5 × 1.5 cm with DPI) or adjust Min/Max KB to reach <strong>15 KB, 20 KB, 30 KB, 40 KB, 50 KB, or 100 KB</strong> — including increasing undersized JPGs above a minimum floor. Use <a href="/hi/" class="text-primary underline font-medium">Hindi Signature Resizer</a> if you prefer Hindi instructions.</p>
       </section>
       <section id="signature-workspace" aria-label="Signature resizing workspace" class="bg-card border border-border rounded-2xl p-3 sm:p-5 min-h-[680px]">
         <SignatureTool client:idle defaultPresetId="ssc-general" />

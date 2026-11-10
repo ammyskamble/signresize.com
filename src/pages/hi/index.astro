@@ -13,11 +13,38 @@ import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 
-const pageTitle = "सिग्नेचर रिसाइज़र ऑनलाइन (10 से 20 KB) | फोटो व हस्ताक्षर रिसाइज करें - SignResize";
-const pageDescription = "मुफ्त ऑनलाइन सिग्नेचर रिसाइज़र व कंप्रेसर टूल। हस्ताक्षर और फोटो को 10 से 20 KB में रिसाइज करें, सेमी व पिक्सेल में चौड़ाई और ऊँचाई सेट करें। UPSC, SSC, UPPSC, BPSC, PAN कार्ड हेतु 100% सुरक्षित।";
+const pageTitle = "सिग्नेचर व फोटो रिसाइज़र (10–20 KB, 20–50 KB) | साइज कम/बढ़ाएं - SignResize";
+const pageDescription = "फोटो व सिग्नेचर का साइज कम करें या बढ़ाएं (10–20 KB, 20–50 KB, 100 KB)। फोटो का साइज कैसे कम करें, सिग्नेचर साइज और हिंदी एरर समाधान देखें।";
 const canonicalUrl = "https://signresize.in/hi/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "सिग्नेचर रिसाइज, हस्ताक्षर रिसाइज़र, सिग्नेचर 10 से 20 kb, फोटो और सिग्नेचर रिसाइज़र, ssc सिग्नेचर रिसाइज, पैन कार्ड सिग्नेचर रिसाइज, uppsc सिग्नेचर रिसाइज, bpsc सिग्नेचर रिसाइज, सिग्नेचर का साइज कैसे कम करें";
+const keywordsContent = "फोटो का साइज कैसे कम करें, photo ka size kaise kam kare, photo ka size kaise badhaye, signature ka size kya hota hai, signature size kitna hona chahiye, सिग्नेचर रिसाइज 10 से 20 kb, photo size reducer in kb, signature size should be at least 20kb meaning in hindi, photo size should be maximum 100kb meaning in hindi";
+
+const hindiFaqs = [
+  {
+    q: "फोटो का साइज कैसे कम करें (Photo ka size kaise kam kare — 20 KB, 50 KB या 100 KB में)?",
+    a: "SignResize पर अपनी फोटो अपलोड करें, 'Photo' मोड चुनें और Max KB में 50 KB या 100 KB (या SSC/Exam अनुसार 20–50 KB) सेट करें। बिना क्रॉप किए केवल KB कम करने के लिए 'Photo Size Reducer & KB Tool' (/compress-image-to-kb/) खोलें — 'Reduce Size (Max KB)' में फोटो का साइज सेकंडों में कम हो जाता है।"
+  },
+  {
+    q: "फोटो या सिग्नेचर का साइज कैसे बढ़ाएं (Photo / Signature ka size kaise badhaye in KB)?",
+    a: "अगर आपकी फोटो 8 KB या 12 KB की है और फॉर्म कम से कम 20 KB या 30 KB मांग रहा है, तो ऊपर टूल में 'Min KB (Increase Floor)' में 20 या 30 लिखें (या /compress-image-to-kb/ पर 'Increase Size (Min KB)' टैब चुनें) और JPG डाउनलोड करें। SignResize बिना पिक्सेल खींचे सुरक्षित तरीके से JPG फाइल का KB साइज बढ़ा देता है।"
+  },
+  {
+    q: "सिग्नेचर का साइज कितना होना चाहिए (Signature ka size kya hota hai / kitna hona chahiye)?",
+    a: "हर परीक्षा का नियम अलग होता है — ज्यादातर सरकारी फॉर्म (SSC, RRB, IBPS) 10 KB से 20 KB JPG मांगते हैं, जबकि PAN कार्ड (50 KB तक), CTET (3–30 KB, 3.5×1.5 cm) और IIT JAM (50–150 KB) की सीमा अलग है। अपने आधिकारिक नोटिफिकेशन में Pixels, CM और Min–Max KB जरूर जांचें।"
+  },
+  {
+    q: "\"Signature size should be at least 20kb\" (Meaning in Hindi) — इसका मतलब और समाधान?",
+    a: "Meaning in Hindi: आपके हस्ताक्षर की फाइल का साइज कम से कम 20 KB होना चाहिए (आपकी फाइल 20 KB से छोटी है)। समाधान: SignResize में Min KB = 20 और Max KB = 35 या 50 सेट करके JPG एक्सपोर्ट करें, टूल फाइल को सुरक्षित रूप से 20 KB से ऊपर बढ़ा देगा।"
+  },
+  {
+    q: "\"Signature size should be between 10 kb and 20 kb\" (Meaning in Hindi) — इसे कैसे ठीक करें?",
+    a: "Meaning in Hindi: सिग्नेचर का फाइल साइज 10 KB से 20 KB के बीच ही होना चाहिए (न 10 से कम, न 20 से ज्यादा)। समाधान: Min KB = 10 और Max KB = 20 सेट करें या /resize-signature-to-10kb-20kb/ उपयोग करके 15 KB के आसपास सटीक JPG डाउनलोड करें।"
+  },
+  {
+    q: "\"Photo size should be maximum 100kb\" (Meaning in Hindi) — 100 KB से कम कैसे करें?",
+    a: "Meaning in Hindi: अपलोड की जाने वाली फोटो अधिकतम 100 KB की हो सकती है (आपकी फाइल 100 KB से बड़ी है)। समाधान: Photo mode या /compress-image-to-kb/ में Max KB = 95 या 100 सेट करके JPG डाउनलोड करें और अपलोड से पहले फाइल साइज जांच लें।"
+  }
+];
 ---
 
 <!doctype html>
@@ -110,10 +137,10 @@ const keywordsContent = "सिग्नेचर रिसाइज, हस्�
               </span>
             </div>
             <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.2]">
-              ऑनलाइन <span class="text-primary">हस्ताक्षर रिसाइज़र</span> और कंप्रेसर (10 से 20 KB)
+              ऑनलाइन <span class="text-primary">सिग्नेचर व फोटो रिसाइज़र</span> (साइज कम करें या बढ़ाएं)
             </h1>
             <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
-              <strong>SSC, UPSC, UPPSC, BPSC, RRB और पैन कार्ड</strong> हेतु हस्ताक्षर को तुरंत रिसाइज करें। आयाम (<span class="font-mono text-foreground font-medium">140×60 px</span>, <span class="font-mono text-foreground font-medium">4×2 सेमी</span>) सेट करें, कागज़ की छाया हटाएं और बिना धुंधलापन के 10 से 20 KB में सुरक्षित डाउनलोड करें।
+              <strong>SSC, UPSC, UPPSC, BPSC, CTET, RRB व पैन कार्ड</strong> के लिए हस्ताक्षर व फोटो को <strong>10–20 KB</strong>, <strong>20–50 KB</strong> या <strong>100 KB</strong> में सेट करें। आप पिक्सेल/सेमी बदलने के साथ-साथ कम KB वाली JPG फाइल का साइज <strong>बढ़ा</strong> भी सकते हैं — या केवल KB बदलने के लिए <a href="/compress-image-to-kb/" class="text-primary underline font-semibold">Photo Size Reducer &amp; KB Tool</a> उपयोग करें।
             </p>
           </div>
 
@@ -177,8 +204,12 @@ const keywordsContent = "सिग्नेचर रिसाइज, हस्�
       <!-- Step-by-Step Guide Section -->
       <GuideSection />
 
-      <!-- FAQ Section -->
-      <FaqSection />
+      <!-- FAQ Section (Hindi & Hinglish) -->
+      <FaqSection
+        faqs={hindiFaqs}
+        title="अक्सर पूछे जाने वाले प्रश्न (Hindi & Hinglish FAQ)"
+        description="फोटो का साइज कैसे कम करें या बढ़ाएं (Min/Max KB), सिग्नेचर का साइज कितना होना चाहिए और पोर्टल एरर का हिंदी अर्थ।"
+      />
 
       <!-- Author Bio Section -->
       <AuthorBioSection />
