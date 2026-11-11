@@ -67,6 +67,8 @@ export interface ExamPreset {
   sourceLabel?: string;
   /** False when a source omits universal exact pixel requirements for this post. */
   portalExactSpecsVerified?: boolean;
+  /** Additional search aliases matched by preset comboboxes and site search. */
+  searchTerms?: string;
 }
 
 export type ToolTargetMode = 'signature' | 'photo' | 'document';

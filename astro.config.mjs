@@ -163,7 +163,7 @@ export default defineConfig({
           [
             '/404', '/500', '/404.html', '/500.html',
             '/studio-preview', '/live-layout-preview', '/feedback-admin',
-            '/about', '/privacy', '/terms', '/disclaimer', '/contact'
+            '/about', '/privacy', '/terms', '/disclaimer', '/contact', '/appsc-tspsc-signature-resize'
           ].includes(pathname)
         ) return false;
 
@@ -184,8 +184,8 @@ export default defineConfig({
         const blogSlug = new URL(url).pathname.match(/\/(?:blog)\/([^/]+)\/$/)?.[1];
         const post = BLOG_POSTS.find(post => post.slug === blogSlug);
         const modified = post && new Date((post.lastUpdated || post.publishDate).replace(/Sept\b/i, 'Sep'));
-        if (new URL(url).pathname === '/teletalk-photo-signature-resize/') {
-          item.lastmod = '2026-11-06';
+        if (new URL(url).pathname === '/appsc-signature-resize/') { item.lastmod = '2026-11-11'; } else if (['/teletalk-photo-signature-resize/', '/bd/medical-admission-photo-resizer/', '/bd/', '/pk/css-exam-photo-resizer/', '/pk/fpsc-photo-resizer/', '/jee-main-photo-resize/', '/jee-main-signature-resize/', '/blog/jee-main-2026-session-1-registration-syllabus-photo-signature-guidelines/', '/application-dates/', '/uppsc-signature-resize/', '/thumb-impression-resize/', '/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/', '/blog/state-psc-otr-registration-photo-signature-guidelines/', '/blog/up-police-constable-si-2026-top-10-faq-guide/'].includes(new URL(url).pathname)) {
+          item.lastmod = '2026-11-10';
         } else if (modified && !Number.isNaN(modified.getTime())) {
           item.lastmod = modified.toISOString().slice(0, 10);
         } else {

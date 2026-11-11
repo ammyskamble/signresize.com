@@ -3,7 +3,13 @@ import { ALL_COMBINED_PRESETS } from '../data/examPresets';
 import { EXAM_PAGES_DATA } from '../data/examPagesData';
 import { presetMode } from '../utils/presetMode';
 
-const links = new Map(EXAM_PAGES_DATA.map(page => [page.presetId, `/${page.slug}/`]));
+const links = new Map([
+  ...EXAM_PAGES_DATA.map(page => [page.presetId, `/${page.slug}/`] as const),
+  ['uppsc-ro-aro-signature', '/uppsc-signature-resize/'],
+  ['uppsc-ro-aro-photo', '/photo-resizer/?preset=uppsc-ro-aro-photo#tool-workspace'],
+  ['uppsc-ro-aro-thumb', '/thumb-impression-resize/?preset=uppsc-ro-aro-thumb#tool-workspace'],
+  ['appsc-photo', '/photo-resizer/?preset=appsc-photo#tool-workspace'],
+]);
 const featured = ['ssc-cgl', 'ssc-general', 'ssc-cgl-photo', 'ssc-photo', 'rrb-railway', 'upsc-civil-services', 'ibps-sbi', 'iit-jam', 'gate-jam', 'iit-jam-photo', 'gate-photo', 'pan-card-nsdl', 'neet-photo', 'pan-card-photo-nsdl', 'uti-photo-crop', 'handwritten-declaration'];
 const presets = [...new Map(ALL_COMBINED_PRESETS.map(p => [p.id, { ...p, targetType: presetMode(p) }])).values()].sort((a, b) => {
   const rank = (p: typeof a) => { const index = featured.indexOf(p.id); return index >= 0 ? index : 100 + (p.country && p.country !== 'IN' ? 100 : 0) + (p.isPopular ? 0 : 10); };
@@ -17,7 +23,7 @@ const tabIcons: Record<string, string> = {
 const directoryPresets = presets.map(p => ({
   id: p.id, name: p.name, authority: p.authority, category: groupFor(p), targetType: p.targetType || 'signature', widthPx: p.widthPx, heightPx: p.heightPx, minKb: p.minKb, maxKb: p.maxKb, format: p.format,
   dimensions: p.widthCm && p.heightCm ? `${p.widthCm} × ${p.heightCm} cm` : `${(p.widthPx / p.dpi * 2.54).toFixed(2)} × ${(p.heightPx / p.dpi * 2.54).toFixed(2)} cm at ${p.dpi} DPI`,
-  search: `${p.name} ${p.shortCode || ''} ${p.id} ${p.authority} ${p.category} ${p.targetType || 'signature'}`.toLowerCase(),
+  search: `${p.name} ${p.shortCode || ''} ${p.id} ${p.authority} ${p.category} ${p.targetType || 'signature'} ${p.searchTerms || ''}`.toLowerCase(),
   href: ['teletalk-bd', 'teletalk-photo-bd', 'teletalk-sign-bd'].includes(p.id) ? '/teletalk-photo-signature-resize/' : links.get(p.id) || (p.country && !['IN', 'GLOBAL'].includes(p.country) ? `/${p.country.toLowerCase()}/` : p.targetType === 'photo' ? '/photo-resizer/' : p.targetType === 'document' ? '/document-resizer/' : '/resize-signature-to-10kb-20kb/'),
 }));
 const initialPresets = directoryPresets.slice(0, 10);

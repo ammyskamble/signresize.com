@@ -115,7 +115,7 @@ const photoFaqs = [
         <p>Upload your photo, choose a crop, and resize or reduce photo size in KB (such as <strong>20 KB to 50 KB</strong> or <strong>under 100 KB</strong>). Need to fix a minimum file-size warning? Set <strong>Min KB</strong> to safely increase tiny JPGs without stretching pixels.</p>
         <p class="text-sm text-muted-foreground">A general preset is a starting point, not a universal passport or exam rule. Check your notice's pixel/cm size and live capture rules; need KB-only reduction or increase without cropping? Use the <a class="text-primary underline font-semibold" href="/compress-image-to-kb/">Photo Size Reducer &amp; KB Tool</a>.</p>
       </section>
-      <section aria-label="Photo resizing workspace" class="bg-card border border-border rounded-2xl p-3 sm:p-5 min-h-[680px]">
+      <section id="tool-workspace" aria-label="Photo resizing workspace" class="scroll-mt-20 bg-card border border-border rounded-2xl p-3 sm:p-5 min-h-[680px]">
         <SignatureTool client:idle initialMode="photo" initialPresetId="passport-general-photo" />
       </section>
       <section class="rounded-2xl border border-border bg-card p-5 space-y-3">

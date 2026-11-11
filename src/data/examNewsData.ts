@@ -52,7 +52,7 @@ export const ONGOING_EXAMS_DATA: ExamNewsItem[] = [
     notificationTitle: 'Combined Graduate Level Examination 2026 (Group B & C Posts)',
     badgeText: 'Closing Soon',
     toolSlug: 'ssc-signature-resize',
-    articleSlug: 'ssc-cgl-2026-top-10-faq-aspirants-guide',
+    articleSlug: 'ssc-cgl-2026-master-application-preparation-guide',
     officialUrl: 'https://ssc.gov.in',
     isHot: true,
     notificationDetails: {
@@ -90,7 +90,7 @@ export const ONGOING_EXAMS_DATA: ExamNewsItem[] = [
     notificationTitle: 'Non-Technical Popular Categories (Graduate & Under Graduate Level)',
     badgeText: 'Exam Date & City Slip',
     toolSlug: 'rrb-signature-resize',
-    articleSlug: 'rrb-ntpc-exam-date-2026-city-intimation-slip-admit-card',
+    articleSlug: 'rrb-ntpc-2026-master-document-rules-preparation-strategy',
     officialUrl: 'https://rrbapply.gov.in',
     isHot: true,
     notificationDetails: {
@@ -235,35 +235,34 @@ export const ONGOING_EXAMS_DATA: ExamNewsItem[] = [
     shortCode: 'UPPSC RO/ARO',
     authority: 'Uttar Pradesh Public Service Commission',
     category: 'State PSC',
-    vacancies: '411 Posts',
-    startDate: '2026-08-25',
-    lastDate: '2026-09-30',
-    examDate: 'December 2026',
+    vacancies: '501 Posts',
+    startDate: '2026-10-26',
+    lastDate: '2026-11-26',
+    examDate: 'As per UPPSC Schedule',
     notificationTitle: 'Samiksha Adhikari / Sahayak Samiksha Adhikari General & Special Recruitment',
-    badgeText: 'Active',
+    badgeText: 'Active · Closes 26 Nov',
     toolSlug: 'uppsc-signature-resize',
     articleSlug: 'uppsc-ro-aro-2026-top-10-faq-aspirants',
     officialUrl: 'https://uppsc.up.nic.in',
-    isHot: false,
+    isHot: true,
     notificationDetails: {
       advtNumber: 'A-4/E-1/2026',
       posts: 'Review Officer (UP Secretariat, Board of Revenue, UPPSC Office), Assistant Review Officer',
-      qualification: 'Bachelor’s Degree + O Level certification / Computer diploma (for ARO) + Hindi typing speed',
-      ageLimit: '21 to 40 Years (Up to 45 years for UP domicile reserved categories)',
+      qualification: 'Bachelor’s Degree (for RO) + O Level / 1-year equivalent diploma & Hindi typing (for ARO)',
+      ageLimit: '21 to 40 Years (relaxation as per UP Government rules)',
       applicationFee: '₹125 (General/OBC/EWS); ₹65 (SC/ST); ₹25 (PwD)',
       selectionProcess: 'Preliminary Examination (GS + General Hindi) + Main Examination (Descriptive Essay & Drafting)',
-      photoRule: 'Combined Photo & Signature format or individual 3.5×4.5 cm photo (20-50 KB).',
-      signRule: 'Clear black ink signature below photograph or separate 10-20 KB JPG file as per OTR specifications.',
+      photoRule: 'RO/ARO application photo: 20–50 KB JPG (UPPSC OTR PDF specifies 5×6 cm @ 200 DPI under 50 KB).',
+      signRule: 'RO/ARO signature: 10–20 KB JPG (140×60 px; OTR ceiling under 30 KB @ 6×3 cm) + Left Thumb Impression 10–20 KB JPG.',
       importantDates: [
-        { label: 'Online Application Commenced', date: 'August 25, 2026' },
-        { label: 'Last Date for Application Fee', date: 'September 30, 2026' },
-        { label: 'Correction / Edit Window', date: 'October 01 to 07, 2026' },
-        { label: 'Preliminary Written Exam', date: 'December 2026' }
+        { label: 'Online Application Commenced', date: 'October 26, 2026' },
+        { label: 'Last Date for Application & Fee', date: 'November 26, 2026' },
+        { label: 'Fee Reconciliation & Modification Till', date: 'December 03, 2026' }
       ],
       keyHighlights: [
-        'Prestigious administrative secretariat posting in Lucknow and Prayagraj.',
-        'UPPSC OTR (One Time Registration) compliance strictly enforced.',
-        'Hindi translation and drafting carries high weightage in Mains.'
+        '501 vacancies advertised under Advt. A-4/E-1/2026.',
+        'UPPSC OTR (One Time Registration) required before application submission.',
+        'All three uploads needed: Photo (20–50 KB), Signature (10–20 KB), Left Thumb Impression (10–20 KB).'
       ]
     }
   },

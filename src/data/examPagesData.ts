@@ -4,11 +4,27 @@ import { GUIDANCE_PAGE_UPDATES } from './examGuidance';
 export interface ExamPageInfo {
   guidanceLabel?: string;
   verifiedOn?: string;
+  noindex?: boolean;
   sources?: Array<{ label: string; url: string }>;
   pixelNote?: string;
   hidePhysicalSize?: boolean;
   physicalSizeNote?: string;
+  fileSizeNote?: string;
   relatedTools?: string[];
+  datesStrip?: string;
+  admissionSeason?: {
+    id: string;
+    badge: string;
+    heading: string;
+    intro: string;
+    items: Array<{
+      name: string;
+      window: string;
+      specNote: string;
+      href?: string;
+      ctaLabel?: string;
+    }>;
+  };
   slug: string; // e.g. 'ssc-signature-resize'
   presetId: string; // matches id in EXAM_PRESETS
   pageTitle: string;
@@ -573,7 +589,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     metaDescription: 'Resize signature for NTA NEET UG/PG, JEE Main, and CUET exams. Format to 140x60 px (3.5x1.5 cm), 4 KB to 30 KB JPG, running handwriting in black ink on white paper.',
     keywords: 'nta signature resize, neet signature resize 4 to 30 kb, jee main signature size, cuet signature format, nta signature upload, neet 2026 signature resizer',
     h1: 'NTA Signature Resize & Compressor (NEET, JEE Main, CUET)',
-    subheading: 'Exact 3.5×1.5 cm (140×60 px) dimensions with 4 KB to 30 KB strict file size bounds for National Testing Agency portals.',
+    subheading: 'Exact 3.5×1.5 cm (140×60 px) dimensions with 4 KB to 30 KB bounds for NEET UG / legacy NTA portals (for JEE Main 2027, use 10–100 KB on our JEE Main Signature Resizer).',
     authority: 'National Testing Agency (NTA)',
     targetExams: 'NEET UG, NEET PG, JEE Main Session 1 & 2, JEE Advanced, CUET UG & PG, CMAT, GPAT',
     widthPx: 140,
@@ -595,8 +611,8 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ],
     faqs: [
       {
-        q: 'What is the official signature size for NEET 2026 and JEE Main?',
-        a: 'NTA guidelines require dimensions of 3.5 cm × 1.5 cm (~140 × 60 pixels) and a file size strictly between 4 KB and 30 KB in JPG or JPEG format.'
+        q: 'What is the official signature size for NEET UG and JEE Main?',
+        a: 'For NEET UG / legacy NTA forms, the 4 KB to 30 KB (3.5 × 1.5 cm, ~140 × 60 px) JPG rule applies. However, the live NTA JEE (Main) 2027 Information Bulletin (Page 9) requires 10 KB to 100 KB JPG/JPEG — use our dedicated /jee-main-signature-resize/ tool for JEE Main.'
       },
       {
         q: 'Can I upload a blue ink signature for NTA exams?',
@@ -609,32 +625,65 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     slug: 'uppsc-signature-resize',
     presetId: 'uppsc',
     pageTitle: 'UPPSC Signature Resize 10 to 50 KB (3.5x1.5 cm) - SignResize',
-    metaDescription: 'Resize signature for Uttar Pradesh Public Service Commission (UPPSC PCS, RO/ARO) online. Format to 140x60 px (3.5x1.5 cm), 10 KB to 50 KB JPG. 100% browser private.',
-    keywords: 'uppsc signature resize, uppsc signature size 10 to 50 kb, uppsc pcs signature format, uppsc ro aro signature resizer, up psc signature upload',
+    metaDescription: 'Resize signature for UPPSC OTR, PCS & RO/ARO 2026 online. UPPSC OTR allows signatures under 30 KB (6×3 cm @ 200 DPI); RO/ARO 2026 uses 140×60 px, 10–20 KB JPG. 100% browser private.',
+    keywords: 'uppsc signature resize, uppsc ro aro signature resize, ro aro sign resize, samiksha adhikari signature resize, uppsc otr signature size, uppsc pcs signature format, up psc signature upload',
     h1: 'UPPSC Signature Resize & Compressor (10 KB – 50 KB)',
-    subheading: 'Official 3.5×1.5 cm (140×60 px) specifications compliant with UPPSC OTR registration and PCS application portal.',
+    subheading: 'UPPSC OTR guideline allows signatures under 30 KB (6×3 cm @ 200 DPI, no minimum); RO/ARO 2026 forms use 140×60 px, 10–20 KB JPG. Apply the RO/ARO preset below or adjust the KB slider.',
+    datesStrip: 'UPPSC RO/ARO 2026 (Advt. A-4/E-1/2026 · 501 posts): Online applications 26 Oct – 26 Nov 2026 · Fee reconciliation & modification till 3 Dec 2026.',
+    verifiedOn: '2026-11-10',
+    sources: [
+      {
+        label: 'UPPSC GuideLines for Scanning Photograph with Signature (OTR_PHOTO_INSTRUCTION.pdf)',
+        url: 'https://uppsc.up.nic.in/CMS/OTR_DOC/OTR_PHOTO_INSTRUCTION.pdf'
+      },
+      {
+        label: 'UPPSC Active Notifications — Samiksha Adhikari / Sahayak Samiksha Adhikari (Advt. A-4/E-1/2026)',
+        url: 'https://uppsc.up.nic.in/CandidatePages/Notifications.aspx'
+      },
+      {
+        label: 'UPPSC One-Time Registration (OTR) Portal',
+        url: 'https://otr.pariksha.nic.in/'
+      }
+    ],
+    pixelNote: '140×60 px prep preset (OTR PDF specifies physical 6×3 cm @ 200 DPI, no pixel mandate; RO/ARO forms accept 140×60 px)',
+    physicalSizeNote: 'Preset default 3.5×1.5 cm; official UPPSC OTR PDF states 6×3 cm (signature) & 5×6 cm (photo) at 200 DPI True Colour',
+    fileSizeNote: 'Flexible tool slider (10–50 KB). Official UPPSC OTR PDF ceiling is under 30 KB (max only); RO/ARO 2026 uses 10–20 KB (~15 KB target).',
+    relatedTools: ['thumb-impression-resize', 'photo-resizer', 'upsssc-pet-signature-resize', 'up-police-signature-resize'],
     authority: 'Uttar Pradesh Public Service Commission (UPPSC)',
-    targetExams: 'UPPSC Combined State / Upper Subordinate Services (PCS), RO / ARO, Staff Nurse, Assistant Conservator of Forest',
+    targetExams: 'UPPSC RO / ARO (Samiksha Adhikari / Sahayak Samiksha Adhikari), UPPSC Combined State / Upper Subordinate Services (PCS), UPPSC OTR',
     widthPx: 140,
     heightPx: 60,
     widthCm: 3.5,
     heightCm: 1.5,
     minKb: 10,
     maxKb: 50,
-    recommendedKb: 20,
+    recommendedKb: 15,
     dpi: 200,
-    ink: 'Black Ballpoint Pen',
+    ink: 'Black Ink / Running Handwriting',
     aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'Signatures must be high-contrast in natural running handwriting. Ensure OTR profile requirements are fulfilled.',
+    strictNotice: 'Sign in full running handwriting on plain white paper with black/dark ink — the official UPPSC OTR PDF strictly forbids initials and ALL CAPITAL / BLOCK letters. Use 10–20 KB for RO/ARO 2026 (also meets OTR under-30 KB limit).',
     tips: [
-      'Draw signature in black ink on clean white unruled paper.',
-      'Keep size between 10 KB and 50 KB.',
-      'Avoid ruled lines or shadows across the text.'
+      'Write your full signature on clean, unruled white paper with a black ballpoint pen (initials and ALL CAPITAL / BLOCK letters are rejected).',
+      'For UPPSC RO/ARO 2026 (Advt. A-4/E-1/2026), keep your signature at 10–20 KB JPG (140×60 px) — this satisfies both the RO/ARO application and UPPSC OTR (under 30 KB @ 6×3 cm, 200 DPI).',
+      'Also prepare your RO/ARO photograph (20–50 KB JPG; OTR PDF allows under 50 KB @ 5×6 cm) and Left Thumb Impression (10–20 KB JPG).',
+      'Use the Clean White Paper filter to remove phone shadows before uploading to otr.pariksha.nic.in or uppsc.up.nic.in.'
     ],
     faqs: [
       {
         q: 'What is the signature requirement for UPPSC OTR?',
-        a: 'UPPSC requires a signature size of 3.5 cm × 1.5 cm with file size between 10 KB and 50 KB in JPG format.'
+        a: 'Per the official UPPSC OTR scanning PDF (OTR_PHOTO_INSTRUCTION.pdf), the signature scan box is 6 cm × 3 cm at 200 DPI (True Colour) with a maximum file size under 30 KB (and photograph 5 cm × 6 cm at 200 DPI under 50 KB). Signatures must be in full running handwriting; initials and CAPITAL letters are not permitted. Compressing your signature to 10–20 KB at 140×60 px satisfies both RO/ARO application limits and the OTR under-30 KB rule.'
+      },
+      {
+        q: 'What is the UPPSC RO ARO signature size in KB and pixels?',
+        a: 'For UPPSC RO/ARO 2026 (Samiksha Adhikari / Sahayak Samiksha Adhikari, Advt. A-4/E-1/2026), format your scanned signature in JPG format at 140×60 px and strictly 10 KB to 20 KB using black ballpoint ink on plain white unruled paper. A 10–20 KB file passes both RO/ARO upload checks and UPPSC OTR (under 30 KB).'
+      },
+      {
+        q: 'What are all document upload sizes for UPPSC RO/ARO 2026?',
+        a: 'The RO/ARO 2026 application requires three JPG uploads: (1) Passport Photo at 20–50 KB (OTR norm: 5×6 cm @ 200 DPI under 50 KB), (2) Candidate Signature at 10–20 KB (140×60 px; OTR norm: 6×3 cm @ 200 DPI under 30 KB), and (3) Left Thumb Impression at 10–20 KB using blue or black stamp pad ink.'
+      },
+      {
+        q: 'What is the last date for UPPSC RO/ARO 2026 application and correction?',
+        a: 'For UPPSC RO/ARO Advt. A-4/E-1/2026 (501 posts), online applications and fee payment are open from 26 October to 26 November 2026, with fee reconciliation and application modification open until 3 December 2026 on uppsc.up.nic.in.'
       },
       {
         q: 'Is O Level certificate necessary for UPPSC RO/ARO?',
@@ -1392,46 +1441,6 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       }
     ]
   },
-  // 10. APPSC & TSPSC
-  {
-    slug: 'appsc-tspsc-signature-resize',
-    presetId: 'appsc-tspsc',
-    pageTitle: 'Andhra Pradesh & Telangana PSC Signature Resizer - SignResize',
-    metaDescription: 'Prepare a signature for Andhra Pradesh or Telangana PSC applications. Check your own portal instructions and use the relevant dedicated resizer.',
-    keywords: 'appsc signature resize, tspsc signature resize, tgpsc group 1 signature size, appsc group 2 signature format, andhra telangana psc signature resizer',
-    h1: 'Andhra Pradesh & Telangana PSC Signature Resizer',
-    subheading: 'Requirements vary by commission and application. Choose the relevant resizer and confirm the instructions in your portal.',
-    authority: 'APPSC & Telangana Public Service Commission (TGPSC)',
-    targetExams: 'APPSC / TGPSC Group 1, Group 2, Group 3, Group 4, Assistant Executive Engineers (AEE), Polytechnic Lecturers',
-    widthPx: 140,
-    heightPx: 60,
-    widthCm: 3.5,
-    heightCm: 1.5,
-    minKb: 1,
-    maxKb: 29,
-    recommendedKb: 20,
-    dpi: 200,
-    ink: 'Check your application instructions',
-    aspectRatioLabel: '7:3 (~140×60 px)',
-    guidanceLabel: 'Check your application instructions',
-    verifiedOn: '2026-11-07',
-    physicalSizeNote: 'The physical size is from the Andhra Pradesh form; the editable pixel canvas and DPI are tool defaults.',
-    pixelNote: '140 × 60 px is an editable tool canvas, not a verified requirement for either commission.',
-    sources: [{ label: 'Andhra Pradesh APPSC Other Employees OTPR form', url: 'https://otpr-psc.ap.gov.in/OTPRForms/OtherEmployeesOneTimeProfileRegistrationForm' }],
-    relatedTools: ['appsc-signature-resize', 'tspsc-signature-resize'],
-    strictNotice: 'This preset is a starting point, not a guarantee of acceptance. Andhra Pradesh and Telangana instructions can differ; check the relevant portal.',
-    tips: [
-      'Sign with a black ballpoint pen on plain white paper.',
-      'Check the file-size limit in the application you are using.',
-      'Do not crop too close to characters to avoid cutting diacritics or dots.'
-    ],
-    faqs: [
-      {
-        q: 'What is the signature requirement for APPSC and TGPSC OTR?',
-        a: 'Requirements can differ. The Andhra Pradesh APPSC form describes a separate 3.5 × 1.5 cm JPG/JPEG signature of 30 KB; check your own application for its exact limit. Consult TGPSC separately for Telangana requirements.'
-      }
-    ]
-  },
   // 11. RPSC
   {
     slug: 'rpsc-signature-resize',
@@ -2120,13 +2129,14 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'appsc-signature-resize',
     presetId: 'appsc-preset',
-    pageTitle: 'APPSC Andhra Pradesh Signature Resizer Under 30 KB - SignResize',
-    metaDescription: 'Prepare a JPG signature for Andhra Pradesh APPSC OTPR. Check the official 3.5 × 1.5 cm guidance and your application’s file-size limit.',
-    keywords: 'appsc signature resize, appsc signature size 10 to 30 kb, appsc otpr signature upload, appsc group 1 2 signature, andhra psc signature compressor',
-    h1: 'APPSC Andhra Pradesh Signature Resizer (Under 30 KB)',
-    subheading: 'Prepare a separate JPG signature for Andhra Pradesh OTPR. The official form specifies 3.5 × 1.5 cm and 30 KB; check your particular application before uploading.',
+    pageTitle: 'APPSC Signature Resize 10 to 30 KB (140×60 px) — Andhra Pradesh',
+    metaDescription: 'Resize signature for Andhra Pradesh APPSC OTPR & Group 1 (Notif. 07/2026). Official 3.5 × 1.5 cm JPG under 30 KB max (no official min or px); 140×60 px prep preset.',
+    keywords: 'appsc signature resize, appsc signature resize 10 to 30 kb, appsc signature size, appsc otpr signature upload, appsc group 1 07/2026 signature, andhra pradesh psc signature resizer',
+    h1: 'APPSC Signature Resize (Under 30 KB, 140×60 px) — Andhra Pradesh',
+    datesStrip: 'Rolling applications: APPSC Group 1 (Notif. 07/2026) & Departmental Tests cycles · Confirm live OTPR & upload rules on psc.ap.gov.in.',
+    subheading: 'Official psc.ap.gov.in rule: 3.5 × 1.5 cm JPEG under 30 KB max only (no official minimum or pixel size). Default 140×60 px prep canvas (1–29 KB cap, ~20 KB target) for Andhra Pradesh Group 1, Group 2, Departmental Tests & OTPR.',
     authority: 'Andhra Pradesh Public Service Commission (APPSC)',
-    targetExams: 'APPSC Group 1, APPSC Group 2, Group 4, Panchayat Secretary, AEE, Forest Beat Officer, APPSC OTPR',
+    targetExams: 'APPSC Group 1 (Notif. 07/2026), APPSC Group 2, Departmental Tests, Group 4, AEE, Andhra Pradesh OTPR',
     widthPx: 140,
     heightPx: 60,
     widthCm: 3.5,
@@ -2135,28 +2145,49 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     maxKb: 29,
     recommendedKb: 20,
     dpi: 200,
-    ink: 'Check your application instructions',
+    ink: 'Check your application instructions (black/dark pen on white paper)',
     aspectRatioLabel: '7:3 (~140×60 px)',
-    guidanceLabel: 'Andhra Pradesh OTPR guidance',
-    verifiedOn: '2026-11-07',
-    physicalSizeNote: 'The physical size is from the Andhra Pradesh form; the editable pixel canvas and DPI are tool defaults.',
-    pixelNote: '140 × 60 px is an editable canvas, not an official pixel requirement.',
-    sources: [{ label: 'Andhra Pradesh APPSC Other Employees OTPR form', url: 'https://otpr-psc.ap.gov.in/OTPRForms/OtherEmployeesOneTimeProfileRegistrationForm' }],
-    relatedTools: ['tspsc-signature-resize'],
-    strictNotice: 'The cited Andhra Pradesh form asks for a separate 3.5 × 1.5 cm JPG/JPEG signature of 30 KB. A 1–29 KB tool target leaves a margin below 30 KB; 1 KB is not an official minimum. Confirm your application notice.',
+    guidanceLabel: 'Andhra Pradesh APPSC · Notif. 07/2026 & OTPR',
+    verifiedOn: '2026-11-11',
+    physicalSizeNote: '3.5 × 1.5 cm is from the official Andhra Pradesh APPSC OTPR form; the pixel canvas and DPI are editable tool defaults.',
+    pixelNote: 'No official pixel dimension is published by APPSC; 140 × 60 px is an editable preparation canvas.',
+    fileSizeNote: 'Official ceiling is under 30 KB max only (no official minimum KB). Preset sets a 29 KB cap (~20 KB recommended, 1–29 KB range) so exports stay safely below 30 KB.',
+    sources: [
+      { label: 'APPSC Official Portal & Active Notifications (psc.ap.gov.in — Group 1 Notif. 07/2026 & Departmental Tests)', url: 'https://psc.ap.gov.in/' },
+      { label: 'Andhra Pradesh APPSC Other Employees OTPR Registration Form', url: 'https://otpr-psc.ap.gov.in/OTPRForms/OtherEmployeesOneTimeProfileRegistrationForm' }
+    ],
+    relatedTools: ['photo-resizer', 'tspsc-signature-resize'],
+    strictNotice: 'The Andhra Pradesh APPSC portal (psc.ap.gov.in) specifies a separate 3.5 × 1.5 cm JPG/JPEG signature under 30 KB maximum only. There is no official minimum KB (10 KB is not an official floor) and no official pixel size. Do not upload 20–50 KB files (over 30 KB is rejected).',
     tips: [
-      'Sign in a 3.5 cm × 1.5 cm box on clean, unruled white paper with black ballpoint pen.',
-      'Crop closely to remove excess white margins and shadows.',
-      'Download a legible JPG/JPEG below 30 KB and check the exact instructions for your application.'
+      'Sign naturally in running handwriting inside a 3.5 cm × 1.5 cm box on plain, unruled white paper (avoid ALL CAPITAL letters or initials).',
+      'Crop closely to remove excess white margins and shadows, keeping every signature stroke legible.',
+      'Export a JPG/JPEG strictly under 30 KB (15–25 KB works cleanly; APPSC publishes no official minimum KB and 20–50 KB ranges exceed the 30 KB ceiling).',
+      'Check Group 1 (Notif. 07/2026), Departmental Tests, or OTPR rules on psc.ap.gov.in and prepare your separate 3.5 × 4.5 cm photo (<50 KB).'
     ],
     faqs: [
       {
-        q: 'What is the official APPSC signature size for 2026?',
-        a: 'The Andhra Pradesh Other Employees OTPR form specifies a separate JPG/JPEG signature measuring 3.5 × 1.5 cm and 30 KB in size. The 140 × 60 pixel canvas and 1–29 KB target are tool settings, not published official minimum or pixel requirements. Check your specific notice.'
+        q: 'What is the APPSC signature size?',
+        a: 'For Andhra Pradesh APPSC (psc.ap.gov.in), including Group 1 (Notif. 07/2026), Departmental Tests, and OTPR, the official signature rule is 3.5 × 1.5 cm in JPG/JPEG format with a maximum size under 30 KB. APPSC sets no official minimum KB limit and no official pixel size; 140 × 60 px and ~20 KB (1–29 KB) are practical tool settings safely below 30 KB.'
+      },
+      {
+        q: 'Is 10 KB minimum or 20–50 KB required for APPSC signature upload?',
+        a: 'No. The official Andhra Pradesh APPSC guidance sets only a 30 KB maximum ceiling (under 30 KB) and 3.5 × 1.5 cm size. A 10 KB minimum is not an official APPSC requirement, and 20–50 KB is an incorrect range from third-party tools that exceeds the 30 KB limit and fails portal upload. Keep your JPG legible and strictly under 30 KB.'
+      },
+      {
+        q: 'What is the APPSC signature size in pixels (is 140×60 px official)?',
+        a: 'APPSC does not specify an official pixel width or height — only 3.5 × 1.5 cm physical dimensions and under 30 KB JPG/JPEG. SignResize defaults to 140 × 60 px (a 7:3 aspect ratio matching 3.5 × 1.5 cm) as an editable canvas, and you can adjust pixel or cm dimensions if your application specifies otherwise.'
+      },
+      {
+        q: 'What is the APPSC photo size for OTPR and Group 1 (Notif. 07/2026)?',
+        a: 'The cited Andhra Pradesh APPSC OTPR form specifies a separate passport photograph measuring 3.5 × 4.5 cm in JPG/JPEG format under 50 KB (with candidate name and photo date where prompted). Use the linked APPSC Photo Resizer (which sets 3.5 × 4.5 cm, 1–49 KB cap under 50 KB, and includes an optional Name & Date strip toggle) and confirm your notification instructions.'
+      },
+      {
+        q: 'Is Andhra Pradesh APPSC the same as Arunachal Pradesh APPSC or Telangana TGPSC?',
+        a: 'No. This tool is specifically for the Andhra Pradesh Public Service Commission (psc.ap.gov.in — Group 1, Group 2, Departmental Tests, and OTPR). Telangana PSC uses tgpsc.gov.in (see our dedicated TGPSC / TSPSC signature resizer), and Arunachal Pradesh PSC (appsc.gov.in) is a separate commission.'
       },
       {
         q: 'Which pen ink is required for APPSC OTPR signature upload?',
-        a: 'Use a clear signature on white paper and check the ink and signature instructions for your specific APPSC application.'
+        a: 'Sign in running handwriting on clean, unruled white paper using a black or dark ink ballpoint pen for crisp contrast under 30 KB compression, and confirm any specific ink instruction shown in your active APPSC application.'
       }
     ]
   },
@@ -3179,7 +3210,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     h1: 'Teletalk Bangladesh Photo & Signature Resizer (300×300 / 300×80)',
     subheading: 'Official 300×300 px (100 KB max) photo and 300×80 px (60 KB max) signature presets compliant with Teletalk All Jobs, BPSC (BCS), and NTRCA recruitment portals in Bangladesh.',
     authority: 'Teletalk Bangladesh & BPSC (alljobs.teletalk.com.bd)',
-    targetExams: 'Teletalk All Jobs Portal, BCS (Bangladesh Public Service Commission), NTRCA, Primary School Assistant Teacher, Railway Bangladesh',
+    targetExams: 'Teletalk All Jobs Portal, DGME Medical MBBS/BDS Admission, Jagannath University (JnU), BCS (Bangladesh Public Service Commission), NTRCA, Primary School Assistant Teacher, Railway Bangladesh',
     widthPx: 300,
     heightPx: 300,
     widthCm: 3.5,
@@ -3191,6 +3222,38 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ink: 'Black / Dark Blue Ink',
     aspectRatioLabel: '1:1 (300×300 px)',
     strictNotice: 'Teletalk portals strictly reject photos not matching 300×300 pixels (100 KB max) or signatures not matching 300×80 pixels (60 KB max). Color photos only.',
+    admissionSeason: {
+      id: 'november-2026-admissions',
+      badge: '2026–27 Admission Windows',
+      heading: 'November 2026 admission season',
+      intro: 'Major Bangladesh university and medical admissions opening in November 2026 are listed below. Teletalk-powered admissions use 300×300 px photos (≤100 KB) and 300×80 px signatures (≤60 KB), while Dhaka University and Rajshahi University run their own portals with distinct portrait specs.',
+      items: [
+        {
+          name: 'DGME Medical (MBBS & BDS 2026–27)',
+          window: 'Applications expected 15–18 November 2026 · Admission test 18 December 2026',
+          specNote: 'dgme.teletalk.com.bd — Teletalk standard 300×300 px photo (10–100 KB) & 300×80 px signature (5–60 KB). Verify once 2026-27 DGME circular publishes.',
+          href: '/bd/medical-admission-photo-resizer/',
+          ctaLabel: 'Open Medical Admission Resizer'
+        },
+        {
+          name: 'Jagannath University (JnU 2026–27)',
+          window: 'Applications 15 November – 10 December 2026',
+          specNote: 'Teletalk-linked admission flow — standard 300×300 px photo (≤100 KB) & 300×80 px signature (≤60 KB); confirm on the live 15 Nov notice.',
+          href: '/bd/',
+          ctaLabel: 'Open Bangladesh Directory'
+        },
+        {
+          name: 'Dhaka University (DU 2026–27)',
+          window: 'Applications 11 November (12 PM) – 25 November 2026 (11:59 PM)',
+          specNote: 'admission.eis.du.ac.bd (university portal, not Teletalk) — uses DU portrait photo limits (30–200 KB) rather than 300×300 px; verify exact pixel bounds on the DU portal.'
+        },
+        {
+          name: 'Rajshahi University (RU 2026–27)',
+          window: 'Applications 15 November (12 PM) – 30 November 2026 (11:59 AM)',
+          specNote: 'admission.ru.ac.bd (university portal, not Teletalk) — requires 300×400 px color JPG photo (≤100 KB) plus selfie capture via the RU Admission app.'
+        }
+      ]
+    },
     tips: [
       'Ensure photograph resolution is exactly 300×300 pixels and file size is under 100 KB.',
       'Signature must be exactly 300×80 pixels with maximum file size of 60 KB.',
@@ -3209,6 +3272,10 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'Which Bangladesh government job portals use Teletalk photo standards?',
         a: 'Almost 90%+ of Bangladesh government job application portals, including Teletalk All Jobs (alljobs.teletalk.com.bd), BPSC (BCS Exam), NTRCA, and Directorate of Primary Education use these exact specifications.'
+      },
+      {
+        q: 'Which November 2026 Bangladesh admissions use Teletalk 300×300 and 300×80 upload rules?',
+        a: 'DGME Medical MBBS/BDS Admission (expected 15–18 November 2026, test 18 December 2026 on dgme.teletalk.com.bd) and Jagannath University (15 November–10 December 2026) follow Teletalk 300×300 px photo and 300×80 px signature specs. Dhaka University (11–25 November 2026 on admission.eis.du.ac.bd) and Rajshahi University (15–30 November 2026 on admission.ru.ac.bd, 300×400 px + selfie app) use separate university portals.'
       }
     ]
   },
@@ -4248,43 +4315,55 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'jee-main-signature-resize',
     presetId: 'jee-main-signature',
-    pageTitle: 'JEE Main Signature Resize 4 to 30 KB (140x60 px) Online 2026 - SignResize',
-    metaDescription: 'Resize signature for NTA JEE Main 2026 Session 1 & Session 2 online. Format to 140x60 px (3.5x1.5 cm), strictly 4 KB to 30 KB JPG in black ink for jeemain.nta.nic.in. Free & 100% private.',
-    keywords: 'jee main signature resize, jee main signature size 4 to 30 kb, jee main signature 140x60, nta jee signature compressor, jee main online application signature format, jee main 2026 signature resizer',
-    h1: 'NTA JEE Main Signature Resize & Compressor (4 KB – 30 KB)',
-    subheading: 'Official 140×60 px (3.5×1.5 cm) dimensions and strict 4 KB to 30 KB file bounds in black ballpoint ink for National Testing Agency JEE (Main) 2026 application portal.',
+    pageTitle: 'JEE Main Signature Resize 10 to 100 KB (140x60 px) Online 2027 - SignResize',
+    metaDescription: 'Resize signature for NTA JEE Main 2027 Session 1 & Session 2 online. Format to JPG/JPEG strictly between 10 KB and 100 KB (140x60 px canvas) per the 2027 Bulletin for jeemain.nta.nic.in.',
+    keywords: 'jee main 2027 signature resize, jee main signature size 10 to 100 kb, jee main signature 140x60, nta jee signature compressor, jee main online application signature format, jee main 2027 signature resizer',
+    h1: 'NTA JEE Main 2027 Signature Resize & Compressor (10 KB – 100 KB)',
+    datesStrip: 'JEE Main 2027 Session 1: apply by 22 Nov 2026 (late fee till 26 Nov) · Correction 27–29 Nov · Session 2 applications 5 Jan – 3 Feb 2027.',
+    subheading: 'Official 10 KB to 100 KB JPG/JPEG bounds (140×60 px / 3.5×1.5 cm preparation canvas) verified against the NTA JEE (Main) 2027 Information Bulletin.',
+    guidanceLabel: '2027 Bulletin Verified',
+    verifiedOn: '2026-11-11',
+    sources: [
+      { label: 'NTA JEE (Main) 2027 Information Bulletin (Pages 6, 9–10)', url: 'https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/10/202610241890224107.pdf' },
+      { label: 'NTA JEE (Main) 2027 Official Portal (jeemain.nta.nic.in)', url: 'https://jeemain.nta.nic.in/' }
+    ],
+    pixelNote: 'Preparation canvas (3.5×1.5 cm at 200 DPI). The 2027 Information Bulletin mandates 10 KB to 100 KB JPG/JPEG rather than a fixed pixel dimension.',
     authority: 'National Testing Agency (NTA)',
-    targetExams: 'JEE Main 2026 (Session 1 & Session 2), JEE Advanced, B.Tech/B.E. (Paper 1), B.Arch (Paper 2A), B.Planning (Paper 2B)',
+    targetExams: 'JEE Main 2027 (Session 1 & Session 2), JEE Advanced, B.Tech/B.E. (Paper 1), B.Arch (Paper 2A), B.Planning (Paper 2B)',
     widthPx: 140,
     heightPx: 60,
     widthCm: 3.5,
     heightCm: 1.5,
-    minKb: 4,
-    maxKb: 30,
-    recommendedKb: 15,
+    minKb: 10,
+    maxKb: 100,
+    recommendedKb: 25,
     dpi: 200,
-    ink: 'Black Ballpoint Ink Only',
-    aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'NTA strictly rejects signatures written in CAPITAL/BLOCK letters or in blue/colored gel ink. Sign in natural cursive running handwriting on spotless unruled white paper with black ballpoint pen.',
+    ink: 'Black or Dark Blue Ink (Unruled White Paper)',
+    aspectRatioLabel: '7:3 (~140×60 px canvas)',
+    strictNotice: 'NTA requires a clearly legible running-hand signature in JPG/JPEG between 10 KB and 100 KB. Do not sign in CAPITAL/BLOCK letters or upload blurry/lined-paper photos.',
     relatedTools: ['jee-main-photo-resize', 'nta-neet-jee-signature-resize', 'gate-signature-resize', 'resize-signature-to-10kb-20kb'],
     tips: [
-      'Sign with a black ballpoint pen on spotless unruled white printer paper.',
-      'Maintain natural cursive handwriting — capital letters are strictly disqualified by NTA.',
-      'Crop tightly around the signature strokes so it fills 75–80% of the 140×60 box.',
-      'Verify that the exported file is strictly between 4.0 KB and 30.0 KB in JPG format.'
+      'Sign cleanly on spotless unruled white printer paper using black or dark blue ink.',
+      'Use natural cursive running handwriting — avoid all-capital or disconnected block letters.',
+      'Crop tightly around the signature strokes so it remains crisp and legible on the admit card.',
+      'Verify that the exported JPG/JPEG file is strictly between 10.0 KB and 100.0 KB per the JEE Main 2027 Information Bulletin.'
     ],
     faqs: [
       {
-        q: 'What is the signature size for JEE Main 2026 online application?',
-        a: 'According to the official NTA JEE (Main) Information Bulletin, the signature must be in JPG/JPEG format, with file size strictly between 4 KB and 30 KB, dimensions approximately 3.5 cm × 1.5 cm (140 × 60 pixels).'
+        q: 'What is the signature size for JEE Main 2027 online application?',
+        a: 'According to Page 9 of the official NTA JEE (Main) 2027 Information Bulletin, the scanned signature file must be clearly legible in JPG/JPEG format with a file size strictly between 10 KB and 100 KB.'
       },
       {
-        q: 'Can I use blue ink for JEE Main signature?',
-        a: 'No. The National Testing Agency explicitly specifies black ink on white unruled paper for clear optical scanning during exam day verification.'
+        q: 'Did JEE Main 2027 change signature KB limits from 4–30 KB to 10–100 KB?',
+        a: 'Yes. Pre-2025 JEE Main cycles used 4–30 KB and JEE Main 2025 moved to 10–50 KB; Page 9 of the official JEE (Main) 2027 Information Bulletin states 10 kB to 100 kB for signatures in JPG/JPEG format. Files under 10 KB (even 5–9 KB) fail the minimum file size check on jeemain.nta.nic.in, while ~25 KB sits comfortably inside the 10–100 KB rule.'
       },
       {
-        q: 'What happens if my JEE Main signature file size is 35 KB or 3 KB?',
-        a: 'The NTA portal validator will automatically throw an upload error and refuse to save your form. SignResize compresses your signature safely into the 10–20 KB sweet spot.'
+        q: 'What ink color should I use for JEE Main 2027 signature?',
+        a: 'Sign with a black or dark blue ballpoint pen on unruled plain white paper so the strokes scan cleanly with high contrast against a spotless white background.'
+      },
+      {
+        q: 'What happens if my JEE Main signature file size is 120 KB or 5 KB?',
+        a: 'The NTA portal validator will reject files below 10 KB or above 100 KB. SignResize formats your signature safely within 10–100 KB (targeting ~25 KB by default) while keeping strokes sharp.'
       }
     ]
   },
@@ -4292,13 +4371,21 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'jee-main-photo-resize',
     presetId: 'jee-main-photo',
-    pageTitle: 'JEE Main Photo Resize 10 to 200 KB (3.5x4.5 cm) Online 2026 - SignResize',
-    metaDescription: 'Resize passport photo for NTA JEE Main 2026 online. Format to 3.5x4.5 cm, strictly 10 KB to 200 KB JPG with 80% face coverage and white background for jeemain.nta.nic.in. Free & instant.',
-    keywords: 'jee main photo resize, jee main photo size 10 to 200 kb, jee main photo 3.5x4.5 cm, nta jee main photo compressor online, jee main passport photo format 2026, jee main photo resizer online',
-    h1: 'NTA JEE Main Photo Resize & Compressor (10 KB – 200 KB)',
-    subheading: 'Official 3.5×4.5 cm (300×400 px) passport photo with 80% face coverage against white background and 10 KB to 200 KB file limits for JEE Main 2026 portal.',
+    pageTitle: 'JEE Main Photo Resize 10 to 200 KB (3.5x4.5 cm) Online 2027 - SignResize',
+    metaDescription: 'Resize passport photo for NTA JEE Main 2027 Session 1 & 2 online. Format recent colour JPG to 10–200 KB (3.5x4.5 cm) with 80% face coverage and white background for jeemain.nta.nic.in.',
+    keywords: 'jee main 2027 photo resize, jee main photo size 10 to 200 kb, jee main photo 3.5x4.5 cm, nta jee main photo compressor online, jee main passport photo format 2027, jee main photo resizer online',
+    h1: 'NTA JEE Main 2027 Photo Resize & Compressor (10 KB – 200 KB)',
+    datesStrip: 'JEE Main 2027 Session 1: apply by 22 Nov 2026 (late fee till 26 Nov) · Correction 27–29 Nov · Session 2 applications 5 Jan – 3 Feb 2027.',
+    subheading: 'Recent colour passport photograph (10 KB to 200 KB JPG/JPEG) with 80% face visibility including ears, without mask, against a white background per the JEE Main 2027 Bulletin.',
+    guidanceLabel: '2027 Bulletin Verified',
+    verifiedOn: '2026-11-11',
+    sources: [
+      { label: 'NTA JEE (Main) 2027 Information Bulletin (Pages 6, 9–10)', url: 'https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/10/202610241890224107.pdf' },
+      { label: 'NTA JEE (Main) 2027 Official Portal (jeemain.nta.nic.in)', url: 'https://jeemain.nta.nic.in/' }
+    ],
+    pixelNote: 'Preparation canvas (3.5×4.5 cm at 200 DPI). The 2027 Information Bulletin mandates a colour JPG/JPEG between 10 KB and 200 KB with 80% face visibility.',
     authority: 'National Testing Agency (NTA)',
-    targetExams: 'JEE Main 2026 (B.E./B.Tech, B.Arch, B.Planning), JEE Advanced, JoSAA Counselling',
+    targetExams: 'JEE Main 2027 (Session 1 & Session 2 — B.E./B.Tech, B.Arch, B.Planning), JEE Advanced, JoSAA Counselling',
     widthPx: 300,
     heightPx: 400,
     widthCm: 3.5,
@@ -4307,28 +4394,28 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     maxKb: 200,
     recommendedKb: 50,
     dpi: 200,
-    ink: 'Any (Passport Photo)',
+    ink: 'Recent Colour Photograph (White Background)',
     aspectRatioLabel: '3:4 (3.5×4.5 cm)',
-    strictNotice: 'NTA mandates 80% face coverage (without mask) with clear visible ears against a spotless white background. Photos with caps, dark sunglasses, or casual selfies are automatically rejected.',
+    strictNotice: 'The 2027 Bulletin mandates a recent colour passport photo (10–200 KB JPG) with 80% face coverage, both ears visible, no mask, and white background, plus live webcam/QR photo capture during form filling.',
     relatedTools: ['jee-main-signature-resize', 'neet-photo-resize', 'photo-resizer', 'gate-photo-resize'],
     tips: [
-      'Ensure 80% of the photo is covered by your face, neck, and shoulders with both ears visible.',
-      'Background must be pure plain white with no textures, patterns, or heavy shadows.',
-      'Regular clear spectacles are allowed only if you wear them daily; tinted lenses and sunglasses are strictly prohibited.',
-      'Download the JPG file and verify that the file size is between 10 KB and 200 KB.'
+      'Use a recent colour photograph showing 80% face coverage with both ears clearly visible and no mask.',
+      'Background must be pure plain white with even studio lighting and no textures or shadows.',
+      'Complete the separate Live Photograph capture via webcam or mobile QR code on jeemain.nta.nic.in under the same white-background lighting.',
+      'Verify that the exported JPG/JPEG file is strictly between 10 KB and 200 KB (name and date stamp is not required by the 2027 Bulletin).'
     ],
     faqs: [
       {
-        q: 'What is the photograph size requirement for JEE Main 2026?',
-        a: 'NTA specifies that the passport photo must be in JPG/JPEG format, file size between 10 KB and 200 KB, with 80% face coverage against a white background.'
+        q: 'What is the photograph size requirement for JEE Main 2027?',
+        a: 'Per Page 9 of the NTA JEE (Main) 2027 Information Bulletin, the scanned passport photograph must be a recent colour photo in JPG/JPEG format, 10 KB to 200 KB, with 80% face (including ears, without mask) against a white background.'
       },
       {
-        q: 'Is candidate name and date mandatory on the JEE Main photograph?',
-        a: 'Unlike NEET UG where name and date are mandated, the JEE Main Information Bulletin does not make printing your name and date mandatory on the photo. However, having a recent photo taken within the last 6 months is compulsory.'
+        q: 'Is candidate name and date mandatory on the JEE Main 2027 photograph?',
+        a: 'No. Checked against the full JEE (Main) 2027 Information Bulletin: printing candidate name and photo date on the image is not mandated for JEE Main 2027, unlike NEET UG. Use a recent colour passport photo plus the mandatory live webcam/QR capture.'
       },
       {
-        q: 'Can I upload a black and white photo for JEE Main?',
-        a: 'Yes. NTA accepts either clear color photographs or high-contrast black and white photographs, provided the background is white and 80% face coverage is maintained.'
+        q: 'Can I upload a black and white photo for JEE Main 2027?',
+        a: 'No — Page 9 of the JEE (Main) 2027 Information Bulletin explicitly states the recent scanned passport photograph "should be in colour with 80% face (including ears, without a mask) against white background." Use a recent colour photo.'
       }
     ]
   },

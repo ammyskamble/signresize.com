@@ -270,6 +270,12 @@ const PRESET_ALIASES: Record<string, string> = {
   upsc: 'upsc-civil-services',
   rrb: 'rrb-railway',
   neet: 'nta-neet-jee',
+  jee: 'jee-main-signature',
+  'jee-main': 'jee-main-signature',
+  'jee-main-sign': 'jee-main-signature',
+  'jee-main-signature': 'jee-main-signature',
+  'jee-photo': 'jee-main-photo',
+  'jee-main-photo': 'jee-main-photo',
   pan: 'pan-card-nsdl',
   'pan-card-photo': 'pan-card-photo-nsdl',
   'pan-card-photo-nsdl-preset': 'pan-card-photo-nsdl',
@@ -343,8 +349,17 @@ const PRESET_ALIASES: Record<string, string> = {
   cat: 'cat-iim',
   clat: 'clat-law',
   uppsc: 'uppsc',
+  'uppsc-ro-aro': 'uppsc-ro-aro-signature',
+  'ro-aro': 'uppsc-ro-aro-signature',
+  'samiksha-adhikari': 'uppsc-ro-aro-signature',
+  'uppsc-ro-aro-photo': 'uppsc-ro-aro-photo',
+  'uppsc-ro-aro-thumb': 'uppsc-ro-aro-thumb',
   bpsc: 'bpsc',
   mpsc: 'mpsc',
+  appsc: 'appsc-preset',
+  'appsc-signature': 'appsc-preset',
+  'appsc-photo': 'appsc-photo',
+  'appsc-document': 'appsc-document',
   tnpsc: 'tnpsc',
   'tnpsc-signature': 'tnpsc',
   'tnpsc-sign': 'tnpsc',
@@ -508,7 +523,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     if (!pId) return null;
     return findPresetByKey(pId) || ALL_COMBINED_PRESETS.find(p => p.id === pId || p.shortCode.toLowerCase() === pId.toLowerCase()) || null;
   };
-  const resolvedPreset = useMemo(() => (effectivePresetPropId && findPresetByKey(effectivePresetPropId)) || getPresetFromUrl(), [effectivePresetPropId]);
+  const resolvedPreset = useMemo(() => (effectivePresetPropId ? findPresetByKey(effectivePresetPropId) : null), [effectivePresetPropId]);
   const effectiveInitialMode = resolvedPreset?.targetType || (resolvedPreset ? presetMode(resolvedPreset) : initialMode);
 
   // Determine target tool mode: 'signature' | 'photo' | 'document'
@@ -740,7 +755,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       setFilters(prev => ({ ...prev, cleanPaper: true, contrast: 15 }));
     }
 
-    if (preset.requiresNameDate) {
+    if (!preset.requiresNameDate && !initialNameDateStamp) setAddNameDateStamp(false); else {
       setAddNameDateStamp(true);
     }
 
@@ -757,6 +772,18 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       'success'
     );
   }, [sourceImage, addToast, focusedWorkspace]);
+
+  useEffect(() => {
+    const onExternalPreset = (event: Event) => {
+      const detail = (event as CustomEvent<{ presetId?: string }>).detail;
+      const targetId = detail?.presetId;
+      if (!targetId) return;
+      const targetPreset = findPresetByKey(targetId) || ALL_COMBINED_PRESETS.find((p) => p.id === targetId);
+      if (targetPreset) applyPreset(targetPreset);
+    };
+    window.addEventListener('signresize-apply-preset', onExternalPreset);
+    return () => window.removeEventListener('signresize-apply-preset', onExternalPreset);
+  }, [applyPreset]);
 
   // Switch Tool Target Mode (Signature / Photo / Document)
   const switchTargetType = useCallback(async (newType: ToolTargetMode) => {
@@ -1011,6 +1038,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       }
     }
     // 21. NTA (NEET & JEE Main)
+    else if (examAnchor.includes('jee-main') || matchesExam('jee main', 'jee (main)')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'jee-main-signature');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'jee-main-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th' || p.id === 'caste-certificate');
+    }
+    // 21.1 NTA (NEET & General)
     else if (matchesExam('neet', 'jee', 'nta')) {
       if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'nta-neet-jee');
       else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'neet-photo' || p.id === 'neet-ug-photo');
@@ -1066,6 +1099,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'appsc-document');
     }
     // 24. State Public Service Commissions (UPPSC, BPSC, MPSC, RPSC, KPSC, OPSC, GPSC, etc.)
+    else if (examAnchor === 'uppsc' || examAnchor.startsWith('uppsc-ro-aro')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === (examAnchor === 'uppsc' ? 'uppsc' : 'uppsc-ro-aro-signature'));
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'uppsc-ro-aro-photo');
+      else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'uppsc-ro-aro-thumb');
+    }
     else if (matchesExam('state-psc', 'uppsc', 'bpsc', 'mpsc', 'kpsc', 'rpsc', 'gpsc', 'opsc', 'hpsc', 'appsc', 'tspsc', 'apsc', 'mppsc')) {
       if (newType === 'signature') {
         targetPreset = SIGNATURE_PRESETS.find(p => p.id === examAnchor || p.id.includes(examAnchor.replace(/-photo|-sign/g, ''))) ||
@@ -1262,7 +1300,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   useEffect(() => {
     const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     const urlPreset = urlParams?.get('preset');
-    const targetId = effectivePresetPropId || urlPreset;
+    const targetId = urlPreset || effectivePresetPropId;
     const sourceKey = targetId || '';
     if (initializedPresetSourceRef.current === sourceKey) return;
     initializedPresetSourceRef.current = sourceKey;
@@ -1270,7 +1308,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     if (targetId) {
       const matched = findPresetByKey(targetId);
       if (matched && matched.id !== selectedPreset?.id) {
-        applyPreset(matched);
+        applyPreset(matched, false, Boolean(urlPreset));
       }
     }
 
@@ -2938,7 +2976,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       p.shortCode?.toLowerCase().includes(q) ||
       p.authority?.toLowerCase().includes(q) ||
       p.category?.toLowerCase().includes(q) ||
-      (p.country && p.country.toLowerCase().includes(q))
+      (p.country && p.country.toLowerCase().includes(q)) ||
+      (p.searchTerms && p.searchTerms.toLowerCase().includes(q))
     ));
     if (matchesCurrent.length > 0) return matchesCurrent;
     return ALL_COMBINED_PRESETS.filter((preset, index) => ALL_COMBINED_PRESETS.findIndex(item => item.id === preset.id) === index).filter((p) => (
@@ -2946,7 +2985,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       p.shortCode?.toLowerCase().includes(q) ||
       p.authority?.toLowerCase().includes(q) ||
       p.category?.toLowerCase().includes(q) ||
-      (p.country && p.country.toLowerCase().includes(q))
+      (p.country && p.country.toLowerCase().includes(q)) ||
+      (p.searchTerms && p.searchTerms.toLowerCase().includes(q))
     ));
   }, [comboboxSearch, currentPresetList]);
 

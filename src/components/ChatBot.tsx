@@ -112,8 +112,16 @@ export default function ChatBot({ initialOpen = false }: { initialOpen?: boolean
       };
     }
 
+    // JEE Main 2027 (NTA)
+    if (q.includes('jee')) {
+      return {
+        text: '📐 **NTA JEE Main 2027 Upload Rules (Information Bulletin):**\n\n• **Signature:** 10 KB to 100 KB (JPG/JPEG, clearly legible; running handwriting on white paper)\n• **Passport Photo:** 10 KB to 200 KB (recent colour JPG, white background, 80% face including ears, no mask; name/date stamp not required)\n• **Live Photo Capture:** Mandatory real-time webcam or mobile QR capture on portal\n• **Session 1 Window:** 24 Oct – 22 Nov 2026 (late fee 23–26 Nov; correction 27–29 Nov).',
+        action: { label: '🚀 Open JEE Main Signature Resizer', url: '/jee-main-signature-resize/' }
+      };
+    }
+
     // NEET / NTA
-    if (q.includes('neet') || q.includes('jee') || q.includes('nta')) {
+    if (q.includes('neet') || q.includes('nta')) {
       return {
         text: '🩺 **NTA NEET 2026 Upload Rules:**\n\n• **Passport Photo:** 10 KB to 200 KB (white background, 80% face coverage showing ears)\n• **Name & Date Stamp:** Must print candidate name and date of photo capture at the bottom\n• **Postcard Size Photo:** 4" × 6" (10 KB to 200 KB)\n• **Signature:** 4 KB to 30 KB (black ink on white paper)\n• **Fingers & Thumb Impression:** 10 KB to 200 KB.',
         action: { label: '🚀 Open NEET Photo Resizer', url: '/neet-photo-resize/' }

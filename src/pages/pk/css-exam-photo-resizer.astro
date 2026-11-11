@@ -17,6 +17,10 @@ const keywordsContent = "css exam photo resizer 30kb, css fpsc photo size 200x23
 
 const cssFaqs = [
   {
+    q: "When is the CSS CE-2027 Written Exam application window and exam date?",
+    a: "For MPT-qualified candidates, online CSS CE-2027 applications on fpsc.gov.pk are open from 10–25 Nov 2026, signed hard copies must reach FPSC by 4 Dec 2026, and the written exam begins from 27 Jan 2027 (fee Rs. 2,200 via PSID/1-Link)."
+  },
+  {
     q: "What photograph dimensions are required for CSS Competitive Examination registration?",
     a: "FPSC requires CSS exam candidate photos to be exactly 200x230 pixels and strictly under 30 KB in file size."
   },
@@ -124,8 +128,68 @@ const cssFaqs = [
         </div>
       </section>
 
+      <!-- CSS CE-2027 Written Exam Block -->
+      <section aria-labelledby="css-ce-2027-heading" class="rounded-2xl border border-emerald-500/30 bg-card p-4 sm:p-6 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <p class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">Applications Live · MPT-Qualified Candidates Only</p>
+            <h2 id="css-ce-2027-heading" class="text-lg sm:text-xl font-bold text-foreground">
+              CSS CE-2027 Written Exam — Schedule &amp; Photo Upload Spec
+            </h2>
+          </div>
+          <a href="#tool-workspace" class="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition shrink-0">
+            Resize CE-2027 Photo ↓
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs sm:text-sm">
+          <div class="rounded-xl border border-border bg-muted/40 p-3 space-y-0.5">
+            <div class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Online Applications</div>
+            <div class="font-bold text-foreground">10–25 Nov 2026</div>
+            <div class="text-xs text-muted-foreground">Apply online at <span class="font-mono text-foreground">fpsc.gov.pk</span></div>
+          </div>
+          <div class="rounded-xl border border-border bg-muted/40 p-3 space-y-0.5">
+            <div class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Signed Hard Copy</div>
+            <div class="font-bold text-foreground">By 4 Dec 2026</div>
+            <div class="text-xs text-muted-foreground">Must reach FPSC HQ Islamabad with documents</div>
+          </div>
+          <div class="rounded-xl border border-border bg-muted/40 p-3 space-y-0.5">
+            <div class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Written Exam Date</div>
+            <div class="font-bold text-foreground">From 27 Jan 2027</div>
+            <div class="text-xs text-muted-foreground">Tentative schedule across 19 centres</div>
+          </div>
+          <div class="rounded-xl border border-border bg-muted/40 p-3 space-y-0.5">
+            <div class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Examination Fee</div>
+            <div class="font-bold text-foreground">Rs. 2,200</div>
+            <div class="text-xs text-muted-foreground">Paid via PSID / 1-Link (no TR-6 challan)</div>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto rounded-xl border border-border">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <caption class="sr-only">FPSC CSS CE-2027 Written Exam Photo Upload Specifications</caption>
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th scope="col" class="p-3">Upload Requirement</th>
+                <th scope="col" class="p-3">Dimensions</th>
+                <th scope="col" class="p-3">File Size</th>
+                <th scope="col" class="p-3">Format &amp; Background Rules</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr>
+                <th scope="row" class="p-3 font-bold text-foreground">CSS CE-2027 Candidate Photograph</th>
+                <td class="p-3 font-mono font-bold text-primary">200 × 230 px</td>
+                <td class="p-3 font-mono font-semibold text-emerald-700 dark:text-emerald-400">Under 30 KB (5–30 KB)</td>
+                <td class="p-3 text-muted-foreground">JPG / JPEG only, recent passport photo on plain light blue or white background.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <!-- Signature Tool Canvas Widget -->
-      <section class="bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-sm">
+      <section id="tool-workspace" class="scroll-mt-20 bg-card rounded-2xl p-4 sm:p-6 border border-border shadow-sm">
         <SignatureTool client:idle initialPresetId="css-pk" initialMode="photo" />
       </section>
 

@@ -10,13 +10,18 @@ import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 
-const pageTitle = "Bangladesh Medical MBBS/BDS Admission Photo & Signature Resizer - SignResize";
-const pageDescription = "Format photo to 300x300 px (≤100 KB) and signature to 300x80 px (≤60 KB) for DGME Government & Private Medical College MBBS and Dental BDS Admission test.";
+const pageTitle = "Bangladesh Medical MBBS/BDS Admission 2026-27 Photo & Signature Resizer - SignResize";
+const pageDescription = "Format photo to 300x300 px (10–100 KB) and signature to 300x80 px (5–60 KB) for DGME Medical MBBS/BDS Admission 2026-27 (test 18 December 2026 on dgme.teletalk.com.bd).";
 const canonicalUrl = "https://signresize.in/bd/medical-admission-photo-resizer/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "medical admission photo resizer bangladesh, mbbs admission photo size 300x300, bds dental admission signature size 300x80, dgme teletalk photo crop, dghs medical photo size";
+const keywordsContent = "medical admission photo resizer bangladesh, mbbs admission 2026-27 photo size 300x300, bds dental admission signature size 300x80, dgme teletalk photo crop, dghs medical photo size";
 
 const medicalFaqs = [
+  {
+    q: "When is the Bangladesh MBBS/BDS Medical Admission 2026-27 application and exam date?",
+    summary: "The Directorate General of Medical Education (DGME) MBBS & BDS admission test is set for 18 December 2026, with online applications expected around 15–18 November 2026 on dgme.teletalk.com.bd.",
+    details: "Check the official 2026-27 DGME admission circular on dgme.gov.bd as soon as it publishes to confirm the exact application open/close dates and any updated upload rules."
+  },
   {
     q: "What is the official photo size for MBBS & BDS admission in Bangladesh?",
     summary: "The Directorate General of Medical Education (DGME) requires a 300×300 pixel color photograph with file weight between 10 KB and 100 KB in JPG format.",
@@ -139,18 +144,23 @@ const medicalFaqs = [
       <section class="space-y-4">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div class="space-y-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
-              <svg class="w-4 h-2.5 rounded-xs shadow-2xs shrink-0 inline-block" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="20" height="12" fill="#006a4e" rx="1" />
-                <circle cx="9" cy="6" r="4" fill="#f42a41" />
-              </svg>
-              <span>DGME Official Preset (dgme.teletalk.com.bd)</span>
+            <div class="flex flex-wrap items-center gap-2">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
+                <svg class="w-4 h-2.5 rounded-xs shadow-2xs shrink-0 inline-block" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect width="20" height="12" fill="#006a4e" rx="1" />
+                  <circle cx="9" cy="6" r="4" fill="#f42a41" />
+                </svg>
+                <span>DGME Official Preset (dgme.teletalk.com.bd)</span>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25">
+                Admission 2026-27 · Test: 18 December 2026
+              </span>
             </div>
             <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
               Medical Admission Photo &amp; Signature Resizer <span class="text-primary">(300×300 / 300×80)</span>
             </h1>
             <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
-              Calibrated cropping and size reduction for Bangladesh MBBS &amp; Dental BDS admission tests conducted by the Directorate General of Medical Education (DGME).
+              MBBS &amp; BDS Admission 2026-27: calibrated cropping and size reduction for Bangladesh Medical &amp; Dental admission tests conducted by DGME (applications expected mid-November on <span class="font-medium text-foreground">dgme.teletalk.com.bd</span>, test on <span class="font-medium text-foreground">18 December 2026</span>).
             </p>
           </div>
 
@@ -172,6 +182,67 @@ const medicalFaqs = [
               <option value="/bd/medical-admission-photo-resizer/" selected>DGME Medical MBBS/BDS Admission</option>
             </select>
           </div>
+        </div>
+      </section>
+
+      <!-- Admission 2026-27 Schedule & Upload Spec Block -->
+      <section aria-labelledby="admission-2026-27-heading" class="rounded-2xl border border-primary/25 bg-card p-4 sm:p-6 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <p class="text-xs font-bold uppercase tracking-wider text-primary">Admission 2026-27 · Bangladesh MBBS &amp; BDS</p>
+            <h2 id="admission-2026-27-heading" class="text-lg sm:text-xl font-bold text-foreground">
+              DGME 2026-27 Schedule &amp; Photo / Signature Specifications
+            </h2>
+          </div>
+          <a href="#tool-workspace" class="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition shrink-0">
+            Resize Photo &amp; Signature ↓
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+          <div class="rounded-xl border border-border bg-muted/40 p-3 space-y-0.5">
+            <div class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Online Applications</div>
+            <div class="font-bold text-foreground">Expected 15–18 November 2026</div>
+            <div class="text-xs text-muted-foreground">Portal: <span class="font-mono text-foreground">dgme.teletalk.com.bd</span></div>
+          </div>
+          <div class="rounded-xl border border-border bg-muted/40 p-3 space-y-0.5">
+            <div class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Admission Test Date</div>
+            <div class="font-bold text-foreground">18 December 2026</div>
+            <div class="text-xs text-muted-foreground">Govt &amp; Private Medical / Dental Colleges</div>
+          </div>
+          <div class="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 space-y-0.5">
+            <div class="text-[11px] font-semibold uppercase tracking-wider text-amber-800 dark:text-amber-200">Circular Verification</div>
+            <div class="font-bold text-foreground">Pending 2026-27 DGME Circular</div>
+            <div class="text-xs text-amber-900 dark:text-amber-100">Confirm final rules on <span class="font-mono">dgme.gov.bd</span> when published.</div>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto rounded-xl border border-border">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <caption class="sr-only">DGME MBBS and BDS Admission 2026-27 Photo and Signature Upload Specifications</caption>
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th scope="col" class="p-3">Upload File</th>
+                <th scope="col" class="p-3">Dimensions</th>
+                <th scope="col" class="p-3">File Size</th>
+                <th scope="col" class="p-3">Format &amp; Upload Rules</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr>
+                <th scope="row" class="p-3 font-bold text-foreground">MBBS / BDS Photograph</th>
+                <td class="p-3 font-mono font-bold text-primary">300 × 300 px</td>
+                <td class="p-3 font-mono font-semibold text-emerald-700 dark:text-emerald-400">10–100 KB</td>
+                <td class="p-3 text-muted-foreground">JPG/JPEG, recent color portrait, plain white background, both ears visible, no glasses/caps.</td>
+              </tr>
+              <tr>
+                <th scope="row" class="p-3 font-bold text-foreground">Specimen Signature</th>
+                <td class="p-3 font-mono font-bold text-primary">300 × 80 px</td>
+                <td class="p-3 font-mono font-semibold text-emerald-700 dark:text-emerald-400">5–60 KB</td>
+                <td class="p-3 text-muted-foreground">JPG/JPEG, dark black ink signature on clean unruled white paper.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 

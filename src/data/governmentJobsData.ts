@@ -558,16 +558,16 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
     keyPosts: ['Deputy Collector (SDM)', 'Deputy Superintendent of Police (DSP)', 'Block Development Officer (BDO)', 'Naib Tehsildar'],
     selectionSteps: ['Preliminary Examination (GS Paper I & CSAT)', 'Main Written Exam (Conventional)', 'Personal Interview'],
     photoSpecs: {
-      dimensions: '3.5 cm × 4.5 cm (200 × 230 px)',
-      fileSize: '15 KB – 50 KB',
+      dimensions: '5 cm × 6 cm @ 200 DPI (OTR) / 240 × 320 px',
+      fileSize: 'Under 50 KB (20 KB – 50 KB)',
       format: 'JPG / JPEG',
-      note: 'Clear front face without head covering. Recent photo.'
+      note: 'UPPSC OTR PDF specifies 5×6 cm @ 200 DPI True Colour under 50 KB; standard application range 20–50 KB.'
     },
     signatureSpecs: {
-      dimensions: '3.5 cm × 1.5 cm (140 × 60 px)',
-      fileSize: '5 KB – 30 KB',
+      dimensions: '6 cm × 3 cm @ 200 DPI (OTR) / 140 × 60 px',
+      fileSize: 'Under 30 KB (10 KB – 20 KB safe)',
       format: 'JPG / JPEG',
-      note: 'Signature with black ink on white paper. No initials only.'
+      note: 'Full running handwriting in black ink (no initials or ALL CAPS); 10–20 KB satisfies both OTR <30 KB and RO/ARO.'
     },
     toolPresetSlug: 'uppsc-signature-resize',
     toolLabel: 'Resize for UPPSC PCS'
@@ -594,18 +594,18 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
     keyPosts: ['Rajasva Lekhpal', 'Junior Assistant', 'Village Development Officer (VDO)'],
     selectionSteps: ['Preliminary Eligibility Test (PET)', 'Main Subject Examination', 'Document Verification'],
     photoSpecs: {
-      dimensions: '3.5 cm × 4.5 cm',
-      fileSize: '20 KB – 50 KB',
+      dimensions: '3.5 cm × 4.5 cm (240 × 320 px)',
+      fileSize: '50 KB – 100 KB',
       format: 'JPG',
-      note: 'Passport photo with plain background.'
+      note: 'Passport photo with plain white or light grey background.'
     },
     signatureSpecs: {
-      dimensions: '3.5 cm × 1.5 cm',
-      fileSize: '10 KB – 30 KB',
+      dimensions: '3.5 cm × 1.5 cm (140 × 60 px)',
+      fileSize: '30 KB – 50 KB',
       format: 'JPG',
-      note: 'Candidate signature in Hindi and English as prescribed.'
+      note: 'English running signature with full name written in Hindi directly below it.'
     },
-    toolPresetSlug: 'uppsc-signature-resize',
+    toolPresetSlug: 'upsssc-pet-signature-resize',
     toolLabel: 'Resize for UPSSSC'
   },
   {
@@ -824,7 +824,7 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
       format: 'JPG',
       note: 'Hindi & English signatures.'
     },
-    toolPresetSlug: 'bpsc-signature-resize',
+    toolPresetSlug: 'bssc-signature-resize',
     toolLabel: 'Resize for BSSC Bihar'
   },
   {
@@ -1158,38 +1158,39 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
   },
   {
     id: 'appsc-group-1-2-andhra-2026',
-    title: 'Andhra Pradesh APPSC Group 1, Group 2 & Police SI 2026',
+    title: 'Andhra Pradesh APPSC Group 1 (Notif. 07/2026), Group 2 & Departmental Tests',
     shortCode: 'APPSC Andhra',
     organization: 'Andhra Pradesh Public Service Commission',
     category: 'State',
     state: 'Andhra Pradesh',
     region: 'South',
-    vacancies: '4,210 Posts',
+    vacancies: '166 Posts (Group 1 07/2026)',
     qualification: 'Graduate',
     qualificationDetail: 'Bachelor Degree from recognized university',
     ageLimit: '18 to 42 Years (Standard age relaxation for reserved categories)',
-    lastDate: '2026-11-05',
-    examDate: 'December 2026 – January 2027',
-    status: 'Upcoming',
-    badge: 'AP State Cadre',
+    lastDate: 'Rolling (OTPR & Dept. Tests)',
+    examDate: 'Group 1 Screening: 24 Jan 2027 (OMR)',
+    status: 'Ongoing',
+    badge: 'AP OTPR & Notif. 07/2026',
     officialUrl: 'https://psc.ap.gov.in',
     applicationFee: '₹250 (Processing) + ₹120 (Exam Fee, exempted for SC/ST/BC)',
-    notificationSummary: 'Deputy Collector, DSP, Assistant Commercial Tax Officer (ACTO), Deputy Tehsildar, Sub-Registrar across Andhra Pradesh districts.',
-    keyPosts: ['Deputy Collector', 'Deputy SP (Civil)', 'Deputy Tehsildar', 'Assistant Section Officer (ASO)'],
-    selectionSteps: ['Preliminary Screening Test (Objective)', 'Mains Written Examination', 'Computer Proficiency Test (CPT)'],
+    notificationSummary: 'Andhra Pradesh Group-I Services (Notif. 07/2026, 166 vacancies across 13 categories), Departmental Tests & OTPR registrations via psc.ap.gov.in.',
+    keyPosts: ['Deputy Collector', 'Deputy SP (Civil)', 'Commercial Tax Officer (CTO)', 'Mandal Parishad Dev. Officer'],
+    selectionSteps: ['Preliminary Screening Test (OMR Objective)', 'Mains Written Examination', 'Computer Proficiency Test (CPT) / Interview'],
     photoSpecs: {
       dimensions: '3.5 cm × 4.5 cm',
       fileSize: 'Under 50 KB',
       format: 'JPG',
-      note: 'Recent passport photo.'
+      note: 'OTPR form prompts for candidate name and photo date; no official min KB or pixel size specified.'
     },
     signatureSpecs: {
       dimensions: '3.5 cm × 1.5 cm',
-      fileSize: 'Under 30 KB',
+      fileSize: 'Under 30 KB (Max only)',
       format: 'JPG',
-      note: 'Clear signature.'
+      note: 'Max-only 30 KB ceiling on psc.ap.gov.in; no official minimum KB (10 KB min not official) or pixel size.'
     },
     toolPresetSlug: 'appsc-signature-resize',
+    guideSlug: 'appsc-group-1-2-2026-master-guide-otpr-photo-signature-rules',
     toolLabel: 'Resize for APPSC'
   },
   {

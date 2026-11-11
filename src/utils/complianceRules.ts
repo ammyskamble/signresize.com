@@ -851,9 +851,9 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
           { icon: '👤', title: '1. 80% Face Coverage (Both Ears Visible)', description: 'Face must occupy 70–80% of canvas area against a pure white background.', severity: 'danger' },
           { icon: isNeet ? '🏷️' : '🎨', title: isNeet ? '2. Name & Date of Photo Mandate' : '2. Pure White Background', description: isNeet ? 'Name of candidate and date of photo taking must be printed below photo.' : 'Light or white background only. Dark backgrounds cause instant rejection.', severity: 'danger' },
           { icon: '👓', title: '3. No Polaroid, Caps or Tinted Glasses', description: 'Regular vision spectacles allowed only without glare/reflection. No caps or sunglasses.', severity: 'warning' },
-          { icon: '📏', title: '4. Exact KB Range (10 KB – 200 KB)', description: 'Passport and Postcard (4×6") sizes must match prescribed NTA boundaries.', severity: 'info' },
+          { icon: '📏', title: `4. Exact KB Range (${preset?.minKb ?? 10} KB – ${preset?.maxKb ?? 200} KB)`, description: 'Passport and Postcard (4×6") sizes must match prescribed NTA boundaries.', severity: 'info' },
         ],
-        officialSource: isNeet ? 'NTA NEET UG Information Bulletin' : 'NTA Information Brochure',
+        officialSource: isNeet ? 'NTA NEET UG Information Bulletin' : 'NTA JEE (Main) 2027 Information Bulletin',
         actionType: 'makeBackgroundWhite',
       };
     } else {
@@ -863,14 +863,14 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
         badge: 'DISQUALIFICATION RISK',
         badgeColor: 'rose',
         description: 'Candidate signatures are matched with biometric presence during examination hall entry. Verify compliance:',
-        statusWarning: 'Black Ink / Running Script',
+        statusWarning: 'Dark Ink / Running Script',
         items: [
           { icon: '🖋️', title: '1. Continuous Running Handwriting', description: 'Full signature in CAPITAL LETTERS is strictly disqualified.', severity: 'danger' },
-          { icon: '🖊️', title: '2. Black Ballpoint Pen Mandate', description: 'Sign on unruled clean white paper using a black ballpoint pen.', severity: 'danger' },
-          { icon: '📏', title: '3. Prescribed KB Limits (4 KB – 30 KB)', description: 'Exact pixel dimensions and KB floor/ceiling enforced by portal upload validator.', severity: 'info' },
+          { icon: '🖊️', title: '2. Black or Dark Blue Ink on White Paper', description: 'Sign cleanly on unruled white paper so every stroke scans legibly.', severity: 'danger' },
+          { icon: '📏', title: `3. Prescribed KB Limits (${preset?.minKb ?? 4} KB – ${preset?.maxKb ?? 30} KB)`, description: 'Exact KB floor and ceiling enforced by the portal upload validator.', severity: 'info' },
           { icon: '🔍', title: '4. Sharp High Contrast', description: 'No grey background, lined paper marks, or blurred strokes.', severity: 'warning' },
         ],
-        officialSource: 'NTA Candidate Instructions',
+        officialSource: 'NTA Information Bulletin & Candidate Instructions',
         actionType: 'cleanPaper',
       };
     }
@@ -897,6 +897,7 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
         actionType: 'makeBackgroundWhite',
       };
     } else {
+      const isUppscPreset = presetId === 'uppsc' || presetId.startsWith('uppsc-ro-aro');
       return {
         examName: preset?.shortCode || 'State PSC',
         title: `${preset?.shortCode || 'State PSC'} Signature Verification: What Is Missing?`,
@@ -905,12 +906,16 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
         description: 'Signatures are verified against identity records during certificate verification. Check what is missing:',
         statusWarning: 'Black Ink / Running Script',
         items: [
-          { icon: '🖋️', title: '1. Running Handwriting (NO CAPITAL LETTERS)', description: 'Signatures written in capital block letters will be disqualified at scrutiny.', severity: 'danger' },
+          { icon: '🖋️', title: '1. Running Handwriting (NO CAPITAL LETTERS)', description: 'Full running handwriting is mandatory; initials and capital block letters are disqualified at scrutiny.', severity: 'danger' },
           { icon: '🖊️', title: '2. Black Ink Pen Recommended', description: 'Use a black ballpoint pen on unruled white paper for maximum contrast.', severity: 'warning' },
-          { icon: '📏', title: '3. Portal Size Limits', description: `${preset?.widthPx || 140} × ${preset?.heightPx || 60} px, strictly ${preset?.minKb || 10} KB to ${preset?.maxKb || 50} KB in JPG.`, severity: 'info' },
+          isUppscPreset
+            ? { icon: '📏', title: '3. UPPSC OTR (<30 KB) & RO/ARO (10–20 KB)', description: 'UPPSC OTR PDF allows signature under 30 KB at 6×3 cm @ 200 DPI (max only). For RO/ARO 2026 (Advt. A-4/E-1/2026), keep 140×60 px between 10 KB and 20 KB JPG — valid for both.', severity: 'info' }
+            : { icon: '📏', title: '3. Portal Size Limits', description: `${preset?.widthPx || 140} × ${preset?.heightPx || 60} px, strictly ${preset?.minKb || 10} KB to ${preset?.maxKb || 50} KB in JPG.`, severity: 'info' },
           { icon: '📄', title: '4. Clean Paper Surface', description: 'No ruled lines, shadows, or smudged ink strokes around the signature.', severity: 'info' },
         ],
-        officialSource: `${preset?.authority || 'State Public Service Commission'} Guidelines`,
+        officialSource: isUppscPreset
+          ? 'UPPSC OTR Scanning Guideline PDF (uppsc.up.nic.in) & Advt. A-4/E-1/2026'
+          : `${preset?.authority || 'State Public Service Commission'} Guidelines`,
         actionType: 'cleanPaper',
       };
     }

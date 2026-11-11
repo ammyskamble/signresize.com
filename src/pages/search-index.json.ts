@@ -176,6 +176,8 @@ const presetSlugMap = new Map([
   ['thumb-impression-general', 'thumb-impression-resize'],
   ['nta-neet-jee', 'nta-neet-jee-signature-resize'],
   ['uppsc', 'uppsc-signature-resize'],
+  ['uppsc-ro-aro-signature', 'uppsc-signature-resize'],
+  ['uppsc-ro-aro-thumb', 'thumb-impression-resize'],
   ['bpsc', 'bpsc-signature-resize'],
   ['mpsc', 'mpsc-signature-resize'],
   ['maharashtra-police', 'maharashtra-police-signature-resize'],
@@ -195,7 +197,6 @@ const presetSlugMap = new Map([
   ['wbpsc-west-bengal', 'wbpsc-signature-resize'],
   ['wbpsc-signature-138x59', 'wbpsc-signature-resize'],
   ['wbpsc-photo', 'wbpsc-photo-resize'],
-  ['appsc-tspsc', 'appsc-tspsc-signature-resize'],
   ['appsc-preset', 'appsc-signature-resize'],
   ['tspsc-preset', 'tspsc-signature-resize'],
   ['apsc-preset', 'apsc-signature-resize'],
@@ -292,7 +293,7 @@ const searchableExams = EXAM_PRESETS.map((p) => {
     maxKb: p.maxKb,
     inkRequirement: p.inkRequirement,
     badge: 'EXAM',
-    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} signature resize sign compressor ${page ? page.keywords + ' ' + page.targetExams + ' ' + page.authority : ''}`
+    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} ${p.searchTerms || ''} signature resize sign compressor ${page ? page.keywords + ' ' + page.targetExams + ' ' + page.authority : ''}`
   };
 });
 
@@ -314,7 +315,7 @@ const searchablePhotos = PHOTO_PRESETS.map((p) => {
     maxKb: p.maxKb,
     inkRequirement: p.inkRequirement,
     badge: 'PHOTO',
-    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} ${p.authority || ''} photo resize photo resizer photo size passport photo dimensions ${p.minKb} to ${p.maxKb} kb ${page ? page.keywords + ' ' + page.targetExams + ' ' + page.authority : ''}`
+    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} ${p.authority || ''} ${p.searchTerms || ''} photo resize photo resizer photo size passport photo dimensions ${p.minKb} to ${p.maxKb} kb ${page ? page.keywords + ' ' + page.targetExams + ' ' + page.authority : ''}`
   };
 });
 
@@ -335,7 +336,7 @@ const searchableDocs = DOCUMENT_PRESETS.map((p) => {
     maxKb: p.maxKb,
     inkRequirement: p.inkRequirement,
     badge: 'DOC',
-    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} document marksheet certificate resize compress ${p.minKb} to ${p.maxKb} kb`
+    keywords: `${p.id} ${p.shortCode} ${p.name} ${p.category} ${p.searchTerms || ''} document marksheet certificate resize compress ${p.minKb} to ${p.maxKb} kb`
   };
 });
 

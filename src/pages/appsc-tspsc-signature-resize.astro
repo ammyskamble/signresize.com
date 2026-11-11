@@ -1,0 +1,109 @@
+---
+// src/pages/appsc-tspsc-signature-resize.astro
+// Short disambiguation hub linking the dedicated APPSC (Andhra Pradesh) and TGPSC / TSPSC (Telangana) signature resizers.
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+
+const pageTitle = 'APPSC vs TGPSC / TSPSC Signature Resizer Hub — SignResize';
+const pageDescription =
+  'Choose the dedicated signature resizer for Andhra Pradesh APPSC (psc.ap.gov.in — under 30 KB, 3.5×1.5 cm) or Telangana TGPSC / TSPSC (tgpsc.gov.in).';
+const canonicalUrl = 'https://signresize.in/appsc-tspsc-signature-resize/';
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <GoogleFonts />
+  </head>
+
+  <body class="bg-background text-foreground min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-6">
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">APPSC &amp; TGPSC Hub</span>
+      </nav>
+
+      <section class="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm space-y-4">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+          State PSC Selection Hub
+        </span>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+          Choose Your Dedicated PSC Signature Resizer
+        </h1>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Andhra Pradesh Public Service Commission (<strong>APPSC</strong>, <code class="font-mono text-primary">psc.ap.gov.in</code>) and Telangana Public Service Commission (<strong>TGPSC / TSPSC</strong>, <code class="font-mono text-primary">tgpsc.gov.in</code>) operate separate application portals with commission-specific image rules. Open the dedicated tool for your state below.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <article class="rounded-2xl border border-primary/30 bg-primary/5 p-5 flex flex-col justify-between space-y-4">
+            <div class="space-y-2">
+              <div class="text-xs font-bold uppercase tracking-wider text-primary">Andhra Pradesh · psc.ap.gov.in</div>
+              <h2 class="text-lg font-bold text-foreground">APPSC Signature Resizer</h2>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                For Group 1 (Notif. 07/2026), Group 2, Departmental Tests, and OTPR. Official rule: <strong>3.5 × 1.5 cm</strong> JPG/JPEG, <strong>under 30 KB max only</strong> (no official minimum or pixel size; 140×60 px prep preset).
+              </p>
+            </div>
+            <div class="space-y-2">
+              <a
+                href="/appsc-signature-resize/"
+                class="inline-flex w-full min-h-[44px] items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition"
+              >
+                APPSC Signature Resize (Under 30 KB) →
+              </a>
+              <a
+                href="/photo-resizer/?preset=appsc-photo#tool-workspace"
+                class="inline-flex w-full items-center justify-center rounded-xl border border-border bg-card px-3 py-2 text-xs font-semibold text-foreground hover:border-primary/50 transition"
+              >
+                APPSC Photo Resizer (3.5×4.5 cm, &lt;50 KB) →
+              </a>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-border bg-muted/30 p-5 flex flex-col justify-between space-y-4">
+            <div class="space-y-2">
+              <div class="text-xs font-bold uppercase tracking-wider text-muted-foreground">Telangana · tgpsc.gov.in</div>
+              <h2 class="text-lg font-bold text-foreground">TGPSC / TSPSC Signature Resizer</h2>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                For Telangana PSC Group 1, Group 2, Group 3, Group 4, AEE, and TGPSC OTR applications.
+              </p>
+            </div>
+            <div>
+              <a
+                href="/tspsc-signature-resize/"
+                class="inline-flex w-full min-h-[44px] items-center justify-center rounded-xl border border-primary/40 bg-card px-4 py-2.5 text-xs sm:text-sm font-bold text-primary hover:bg-primary/10 transition"
+              >
+                TGPSC / TSPSC Signature Resizer →
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <p class="text-xs text-muted-foreground pt-2 border-t border-border/60">
+          Applying to <strong>Arunachal Pradesh PSC</strong> (<code class="font-mono">appsc.gov.in</code>)? Check your active notice on that portal directly — it is separate from Andhra Pradesh APPSC (<code class="font-mono">psc.ap.gov.in</code>).
+        </p>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+

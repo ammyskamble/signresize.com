@@ -43,7 +43,7 @@ export function WorkspacePresetPicker({ presets, selected, mode, width, height, 
   const terms = query.trim().toLowerCase().split(/[\s-]+/).filter(Boolean);
   const matches = scopedPresets.filter(p =>
     terms.every(term =>
-      `${p.id} ${p.name} ${p.shortCode} ${p.authority} ${p.category} ${p.notes || ''}`
+      `${p.id} ${p.name} ${p.shortCode} ${p.authority} ${p.category} ${p.searchTerms || ''} ${p.notes || ''}`
         .toLowerCase()
         .includes(term)
     )

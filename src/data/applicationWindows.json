@@ -85,6 +85,30 @@
     "verification": "RRB notice listing and published report"
   },
   {
+    "id": "jee-main-2027-session-1",
+    "title": "JEE Main 2027 · Session 1 (January 2027)",
+    "label": "JEE Main 2027 Session 1",
+    "opensOn": "2026-10-24",
+    "closesOn": "2026-11-22",
+    "closingTime": "23:50:00",
+    "toolUrl": "/jee-main-photo-resize/",
+    "sourceUrl": "https://jeemain.nta.nic.in/",
+    "verifiedOn": "2026-11-10",
+    "verification": "NTA JEE (Main) 2027 Information Bulletin (Page 6)"
+  },
+  {
+    "id": "uppsc-ro-aro-2026",
+    "title": "UPPSC RO/ARO · Advt. A-4/E-1/2026 (501 posts)",
+    "label": "UPPSC RO/ARO 2026",
+    "opensOn": "2026-10-26",
+    "closesOn": "2026-11-26",
+    "closingTime": null,
+    "toolUrl": "/uppsc-signature-resize/",
+    "sourceUrl": "https://uppsc.up.nic.in/CandidatePages/Notifications.aspx",
+    "verifiedOn": "2026-11-10",
+    "verification": "UPPSC Candidate Notifications Portal (Advt. A-4/E-1/2026; modification till 3 Dec 2026)"
+  },
+  {
     "id": "icg-cgept-2026",
     "title": "Coast Guard CGEPT · Navik & Yantrik",
     "label": "Coast Guard Navik",
