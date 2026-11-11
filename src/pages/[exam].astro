@@ -59,6 +59,7 @@ const isTnpsc = examData.slug.includes('tnpsc');
 const isBanking = examData.slug.includes('sbi') || examData.slug.includes('ibps');
 const isMaharashtraPolice = examData.slug === 'maharashtra-police-signature-resize';
 const isWbPolice = examData.slug === 'wb-police-signature-resize' || examData.slug === 'wb-police-photo-resize';
+const isPhotoPage = examData.presetId.includes('photo') || examData.slug.includes('photo');
 const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc || isMaharashtraPolice || isWbPolice;
 const relatedTools = (examData.relatedTools || [])
   .filter(slug => slug !== examData.slug)
@@ -216,19 +217,23 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "HowTo",
-      "name": `How to resize signature for ${examData.authority}`,
-      "description": `Step-by-step instructions to crop, resize, and compress signature to ${examData.minKb}–${examData.maxKb} KB for ${examData.authority} portals.`,
+      "name": isPhotoPage ? `How to resize photograph for ${examData.authority}` : `How to resize signature for ${examData.authority}`,
+      "description": isPhotoPage
+        ? `Step-by-step instructions to crop, resize, and compress passport photo to ${examData.minKb}–${examData.maxKb} KB for ${examData.authority} portals.`
+        : `Step-by-step instructions to crop, resize, and compress signature to ${examData.minKb}–${examData.maxKb} KB for ${examData.authority} portals.`,
       "step": [
         {
           "@type": "HowToStep",
-          "name": "Sign on Clean White Paper",
-          "text": `Sign in running handwriting using ${examData.ink} on spotless white paper.`,
+          "name": isPhotoPage ? "Prepare Passport Photograph" : "Sign on Clean White Paper",
+          "text": isPhotoPage
+            ? `Start with a clear front-facing colour portrait against ${examData.ink} as specified in your current notice.`
+            : `Sign in running handwriting using ${examData.ink} on spotless white paper.`,
           "position": 1
         },
         {
           "@type": "HowToStep",
           "name": "Upload to SignResize",
-          "text": "Upload your camera photo or scan to the online workspace.",
+          "text": isPhotoPage ? "Upload your passport photo to the online workspace." : "Upload your camera photo or scan to the online workspace.",
           "position": 2
         },
         {
@@ -239,8 +244,10 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
         },
         {
           "@type": "HowToStep",
-          "name": "Clean Background & Download",
-          "text": "Activate Clean White Paper to whiten shadows, verify file size, and download portal-ready JPG.",
+          "name": isPhotoPage ? "Verify Quality & Download" : "Clean Background & Download",
+          "text": isPhotoPage
+            ? "Check framing, optional Name & Date strip rules, and exact JPG file size before downloading."
+            : "Activate Clean White Paper to whiten shadows, verify file size, and download portal-ready JPG.",
           "position": 4
         }
       ]
@@ -1510,7 +1517,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
             {!examGuidance && (
             <div class="space-y-3">
               <h2 class="text-base font-bold text-foreground flex items-center gap-2">
-                <span>📋</span> {examData.authority} Official Dimension &amp; Upload Standards
+                <span>📋</span> {examData.guidanceLabel ? `${examData.authority} Preparation & Upload Standards` : `${examData.authority} Official Dimension & Upload Standards`}
               </h2>
               
               <div class="overflow-x-auto rounded-xl border border-border">
@@ -1704,14 +1711,14 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
               <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
                 <span class="text-emerald-500 font-bold">✓</span>
                 <div>
-                  <div class="font-medium text-foreground">{isPreparationGuide ? 'Default target' : 'Target Size'}: {examData.minKb}–{examData.maxKb} KB</div>
+                  <div class="font-medium text-foreground">{isPreparationGuide || examData.guidanceLabel ? 'Prep target' : 'Target Size'}: {examData.minKb}–{examData.maxKb} KB</div>
                   <div class="text-[11px] text-muted-foreground">Check the actual downloaded file size.</div>
                 </div>
               </div>
               <div class="p-2.5 rounded-xl bg-muted/40 border border-border flex items-start gap-2">
                 <span class="text-emerald-500 font-bold">✓</span>
                 <div>
-                  <div class="font-medium text-foreground">{isPreparationGuide ? 'Default canvas' : 'Dimensions'}: {examData.widthPx} × {examData.heightPx} px</div>
+                  <div class="font-medium text-foreground">{isPreparationGuide || examData.guidanceLabel ? 'Prep canvas' : 'Dimensions'}: {examData.widthPx} × {examData.heightPx} px</div>
                   <div class="text-[11px] text-muted-foreground">Inspect the final image and application preview.</div>
                 </div>
               </div>

@@ -278,39 +278,40 @@ export const PAN_INDIA_GOV_JOBS: GovernmentJob[] = [
   },
   {
     id: 'upsc-cds-nda-2026',
-    title: 'UPSC Combined Defence Services (CDS) & NDA 2026',
-    shortCode: 'UPSC CDS/NDA',
-    organization: 'Union Public Service Commission',
+    title: 'UPSC NDA & NA (I) & CDS (I) 2027 (IMA, INA, AFA, OTA, NDA)',
+    shortCode: 'UPSC NDA / CDS',
+    organization: 'Union Public Service Commission (UPSC)',
     category: 'Defence',
     state: 'Pan-India',
     region: 'Pan-India',
-    vacancies: '850 Posts',
+    vacancies: 'Notified 2 Dec 2026',
     qualification: '12th Pass',
-    qualificationDetail: '12th Class Pass for NDA; Graduation for CDS (IMA, INA, AFA, OTA)',
+    qualificationDetail: '12th Pass for NDA/NA; Graduation (B.E./Any Degree) for CDS (IMA, INA, AFA, OTA)',
     ageLimit: '16.5 to 19.5 Yrs (NDA); 19 to 25 Yrs (CDS)',
-    lastDate: '2026-11-28',
-    examDate: 'NDA III Feb 2027 | CDS I March 2027',
+    lastDate: '2026-12-22 (Opens Dec 2)',
+    examDate: '11 April 2027',
     status: 'Upcoming',
-    badge: 'Commissioned Officer',
-    officialUrl: 'https://upsconline.nic.in',
+    badge: 'Dec 2 Notification',
+    officialUrl: 'https://upsc.gov.in/content/annual-calendar-2027-0',
     applicationFee: '₹100 / ₹200 (Free for Women & SC/ST)',
-    notificationSummary: 'Officer entry into Indian Army, Navy, and Air Force academies leading to permanent/short service commission.',
-    keyPosts: ['Lieutenant (Indian Army)', 'Sub-Lieutenant (Indian Navy)', 'Flying Officer (Indian Air Force)'],
-    selectionSteps: ['UPSC Written Examination', 'SSB Interview (5-Day Stage I & II)', 'Class 1 Medical Board Examination'],
+    notificationSummary: 'UPSC Calendar 2027: NDA I & CDS I notifications release 2 Dec 2026, apply till 22 Dec 2026, written exam 11 Apr 2027.',
+    keyPosts: ['NDA Army/Navy/Air Force Cadet', 'Lieutenant (IMA / OTA)', 'Sub-Lieutenant (INA)', 'Flying Officer (AFA)'],
+    selectionSteps: ['UPSC Written Examination (11 Apr 2027)', 'SSB Interview (5-Day Stage I & II)', 'Medical Board Examination'],
     photoSpecs: {
-      dimensions: '350 × 350 pixels',
-      fileSize: '20 KB to 300 KB',
+      dimensions: '400 × 400 px (350–1000 px)',
+      fileSize: '20 KB – 200 KB',
       format: 'JPG',
-      note: 'Square format on white background.'
+      note: 'White/light BG + portal live photo capture; check 2 Dec 2026 PDF.'
     },
     signatureSpecs: {
-      dimensions: '350 × 350 pixels',
-      fileSize: '20 KB to 300 KB',
+      dimensions: '400 × 400 px (350–500 px)',
+      fileSize: '20 KB – 100 KB',
       format: 'JPG',
-      note: 'Black ink signature scan.'
+      note: 'Black ink (recent CAF forms require 3 vertical signatures); check 2 Dec PDF.'
     },
-    toolPresetSlug: 'upsc-signature-resize',
-    toolLabel: 'Resize for UPSC CDS/NDA'
+    toolPresetSlug: 'nda-signature-resize',
+    guideSlug: 'upsc-cds-nda-2026-top-10-faq-defence-guide',
+    toolLabel: 'Resize for NDA / CDS'
   },
 
   // --- Central: Banking & Financial ---

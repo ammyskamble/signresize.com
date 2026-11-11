@@ -144,8 +144,16 @@ export default function ChatBot({ initialOpen = false }: { initialOpen?: boolean
       };
     }
 
+    // NDA / CDS (UPSC Defence)
+    if (q.includes('nda') || q.includes('cds')) {
+      return {
+        text: '🎖️ **UPSC NDA I & CDS I 2027 Upload Prep (Window Opens 2 Dec 2026):**\n\n• **Signature:** 20 KB to 100 KB JPG (400×400 px square prep; recent upsconline CAF instructions use 3 vertical black-ink signatures on one white sheet)\n• **Passport Photo:** 20 KB to 200 KB JPG (white/light background, ~75% face visibility) + live webcam/QR capture\n• **Schedule:** Notification 2 Dec 2026 · Apply by 22 Dec 2026 · Exam 11 Apr 2027.',
+        action: { label: '🚀 Open NDA Signature Resizer', url: '/nda-signature-resize/' }
+      };
+    }
+
     // UPSC
-    if (q.includes('upsc') || q.includes('ias') || q.includes('cse') || q.includes('nda') || q.includes('cds') || q.includes('otr')) {
+    if (q.includes('upsc') || q.includes('ias') || q.includes('cse') || q.includes('otr')) {
       return {
         text: '🏛️ **UPSC Civil Services & OTR Standards:**\n\n• **Photograph:** 20 KB to 300 KB (Min 350 × 350 px, Max 1000 × 1000 px, 3/4th face coverage)\n• **Signature:** 20 KB to 300 KB (Min 350 × 350 px, black ink on white paper)\n• **Photo Requirement:** Name of candidate and date of photo capture must be stamped at the base.',
         action: { label: '🚀 Open UPSC Resizer', url: '/upsc-signature-resize/' }

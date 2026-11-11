@@ -332,6 +332,14 @@ const PRESET_ALIASES: Record<string, string> = {
   'ssc-mts': 'ssc-mts',
   thumb: 'thumb-impression-general',
   afcat: 'afcat-iaf',
+  nda: 'nda-signature',
+  'nda-sign': 'nda-signature',
+  'nda-signature': 'nda-signature',
+  'nda-photo': 'nda-photo',
+  cds: 'cds-signature',
+  'cds-sign': 'cds-signature',
+  'cds-signature': 'cds-signature',
+  'cds-photo': 'cds-photo',
   agniveer: 'agniveer-recruitment',
   coastguard: 'indian-coast-guard',
   wbpsc: 'wbpsc-west-bengal',
@@ -904,7 +912,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'handwritten-declaration') || DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc');
       }
     }
-    // 6. UPSC (Civil Services, CDS, NDA)
+    // 5b. UPSC NDA & NA
+    else if (examAnchor.includes('nda') || matchesExam('nda', 'national defence academy')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'nda-signature');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'nda-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card' || p.id === 'marksheet-12th');
+    }
+    // 5c. UPSC CDS
+    else if (examAnchor.includes('cds') || matchesExam('cds', 'combined defence services')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'cds-signature');
+      else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'cds-photo');
+      else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'id-proof-card' || p.id === 'degree-certificate');
+    }
+    // 6. UPSC (Civil Services & IFoS)
     else if (matchesExam('upsc', 'union public service')) {
       if (newType === 'signature') {
         targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'upsc-civil-services');
@@ -2864,12 +2884,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const CATEGORY_GROUPS = [
     { name: 'International & Passports', categories: ['International'], description: 'Indonesia (CPNS, UTBK, Paspor), US Visa DS-160, UK & Global' },
     { name: 'Management & MBA', categories: ['Management'], description: 'CAT (IIM), XAT, SNAP, NMAT & CMAT' },
-    { name: 'Civil Services / UPSC', categories: ['UPSC'], description: 'UPSC IAS, NDA, CDS, CMS & CAPF (AC)' },
+    { name: 'Civil Services / UPSC', categories: ['UPSC'], description: 'UPSC CSE (IAS, IFoS), CMS, IES & CAPF (AC)' },
     { name: 'Banking & Financial', categories: ['Banking', 'PSU & Regulators'], description: 'IBPS, SBI, RBI Grade B, SEBI & LIC' },
     { name: 'Engineering & Medical', categories: ['Engineering'], description: 'GATE & IIT JAM, NEET / JEE (NTA)' },
     { name: 'Staff Selection (SSC) & Railways', categories: ['SSC', 'Railways'], description: 'SSC CGL, CHSL, MTS, GD & Railway RRB' },
     { name: 'State PSCs', categories: ['State PSC'], description: 'UPPSC, BPSC, MPSC, TNPSC, KPSC, RPSC, WBPSC & GPSC' },
-    { name: 'Defense & Paramilitary', categories: ['Defense'], description: 'AFCAT, Agniveer (Army/Navy/AirForce) & Coast Guard' },
+    { name: 'Defense & Paramilitary', categories: ['Defense'], description: 'NDA I, CDS I, AFCAT, Agniveer (Army/Navy/AirForce) & Coast Guard' },
     { name: 'Law & Legal Entrances', categories: ['Law'], description: 'CLAT UG/PG, AILET & LSAT India' },
     { name: 'Teaching & Eligibility', categories: ['Teaching'], description: 'CTET, State TETs & CSIR UGC-NET' },
     { name: 'Identity & Portals', categories: ['Identity', 'General'], description: 'PAN Card (NSDL), Left Thumb, Sarathi DL & Passport' }
@@ -2957,7 +2977,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         ...(isNtpcActive ? [{ id: 'rrb-ntpc', short: 'RRB NTPC', label: 'RRB NTPC Signature', specs: '280×160 • 30–49 KB' }] : []),
         { id: 'ssc-cgl', short: 'SSC CGL', label: 'SSC CGL 2026', specs: '140×60 • 10–20 KB' },
         { id: 'ssc-general', short: 'SSC Guide', label: 'SSC preparation preset', specs: '600×200 • 10–20 KB' },
-        { id: 'upsc-civil-services', short: 'UPSC', label: 'UPSC (IAS, NDA)', specs: '350×350 • 20–300 KB' },
+        { id: 'upsc-civil-services', short: 'UPSC CSE', label: 'UPSC CSE & IFoS', specs: '350×350 • 20–300 KB' },
         { id: 'ibps-sbi', short: 'IBPS', label: 'IBPS (PO/Clerk)', specs: '140×60 • 10–20 KB' },
         { id: 'rrb-railway', short: 'RRB', label: 'RRB Railways', specs: '140×60 • 10–20 KB' }
       ];
