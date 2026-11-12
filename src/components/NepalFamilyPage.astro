@@ -1,0 +1,347 @@
+---
+import '../styles/global.css';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import GoogleAnalytics from './GoogleAnalytics.astro';
+import GoogleFonts from './GoogleFonts.astro';
+import ThemeScript from './ThemeScript.astro';
+import { SignatureTool } from './SignatureTool';
+import type { NepalPageConfig } from '../data/nepalExamPages';
+
+export interface Props {
+  config: NepalPageConfig;
+}
+
+const { config } = Astro.props;
+const ogImageUrl = 'https://signresize.in/og-image.png';
+---
+
+<!doctype html>
+<html lang="en-NP" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{config.pageTitle}</title>
+    <meta name="description" content={config.metaDescription} />
+    <meta name="keywords" content={config.keywords} />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={config.canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link rel="alternate" hreflang="en-NP" href={config.canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={config.pageTitle} />
+    <meta property="og:description" content={config.metaDescription} />
+    <meta property="og:url" content={config.canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_NP" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <GoogleFonts />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": config.h1,
+      "url": config.canonicalUrl,
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web Browser, Android, iOS, Windows, macOS, Linux",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "inLanguage": "en-NP",
+      "description": config.metaDescription,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "NPR"
+      },
+      "featureList": config.presetChips.map(c => `${c.label}: ${c.specBadge}`)
+    })} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://signresize.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Nepal Exam Resizer Hub", "item": "https://signresize.in/np/" },
+        { "@type": "ListItem", "position": 3, "name": config.h1, "item": config.canonicalUrl }
+      ]
+    })} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": config.faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    })} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": config.howToHeading,
+      "description": config.metaDescription,
+      "step": config.howToSteps.map((step, i) => ({
+        "@type": "HowToStep",
+        "position": i + 1,
+        "name": `Step ${i + 1}`,
+        "text": step
+      }))
+    })} />
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+    <Header />
+
+    <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+      <!-- Hero & Answer-First Overview -->
+      <section class="space-y-3">
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <a href="/np/" class="inline-flex items-center gap-1 font-semibold text-primary hover:underline">
+            <span>&larr; Nepal Resizer Hub</span>
+          </a>
+          <span class="text-muted-foreground">/</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-bold bg-red-500/10 text-red-700 dark:text-red-300 border border-red-500/20">
+            {config.badgeText}
+          </span>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+          {config.h1}
+        </h1>
+
+        {config.datesStrip && (
+          <div class="rounded-xl border border-amber-500/30 bg-amber-500/10 px-3.5 py-2 text-xs sm:text-sm font-medium text-foreground">
+            <strong>Schedule Strip:</strong> {config.datesStrip}
+          </div>
+        )}
+
+        <p class="text-sm sm:text-base text-muted-foreground max-w-4xl leading-relaxed">
+          {config.answerParagraph}
+        </p>
+
+        <!-- Preset Switcher Chips -->
+        <div class="flex flex-wrap items-center gap-2 pt-1" role="group" aria-label="Preset selector">
+          {config.presetChips.map((chip, idx) => (
+            <button
+              type="button"
+              data-np-preset={chip.presetId}
+              class:list={[
+                "inline-flex flex-wrap items-center gap-2 rounded-xl border px-3.5 py-2 text-xs font-bold transition cursor-pointer",
+                idx === 0
+                  ? "border-primary bg-primary/10 text-primary"
+                  : "border-border bg-card text-foreground hover:border-primary/50"
+              ]}
+            >
+              <span>{chip.label}</span>
+              <span class="rounded-md bg-background/80 px-2 py-0.5 text-[11px] font-mono font-semibold text-muted-foreground border border-border/70">
+                {chip.specBadge}
+              </span>
+            </button>
+          ))}
+          <a
+            href="#crop-workspace"
+            class="inline-flex items-center rounded-xl bg-primary px-4 py-2 text-xs font-bold text-primary-foreground hover:opacity-90 transition"
+          >
+            Jump to canvas &darr;
+          </a>
+        </div>
+      </section>
+
+      <!-- Interactive Resizer Tool Above the Fold -->
+      <section id="tool-workspace" aria-label="Image resizing tool workspace" class="scroll-mt-20 bg-card border border-border rounded-2xl p-3 sm:p-5 shadow-sm">
+        <SignatureTool
+          client:idle
+          initialPresetId={config.initialPresetId}
+          initialMode={config.initialMode}
+          canvasFirst={true}
+        />
+      </section>
+
+      <!-- Dated Notices Block -->
+      <section class="space-y-4" aria-labelledby="notices-heading">
+        <h2 id="notices-heading" class="text-xl sm:text-2xl font-extrabold text-foreground">
+          {config.noticesHeading}
+        </h2>
+        <div class="grid gap-4">
+          {config.notices.map((notice) => (
+            <article class="rounded-2xl border border-border bg-card p-4 sm:p-5 space-y-2 shadow-xs">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-primary">
+                  {notice.badge}
+                </span>
+                {notice.portalUrl && notice.portalLabel && (
+                  <a
+                    href={notice.portalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs font-semibold text-primary underline underline-offset-4"
+                  >
+                    Official portal: {notice.portalLabel} &nearr;
+                  </a>
+                )}
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-foreground">{notice.heading}</h3>
+              <p class="text-xs font-mono text-muted-foreground">{notice.meta}</p>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">{notice.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Optional Dedicated Rule / Rejection Section -->
+      {config.calloutSection && (
+        <section class="rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6 space-y-3">
+          <h2 class="text-lg sm:text-xl font-extrabold text-foreground">{config.calloutSection.heading}</h2>
+          {config.calloutSection.paragraphs.map((p) => (
+            <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">{p}</p>
+          ))}
+          {config.calloutSection.bullets && (
+            <ul class="grid sm:grid-cols-2 gap-3 pt-1">
+              {config.calloutSection.bullets.map((b) => (
+                <li class="rounded-xl border border-border bg-card p-3.5 text-xs sm:text-sm text-muted-foreground">
+                  <strong class="block text-foreground mb-1">{b.label}</strong>
+                  {b.text}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+
+      <!-- Verified Spec Table -->
+      <section class="space-y-3" aria-labelledby="spec-table-heading">
+        <h2 id="spec-table-heading" class="text-xl sm:text-2xl font-extrabold text-foreground">
+          {config.specTableHeading}
+        </h2>
+        <div class="overflow-x-auto rounded-2xl border border-border bg-card shadow-xs">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead class="bg-muted/70 border-b border-border text-[11px] uppercase tracking-wider text-muted-foreground">
+              <tr>
+                <th class="px-4 py-3">Parameter</th>
+                <th class="px-4 py-3">Verified Requirement</th>
+                <th class="px-4 py-3">Official Source</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              {config.specs.map((row) => (
+                <tr>
+                  <td class="px-4 py-3 font-semibold text-foreground">{row.parameter}</td>
+                  <td class="px-4 py-3 text-foreground">{row.value}</td>
+                  <td class="px-4 py-3 text-muted-foreground">{row.source}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="rounded-xl border border-border bg-muted/40 p-3.5 text-xs text-muted-foreground leading-relaxed">
+          {config.verificationNote}
+        </p>
+      </section>
+
+      <!-- How-To Portal Guide & Official Links -->
+      <section class="grid md:grid-cols-3 gap-5">
+        <div class="md:col-span-2 rounded-2xl border border-border bg-card p-5 space-y-3">
+          <h2 class="text-lg sm:text-xl font-extrabold text-foreground">{config.howToHeading}</h2>
+          <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            {config.howToSteps.map((step) => (
+              <li>{step}</li>
+            ))}
+          </ol>
+        </div>
+        <aside class="rounded-2xl border border-border bg-card p-5 space-y-3">
+          <h2 class="text-base sm:text-lg font-extrabold text-foreground">Official Portals &amp; Notices</h2>
+          <ul class="space-y-2 text-xs sm:text-sm">
+            {config.officialPortals.map((portal) => (
+              <li>
+                <a
+                  href={portal.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-primary font-semibold underline underline-offset-4 break-words"
+                >
+                  {portal.label} &nearr;
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p class="text-[11px] text-muted-foreground leading-relaxed">
+            All resizing runs locally in your browser via HTML5 Canvas. Always review your active official advertisement notice before paying fees.
+          </p>
+        </aside>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <section class="space-y-3" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" class="text-xl sm:text-2xl font-extrabold text-foreground">
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-2.5">
+          {config.faqs.map((faq) => (
+            <details class="group rounded-2xl border border-border bg-card p-4 open:border-primary/40">
+              <summary class="cursor-pointer font-bold text-sm sm:text-base text-foreground list-none flex items-center justify-between gap-4">
+                <span>{faq.q}</span>
+                <span class="text-primary font-mono text-lg shrink-0 group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <p class="mt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links (§8) -->
+      <section class="rounded-2xl border border-border bg-card p-5 space-y-3" aria-label="Related Nepal Resizer Tools">
+        <h2 class="text-base sm:text-lg font-extrabold text-foreground">Related Nepal Photo &amp; Signature Resizers</h2>
+        <ul class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+          {config.crossLinks.map((link) => (
+            <li class="rounded-xl border border-border bg-background/60 p-3 space-y-1">
+              <a href={link.href} class="font-bold text-primary underline underline-offset-4">
+                {link.anchorText}
+              </a>
+              <p class="text-xs text-muted-foreground">{link.context}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+
+    <Footer />
+
+    <script is:inline>
+      function syncNpPresetButtons(presetId) {
+        document.querySelectorAll('[data-np-preset]').forEach((el) => {
+          const isMatch = el.getAttribute('data-np-preset') === presetId;
+          el.classList.toggle('border-primary', isMatch);
+          el.classList.toggle('bg-primary/10', isMatch);
+          el.classList.toggle('text-primary', isMatch);
+          el.classList.toggle('border-border', !isMatch);
+          el.classList.toggle('bg-card', !isMatch);
+          el.classList.toggle('text-foreground', !isMatch);
+        });
+      }
+      document.querySelectorAll('[data-np-preset]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const presetId = btn.getAttribute('data-np-preset');
+          if (!presetId) return;
+          syncNpPresetButtons(presetId);
+          window.dispatchEvent(new CustomEvent('signresize-apply-preset', { detail: { presetId } }));
+        });
+      });
+      window.addEventListener('signresize-preset-applied', (event) => {
+        const presetId = event?.detail?.presetId;
+        if (presetId) syncNpPresetButtons(presetId);
+      });
+    </script>
+  </body>
+</html>

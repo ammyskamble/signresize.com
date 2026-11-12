@@ -48,7 +48,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
 
     <!-- Nav Links (Desktop & Large Screens) -->
     {focused && <nav aria-label="Primary tools" class="hidden lg:flex items-center gap-4 text-sm">
-      <details class="relative"><summary class="cursor-pointer font-semibold">Tools</summary><div class="absolute top-full mt-2 left-0 rounded-lg border border-border bg-card p-3 min-w-52 shadow-lg space-y-2"><a class="block" href="/resize-signature-to-10kb-20kb/">Signature resizer</a><a class="block" href="/photo-resizer/">Photo resizer</a><a class="block" href="/document-resizer/">Document resizer</a><a class="block" href="/compress-image-to-kb/">Compress image</a></div></details>
+      <details class="relative"><summary class="cursor-pointer font-semibold">Tools</summary><div class="absolute top-full mt-2 left-0 rounded-lg border border-border bg-card p-3 min-w-52 shadow-lg space-y-2"><a class="block" href="/">Signature resize tool</a><a class="block" href="/resize-signature-to-10kb-20kb/">10–20 KB signature resizer</a><a class="block" href="/photo-resizer/">Photo resizer</a><a class="block" href="/document-resizer/">Document resizer</a><a class="block" href="/compress-image-to-kb/">Compress image</a></div></details>
       <a href="#exam-specs">Exam presets</a>
       <details class="relative"><summary class="cursor-pointer">Explore</summary><div class="absolute top-full mt-2 left-0 rounded-lg border border-border bg-card p-3 min-w-44 shadow-lg space-y-2"><a class="block" href="/blog/">Guides &amp; blog</a><a class="block" href="/government-jobs/">Job calendar</a><a class="block" href="#portal-standards">Standards &amp; FAQ</a></div></details>
     </nav>}
@@ -304,7 +304,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
             
             <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-primary px-1 pb-1 border-b border-slate-100 dark:border-slate-800">
               <span class="flex items-center gap-1">🌐 Country Portals</span>
-              <span class="font-mono text-[9px] text-muted-foreground font-semibold">9 Countries • 33 Tools</span>
+              <span class="font-mono text-[9px] text-muted-foreground font-semibold">9 Countries • 43 Tools</span>
             </div>
 
             <!-- 1-Click Country Flag Jump Strip -->
@@ -608,16 +608,36 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
                 <summary class="flex items-center justify-between font-semibold text-xs text-foreground cursor-pointer select-none py-1 px-2 hover:bg-red-500/10 rounded-lg">
                   <span class="flex items-center gap-1.5"><span>🇳🇵</span><span>Nepal</span></span>
                   <div class="flex items-center gap-1">
-                    <span class="text-[9px] font-mono text-red-600 dark:text-red-400 font-bold">1 tool</span>
+                    <span class="text-[9px] font-mono text-red-600 dark:text-red-400 font-bold">6 tools</span>
                     <svg class="w-3 h-3 text-red-500 transition-transform duration-150 group-open/np:rotate-180" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                   </div>
                 </summary>
                 <div class="px-2 pb-1.5 pt-1 space-y-0.5 border-t border-red-500/15">
+                  <a href="/np/pradesh-lok-sewa-photo-resize/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🏛️ Pradesh Lok Sewa (Gandaki/Karnali)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&le;500 KB</span>
+                  </a>
+                  <a href="/np/nepal-telecom-photo-signature-resize/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">📡 Nepal Telecom (NTC 06/2083-84)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">100–200 KB</span>
+                  </a>
+                  <a href="/np/nea-photo-signature-resize/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">⚡ NEA (Both Ears Visible)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">JPG</span>
+                  </a>
                   <a href="/np/lok-sewa-photo-resize-nepal/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
-                    <span class="truncate">🇳🇵 Lok Sewa Nepal PSC</span>
-                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">350×300 px</span>
+                    <span class="truncate">🇳🇵 Federal Lok Sewa Nepal PSC</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&le;50 KB</span>
+                  </a>
+                  <a href="/np/university-entrance-photo-resize/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🎓 University Entrance (KU &amp; PU)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&le;500 KB / 51mm</span>
+                  </a>
+                  <a href="/np/driving-license-photo-resize/" class="flex items-center justify-between p-1 rounded text-[11px] hover:bg-white dark:hover:bg-slate-800 hover:text-primary transition font-medium">
+                    <span class="truncate">🚗 Driving License (eDLVRS)</span>
+                    <span class="text-[9px] font-mono text-muted-foreground shrink-0">&le;1 MB</span>
                   </a>
                   <a href="/np/" class="flex items-center justify-between pt-1 text-[10px] font-bold text-red-600 dark:text-red-400 hover:underline">
                     <span>Explore Nepal Hub</span>
@@ -1340,14 +1360,19 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           <summary class="flex items-center justify-between font-bold text-foreground cursor-pointer select-none">
             <div class="flex items-center gap-1.5">
               <span>🇳🇵</span>
-              <span>Nepal (1 Tool - Lok Sewa)</span>
+              <span>Nepal (6 Tools - PSC, NTC, NEA)</span>
             </div>
             <svg class="w-3 h-3 text-red-500 transition-transform group-open/npm:rotate-180" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
             </svg>
           </summary>
           <div class="pt-1.5 space-y-1 pl-1 font-medium border-t border-red-500/15 mt-1">
-            <a href="/np/lok-sewa-photo-resize-nepal/" class="block py-0.5 hover:text-primary">🇳🇵 Lok Sewa Photo &amp; Signature</a>
+            <a href="/np/pradesh-lok-sewa-photo-resize/" class="block py-0.5 hover:text-primary">🏛️ Pradesh Lok Sewa (Gandaki/Karnali)</a>
+            <a href="/np/nepal-telecom-photo-signature-resize/" class="block py-0.5 hover:text-primary">📡 Nepal Telecom (NTC ≤200 KB)</a>
+            <a href="/np/nea-photo-signature-resize/" class="block py-0.5 hover:text-primary">⚡ NEA (Both Ears Visible)</a>
+            <a href="/np/lok-sewa-photo-resize-nepal/" class="block py-0.5 hover:text-primary">🇳🇵 Federal Lok Sewa Photo &amp; Sign</a>
+            <a href="/np/university-entrance-photo-resize/" class="block py-0.5 hover:text-primary">🎓 University Entrance (KU &amp; PU)</a>
+            <a href="/np/driving-license-photo-resize/" class="block py-0.5 hover:text-primary">🚗 Driving License (eDLVRS)</a>
             <a href="/np/" class="block py-0.5 text-red-600 dark:text-red-400 font-bold">🇳🇵 NP Main Hub Page →</a>
           </div>
         </details>

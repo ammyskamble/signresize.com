@@ -18,6 +18,11 @@ export async function getStaticPaths() {
   const INTERNATIONAL_COUNTRY_SLUGS = [
     'prc-photo-signature-resize-philippines',
     'lok-sewa-photo-resize-nepal',
+    'pradesh-lok-sewa-photo-resize',
+    'nepal-telecom-photo-signature-resize',
+    'nea-photo-signature-resize',
+    'university-entrance-photo-resize',
+    'driving-license-photo-resize',
     'ppsc-signature-resize',
     'fpsc-photo-resize'
   ];
@@ -54,11 +59,13 @@ const isCoastGuard = examData.slug.includes('coast-guard');
 const isWbpsc = examData.slug.includes('wbpsc') || examData.slug.includes('wbcs');
 const isBpsc = examData.slug === 'bpsc-signature-resize' || examData.slug.startsWith('bpsc-tre-');
 const isNtpc = examData.slug === 'rrb-ntpc-signature-resize';
-const isPreparationGuide = isWbpsc || isBpsc || isCoastGuard || isNtpc || isJam;
+const isStationMaster = examData.slug === 'rrb-station-master-signature-resize';
+const isPreparationGuide = isWbpsc || isBpsc || isCoastGuard || isNtpc || isStationMaster || isJam;
 const isTnpsc = examData.slug.includes('tnpsc');
 const isBanking = examData.slug.includes('sbi') || examData.slug.includes('ibps');
 const isMaharashtraPolice = examData.slug === 'maharashtra-police-signature-resize';
 const isWbPolice = examData.slug === 'wb-police-signature-resize' || examData.slug === 'wb-police-photo-resize';
+const isNepalLokSewa = examData.slug === 'lok-sewa-photo-resize-nepal';
 const isPhotoPage = examData.presetId.includes('photo') || examData.slug.includes('photo');
 const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc || isMaharashtraPolice || isWbPolice;
 const relatedTools = (examData.relatedTools || [])
@@ -75,7 +82,7 @@ const relatedTools = (examData.relatedTools || [])
 
 // Find relevant blog posts for this specific exam tool
 // BPSC articles still need a separate source review; use the reviewed guidance links.
-const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLOG_POSTS.map(post => {
+const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster || isJam) ? [] : BLOG_POSTS.map(post => {
   let score = 0;
   const examSlugLower = examData.slug.toLowerCase();
   const examKey = examSlugLower.split('-')[0]; // 'ssc', 'rrb', 'upsc', 'bpsc', etc.
@@ -306,10 +313,11 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
             <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
               {examData.subheading} Applicable for <strong>{examData.targetExams}</strong>.
             </p>
-            {isNtpc && <div class="flex flex-wrap items-center gap-3 pt-1">
-              <a href="#exam-tool" class="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Resize your signature ↓</a>
-              <a href="#exam-requirements-heading" class="inline-flex min-h-11 items-center text-sm font-semibold text-primary underline underline-offset-4">View size requirements</a>
-            </div>}
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <a href="#crop-workspace" class="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">{isPhotoPage ? 'Open photo canvas ↓' : 'Open signature canvas ↓'}</a>
+              {isNtpc && <a href="#exam-tool" class="inline-flex min-h-11 items-center text-sm font-semibold text-primary underline underline-offset-4">Choose preset</a>}
+              {examGuidance && <a href="#exam-requirements-heading" class="inline-flex min-h-11 items-center text-sm font-semibold text-primary underline underline-offset-4">View size requirements</a>}
+            </div>
               {examData.slug === 'lsat-india-signature-resize' && <aside class="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm space-y-2" aria-label="Legacy exam notice"><strong class="text-amber-800 dark:text-amber-200">Legacy LSAT—India preset</strong><p>LSAT—India has been discontinued. This page preserves the historical preset; it is not a current registration guide. Check your law school’s current admission route.</p><div class="flex flex-wrap gap-4 font-semibold text-primary"><a href="/clat-signature-resize/">CLAT signature tool →</a><a href="/ailet-signature-resize/">AILET signature tool →</a><a href="https://www.chitkara.edu.in/blogs/law-entrance-exams-after-12th-clat-lsat-cuet/" target="_blank" rel="noopener noreferrer">University admission guidance ↗</a></div></aside>}
               {examData.slug === 'uppsc-signature-resize' && (
                 <aside class="mt-4 rounded-2xl border border-primary/30 bg-primary/10 p-4 text-xs space-y-3 shadow-xs" aria-label="UPPSC RO ARO Notice">
@@ -397,7 +405,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
         )}
       </section>
 
-      {examGuidance && !isNtpc && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
+      {examGuidance && !isNtpc && !isStationMaster && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
 
       {relatedTools.length > 0 && !hasDocumentSuite && !examGuidance && !isCoastGuard && !isTnpsc && (
         <nav class="flex flex-wrap gap-2 text-xs" aria-label="Related signature tools">
@@ -1109,16 +1117,55 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isJam) ? [] : BLO
             </section>
           )}
           <div id="exam-tool" class="scroll-mt-20 bg-transparent sm:bg-card border-0 sm:border border-border rounded-2xl p-0 sm:p-6 shadow-none sm:shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
-          {isNtpc && <div class="mb-4 space-y-1"><h2 class="text-xl font-bold text-foreground">Resize your NTPC signature</h2><p class="text-sm text-muted-foreground">Upload your signature, adjust the crop, then download the JPG. The NTPC preset targets 30–49 KB; check your active CEN.</p><p class="text-sm text-muted-foreground">Other photo and document presets are available below. For CEN 06/2025, the photo is captured live in the RRB application; an SC/ST certificate for a free travel pass must be a clear PDF under 400 KB. Check the final PDF size and your active notice.</p></div>}
-          {isNtpc && <section class="mb-6 space-y-2 rounded-xl border border-border bg-card p-4"><h2 class="text-lg font-bold text-foreground">RRB Station Master Signature Size</h2><p class="text-sm text-muted-foreground"><strong>For Station Master CEN 08/2026, use a 30–49 KB JPG/JPEG signature at least 140×60 px, written in black ink on white paper.</strong> Centre it in the 50×20 mm scan box. Station Master has a separate recruitment notice; use its CEN instructions rather than assuming it is part of NTPC.</p></section>}
             <SignatureTool 
               client:idle
               initialPresetId={examData.presetId} 
               initialMode={examData.slug.includes('photo') ? 'photo' : 'signature'} 
+              canvasFirst={isStationMaster || isNtpc}
             />
           </div>
 
-          {isNtpc && examGuidance && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
+          {isNepalLokSewa && (
+            <section class="rounded-xl border border-primary/25 bg-primary/5 p-4 space-y-2" aria-label="Provincial and institutional Nepal resizers">
+              <h2 class="text-base sm:text-lg font-bold text-foreground">Applying to a province instead?</h2>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                Provincial Public Service Commissions use separate provincial portals (such as <code class="font-mono text-foreground">onlineppsc.gandaki.gov.np</code> and <code class="font-mono text-foreground">ppsconline.karnali.gov.np</code>) rather than federal <code class="font-mono text-foreground">psconline.psc.gov.np</code>. Open the <a href="/np/pradesh-lok-sewa-photo-resize/" class="text-primary font-semibold underline underline-offset-4">Pradesh Lok Sewa resizer</a>, or browse all active Nepal recruitment tools—including <a href="/np/nepal-telecom-photo-signature-resize/" class="text-primary font-semibold underline underline-offset-4">Nepal Telecom signature resize</a> and <a href="/np/nea-photo-signature-resize/" class="text-primary font-semibold underline underline-offset-4">NEA photo resize</a>—on the <a href="/np/" class="text-primary font-semibold underline underline-offset-4">Nepal resizer hub</a>.
+              </p>
+            </section>
+          )}
+
+          {isNtpc && <div class="space-y-1 rounded-xl border border-border bg-card p-4"><h2 class="text-xl font-bold text-foreground">Resize your NTPC signature</h2><p class="text-sm text-muted-foreground">Upload your signature, adjust the crop, then download the JPG. The NTPC preset targets 30–49 KB; check your active CEN.</p><p class="text-sm text-muted-foreground">Other photo and document presets are available below. For CEN 06/2025, the photo is captured live in the RRB application; an SC/ST certificate for a free travel pass must be a clear PDF under 400 KB. Check the final PDF size and your active notice.</p></div>}
+          {isNtpc && <section class="space-y-2 rounded-xl border border-border bg-card p-4"><h2 class="text-lg font-bold text-foreground">RRB Station Master Signature Size</h2><p class="text-sm text-muted-foreground"><strong>For Station Master CEN 08/2026, use a 30–49 KB JPG/JPEG signature at least 140×60 px, written in black ink on white paper.</strong> Centre it in the 50×20 mm scan box. Station Master has a separate recruitment notice; use the dedicated <a href="/rrb-station-master-signature-resize/" class="text-primary font-semibold underline underline-offset-4">RRB Station Master signature size</a> resizer and its CEN instructions rather than assuming it is part of NTPC.</p></section>}
+          {(isNtpc || isStationMaster) && examGuidance && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
+
+          {isStationMaster && (
+            <section id="station-master-paa" class="rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-sm space-y-5" aria-label="Common RRB signature size questions">
+              <div class="space-y-2">
+                <h2 class="text-base sm:text-lg font-bold text-foreground">What is the signature size for RRB NTPC?</h2>
+                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  For the reviewed RRB NTPC notices (CEN 06/2025 Graduate and CEN 07/2025 Undergraduate FAQ), the signature must be a <strong>30–49 KB JPG/JPEG</strong> measuring at least <strong>140 × 60 pixels</strong> at 100+ DPI, written in black ink on white paper and centred in a <strong>35 × 20 mm</strong> box. Station Master CEN 08/2026 shares the 30–49 KB and 140 × 60 px minimum rules, but uses a wider <strong>50 × 20 mm</strong> signing box—prepare NTPC files on the <a href="/rrb-ntpc-signature-resize/" class="text-primary font-semibold underline underline-offset-4">RRB NTPC signature resizer</a>.
+                </p>
+              </div>
+              <div class="space-y-2 border-t border-border pt-4">
+                <h2 class="text-base sm:text-lg font-bold text-foreground">How to make RRB signature size?</h2>
+                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  Sign in running handwriting with a black ballpoint pen inside a <strong>50 × 20 mm</strong> box on plain white unruled paper, capture a straight, shadow-free photo or 100+ DPI scan, upload it to the <a href="#exam-tool" class="text-primary font-semibold underline underline-offset-4">Station Master signature tool above</a>, crop closely around the strokes, enable Clean White Paper if needed, and download the <strong>30–49 KB JPG</strong>.
+                </p>
+              </div>
+              <div class="space-y-2 border-t border-border pt-4">
+                <h2 class="text-base sm:text-lg font-bold text-foreground">What is the size of a signature?</h2>
+                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  For RRB Station Master CEN 08/2026, the physical signing box is <strong>50 mm wide × 20 mm high</strong> (5:2 aspect ratio), the digital image minimum is <strong>140 × 60 pixels</strong> at <strong>100+ DPI</strong>, and the JPG file size limit is strictly <strong>30 KB to 49 KB</strong>.
+                </p>
+              </div>
+              <div class="space-y-2 border-t border-border pt-4">
+                <h2 class="text-base sm:text-lg font-bold text-foreground">How to set signature in RRB application?</h2>
+                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  Prepare your <strong>30–49 KB JPG/JPEG</strong> signature (at least 140 × 60 px), sign in on <strong>rrbapply.gov.in</strong>, upload the signature file in the document upload step, inspect the preview to confirm all strokes are crisp and uncropped, and complete the separate live photograph capture via webcam or phone camera.
+                </p>
+              </div>
+            </section>
+          )}
 
           {(isCoastGuard || isTnpsc) && relevantBlogPosts.length > 0 && (
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">

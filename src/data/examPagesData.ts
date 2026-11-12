@@ -3610,6 +3610,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     subheading: 'Calibrated passport photo (35×45 mm) and signature presets for Public Service Commission Nepal (Lok Sewa Aayog), TSC Teacher Exam, and e-Passport online portal.',
     authority: 'Lok Sewa Aayog (Public Service Commission Nepal)',
     targetExams: 'Lok Sewa Kharidar, NaSu, Section Officer, TSC Teacher Service Commission, Nepal e-Passport Pre-Enrollment',
+    relatedTools: ['pradesh-lok-sewa-photo-resize', 'nepal-telecom-photo-signature-resize', 'nea-photo-signature-resize'],
     widthPx: 350,
     heightPx: 450,
     widthCm: 3.5,
@@ -4725,6 +4726,152 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
         q: 'Can I write the IBPS declaration in blue ink or capital letters?',
         a: 'No. IBPS and SBI guidelines strictly specify BLACK INK on white paper. Furthermore, declarations written in capital letters will NOT be accepted.'
       }
+    ]
+  },
+  {
+    slug: 'pradesh-lok-sewa-photo-resize',
+    presetId: 'pradesh-loksewa-photo-np',
+    pageTitle: 'Pradesh Lok Sewa Photo & Signature Resize Nepal 2026',
+    metaDescription: 'Free Pradesh Lok Sewa Aayog photo & signature resizer for Gandaki (closes 17 Nov) and Karnali PPSC (153 posts, closes 30 Nov). Matches verified ≤500 KB JPG/PNG portal limits.',
+    keywords: 'pradesh lok sewa photo size, gandaki lok sewa photo resize, karnali ppsc photo size, ppsc nepal signature resize',
+    h1: 'Pradesh Lok Sewa Aayog Photo and Signature Resizer',
+    subheading: 'Resize your passport photo and handwritten signature in JPG for Provincial Public Service Commission portals (Gandaki, Karnali, Lumbini, Koshi, Madhesh, Bagmati, Sudurpashchim).',
+    authority: 'Provincial Public Service Commissions (Nepal)',
+    targetExams: 'Gandaki PPSC 7th Level (Notice 169/2083-84), Karnali PPSC 4th Level (Notice 30/2083-84), Lumbini & Provincial PPSC rounds',
+    widthPx: 350,
+    heightPx: 450,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 200,
+    recommendedKb: 120,
+    dpi: 200,
+    ink: 'Plain light background / dark ink on white paper',
+    aspectRatioLabel: '3.5×4.5 cm · ≤500 KB provincial limit',
+    strictNotice: 'Live Gandaki (onlineppsc.gandaki.gov.np) and Karnali (ppsconline.karnali.gov.np) portals cap photo, signature, and citizenship uploads at ≤500 KB (JPG/PNG; supporting documents PDF ≤500 KB). Preset defaults to ≤200 KB JPG so it satisfies both provincial caps and federal <200 KB guides.',
+    relatedTools: ['lok-sewa-photo-resize-nepal', 'nepal-telecom-photo-signature-resize', 'nea-photo-signature-resize'],
+    tips: [
+      'Use JPG or PNG under 500 KB on Gandaki and Karnali PPSC candidate profiles (this preset keeps photo ≤200 KB and signature ≤100 KB).',
+      'Always verify document upload formats (JPG for citizenship, PDF ≤500 KB for academic/inclusive certificates) inside your active notice.'
+    ],
+    faqs: [
+      { q: 'What is the photo size for Pradesh Lok Sewa Aayog?', a: 'Live portal checks on Gandaki (onlineppsc.gandaki.gov.np) and Karnali (ppsconline.karnali.gov.np) enforce a maximum of 500 KB in JPG or PNG format for photographs and signatures. Preparing a crisp 3.5×4.5 cm JPG under 200 KB works cleanly on provincial portals and matches federal Lok Sewa guides.' }
+    ]
+  },
+  {
+    slug: 'nepal-telecom-photo-signature-resize',
+    presetId: 'ntc-photo-np',
+    pageTitle: 'Nepal Telecom Photo & Signature Resize (≤200 KB) 2026',
+    metaDescription: 'Official Nepal Telecom (NTC) Notice 06/2083-84 photo & signature resizer. Strictly 100–200 KB .JPG per file (≤200 KB cap) for recruit.ntc.net.np before the 19 Nov 2026 deadline.',
+    keywords: 'nepal telecom photo size, ntc vacancy 2083 photo resize, recruit.ntc.net.np signature size, ntc 200 kb photo',
+    h1: 'Nepal Telecom (NTC) Photo and Signature Resizer',
+    subheading: 'Prepare your recent passport photo and signature in .JPG strictly between 100 KB and 200 KB for Nepal Telecom Notice 06/2083-84 on recruit.ntc.net.np (regular deadline 19 Nov 2026).',
+    authority: 'Nepal Telecom (Nepal Doorsanchar Company Limited)',
+    targetExams: 'NTC Open & Inclusive Notice 06/2083-84 (80 posts, Levels 3–9)',
+    widthPx: 350,
+    heightPx: 450,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 100,
+    maxKb: 200,
+    recommendedKb: 165,
+    dpi: 200,
+    ink: 'Recent front-facing photo / dark ink signature on white paper',
+    aspectRatioLabel: '3.5×4.5 cm · 100–200 KB (≤200 KB)',
+    strictNotice: 'NTC Online Form Manual 2083 states uploaded photos and documents must not be below 100 KB or above 200 KB (100–200 KB), and FAQ specifies .JPG for photo, signature, and citizenship scans.',
+    relatedTools: ['nea-photo-signature-resize', 'pradesh-lok-sewa-photo-resize', 'lok-sewa-photo-resize-nepal'],
+    tips: [
+      'Keep every uploaded JPG file between 100 KB and 200 KB (NTC manual advises keeping reduced photos ≥150 KB so A4 prints remain readable).'
+    ],
+    faqs: [
+      { q: 'What is the photo size for Nepal Telecom vacancy?', a: 'Per the official NTC Online Form Manual 2083 and FAQ, photos, signatures, and citizenship scans must be uploaded in .JPG format strictly between 100 KB and 200 KB (never under 100 KB and never over 200 KB).' }
+    ]
+  },
+  {
+    slug: 'nea-photo-signature-resize',
+    presetId: 'nea-photo-np',
+    pageTitle: 'NEA Photo & Signature Resize — Nepal Electricity 2026',
+    metaDescription: 'Free Nepal Electricity Authority (NEA) 2083/2026 photo & signature resizer for career.nea.org.np. Format recent both-ears-visible JPG passport photo & signature before 26 Nov 2026.',
+    keywords: 'nea photo size nepal, career.nea.org.np photo resize, nepal electricity authority vacancy 2083 signature, nea both ears visible photo',
+    h1: 'NEA (Nepal Electricity Authority) Photo and Signature Resizer',
+    subheading: 'Crop and export a recent passport-size JPG photo with both ears clearly visible (दुवै कान देखिने) and scanned signature for NEA 2083 open competition before 26 Nov 2026.',
+    authority: 'Nepal Electricity Authority (NEA)',
+    targetExams: 'NEA Open Competition 2083 (Officer Levels 10, 8, 7 & Assistant Level 5)',
+    widthPx: 350,
+    heightPx: 450,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 200,
+    recommendedKb: 80,
+    dpi: 200,
+    ink: 'Both ears visible · plain background / dark ink signature',
+    aspectRatioLabel: '3.5×4.5 cm passport JPG (editable KB)',
+    strictNotice: 'NEA Official Notice 2083/07/20 Point 19(क) mandates a recent passport photo with both ears visible, signature, and citizenship in JPG format; numeric KB/pixel caps are not printed in the notice.',
+    relatedTools: ['nepal-telecom-photo-signature-resize', 'pradesh-lok-sewa-photo-resize', 'lok-sewa-photo-resize-nepal'],
+    tips: [
+      'Ensure both ears and full face are unobstructed without glasses glare, and keep hair behind your ears before cropping.'
+    ],
+    faqs: [
+      { q: 'What is the photo size for NEA vacancy?', a: 'The official NEA 2083 notice mandates a recent passport-size JPG photo showing both ears clearly (दुवै कान देखिने) without publishing a numeric KB or pixel cap. Exporting a crisp 3.5×4.5 cm JPG around 50–150 KB keeps uploads fast on career.nea.org.np.' }
+    ]
+  },
+  {
+    slug: 'university-entrance-photo-resize',
+    presetId: 'ku-entrance-photo-np',
+    pageTitle: 'Nepal University Entrance Photo Resize 2026 (KU & PU)',
+    metaDescription: 'Free photo resizer for Nepal university entrances: Kathmandu University (≤500 KB, 50–60% face coverage) & Purbanchal University BE/B.Arch (exact 51×51 mm JPG/PNG).',
+    keywords: 'kathmandu university photo size, ku apply photo 500 kb, purbanchal university photo 51x51 mm, nepal entrance photo resize',
+    h1: 'University Entrance Photo Resizer — Nepal',
+    subheading: 'Format admission and entrance photos for Kathmandu University (≤500 KB, light plain background, 50–60% face coverage) and Purbanchal University BE/B.Arch (51×51 mm square JPG/PNG).',
+    authority: 'Nepali Universities (KU SoE · Purbanchal FoE · TU)',
+    targetExams: 'Kathmandu University SoE Admission (apply.ku.edu.np) & Purbanchal University FoE BE/B.Arch Re-Entrance (entrance.puexam.edu.np)',
+    widthPx: 350,
+    heightPx: 450,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 30,
+    maxKb: 500,
+    recommendedKb: 250,
+    dpi: 200,
+    ink: 'Light plain background',
+    aspectRatioLabel: '3.5×4.5 cm (KU ≤500 KB) · 51×51 mm (PU)',
+    strictNotice: 'Switch between Kathmandu University (≤500 KB, 50–60% face coverage) and Purbanchal University (51×51 mm square digital colour JPG/PNG) presets before cropping.',
+    relatedTools: ['lok-sewa-photo-resize-nepal', 'pradesh-lok-sewa-photo-resize', 'driving-license-photo-resize'],
+    tips: [
+      'Confirm your active university portal preset: KU requires 50–60% face framing under 500 KB, while Purbanchal Engineering mandates a 51×51 mm square image.'
+    ],
+    faqs: [
+      { q: 'What photo size do Nepali universities ask for entrance forms?', a: 'Kathmandu University specifies a recent colour photo on a light plain background with 50–60% face coverage and file size ≤500 KB, whereas Purbanchal University Engineering requires a 51×51 mm square colour photo in JPG/JPEG/PNG.' }
+    ]
+  },
+  {
+    slug: 'driving-license-photo-resize',
+    presetId: 'driving-license-np',
+    pageTitle: 'Nepal Driving License Photo Resize Online — eDLVRS',
+    metaDescription: 'Free Nepal Driving License (eDLVRS) photo resizer for provincial transport portals. Prepare clean light-background JPGs under the live ≤1 MB portal image cap.',
+    keywords: 'nepal driving license photo size, edlvrs photo resize, driving license nepal photo kb, edlvrs bagmati gandaki photo',
+    h1: 'Driving License Application Photo Resizer — Nepal',
+    subheading: 'Prepare a clean passport-size JPG photo for Nepal provincial eDLVRS online driving license portals (National ID required; live biometrics are captured separately at the Transport Office).',
+    authority: 'Provincial Transport Management Offices (eDLVRS Nepal)',
+    targetExams: 'Nepal Driving License Online Application & Renewal via provincial eDLVRS portals',
+    widthPx: 350,
+    heightPx: 450,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 20,
+    maxKb: 500,
+    recommendedKb: 150,
+    dpi: 200,
+    ink: 'Plain white or light background',
+    aspectRatioLabel: '3.5×4.5 cm · ≤1 MB eDLVRS image limit',
+    strictNotice: 'Live provincial eDLVRS portals enforce ≤1 MB (JPG/PNG) on image uploads and link applicants via National ID (NID). Official driving licence biometrics (photo & signature) are captured in person at the office.',
+    relatedTools: ['lok-sewa-photo-resize-nepal', 'university-entrance-photo-resize', 'pradesh-lok-sewa-photo-resize'],
+    tips: [
+      'Keep your uploaded photo or citizenship image well under 1 MB in JPG/PNG format and verify National ID (NID) readiness before applying.'
+    ],
+    faqs: [
+      { q: 'What is the photo size for Nepal driving license online application?', a: 'Live provincial eDLVRS portals cap image uploads at 1 MB in JPG or PNG format (2 MB for general PDF/image documents) and link applicant identity via National ID (NID), while live biometric photos and signatures are captured in person at the Transport Office.' }
     ]
   }
 ];

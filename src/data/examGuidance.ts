@@ -459,7 +459,7 @@ GUIDANCE_PAGE_UPDATES['rrb-ntpc-signature-resize'] = {
     { label: 'CEN 08/2026 Station Master: signature instructions, para 16.6', url: 'https://rrb.indianrailways.gov.in/-/image/1793016771817CEN_08_2026_StationMaster.pdf/examsDocuments' },
     { label: 'RRB application portal: confirm your active CEN', url: 'https://www.rrbapply.gov.in/' },
   ],
-  relatedTools: ['rrb-ntpc-undergraduate-document-guide'],
+  relatedTools: ['rrb-station-master-signature-resize', 'rrb-ntpc-undergraduate-document-guide'],
   tips: [
     'Use your own running signature in black ink on white paper. Keep every stroke visible; avoid block, capital or disjointed lettering.',
     'The reviewed sources specify at least 100 DPI when scanning, minimum 140 × 60 pixels and a 35 × 20 mm box. These are separate measurements; exporting cannot improve a blurred original scan.',
@@ -492,10 +492,33 @@ EXAM_GUIDANCE['rrb-ntpc-signature-resize'] = {
   ],
   caution: ntpcCaution,
   links: [
+    { href: '/rrb-station-master-signature-resize/', label: 'RRB Station Master signature size (CEN 08/2026)' },
     { href: '/rrb-ntpc-undergraduate-document-guide/', label: 'NTPC Undergraduate document checklist' },
     { href: '/live-webcam-photo-checker/', label: 'Practise live-photo framing (not an RRB submission)' },
   ],
   changes: 'Corrected 30–70 KB to 30–49 KB, removed conflicting Railway-wide ink guidance, separated minimum pixels from box dimensions, and replaced mixed-cycle claims with identified 2025 sources.',
+};
+
+EXAM_GUIDANCE['rrb-station-master-signature-resize'] = {
+  reviewedOn: '2026-10-28',
+  title: 'RRB Station Master signature size: CEN 08/2026 requirements',
+  cycle: 'Station Master · CEN 08/2026 (Para 16.6)',
+  summary: 'Station Master CEN 08/2026 is a separate recruitment notice from RRB NTPC. It shares the 30–49 KB JPG/JPEG and 140 × 60 px minimum signature limits, but specifies a 50 × 20 mm signing box and live photo capture in the portal.',
+  rows: [
+    { label: 'Signature file', value: 'JPG/JPEG · 30–49 KB', evidence: 'CEN 08/2026 Station Master, para 16.6.' },
+    { label: 'Handwriting and paper', value: 'Black ink · white paper · running handwriting', evidence: 'Sign naturally in black ink on plain white paper; block, capital or disjointed letters are excluded.' },
+    { label: 'Image and scan minimums', value: 'At least 140 × 60 px · scan at least 100 DPI', evidence: 'Published minimum dimensions and scan resolution, not a single mandatory pixel canvas.' },
+    { label: 'Signing box', value: '50 mm wide × 20 mm high', evidence: 'Station Master CEN 08/2026 uses a 50 × 20 mm box (wider than NTPC’s 35 × 20 mm box).' },
+    { label: 'Tool starting canvas', value: '350 × 140 px · JPG · 30–49 KB', evidence: 'Editable 5:2 canvas matching the 50 × 20 mm box proportions; not an official exact-pixel requirement.' },
+    { label: 'Photograph', value: 'Live capture in the RRB application', evidence: 'Captured live via webcam or phone camera on rrbapply.gov.in; no pre-saved photo upload.' },
+  ],
+  caution: 'Sources reviewed: Station Master CEN 08/2026, para 16.6. Applications close 25 Nov 2026 (correction window till 7 Dec 2026). Always verify against your active CEN notice; file checks do not certify RRB acceptance.',
+  links: [
+    { href: '/rrb-ntpc-signature-resize/', label: 'RRB NTPC signature resizer (35 × 20 mm box)' },
+    { href: '/live-webcam-photo-checker/', label: 'Practise live-photo framing (not an RRB submission)' },
+    { href: '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/', label: 'RRB NTPC & Station Master document guide' },
+  ],
+  changes: 'Added dedicated CEN 08/2026 Station Master page and 5:2 (350 × 140 px) preparation preset aligned with the 50 × 20 mm signing box.',
 };
 
 const jamSource = 'https://www.jam.iitkgp.ac.in/doc-req.html';
@@ -587,6 +610,17 @@ export const GUIDANCE_PRESET_UPDATES: Record<string, Partial<ExamPreset>> = {
     notes: 'Verified 2025 NTPC sources: JPG/JPEG 30–49 KB, black ink on white paper, running handwriting, minimum 140×60 px and scan resolution 100 DPI. The 35×20 mm box is separate; 280×160 px is our editable canvas. Confirm your active CEN. Photograph is captured live in the RRB portal.',
     sourceUrl: `${NTPC_SOURCES.graduate}#page=22`,
     sourceLabel: 'CEN 06/2025 Graduate, section 14.5.1 (page 22)',
+  },
+  'rrb-station-master': {
+    name: 'RRB Station Master Signature (30–49 KB) — CEN 08/2026',
+    widthPx: 350, heightPx: 140, aspectRatio: 350 / 140,
+    widthCm: undefined, heightCm: undefined,
+    minKb: 30, maxKb: 49, recommendedKb: 40, dpi: 178,
+    portalExactSpecsVerified: false,
+    inkRequirement: 'Black Ink Only',
+    notes: 'Station Master CEN 08/2026 (para 16.6): JPG/JPEG 30–49 KB, black ink on white paper, running handwriting, minimum 140×60 px and scan at least 100 DPI inside a 50×20 mm box. 350×140 px is our editable 5:2 canvas. Live photo in portal.',
+    sourceUrl: 'https://rrb.indianrailways.gov.in/-/image/1793016771817CEN_08_2026_StationMaster.pdf/examsDocuments',
+    sourceLabel: 'CEN 08/2026 Station Master: signature instructions, para 16.6',
   },
   ...Object.fromEntries(['indian-coast-guard', 'indian-coast-guard-photo', 'indian-coast-guard-document', 'indian-coast-guard-thumb', 'indian-coast-guard-thumb-doc'].map(id => [id, {
     name: id.includes('thumb') ? 'Coast Guard thumb image — legacy, not a listed 2027 upload' : id.endsWith('-photo') ? 'Coast Guard Photo (10–100 KB) — CGEPT 2027' : id.endsWith('-document') ? 'Coast Guard Identity Proof (50–150 KB) — check document field' : 'Coast Guard Signature (10–100 KB) — CGEPT 2027',

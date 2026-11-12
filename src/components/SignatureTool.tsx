@@ -441,6 +441,26 @@ const PRESET_ALIASES: Record<string, string> = {
   pakistan: 'nadra-pk',
   prc: 'prc-ph',
   loksewa: 'loksewa-np',
+  'loksewa-doc': 'loksewa-doc-np',
+  'pradesh-loksewa': 'pradesh-loksewa-photo-np',
+  'pradesh-loksewa-photo': 'pradesh-loksewa-photo-np',
+  'pradesh-loksewa-sign': 'pradesh-loksewa-sign-np',
+  'pradesh-loksewa-doc': 'pradesh-loksewa-doc-np',
+  ntc: 'ntc-photo-np',
+  'ntc-photo': 'ntc-photo-np',
+  'ntc-sign': 'ntc-sign-np',
+  'ntc-doc': 'ntc-doc-np',
+  nea: 'nea-photo-np',
+  'nea-photo': 'nea-photo-np',
+  'nea-sign': 'nea-sign-np',
+  'nea-doc': 'nea-doc-np',
+  'ku-entrance': 'ku-entrance-photo-np',
+  'pu-entrance': 'pu-entrance-photo-np',
+  'university-entrance-sign': 'university-entrance-sign-np',
+  'university-entrance-doc': 'university-entrance-doc-np',
+  'driving-license-np': 'driving-license-np',
+  'driving-license-sign-np': 'driving-license-sign-np',
+  'driving-license-doc-np': 'driving-license-doc-np',
   // Indonesia aliases
   cpns: 'id-cpns',
   sscasn: 'id-cpns',
@@ -493,9 +513,10 @@ export interface SignatureToolProps {
   compactStudio?: boolean;
   studioModeTabs?: boolean;
   focusedWorkspace?: boolean;
+  canvasFirst?: boolean;
 }
 
-export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, defaultPresetId, initialMode = 'signature', initialLang, initialNameDateStamp = false, compactStudio = false, studioModeTabs = !compactStudio, focusedWorkspace = false }) => {
+export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, defaultPresetId, initialMode = 'signature', initialLang, initialNameDateStamp = false, compactStudio = false, studioModeTabs = !compactStudio, focusedWorkspace = false, canvasFirst = false }) => {
   const effectivePresetPropId = initialPresetId || defaultPresetId;
   // Multilingual Support ('en' | 'hi' | 'mr')
   const [lang, setLang] = useState<SupportedLang>(() => {
@@ -773,6 +794,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
     // Automatically close the preset selection pop-up upon picking any preset
     setIsExamDropdownOpen(false);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('signresize-preset-applied', { detail: { presetId: preset.id } }));
+    }
 
     if (!focusedWorkspace && !suppressToast) addToast(
       `Applied ${preset.name} (${preset.widthPx}×${preset.heightPx} px, ${preset.minKb}–${preset.maxKb} KB)`,
@@ -850,8 +874,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       }
     }
 
-    const isGate = !isUSContext && (examAnchor.includes('gate') || rawCurId.includes('gate') || curName.includes('gate') || curAuth.includes('gate'));
-    const isJam = !isGate && (
+    const isNPContext = !isUSContext && Boolean(
+      (typeof window !== 'undefined' && window.location.pathname.startsWith('/np')) ||
+      contextPreset?.country === 'NP' ||
+      examAnchor.endsWith('-np') ||
+      rawCurId.endsWith('-np')
+    );
+
+    const isGate = !isUSContext && !isNPContext && (examAnchor.includes('gate') || rawCurId.includes('gate') || curName.includes('gate') || curAuth.includes('gate'));
+    const isJam = !isGate && !isUSContext && !isNPContext && (
       examAnchor.includes('iit-jam') ||
       examAnchor.startsWith('jam') ||
       rawCurId.includes('iit-jam') ||
@@ -860,8 +891,37 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       curAuth.includes('kharagpur')
     );
 
+    // 0b. Nepal (PPSC Pradesh, NTC, NEA, Federal Lok Sewa, University Entrance, Driving License eDLVRS)
+    // Evaluated BEFORE India blocks so rules like 'driving license' or 'psc' never hijack Nepal exams.
+    if (isNPContext) {
+      if (examAnchor.startsWith('pradesh-loksewa')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'pradesh-loksewa-sign-np');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'pradesh-loksewa-photo-np');
+        else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'pradesh-loksewa-doc-np');
+      } else if (examAnchor.startsWith('ntc-')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'ntc-sign-np');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'ntc-photo-np');
+        else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'ntc-doc-np');
+      } else if (examAnchor.startsWith('nea-')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'nea-sign-np');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'nea-photo-np');
+        else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'nea-doc-np');
+      } else if (examAnchor.includes('ku-entrance') || examAnchor.includes('pu-entrance') || examAnchor.includes('university-entrance')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'university-entrance-sign-np');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === (examAnchor.includes('pu-entrance') ? 'pu-entrance-photo-np' : 'ku-entrance-photo-np'));
+        else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'university-entrance-doc-np');
+      } else if (examAnchor.startsWith('driving-license')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'driving-license-sign-np');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'driving-license-np');
+        else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'driving-license-doc-np');
+      } else {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'loksewa-sign-np');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'loksewa-np');
+        else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'loksewa-doc-np');
+      }
+    }
     // 1. IIT JAM (JOAPS)
-    if (isJam) {
+    else if (isJam) {
       if (newType === 'signature') {
         targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'iit-jam') || SIGNATURE_PRESETS.find(p => p.id === 'iit-jam-2026');
       } else if (newType === 'photo') {
@@ -1016,7 +1076,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     // 18. Railway Recruitment Boards (RRB)
     else if (matchesExam('rrb', 'railway recruitment', 'railway')) {
       if (newType === 'signature') {
-        targetPreset = (examAnchor.includes('ntpc') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-ntpc') : undefined) || (examAnchor.includes('alp') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-alp-technician') : undefined) || SIGNATURE_PRESETS.find(p => p.id === 'rrb-railway');
+        targetPreset = (examAnchor.includes('station-master') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-station-master') : undefined) || (examAnchor.includes('ntpc') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-ntpc') : undefined) || (examAnchor.includes('alp') ? SIGNATURE_PRESETS.find(p => p.id === 'rrb-alp-technician') : undefined) || SIGNATURE_PRESETS.find(p => p.id === 'rrb-railway');
       } else if (newType === 'photo') {
         targetPreset = (examAnchor.includes('group-d') ? PHOTO_PRESETS.find(p => p.id === 'rrb-group-d-photo') : undefined) || PHOTO_PRESETS.find(p => p.id === 'rrb-photo');
       } else if (newType === 'document') {
@@ -1050,6 +1110,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       } else if (examAnchor.includes('bihar')) {
         if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'bihar-police-sig');
         else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'bihar-police-photo');
+        else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
+      } else if (examAnchor.includes('wb-police') || examAnchor.includes('west bengal police')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'wb-police-signature');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'wb-police-photo');
         else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
       } else if (examAnchor.includes('mp-police')) {
         if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'mp-police-sig');
@@ -1146,14 +1210,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       targetPreset || 
       presets.find(p => p.id === examAnchor) ||
       (isUSContext ? (newType === 'photo' ? (PHOTO_PRESETS.find(p => p.id === 'us-passport') || PHOTO_PRESETS.find(p => p.id === 'us-ds160')) : newType === 'document' ? DOCUMENT_PRESETS.find(p => p.id === 'us-usajobs') : (SIGNATURE_PRESETS.find(p => p.id === 'us-digital-signature') || SIGNATURE_PRESETS.find(p => p.country === 'US'))) : undefined) ||
+      (isNPContext ? (newType === 'photo' ? PHOTO_PRESETS.find(p => p.id === 'loksewa-np') : newType === 'document' ? DOCUMENT_PRESETS.find(p => p.id === 'loksewa-doc-np') : SIGNATURE_PRESETS.find(p => p.id === 'loksewa-sign-np')) : undefined) ||
       (isBdActive ? (newType === 'signature' ? SIGNATURE_PRESETS.find(p => p.id === 'teletalk-sign-bd') : PHOTO_PRESETS.find(p => p.id === 'teletalk-bd' || p.id === 'teletalk-photo-bd')) : undefined) ||
       presets.find(p => (!p.country || p.country === 'IN') && p.isPopular) ||
       presets.find(p => !p.country || p.country === 'IN') || 
       presets[0];
 
-    applyPreset(defaultPreset, true, examAnchor === 'rrb-ntpc' && newType === 'photo');
+    applyPreset(defaultPreset, true, (examAnchor === 'rrb-ntpc' || examAnchor === 'rrb-station-master') && newType === 'photo');
     // NTPC uses live photo capture; do not present a different exam's photo preset as its rule.
-    if (examAnchor === 'rrb-ntpc' && newType === 'photo') setSelectedPreset(null);
+    if ((examAnchor === 'rrb-ntpc' || examAnchor === 'rrb-station-master') && newType === 'photo') setSelectedPreset(null);
     if (newType === 'photo') {
       setLockAspect(true);
       setShowFaceGuide(true);
@@ -1198,6 +1263,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
   const isJam2027Active = selectedPreset?.id === 'iit-jam' || selectedPreset?.id === 'iit-jam-photo';
   const isNtpcActive = selectedPreset?.id === 'rrb-ntpc';
+  const isStationMasterActive = selectedPreset?.id === 'rrb-station-master';
   const isCoastGuardActive = Boolean(
     selectedPreset?.id?.includes('coast-guard') ||
     selectedPreset?.name?.toLowerCase().includes('coast guard') ||
@@ -1258,6 +1324,14 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     resolvedPreset?.id?.includes('-bd') ||
     initialPresetId?.includes('-bd') ||
     initialPresetId?.includes('teletalk')
+  );
+
+  const isNpActive = !isUSActive && !isBdActive && Boolean(
+    (typeof window !== 'undefined' && window.location.pathname.startsWith('/np')) ||
+    selectedPreset?.country === 'NP' ||
+    selectedPreset?.id?.endsWith('-np') ||
+    resolvedPreset?.country === 'NP' ||
+    initialPresetId?.endsWith('-np')
   );
 
   const selectCoastGuardSection = useCallback((section: 'signature' | 'photo' | 'thumb' | 'document') => {
@@ -2947,6 +3021,34 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'id-passport', short: 'Paspor RI', label: 'Paspor / eVisa Imigrasi', specs: '350×450 • 100–1000 KB' },
         { id: 'us-ds160', short: 'US DS-160', label: 'US Visa DS-160', specs: '600×600 • 20–240 KB' }
       ]
+    : isNpActive
+    ? (targetType === 'photo'
+        ? [
+            { id: 'pradesh-loksewa-photo-np', short: 'Pradesh PPSC Photo', label: 'Pradesh Lok Sewa Photo', specs: '350×450 • 20–200 KB' },
+            { id: 'ntc-photo-np', short: 'NTC Photo ≤200KB', label: 'Nepal Telecom Photo', specs: '350×450 • 100–200 KB' },
+            { id: 'nea-photo-np', short: 'NEA Photo', label: 'NEA Both-Ears Photo', specs: '350×450 • 20–200 KB' },
+            { id: 'loksewa-np', short: 'Lok Sewa NP Photo', label: 'Federal Lok Sewa Photo', specs: '350×450 • ≤50 KB' },
+            { id: 'ku-entrance-photo-np', short: 'KU ≤500KB', label: 'KU Entrance Photo', specs: '350×450 • ≤500 KB' },
+            { id: 'pu-entrance-photo-np', short: 'PU 51×51mm', label: 'Purbanchal 51×51 mm Photo', specs: '510×510 • ≤500 KB' },
+            { id: 'driving-license-np', short: 'eDLVRS Photo', label: 'Nepal Driving License Photo', specs: '350×450 • ≤500 KB' }
+          ]
+        : targetType === 'document'
+        ? [
+            { id: 'pradesh-loksewa-doc-np', short: 'Pradesh PPSC Doc', label: 'Pradesh Lok Sewa Doc', specs: 'A4 • ≤500 KB' },
+            { id: 'ntc-doc-np', short: 'NTC Doc ≤200KB', label: 'Nepal Telecom Citizenship', specs: 'A4 • 100–200 KB' },
+            { id: 'nea-doc-np', short: 'NEA Doc', label: 'NEA Citizenship JPG', specs: 'A4 • 20–300 KB' },
+            { id: 'loksewa-doc-np', short: 'Lok Sewa NP Doc', label: 'Federal Lok Sewa Nagarikta', specs: 'A4 • ≤50 KB' },
+            { id: 'university-entrance-doc-np', short: 'Univ NP Doc', label: 'Nepal University Document', specs: 'A4 • ≤500 KB' },
+            { id: 'driving-license-doc-np', short: 'eDLVRS Doc', label: 'Nepal Driving License Doc', specs: 'A4 • ≤500 KB' }
+          ]
+        : [
+            { id: 'pradesh-loksewa-sign-np', short: 'Pradesh PPSC Sign', label: 'Pradesh Lok Sewa Sign', specs: '350×150 • 10–100 KB' },
+            { id: 'ntc-sign-np', short: 'NTC Sign ≤200KB', label: 'Nepal Telecom Sign', specs: '350×150 • 100–200 KB' },
+            { id: 'nea-sign-np', short: 'NEA Sign', label: 'NEA Signature JPG', specs: '350×150 • 10–100 KB' },
+            { id: 'loksewa-sign-np', short: 'Lok Sewa NP Sign', label: 'Federal Lok Sewa Sign', specs: '350×150 • ≤50 KB' },
+            { id: 'university-entrance-sign-np', short: 'Univ NP Sign', label: 'University Entrance Sign', specs: '350×150 • 10–200 KB' },
+            { id: 'driving-license-sign-np', short: 'eDLVRS Sign', label: 'Driving License Helper Sign', specs: '350×150 • 10–200 KB' }
+          ])
     : isJam2027Active
     ? ALL_COMBINED_PRESETS.filter(preset => ['iit-jam', 'iit-jam-photo'].includes(preset.id))
         .map(preset => ({ id: preset.id, short: preset.id === 'iit-jam' ? 'JAM Signature' : 'JAM Photo', label: preset.name, specs: `${preset.widthPx}×${preset.heightPx} • ${preset.minKb}–${preset.maxKb} KB` }))
@@ -2974,6 +3076,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'id-proof-card', short: 'ID Card (Aadhaar)', label: 'ID Proof', specs: 'Card • 50–200 KB' }
       ]
     : [
+        ...(isStationMasterActive ? [{ id: 'rrb-station-master', short: 'RRB Station Master', label: 'RRB Station Master Signature', specs: '350×140 • 30–49 KB' }] : []),
         ...(isNtpcActive ? [{ id: 'rrb-ntpc', short: 'RRB NTPC', label: 'RRB NTPC Signature', specs: '280×160 • 30–49 KB' }] : []),
         { id: 'ssc-cgl', short: 'SSC CGL', label: 'SSC CGL 2026', specs: '140×60 • 10–20 KB' },
         { id: 'ssc-general', short: 'SSC Guide', label: 'SSC preparation preset', specs: '600×200 • 10–20 KB' },
@@ -3257,6 +3360,25 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           </a>
         </div>
 
+        <div className="flex flex-wrap items-center gap-2">
+          <a
+            href="#crop-workspace"
+            className="inline-flex items-center gap-1 rounded-lg bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground hover:opacity-90 transition shadow-2xs"
+          >
+            <span>Jump to Canvas</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+          {targetType === 'signature' && (
+            <button
+              type="button"
+              onClick={() => setIsDrawingPadOpen(true)}
+              className="inline-flex items-center gap-1 rounded-lg border border-border bg-muted/60 px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-muted transition cursor-pointer"
+            >
+              <span>Draw Signature Pad</span>
+            </button>
+          )}
+        </div>
+
         {/* Pinned Top 4 Exams Bar + Combobox Trigger */}
         <div className="flex flex-wrap items-center gap-2 pt-1">
           <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground shrink-0 flex items-center gap-1 mr-1">
@@ -3416,13 +3538,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           </div>
         </div>
       )}
-      {!compactStudio && !isCoastGuardActive && !isTnpscActive && (
+      {!canvasFirst && !compactStudio && !isCoastGuardActive && !isTnpscActive && (
         <div className="quick-upload flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-xl border border-primary/25 bg-primary/5 p-3">
           <div><p className="text-sm font-bold">Start with your image</p><p className="text-xs text-muted-foreground">JPG, PNG, WebP and browser-supported images · up to 15 MB</p></div>
           <button type="button" onClick={() => fileInputRef.current?.click()} className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-bold"><Upload className="w-4 h-4" />Upload image</button>
         </div>
       )}
-      {activeExamFamilyRef.current === 'rrb-ntpc' && targetType === 'photo' && <p role="note" className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-foreground">The reviewed NTPC 2025 notices require live photo capture in the RRB application. No NTPC photo upload preset is selected. Other photo presets are for different applications.</p>}
+      {(activeExamFamilyRef.current === 'rrb-ntpc' || activeExamFamilyRef.current === 'rrb-station-master') && targetType === 'photo' && <p role="note" className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-foreground">The reviewed NTPC 2025 and Station Master CEN 08/2026 notices require live photo capture in the RRB application. No photo upload preset is selected. Other photo presets are for different applications.</p>}
       {activeExamFamilyRef.current === 'rrb-ntpc' && targetType === 'document' && <p role="note" className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-foreground">For a CEN 06/2025 SC/ST free travel pass, export the certificate as PDF and check that the final PDF is clear and under 400 KB. The selected document preset does not verify the PDF size.</p>}
       {backgroundTransferNotice && <p role="status" className="rounded-xl border border-primary/25 bg-primary/5 p-3 text-sm">{backgroundTransferNotice}</p>}
       {!compactStudio && uploadError && <div id="upload-feedback" className="scroll-mt-32">
@@ -3570,7 +3692,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
       }
       {/* Primary Exam Preset Selector & Guidance Alert (Hidden for dedicated single-suite workflows like Indian Coast Guard & TNPSC) */}
-      {!compactStudio && !focusedWorkspace && !isCoastGuardActive && !isTnpscActive && presetSelector}
+      {!canvasFirst && !compactStudio && !focusedWorkspace && !isCoastGuardActive && !isTnpscActive && presetSelector}
 
 
       {/* ========================================================================= */}
@@ -4699,7 +4821,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 {/* Cropper Container Stage or Embedded Dropzone */}
                 <div
                   id="crop-workspace"
-                  className="relative overflow-hidden rounded-xl bg-muted/40 border border-border select-none min-h-[320px] sm:min-h-[400px] flex items-center justify-center p-1.5 sm:p-3"
+                  role="region"
+                  aria-label={`${modeConfig.noun} upload and crop canvas`}
+                  className="scroll-mt-24 relative overflow-hidden rounded-xl bg-muted/40 border border-border select-none min-h-[320px] sm:min-h-[400px] flex items-center justify-center p-1.5 sm:p-3"
                 >
                   {sourceImage ? (
                     <div
@@ -4750,6 +4874,25 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
                         {/* Crop Overlay Box with 8-Point Resize Handles */}
                         <div
+                          role="region"
+                          tabIndex={0}
+                          aria-label="Crop selection box. Use arrow keys to move, or hold Shift with arrow keys to move faster."
+                          onKeyDown={(e) => {
+                            const step = e.shiftKey ? 12 : 3;
+                            if (e.key === 'ArrowLeft') {
+                              e.preventDefault();
+                              setCrop((prev) => ({ ...prev, x: Math.max(0, prev.x - step) }));
+                            } else if (e.key === 'ArrowRight') {
+                              e.preventDefault();
+                              setCrop((prev) => ({ ...prev, x: Math.min(Math.max(0, naturalW - prev.width), prev.x + step) }));
+                            } else if (e.key === 'ArrowUp') {
+                              e.preventDefault();
+                              setCrop((prev) => ({ ...prev, y: Math.max(0, prev.y - step) }));
+                            } else if (e.key === 'ArrowDown') {
+                              e.preventDefault();
+                              setCrop((prev) => ({ ...prev, y: Math.min(Math.max(0, naturalH - prev.height), prev.y + step) }));
+                            }
+                          }}
                           onMouseDown={(e) => handleCropMouseDown(e, 'move')}
                           onTouchStart={(e) => handleCropMouseDown(e, 'move')}
                           style={{
@@ -4759,7 +4902,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                             height: `${(crop.height / naturalH) * 100}%`,
                             cursor: isDraggingCrop ? 'grabbing' : 'grab'
                           }}
-                          className="absolute border-2 border-primary bg-primary/10 shadow-2xl backdrop-contrast-125 group"
+                          className="absolute border-2 border-primary bg-primary/10 shadow-2xl backdrop-contrast-125 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                         >
                           {/* Grid lines inside crop box */}
                           <div className="w-full h-full grid grid-cols-3 grid-rows-3 pointer-events-none opacity-40">
@@ -4889,6 +5032,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   ) : (
                     <div
                       id="upload-dropzone"
+                      aria-label={`Upload ${modeConfig.noun} image. Click, press Enter or Space, or drag and drop a file here.`}
                       role="button"
                       tabIndex={0}
                       onClick={() => fileInputRef.current?.click()}
@@ -5439,7 +5583,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                               {selectedPreset?.shortCode ? `${selectedPreset.shortCode} Specimen` : 'Sample Signature'}
                             </span>
                             {selectedPreset?.shortCode && (
-                              <span className="text-[10px] font-mono text-muted-foreground">({targetWidthPx} × ${targetHeightPx} px)</span>
+                              <span className="text-[10px] font-mono text-muted-foreground">({targetWidthPx} × {targetHeightPx} px)</span>
                             )}
                           </div>
                         )}
@@ -5980,6 +6124,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           </div>
         </div>
       )}
+
+      {canvasFirst && !compactStudio && !focusedWorkspace && !isCoastGuardActive && !isTnpscActive && presetSelector}
 
       {/* On-Screen Signature Drawing Pad Modal */}
       {isDrawingPadOpen && (

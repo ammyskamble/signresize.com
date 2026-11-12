@@ -4,6 +4,10 @@
 # --- 1. Static Redirects (Clean exact 1-to-1 mappings) ---
 /signature-resizer / 301
 /signature-resizer/ / 301
+/jobs /government-jobs/ 301
+/jobs/ /government-jobs/ 301
+/govt-jobs /government-jobs/ 301
+/govt-jobs/ /government-jobs/ 301
 /rrb-railway /rrb-signature-resize/ 301
 /rrb-railway/ /rrb-signature-resize/ 301
 /ssc-general /ssc-signature-resize/ 301

@@ -17,13 +17,17 @@ const redirectedPaths = new Set(readFileSync(new URL('./public/_redirects', impo
   .map(([source]) => source.replace(/\/$/, '') || '/'));
 
 // https://astro.build/config
+const isDevServer = process.argv.includes('dev');
+
 export default defineConfig({
   site: 'https://signresize.in',
   trailingSlash: 'always',
   compressHTML: true,
   devToolbar: { enabled: false },
 
-  redirects: {
+  // Production uses Cloudflare Pages public/_redirects for true HTTP 301s; keep redirects only in dev.
+  ...(isDevServer ? {
+    redirects: {
     '/signature-resizer': '/',
     '/signature-creator': '/signature-generator/',
     '/bd/teletalk-photo-signature-resize': '/teletalk-photo-signature-resize/',
@@ -129,7 +133,8 @@ export default defineConfig({
     '/blog/ssc-chsl-tier-1-speed-typing-photo-signature-guidelines': '/blog/ssc-chsl-2026-top-10-faq-aspirants-guide/',
     '/blog/ssc-rrb-quantitative-aptitude-reasoning-speed-strategy': '/blog/',
     '/blog/mega-railway-banking-recruitment-2026-opportunities': '/government-jobs/'
-  },
+  }
+  } : {}),
 
   build: {
     inlineStylesheets: 'auto',
