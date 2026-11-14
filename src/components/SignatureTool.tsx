@@ -274,6 +274,11 @@ const PRESET_ALIASES: Record<string, string> = {
   'ibps-photo-signature-resize': 'ibps-sbi',
   'ibps-thumb': 'ibps-thumb-impression',
   'ibps-declaration': 'ibps-handwritten-declaration',
+  'ibps-po': 'ibps-sbi',
+  'ibps-clerk': 'ibps-sbi',
+  'ibps-rrb': 'ibps-sbi',
+  'ibps-so': 'ibps-sbi',
+  'sbi-photo': 'sbi-clerk-photo',
   upsc: 'upsc-civil-services',
   rrb: 'rrb-railway',
   neet: 'nta-neet-jee',
@@ -969,16 +974,44 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'handwritten-declaration') || DOCUMENT_PRESETS.find(p => p.id === 'nicl-left-thumb');
       }
     }
-    // 5. Banking: IBPS & SBI
-    else if (matchesExam('ibps', 'sbi', 'banking personnel')) {
+    // 5a. IBPS (CRP PO / MT, Clerk, SO, RRB) - Strictly isolated from SBI
+    else if (
+      (typeof window !== 'undefined' && window.location.pathname.includes('ibps')) ||
+      matchesExam('ibps', 'banking personnel') ||
+      examAnchor.startsWith('ibps') ||
+      examAnchor === 'ibps-sbi' ||
+      rawCurId.startsWith('ibps') ||
+      rawCurId === 'ibps-sbi' ||
+      curName.includes('ibps') ||
+      curAuth.includes('banking personnel')
+    ) {
       if (newType === 'signature') {
-        if (examAnchor.includes('po')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-po') || SIGNATURE_PRESETS.find(p => p.id === 'ibps-sbi');
-        else if (examAnchor.includes('clerk')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-clerk') || SIGNATURE_PRESETS.find(p => p.id === 'ibps-clerk');
-        else targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-signature') || SIGNATURE_PRESETS.find(p => p.id === 'ibps-sbi');
+        targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'ibps-sbi') || SIGNATURE_PRESETS.find(p => p.id === 'ibps-clerk');
       } else if (newType === 'photo') {
-        targetPreset = (examAnchor.includes('sbi') ? PHOTO_PRESETS.find(p => p.id === 'sbi-clerk-photo') : undefined) || PHOTO_PRESETS.find(p => p.id === 'ibps-photo') || PHOTO_PRESETS.find(p => p.id === 'ibps-sbi-photo');
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'ibps-photo') || PHOTO_PRESETS.find(p => p.id === 'ibps-sbi-photo');
       } else if (newType === 'document') {
-        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'handwritten-declaration') || DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc');
+        if (examAnchor.includes('thumb')) {
+          targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'ibps-thumb-impression');
+        } else {
+          targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'ibps-handwritten-declaration') || DOCUMENT_PRESETS.find(p => p.id === 'ibps-thumb-impression');
+        }
+      }
+    }
+    // 5b. SBI (State Bank of India - PO, Clerk, SO)
+    else if (
+      !examAnchor.startsWith('ibps') &&
+      rawCurId !== 'ibps-sbi' &&
+      !curName.includes('ibps') &&
+      ((typeof window !== 'undefined' && window.location.pathname.includes('sbi')) || matchesExam('sbi', 'state bank of india'))
+    ) {
+      if (newType === 'signature') {
+        if (examAnchor.includes('po')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-po') || SIGNATURE_PRESETS.find(p => p.id === 'sbi-signature');
+        else if (examAnchor.includes('clerk')) targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-clerk') || SIGNATURE_PRESETS.find(p => p.id === 'sbi-signature');
+        else targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'sbi-signature');
+      } else if (newType === 'photo') {
+        targetPreset = PHOTO_PRESETS.find(p => p.id === 'sbi-clerk-photo') || PHOTO_PRESETS.find(p => p.id === 'ibps-photo');
+      } else if (newType === 'document') {
+        targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'ibps-handwritten-declaration') || DOCUMENT_PRESETS.find(p => p.id === 'handwritten-declaration');
       }
     }
     // 5b. UPSC NDA & NA
@@ -1273,6 +1306,35 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const isJam2027Active = selectedPreset?.id === 'iit-jam' || selectedPreset?.id === 'iit-jam-photo';
   const isNtpcActive = selectedPreset?.id === 'rrb-ntpc';
   const isStationMasterActive = selectedPreset?.id === 'rrb-station-master';
+  const isIbpsActive = Boolean(
+    (typeof window !== 'undefined' && window.location.pathname.includes('ibps')) ||
+    selectedPreset?.id === 'ibps-sbi' ||
+    selectedPreset?.id?.startsWith('ibps-') ||
+    selectedPreset?.name?.toLowerCase().includes('ibps') ||
+    selectedPreset?.authority?.toLowerCase().includes('banking personnel') ||
+    resolvedPreset?.id === 'ibps-sbi' ||
+    resolvedPreset?.id?.startsWith('ibps-') ||
+    initialPresetId === 'ibps-sbi' ||
+    initialPresetId?.startsWith('ibps-') ||
+    effectivePresetPropId === 'ibps-sbi' ||
+    effectivePresetPropId?.startsWith('ibps-') ||
+    activeExamFamilyRef.current === 'ibps-sbi' ||
+    activeExamFamilyRef.current?.startsWith('ibps-')
+  );
+
+  const isSbiActive = !isIbpsActive && Boolean(
+    (typeof window !== 'undefined' && window.location.pathname.includes('sbi')) ||
+    selectedPreset?.id === 'sbi-signature' ||
+    selectedPreset?.id === 'sbi-po' ||
+    selectedPreset?.id === 'sbi-clerk' ||
+    selectedPreset?.id === 'sbi-clerk-photo' ||
+    selectedPreset?.authority?.toLowerCase().includes('state bank of india') ||
+    resolvedPreset?.id?.startsWith('sbi-') ||
+    initialPresetId?.startsWith('sbi-') ||
+    effectivePresetPropId?.startsWith('sbi-') ||
+    activeExamFamilyRef.current?.startsWith('sbi-')
+  );
+
   const isCoastGuardActive = Boolean(
     selectedPreset?.id?.includes('coast-guard') ||
     selectedPreset?.name?.toLowerCase().includes('coast guard') ||
@@ -3118,6 +3180,20 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     : isBpscActive
     ? SIGNATURE_PRESETS.filter(preset => ['bpsc', 'bpsc-tre-hindi-sign', 'bpsc-tre-english-sign'].includes(preset.id))
         .map(preset => ({ id: preset.id, short: preset.shortCode, label: preset.name, specs: `${preset.widthPx}×${preset.heightPx} • ${preset.minKb}–${preset.maxKb} KB` }))
+    : isIbpsActive
+    ? [
+        { id: 'ibps-sbi', short: 'IBPS Sign', label: 'IBPS Signature (140×60)', specs: '140×60 • 10–20 KB' },
+        { id: 'ibps-photo', short: 'IBPS Photo', label: 'IBPS Photo (200×230)', specs: '200×230 • 20–50 KB' },
+        { id: 'ibps-thumb-impression', short: 'IBPS Thumb', label: 'IBPS Left Thumb (240×240)', specs: '240×240 • 20–50 KB' },
+        { id: 'ibps-handwritten-declaration', short: 'IBPS Declaration', label: 'IBPS Declaration (800×400)', specs: '800×400 • 50–100 KB' },
+      ]
+    : isSbiActive
+    ? [
+        { id: 'sbi-signature', short: 'SBI Sign', label: 'SBI Signature (140×60)', specs: '140×60 • 10–20 KB' },
+        { id: 'sbi-clerk-photo', short: 'SBI Photo', label: 'SBI Photo (200×230)', specs: '200×230 • 20–50 KB' },
+        { id: 'sbi-po', short: 'SBI PO Sign', label: 'SBI PO Signature', specs: '140×60 • 10–20 KB' },
+        { id: 'sbi-clerk', short: 'SBI Clerk Sign', label: 'SBI Clerk Signature', specs: '140×60 • 10–20 KB' },
+      ]
     : isWbpscActive
     ? [
         { id: 'wbpsc-west-bengal', short: 'WBPSC Sign', label: 'WBPSC Sign (140×60)', specs: '140×60 • 10–20 KB' },
@@ -3547,7 +3623,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const presetSelector = useMemo(renderPresetSelector, [
     targetType, selectedPreset, targetWidthPx, targetHeightPx, minKb, maxKb,
     isExamDropdownOpen, comboboxSearch, expandedCategories, lang, applyPreset,
-    isPakistan, isIndonesian,
+    isPakistan, isIndonesian, isIbpsActive, isSbiActive,
   ]);
   const SettingsPanel = focusedWorkspace ? 'details' : 'div';
   const workspacePresets = focusedWorkspace ? ALL_COMBINED_PRESETS.filter(p => (!p.country || p.country === 'IN') && presetMode(p) === targetType) : currentPresetList;
@@ -3663,6 +3739,52 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           </span>
         </div>
 
+        {isIbpsActive && (
+          <div className="p-2.5 rounded-xl bg-primary/5 border border-primary/20 space-y-1.5">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <span>🏛️</span> IBPS Official Document Slots (CRP PO / Clerk / SO / RRB)
+              </p>
+              <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold hidden sm:inline">Annexure III Verified</span>
+            </div>
+            <p className="text-[11px] text-muted-foreground">Select an IBPS upload slot to lock exact pixel dimensions, file size limits, and guidelines:</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+              <button 
+                type="button" 
+                onClick={() => selectIbpsSection('signature')} 
+                className={`rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition text-left cursor-pointer ${selectedPreset?.id === 'ibps-sbi' && targetType === 'signature' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'border-border bg-card hover:bg-muted text-foreground'}`}
+              >
+                <div className="font-bold truncate">1. Signature</div>
+                <div className="text-[10px] opacity-80 truncate">140×60 • 10–20 KB</div>
+              </button>
+              <button 
+                type="button" 
+                onClick={() => selectIbpsSection('photo')} 
+                className={`rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition text-left cursor-pointer ${selectedPreset?.id === 'ibps-photo' && targetType === 'photo' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'border-border bg-card hover:bg-muted text-foreground'}`}
+              >
+                <div className="font-bold truncate">2. Passport Photo</div>
+                <div className="text-[10px] opacity-80 truncate">200×230 • 20–50 KB</div>
+              </button>
+              <button 
+                type="button" 
+                onClick={() => selectIbpsSection('thumb')} 
+                className={`rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition text-left cursor-pointer ${selectedPreset?.id === 'ibps-thumb-impression' && targetType === 'document' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'border-border bg-card hover:bg-muted text-foreground'}`}
+              >
+                <div className="font-bold truncate">3. Left Thumb</div>
+                <div className="text-[10px] opacity-80 truncate">240×240 • 20–50 KB</div>
+              </button>
+              <button 
+                type="button" 
+                onClick={() => selectIbpsSection('declaration')} 
+                className={`rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition text-left cursor-pointer ${selectedPreset?.id === 'ibps-handwritten-declaration' && targetType === 'document' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'border-border bg-card hover:bg-muted text-foreground'}`}
+              >
+                <div className="font-bold truncate">4. Declaration</div>
+                <div className="text-[10px] opacity-80 truncate">800×400 • 50–100 KB</div>
+              </button>
+            </div>
+          </div>
+        )}
+
         {isWbpscActive && (
           <div className="p-2.5 rounded-xl bg-primary/5 border border-primary/20 space-y-1.5">
             <p className="text-xs font-semibold">WBPSC image preparation</p>
@@ -3692,9 +3814,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <PenTool className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 text-center sm:text-left">
-                <div className="font-bold text-[11px] sm:text-xs truncate">{isTnpscActive ? 'Signature' : isCoastGuardActive ? 'Signature' : isWbpscActive ? 'Signature' : t.tool.signatureMode}</div>
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Signature' : isTnpscActive ? 'Signature' : isCoastGuardActive ? 'Signature' : isWbpscActive ? 'Signature' : t.tool.signatureMode}</div>
                 <div className={`hidden sm:block text-[10px] truncate ${targetType === 'signature' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
-                  {isTnpscActive ? '140×60 px • 10–20 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '140×60 px • 10–20 KB' : t.tool.signatureSub}
+                  {isIbpsActive ? '140×60 px • 10–20 KB' : isTnpscActive ? '140×60 px • 10–20 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '140×60 px • 10–20 KB' : t.tool.signatureSub}
                 </div>
               </div>
             </div>
@@ -3717,9 +3839,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <Camera className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 text-center sm:text-left">
-                <div className="font-bold text-[11px] sm:text-xs truncate">{isTnpscActive ? 'Passport Photo' : isCoastGuardActive ? 'Photo' : isWbpscActive ? 'Photo' : t.tool.photoMode}</div>
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Photo' : isTnpscActive ? 'Passport Photo' : isCoastGuardActive ? 'Photo' : isWbpscActive ? 'Photo' : t.tool.photoMode}</div>
                 <div className={`hidden sm:block text-[10px] truncate ${targetType === 'photo' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
-                  {isTnpscActive ? '200×230 px • 20–50 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '138×177 px • 20–100 KB' : t.tool.photoSub}
+                  {isIbpsActive ? '200×230 px • 20–50 KB' : isTnpscActive ? '200×230 px • 20–50 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '138×177 px • 20–100 KB' : t.tool.photoSub}
                 </div>
               </div>
             </div>
@@ -3742,9 +3864,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <FileText className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 text-center sm:text-left">
-                <div className="font-bold text-[11px] sm:text-xs truncate">{isTnpscActive ? 'Documents' : isCoastGuardActive ? 'Documents' : isWbpscActive ? 'Documents' : t.tool.documentMode}</div>
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'Thumb / Declaration' : isTnpscActive ? 'Documents' : isCoastGuardActive ? 'Documents' : isWbpscActive ? 'Documents' : t.tool.documentMode}</div>
                 <div className={`hidden sm:block text-[10px] truncate ${targetType === 'document' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
-                  {isTnpscActive ? '50–200 KB' : isCoastGuardActive ? '50–150 KB' : isWbpscActive ? '100–300 KB' : t.tool.documentSub}
+                  {isIbpsActive ? '20–100 KB JPG' : isTnpscActive ? '50–200 KB' : isCoastGuardActive ? '50–150 KB' : isWbpscActive ? '100–300 KB' : t.tool.documentSub}
                 </div>
               </div>
             </div>
