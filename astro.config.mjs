@@ -44,7 +44,10 @@ export default defineConfig({
     '/upsc': '/upsc-signature-resize/',
     '/upsc-civil-services': '/upsc-signature-resize/',
     '/rrb': '/rrb-signature-resize/',
-    '/ibps': '/ibps-signature-resize/',
+    '/ibps': '/ibps-photo-signature-resize/',
+    '/ibps-clerk-signature-resize': '/ibps-photo-signature-resize/',
+    '/ibps-photo-resize': '/ibps-photo-signature-resize/',
+    '/ibps-photo-resizer': '/ibps-photo-signature-resize/',
     '/pan': '/pan-card-signature-resize/',
     '/neet': '/nta-neet-jee-signature-resize/',
     '/jee': '/nta-neet-jee-signature-resize/',
@@ -191,7 +194,7 @@ export default defineConfig({
         const post = BLOG_POSTS.find(post => post.slug === blogSlug);
         const modified = post && new Date((post.lastUpdated || post.publishDate).replace(/Sept\b/i, 'Sep'));
 
-        if (['/us/passport-photo-resizer/', '/rrb-ntpc-undergraduate-document-guide/', '/uppsc-ro-aro-photo-signature-resize/', '/wbpsc-photo-signature-resize/', '/uppsc-signature-resize/', '/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/'].includes(pathname)) {
+        if (['/ibps-photo-signature-resize/', '/ibps-signature-resize/', '/us/passport-photo-resizer/', '/rrb-ntpc-undergraduate-document-guide/', '/uppsc-ro-aro-photo-signature-resize/', '/wbpsc-photo-signature-resize/', '/uppsc-signature-resize/', '/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/'].includes(pathname)) {
           item.lastmod = '2026-11-14';
         } else if (pathname === '/appsc-signature-resize/') {
           item.lastmod = '2026-11-11';

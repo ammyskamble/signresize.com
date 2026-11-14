@@ -398,6 +398,9 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black Ballpoint Ink Pen Only',
     aspectRatioLabel: '7:3 (~140×60 px)',
+    verifiedOn: '2026-11-14',
+    sources: [{ label: 'IBPS CRP PO/MT-XVI Detailed Notification (Annexure III)', url: 'https://www.ibps.in/' }],
+    relatedTools: ['ibps-photo-signature-resize', 'ibps-thumb-impression-resize', 'ibps-handwritten-declaration-resize', 'sbi-clerk-photo-resize'],
     strictNotice: 'Signatures in CAPITAL / BLOCK letters are 100% disqualified by IBPS & SBI. Candidates must sign in natural cursive running handwriting.',
     tips: [
       'Sign only with a black ink pen on spotless white unruled paper.',
@@ -2944,53 +2947,6 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       }
     ]
   },
-  // 2. IBPS Clerk Signature
-  {
-    slug: 'ibps-clerk-signature-resize',
-    presetId: 'ibps-clerk',
-    pageTitle: 'IBPS Clerk Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
-    metaDescription: 'Resize signature for IBPS Clerk (Junior Associate & Office Assistant) recruitment 2026 online. Format to 140x60 px, 10 to 20 KB JPG for IBPS clerk portal. Free, instant, private.',
-    keywords: 'ibps clerk signature resize, ibps clerk signature size 10 to 20 kb, ibps clerk signature 140x60, ibps clerk 2026 apply online, ibps clerk signature format, ibps rrb office assistant signature size, ibps clerk photo and signature',
-    h1: 'IBPS Clerk Signature Resize & Compressor (10 KB – 20 KB)',
-    subheading: 'Official 140×60 px (4.0×2.0 cm) signature with strict 10–20 KB bounds for IBPS Clerk (Junior Associate) and IBPS RRB Office Assistant recruitment portals.',
-    authority: 'Institute of Banking Personnel Selection (IBPS)',
-    targetExams: 'IBPS Clerk (CRP Clerks-XVI), IBPS RRB Office Assistant (Multipurpose), IBPS RRB Junior Associate 2026',
-    widthPx: 140,
-    heightPx: 60,
-    widthCm: 4.0,
-    heightCm: 2.0,
-    minKb: 10,
-    maxKb: 20,
-    recommendedKb: 15,
-    dpi: 200,
-    ink: 'Black Ballpoint Ink Only',
-    aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'IBPS Clerk portal strictly rejects signatures in CAPITAL / BLOCK LETTERS. Candidates must use their usual natural running cursive handwriting identical to their identity proofs.',
-    tips: [
-      'Sign with a black ballpoint pen on white, unruled paper — maintain your natural signature style.',
-      'Keep file size between 10.0 KB and 19.9 KB for guaranteed portal acceptance.',
-      'Use the Clean White Paper filter to remove any shadow from mobile camera capture.',
-      'Ensure your IBPS Clerk signature matches the one on your Aadhaar/PAN for biometric consistency.'
-    ],
-    faqs: [
-      {
-        q: 'What is the IBPS Clerk signature size and dimension for 2026?',
-        a: 'The official IBPS Clerk signature specifications are: 140 × 60 pixels (4.0 cm × 2.0 cm), file size strictly between 10 KB and 20 KB, in JPG/JPEG format with a white background and black ink.'
-      },
-      {
-        q: 'Is the IBPS Clerk signature size the same as IBPS PO?',
-        a: 'Yes. IBPS PO and IBPS Clerk both use the same document upload portal (ibps.in) with identical specifications: 140×60 px, 10–20 KB JPG. The entire IBPS recruitment infrastructure shares one standard.'
-      },
-      {
-        q: 'What is the IBPS Clerk photo size for 2026?',
-        a: 'IBPS Clerk requires a passport-size photograph of 3.5 × 4.5 cm (approximately 240 × 320 px), between 20 KB and 50 KB in JPG format. The photo must have a white or light background taken within the past 3 months.'
-      },
-      {
-        q: 'What posts are covered under IBPS Clerk CRP Clerks-XVI?',
-        a: 'IBPS Clerk (CRP Clerks-XVI) recruits Junior Associates (Customer Support & Sales) across participating public sector banks including Bank of Baroda, Canara Bank, Punjab National Bank, Union Bank of India, and others.'
-      }
-    ]
-  },
   // 3. SBI PO Signature
   {
     slug: 'sbi-po-signature-resize',
@@ -4661,8 +4617,10 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black or Blue Ink',
     aspectRatioLabel: '1:1 (240×240 px)',
+    verifiedOn: '2026-11-14',
+    sources: [{ label: 'IBPS Online Application Upload Guidelines (Annexure III)', url: 'https://www.ibps.in/' }],
     strictNotice: 'The IBPS online portal (ibpsonline.ibps.in) will reject any file below 20 KB or above 50 KB. Use candidate\'s Left Thumb Impression on spotless white unruled paper with blue or black stamp pad ink.',
-    relatedTools: ['ibps-handwritten-declaration-resize', 'ibps-signature-resize', 'sbi-signature-resize', 'thumb-impression-resize'],
+    relatedTools: ['ibps-photo-signature-resize', 'ibps-handwritten-declaration-resize', 'ibps-signature-resize', 'thumb-impression-resize'],
     tips: [
       'Clean your left thumb with soap and let it dry completely before stamping.',
       'Dab gently on a blue or black stamp pad — avoid heavy pressure to prevent ink smudges.',
@@ -4705,8 +4663,10 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black Ink Only (English Handwriting)',
     aspectRatioLabel: '2:1 (~800×400 px)',
+    verifiedOn: '2026-11-14',
+    sources: [{ label: 'IBPS CRP PO/MT-XVI Detailed Notification (Annexure III)', url: 'https://www.ibps.in/' }],
     strictNotice: 'IBPS and SBI strictly reject Handwritten Declarations written in CAPITAL / BLOCK LETTERS, typed fonts, or written by anyone other than the candidate. Must be in candidate\'s own natural running cursive handwriting in black ink.',
-    relatedTools: ['ibps-thumb-impression-resize', 'ibps-signature-resize', 'sbi-signature-resize', 'resize-signature-to-10kb-20kb'],
+    relatedTools: ['ibps-photo-signature-resize', 'ibps-thumb-impression-resize', 'ibps-signature-resize', 'resize-signature-to-10kb-20kb'],
     tips: [
       'Write the official declaration text in clear running handwriting using a black ballpoint pen on unruled white paper.',
       'Never write in block or capital letters — doing so results in immediate application cancellation.',

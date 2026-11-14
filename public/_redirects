@@ -24,8 +24,14 @@
 /upsc-civil-services/ /upsc-signature-resize/ 301
 /rrb /rrb-signature-resize/ 301
 /rrb/ /rrb-signature-resize/ 301
-/ibps /ibps-signature-resize/ 301
-/ibps/ /ibps-signature-resize/ 301
+/ibps /ibps-photo-signature-resize/ 301
+/ibps/ /ibps-photo-signature-resize/ 301
+/ibps-clerk-signature-resize /ibps-photo-signature-resize/ 301
+/ibps-clerk-signature-resize/ /ibps-photo-signature-resize/ 301
+/ibps-photo-resize /ibps-photo-signature-resize/ 301
+/ibps-photo-resize/ /ibps-photo-signature-resize/ 301
+/ibps-photo-resizer /ibps-photo-signature-resize/ 301
+/ibps-photo-resizer/ /ibps-photo-signature-resize/ 301
 /pan /pan-card-signature-resize/ 301
 /pan/ /pan-card-signature-resize/ 301
 /neet /nta-neet-jee-signature-resize/ 301

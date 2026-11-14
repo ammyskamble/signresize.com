@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 420" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <!-- Card Header -->
+  <rect x="0" y="0" width="840" height="46" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="23" r="5.5" fill="#EF4444"/>
+  <circle cx="44" cy="23" r="5.5" fill="#F59E0B"/>
+  <circle cx="64" cy="23" r="5.5" fill="#10B981"/>
+  <text x="86" y="28" fill="#F8FAFC" font-size="13" font-weight="700">IBPS CRP PO/MT &amp; Clerks — Official Upload Standards (Annexure III)</text>
+  <rect x="680" y="12" width="140" height="22" rx="11" fill="#10B981" opacity="0.15"/>
+  <text x="696" y="27" fill="#34D399" font-size="11" font-weight="700">✓ Verified 2026–2027</text>
+
+  <!-- 4 Columns / Cards for the 4 Documents -->
+  
+  <!-- 1. Photograph -->
+  <g transform="translate(18, 60)">
+    <rect width="192" height="340" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+    <rect x="12" y="12" width="168" height="28" rx="6" fill="#3B82F6" opacity="0.15"/>
+    <text x="24" y="31" fill="#60A5FA" font-size="12" font-weight="700">📷 1. PASSPORT PHOTO</text>
+    
+    <!-- Photo Frame (200x230 ratio) -->
+    <rect x="36" y="52" width="120" height="138" rx="6" fill="#F1F5F9" stroke="#3B82F6" stroke-width="2"/>
+    <!-- Head & Shoulders Silhouette -->
+    <circle cx="96" cy="100" r="28" fill="#94A3B8"/>
+    <path d="M 60 168 C 60 138, 132 138, 132 168 Z" fill="#64748B"/>
+    <rect x="42" y="196" width="108" height="20" rx="4" fill="#3B82F6" opacity="0.2"/>
+    <text x="50" y="210" fill="#93C5FD" font-size="10" font-weight="700">200 × 230 px</text>
+
+    <!-- Details -->
+    <text x="16" y="236" fill="#E2E8F0" font-size="11" font-weight="600">• File: <tspan fill="#34D399" font-weight="700">20 KB – 50 KB</tspan></text>
+    <text x="16" y="256" fill="#E2E8F0" font-size="11" font-weight="600">• Size: <tspan fill="#93C5FD">3.5 × 4.5 cm</tspan></text>
+    <text x="16" y="276" fill="#E2E8F0" font-size="11" font-weight="600">• Background: <tspan fill="#F8FAFC">White / Light</tspan></text>
+    <text x="16" y="296" fill="#94A3B8" font-size="10">• Eyes open, neutral face</text>
+    <text x="16" y="314" fill="#94A3B8" font-size="10">• No caps, hats, dark glass</text>
+  </g>
+
+  <!-- 2. Signature -->
+  <g transform="translate(222, 60)">
+    <rect width="192" height="340" rx="10" fill="#1E293B" stroke="#8B5CF6" stroke-width="2"/>
+    <rect x="12" y="12" width="168" height="28" rx="6" fill="#8B5CF6" opacity="0.2"/>
+    <text x="24" y="31" fill="#C4B5FD" font-size="12" font-weight="700">✍️ 2. SIGNATURE</text>
+    
+    <!-- Signature Frame (140x60 ratio) -->
+    <rect x="21" y="80" width="150" height="64" rx="6" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2"/>
+    <!-- Cursive wave -->
+    <path d="M 32 118 Q 48 94 65 118 T 95 112 T 120 118 T 155 105" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 70 128 L 140 128" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round"/>
+    
+    <rect x="42" y="196" width="108" height="20" rx="4" fill="#8B5CF6" opacity="0.2"/>
+    <text x="50" y="210" fill="#C4B5FD" font-size="10" font-weight="700">140 × 60 px</text>
+
+    <!-- Details -->
+    <text x="16" y="236" fill="#E2E8F0" font-size="11" font-weight="600">• File: <tspan fill="#34D399" font-weight="700">10 KB – 20 KB</tspan></text>
+    <text x="16" y="256" fill="#E2E8F0" font-size="11" font-weight="600">• Ink: <tspan fill="#F8FAFC">Black Ink Only</tspan></text>
+    <text x="16" y="276" fill="#EF4444" font-size="11" font-weight="700">❌ NO BLOCK LETTERS</text>
+    <text x="16" y="296" fill="#94A3B8" font-size="10">• Running cursive script</text>
+    <text x="16" y="314" fill="#94A3B8" font-size="10">• Spotless white paper</text>
+  </g>
+
+  <!-- 3. Left Thumb Impression -->
+  <g transform="translate(426, 60)">
+    <rect width="192" height="340" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+    <rect x="12" y="12" width="168" height="28" rx="6" fill="#0EA5E9" opacity="0.15"/>
+    <text x="24" y="31" fill="#38BDF8" font-size="12" font-weight="700">👍 3. LEFT THUMB (LTI)</text>
+    
+    <!-- Thumb Frame (1:1 ratio, 240x240) -->
+    <rect x="46" y="66" width="100" height="100" rx="6" fill="#F8FAFC" stroke="#0EA5E9" stroke-width="2"/>
+    <!-- Thumb ridge pattern simulation -->
+    <ellipse cx="96" cy="116" rx="28" ry="36" fill="none" stroke="#0284C7" stroke-width="2" stroke-dasharray="3,2"/>
+    <ellipse cx="96" cy="116" rx="20" ry="26" fill="none" stroke="#0284C7" stroke-width="2"/>
+    <ellipse cx="96" cy="116" rx="12" ry="16" fill="none" stroke="#0284C7" stroke-width="2"/>
+    <ellipse cx="96" cy="116" rx="4" ry="6" fill="#0284C7"/>
+
+    <rect x="42" y="196" width="108" height="20" rx="4" fill="#0EA5E9" opacity="0.2"/>
+    <text x="48" y="210" fill="#7DD3FC" font-size="10" font-weight="700">240 × 240 px (1:1)</text>
+
+    <!-- Details -->
+    <text x="16" y="236" fill="#E2E8F0" font-size="11" font-weight="600">• File: <tspan fill="#34D399" font-weight="700">20 KB – 50 KB</tspan></text>
+    <text x="16" y="256" fill="#E2E8F0" font-size="11" font-weight="600">• Ink: <tspan fill="#7DD3FC">Blue or Black</tspan></text>
+    <text x="16" y="276" fill="#E2E8F0" font-size="11" font-weight="600">• Size: <tspan fill="#94A3B8">3.0 × 3.0 cm (200 DPI)</tspan></text>
+    <text x="16" y="296" fill="#94A3B8" font-size="10">• Must show ridge lines</text>
+    <text x="16" y="314" fill="#94A3B8" font-size="10">• Avoid blurry smudge pools</text>
+  </g>
+
+  <!-- 4. Handwritten Declaration -->
+  <g transform="translate(630, 60)">
+    <rect width="192" height="340" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+    <rect x="12" y="12" width="168" height="28" rx="6" fill="#F59E0B" opacity="0.15"/>
+    <text x="24" y="31" fill="#FCD34D" font-size="12" font-weight="700">📝 4. DECLARATION</text>
+    
+    <!-- Declaration Frame (2:1 ratio, 800x400) -->
+    <rect x="21" y="80" width="150" height="75" rx="6" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <!-- Ruled text lines simulation -->
+    <line x1="30" y1="96" x2="155" y2="96" stroke="#475569" stroke-width="1.5"/>
+    <line x1="30" y1="112" x2="160" y2="112" stroke="#475569" stroke-width="1.5"/>
+    <line x1="30" y1="128" x2="145" y2="128" stroke="#475569" stroke-width="1.5"/>
+    <line x1="30" y1="144" x2="110" y2="144" stroke="#475569" stroke-width="1.5"/>
+
+    <rect x="42" y="196" width="108" height="20" rx="4" fill="#F59E0B" opacity="0.2"/>
+    <text x="46" y="210" fill="#FDE68A" font-size="10" font-weight="700">800 × 400 px (2:1)</text>
+
+    <!-- Details -->
+    <text x="16" y="236" fill="#E2E8F0" font-size="11" font-weight="600">• File: <tspan fill="#34D399" font-weight="700">50 KB – 100 KB</tspan></text>
+    <text x="16" y="256" fill="#E2E8F0" font-size="11" font-weight="600">• Ink: <tspan fill="#F8FAFC">Black Ink Only</tspan></text>
+    <text x="16" y="276" fill="#EF4444" font-size="11" font-weight="700">❌ NO CAPITAL LETTERS</text>
+    <text x="16" y="296" fill="#94A3B8" font-size="10">• Candidate's own hand</text>
+    <text x="16" y="314" fill="#94A3B8" font-size="10">• English language only</text>
+  </g>
+</svg>

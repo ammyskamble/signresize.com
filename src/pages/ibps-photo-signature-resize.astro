@@ -1,0 +1,574 @@
+---
+// src/pages/ibps-photo-signature-resize.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import { SignatureTool } from '../components/SignatureTool';
+
+const pageTitle = "IBPS Photo & Signature Resizer — PO, Clerk & RRB (200×230 px · 140×60 px)";
+const metaDescription = "Resize photo (200×230 px, 20–50 KB) & signature (140×60 px, 10–20 KB, black ink) for IBPS PO, Clerk & RRB 2026–2027. Verified against Annexure III guidelines.";
+const canonicalUrl = "https://signresize.in/ibps-photo-signature-resize/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const currentYear = 2026;
+
+const faqs = [
+  {
+    q: "What is the exact IBPS photo size and dimension for 2026–2027 applications?",
+    a: "Under the official IBPS CRP PO/MT and Clerks notifications (Annexure III), passport photographs must be in JPG/JPEG format with preferred dimensions of 200 × 230 pixels (3.5 cm × 4.5 cm at 200 DPI). The file size must be strictly between 20.0 KB and 50.0 KB against a clean light or pure white background. The photo must be a recent portrait with 75% to 80% face coverage and eyes clearly visible."
+  },
+  {
+    q: "What is the official IBPS signature size in KB and pixels?",
+    a: "The candidate signature for all IBPS exams (PO, Clerk, SO, RRB) must be formatted to 140 × 60 pixels (preferred aspect ratio 7:3 / ~4.0 × 2.0 cm scan box) and file size strictly between 10.0 KB and 20.0 KB in JPG/JPEG format. It must be written using a black ballpoint ink pen on spotless white unruled paper."
+  },
+  {
+    q: "Why does IBPS strictly reject signatures written in CAPITAL / BLOCK LETTERS?",
+    a: "Clause 2(b) of IBPS Annexure III explicitly mandates: 'The applicant has to sign on white paper with Black Ink pen. The signature must be signed only by the applicant and not by any other person. The signature will be used to put on the Call Letter and wherever necessary. If the Applicant's signature on the attendance sheet or Call letter, signed at the time of the examination, does not match the signature uploaded, the applicant will be disqualified. Signature in CAPITAL LETTERS shall NOT be accepted.' Signatures written in capital letters are disqualified during automated application scrutiny."
+  },
+  {
+    q: "What are the dimensions and KB limits for IBPS Left Thumb Impression (LTI)?",
+    a: "IBPS mandates a Left Thumb Impression of exactly 240 × 240 pixels (3.0 cm × 3.0 cm at 200 DPI, 1:1 square ratio) with file size strictly between 20.0 KB and 50.0 KB in JPG format. Use blue or black stamp pad ink on clean white unruled paper. Dermal ridges must be distinctly visible without ink blotches."
+  },
+  {
+    q: "What is the verbatim text and format for IBPS Handwritten Declaration?",
+    a: "The Handwritten Declaration must be formatted to 800 × 400 pixels (10.0 cm × 5.0 cm, 2:1 ratio) with file size strictly between 50.0 KB and 100.0 KB in JPG format. It must be handwritten in English by the candidate using black ink on white unruled paper (no capital letters, no typed text). The verbatim text is: 'I, _______ (Name of the candidate), hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.'"
+  },
+  {
+    q: "Are IBPS PO, IBPS Clerk, and IBPS RRB photo and signature specifications identical?",
+    a: "Yes. IBPS operates a unified digital examination infrastructure through the Common Recruitment Process (CRP) at ibpsonline.ibps.in. The upload specifications for CRP PO/MT, CRP Clerks, CRP Specialist Officers (SO), and CRP RRB (Office Assistants & Officers) are 100% identical: photo (200×230 px, 20–50 KB), signature (140×60 px, 10–20 KB), thumb (240×240 px, 20–50 KB), and declaration (800×400 px, 50–100 KB)."
+  },
+  {
+    q: "Why does the IBPS portal reject my uploaded photo or signature?",
+    a: "The IBPS portal (ibpsonline.ibps.in) applies strict pre-flight validation. Rejection occurs if: (1) signature is under 10 KB or over 20 KB; (2) photo is under 20 KB or over 50 KB; (3) image dimensions deviate significantly from preferred aspect ratios; or (4) the file format is PNG or WEBP instead of standard JPEG/JPG. SignResize locks exact byte boundaries and dimensions client-side to prevent every rejection trigger."
+  }
+];
+
+const howToSteps = [
+  {
+    name: "Select IBPS Document Mode",
+    text: "Choose between 'Signature' (140×60 px, 10–20 KB), 'Photo' (200×230 px, 20–50 KB), 'Left Thumb' (240×240 px, 20–50 KB), or 'Declaration' (800×400 px, 50–100 KB) using the quick buttons below."
+  },
+  {
+    name: "Upload Scanned Image or Mobile Photo",
+    text: "Upload your document. Processing runs 100% client-side inside your browser via WebAssembly and HTML5 Canvas — your private photos never touch any external server."
+  },
+  {
+    name: "Frame Crop & Whiten Paper Background",
+    text: "Use the crop guide to frame your portrait or tightly surround signature strokes. Toggle 'Clean White Paper' to automatically strip shadowy camera lighting and boost contrast."
+  },
+  {
+    name: "Download Portal-Ready JPG",
+    text: "Inspect the instant real-time dimension and KB badge. Click 'Download' to obtain your validated JPG file ready for immediate upload on ibpsonline.ibps.in."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="keywords" content="ibps photo signature resizer, ibps photo resize, ibps signature resize, ibps signature size, ibps photo size, ibps signature 10 to 20 kb, ibps photo 20 to 50 kb, ibps po photo signature resize, ibps clerk signature resize, ibps rrb photo signature size online" />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <GoogleFonts />
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "IBPS Photo & Signature Resizer Studio",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
+      "description": metaDescription,
+      "datePublished": "2026-11-14T19:00:00+05:30",
+      "dateModified": "2026-11-14T20:00:00+05:30",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "featureList": [
+        "IBPS Passport Photo: 200x230 px (3.5x4.5 cm) clamped strictly to 20-50 KB",
+        "IBPS Signature: 140x60 px clamped strictly to 10-20 KB with black ink running cursive validation",
+        "IBPS Left Thumb Impression: 240x240 px (3x3 cm) clamped strictly to 20-50 KB",
+        "IBPS Handwritten Declaration: 800x400 px (10x5 cm) clamped strictly to 50-100 KB",
+        "Instant toggle between all 4 IBPS recruitment upload modes in one workspace",
+        "Clean White Paper shadow remover for scanned signatures and mobile camera photos",
+        "100% private in-browser client-side processing without uploading files to external servers"
+      ]
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Banking Exams",
+          "item": "https://signresize.in/#banking"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "IBPS Photo & Signature Resizer",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Photo, Signature, Thumb & Declaration for IBPS Online Application",
+      "description": "Step-by-step instructions to format passport photograph (200×230 px, 20–50 KB), signature (140×60 px, 10–20 KB), thumb (240×240 px, 20–50 KB), and declaration (800×400 px, 50–100 KB) for IBPS recruitment portals.",
+      "step": howToSteps.map((step, idx) => ({
+        "@type": "HowToStep",
+        "position": idx + 1,
+        "name": step.name,
+        "text": step.text
+      }))
+    })} />
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-5 space-y-4">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/ibps-signature-resize/" class="hover:text-primary transition">Banking Tools</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">IBPS Photo &amp; Signature Hub</span>
+      </nav>
+
+      <!-- Hero Header Banner -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Verified 2026–2027 Specifications
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                100% Client-Side Private
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-mono text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20">
+                Institute of Banking Personnel Selection (IBPS)
+              </span>
+              <a
+                href="https://www.ibps.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-primary bg-primary/10 border border-primary/20 hover:bg-primary/20 transition"
+              >
+                <span>Official IBPS Portal ↗</span>
+              </a>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-muted-foreground bg-muted/60 border border-border">
+                <span>🗓️</span> Last updated: 14 Nov 2026
+              </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+              IBPS Photo &amp; Signature Resizer — PO, Clerk &amp; RRB Hub
+            </h1>
+            
+            <!-- Application cycle & status announcement banner -->
+            <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-medium text-foreground bg-primary/10 border border-primary/25 rounded-xl px-3.5 py-2 max-w-4xl">
+              <span class="font-bold text-primary">📢 Common Recruitment Process (CRP):</span>
+              <span>Specs verified against <strong>IBPS CRP PO/MT-XVI Detailed Notification (Annexure III)</strong> and Clerks/RRB guidelines. Fully compliant with active portal validation rules on <code class="font-mono text-xs">ibpsonline.ibps.in</code>.</span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-4xl leading-relaxed">
+              Prepare all 4 mandatory IBPS digital assets in ONE unified workspace: <strong>Photograph (200×230 px, 20–50 KB)</strong>, <strong>Signature (140×60 px, 10–20 KB)</strong>, <strong>Left Thumb (240×240 px, 20–50 KB)</strong>, and <strong>Handwritten Declaration (800×400 px, 50–100 KB)</strong>. No server upload — 100% private in-browser processing.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-2.5 pt-2">
+              <button
+                type="button"
+                id="btn-switch-sign"
+                class="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition shadow-xs cursor-pointer"
+              >
+                ✍️ Signature (140×60 · 10–20 KB)
+              </button>
+              <button
+                type="button"
+                id="btn-switch-photo"
+                class="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 py-2.5 text-xs sm:text-sm font-bold text-foreground hover:border-primary/50 transition cursor-pointer"
+              >
+                📷 Photo (200×230 · 20–50 KB)
+              </button>
+              <button
+                type="button"
+                id="btn-switch-thumb"
+                class="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 py-2.5 text-xs sm:text-sm font-bold text-foreground hover:border-primary/50 transition cursor-pointer"
+              >
+                👍 Left Thumb (240×240 · 20–50 KB)
+              </button>
+              <button
+                type="button"
+                id="btn-switch-declaration"
+                class="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 py-2.5 text-xs sm:text-sm font-bold text-foreground hover:border-primary/50 transition cursor-pointer"
+              >
+                📝 Declaration (800×400 · 50–100 KB)
+              </button>
+              <a href="#official-specs" class="inline-flex min-h-11 items-center text-xs sm:text-sm font-semibold text-primary underline underline-offset-4">
+                View Spec Table ↓
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Resizer Tool Section -->
+      <section id="crop-workspace" class="scroll-mt-16 bg-transparent sm:bg-card border-0 sm:border border-border rounded-2xl p-0 sm:p-6 shadow-none sm:shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
+        <SignatureTool 
+          client:idle
+          initialPresetId="ibps-sbi" 
+          initialMode="signature"
+        />
+      </section>
+
+      <!-- Visual Spec Guides & Capital Letters Rejection Rule Diagrams -->
+      <section class="space-y-4">
+        <div class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4">
+          <div class="border-b border-border pb-3">
+            <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+              <span>🖼️</span> Official Visual Specifications &amp; Rejection Rule Diagrams
+            </h2>
+            <p class="text-xs text-muted-foreground">High-contrast visual breakdowns showing official dimensions, KB limits, and IBPS's strict signature disqualification criteria.</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <!-- Diagram 1: 4 Documents Matrix -->
+            <div class="space-y-2">
+              <h3 class="text-sm font-bold text-foreground flex items-center gap-1.5">
+                <span>📋</span> The 4 Mandatory IBPS Upload Standards (Annexure III)
+              </h3>
+              <div class="rounded-xl overflow-hidden border border-border bg-slate-950">
+                <img 
+                  src="/images/ibps-photo-signature-spec.svg" 
+                  alt="IBPS CRP PO and Clerk Official Upload Standards for Photo, Signature, Thumb Impression, and Declaration" 
+                  class="w-full h-auto" 
+                  loading="lazy" 
+                />
+              </div>
+              <p class="text-[11px] text-muted-foreground leading-relaxed">
+                Exact dimensions: Photo (200×230 px, 20–50 KB), Signature (140×60 px, 10–20 KB), Thumb (240×240 px, 20–50 KB), Declaration (800×400 px, 50–100 KB).
+              </p>
+            </div>
+
+            <!-- Diagram 2: Cursive vs Capital Letters Rejection Rule -->
+            <div class="space-y-2">
+              <h3 class="text-sm font-bold text-foreground flex items-center gap-1.5">
+                <span class="text-red-500">⚠️</span> IBPS Signature Rejection Clause: Cursive vs Block Letters
+              </h3>
+              <div class="rounded-xl overflow-hidden border border-border bg-slate-950">
+                <img 
+                  src="/images/ibps-signature-capital-letters-rule.svg" 
+                  alt="IBPS Signature Rejection Rule: Running Cursive Accepted vs Capital Block Letters Disqualified" 
+                  class="w-full h-auto" 
+                  loading="lazy" 
+                />
+              </div>
+              <p class="text-[11px] text-muted-foreground leading-relaxed">
+                <strong class="text-red-500">Crucial Rule:</strong> Signatures written in ALL CAPITAL / BLOCK letters are 100% disqualified per Annexure III clause 2(b). You must use your normal running cursive handwriting in black ink.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Official Specification Comparison Table -->
+      <section id="official-specs" class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+              <span>📋</span> Official IBPS Upload Specifications Matrix (Annexure III)
+            </h2>
+            <p class="text-xs text-muted-foreground">Cross-checked against the official IBPS CRP PO/MT-XVI Detailed Notification (Annexure III, pp. 36–38) and active online portal validation rules.</p>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shrink-0">
+            Verified November 2026
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[700px] text-xs sm:text-sm text-left border border-border">
+            <caption class="sr-only">IBPS Online Recruitment Upload Specifications</caption>
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th scope="col" class="p-3 border-b">Document Type</th>
+                <th scope="col" class="p-3 border-b">Format</th>
+                <th scope="col" class="p-3 border-b">Preferred Dimensions</th>
+                <th scope="col" class="p-3 border-b">File Size Range</th>
+                <th scope="col" class="p-3 border-b">Mandatory Rules &amp; Guidelines</th>
+                <th scope="col" class="p-3 border-b">Official Source</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="hover:bg-muted/40 transition">
+                <th scope="row" class="p-3 font-semibold text-primary">Passport Photograph</th>
+                <td class="p-3 font-mono">JPG / JPEG</td>
+                <td class="p-3 font-mono font-bold">200 × 230 px<br/><span class="text-[11px] text-muted-foreground font-normal">(3.5 × 4.5 cm @ 200 DPI)</span></td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 KB – 50 KB</td>
+                <td class="p-3">Clean light or white backdrop. 75–80% face coverage looking straight at camera. No caps, hats, or dark glasses.</td>
+                <td class="p-3 text-[11px] text-muted-foreground">
+                  <a href="https://www.ibps.in/" target="_blank" rel="noopener noreferrer" class="text-primary underline">CRP Notification (Annexure III, p. 36) ↗</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-muted/40 transition">
+                <th scope="row" class="p-3 font-semibold text-primary">Candidate Signature</th>
+                <td class="p-3 font-mono">JPG / JPEG</td>
+                <td class="p-3 font-mono font-bold">140 × 60 px<br/><span class="text-[11px] text-muted-foreground font-normal">(4.0 × 2.0 cm scan box)</span></td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">10 KB – 20 KB</td>
+                <td class="p-3">Black ballpoint ink pen on spotless white unruled paper in running cursive handwriting. <strong class="text-red-500">NO BLOCK LETTERS</strong>.</td>
+                <td class="p-3 text-[11px] text-muted-foreground">
+                  <a href="https://www.ibps.in/" target="_blank" rel="noopener noreferrer" class="text-primary underline">CRP Notification (Annexure III, p. 37) ↗</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-muted/40 transition">
+                <th scope="row" class="p-3 font-semibold text-primary">Left Thumb Impression (LTI)</th>
+                <td class="p-3 font-mono">JPG / JPEG</td>
+                <td class="p-3 font-mono font-bold">240 × 240 px<br/><span class="text-[11px] text-muted-foreground font-normal">(3.0 × 3.0 cm @ 200 DPI, 1:1)</span></td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 KB – 50 KB</td>
+                <td class="p-3">Blue or black stamp pad ink on white paper. Dermal ridgelines must be clearly discernible without ink pooling.</td>
+                <td class="p-3 text-[11px] text-muted-foreground">
+                  <a href="https://www.ibps.in/" target="_blank" rel="noopener noreferrer" class="text-primary underline">CRP Notification (Annexure III, p. 37) ↗</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-muted/40 transition">
+                <th scope="row" class="p-3 font-semibold text-primary">Handwritten Declaration</th>
+                <td class="p-3 font-mono">JPG / JPEG</td>
+                <td class="p-3 font-mono font-bold">800 × 400 px<br/><span class="text-[11px] text-muted-foreground font-normal">(10.0 × 5.0 cm @ 200 DPI, 2:1)</span></td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">50 KB – 100 KB</td>
+                <td class="p-3">Written in candidate's own English handwriting using black ink pen on white unruled paper. <strong class="text-red-500">NO CAPITAL LETTERS</strong>.</td>
+                <td class="p-3 text-[11px] text-muted-foreground">
+                  <a href="https://www.ibps.in/" target="_blank" rel="noopener noreferrer" class="text-primary underline">CRP Notification (Annexure III, p. 38) ↗</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3.5 text-xs text-foreground/90 space-y-1">
+          <p><strong>💡 Verbatim Handwritten Declaration Text (Must be handwritten by candidate):</strong></p>
+          <blockquote class="italic text-foreground font-serif text-xs sm:text-sm border-l-4 border-amber-500 pl-3 py-1 bg-card/60 rounded-r-lg">
+            &ldquo;I, _______ (Name of the candidate), hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required.&rdquo;
+          </blockquote>
+          <p class="text-muted-foreground text-[11px]">Writing the declaration in capital letters, typing it, or having someone else write it will lead to application cancellation.</p>
+        </div>
+      </section>
+
+      <!-- Step-by-Step Portal Guide -->
+      <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-5">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground">
+            How to Upload Documents on the IBPS Portal (<code class="font-mono text-sm text-primary">ibpsonline.ibps.in</code>)
+          </h2>
+          <p class="text-xs text-muted-foreground">Follow this 4-step workflow to guarantee 100% portal acceptance on your first upload attempt.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Step 1 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</span>
+              <h3 class="font-bold text-sm text-foreground">Select Post &amp; Login</h3>
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Open <code class="font-mono text-primary text-xs">ibpsonline.ibps.in</code> for your active exam (PO, Clerk, SO, RRB). Enter your Registration Number and Password to access the document upload page.
+            </p>
+          </article>
+
+          <!-- Step 2 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</span>
+              <h3 class="font-bold text-sm text-foreground">Upload Photo (20–50 KB)</h3>
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Format your portrait to 200×230 px and 20–50 KB JPG. Ensure clean light/white backdrop with both ears visible and no reflections on prescription spectacles.
+            </p>
+          </article>
+
+          <!-- Step 3 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">3</span>
+              <h3 class="font-bold text-sm text-foreground">Upload Cursive Signature</h3>
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Format your black ink running signature to 140×60 px and 10–20 KB JPG. Do NOT sign in capital letters. Check preview box before proceeding.
+            </p>
+          </article>
+
+          <!-- Step 4 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">4</span>
+              <h3 class="font-bold text-sm text-foreground">Thumb &amp; Declaration</h3>
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Upload Left Thumb (240×240 px, 20–50 KB) and Handwritten Declaration (800×400 px, 50–100 KB). Complete final submission and save your Application PDF.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold text-foreground">
+          Frequently Asked Questions (IBPS Photo &amp; Signature Resizing)
+        </h2>
+        <div class="space-y-3">
+          {faqs.map(faq => (
+            <details class="rounded-xl border border-border bg-muted/10 p-3.5 sm:p-4 group">
+              <summary class="cursor-pointer font-semibold text-xs sm:text-sm text-foreground flex items-center justify-between">
+                <span>{faq.q}</span>
+                <span class="text-muted-foreground group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="pt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <!-- Deep Internal Links Navigation -->
+      <nav aria-label="IBPS Related Tools and Guides" class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-3">
+        <h3 class="text-sm font-bold text-foreground">Explore Related IBPS &amp; Banking Recruitment Tools</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <a href="/ibps-signature-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            ✍️ Dedicated IBPS Signature Resizer (10–20 KB) →
+          </a>
+          <a href="/ibps-thumb-impression-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            👍 IBPS Left Thumb Impression Resizer (20–50 KB) →
+          </a>
+          <a href="/ibps-handwritten-declaration-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            📝 IBPS Handwritten Declaration Resizer (50–100 KB) →
+          </a>
+          <a href="/sbi-clerk-photo-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            📸 SBI Clerk Photo Resizer (200×230 px · 20–50 KB) →
+          </a>
+          <a href="/sbi-clerk-signature-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            ✍️ SBI Clerk Signature Resizer (10–20 KB) →
+          </a>
+          <a href="/blog/ibps-rrb-po-prelims-mains-preparation-strategy-interview-guide/" class="min-h-11 inline-flex items-center rounded-xl bg-primary/10 border border-primary/25 px-4 py-2 text-xs font-semibold text-primary hover:bg-primary/20 transition">
+            📖 IBPS PO &amp; Clerk Preparation Blueprint &amp; Form Guide →
+          </a>
+          <a href="/make-signature-background-white/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-muted-foreground hover:text-foreground transition">
+            Clean White Paper Background Tool →
+          </a>
+          <a href="/compress-image-to-kb/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-muted-foreground hover:text-foreground transition">
+            Custom Image Compressor to KB →
+          </a>
+        </div>
+      </nav>
+
+    </main>
+
+    <Footer />
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const signBtn = document.getElementById('btn-switch-sign');
+        const photoBtn = document.getElementById('btn-switch-photo');
+        const thumbBtn = document.getElementById('btn-switch-thumb');
+        const declBtn = document.getElementById('btn-switch-declaration');
+
+        if (signBtn) {
+          signBtn.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('select-ibps-section', { detail: 'signature' }));
+            document.getElementById('crop-workspace')?.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+
+        if (photoBtn) {
+          photoBtn.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('select-ibps-section', { detail: 'photo' }));
+            document.getElementById('crop-workspace')?.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+
+        if (thumbBtn) {
+          thumbBtn.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('select-ibps-section', { detail: 'thumb' }));
+            document.getElementById('crop-workspace')?.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+
+        if (declBtn) {
+          declBtn.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('select-ibps-section', { detail: 'declaration' }));
+            document.getElementById('crop-workspace')?.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

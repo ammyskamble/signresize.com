@@ -267,6 +267,13 @@ const PRESET_ALIASES: Record<string, string> = {
   'ssc-photo-resize': 'ssc-cgl-photo',
   'ssc-general': 'ssc-general',
   ibps: 'ibps-sbi',
+  'ibps-photo': 'ibps-photo',
+  'ibps-sign': 'ibps-sbi',
+  'ibps-signature': 'ibps-sbi',
+  'ibps-photo-signature': 'ibps-sbi',
+  'ibps-photo-signature-resize': 'ibps-sbi',
+  'ibps-thumb': 'ibps-thumb-impression',
+  'ibps-declaration': 'ibps-handwritten-declaration',
   upsc: 'upsc-civil-services',
   rrb: 'rrb-railway',
   neet: 'nta-neet-jee',
@@ -1408,6 +1415,26 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     }
   }, [applyPreset]);
 
+  const selectIbpsSection = useCallback((section: 'signature' | 'photo' | 'thumb' | 'declaration') => {
+    if (section === 'signature') {
+      const p = SIGNATURE_PRESETS.find(x => x.id === 'ibps-sbi');
+      setTargetType('signature');
+      if (p) applyPreset(p);
+    } else if (section === 'photo') {
+      const p = PHOTO_PRESETS.find(x => x.id === 'ibps-photo') || PHOTO_PRESETS.find(x => x.id === 'ibps-sbi-photo');
+      setTargetType('photo');
+      if (p) applyPreset(p);
+    } else if (section === 'thumb') {
+      const p = DOCUMENT_PRESETS.find(x => x.id === 'ibps-thumb-impression');
+      setTargetType('document');
+      if (p) applyPreset(p);
+    } else if (section === 'declaration') {
+      const p = DOCUMENT_PRESETS.find(x => x.id === 'ibps-handwritten-declaration');
+      setTargetType('document');
+      if (p) applyPreset(p);
+    }
+  }, [applyPreset]);
+
   // Apply page/URL defaults once per source, so later selections are retained.
   useEffect(() => {
     const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
@@ -1483,14 +1510,23 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     };
     window.addEventListener('select-uppsc-section', handleUppscSection);
 
+    const handleIbpsSection = (e: Event) => {
+      const event = e as CustomEvent<'signature' | 'photo' | 'thumb' | 'declaration'>;
+      if (event.detail) {
+        selectIbpsSection(event.detail);
+      }
+    };
+    window.addEventListener('select-ibps-section', handleIbpsSection);
+
     return () => {
       window.removeEventListener('select-exam-preset', handleCustomPresetSelect);
       window.removeEventListener('select-coast-guard-section', handleCoastGuardSection);
       window.removeEventListener('select-wbpsc-section', handleWbpscSection);
       window.removeEventListener('select-tnpsc-section', handleTnpscSection);
       window.removeEventListener('select-uppsc-section', handleUppscSection);
+      window.removeEventListener('select-ibps-section', handleIbpsSection);
     };
-  }, [applyPreset, selectCoastGuardSection, selectWbpscSection, selectTnpscSection, selectUppscSection]);
+  }, [applyPreset, selectCoastGuardSection, selectWbpscSection, selectTnpscSection, selectUppscSection, selectIbpsSection]);
 
   // Initialize crop box to centered aspect ratio
   const initCropBox = (img: HTMLImageElement, targetAspect: number) => {

@@ -183,9 +183,11 @@ export const EXAM_PAGE_UPDATES: Record<string, Partial<ExamPageInfo>> = {
     subheading: 'Resize a handwritten IBPS signature to 140×60 pixels and 10–20 KB JPG. Confirm the requirements in your current recruitment notification.',
     authority: 'Institute of Banking Personnel Selection (IBPS)', targetExams: 'IBPS PO, Clerk, SO and RRB, subject to the current notification',
     hidePhysicalSize: true, guidanceLabel: 'IBPS upload guidance',
+    verifiedOn: '2026-11-14',
+    sources: [{ label: 'IBPS CRP PO/MT-XVI Detailed Notification (Annexure III)', url: 'https://www.ibps.in/' }],
     strictNotice: 'Use your own handwritten signature in black ink on white paper. Check the current IBPS notification for all upload rules.',
     faqs: [ { q: 'What size should an IBPS signature be?', a: 'This preset produces a 140×60 pixel JPG within 10–20 KB. Check the exact upload requirements in the current IBPS recruitment notification.' }, { q: 'Where is the SBI signature resizer?', a: 'Use the dedicated SBI signature resizer linked below for SBI PO and Clerk guidance.' } ],
-    relatedTools: ['sbi-signature-resize', 'ibps-clerk-signature-resize'],
+    relatedTools: ['ibps-photo-signature-resize', 'sbi-signature-resize', 'ibps-thumb-impression-resize'],
   },
   'sbi-po-signature-resize': {
     ...sbi, slug: 'sbi-po-signature-resize', presetId: 'sbi-po',
