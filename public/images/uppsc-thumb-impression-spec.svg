@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <linearGradient id="thumbGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#065F46"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Header Bar -->
+  <rect x="0" y="0" width="800" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <text x="84" y="26" fill="#F8FAFC" font-size="12" font-weight="700">UPPSC RO/ARO 2026 · Left Thumb Impression (LTI) Specifications</text>
+  <rect x="670" y="10" width="116" height="22" rx="4" fill="#059669"/>
+  <text x="682" y="25" fill="#FFFFFF" font-size="10.5" font-weight="700">10 KB – 20 KB</text>
+
+  <!-- Title Banner -->
+  <rect x="20" y="54" width="760" height="48" rx="8" fill="url(#thumbGrad)"/>
+  <text x="40" y="84" fill="#FFFFFF" font-size="15" font-weight="800">LEFT THUMB IMPRESSION (LTI) RULES &amp; RIDGE CLARITY</text>
+  <text x="560" y="84" fill="#A7F3D0" font-size="12" font-weight="600">Square 240 × 240 Px</text>
+
+  <!-- Main Grid -->
+  <rect x="20" y="114" width="760" height="286" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left: Visual Stamp Card -->
+  <rect x="36" y="130" width="220" height="254" rx="6" fill="#0F172A" stroke="#10B981" stroke-width="1.5"/>
+  <text x="48" y="152" fill="#34D399" font-size="11.5" font-weight="700">Clear Ridge Pattern Preview</text>
+
+  <!-- Stamp Box -->
+  <rect x="70" y="165" width="150" height="150" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+  <!-- Concentric thumb loops & whorls -->
+  <ellipse cx="145" cy="240" rx="14" ry="22" fill="none" stroke="#1E40AF" stroke-width="2"/>
+  <ellipse cx="145" cy="240" rx="24" ry="34" fill="none" stroke="#1E40AF" stroke-width="2"/>
+  <ellipse cx="145" cy="240" rx="36" ry="46" fill="none" stroke="#1E40AF" stroke-width="2"/>
+  <ellipse cx="145" cy="240" rx="48" ry="58" fill="none" stroke="#1E40AF" stroke-width="2"/>
+  <ellipse cx="145" cy="240" rx="60" ry="68" fill="none" stroke="#1E40AF" stroke-width="1.5"/>
+
+  <!-- Badge under stamp -->
+  <rect x="52" y="328" width="188" height="20" rx="4" fill="#064E3B"/>
+  <text x="68" y="342" fill="#6EE7B7" font-size="9.5" font-weight="700">✓ Sharp Papillary Ridges</text>
+  <text x="60" y="364" fill="#94A3B8" font-size="9">Size: <tspan fill="#F8FAFC" font-weight="700">10–20 KB</tspan> · JPG/JPEG</text>
+  <text x="60" y="378" fill="#94A3B8" font-size="9">Recommended: <tspan fill="#F8FAFC">240 × 240 px</tspan></text>
+
+  <!-- Right: Spec Table & Rules -->
+  <rect x="272" y="130" width="492" height="254" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="290" y="155" fill="#F8FAFC" font-size="13" font-weight="700">Official Left Thumb Impression Guidelines</text>
+
+  <rect x="290" y="170" width="456" height="34" rx="4" fill="#1E293B"/>
+  <text x="302" y="191" fill="#94A3B8" font-size="11">Which Hand Thumb:</text>
+  <text x="430" y="191" fill="#34D399" font-size="11.5" font-weight="700">LEFT Thumb only (Right thumb only if left missing)</text>
+
+  <rect x="290" y="210" width="456" height="34" rx="4" fill="#1E293B"/>
+  <text x="302" y="231" fill="#94A3B8" font-size="11">Ink Stamp Pad:</text>
+  <text x="430" y="231" fill="#F8FAFC" font-size="11.5" font-weight="600">Fresh Blue or Black stamp ink pad</text>
+
+  <rect x="290" y="250" width="456" height="34" rx="4" fill="#1E293B"/>
+  <text x="302" y="271" fill="#94A3B8" font-size="11">Paper &amp; Pressure:</text>
+  <text x="430" y="271" fill="#F8FAFC" font-size="11.5" font-weight="600">Gentle pressure on unruled paper; no smudging</text>
+
+  <rect x="290" y="290" width="456" height="34" rx="4" fill="#1E293B"/>
+  <text x="302" y="311" fill="#94A3B8" font-size="11">File Range &amp; Format:</text>
+  <text x="430" y="311" fill="#34D399" font-size="11.5" font-weight="700">10 KB to 20 KB · JPEG / JPG</text>
+
+  <!-- Error alert -->
+  <rect x="290" y="332" width="456" height="42" rx="6" fill="#451A03" stroke="#D97706" stroke-width="1"/>
+  <text x="304" y="348" fill="#FCD34D" font-size="10" font-weight="700">⚠️ Why Thumb Impressions Get Rejected by Commission:</text>
+  <text x="304" y="363" fill="#FEF3C7" font-size="9.5">Too much ink causing a solid black blob, faint unreadable ridges, or taking right thumb without note.</text>
+</svg>

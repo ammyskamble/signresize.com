@@ -1392,6 +1392,22 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     }
   }, [applyPreset]);
 
+  const selectUppscSection = useCallback((section: 'signature' | 'photo' | 'thumb' | 'document') => {
+    if (section === 'signature') {
+      const p = SIGNATURE_PRESETS.find(x => x.id === 'uppsc-ro-aro-signature') || SIGNATURE_PRESETS.find(x => x.id === 'uppsc');
+      setTargetType('signature');
+      if (p) applyPreset(p);
+    } else if (section === 'photo') {
+      const p = PHOTO_PRESETS.find(x => x.id === 'uppsc-ro-aro-photo');
+      setTargetType('photo');
+      if (p) applyPreset(p);
+    } else if (section === 'thumb' || section === 'document') {
+      const p = DOCUMENT_PRESETS.find(x => x.id === 'uppsc-ro-aro-thumb');
+      setTargetType('document');
+      if (p) applyPreset(p);
+    }
+  }, [applyPreset]);
+
   // Apply page/URL defaults once per source, so later selections are retained.
   useEffect(() => {
     const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
@@ -1459,13 +1475,22 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     };
     window.addEventListener('select-tnpsc-section', handleTnpscSection);
 
+    const handleUppscSection = (e: Event) => {
+      const event = e as CustomEvent<'signature' | 'photo' | 'thumb' | 'document'>;
+      if (event.detail) {
+        selectUppscSection(event.detail);
+      }
+    };
+    window.addEventListener('select-uppsc-section', handleUppscSection);
+
     return () => {
       window.removeEventListener('select-exam-preset', handleCustomPresetSelect);
       window.removeEventListener('select-coast-guard-section', handleCoastGuardSection);
       window.removeEventListener('select-wbpsc-section', handleWbpscSection);
       window.removeEventListener('select-tnpsc-section', handleTnpscSection);
+      window.removeEventListener('select-uppsc-section', handleUppscSection);
     };
-  }, [applyPreset, selectCoastGuardSection, selectWbpscSection, selectTnpscSection]);
+  }, [applyPreset, selectCoastGuardSection, selectWbpscSection, selectTnpscSection, selectUppscSection]);
 
   // Initialize crop box to centered aspect ratio
   const initCropBox = (img: HTMLImageElement, targetAspect: number) => {

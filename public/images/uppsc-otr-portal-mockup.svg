@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <linearGradient id="upHeaderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#312E81"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Browser Header Bar -->
+  <rect x="0" y="0" width="800" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <rect x="84" y="9" width="580" height="24" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="100" y="25" fill="#94A3B8" font-size="11" font-family="monospace">🔒 https://otr.pariksha.nic.in/candidate/login (UPPSC OTR Portal)</text>
+  <rect x="676" y="11" width="110" height="20" rx="4" fill="#4F46E5"/>
+  <text x="686" y="25" fill="#FFFFFF" font-size="10" font-weight="700">Advt A-4/E-1/2026</text>
+
+  <!-- Portal Header Banner -->
+  <rect x="20" y="54" width="760" height="52" rx="8" fill="url(#upHeaderGrad)"/>
+  <circle cx="50" cy="80" r="18" fill="#FFFFFF" opacity="0.15"/>
+  <text x="42" y="86" fill="#FBBF24" font-size="20">🏛️</text>
+  <text x="80" y="75" fill="#FFFFFF" font-size="15" font-weight="800">UTTAR PRADESH PUBLIC SERVICE COMMISSION</text>
+  <text x="80" y="94" fill="#C7D2FE" font-size="11">Samiksha Adhikari (RO) / Sahayak Samiksha Adhikari (ARO) 2026 · 501 Vacancies</text>
+
+  <!-- Main Workspace -->
+  <rect x="20" y="118" width="760" height="282" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left: Candidate Login & Timeline -->
+  <rect x="36" y="134" width="340" height="250" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="52" y="158" fill="#818CF8" font-size="13" font-weight="700">Step 1: OTR Candidate Authentication</text>
+
+  <rect x="52" y="172" width="308" height="32" rx="4" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+  <text x="64" y="193" fill="#94A3B8" font-size="11">OTR Number: <tspan fill="#F8FAFC" font-weight="600">OTR-2026-9842xxxx</tspan></text>
+
+  <rect x="52" y="212" width="308" height="32" rx="4" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+  <text x="64" y="233" fill="#94A3B8" font-size="11">Password / OTP: <tspan fill="#F8FAFC">••••••••••••••</tspan></text>
+
+  <rect x="52" y="252" width="180" height="30" rx="4" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+  <text x="64" y="272" fill="#94A3B8" font-size="11">Captcha: <tspan fill="#F59E0B" font-weight="700">M 4 P 8 Q</tspan></text>
+
+  <rect x="52" y="292" width="308" height="36" rx="6" fill="#4F46E5"/>
+  <text x="135" y="315" fill="#FFFFFF" font-size="13" font-weight="700">Access RO/ARO Form →</text>
+
+  <!-- Date alert footer -->
+  <rect x="52" y="338" width="308" height="34" rx="4" fill="#312E81" opacity="0.6"/>
+  <text x="62" y="352" fill="#FDE047" font-size="10" font-weight="700">📅 Last Date: 26 Nov 2026</text>
+  <text x="62" y="366" fill="#C7D2FE" font-size="9.5">Fee &amp; Edit Window Live Till: 3 Dec 2026</text>
+
+  <!-- Right: 3-in-1 Upload Checklist -->
+  <rect x="396" y="134" width="368" height="250" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="412" y="158" fill="#818CF8" font-size="13" font-weight="700">Step 2: Mandatory 3-File Uploads</text>
+
+  <!-- Item 1: Photo -->
+  <rect x="412" y="170" width="336" height="58" rx="6" fill="#1E293B" stroke="#3B82F6" stroke-width="1"/>
+  <text x="424" y="190" fill="#FFFFFF" font-size="11.5" font-weight="700">1. Passport Photograph</text>
+  <text x="424" y="206" fill="#93C5FD" font-size="10.5">Size: <tspan fill="#34D399" font-weight="700">20 KB – 50 KB</tspan> | Dimensions: 3.5×4.5 cm (or 5×6 cm OTR)</text>
+  <text x="424" y="220" fill="#94A3B8" font-size="9.5">Clean light/white background, 75% face, both ears visible</text>
+
+  <!-- Item 2: Signature -->
+  <rect x="412" y="234" width="336" height="58" rx="6" fill="#1E293B" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="424" y="254" fill="#FFFFFF" font-size="11.5" font-weight="700">2. Candidate Signature (Black Ink Only)</text>
+  <text x="424" y="270" fill="#C4B5FD" font-size="10.5">Size: <tspan fill="#34D399" font-weight="700">10 KB – 20 KB</tspan> | Dimensions: 140×60 px (OTR max 30 KB)</text>
+  <text x="424" y="284" fill="#F87171" font-size="9.5">Running cursive only — Initials &amp; BLOCK CAPITALS rejected</text>
+
+  <!-- Item 3: Thumb -->
+  <rect x="412" y="298" width="336" height="58" rx="6" fill="#1E293B" stroke="#10B981" stroke-width="1"/>
+  <text x="424" y="318" fill="#FFFFFF" font-size="11.5" font-weight="700">3. Left Thumb Impression (LTI)</text>
+  <text x="424" y="334" fill="#A7F3D0" font-size="10.5">Size: <tspan fill="#34D399" font-weight="700">10 KB – 20 KB</tspan> | Clean Blue/Black stamp pad ink</text>
+  <text x="424" y="348" fill="#94A3B8" font-size="9.5">Clear ridge lines without ink smudges or excessive pressure</text>
+
+  <text x="412" y="374" fill="#FBBF24" font-size="10" font-weight="600">⚡ Use SignResize 3-in-1 tool to format all 3 files in one click.</text>
+</svg>

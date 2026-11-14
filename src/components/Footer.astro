@@ -26,6 +26,8 @@ let examAlertTitle = isUS
   : 'Never miss a 2026 SSC, State PSC, or Railway photo deadline';
 if (currentPath.includes('osssc')) {
   examAlertTitle = 'Never miss a 2026 OSSSC, OPSC, or Railway photo deadline';
+} else if (currentPath.includes('uppsc')) {
+  examAlertTitle = 'Never miss a 2026 UPPSC, RO/ARO, or UPSSSC photo deadline';
 } else if (currentPath.includes('wbpsc')) {
   examAlertTitle = 'Never miss a 2026 WBPSC, SSC, or Railway photo deadline';
 } else if (currentPath.includes('mppsc')) {
@@ -704,7 +706,8 @@ if (currentPath.includes('osssc')) {
               <span>🎓</span> State PSCs &amp; Entrances
             </div>
             <ul class="space-y-1.5">
-              <li><a href="/uppsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">UPPSC Uttar Pradesh PCS</a></li>
+              <li><a href="/uppsc-ro-aro-photo-signature-resize/" aria-current={currentPath === '/uppsc-ro-aro-photo-signature-resize/' ? "page" : undefined} class={currentPath === '/uppsc-ro-aro-photo-signature-resize/' ? "text-amber-400 font-bold" : "text-amber-400 font-semibold hover:text-amber-300 transition-colors"}>UPPSC RO/ARO Photo, Sign &amp; Thumb Resize</a></li>
+              <li><a href="/uppsc-signature-resize/" aria-current={currentPath === '/uppsc-signature-resize/' ? "page" : undefined} class={currentPath === '/uppsc-signature-resize/' ? "text-amber-400 font-bold" : "text-slate-300 hover:text-amber-300 transition-colors"}>UPPSC Signature Resize (10–20 KB)</a></li>
               <li><a href="/upsssc-pet-signature-resize/" class="text-amber-400 font-semibold hover:text-amber-300 transition-colors">UPSSSC PET &amp; Lekhpal (Hindi Sign)</a></li>
               <li><a href="/upsssc-pet-photo-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">UPSSSC PET Photo (3.5×4.5 cm)</a></li>
               <li><a href="/bpsc-signature-resize/" class="text-slate-300 hover:text-amber-300 transition-colors">BPSC Bihar Public Service</a></li>
