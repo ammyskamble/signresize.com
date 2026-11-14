@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <linearGradient id="photoBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Card Frame -->
+  <rect x="0" y="0" width="760" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <text x="80" y="26" fill="#94A3B8" font-size="12" font-weight="600">WBPSC Portal Photograph Upload Field Spec (138 × 177 px · 20 KB – 100 KB)</text>
+
+  <rect x="20" y="56" width="720" height="284" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left: Photograph Visual Diagram -->
+  <rect x="40" y="74" width="220" height="250" rx="8" fill="#0F172A" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="56" y="98" fill="#60A5FA" font-size="12" font-weight="700">Preview &amp; Dimensions</text>
+
+  <!-- Photo Box Representation (138 x 177 ratio) -->
+  <rect x="75" y="112" width="138" height="177" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+  
+  <!-- Face silhouette representation -->
+  <circle cx="144" cy="165" r="32" fill="#CBD5E1"/>
+  <path d="M102 245 C110 205, 178 205, 186 245 Z" fill="#94A3B8"/>
+
+  <!-- Dimension tags -->
+  <text x="114" y="106" fill="#38BDF8" font-size="11" font-weight="700">138 px (3.5 cm)</text>
+  <line x1="68" y1="112" x2="68" y2="289" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="32" y="206" fill="#38BDF8" font-size="10" font-weight="700" transform="rotate(-90 45,200)">177 px (4.5 cm)</text>
+  
+  <rect x="80" y="296" width="128" height="20" rx="4" fill="#10B981" opacity="0.15"/>
+  <text x="92" y="310" fill="#34D399" font-size="10" font-weight="700">✓ 52.4 KB (20–100 KB)</text>
+
+  <!-- Right: Verification Rules List -->
+  <rect x="280" y="74" width="440" height="250" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="300" y="100" fill="#F8FAFC" font-size="14" font-weight="700">Official WBPSC Photo Upload Requirements</text>
+
+  <g transform="translate(300, 116)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Exact Dimensions: <tspan fill="#38BDF8">138 × 177 pixels</tspan> (3.5 × 4.5 cm)</text>
+    <text x="24" y="28" fill="#94A3B8" font-size="11">Standard ~100 DPI scan aspect ratio compliant with OTR PDF.</text>
+  </g>
+
+  <g transform="translate(300, 160)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">File Size Range: <tspan fill="#34D399">20 KB to 100 KB</tspan> (JPEG format)</text>
+    <text x="24" y="28" fill="#94A3B8" font-size="11">OTR guideline sets max 100 KB; portal script checks &gt;= 20 KB.</text>
+  </g>
+
+  <g transform="translate(300, 204)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Background &amp; Quality: Clean White / Light Backdrop</text>
+    <text x="24" y="28" fill="#94A3B8" font-size="11">75% to 80% face coverage, both ears visible, neutral expression.</text>
+  </g>
+
+  <g transform="translate(300, 248)">
+    <circle cx="8" cy="8" r="8" fill="#EF4444" opacity="0.2"/>
+    <text x="4" y="12" fill="#F87171" font-size="11" font-weight="700">✗</text>
+    <text x="24" y="12" fill="#FCA5A5" font-size="12" font-weight="600">Strict Prohibitions</text>
+    <text x="24" y="28" fill="#94A3B8" font-size="11">No sunglasses, glare, headgear (except religious), or blurred selfies.</text>
+  </g>
+</svg>

@@ -56,39 +56,39 @@
 }
 
 :root {
-  --background: oklch(0.978 0.005 250);
-  --foreground: oklch(0.18 0.02 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 260);
-  --muted: oklch(0.94 0.008 250);
-  --muted-foreground: oklch(0.46 0.03 260);
-  --border: oklch(0.89 0.012 250);
-  --input: oklch(0.89 0.012 250);
-  --ring: oklch(0.52 0.22 260);
-  --primary: oklch(0.52 0.22 260);
-  --primary-foreground: oklch(0.99 0 0);
-  --accent: oklch(0.94 0.04 220);
-  --accent-foreground: oklch(0.35 0.18 250);
-  --cyan-glow: oklch(0.78 0.15 210);
-  --success: oklch(0.62 0.17 145);
+  --background: #fffef0;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --muted: #f4f2de;
+  --muted-foreground: #6b6b8c;
+  --border: #d8d7ee;
+  --input: #d8d7ee;
+  --ring: #3b3bff;
+  --primary: #3b3bff;
+  --primary-foreground: #ffffff;
+  --accent: rgba(59, 59, 255, 0.1);
+  --accent-foreground: #1a1a8c;
+  --cyan-glow: #3b3bff;
+  --success: #16a34a;
 }
 
 .dark {
-  --background: oklch(0.12 0.015 260);
-  --foreground: oklch(0.98 0.005 250);
-  --card: oklch(0.155 0.018 260);
-  --card-foreground: oklch(0.98 0.005 250);
-  --muted: oklch(0.19 0.02 260);
-  --muted-foreground: oklch(0.68 0.02 260);
-  --border: oklch(0.24 0.02 260);
-  --input: oklch(0.24 0.02 260);
-  --ring: oklch(0.65 0.22 255);
-  --primary: oklch(0.65 0.22 255);
-  --primary-foreground: oklch(0.10 0.02 260);
-  --accent: oklch(0.24 0.05 240);
-  --accent-foreground: oklch(0.85 0.12 220);
-  --cyan-glow: oklch(0.75 0.18 205);
-  --success: oklch(0.68 0.18 145);
+  --background: #0d0e1a;
+  --foreground: #ffffff;
+  --card: #131426;
+  --card-foreground: #ffffff;
+  --muted: #1a1c34;
+  --muted-foreground: #9b9bc0;
+  --border: #2a2c4e;
+  --input: #2a2c4e;
+  --ring: #5b5bff;
+  --primary: #3b3bff;
+  --primary-foreground: #ffffff;
+  --accent: rgba(59, 59, 255, 0.2);
+  --accent-foreground: #fffef0;
+  --cyan-glow: #7878ff;
+  --success: #27a644;
 }
 
 /* 🟢 Theme 2: Emerald Mint (Sarkari Trust Green) */
@@ -149,14 +149,61 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  letter-spacing: -0.008em;
   min-height: 100vh;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.tabular-nums {
+h1, h2, h3 {
+  letter-spacing: -0.025em;
+}
+
+.font-mono {
+  letter-spacing: 0.03em;
   font-variant-numeric: tabular-nums lining-nums;
+}
+
+.tabular-nums,
+input[type='number'],
+table,
+#preview-status-text {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Hairline card elevation & pure neutral crop canvas isolation */
+html:not(.dark) main .bg-card {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+html.dark main .bg-card {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+html:not(.dark) #crop-workspace {
+  background-color: #ffffff;
+  border-color: #d4d4d8;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+html.dark #crop-workspace {
+  background-color: #111214;
+  border-color: #27292f;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+[role='tablist'] {
+  background-color: var(--muted);
+  padding: 4px;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+}
+
+[role='tab'][aria-selected='true'] {
+  background-color: var(--card);
+  color: var(--foreground);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
 }
 
 /* Custom scrollbar */

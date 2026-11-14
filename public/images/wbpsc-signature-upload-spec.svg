@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <!-- Card Frame -->
+  <rect x="0" y="0" width="760" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <text x="80" y="26" fill="#94A3B8" font-size="12" font-weight="600">WBPSC Portal Signature Upload Field Spec (140 × 60 px · 10 KB – 20 KB)</text>
+
+  <rect x="20" y="56" width="720" height="284" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left: Signature Visual Diagram -->
+  <rect x="40" y="74" width="230" height="250" rx="8" fill="#0F172A" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="56" y="98" fill="#A78BFA" font-size="12" font-weight="700">Preview &amp; Dimensions</text>
+
+  <!-- Signature Box Representation (140 x 60 ratio) -->
+  <rect x="55" y="130" width="200" height="86" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+  
+  <!-- Realistic Signature Wave -->
+  <path d="M 68 180 Q 80 148 95 180 T 120 172 T 145 182 T 175 160 T 215 184" fill="none" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 125 188 L 195 188" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Dimension tags -->
+  <text x="100" y="122" fill="#A78BFA" font-size="11" font-weight="700">140 px (or 138 px)</text>
+  <line x1="46" y1="130" x2="46" y2="216" stroke="#A78BFA" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="24" y="180" fill="#A78BFA" font-size="10" font-weight="700" transform="rotate(-90 32,176)">60 px</text>
+
+  <rect x="70" y="235" width="170" height="24" rx="4" fill="#10B981" opacity="0.15"/>
+  <text x="82" y="251" fill="#34D399" font-size="11" font-weight="700">✓ 14.8 KB (10–20 KB)</text>
+  <text x="80" y="280" fill="#94A3B8" font-size="10">OTR Max Guideline Cap: 100 KB</text>
+
+  <!-- Right: Verification Rules List -->
+  <rect x="290" y="74" width="430" height="250" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="310" y="100" fill="#F8FAFC" font-size="14" font-weight="700">Official WBPSC Signature Upload Rules</text>
+
+  <g transform="translate(310, 116)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Pixel Size: <tspan fill="#A78BFA">140 × 60 px</tspan> (or 138 × 59 px)</text>
+    <text x="24" y="28" fill="#94A3B8" font-size="11">Standard 7:3 aspect ratio matching the ucanapply portal validator.</text>
+  </g>
+
+  <g transform="translate(310, 160)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">File Weight: <tspan fill="#34D399">10 KB to 20 KB</tspan> (JPEG format)</text>
+    <text x="24" y="28" fill="#94A3B8" font-size="11">Master guideline allows ≤100 KB; portal bounds enforce 10–20 KB.</text>
+  </g>
+
+  <g transform="translate(310, 204)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Pen Ink: Black or Dark Blue Ballpoint Ink</text>
+    <text x="24" y="28" fill="#94A3B8" font-size="11">Sign on clean white paper in normal running cursive handwriting.</text>
+  </g>
+
+  <g transform="translate(310, 248)">
+    <circle cx="8" cy="8" r="8" fill="#EF4444" opacity="0.2"/>
+    <text x="4" y="12" fill="#F87171" font-size="11" font-weight="700">✗</text>
+    <text x="24" y="12" fill="#FCA5A5" font-size="12" font-weight="600">Disqualification Warning</text>
+    <text x="24" y="28" fill="#94A3B8" font-size="11">BLOCK CAPITAL letters, pencil, gel bleed, or cropped signatures rejected.</text>
+  </g>
+</svg>

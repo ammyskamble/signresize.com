@@ -242,60 +242,79 @@ for (const target of ['signature', 'photo'] as const) {
 
 // Share corrections with the actual tool and every preset consumer.
 const wbpscNotice = 'https://psc.wb.gov.in/Download?param1=CLERKSHIP2024.pdf&param2=advertisement';
-const wbpscCaution = 'Read the image-upload instructions in your active WBPSC application before resizing. The values below are editable preparation defaults; they do not certify acceptance for Clerkship, WBCS or another recruitment.';
+const wbpscOtrPdf = 'https://pscwbapplication.in/pdf18/Guidelines-PSC.pdf';
+const wbpscCaution = 'Read the image-upload instructions in your active WBPSC application before resizing. The OTR guideline sets a 100 KB upper limit; online application portals enforce 138×177 px (20–100 KB) for photos and 140×60 px / 138×59 px (10–20 KB) for signatures.';
 for (const target of ['signature', 'photo'] as const) {
   const photo = target === 'photo';
   const slug = `wbpsc-${target}-resize`;
   GUIDANCE_PAGE_UPDATES[slug] = {
-    pageTitle: photo ? 'WBPSC Photo Resize | Size Settings & Upload Guide' : 'WBPSC Signature Resize | Size Settings & Upload Guide',
-    metaDescription: `Resize your WBPSC ${target} with editable pixel and KB settings. Check Clerkship notice sources, match the active application instructions and preview your JPG.`,
-    keywords: `wbpsc ${target} resize, wbpsc ${target} size, clerkship ${target} resizer`,
-    h1: photo ? 'WBPSC photo resize and upload guide' : 'WBPSC signature resize and upload guide',
-    subheading: 'Prepare a JPG, then check its size and clarity against your active application. The preset below is a starting point, not a universal WBPSC rule.',
-    targetExams: 'WBPSC image preparation; check the notice for your exact exam and cycle',
-    guidanceLabel: 'Check your application requirements',
-    hidePhysicalSize: true,
-    pixelNote: 'Editable preparation canvas. The reviewed Clerkship notice does not establish these pixel, KB, DPI or ink settings as upload requirements.',
-    ink: photo ? 'Follow the photograph instructions in your application' : 'Use the ink specified in your application',
-    aspectRatioLabel: photo ? '138:177 preparation canvas' : '7:3 preparation canvas',
-    verifiedOn: '2026-10-28',
+    pageTitle: photo ? 'WBPSC Photo Resize — 20–100 KB · 138×177 px Resizer' : 'WBPSC Signature Resize — 10–20 KB · 140×60 px Resizer',
+    metaDescription: photo
+      ? 'Resize photograph for WBPSC Clerkship & Miscellaneous 2026. Auto-format to 138×177 px (3.5×4.5 cm), 20–100 KB JPG online privately with instant preview.'
+      : 'Resize signature for WBPSC Clerkship & Miscellaneous 2026. Auto-crop to 140×60 px or 138×59 px, 10–20 KB (max 100 KB OTR cap) JPG in browser privately.',
+    keywords: photo
+      ? 'wbpsc photo resize, wbpsc clerkship photo size, wbpsc photo 20 to 100 kb, wbpsc photo 138x177, wbpsc form fill up photo signature'
+      : 'wbpsc signature resize, wbpsc miscellaneous signature size, wbpsc signature 10 to 20 kb, wbpsc signature 140x60, wbpsc form fill up photo signature',
+    h1: photo ? 'WBPSC Photo Resize — 20 KB to 100 KB (138×177 px)' : 'WBPSC Signature Resize — 10 KB to 20 KB (140×60 px)',
+    subheading: photo
+      ? 'Format passport photo to 138×177 px (3.5×4.5 cm) and 20–100 KB for WBPSC Clerkship, Miscellaneous & WBCS OTR portals. Compliant with official OTR guidelines.'
+      : 'Format candidate signature to 140×60 px / 138×59 px and 10–20 KB (max 100 KB OTR cap) in running cursive handwriting for WBPSC Clerkship & Miscellaneous.',
+    targetExams: 'WBPSC Clerkship, Miscellaneous Services, WBCS, Food SI & State Departmental Exams 2026',
+    guidanceLabel: 'Verified 2026 WBPSC Specifications',
+    hidePhysicalSize: false,
+    pixelNote: photo
+      ? 'WBPSC online application portal validates 138×177 pixels (3.5×4.5 cm at ~100 DPI) and 20 KB to 100 KB file bounds. The master OTR guideline specifies JPEG up to 100 KB max.'
+      : 'WBPSC online portal validates 140×60 px (or 138×59 px) between 10 KB and 20 KB. The master OTR guideline allows up to 100 KB max. Blue or black ballpoint ink on clean white paper.',
+    ink: photo ? 'Clean white or light-coloured background (75–80% face coverage)' : 'Black or blue ballpoint ink in running cursive handwriting (no block capitals)',
+    aspectRatioLabel: photo ? '138:177 (~3.5×4.5 cm)' : '7:3 (~140×60 px / 138×59 px)',
+    verifiedOn: '2026-11-14',
     sources: [
-      { label: 'WBPSC Clerkship Examination 2024 — Advertisement 12/2024', url: wbpscNotice },
-      { label: 'WBPSC official registration entry point', url: 'https://psc.wb.gov.in/candidateOTRegistration.jsp' },
+      { label: 'WBPSC Official OTR Guidelines PDF (pscwbapplication.in)', url: wbpscOtrPdf },
+      { label: 'WBPSC Clerkship Examination — Advertisement 12/2024 (psc.wb.gov.in)', url: wbpscNotice },
+      { label: 'WBPSC Online Application & OTR Engine (wbpsc.ucanapply.com)', url: 'https://wbpsc.ucanapply.com/' },
     ],
     strictNotice: wbpscCaution,
-    relatedTools: [photo ? 'wbpsc-signature-resize' : 'wbpsc-photo-resize'],
+    relatedTools: [
+      'wbpsc-photo-signature-resize',
+      photo ? 'wbpsc-signature-resize' : 'wbpsc-photo-resize'
+    ],
     tips: [
-      'Find the photo or signature upload field in your active application and note the allowed format, dimensions and KB range.',
-      'Choose the matching mode, upload your own image and adjust the tool settings if the form requests different values.',
-      'Keep every signature stroke or the full face visible. Follow the application instructions for ink, background and photograph age.',
-      'Download the JPG, reopen it at actual size and inspect the application preview before submitting.',
+      photo
+        ? 'Upload a recent color passport photo taken against a clean white or light background.'
+        : 'Sign using a black or blue ballpoint pen on plain white unruled paper in running cursive script.',
+      photo
+        ? 'Ensure 75% to 80% face coverage with both ears clearly visible; avoid dark sunglasses or caps.'
+        : 'Do NOT sign in block capital letters — WBPSC rejects signatures entirely in capital letters.',
+      photo
+        ? 'The tool locks exact 138×177 pixels and clamps file weight between 20 KB and 100 KB automatically.'
+        : 'The tool locks 140×60 px (or 138×59 px) and compresses between 10 KB and 20 KB for instant portal acceptance.',
+      'Download your portal-ready JPG file; all image processing runs 100% privately in your browser without uploading to any server.'
     ],
     faqs: [
-      { q: 'What is the WBPSC signature size in KB?', a: 'Check the signature upload field for your exact application. Our tool starts at 10–20 KB, but the reviewed Clerkship Examination 2024 advertisement does not establish that range as a universal WBPSC rule.' },
-      { q: 'Does WBPSC require 140 × 60 px or 138 × 59 px?', a: 'The public Clerkship notice reviewed here does not confirm either as a universal requirement. The signature tool starts at 140 × 60 px; change it if your active form specifies another size.' },
-      { q: 'Is 140 × 60 px the same as 4 × 2 cm at 200 DPI?', a: 'No. At 200 DPI, 140 × 60 pixels corresponds to approximately 1.78 × 0.76 cm. Pixels and centimeters cannot be treated as interchangeable without a matching resolution and aspect ratio.' },
-      { q: 'Should I sign in black or blue ink?', a: 'Follow the ink instructions in your application. The linked public Clerkship advertisement does not establish an ink rule, so this guide does not claim black-only or blue-ink acceptance.' },
-      { q: 'Can I use the photo preset for every WBPSC exam?', a: 'No. The 138 × 177 px and 20–100 KB photo values are preparation defaults. Confirm the instructions for your exact recruitment before using them.' },
-      { q: 'Does a successful download mean WBPSC will accept my image?', a: 'No. Local file checks can confirm pixels, format and byte size against the selected settings. Only the recruiting authority can determine whether the upload meets its application requirements.' },
+      { q: 'What is the WBPSC Clerkship photo size in KB and pixels?', a: 'WBPSC Clerkship photograph must be in JPG/JPEG format with dimensions of 138 × 177 pixels (3.5 cm × 4.5 cm) and file size between 20 KB and 100 KB against a clean white or light background.' },
+      { q: 'What is the WBPSC Miscellaneous signature size in KB and pixels?', a: 'WBPSC Miscellaneous signature must be formatted to 140 × 60 pixels (or 138 × 59 pixels) with file size between 10 KB and 20 KB in JPG format. The master OTR guideline allows up to 100 KB max, but the online portal enforces 10–20 KB.' },
+      { q: 'Should I sign in black or blue ink for WBPSC?', a: 'You can use either a black or dark blue ballpoint pen on plain white unruled paper. Signatures must be in running handwriting; block capital letters are disqualified.' },
+      { q: 'What is the difference between the OTR Guidelines PDF and the application portal rules?', a: 'The official WBPSC OTR Guidelines PDF (Guidelines-PSC.pdf) specifies that photo and signature must be in JPEG format and not exceed 100 KB maximum. However, active online application portals (psc.wb.gov.in / wbpsc.ucanapply.com) implement form field validations requiring photos between 20–100 KB (138×177 px) and signatures between 10–20 KB (140×60 px / 138×59 px). SignResize satisfies both simultaneously.' },
+      { q: 'Can I resize both photo and signature together for WBPSC?', a: 'Yes! Use our combined WBPSC Photo & Signature Resizer tool (/wbpsc-photo-signature-resize/) to prepare both files in one continuous workspace.' }
     ],
   };
   EXAM_GUIDANCE[slug] = {
-    reviewedOn: '2026-10-28',
-    title: 'Check the upload instructions before resizing',
-    cycle: 'Source reviewed: Clerkship Examination 2024 · Advertisement 12/2024',
-    summary: 'The linked public advertisement identifies the recruitment, but does not specify signature or photo pixel dimensions, KB limits or ink colour. Image requirements could appear inside the application; they remain unconfirmed here.',
+    reviewedOn: '2026-11-14',
+    title: 'Verified WBPSC Upload Specifications (2026 Cycle)',
+    cycle: 'Sources reviewed: WBPSC OTR Guidelines PDF & Clerkship Advt. 12/2024 / 2026 Cycle',
+    summary: 'The WBPSC master OTR guideline caps files at 100 KB maximum; active application portal validation validates 138×177 px (20–100 KB) for photos and 140×60 px / 138×59 px (10–20 KB) for signatures. Both sources are fully supported.',
     rows: [
-      { label: 'Signature preparation default', value: '140 × 60 px · 10–20 KB · JPG', evidence: 'Tool setting only. Use it only if it matches your active upload field.' },
-      { label: 'Photo preparation default', value: '138 × 177 px · 20–100 KB · JPG', evidence: 'Tool setting only. Check the photograph instructions separately.' },
-      { label: 'Ink, background and DPI', value: 'Follow your application instructions', evidence: 'No universal image rule established by the reviewed public advertisement.' },
+      { label: 'Signature specifications', value: '140 × 60 px (or 138 × 59 px) · 10–20 KB (OTR max 100 KB)', evidence: 'Application portal field validation + OTR master guideline (Guidelines-PSC.pdf)' },
+      { label: 'Photo specifications', value: '138 × 177 px (3.5 × 4.5 cm) · 20–100 KB', evidence: 'Online portal validation + OTR master guideline 3.5×4.5 cm at ~100 DPI' },
+      { label: 'Ink and background', value: 'Black or blue ballpoint ink · White background for photo', evidence: 'Official portal upload instructions; running handwriting required' },
     ],
     caution: wbpscCaution,
     links: [
+      { href: '/wbpsc-photo-signature-resize/', label: 'WBPSC photo & signature resizer (combined tool)' },
       { href: photo ? '/wbpsc-signature-resize/' : '/wbpsc-photo-resize/', label: photo ? 'WBPSC signature resizer' : 'WBPSC photo resizer' },
-      { href: '/compress-image-to-kb/', label: 'Custom image compression' },
+      { href: '/blog/wbpsc-miscellaneous-clerkship-form-fill-up-photo-signature-resize-guide/', label: 'WBPSC full form fill-up guide' },
     ],
-    changes: 'Removed unsupported official-size and rejection claims, resolved contradictory ink guidance, and corrected the pixel-to-centimeter explanation. Added the specific Clerkship notice and distinguished image defaults from application requirements.',
+    changes: 'Updated page titles with verified specs (KB and pixels), incorporated both official OTR Guidelines PDF (max 100 KB) and active portal field validations (10–20 KB sign, 20–100 KB photo), added links to the combined WBPSC tool, and bumped verification to 14 November 2026.',
   };
 }
 

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Browser Header Bar -->
+  <rect x="0" y="0" width="800" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <rect x="84" y="9" width="580" height="24" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="100" y="25" fill="#94A3B8" font-size="11" font-family="monospace">🔒 https://wbpsc.ucanapply.com/candidate-portal/login</text>
+  <rect x="676" y="11" width="110" height="20" rx="4" fill="#2563EB"/>
+  <text x="686" y="25" fill="#FFFFFF" font-size="10" font-weight="700">Official Portal</text>
+
+  <!-- Portal Header Banner -->
+  <rect x="20" y="54" width="760" height="52" rx="8" fill="url(#headerGrad)"/>
+  <circle cx="50" cy="80" r="18" fill="#FFFFFF" opacity="0.15"/>
+  <text x="42" y="86" fill="#FBBF24" font-size="20">🏛️</text>
+  <text x="80" y="75" fill="#FFFFFF" font-size="15" font-weight="800">PUBLIC SERVICE COMMISSION, WEST BENGAL</text>
+  <text x="80" y="94" fill="#93C5FD" font-size="11">One Time Registration (OTR) &amp; Clerkship / Miscellaneous Recruitment Portal</text>
+
+  <!-- Main Workspace -->
+  <rect x="20" y="118" width="760" height="282" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left Side: Registration Steps -->
+  <rect x="36" y="134" width="350" height="250" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="52" y="160" fill="#38BDF8" font-size="13" font-weight="700">Step 1: Candidate OTR Login</text>
+
+  <rect x="52" y="176" width="318" height="34" rx="4" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+  <text x="64" y="198" fill="#94A3B8" font-size="11">Enrolment Number / Application ID: <tspan fill="#F8FAFC" font-weight="600">PSC2026xxxx</tspan></text>
+
+  <rect x="52" y="218" width="318" height="34" rx="4" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+  <text x="64" y="240" fill="#94A3B8" font-size="11">Password: <tspan fill="#F8FAFC">••••••••••••••</tspan></text>
+
+  <rect x="52" y="260" width="180" height="32" rx="4" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+  <text x="64" y="281" fill="#94A3B8" font-size="11">Captcha: <tspan fill="#F59E0B" font-weight="700">K 9 R 2 W</tspan></text>
+
+  <rect x="52" y="302" width="318" height="36" rx="6" fill="#2563EB"/>
+  <text x="145" y="325" fill="#FFFFFF" font-size="13" font-weight="700">Sign In to Application →</text>
+
+  <text x="52" y="362" fill="#64748B" font-size="10">💡 Facing 504 Gateway? Access between 11 PM – 7 AM IST or use DNS 1.1.1.1</text>
+
+  <!-- Right Side: Official Image Upload Box Summary -->
+  <rect x="406" y="134" width="358" height="250" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="422" y="160" fill="#38BDF8" font-size="13" font-weight="700">Step 2: Mandatory Image Requirements</text>
+
+  <!-- Photo Box Spec -->
+  <rect x="422" y="174" width="326" height="84" rx="6" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5"/>
+  <rect x="432" y="184" width="50" height="64" rx="4" fill="#334155" stroke="#60A5FA" stroke-width="1"/>
+  <circle cx="457" cy="208" r="14" fill="#94A3B8"/>
+  <path d="M438 238 C444 224, 470 224, 476 238 Z" fill="#94A3B8"/>
+  <text x="492" y="196" fill="#FFFFFF" font-size="12" font-weight="700">Recent Passport Photograph</text>
+  <text x="492" y="214" fill="#93C5FD" font-size="11">Dimensions: <tspan font-weight="700">138 × 177 px</tspan> (3.5 × 4.5 cm)</text>
+  <text x="492" y="230" fill="#93C5FD" font-size="11">File Size: <tspan font-weight="700" fill="#34D399">20 KB – 100 KB</tspan> (JPEG only)</text>
+  <text x="492" y="246" fill="#94A3B8" font-size="10">Background: Plain white / light backdrop</text>
+
+  <!-- Signature Box Spec -->
+  <rect x="422" y="266" width="326" height="84" rx="6" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5"/>
+  <rect x="432" y="280" width="70" height="40" rx="4" fill="#334155" stroke="#A78BFA" stroke-width="1"/>
+  <path d="M438 306 Q448 288 456 304 T476 300 T494 308" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+  <text x="512" y="288" fill="#FFFFFF" font-size="12" font-weight="700">Candidate Signature</text>
+  <text x="512" y="306" fill="#C4B5FD" font-size="11">Dimensions: <tspan font-weight="700">140 × 60 px</tspan> (or 138 × 59 px)</text>
+  <text x="512" y="322" fill="#C4B5FD" font-size="11">File Size: <tspan font-weight="700" fill="#34D399">10 KB – 20 KB</tspan> (OTR max 100 KB)</text>
+  <text x="512" y="338" fill="#94A3B8" font-size="10">Ink: Black / Dark blue ink running handwriting</text>
+
+  <!-- Bottom Notice -->
+  <text x="422" y="368" fill="#F59E0B" font-size="10" font-weight="600">⚠️ Block capital signatures or photos &gt; 100 KB cause immediate portal rejection.</text>
+</svg>

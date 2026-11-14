@@ -1,0 +1,469 @@
+---
+// src/pages/wbpsc-photo-signature-resize.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import { SignatureTool } from '../components/SignatureTool';
+
+const pageTitle = "WBPSC Photo & Signature Resize — Clerkship & Miscellaneous (138×177 px · 140×60 px)";
+const metaDescription = "Resize photo (138×177 px, 20–100 KB) and signature (140×60 px, 10–20 KB, max 100 KB) for WBPSC Clerkship & Miscellaneous 2026. 100% private in-browser tool.";
+const canonicalUrl = "https://signresize.in/wbpsc-photo-signature-resize/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+const currentYear = 2026;
+
+const faqs = [
+  {
+    q: "What is the exact WBPSC Clerkship photo size in KB and pixels?",
+    a: "For WBPSC Clerkship (Advt 12/2024 / 2026 cycle), the photograph must be in JPEG/JPG format with exact pixel dimensions of 138 × 177 pixels (3.5 cm × 4.5 cm at ~100 DPI) and file size between 20 KB and 100 KB. It must be a recent portrait with 75% to 80% face coverage against a clean white or light-coloured background."
+  },
+  {
+    q: "What is the WBPSC Miscellaneous signature size in KB and pixels?",
+    a: "For WBPSC Miscellaneous Services and Clerkship, the signature must be formatted to 140 × 60 pixels (or 138 × 59 pixels) with a file size between 10 KB and 20 KB in JPG format. While the master OTR Guidelines PDF allows up to 100 KB max, the active online portal validation enforces the 10 KB to 20 KB range."
+  },
+  {
+    q: "What are the combined photo and signature specifications for WBPSC form fill up 2026?",
+    a: "Photograph: 138 × 177 px (3.5 × 4.5 cm), 20 KB to 100 KB JPEG against a light/white background. Signature: 140 × 60 px or 138 × 59 px, 10 KB to 20 KB (max 100 KB OTR cap) JPEG in running cursive handwriting using black or dark blue ballpoint ink. Both images can be resized here in one workspace."
+  },
+  {
+    q: "What is the difference between the OTR Guidelines PDF and the application portal rules?",
+    a: "The official master WBPSC OTR Guidelines PDF (pscwbapplication.in/pdf18/Guidelines-PSC.pdf) specifies that both photograph and signature must be in JPEG format and not exceed 100 KB maximum (with photo at 3.5 × 4.5 cm). The active application portal software (wbpsc.ucanapply.com) applies form field validation requiring photos between 20–100 KB (138×177 px) and signatures between 10–20 KB (140×60 px / 138×59 px). SignResize satisfies both standards simultaneously."
+  },
+  {
+    q: "Can I sign in blue ink or capital letters for WBPSC applications?",
+    a: "You can sign with either a black or dark blue ballpoint pen on plain white unruled paper. Signatures must be in normal running cursive handwriting. Do NOT sign in BLOCK CAPITAL letters; signatures written entirely in capital letters are disqualified by the Commission."
+  },
+  {
+    q: "Why does the WBPSC portal show 'Invalid image dimensions or file size'?",
+    a: "This error occurs when the uploaded file deviates from 138 × 177 px (for photo) or 140 × 60 px / 138 × 59 px (for signature), or if the file weight is outside 20–100 KB (photo) or 10–20 KB (signature). Our tool locks exact pixel boundaries and file weights to prevent this rejection."
+  }
+];
+
+const howToSteps = [
+  {
+    name: "Select WBPSC Image Mode",
+    text: "Choose between 'WBPSC Photo' (138×177 px, 20–100 KB) or 'WBPSC Sign' (140×60 px, 10–20 KB) using the quick preset buttons below."
+  },
+  {
+    name: "Upload Photo or Scanned Signature",
+    text: "Upload your camera photo or scanned image. Processing runs client-side inside your browser without uploading your photo to any external server."
+  },
+  {
+    name: "Adjust Crop & Clean Paper Background",
+    text: "Use the crop box to frame your face (75–80% coverage) or crop tight around your cursive signature strokes. Use the 'Clean White Paper' toggle to whiten shadowy backgrounds."
+  },
+  {
+    name: "Download Portal-Ready JPG",
+    text: "Review the instant real-time pixel and KB indicator. Click 'Download' to get your validated JPG file ready for immediate upload on wbpsc.ucanapply.com or psc.wb.gov.in."
+  }
+];
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="keywords" content="wbpsc photo signature resize, wbpsc clerkship photo size, wbpsc miscellaneous signature size, wbpsc form fill up photo signature, wbpsc photo resize 138x177, wbpsc signature resize 140x60, wbpsc signature 10 to 20 kb, wbcs photo signature resizer" />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <GoogleFonts />
+
+    <!-- WebApplication & SoftwareApplication Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["SoftwareApplication", "WebApplication"],
+      "name": "WBPSC Photo & Signature Resizer Studio",
+      "url": canonicalUrl,
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
+      "description": metaDescription,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "featureList": [
+        "WBPSC Photo: 138x177 px (3.5x4.5 cm) clamped to 20-100 KB",
+        "WBPSC Signature: 140x60 px / 138x59 px clamped to 10-20 KB (max 100 KB OTR cap)",
+        "Instant toggle between Photo and Signature modes in one workspace",
+        "Clean White Paper shadow remover for scanned signatures",
+        "100% private in-browser client-side processing without server upload"
+      ]
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "State PSC Resizers",
+          "item": "https://signresize.in/#state-pscs"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "WBPSC Photo & Signature Resize",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize Photo and Signature for WBPSC Clerkship & Miscellaneous",
+      "description": "Step-by-step instructions to format passport photograph (138×177 px, 20–100 KB) and signature (140×60 px, 10–20 KB) for West Bengal PSC online recruitment portals.",
+      "step": howToSteps.map((step, idx) => ({
+        "@type": "HowToStep",
+        "position": idx + 1,
+        "name": step.name,
+        "text": step.text
+      }))
+    })} />
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-5 space-y-4">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/wbpsc-signature-resize/" class="hover:text-primary transition">WBPSC Tools</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Photo &amp; Signature Combined Tool</span>
+      </nav>
+
+      <!-- Hero Header Banner -->
+      <section class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Verified {currentYear} Specifications
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                100% Client-Side Private
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-mono text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20">
+                West Bengal Public Service Commission
+              </span>
+              <a
+                href="https://pscwbapplication.in/pdf18/Guidelines-PSC.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-primary bg-primary/10 border border-primary/20 hover:bg-primary/20 transition"
+              >
+                <span>Official Guidelines PDF ↗</span>
+              </a>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+              WBPSC Photo &amp; Signature Resize — Clerkship &amp; Miscellaneous
+            </h1>
+            
+            <!-- Application cycle & last-date timeline banner -->
+            <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-medium text-foreground bg-primary/10 border border-primary/25 rounded-xl px-3.5 py-2 max-w-4xl">
+              <span class="font-bold text-primary">📢 Cycle Timeline &amp; Status:</span>
+              <span>WBPSC Clerkship (Advt. 12/2024 / 2026 Cycle) &amp; Miscellaneous Services. Application Edit Window and Part-I schedule updates available at <code class="font-mono text-xs">psc.wb.gov.in</code>.</span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-muted-foreground max-w-4xl leading-relaxed">
+              Prepare both your <strong>Passport Photograph (138×177 px, 20–100 KB)</strong> and <strong>Candidate Signature (140×60 px / 138×59 px, 10–20 KB)</strong> in ONE single resizer. Fully compliant with both the official WBPSC OTR Guidelines PDF and the online portal (<code class="font-mono text-primary">wbpsc.ucanapply.com</code>).
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button
+                type="button"
+                id="btn-switch-sign"
+                class="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs sm:text-sm font-bold text-primary-foreground hover:opacity-90 transition shadow-xs cursor-pointer"
+              >
+                ✍️ Resize Signature (140×60 px · 10–20 KB)
+              </button>
+              <button
+                type="button"
+                id="btn-switch-photo"
+                class="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 py-2.5 text-xs sm:text-sm font-bold text-foreground hover:border-primary/50 transition cursor-pointer"
+              >
+                📷 Resize Photo (138×177 px · 20–100 KB)
+              </button>
+              <a href="#official-specs" class="inline-flex min-h-11 items-center text-xs sm:text-sm font-semibold text-primary underline underline-offset-4">
+                View Official Spec Table ↓
+              </a>
+              <a href="/blog/wbpsc-miscellaneous-clerkship-form-fill-up-photo-signature-resize-guide/" class="inline-flex min-h-11 items-center text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground">
+                Read Step-by-Step Form Fill Guide →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Resizer Tool Section -->
+      <section id="crop-workspace" class="scroll-mt-16 bg-transparent sm:bg-card border-0 sm:border border-border rounded-2xl p-0 sm:p-6 shadow-none sm:shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
+        <SignatureTool 
+          client:idle
+          initialPresetId="wbpsc-west-bengal" 
+          initialMode="signature"
+        />
+      </section>
+
+      <!-- Official Specification Comparison Table -->
+      <section id="official-specs" class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+              <span>📋</span> Official WBPSC Photo &amp; Signature Upload Specifications
+            </h2>
+            <p class="text-xs text-muted-foreground">Cross-checked against the official OTR Guidelines PDF and active application portal validation rules.</p>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shrink-0">
+            Verified November 2026
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[640px] text-xs sm:text-sm text-left border border-border">
+            <caption class="sr-only">WBPSC Photo and Signature Specifications</caption>
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th scope="col" class="p-3 border-b">Document Type</th>
+                <th scope="col" class="p-3 border-b">Format</th>
+                <th scope="col" class="p-3 border-b">Pixel Dimensions</th>
+                <th scope="col" class="p-3 border-b">File Size (KB)</th>
+                <th scope="col" class="p-3 border-b">Rules &amp; Background</th>
+                <th scope="col" class="p-3 border-b">Official Source Reference</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <tr class="hover:bg-muted/40 transition">
+                <th scope="row" class="p-3 font-semibold text-primary">Passport Photograph</th>
+                <td class="p-3">JPEG / JPG</td>
+                <td class="p-3 font-mono font-bold">138 × 177 px<br/><span class="text-[11px] text-muted-foreground font-normal">(3.5 × 4.5 cm at ~100 DPI)</span></td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">20 KB – 100 KB</td>
+                <td class="p-3">Clean white or light background. 75–80% face coverage with both ears visible. No caps or dark glasses.</td>
+                <td class="p-3 text-[11px] text-muted-foreground">
+                  <a href="https://pscwbapplication.in/pdf18/Guidelines-PSC.pdf" target="_blank" rel="noopener noreferrer" class="text-primary underline">OTR Guidelines PDF (p. 1) ↗</a> &amp; Application Form Validator
+                </td>
+              </tr>
+              <tr class="hover:bg-muted/40 transition">
+                <th scope="row" class="p-3 font-semibold text-primary">Candidate Signature</th>
+                <td class="p-3">JPEG / JPG</td>
+                <td class="p-3 font-mono font-bold">140 × 60 px<br/><span class="text-[11px] text-muted-foreground font-normal">(or 138 × 59 px variant)</span></td>
+                <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">10 KB – 20 KB<br/><span class="text-[10px] text-muted-foreground font-normal">(OTR cap: max 100 KB)</span></td>
+                <td class="p-3">Black or dark blue ballpoint ink on plain white unruled paper in running handwriting. <strong class="text-red-500">No BLOCK LETTERS</strong>.</td>
+                <td class="p-3 text-[11px] text-muted-foreground">
+                  <a href="https://psc.wb.gov.in/Download?param1=CLERKSHIP2024.pdf&param2=advertisement" target="_blank" rel="noopener noreferrer" class="text-primary underline">Clerkship Notice (Advt 12/2024) ↗</a> &amp; <code class="font-mono">wbpsc.ucanapply.com</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3.5 text-xs text-foreground/90 space-y-1">
+          <p><strong>💡 Why are two different signature sizes mentioned (100 KB vs 10–20 KB)?</strong></p>
+          <p class="text-muted-foreground leading-relaxed">
+            The master OTR registration guidelines document (<code class="font-mono">Guidelines-PSC.pdf</code>) defines an upper file-size ceiling of <strong>not more than 100 KB</strong>. However, the active online application engine (<code class="font-mono">wbpsc.ucanapply.com</code>) validates candidate uploads against a tighter <strong>10 KB to 20 KB</strong> range with <strong>140×60 px / 138×59 px</strong> dimensions. Using SignResize ensures your files comply with both standards seamlessly.
+          </p>
+        </div>
+      </section>
+
+      <!-- Step-by-Step Portal Guide with Visuals -->
+      <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-5">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground">
+            How to Upload Photo &amp; Signature on WBPSC Portal (<code class="font-mono text-sm text-primary">wbpsc.ucanapply.com</code>)
+          </h2>
+          <p class="text-xs text-muted-foreground">Follow these 4 visual steps to complete your image upload without gateway timeouts or rejection errors.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Step 1 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</span>
+              <h3 class="font-bold text-sm text-foreground">OTR Login &amp; Form Fill Up</h3>
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Visit <code class="font-mono text-primary font-bold">wbpsc.ucanapply.com</code>. Enter your Enrolment Number and Password. If the portal is busy, access during off-peak hours (11:00 PM – 7:00 AM IST) or open an Incognito window.
+            </p>
+            <div class="rounded-lg overflow-hidden border border-border bg-slate-900">
+              <img src="/images/wbpsc-otr-portal-mockup.svg" alt="WBPSC OTR Portal Candidate Login Interface" class="w-full h-auto" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Step 2 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</span>
+              <h3 class="font-bold text-sm text-foreground">Photograph Upload (138×177 px)</h3>
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Upload your recent passport photo. The portal validates exact 138×177 px dimensions and 20–100 KB weight. Ensure a plain white or light backdrop with 75–80% face coverage.
+            </p>
+            <div class="rounded-lg overflow-hidden border border-border bg-slate-900">
+              <img src="/images/wbpsc-photo-upload-spec.svg" alt="WBPSC Photograph Upload Specification Diagram" class="w-full h-auto" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Step 3 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">3</span>
+              <h3 class="font-bold text-sm text-foreground">Signature Upload (140×60 px · 10–20 KB)</h3>
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Upload your cursive signature signed in black or dark blue ink. Our tool clamps the file into 10–20 KB and whitens shadows automatically with Clean White Paper.
+            </p>
+            <div class="rounded-lg overflow-hidden border border-border bg-slate-900">
+              <img src="/images/wbpsc-signature-upload-spec.svg" alt="WBPSC Signature Upload Specification Diagram" class="w-full h-auto" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Step 4 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">4</span>
+              <h3 class="font-bold text-sm text-foreground">Validation Pass &amp; Confirmation Slip</h3>
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Once both images show green validated status, review demographic details, submit your final application, and download the WBPSC Acknowledgement Confirmation PDF.
+            </p>
+            <div class="rounded-lg overflow-hidden border border-border bg-slate-900">
+              <img src="/images/wbpsc-portal-validation-success.svg" alt="WBPSC Portal Validation Pass & Acknowledgement" class="w-full h-auto" loading="lazy" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions -->
+      <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold text-foreground">
+          Frequently Asked Questions (WBPSC Photo &amp; Signature)
+        </h2>
+        <div class="space-y-3">
+          {faqs.map(faq => (
+            <details class="rounded-xl border border-border bg-muted/10 p-3.5 sm:p-4 group">
+              <summary class="cursor-pointer font-semibold text-xs sm:text-sm text-foreground flex items-center justify-between">
+                <span>{faq.q}</span>
+                <span class="text-muted-foreground group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="pt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <!-- Deep Internal Links Navigation -->
+      <nav aria-label="WBPSC Related Tools and Guides" class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-3">
+        <h3 class="text-sm font-bold text-foreground">Explore Related WBPSC Resources &amp; Specific Tools</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <a href="/wbpsc-signature-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            ✍️ Dedicated WBPSC Signature Resizer (10–20 KB) →
+          </a>
+          <a href="/wbpsc-photo-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            📷 Dedicated WBPSC Photo Resizer (20–100 KB) →
+          </a>
+          <a href="/blog/wbpsc-miscellaneous-clerkship-form-fill-up-photo-signature-resize-guide/" class="min-h-11 inline-flex items-center rounded-xl bg-primary/10 border border-primary/25 px-4 py-2 text-xs font-semibold text-primary hover:bg-primary/20 transition">
+            📖 Full WBPSC Form Fill-Up &amp; Troubleshooting Guide →
+          </a>
+          <a href="/make-signature-background-white/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-muted-foreground hover:text-foreground transition">
+            Clean White Paper Background Tool →
+          </a>
+          <a href="/compress-image-to-kb/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-muted-foreground hover:text-foreground transition">
+            Custom Image Compressor to KB →
+          </a>
+        </div>
+      </nav>
+
+    </main>
+
+    <Footer />
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const signBtn = document.getElementById('btn-switch-sign');
+        const photoBtn = document.getElementById('btn-switch-photo');
+
+        if (signBtn) {
+          signBtn.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('select-wbpsc-section', { detail: 'signature' }));
+            document.getElementById('crop-workspace')?.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+
+        if (photoBtn) {
+          photoBtn.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('select-wbpsc-section', { detail: 'photo' }));
+            document.getElementById('crop-workspace')?.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
+

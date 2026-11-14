@@ -346,6 +346,8 @@ const PRESET_ALIASES: Record<string, string> = {
   'wbpsc-west-bengal': 'wbpsc-west-bengal',
   'wbpsc-signature': 'wbpsc-west-bengal',
   'wbpsc-sign': 'wbpsc-west-bengal',
+  'wbpsc-photo-signature': 'wbpsc-west-bengal',
+  'wbpsc-photo-signature-resize': 'wbpsc-west-bengal',
   wbcs: 'wbpsc-west-bengal',
   'wbcs-signature': 'wbpsc-west-bengal',
   'wbpsc-photo': 'wbpsc-photo',

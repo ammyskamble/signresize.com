@@ -101,9 +101,11 @@ const directoryPresets = presets.map((p) => ({
       : `${((p.widthPx / p.dpi) * 2.54).toFixed(2)} × ${((p.heightPx / p.dpi) * 2.54).toFixed(2)} cm at ${p.dpi} DPI`,
   search:
     `${p.name} ${p.shortCode || ""} ${p.id} ${p.authority} ${p.category} ${p.targetType || "signature"} ${p.searchTerms || ""}`.toLowerCase(),
-  href: ["teletalk-bd", "teletalk-photo-bd", "teletalk-sign-bd"].includes(p.id)
-    ? "/teletalk-photo-signature-resize/"
-    : links.get(p.id) ||
+  href: ["wbpsc-west-bengal", "wbpsc-signature-138x59", "wbpsc-photo"].includes(p.id)
+    ? "/wbpsc-photo-signature-resize/"
+    : ["teletalk-bd", "teletalk-photo-bd", "teletalk-sign-bd"].includes(p.id)
+      ? "/teletalk-photo-signature-resize/"
+      : links.get(p.id) ||
       (p.country && !["IN", "GLOBAL"].includes(p.country)
         ? `/${p.country.toLowerCase()}/`
         : p.targetType === "photo"

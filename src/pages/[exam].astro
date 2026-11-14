@@ -319,6 +319,39 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
               {examGuidance && <a href="#exam-requirements-heading" class="inline-flex min-h-11 items-center text-sm font-semibold text-primary underline underline-offset-4">View size requirements</a>}
             </div>
               {examData.slug === 'lsat-india-signature-resize' && <aside class="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm space-y-2" aria-label="Legacy exam notice"><strong class="text-amber-800 dark:text-amber-200">Legacy LSAT—India preset</strong><p>LSAT—India has been discontinued. This page preserves the historical preset; it is not a current registration guide. Check your law school’s current admission route.</p><div class="flex flex-wrap gap-4 font-semibold text-primary"><a href="/clat-signature-resize/">CLAT signature tool →</a><a href="/ailet-signature-resize/">AILET signature tool →</a><a href="https://www.chitkara.edu.in/blogs/law-entrance-exams-after-12th-clat-lsat-cuet/" target="_blank" rel="noopener noreferrer">University admission guidance ↗</a></div></aside>}
+              {isWbpsc && (
+                <aside class="mt-4 rounded-2xl border border-primary/30 bg-primary/10 p-4 text-xs space-y-3 shadow-xs" aria-label="WBPSC Photo and Signature Combined Tool Notice">
+                  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <div class="space-y-1">
+                      <strong class="text-sm font-bold text-foreground flex items-center gap-1.5">
+                        <span>⚡</span> Need to Resize Both Photo and Signature for WBPSC?
+                      </strong>
+                      <p class="text-xs text-muted-foreground leading-relaxed">
+                        Prepare both your <strong>Passport Photo (138×177 px, 20–100 KB)</strong> and <strong>Signature (140×60 px, 10–20 KB)</strong> together in our unified WBPSC tool with verified 2026 specs.
+                      </p>
+                    </div>
+                    <a
+                      href="/wbpsc-photo-signature-resize/"
+                      class="shrink-0 px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition flex items-center gap-1.5 shadow-xs"
+                    >
+                      <span>Open Combined WBPSC Tool</span>
+                      <span>&rarr;</span>
+                    </a>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-primary/20 text-[11px]">
+                    <span class="font-bold text-muted-foreground">Quick Switch:</span>
+                    <a href="/wbpsc-photo-signature-resize/" class="font-semibold text-primary underline underline-offset-2">WBPSC Photo &amp; Signature Resize (Combined)</a>
+                    <span class="text-muted-foreground">&bull;</span>
+                    <a href={isPhotoPage ? "/wbpsc-signature-resize/" : "/wbpsc-photo-resize/"} class="font-semibold text-primary underline underline-offset-2">
+                      {isPhotoPage ? "WBPSC Signature Resize (10–20 KB)" : "WBPSC Photo Resize (138×177 px)"}
+                    </a>
+                    <span class="text-muted-foreground">&bull;</span>
+                    <a href="/blog/wbpsc-miscellaneous-clerkship-form-fill-up-photo-signature-resize-guide/" class="font-semibold text-muted-foreground hover:text-foreground">
+                      Full WBPSC Form Fill-Up Guide &rarr;
+                    </a>
+                  </div>
+                </aside>
+              )}
               {examData.slug === 'uppsc-signature-resize' && (
                 <aside class="mt-4 rounded-2xl border border-primary/30 bg-primary/10 p-4 text-xs space-y-3 shadow-xs" aria-label="UPPSC RO ARO Notice">
                   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
