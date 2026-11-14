@@ -100,8 +100,10 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
     <!-- SoftwareApplication & WebApplication Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": ["SoftwareApplication", "WebApplication"],
+      "@type": "WebApplication",
       "name": "SignResize - Online Signature & Photo Resizer Studio",
+      "datePublished": "2024-01-01T09:00:00+05:30",
+      "dateModified": "2026-11-14T17:00:00+05:30",
       "url": "https://signresize.in/",
       "applicationCategory": "UtilityApplication",
       "applicationSubCategory": "Document & Image Processing Utility",
@@ -261,6 +263,15 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
 
       <section class="workspace-intro creative-hero" aria-label="Signature resizer introduction">
         <div class="hero-copy">
+          <div class="flex items-center gap-2 flex-wrap pb-1">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              2026 Portal Standards Verified
+            </span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-slate-300 bg-white/10 border border-white/15">
+              <span>🗓️</span> Last updated: 14 Nov 2026
+            </span>
+          </div>
           <p class="hero-eyebrow"><span aria-hidden="true"></span> FREE SIGNATURE &amp; PHOTO RESIZER STUDIO</p>
           <h1 class="font-bold tracking-tight">Resize Signature Online<br /><span class="hero-headline-accent">To Exact KB &amp; Pixels.</span></h1>
           <p class="hero-description">Crop, resize, and compress signatures and photos for SSC, UPSC, IBPS, and RRB. Set dimensions in cm/pixels, whiten paper shadows, and download portal-ready JPGs.</p>

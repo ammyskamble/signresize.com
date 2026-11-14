@@ -96,12 +96,20 @@ const photoFaqs = [
     <!-- SoftwareApplication & WebApplication Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": ["SoftwareApplication", "WebApplication"],
-      "name": "Photo Resizer",
+      "@type": "WebApplication",
+      "name": "Photo Resizer in KB & Pixels",
       "url": canonicalUrl,
       "applicationCategory": "UtilityApplication",
-      "operatingSystem": "All",
+      "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
       "description": pageDescription,
+      "datePublished": "2026-01-15T09:00:00+05:30",
+      "dateModified": "2026-11-14T17:00:00+05:30",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
       "featureList": ["Photo resizer in KB (20 to 50 KB, under 100 KB, custom limits)", "Custom pixel and centimeter dimensions", "Minimum KB floor padding and Photo Size Reducer", "Optional name and date strip", "Local browser processing"]
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": photoFaqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })} />
@@ -111,6 +119,19 @@ const photoFaqs = [
     <Header />
     <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-5 space-y-6">
       <section class="rounded-2xl border border-border bg-card p-5 space-y-3">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Govt Exam &amp; Passport Photo Rules 2026
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            100% Client-Side Private
+          </span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-muted-foreground bg-muted/60 border border-border">
+            <span>🗓️</span> Last updated: 14 Nov 2026
+          </span>
+        </div>
         <h1 class="text-2xl sm:text-4xl font-bold">Photo Resizer in KB &amp; Pixels (Size Reducer &amp; Increaser)</h1>
         <p>Upload your photo, choose a crop, and resize or reduce photo size in KB (such as <strong>20 KB to 50 KB</strong> or <strong>under 100 KB</strong>). Need to fix a minimum file-size warning? Set <strong>Min KB</strong> to safely increase tiny JPGs without stretching pixels.</p>
         <p class="text-sm text-muted-foreground">A general preset is a starting point, not a universal passport or exam rule. Check your notice's pixel/cm size and live capture rules; need KB-only reduction or increase without cropping? Use the <a class="text-primary underline font-semibold" href="/compress-image-to-kb/">Photo Size Reducer &amp; KB Tool</a>.</p>

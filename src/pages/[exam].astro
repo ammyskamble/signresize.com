@@ -166,8 +166,10 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
     <!-- SoftwareApplication & WebApplication Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": ["SoftwareApplication", "WebApplication"],
+      "@type": "WebApplication",
       "name": examData.h1,
+      "datePublished": "2026-01-15T09:00:00+05:30",
+      "dateModified": "2026-11-14T17:00:00+05:30",
       "url": canonicalUrl,
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
@@ -288,6 +290,9 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
               </span>
               <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-mono text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20">
                 {examData.authority}
+              </span>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-muted-foreground bg-muted/60 border border-border">
+                <span>🗓️</span> Last updated: 14 Nov 2026
               </span>
               {examData.sources && examData.sources[0] && (
                 <a
