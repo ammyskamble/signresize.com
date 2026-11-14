@@ -1,54 +1,626 @@
 ---
-import UtilityPage from '../layouts/UtilityPage.astro';
-import { NTPC_SOURCES } from '../data/examGuidance';
+// src/pages/rrb-ntpc-undergraduate-document-guide.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleFonts from '../components/GoogleFonts.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+
+const pageTitle = "RRB NTPC UG Documents Required & Upload Sizes 2026: Signature 30–49 KB, Live Photo & Checklist";
+const metaDescription = "Complete RRB NTPC Undergraduate (CEN 07/2026) documents checklist: signature (30–49 KB JPG, min 140×60 px), live webcam photo, SC/ST travel pass PDF (<400 KB), and correction window (16–25 Nov 2026) re-upload rules.";
+const canonicalUrl = "https://signresize.in/rrb-ntpc-undergraduate-document-guide/";
+const ogImageUrl = "https://signresize.in/og-image.png";
+
+const publishedDate = "2026-10-28T09:00:00+05:30";
+const modifiedDate = "2026-11-14T15:30:00+05:30";
+
+const faqs = [
+  {
+    q: "What are all the documents required for RRB NTPC Undergraduate (CEN 07/2026)?",
+    a: "For online application on rrbapply.gov.in, candidates require: 1. Live photograph captured directly via webcam/smartphone camera. 2. Scanned signature in black ink (JPG format, 30–49 KB strictly, min 140×60 px). 3. SC/ST Certificate in PDF (strictly under 400 KB) only if claiming free rail travel. For Document Verification (DV) post-CBT, original 10th certificate (DOB proof), 12th marksheet, valid community certificate (OBC-NCL/SC/ST/EWS), and government photo ID (Aadhaar/PAN/Voter ID) are mandatory."
+  },
+  {
+    q: "What is the exact RRB NTPC signature size in KB and pixels?",
+    a: "Under CEN 07/2026 (Undergraduate) and CEN FAQ Q73–74, the signature must be in JPEG/JPG format between 30 KB and 49 KB strictly. Pixel dimensions must be at least 140 × 60 pixels, scanned at minimum 100 DPI True Colour within a 35 × 20 mm box. It must be written in black ballpoint ink in running cursive handwriting on unruled white paper. Signatures written in capital block letters or below 30 KB / above 49 KB are rejected by the portal validator."
+  },
+  {
+    q: "Can I upload a pre-existing passport photo file for RRB NTPC 2026?",
+    a: "No. The RRB application portal (rrbapply.gov.in) utilizes mandatory Live Photo Capture through a webcam or smartphone camera. You cannot browse and upload an existing JPG/PNG file from your phone or PC storage. The live photo requires a plain white background, frontal face alignment in the oval guide, neutral expression, and no glasses or caps."
+  },
+  {
+    q: "What are the rules and dates for the RRB NTPC CEN 07/2026 correction window?",
+    a: "The online application window closes on 15 November 2026 at 11:59 PM. The official Modification / Correction Window opens on 16 November 2026 and remains active until 25 November 2026 (11:59 PM). Candidates can re-upload rejected or blurred signatures, re-take live photographs, or modify educational details by paying a non-refundable modification fee of ₹250 per request. Name, email, mobile number, and chosen RRB cannot be altered."
+  },
+  {
+    q: "What is the file format and size for the SC/ST travel pass certificate?",
+    a: "Eligible SC/ST candidates requesting the free sleeper class Railway travel facility must upload their valid caste certificate in PDF format strictly under 400 KB (CEN FAQ Q60 and Q32). Uploading a JPG or image file will fail validation. The certificate must bear an official authority seal and clear digital/physical signature."
+  },
+  {
+    q: "Why does the RRB portal reject signatures at 29 KB or 50 KB?",
+    a: "The rrbapply.gov.in upload software enforces rigid programmatic byte limits: files must have at least 30,720 bytes (30.0 KB) and not exceed 50,176 bytes (49.0 KB). A signature at 29.8 KB or 50.1 KB triggers an automated 'File size outside allowable range (30KB–49KB)' error. Using the SignResize NTPC tool clamps your image directly to 40 KB to pass this check."
+  },
+  {
+    q: "Do I need to upload Class 10 and 12 certificates during the initial online application?",
+    a: "No digital image upload of 10th or 12th certificates is required during the initial online application. Candidates only need to enter their Matriculation roll number, passing year, board name, and 12th stream details into the form. However, original certificates and marks sheets must be produced during the Document Verification (DV) stage prior to medical examination."
+  }
+];
+
+const howToSteps = [
+  {
+    name: "Inspect Active CEN Requirements",
+    text: "Check your CEN 07/2026 application status on rrbapply.gov.in. Identify whether you need to fix a rejected signature or update category details during the 16–25 Nov correction window."
+  },
+  {
+    name: "Format Signature to 30–49 KB",
+    text: "Sign in black ballpoint ink on plain unruled white paper. Use the SignResize NTPC tool to clamp the file into 30 KB to 49 KB JPG with minimum 140×60 px dimensions."
+  },
+  {
+    name: "Prepare SC/ST Pass PDF (<400 KB)",
+    text: "If claiming the free railway sleeper travel pass, verify that your SC/ST certificate is in PDF format and strictly below 400 KB with sharp legibility."
+  },
+  {
+    name: "Access Modification Window & Submit",
+    text: "Log in between 16 Nov and 25 Nov 2026, pay the ₹250 modification fee, re-upload your validated files, preview the confirmation slip, and download the updated application PDF."
+  }
+];
+
+const checklistItems = [
+  {
+    doc: "Candidate Signature",
+    cat: "Biometric Identity",
+    format: "JPEG / JPG",
+    size: "30 KB – 49 KB strictly (Min 140 × 60 px)",
+    status: "Mandatory for all applicants",
+    rule: "Black ballpoint ink on unruled white paper. Running cursive handwriting only. BLOCK LETTERS cause immediate disqualification.",
+    source: "CEN FAQ Q73–74 · Box: 35 × 20 mm"
+  },
+  {
+    doc: "Live Photograph",
+    cat: "Biometric Identity",
+    format: "Live Camera Capture",
+    size: "Direct Webcam / Smartphone capture",
+    status: "Mandatory for all applicants",
+    rule: "No pre-existing file upload permitted. Plain white background, neutral expression, eye-level framing, no dark glasses or caps.",
+    source: "CEN Section 14.5.1 · Live portal module"
+  },
+  {
+    doc: "SC/ST Travel Certificate",
+    cat: "Free Rail Travel Pass",
+    format: "PDF Document",
+    size: "Strictly under 400 KB",
+    status: "Optional (SC/ST claiming free pass)",
+    rule: "Must be a clear PDF scan of the official caste certificate bearing competent authority seal. JPG image uploads fail portal checks.",
+    source: "CEN FAQ Q60 & Q32"
+  },
+  {
+    doc: "Matriculation (10th) Certificate",
+    cat: "Date of Birth & Identity",
+    format: "Data Entry only",
+    size: "Original required at DV stage",
+    status: "Mandatory for all applicants",
+    rule: "Enter exact Roll Number, Board, and Date of Birth matching your 10th certificate. No digital image upload at initial stage.",
+    source: "CEN Section 14.1 · DV verification"
+  },
+  {
+    doc: "10+2 Higher Secondary Marksheet",
+    cat: "Educational Qualification",
+    format: "Data Entry only",
+    size: "Original required at DV stage",
+    status: "Mandatory for all applicants",
+    rule: "Essential qualification for Commercial cum Ticket Clerk, Accounts Clerk, Junior Clerk, and Trains Clerk. Keep original ready.",
+    source: "CEN Annexure-A · 12th (+2 stage)"
+  },
+  {
+    doc: "OBC-NCL / EWS Certificate",
+    cat: "Reservation & Fee Concession",
+    format: "Data Entry only",
+    size: "Original required at DV stage",
+    status: "Mandatory for Category Claims",
+    rule: "OBC Non-Creamy Layer certificate valid for financial year 2025–2026. EWS income certificate in prescribed central format.",
+    source: "CEN Section 8.4 · Central format"
+  },
+  {
+    doc: "PwBD / Scribe Certificate",
+    cat: "Disability Accommodation",
+    format: "Data Entry / Form Annexure",
+    size: "Original required at DV stage",
+    status: "Mandatory for PwBD / Scribe",
+    rule: "Prescribed medical board disability certificate (minimum 40% benchmark disability). Scribe declaration if availing assistance.",
+    source: "CEN Section 13 · PwBD guidelines"
+  }
+];
 ---
-<UtilityPage title="RRB NTPC Document Upload Guide 2026: 30–49 KB Signature, Live Photo & PDF Rules" description="Verified RRB NTPC Undergraduate document upload rules (CEN 07/2025 FAQ): 30–49 KB JPG signature (min 140×60 px), live webcam photo instructions & SC/ST travel certificate PDF checklist.">
-  <section class="rounded-2xl border-2 border-primary/30 bg-primary/10 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-    <div class="space-y-1">
-      <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-        <span>⚡</span>
-        <span>Official CEN Tool</span>
-      </div>
-      <h3 class="font-bold text-foreground text-sm sm:text-base">Resize RRB NTPC Signature to 30–49 KB (min 140×60 px)</h3>
-      <p class="text-xs text-muted-foreground">Format running black-ink signature to the verified 30–49 KB JPG/JPEG specification on rrbapply.gov.in.</p>
-    </div>
-    <a href="/rrb-ntpc-signature-resize/" class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shrink-0 flex items-center gap-1.5 shadow-sm">
-      <span>Launch NTPC Resizer (30–49 KB)</span>
-      <span>&rarr;</span>
-    </a>
-  </section>
-  <section class="rounded-2xl border border-primary/20 bg-primary/5 p-5 space-y-3">
-    <p class="text-xs font-bold text-primary tracking-wider">SOURCE: CEN 07/2025 UNDERGRADUATE FAQ · REVIEWED 28 OCTOBER 2026</p>
-    <h2 class="text-xl font-bold">Check the CEN for your application</h2>
-    <p class="text-sm text-muted-foreground">This checklist uses the verified 2025 Undergraduate FAQ. It does not confirm application dates, vacancies or upload rules for CEN 07/2026. Graduate recruitment has a separate notice. Read your active CEN and any corrections before submitting.</p>
-    <div class="flex flex-wrap gap-4 text-xs font-semibold">
-      <a class="text-primary underline" href={`${NTPC_SOURCES.undergraduate}#page=12`} target="_blank" rel="noopener noreferrer">Official UG FAQ: documents, Q59–60</a>
-      <a class="text-primary underline" href={`${NTPC_SOURCES.undergraduate}#page=15`} target="_blank" rel="noopener noreferrer">Official UG FAQ: live photo and signature, Q73–74</a>
-      <a class="text-primary underline" href="https://www.rrbapply.gov.in/" target="_blank" rel="noopener noreferrer">RRB application portal</a>
-    </div>
-  </section>
-  <section class="grid sm:grid-cols-2 gap-4">
-    <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
-      <h2 class="font-bold">Signature upload</h2>
-      <p class="text-sm text-muted-foreground">Prepare your own running signature in black ink on white paper as a 30–49 KB JPG/JPEG. The FAQ specifies minimum 140 × 60 pixels, a scan of at least 100 DPI and a 35 × 20 mm box. Keep all strokes clear.</p>
-      <a class="text-primary text-sm font-semibold" href="/rrb-ntpc-signature-resize/">Prepare NTPC signature →</a>
-    </article>
-    <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
-      <h2 class="font-bold">Live photograph</h2>
-      <p class="text-sm text-muted-foreground">Complete live capture inside the RRB application using the permitted camera method. A pre-existing photograph or resized image cannot replace this step.</p>
-      <a class="text-primary text-sm font-semibold" href="/live-webcam-photo-checker/">Practise camera framing only →</a>
-    </article>
-    <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
-      <h2 class="font-bold">SC/ST certificate for free travel</h2>
-      <p class="text-sm text-muted-foreground">This upload applies to eligible applicants requesting the free travel facility. The FAQ calls for PDF: Q60 says up to 400 KB, while Q32 says below 400 KB. Keep the PDF below 400 KB and confirm the active field. A JPG from an image resizer is not the required PDF.</p>
-    </article>
-    <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
-      <h2 class="font-bold">Education and other records</h2>
-      <p class="text-sm text-muted-foreground">Keep your original education and applicable category records ready. Follow your CEN for format, validity and verification-stage requirements; do not assume every record needs an image upload during the initial application.</p>
-    </article>
-  </section>
-  <section class="rounded-2xl border border-border bg-card p-5 space-y-3">
-    <h2 class="text-xl font-bold">Before submitting</h2>
-    <p class="text-sm text-muted-foreground">Reopen each file and inspect its clarity, complete content, actual format and byte size. Check the application preview. Renaming an extension does not convert a file, and compression cannot restore missing detail. These tools cannot certify portal acceptance.</p>
-  </section>
-</UtilityPage>
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="keywords" content="rrb ntpc ug documents required, rrb ntpc undergraduate documents, ntpc ug documents required, rrb ntpc undergraduate signature size, rrb ntpc ug photo size, rrb ntpc document upload size, rrb ntpc correction window 2026, rrb ntpc signature 30 to 49 kb, rrb ntpc live photo rules, cen 07/2026 documents" />
+    <meta name="author" content="SignResize.in" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <GoogleFonts />
+
+    <!-- Article Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "RRB NTPC Undergraduate Documents Required & Upload Sizes 2026: CEN 07/2026 Checklist",
+      "description": metaDescription,
+      "image": ogImageUrl,
+      "datePublished": publishedDate,
+      "dateModified": modifiedDate,
+      "author": {
+        "@type": "Organization",
+        "name": "SignResize Railway Recruitment Desk",
+        "url": "https://signresize.in/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SignResize",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://signresize.in/favicon-96x96.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      }
+    })} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Railway Recruitment Tools",
+          "item": "https://signresize.in/#railway"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "RRB NTPC UG Document Guide",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Prepare and Re-upload Documents for RRB NTPC CEN 07/2026 Correction Window",
+      "description": "Step-by-step instructions to format signature (30–49 KB JPG), take compliant live webcam photos, and prepare SC/ST travel pass PDFs for Railway NTPC recruitment.",
+      "step": howToSteps.map((step, idx) => ({
+        "@type": "HowToStep",
+        "position": idx + 1,
+        "name": step.name,
+        "text": step.text
+      }))
+    })} />
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    })} />
+  </head>
+
+  <body class="bg-background text-foreground selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col antialiased">
+    <Header />
+
+    <main class="flex-1 w-full max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-5 space-y-5">
+      
+      <!-- Breadcrumb Bar -->
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-primary transition">Home</a>
+        <span>/</span>
+        <a href="/rrb-ntpc-signature-resize/" class="hover:text-primary transition">RRB Tools</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">NTPC UG Documents Required &amp; Upload Sizes</span>
+      </nav>
+
+      <!-- Hero Header & Critical Timeline Banner -->
+      <header class="rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card/90 to-primary/5 p-4 sm:p-6 shadow-xs backdrop-blur space-y-3">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            CEN 07/2026 (Undergraduate) · 1,688 Vacancies
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            Verified CEN FAQ (Q59–60, Q73–74)
+          </span>
+          <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-mono text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20">
+            rrbapply.gov.in
+          </span>
+          <a
+            href="https://www.rrbapply.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-primary bg-primary/10 border border-primary/20 hover:bg-primary/20 transition"
+          >
+            <span>RRB Portal ↗</span>
+          </a>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+          RRB NTPC UG Documents Required &amp; Upload Sizes 2026: 30–49 KB Sign, Live Photo &amp; Checklist
+        </h1>
+
+        <!-- Active Window Timeline Alert -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm font-medium text-foreground bg-amber-500/10 border border-amber-500/30 rounded-xl p-3.5 sm:p-4">
+          <div class="space-y-0.5">
+            <span class="font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1.5">
+              <span>⏰</span> Critical CEN 07/2026 Timeline &amp; Correction Window:
+            </span>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              Applications close <strong>15 Nov 2026, 11:59 PM</strong> (extended last date) · <strong>Correction / Modification Window: 16 Nov – 25 Nov 2026</strong> · CBT 1: <strong>Jan 2027</strong>.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+              Correction: 16–25 Nov
+            </span>
+          </div>
+        </div>
+
+        <p class="text-xs sm:text-sm text-muted-foreground max-w-4xl leading-relaxed">
+          The definitive candidate guide for <strong>Railway Recruitment Board (RRB) NTPC Undergraduate (CEN 07/2026)</strong>. Whether submitting before the 15 Nov deadline or re-uploading corrected files during the <strong>16–25 Nov 2026 correction window</strong>, review the complete documents-required checklist and exact upload specifications below.
+        </p>
+      </header>
+
+      <!-- Fast Tool CTA Banner -->
+      <section class="rounded-2xl border-2 border-primary/30 bg-primary/10 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+            <span>⚡</span>
+            <span>Official CEN Resizer Studio</span>
+          </div>
+          <h2 class="font-bold text-foreground text-sm sm:text-base">Resize RRB NTPC Signature to 30–49 KB (Min 140×60 px)</h2>
+          <p class="text-xs text-muted-foreground">Format running black-ink signature into exact 30–49 KB bounds on your device. Zero external uploads.</p>
+        </div>
+        <div class="flex flex-wrap gap-2.5 shrink-0">
+          <a href="/rrb-ntpc-signature-resize/" class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition flex items-center gap-1.5 shadow-sm">
+            <span>✍️ Launch NTPC Signature Resizer (30–49 KB)</span>
+            <span>&rarr;</span>
+          </a>
+          <a href="/live-webcam-photo-checker/" class="px-4 py-2.5 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:bg-muted transition">
+            📷 Live Photo Framing Tool
+          </a>
+        </div>
+      </section>
+
+      <!-- SECTION 1: MASTER DOCUMENTS REQUIRED CHECKLIST TABLE (TOP EXTRACTABLE OBJECT) -->
+      <section id="documents-required-table" class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
+              <span>📋</span> RRB NTPC UG Documents Required Checklist &amp; Upload Sizes (CEN 07/2026)
+            </h2>
+            <p class="text-xs text-muted-foreground">Comprehensive inventory of all documents required during online form fill up, the correction window, and Document Verification (DV).</p>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shrink-0">
+            Verified November 2026
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[700px] text-xs sm:text-sm text-left border border-border">
+            <caption class="sr-only">RRB NTPC Undergraduate Documents Checklist and Specifications</caption>
+            <thead class="bg-muted text-foreground font-semibold">
+              <tr>
+                <th scope="col" class="p-3 border-b">Document Name</th>
+                <th scope="col" class="p-3 border-b">Category / Purpose</th>
+                <th scope="col" class="p-3 border-b">Format</th>
+                <th scope="col" class="p-3 border-b">File Size &amp; Dimensions</th>
+                <th scope="col" class="p-3 border-b">Mandatory Status</th>
+                <th scope="col" class="p-3 border-b">Official CEN 07/2026 Rule</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              {checklistItems.map((item) => (
+                <tr class="hover:bg-muted/40 transition">
+                  <th scope="row" class="p-3 font-semibold text-primary">
+                    {item.doc}
+                  </th>
+                  <td class="p-3 text-muted-foreground">{item.cat}</td>
+                  <td class="p-3 font-mono font-medium">{item.format}</td>
+                  <td class="p-3 font-mono font-bold text-emerald-600 dark:text-emerald-400">{item.size}</td>
+                  <td class="p-3">
+                    <span class={item.status.includes('Mandatory') ? "text-amber-600 dark:text-amber-400 font-semibold" : "text-muted-foreground"}>
+                      {item.status}
+                    </span>
+                  </td>
+                  <td class="p-3 text-xs text-muted-foreground">
+                    <p>{item.rule}</p>
+                    <span class="text-[10px] text-primary/80 font-mono mt-0.5 block">{item.source}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-xs text-foreground/90 space-y-1">
+          <p><strong>💡 Key Distinction for Applicants: Digital Upload vs. Document Verification (DV)</strong></p>
+          <p class="text-muted-foreground leading-relaxed">
+            During the initial application and correction window on <code class="font-mono text-primary">rrbapply.gov.in</code>, you only upload two digital assets: <strong>Live Webcam Photo</strong> and <strong>Scanned Signature (30–49 KB JPG)</strong> (plus SC/ST Certificate PDF if requesting free rail travel). Academic mark sheets (10th, 12th) and domicile/caste certificates are <em>not</em> uploaded as images now; you enter their certificate numbers into the form and must produce the physical originals during DV.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 2: 3 VISUAL WALKTHROUGH CARDS WITH CUSTOM SVGS -->
+      <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-5">
+        <div class="border-b border-border pb-3">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground">
+            Visual Guide: Portal Dashboard, Signature Specs &amp; Correction Protocol
+          </h2>
+          <p class="text-xs text-muted-foreground">Inspect the three visual reference diagrams below to prevent portal re-upload rejections.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Card 1 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-3 flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</span>
+                <h3 class="font-bold text-sm text-foreground">Portal Dashboard &amp; Timelines</h3>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Review key deadlines for CEN 07/2026: final applications close 15 Nov, correction window active 16–25 Nov, and CBT 1 in Jan 2027.
+              </p>
+            </div>
+            <div class="rounded-lg overflow-hidden border border-border bg-slate-900 mt-2">
+              <img src="/images/rrb-ntpc-portal-upload-checklist.svg" alt="RRB NTPC CEN 07/2026 Candidate Portal Upload Checklist and Deadlines" class="w-full h-auto" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-3 flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</span>
+                <h3 class="font-bold text-sm text-foreground">Signature Spec (30–49 KB)</h3>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Black ballpoint ink only. Must be running cursive handwriting within a 35×20 mm box (min 140×60 px). CAPITAL letters are disqualified.
+              </p>
+            </div>
+            <div class="rounded-lg overflow-hidden border border-border bg-slate-900 mt-2">
+              <img src="/images/rrb-ntpc-signature-spec.svg" alt="RRB NTPC Candidate Signature 30-49 KB Specification Diagram" class="w-full h-auto" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="rounded-xl border border-border bg-muted/20 p-4 space-y-3 flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">3</span>
+                <h3 class="font-bold text-sm text-foreground">Live Photo &amp; Correction Rules</h3>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Fit face in the oval guide against a plain white backdrop. If fixing a rejected photo, use the 16–25 Nov edit window with ₹250 fee.
+              </p>
+            </div>
+            <div class="rounded-lg overflow-hidden border border-border bg-slate-900 mt-2">
+              <img src="/images/rrb-ntpc-live-photo-correction-guide.svg" alt="RRB NTPC Live Webcam Photo Capture and Correction Window Protocol" class="w-full h-auto" loading="lazy" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 3: IN-DEPTH DOCUMENT GUIDELINES -->
+      <section class="grid sm:grid-cols-2 gap-4">
+        <!-- Subsection: Signature -->
+        <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="font-bold text-base text-foreground">1. Scanned Candidate Signature (30–49 KB)</h2>
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold">140 × 60 px min</span>
+          </div>
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Prepare your own running signature in <strong>black ballpoint ink</strong> on clean unruled white paper. The CEN 07/2026 FAQ specifies a file size strictly between <strong>30 KB and 49 KB</strong> in JPG/JPEG format, scanned at minimum 100 DPI True Colour within a 35 × 20 mm box.
+          </p>
+          <ul class="text-xs text-muted-foreground space-y-1 list-disc pl-4">
+            <li><strong>No Capital Letters:</strong> Signatures written entirely in BLOCK CAPITALS will cause summary cancellation of candidature.</li>
+            <li><strong>Byte Bounds:</strong> Files under 30 KB or 50 KB and above are automatically rejected by the portal validator.</li>
+            <li><strong>No Shadows:</strong> Ensure no camera shadows or yellowish paper tint; the background must be clean white.</li>
+          </ul>
+          <div class="pt-2">
+            <a class="text-primary text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1" href="/rrb-ntpc-signature-resize/">
+              <span>Launch Dedicated NTPC Signature Tool (30–49 KB)</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Subsection: Live Photo -->
+        <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="font-bold text-base text-foreground">2. Live Photograph Capture (Webcam / Mobile)</h2>
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold">Live Capture Only</span>
+          </div>
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            The Railway recruitment portal enforces <strong>direct live capture</strong> via an integrated webcam or mobile browser camera. A pre-existing studio photograph or resized image file <em>cannot</em> be browsed or uploaded for this field.
+          </p>
+          <ul class="text-xs text-muted-foreground space-y-1 list-disc pl-4">
+            <li><strong>Background:</strong> Stand directly in front of a clean, plain white wall with even lighting on both cheeks.</li>
+            <li><strong>Framing:</strong> Keep your head aligned within the on-screen green oval guide with a neutral facial expression.</li>
+            <li><strong>Accessories:</strong> Remove dark goggles, reflective spectacles, hats, and caps prior to clicking capture.</li>
+          </ul>
+          <div class="pt-2">
+            <a class="text-primary text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1" href="/live-webcam-photo-checker/">
+              <span>Practise Live Camera Framing &amp; Lighting →</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Subsection: SC/ST Travel Pass -->
+        <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="font-bold text-base text-foreground">3. SC/ST Free Railway Travel Pass (PDF &lt;400 KB)</h2>
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-500/10 text-purple-600 dark:text-purple-400 font-bold">PDF Format Only</span>
+          </div>
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Eligible Scheduled Caste (SC) and Scheduled Tribe (ST) applicants requesting the free sleeper class railway travel pass must upload their caste certificate. The official FAQ (Q60 &amp; Q32) specifies:
+          </p>
+          <ul class="text-xs text-muted-foreground space-y-1 list-disc pl-4">
+            <li><strong>Format:</strong> Must be a valid PDF document (JPG or PNG uploads are not accepted).</li>
+            <li><strong>File Size:</strong> Strictly <strong>under 400 KB</strong>. Compress the PDF if your scanner produces a larger file.</li>
+            <li><strong>Validity:</strong> Must be issued by an authorized state revenue official (Tehsildar/SDM/DM) with a valid digital or physical stamp.</li>
+          </ul>
+        </article>
+
+        <!-- Subsection: Education & Category Records -->
+        <article class="rounded-2xl border border-border bg-card p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="font-bold text-base text-foreground">4. Academic &amp; Category Verification Records</h2>
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold">Physical Verification</span>
+          </div>
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Ensure your academic and reservation details entered in the form match your physical certificates word-for-word. Keep the following ready for the post-CBT Document Verification (DV) stage:
+          </p>
+          <ul class="text-xs text-muted-foreground space-y-1 list-disc pl-4">
+            <li><strong>10th / Matriculation Certificate:</strong> Verifies your Name, Father's Name, Mother's Name, and Date of Birth.</li>
+            <li><strong>10+2 / Higher Secondary Marksheet:</strong> Establishes basic educational eligibility for Undergraduate posts.</li>
+            <li><strong>Community Certificate:</strong> Central government format for OBC-NCL (FY 2025–26) or EWS income certificate.</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- SECTION 4: CORRECTION WINDOW PROTOCOL (16–25 NOV 2026) -->
+      <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold text-foreground">
+          How to Modify or Re-upload Documents in the RRB NTPC Correction Window (16–25 Nov 2026)
+        </h2>
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          If you submitted a blurred signature, poor live photo, or incorrect category detail prior to the 15 Nov deadline, use the official 10-day modification window starting <strong>16 November 2026</strong>:
+        </p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
+          <div class="rounded-xl border border-border bg-muted/10 p-3.5 space-y-1.5">
+            <span class="text-xs font-bold text-primary font-mono">Step 1: Portal Login</span>
+            <p class="text-xs text-muted-foreground">Log into <code class="font-mono text-foreground font-semibold">rrbapply.gov.in</code> using your registered mobile number / email and password.</p>
+          </div>
+          <div class="rounded-xl border border-border bg-muted/10 p-3.5 space-y-1.5">
+            <span class="text-xs font-bold text-primary font-mono">Step 2: Pay Edit Fee</span>
+            <p class="text-xs text-muted-foreground">Click 'Modify Application'. A non-refundable modification fee of <strong>₹250</strong> is mandatory for each editing cycle.</p>
+          </div>
+          <div class="rounded-xl border border-border bg-muted/10 p-3.5 space-y-1.5">
+            <span class="text-xs font-bold text-primary font-mono">Step 3: Re-upload Assets</span>
+            <p class="text-xs text-muted-foreground">Replace your signature with a clean 30–49 KB JPG or re-capture your live photo under bright, shadowless lighting.</p>
+          </div>
+          <div class="rounded-xl border border-border bg-muted/10 p-3.5 space-y-1.5">
+            <span class="text-xs font-bold text-primary font-mono">Step 4: Save &amp; Print</span>
+            <p class="text-xs text-muted-foreground">Preview your updated application, confirm changes, and download the revised acknowledgement slip for future reference.</p>
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-red-500/30 bg-red-500/10 p-3.5 text-xs text-foreground/90">
+          <strong class="text-red-600 dark:text-red-400">⚠️ Non-Editable Fields:</strong> You <em>cannot</em> change your Registered Name, Mobile Number, Email Address, or the chosen Railway Recruitment Board (RRB zone). All other fields (signature, live photo, qualification, category, exam trade) can be modified.
+        </div>
+      </section>
+
+      <!-- SECTION 5: FREQUENTLY ASKED QUESTIONS -->
+      <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold text-foreground">
+          Frequently Asked Questions (RRB NTPC Undergraduate Documents &amp; Upload Sizes)
+        </h2>
+        <div class="space-y-3">
+          {faqs.map(faq => (
+            <details class="rounded-xl border border-border bg-muted/10 p-3.5 sm:p-4 group">
+              <summary class="cursor-pointer font-semibold text-xs sm:text-sm text-foreground flex items-center justify-between">
+                <span>{faq.q}</span>
+                <span class="text-muted-foreground group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="pt-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <!-- Deep Internal Links Navigation -->
+      <nav aria-label="Railway Recruitment Tools and Guides" class="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-3">
+        <h3 class="text-sm font-bold text-foreground">Explore Related Railway Recruitment Tools &amp; Resizers</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <a href="/rrb-ntpc-signature-resize/" class="min-h-11 inline-flex items-center rounded-xl bg-primary/10 border border-primary/25 px-4 py-2 text-xs font-semibold text-primary hover:bg-primary/20 transition">
+            ✍️ Dedicated RRB NTPC Signature Resizer (30–49 KB) →
+          </a>
+          <a href="/rrb-station-master-signature-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            Station Master CEN 08/2026 Resizer (50×20 mm) →
+          </a>
+          <a href="/rrb-je-signature-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            RRB Junior Engineer (JE) Signature Resizer →
+          </a>
+          <a href="/rrb-alp-signature-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            RRB Assistant Loco Pilot (ALP) Resizer →
+          </a>
+          <a href="/rrb-photo-resize/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-foreground hover:border-primary/50 hover:text-primary transition">
+            Railway Photo Resizer Studio →
+          </a>
+          <a href="/live-webcam-photo-checker/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-muted-foreground hover:text-foreground transition">
+            Live Webcam Photo Framing Checker →
+          </a>
+          <a href="/compress-image-to-kb/" class="min-h-11 inline-flex items-center rounded-xl border border-border bg-background px-4 py-2 text-xs font-semibold text-muted-foreground hover:text-foreground transition">
+            Custom Image Compressor to KB →
+          </a>
+        </div>
+      </nav>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

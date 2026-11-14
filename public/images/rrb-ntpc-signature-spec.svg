@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <linearGradient id="rrbSignGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Header Bar -->
+  <rect x="0" y="0" width="800" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <text x="84" y="26" fill="#F8FAFC" font-size="12" font-weight="700">RRB NTPC CEN 07/2026 · Official Candidate Signature Specifications</text>
+  <rect x="670" y="10" width="116" height="22" rx="4" fill="#3B82F6"/>
+  <text x="682" y="25" fill="#FFFFFF" font-size="10.5" font-weight="700">30 KB – 49 KB</text>
+
+  <!-- Title Banner -->
+  <rect x="20" y="54" width="760" height="48" rx="8" fill="url(#rrbSignGrad)"/>
+  <text x="40" y="84" fill="#FFFFFF" font-size="15" font-weight="800">RRB NTPC SIGNATURE SPECS: 30–49 KB JPG &amp; RUNNING HANDWRITING</text>
+  <text x="560" y="84" fill="#BFDBFE" font-size="12" font-weight="600">Min 140 × 60 Px</text>
+
+  <!-- Main Grid -->
+  <rect x="20" y="114" width="760" height="286" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left: Visual Handwriting Valid vs Invalid -->
+  <rect x="36" y="130" width="240" height="254" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="50" y="152" fill="#93C5FD" font-size="12" font-weight="700">Handwriting Rules Visualized</text>
+
+  <!-- Box 1: Valid Cursive -->
+  <rect x="50" y="166" width="212" height="66" rx="4" fill="#FFFFFF" stroke="#22C55E" stroke-width="2"/>
+  <path d="M 68 208 C 78 185, 88 220, 98 190 C 108 205, 118 188, 130 206 C 145 192, 160 215, 175 198 C 185 205, 200 186, 215 202" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="50" y="214" width="212" height="18" fill="#14532D"/>
+  <text x="62" y="227" fill="#4ADE80" font-size="9" font-weight="700">✓ VALID: Black Ballpoint Pen · Running Cursive</text>
+
+  <!-- Box 2: Invalid BLOCK LETTERS -->
+  <rect x="50" y="244" width="212" height="66" rx="4" fill="#FFFFFF" stroke="#EF4444" stroke-width="2"/>
+  <text x="74" y="282" fill="#000000" font-size="17" font-weight="800" letter-spacing="3">RAHUL VERMA</text>
+  <line x1="60" y1="250" x2="252" y2="304" stroke="#DC2626" stroke-width="2.5"/>
+  <rect x="50" y="292" width="212" height="18" fill="#450A0A"/>
+  <text x="58" y="305" fill="#FCA5A5" font-size="9" font-weight="700">✗ REJECTED: Capital Letters &amp; Initials Disqualified</text>
+
+  <text x="50" y="335" fill="#94A3B8" font-size="9.5">Dimensions: <tspan fill="#F8FAFC" font-weight="700">Min 140 × 60 px</tspan></text>
+  <text x="50" y="352" fill="#94A3B8" font-size="9.5">Scan Box: <tspan fill="#F8FAFC">35 mm × 20 mm</tspan></text>
+  <text x="50" y="369" fill="#94A3B8" font-size="9.5">Resolution: <tspan fill="#F8FAFC">Min 100 DPI True Colour</tspan></text>
+
+  <!-- Right: Official Parameters -->
+  <rect x="292" y="130" width="472" height="254" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="310" y="155" fill="#F8FAFC" font-size="13" font-weight="700">Official RRB CEN 07/2026 Signature Validation Rules</text>
+
+  <rect x="310" y="170" width="436" height="34" rx="4" fill="#1E293B"/>
+  <text x="322" y="191" fill="#94A3B8" font-size="11">Exact File Size Range:</text>
+  <text x="470" y="191" fill="#34D399" font-size="11.5" font-weight="700">30 KB to 49 KB strictly</text>
+
+  <rect x="310" y="210" width="436" height="34" rx="4" fill="#1E293B"/>
+  <text x="322" y="231" fill="#94A3B8" font-size="11">Ink Medium &amp; Color:</text>
+  <text x="470" y="231" fill="#F8FAFC" font-size="11.5" font-weight="600">Black ballpoint pen (Blue ink prohibited)</text>
+
+  <rect x="310" y="250" width="436" height="34" rx="4" fill="#1E293B"/>
+  <text x="322" y="271" fill="#94A3B8" font-size="11">Paper Sheet Type:</text>
+  <text x="470" y="271" fill="#F8FAFC" font-size="11.5" font-weight="600">Plain white unruled paper (no lines or grids)</text>
+
+  <rect x="310" y="290" width="436" height="34" rx="4" fill="#1E293B"/>
+  <text x="322" y="311" fill="#94A3B8" font-size="11">File Extension Format:</text>
+  <text x="470" y="311" fill="#34D399" font-size="11.5" font-weight="700">.JPG / .JPEG (PDF &amp; PNG fail)</text>
+
+  <!-- Help alert -->
+  <rect x="310" y="332" width="436" height="42" rx="6" fill="#1E1B4B" stroke="#6366F1" stroke-width="1"/>
+  <text x="324" y="348" fill="#C7D2FE" font-size="10" font-weight="700">⚠️ Why Files at 29 KB or 50 KB Get Blocked:</text>
+  <text x="324" y="363" fill="#E0E7FF" font-size="9.5">RRB application validator checks the exact byte count: files &lt;30 KB or ≥50 KB fail immediately.</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <linearGradient id="rrbHeaderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Browser Header Bar -->
+  <rect x="0" y="0" width="800" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <rect x="84" y="9" width="570" height="24" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="100" y="25" fill="#94A3B8" font-size="11" font-family="monospace">🔒 https://www.rrbapply.gov.in/candidate/dashboard (CEN 07/2026)</text>
+  <rect x="666" y="11" width="120" height="20" rx="4" fill="#0D9488"/>
+  <text x="674" y="25" fill="#FFFFFF" font-size="10" font-weight="700">CEN 07/2026 UG</text>
+
+  <!-- Portal Header Banner -->
+  <rect x="20" y="54" width="760" height="52" rx="8" fill="url(#rrbHeaderGrad)"/>
+  <text x="40" y="78" fill="#FBBF24" font-size="18">🚆</text>
+  <text x="70" y="75" fill="#FFFFFF" font-size="14" font-weight="800">RAILWAY RECRUITMENT BOARDS (RRB) · NTPC UNDERGRADUATE</text>
+  <text x="70" y="94" fill="#CCFBF1" font-size="11">CEN 07/2026 · 1,688 Vacancies · Apply till 15 Nov 2026 · Correction Window: 16–25 Nov 2026</text>
+
+  <!-- Main Workspace -->
+  <rect x="20" y="118" width="760" height="282" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left: Timeline & Correction Window Alert -->
+  <rect x="36" y="134" width="320" height="250" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="50" y="158" fill="#5EEAD4" font-size="12.5" font-weight="700">Application &amp; Correction Schedule</text>
+
+  <!-- Row 1: Apply Last Date -->
+  <rect x="50" y="172" width="292" height="46" rx="4" fill="#1E293B" stroke="#EF4444" stroke-width="1"/>
+  <text x="62" y="191" fill="#FCA5A5" font-size="10.5" font-weight="700">⏳ Applications Close:</text>
+  <text x="62" y="207" fill="#F8FAFC" font-size="11">15 Nov 2026, 11:59 PM (Extended Final)</text>
+
+  <!-- Row 2: Correction Window -->
+  <rect x="50" y="226" width="292" height="54" rx="4" fill="#1E293B" stroke="#F59E0B" stroke-width="1"/>
+  <text x="62" y="245" fill="#FCD34D" font-size="10.5" font-weight="700">🛠️ Modification / Correction Window:</text>
+  <text x="62" y="261" fill="#34D399" font-size="11.5" font-weight="700">16 Nov 2026 – 25 Nov 2026</text>
+  <text x="62" y="273" fill="#94A3B8" font-size="9.5">Fee: ₹250 for non-refundable modification</text>
+
+  <!-- Row 3: CBT 1 Exam Date -->
+  <rect x="50" y="288" width="292" height="42" rx="4" fill="#1E293B" stroke="#3B82F6" stroke-width="1"/>
+  <text x="62" y="306" fill="#93C5FD" font-size="10.5" font-weight="700">🎯 CBT 1 Examination:</text>
+  <text x="62" y="322" fill="#F8FAFC" font-size="11">Tentatively Scheduled for Jan 2027</text>
+
+  <rect x="50" y="338" width="292" height="34" rx="4" fill="#042F2E" stroke="#0D9488" stroke-width="1"/>
+  <text x="60" y="352" fill="#2DD4BF" font-size="10" font-weight="700">⚡ Fix Re-upload Issues Early:</text>
+  <text x="60" y="365" fill="#A7F3D0" font-size="9">Re-upload clear signature to avoid rejection.</text>
+
+  <!-- Right: 3 Core Online Upload Modules -->
+  <rect x="376" y="134" width="388" height="250" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="392" y="158" fill="#5EEAD4" font-size="12.5" font-weight="700">Mandatory Portal Digital Uploads</text>
+
+  <!-- Item 1: Live Photo -->
+  <rect x="392" y="170" width="356" height="58" rx="6" fill="#1E293B" stroke="#3B82F6" stroke-width="1"/>
+  <text x="404" y="190" fill="#FFFFFF" font-size="11.5" font-weight="700">1. Live Photograph Capture (Webcam / Mobile)</text>
+  <text x="404" y="206" fill="#93C5FD" font-size="10.5">Direct capture only · <tspan fill="#F87171" font-weight="600">NO file upload allowed</tspan></text>
+  <text x="404" y="220" fill="#94A3B8" font-size="9.5">Plain white background, neutral face, no glasses or caps</text>
+
+  <!-- Item 2: Signature -->
+  <rect x="392" y="234" width="356" height="58" rx="6" fill="#1E293B" stroke="#10B981" stroke-width="1"/>
+  <text x="404" y="254" fill="#FFFFFF" font-size="11.5" font-weight="700">2. Scanned Signature (Black Ink Only)</text>
+  <text x="404" y="270" fill="#A7F3D0" font-size="10.5">Size: <tspan fill="#34D399" font-weight="700">30 KB – 49 KB strictly</tspan> | Min 140 × 60 px</text>
+  <text x="404" y="284" fill="#F87171" font-size="9.5">Running cursive handwriting · BLOCK CAPITALS rejected</text>
+
+  <!-- Item 3: SC/ST Pass -->
+  <rect x="392" y="298" width="356" height="58" rx="6" fill="#1E293B" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="404" y="318" fill="#FFFFFF" font-size="11.5" font-weight="700">3. SC/ST Certificate for Free Travel Pass</text>
+  <text x="404" y="334" fill="#DDD6FE" font-size="10.5">Format: <tspan fill="#FBBF24" font-weight="700">PDF only</tspan> | File size: <tspan fill="#34D399" font-weight="700">Strictly under 400 KB</tspan></text>
+  <text x="404" y="348" fill="#94A3B8" font-size="9.5">Mandatory only for eligible candidates claiming railway pass</text>
+
+  <text x="392" y="374" fill="#FBBF24" font-size="10" font-weight="600">⚡ Use SignResize NTPC Tool to format 30–49 KB signature instantly.</text>
+</svg>
