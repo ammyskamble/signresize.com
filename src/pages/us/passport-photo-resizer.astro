@@ -10,28 +10,97 @@ import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 import USToolSwitcher from '../../components/USToolSwitcher.astro';
 
-const pageTitle = "US Passport Photo Resizer 2x2 Inches (600x600 Pixels & Under 240KB) - SignResize";
-const pageDescription = "Free online US Passport Photo Resizer. Crop and convert photos to 2x2 inches, 600x600 pixels, under 240 KB in JPEG format with a white background for US passport renewals & first-time applications.";
+const pageTitle = "US Passport Photo Resizer: 2x2\" (600x600 px) · 100% Private Tool";
+const pageDescription = "Free 2x2 inch US Passport photo resizer (600x600 to 1200x1200 px). Formatted to official State Department biometric rules for online renewals (54 KB–10 MB) & mail prints. 100% private in-browser tool.";
 const canonicalUrl = "https://signresize.in/us/passport-photo-resizer/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "us passport photo resizer online, convert photo to us passport size 2x2, resize photo to 600x600 pixels free, us passport photo 240kb, 2x2 inch photo maker online, travel state gov passport photo crop";
+const keywordsContent = "us passport photo resizer online, convert photo to us passport size 2x2, resize photo to 600x600 pixels free, us passport photo size, 2x2 inch photo maker online, travel state gov passport photo crop, online passport renewal photo 54kb to 10mb";
+
+const publishedDate = "2026-04-10T09:00:00+05:30";
+const modifiedDate = "2026-11-14T17:00:00+05:30";
 
 const passportFaqs = [
   {
-    q: "What size is a US passport photo in inches and pixels?",
-    a: "In physical dimensions, a US passport photo is 2 x 2 inches (51 x 51 mm). In digital pixels, it must be square (1:1 aspect ratio), with a minimum resolution of 600 x 600 pixels up to 1200 x 1200 pixels."
+    q: "What is the exact US passport photo size in inches, pixels, and DPI?",
+    a: "Under official U.S. Department of State regulations, a physical US passport photo measures exactly 2 × 2 inches (51 × 51 mm). In digital pixels, it must have a 1:1 square aspect ratio. The minimum required digital resolution is 600 × 600 pixels at 300 DPI, and the high-resolution standard is 1200 × 1200 pixels at 600 DPI."
   },
   {
-    q: "What is the maximum file size for a digital US passport photo?",
-    a: "The digital image file size must be less than or equal to 240 KB in JPEG (.jpg) format."
+    q: "What is the allowable file size for digital passport renewals vs. visa applications?",
+    a: "There is a critical distinction between passport renewals and visas: For official online passport renewal on travel.state.gov, your digital image must be between 54 KB and 10 MB (in JPG, JPEG, PNG, HEIC, or HEIF format). Files under 54 KB are rejected. Conversely, Form DS-160 US Visa and DV Lottery portals enforce a strict ceiling of 240 KB (JPEG only). SignResize supports both workflows without server uploads."
   },
   {
-    q: "What background color is required for US passport photos?",
-    a: "The background must be plain white or off-white. There should be no shadows, patterns, or dark textures behind the head."
+    q: "What are the head height and eye position requirements?",
+    a: "The head (measured from the bottom of the chin to the top of the hair) must occupy between 1 inch and 1 3/8 inches (25 mm to 35 mm), representing 50% to 69% of the total photo height. Eye level must be positioned between 1 1/8 inches and 1 3/8 inches (28 mm to 35 mm) from the bottom edge of the photo. Our interactive tool includes an overlay guide to ensure exact compliance."
   },
   {
-    q: "How to take a compliant US passport photo at home?",
-    a: "Stand 4-6 feet in front of a white wall in natural daytime lighting. Face directly toward the camera with a neutral expression. Upload the photo to SignResize to automatically crop to 600x600 pixels and compress under 240 KB."
+    q: "Are eyeglasses permitted in US passport photographs?",
+    a: "No. Eyeglasses are strictly prohibited in US passport photos. This rule was implemented by the Department of State to prevent flash glare and eye biometric distortion. The only exception is rare medical necessity (such as recent eye surgery), which requires an official signed statement from a licensed physician."
+  },
+  {
+    q: "What background color and lighting are required?",
+    a: "The background must be plain white or off-white. The photo must be evenly illuminated with zero shadows across the face, ears, or background wall. Textures, patterned wallpaper, colored backgrounds, and outdoor scenes cause immediate disqualification."
+  },
+  {
+    q: "How can I print my 2x2 passport photos at Walgreens or CVS for under $0.50?",
+    a: "Pharmacies charge $16.99 to $21.99 if you request a 'passport photo' at the counter. However, you can use our 4×6 US Passport Print Sheet tool to tile six identical 2×2 inch photos onto a standard 4×6 inch canvas (1800×1200 px @ 300 DPI). Then upload the sheet to the Walgreens or CVS app as a routine 4×6 photo print, which costs approximately $0.35 to $0.45. Cut out the 2×2 prints at home with clean scissors."
+  },
+  {
+    q: "Does SignResize upload or store my facial photograph on a remote server?",
+    a: "No. SignResize executes 100% of image rendering, cropping, resizing, and compression locally inside your web browser using HTML5 Canvas APIs. Zero biometric data, face geometry, or images ever leave your device or touch an external server or cloud database."
+  }
+];
+
+const howToSteps = [
+  {
+    name: "Set Up Neutral Lighting & White Background",
+    text: "Stand 4 to 6 feet in front of a plain white or off-white wall in diffused natural daylight. Ensure there are no shadows on your face or behind your head."
+  },
+  {
+    name: "Capture Portrait at Eye Level",
+    text: "Position the camera directly at eye level. Keep a neutral facial expression or natural, unforced smile with both eyes open looking straight into the lens. Remove eyeglasses and hats."
+  },
+  {
+    name: "Upload into Private Browser Canvas",
+    text: "Drop your camera photo into the SignResize workspace. The image is processed purely inside your browser without any external cloud upload."
+  },
+  {
+    name: "Align Face within 50%–69% Oval Guide",
+    text: "Use the interactive crop box to position your head within the official 1 inch to 1 3/8 inch (50%–69%) biometric oval boundary."
+  },
+  {
+    name: "Export Compliant 2×2 Inch JPEG (54 KB–10 MB)",
+    text: "Download your processed 600×600 px or 1200×1200 px square photo. It is ready for the State Department online renewal portal (54 KB to 10 MB)."
+  },
+  {
+    name: "Generate 4×6 Sheet for Drugstore Printing",
+    text: "If filing by mail or in person, open our 4×6 Print Sheet generator to produce a 6-photo print sheet for ~$0.35 at CVS, Walgreens, or Walmart."
+  }
+];
+
+const rejectionReasons = [
+  {
+    title: "Head Size Outside 50%–69%",
+    desc: "If the head is smaller than 1 inch or taller than 1 3/8 inches from chin to crown, automated biometric facial recognition software at the National Passport Processing Center rejects the application."
+  },
+  {
+    title: "Wearing Eyeglasses",
+    desc: "Strictly banned since November 2016. Glare, reflections, or frame rims obscuring the irises cause immediate denial unless accompanied by a signed medical waiver."
+  },
+  {
+    title: "File Size Under 54 KB (Online Renewal)",
+    desc: "For digital online passport renewals on travel.state.gov, files must be at least 54 KB. Compressing a file too hard triggers an automated portal byte-size error."
+  },
+  {
+    title: "Shadows or Colored Background",
+    desc: "Backgrounds must be plain white or off-white. Harsh directional lighting creating dark shadows behind the ears or on the wall fails Department of State clarity checks."
+  },
+  {
+    title: "Photo Older Than 6 Months",
+    desc: "State Department rules mandate photos taken within the last 6 months to reflect your current physical appearance. Submitting older photos leads to renewal delays."
+  },
+  {
+    title: "Digital Alterations & Filters",
+    desc: "Social media filters, artificial smoothing, digital background removal with jagged head outlines, or altered facial geometry are strictly prohibited."
   }
 ];
 ---
@@ -75,21 +144,84 @@ const passportFaqs = [
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta name="theme-color" content="#4f46e5" />
 
-    <!-- Schema.org SoftwareApplication & HowTo JSON-LD -->
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "US Tools Hub",
+          "item": "https://signresize.in/us/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "US Passport Photo Resizer",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+
+    <!-- Schema.org SoftwareApplication & WebApplication JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": ["SoftwareApplication", "WebApplication"],
       "name": "US Passport Photo Resizer 2x2 Online",
       "url": canonicalUrl,
       "applicationCategory": "UtilityApplication",
-      "operatingSystem": "All",
+      "operatingSystem": "All (Windows, macOS, iOS, Android, Linux)",
+      "browserRequirements": "Requires modern web browser with HTML5 Canvas support.",
       "description": pageDescription,
+      "datePublished": publishedDate,
+      "dateModified": modifiedDate,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
       "featureList": [
-        "Resize photo to 2x2 inches (600x600 pixels)",
-        "Compress image under 240 KB in JPEG format",
-        "Enforce official State Department 50-69% head height ratio",
-        "100% private browser-side Canvas rendering"
+        "2x2 inch physical crop (600x600 px to 1200x1200 px)",
+        "Official 50-69% (1 to 1 3/8 inch) biometric head height guide",
+        "State Department online renewal compliant (54 KB to 10 MB)",
+        "Zero server uploads: 100% private in-browser Canvas execution",
+        "Companion 4x6 print sheet generation for Walgreens & CVS printing"
       ]
+    })} />
+
+    <!-- Schema.org HowTo JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Prepare and Resize an Official US Passport Photo at Home",
+      "description": "Step-by-step instructions to take and format a 2x2 inch US passport photo meeting official Department of State biometric standards.",
+      "step": howToSteps.map((step, idx) => ({
+        "@type": "HowToStep",
+        "position": idx + 1,
+        "name": step.name,
+        "text": step.text
+      }))
+    })} />
+
+    <!-- Schema.org FAQPage JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": passportFaqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
     })} />
   </head>
 
@@ -97,31 +229,68 @@ const passportFaqs = [
     <Header />
 
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6">
-      <!-- Page Hero Header with Inline Breadcrumb Eyebrow -->
-      <section class="space-y-4">
+      
+      <!-- Page Hero Header with Breadcrumbs & Official Citations -->
+      <section class="space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div class="space-y-1.5">
+          <div class="space-y-2">
             <div class="flex flex-wrap items-center gap-2 text-xs">
               <nav aria-label="Breadcrumb" class="inline-flex items-center gap-1.5 text-muted-foreground">
                 <a href="/" class="hover:text-primary transition">Home</a>
                 <span class="text-muted-foreground/50">/</span>
                 <a href="/us/" class="hover:text-primary transition">US Hub</a>
                 <span class="text-muted-foreground/50">/</span>
+                <span class="text-foreground font-medium">Passport Photo Resizer</span>
               </nav>
-              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-              <span>🛂 State Department Passport Services Specs</span>
-              </div>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                <span>🛂 U.S. Department of State Biometric Standards</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+                <span>🔒 100% Client-Side Private</span>
+              </span>
+              <a
+                href="https://travel.state.gov/en/passports/renew-replace/online/upload-digital-photo.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-primary bg-primary/10 border border-primary/20 hover:bg-primary/20 transition"
+              >
+                <span>travel.state.gov ↗</span>
+              </a>
             </div>
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
-              US Passport Photo Resizer <span class="text-primary">(2×2 Inches | 600×600 px)</span>
+
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+              {pageTitle}
             </h1>
-            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
-              Convert any picture into an official US Passport photo online. Formats your image to 2×2 inches (600×600 pixels), JPEG, and under 240 KB for online passport renewals and official mail applications.
+            
+            <p class="text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed">
+              Format, crop, and convert any picture into an official <strong>2×2 inch (51×51 mm)</strong> US Passport photo. Enforces official State Department biometric parameters: 600×600 px to 1200×1200 px resolution, 50%–69% head height ratio, and compliant file weight. Zero cloud uploads — your photo never leaves your device.
             </p>
           </div>
 
           <!-- Quick Switch US Tools Dropdown -->
           <USToolSwitcher currentTool="passport" />
+        </div>
+
+        <!-- Official Specification Alert Callout (State Dept Renewal vs Visa vs Print) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 p-4 rounded-xl bg-blue-500/5 border border-blue-500/20 text-xs text-muted-foreground">
+          <div class="space-y-1">
+            <span class="font-bold text-foreground flex items-center gap-1.5 text-blue-600 dark:text-blue-400">
+              <span>💻</span> Online Passport Renewal:
+            </span>
+            <p>File weight must be <strong>54 KB to 10 MB</strong> in JPG, PNG, HEIC, or HEIF. <em>Files below 54 KB fail automated portal validation.</em></p>
+          </div>
+          <div class="space-y-1">
+            <span class="font-bold text-foreground flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+              <span>📄</span> Form DS-160 &amp; US Visa:
+            </span>
+            <p>Strictly <strong>≤ 240 KB</strong> in JPEG format only (600×600 px). For DS-160 visas, use our dedicated <a href="/us/ds-160-photo-resizer/" class="text-primary underline font-medium">DS-160 Resizer →</a></p>
+          </div>
+          <div class="space-y-1">
+            <span class="font-bold text-foreground flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+              <span>🖨️</span> In-Person &amp; Mail (Walgreens/CVS):
+            </span>
+            <p>Printed on photo paper at exactly <strong>2 × 2 inches</strong>. Generate a 4×6 sheet for ~$0.35 via our <a href="/us/passport-photo-print-sheet/" class="text-primary underline font-medium">Print Sheet Tool →</a></p>
+          </div>
         </div>
       </section>
 
@@ -130,59 +299,229 @@ const passportFaqs = [
         <SignatureTool client:load initialPresetId="us-passport" />
       </section>
 
-      <!-- Technical Guidelines & Interlinking Section -->
-      <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="md:col-span-2 space-y-4 bg-card border border-border p-6 rounded-2xl">
-          <h2 class="text-xl font-bold text-foreground">
-            Official US Passport Photo Standard Specs
-          </h2>
-          <ul class="space-y-2.5 text-xs sm:text-sm text-muted-foreground">
-            <li class="flex items-start gap-2">
-              <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Physical / Digital Dimensions:</strong> 2 × 2 inches (51 × 51 mm) or 600 × 600 pixels.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>File Weight:</strong> Maximum 240 KB in JPEG format.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Recency:</strong> Taken within the last 6 months to reflect current appearance.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Attire &amp; Eyeglasses:</strong> Everyday clothing. Eyeglasses and headwear (except religious) are not allowed.</span>
-            </li>
-          </ul>
+      <!-- 4x6 CVS & Walgreens Print Sheet Callout Banner -->
+      <section class="rounded-2xl border-2 border-emerald-500/30 bg-emerald-500/5 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="space-y-1 max-w-3xl">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+            <span>💡</span>
+            <span>Money-Saving Print Hack</span>
+          </div>
+          <h3 class="font-bold text-foreground text-sm sm:text-base">Need Physical 2×2 Prints? Print 6 Photos for $0.35 at Walgreens, CVS, or Walmart</h3>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Pharmacies charge $16.99 to $21.99 for passport photos at the desk. Instead, tile your compliant 2×2 photo into a 4×6 inch print template with cut lines, order it as a routine 4×6 photo print for $0.35, and cut out the photos at home.
+          </p>
+        </div>
+        <a href="/us/passport-photo-print-sheet/" class="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition shrink-0 flex items-center gap-1.5 shadow-sm">
+          <span>Launch 4×6 Print Sheet Tool</span>
+          <span>&rarr;</span>
+        </a>
+      </section>
+
+      <!-- Visual Specification Diagrams (SVGs) -->
+      <section class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-foreground">Official US Passport Photo Specifications Visualized</h2>
+            <p class="text-xs sm:text-sm text-muted-foreground">Certified against U.S. Department of State Bureau of Consular Affairs regulations.</p>
+          </div>
+          <span class="text-xs font-mono text-muted-foreground">Updated: November 14, 2026</span>
         </div>
 
-        <!-- Cross Interlinking Box -->
-        <div class="space-y-4 bg-primary/5 border border-primary/20 p-6 rounded-2xl">
-          <h3 class="text-base font-bold text-foreground">Related US Tools</h3>
-          <div class="space-y-2 text-xs">
-            <a href="/us/ds-160-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
-              📄 Form DS-160 US Visa Photo Resizer →
-            </a>
-            <a href="/us/green-card-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
-              🗽 USCIS Green Card &amp; DV Lottery Tool →
-            </a>
-            <a href="/us/common-app-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
-              🎓 Common App Student Photo Resizer →
-            </a>
-            <a href="/blog/us-visa-passport-photo-resizer-ds160-greencard-guide-2026/" class="block p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/25 hover:border-indigo-500 transition font-bold text-indigo-700 dark:text-indigo-300">
-              📖 Read US Photo Master Guide 2026 (DS-160, Passport, USCIS) →
-            </a>
-            <a href="/us/" class="block p-2.5 rounded-xl bg-primary text-primary-foreground text-center font-bold hover:opacity-90 transition mt-2">
-              Back to US Tools Hub →
-            </a>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Diagram 1: Biometric Head Geometry -->
+          <div class="space-y-2">
+            <div class="rounded-xl border border-border bg-card p-2 overflow-hidden">
+              <img 
+                src="/images/us-passport-photo-spec-guide.svg" 
+                alt="US Passport Photo 2x2 inch biometric dimensions, 50-69% head height ratio and eye level measurements"
+                class="w-full h-auto rounded-lg"
+                loading="lazy"
+                width="820"
+                height="460"
+              />
+            </div>
+            <p class="text-xs text-muted-foreground text-center">
+              Figure 1: Official 2×2 inch head proportion (1" to 1⅜" / 50%–69%) and eye level (1⅛" to 1⅜").
+            </p>
+          </div>
+
+          <!-- Diagram 2: Renewal vs Visa vs Print Sheet -->
+          <div class="space-y-2">
+            <div class="rounded-xl border border-border bg-card p-2 overflow-hidden">
+              <img 
+                src="/images/us-passport-vs-visa-guide.svg" 
+                alt="Comparison of US Passport Online Renewal, DS-160 Visa, and 4x6 Pharmacy Print Sheet file requirements"
+                class="w-full h-auto rounded-lg"
+                loading="lazy"
+                width="820"
+                height="340"
+              />
+            </div>
+            <p class="text-xs text-muted-foreground text-center">
+              Figure 2: Official breakdown of Online Passport Renewal (54 KB–10 MB) vs. DS-160 Visa (≤240 KB).
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- FAQ Section -->
-      <section class="space-y-6">
+      <!-- Comparison Matrix Table: Passport vs. Visa vs. Print -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-4">
+        <div class="space-y-1">
+          <h2 class="text-lg sm:text-xl font-bold text-foreground">US Passport Photo vs. US Visa Photo — What is the Difference?</h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">A common mistake is applying visa file-size ceilings to passport renewals. Here is the verified official comparison:</p>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-border bg-muted/40 text-foreground font-bold">
+                <th class="p-3">Specification</th>
+                <th class="p-3">Online Passport Renewal</th>
+                <th class="p-3">Form DS-160 / Visa / DV</th>
+                <th class="p-3">Mail-In / In-Person (Print)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border text-muted-foreground">
+              <tr>
+                <td class="p-3 font-semibold text-foreground">Official Portal</td>
+                <td class="p-3">travel.state.gov Renewal Module</td>
+                <td class="p-3">ceac.state.gov (Consular Center)</td>
+                <td class="p-3">Form DS-82 / DS-11 by mail</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-foreground">Dimensions</td>
+                <td class="p-3">600×600 to 1200×1200 px (1:1)</td>
+                <td class="p-3">600×600 to 1200×1200 px (1:1)</td>
+                <td class="p-3">2 × 2 inches (51 × 51 mm)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-foreground">File Weight (Size)</td>
+                <td class="p-3"><strong class="text-blue-600 dark:text-blue-400">54 KB to 10 MB</strong> (Rejects &lt;54 KB)</td>
+                <td class="p-3"><strong class="text-amber-600 dark:text-amber-400">Strictly ≤ 240 KB</strong></td>
+                <td class="p-3">Printed on photo-quality paper</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-foreground">Permitted Formats</td>
+                <td class="p-3">JPG, JPEG, PNG, HEIC, HEIF</td>
+                <td class="p-3">JPEG (.jpg) only</td>
+                <td class="p-3">Glossy or matte photo paper</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-foreground">Head Height Ratio</td>
+                <td class="p-3">50% to 69% (1" to 1⅜")</td>
+                <td class="p-3">50% to 69% (1" to 1⅜")</td>
+                <td class="p-3">1 inch to 1 3/8 inches</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-foreground">Eyeglasses Policy</td>
+                <td class="p-3"><span class="text-destructive font-bold">Prohibited</span> (No glasses)</td>
+                <td class="p-3"><span class="text-destructive font-bold">Prohibited</span> (No glasses)</td>
+                <td class="p-3"><span class="text-destructive font-bold">Prohibited</span> (No glasses)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Top 6 Rejection Reasons Section -->
+      <section class="space-y-4">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold text-foreground">Top 6 Reasons US Passport Photos Get Rejected</h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">Avoid application delays by ensuring your image complies with these strict Department of State guidelines.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {rejectionReasons.map((reason, idx) => (
+            <div class="rounded-xl border border-border bg-card p-4 space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-destructive/10 text-destructive font-bold text-xs flex items-center justify-center shrink-0">
+                  {idx + 1}
+                </span>
+                <h3 class="font-bold text-sm text-foreground">{reason.title}</h3>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">{reason.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- 6-Step At-Home Preparation Guide -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-4">
+        <div>
+          <h2 class="text-xl font-bold text-foreground">How to Take and Resize a US Passport Photo at Home (6 Steps)</h2>
+          <p class="text-xs sm:text-sm text-muted-foreground">Follow this step-by-step procedure using your smartphone and SignResize's in-browser canvas tool.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {howToSteps.map((step, idx) => (
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-muted/30 border border-border/60">
+              <span class="w-7 h-7 rounded-lg bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center shrink-0">
+                {idx + 1}
+              </span>
+              <div class="space-y-1">
+                <h3 class="font-bold text-sm text-foreground">{step.name}</h3>
+                <p class="text-xs text-muted-foreground leading-relaxed">{step.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Inch to Pixel to DPI Conversion Reference Table -->
+      <section class="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-3">
+        <h2 class="text-lg font-bold text-foreground">US Passport Photo Dimensions &amp; Resolution Conversion Reference</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+          <div class="p-3 rounded-xl bg-muted/40 border border-border space-y-1">
+            <span class="text-muted-foreground font-medium">Physical Dimensions:</span>
+            <p class="font-bold text-foreground text-sm">2 × 2 Inches (51 × 51 mm)</p>
+          </div>
+          <div class="p-3 rounded-xl bg-muted/40 border border-border space-y-1">
+            <span class="text-muted-foreground font-medium">300 DPI Standard:</span>
+            <p class="font-bold text-foreground text-sm">600 × 600 Pixels</p>
+          </div>
+          <div class="p-3 rounded-xl bg-muted/40 border border-border space-y-1">
+            <span class="text-muted-foreground font-medium">600 DPI High Resolution:</span>
+            <p class="font-bold text-foreground text-sm">1200 × 1200 Pixels</p>
+          </div>
+          <div class="p-3 rounded-xl bg-muted/40 border border-border space-y-1">
+            <span class="text-muted-foreground font-medium">Online Renewal File Size:</span>
+            <p class="font-bold text-foreground text-sm">54 KB to 10 MB (JPG/PNG)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related US Tools Matrix -->
+      <section class="rounded-2xl border border-primary/20 bg-primary/5 p-5 sm:p-6 space-y-4">
+        <div>
+          <h2 class="text-lg font-bold text-foreground">Related US Document &amp; Visa Resizing Tools</h2>
+          <p class="text-xs text-muted-foreground">Select a dedicated workspace formatted for other US visa and federal portals:</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+          <a href="/us/passport-photo-print-sheet/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground space-y-1 block shadow-2xs">
+            <span class="font-bold text-primary block">🖨️ 4×6 Print Sheet Tool</span>
+            <span class="text-muted-foreground text-[11px] block">Tile 6 passport photos for $0.35 at Walgreens &amp; CVS</span>
+          </a>
+          <a href="/us/ds-160-photo-resizer/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground space-y-1 block shadow-2xs">
+            <span class="font-bold text-primary block">📄 Form DS-160 Visa Tool</span>
+            <span class="text-muted-foreground text-[11px] block">600×600 px strictly under 240 KB for CEAC visas</span>
+          </a>
+          <a href="/us/opt-stem-opt-photo-resizer/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground space-y-1 block shadow-2xs">
+            <span class="font-bold text-primary block">🎓 USCIS OPT / STEM EAD</span>
+            <span class="text-muted-foreground text-[11px] block">Form I-765 photo checker to avoid 60-day RFE delays</span>
+          </a>
+          <a href="/us/green-card-photo-resizer/" class="p-3.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground space-y-1 block shadow-2xs">
+            <span class="font-bold text-primary block">🗽 Green Card &amp; DV Lottery</span>
+            <span class="text-muted-foreground text-[11px] block">Diversity Visa &amp; USCIS permanent resident specifications</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Comprehensive FAQ Section -->
+      <section class="space-y-4">
         <FaqSection faqs={passportFaqs} title="US Passport Photo Resizer FAQs" />
       </section>
+
     </main>
 
     <Footer />

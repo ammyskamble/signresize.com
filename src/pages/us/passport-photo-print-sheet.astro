@@ -128,6 +128,20 @@ const printSheetFaqs = [
         }
       ]
     })} />
+
+    <!-- Schema.org FAQPage JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": printSheetFaqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    })} />
   </head>
 
   <body class="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
@@ -241,6 +255,17 @@ const printSheetFaqs = [
             <p>Eyeglasses are strictly banned by State Department regulations. Religious headwear requires a signed explanatory statement.</p>
           </div>
         </div>
+      </section>
+
+      <!-- Single Digital Photo Resizer Cross Link -->
+      <section class="rounded-2xl border border-primary/20 bg-primary/5 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 class="font-bold text-foreground text-sm">Need a Single Digital 2×2 Photo for Online Renewal?</h3>
+          <p class="text-xs text-muted-foreground">If submitting online via travel.state.gov (54 KB–10 MB) or DS-160 visa (≤240 KB), use our single-photo resizer.</p>
+        </div>
+        <a href="/us/passport-photo-resizer/" class="px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shrink-0">
+          Open Digital Passport Resizer →
+        </a>
       </section>
 
       <!-- Frequently Asked Questions -->

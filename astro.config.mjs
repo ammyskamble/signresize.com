@@ -191,7 +191,7 @@ export default defineConfig({
         const post = BLOG_POSTS.find(post => post.slug === blogSlug);
         const modified = post && new Date((post.lastUpdated || post.publishDate).replace(/Sept\b/i, 'Sep'));
 
-        if (['/rrb-ntpc-undergraduate-document-guide/', '/uppsc-ro-aro-photo-signature-resize/', '/wbpsc-photo-signature-resize/', '/uppsc-signature-resize/', '/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/'].includes(pathname)) {
+        if (['/us/passport-photo-resizer/', '/rrb-ntpc-undergraduate-document-guide/', '/uppsc-ro-aro-photo-signature-resize/', '/wbpsc-photo-signature-resize/', '/uppsc-signature-resize/', '/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/'].includes(pathname)) {
           item.lastmod = '2026-11-14';
         } else if (pathname === '/appsc-signature-resize/') {
           item.lastmod = '2026-11-11';

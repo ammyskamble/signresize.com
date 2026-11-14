@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <!-- Header Bar -->
+  <rect x="0" y="0" width="820" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <text x="84" y="26" fill="#F8FAFC" font-size="12" font-weight="700">Official Specification Breakdown: US Passport vs. Visa vs. Pharmacy Print Sheet</text>
+
+  <!-- 3 Comparison Columns -->
+  <!-- Col 1: Online Passport Renewal -->
+  <g transform="translate(20, 56)">
+    <rect x="0" y="0" width="246" height="264" rx="8" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="246" height="36" rx="8" fill="#1E3A8A"/>
+    <text x="14" y="23" fill="#FFFFFF" font-size="12" font-weight="700">🛂 Online Passport Renewal</text>
+
+    <text x="14" y="58" fill="#93C5FD" font-size="10.5" font-weight="700">TARGET PORTAL:</text>
+    <text x="14" y="74" fill="#F8FAFC" font-size="11">travel.state.gov Renewal Portal</text>
+
+    <text x="14" y="102" fill="#93C5FD" font-size="10.5" font-weight="700">FILE WEIGHT (OFFICIAL):</text>
+    <rect x="14" y="110" width="150" height="22" rx="4" fill="#1D4ED8"/>
+    <text x="22" y="125" fill="#FFFFFF" font-size="11" font-weight="800">54 KB to 10 MB</text>
+    <text x="14" y="148" fill="#FCA5A5" font-size="9.5">⚠️ Rejects files below 54 KB</text>
+
+    <text x="14" y="176" fill="#93C5FD" font-size="10.5" font-weight="700">ACCEPTED FORMATS:</text>
+    <text x="14" y="192" fill="#F8FAFC" font-size="11">JPG, JPEG, PNG, HEIC, HEIF</text>
+
+    <text x="14" y="220" fill="#93C5FD" font-size="10.5" font-weight="700">PIXEL DIMENSIONS:</text>
+    <text x="14" y="236" fill="#F8FAFC" font-size="11">600×600 to 1200×1200 px (1:1)</text>
+    <text x="14" y="252" fill="#94A3B8" font-size="9.5">State Dept tool crops inside portal</text>
+  </g>
+
+  <!-- Col 2: DS-160 US Visa & DV Lottery -->
+  <g transform="translate(286, 56)">
+    <rect x="0" y="0" width="246" height="264" rx="8" fill="#1E293B" stroke="#EAB308" stroke-width="1.5"/>
+    <rect x="0" y="0" width="246" height="36" rx="8" fill="#713F12"/>
+    <text x="14" y="23" fill="#FEF08A" font-size="12" font-weight="700">📄 Form DS-160 / Visa / DV</text>
+
+    <text x="14" y="58" fill="#FDE047" font-size="10.5" font-weight="700">TARGET PORTAL:</text>
+    <text x="14" y="74" fill="#F8FAFC" font-size="11">ceac.state.gov &amp; DV Lottery</text>
+
+    <text x="14" y="102" fill="#FDE047" font-size="10.5" font-weight="700">FILE WEIGHT (STRICT):</text>
+    <rect x="14" y="110" width="168" height="22" rx="4" fill="#CA8A04"/>
+    <text x="22" y="125" fill="#000000" font-size="11" font-weight="800">Under 240 KB (≤240 KB)</text>
+    <text x="14" y="148" fill="#FEF08A" font-size="9.5">Hard byte validation check</text>
+
+    <text x="14" y="176" fill="#FDE047" font-size="10.5" font-weight="700">ACCEPTED FORMATS:</text>
+    <text x="14" y="192" fill="#F8FAFC" font-size="11">JPEG (.jpg) strictly</text>
+
+    <text x="14" y="220" fill="#FDE047" font-size="10.5" font-weight="700">PIXEL DIMENSIONS:</text>
+    <text x="14" y="236" fill="#F8FAFC" font-size="11">600×600 px min to 1200×1200 px</text>
+    <text x="14" y="252" fill="#94A3B8" font-size="9.5">Square aspect ratio (1:1)</text>
+  </g>
+
+  <!-- Col 3: 4x6 CVS / Walgreens Print Sheet -->
+  <g transform="translate(552, 56)">
+    <rect x="0" y="0" width="248" height="264" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5"/>
+    <rect x="0" y="0" width="248" height="36" rx="8" fill="#064E3B"/>
+    <text x="14" y="23" fill="#A7F3D0" font-size="12" font-weight="700">🖨️ 4×6 Pharmacy Print Sheet</text>
+
+    <text x="14" y="58" fill="#6EE7B7" font-size="10.5" font-weight="700">KIOSK TARGET:</text>
+    <text x="14" y="74" fill="#F8FAFC" font-size="11">Walgreens, CVS, Walmart Kiosks</text>
+
+    <text x="14" y="102" fill="#6EE7B7" font-size="10.5" font-weight="700">PRINT COST COMPARISON:</text>
+    <rect x="14" y="110" width="170" height="22" rx="4" fill="#059669"/>
+    <text x="22" y="125" fill="#FFFFFF" font-size="11" font-weight="800">$0.35 vs $19.99 counter</text>
+    <text x="14" y="148" fill="#A7F3D0" font-size="9.5">Order as standard 4×6 photo print</text>
+
+    <text x="14" y="176" fill="#6EE7B7" font-size="10.5" font-weight="700">SHEET DIMENSIONS:</text>
+    <text x="14" y="192" fill="#F8FAFC" font-size="11">4 × 6 in (1800 × 1200 px @ 300 DPI)</text>
+
+    <text x="14" y="220" fill="#6EE7B7" font-size="10.5" font-weight="700">PHOTO COUNT &amp; CUT LINES:</text>
+    <text x="14" y="236" fill="#F8FAFC" font-size="11">6 identical 2×2 in cutouts</text>
+    <text x="14" y="252" fill="#94A3B8" font-size="9.5">Exact 100% scale (turn off auto-crop)</text>
+  </g>
+</svg>

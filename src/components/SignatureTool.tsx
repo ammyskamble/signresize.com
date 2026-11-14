@@ -3004,7 +3004,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     ? (targetType === 'photo'
         ? [
             { id: 'us-ds160', short: 'DS-160 Visa', label: 'Form DS-160 US Visa', specs: '600×600 • ≤240 KB' },
-            { id: 'us-passport', short: 'US Passport', label: 'US Passport 2×2 Inch', specs: '600×600 • ≤240 KB' },
+            { id: 'us-passport', short: 'US Passport', label: 'US Passport 2×2 Inch', specs: '600×600 • 2×2 In (54 KB–10 MB)' },
             { id: 'us-opt-ead', short: 'OPT / STEM EAD', label: 'USCIS OPT (Form I-765)', specs: '600×600 • ≤240 KB' },
             { id: 'us-sat-photo', short: 'Digital SAT', label: 'College Board SAT & AP', specs: '600×600 • ≤4 MB' },
             { id: 'us-usmle-ecfmg', short: 'USMLE / ECFMG', label: 'ECFMG Form 186 Photo', specs: '600×600 • ≤150 KB' },
