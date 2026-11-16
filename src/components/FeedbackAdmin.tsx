@@ -20,22 +20,77 @@ const initialFilters = { days: '30', status: '', rating: '', kind: '', device: '
 function params(filters: typeof initialFilters) { return new URLSearchParams(Object.entries(filters).filter(([, value]) => value)); }
 function date(value: string) { return new Intl.DateTimeFormat('en-IN', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Kolkata' }).format(new Date(value)); }
 
-function RecordCard({ record, onUpdate }: { record: FeedbackRecord; onUpdate: (id: string, status: string, notes: string) => Promise<void> }) {
+function formatVersion(ver?: string) {
+  if (!ver) return 'Not provided';
+  if (ver.includes('T') && ver.endsWith('Z')) {
+    try {
+      const d = new Date(ver);
+      if (!isNaN(d.getTime())) {
+        return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) + ' build';
+      }
+    } catch {}
+  }
+  if (/^[0-9a-f]{40}$/i.test(ver)) {
+    return ver.slice(0, 7) + ' (git)';
+  }
+  return ver;
+}
+
+function RecordCard({ record, onUpdate, latestVersion }: { record: FeedbackRecord; onUpdate: (id: string, status: string, notes: string) => Promise<void>; latestVersion?: string }) {
   const [status, setStatus] = useState(record.status);
-  const [notes, setNotes] = useState(record.notes);
+  const [notes, setNotes] = useState(record.notes || '');
   const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    setStatus(record.status);
+    setNotes(record.notes || '');
+  }, [record.status, record.notes]);
+
+  const isCurrentRelease = Boolean(latestVersion && record.version && (record.version === latestVersion || record.version.startsWith(latestVersion) || latestVersion.startsWith(record.version)));
+
   return <article className="fa-record">
     <div className="fa-record-heading"><div className="fa-pills"><span className={`fa-pill fa-${record.rating || record.kind}`}>{labels[record.rating] || labels[record.kind]}</span><span className={`fa-pill fa-status-${record.status}`}>{labels[record.status]}</span><strong>{record.tool || 'Website'}</strong></div><time dateTime={record.created_at}>{date(record.created_at)} IST</time></div>
     {record.category && <h3>{record.category}</h3>}
     <p className="fa-message">{record.message || 'Rating only. No comment added.'}</p>
     <div className="fa-record-meta"><span>{record.device} · {record.browser}</span><span>{record.page}</span><span>{labels[record.kind]} · {record.source}</span></div>
     <details className="fa-review"><summary>Details &amp; review</summary><div className="fa-review-fields">
-      <dl><div><dt>Reply email</dt><dd>{record.email || 'Not provided'}</dd></div><div><dt>Website version</dt><dd>{record.version || 'Not provided'}</dd></div><div><dt>Record</dt><dd>{record.id}</dd></div></dl>
+      <dl>
+        <div><dt>Reply email</dt><dd>{record.email || 'Not provided'}</dd></div>
+        <div>
+          <dt>Website version</dt>
+          <dd>
+            <code>{formatVersion(record.version)}</code>
+            {record.version && (
+              isCurrentRelease 
+                ? <span className="fa-pill fa-status-fixed" style={{ marginLeft: 6, fontSize: 10 }}>Current release</span>
+                : <span className="fa-pill fa-status-investigating" style={{ marginLeft: 6, fontSize: 10 }}>Earlier version</span>
+            )}
+          </dd>
+        </div>
+        <div><dt>Record</dt><dd>{record.id}</dd></div>
+      </dl>
       <label>Status<select value={status} onChange={event => setStatus(event.target.value)}><option value="new">New</option><option value="investigating">Investigating</option><option value="fixed">Fixed</option></select></label>
       <label>Private review notes<textarea rows={3} maxLength={2000} value={notes} onChange={event => setNotes(event.target.value)} placeholder="What needs to change? Which release fixed it?" /></label>
       {error && <p className="fa-error" role="alert">{error}</p>}
-      <button type="button" disabled={saving} className="fa-button fa-primary" onClick={async () => { setSaving(true); setError(''); try { await onUpdate(record.id, status, notes); } catch (error) { setError(error instanceof Error ? error.message : 'Could not update feedback.'); } finally { setSaving(false); } }}><Check size={15} />{saving ? 'Saving…' : 'Save review'}</button>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <button type="button" disabled={saving} className="fa-button fa-primary" onClick={async () => {
+          setSaving(true);
+          setError('');
+          setSaved(false);
+          try {
+            await onUpdate(record.id, status, notes);
+            setSaved(true);
+            setTimeout(() => setSaved(false), 3000);
+          } catch (error) {
+            setError(error instanceof Error ? error.message : 'Could not update feedback.');
+          } finally {
+            setSaving(false);
+          }
+        }}><Check size={15} />{saving ? 'Saving…' : saved ? 'Saved!' : 'Save review'}</button>
+        {saved && <span style={{ color: '#10b981', fontSize: 12, fontWeight: 600 }}>✓ Review saved</span>}
+      </div>
     </div></details>
   </article>;
 }
@@ -87,8 +142,8 @@ export default function FeedbackAdmin() {
   }
 
   async function update(id: string, status: string, notes: string) {
-    const response = await fetch(`/api/feedback-admin/records/${id}/`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ status, notes }) });
-    const body = await response.json();
+    const response = await fetch(`/api/feedback-admin/records/${id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ status, notes: notes || '' }) });
+    const body = await response.json().catch(() => ({}));
     if (response.status === 401) { setAuthenticated(false); setData(null); }
     if (!response.ok) throw new Error(body.error || 'Could not update feedback.');
     setRefresh(value => value + 1);
@@ -117,13 +172,13 @@ export default function FeedbackAdmin() {
         <label>Date range<select value={filters.days} onChange={event => setFilters({ ...filters, days: event.target.value })}><option value="7">Last 7 days</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option><option value="365">Last year</option><option value="all">All time</option></select></label>
         {(['status', 'rating', 'kind', 'device'] as const).map(field => <label key={field}>{field === 'kind' ? 'Feedback type' : field}<select value={filters[field]} onChange={event => setFilters({ ...filters, [field]: event.target.value })}><option value="">All {field === 'kind' ? 'types' : field === 'device' ? 'devices' : field === 'status' ? 'statuses' : 'ratings'}</option>{(field === 'status' ? ['new', 'investigating', 'fixed'] : field === 'rating' ? ['good', 'okay', 'difficult'] : field === 'kind' ? ['experience', 'problem', 'suggestion'] : ['mobile', 'desktop']).map(value => <option key={value} value={value}>{labels[value] || value}</option>)}</select></label>)}
         <label>Tool<select value={filters.tool} onChange={event => setFilters({ ...filters, tool: event.target.value })}><option value="">All tools</option>{data?.tools.map(row => <option key={row.tool} value={row.tool}>{row.tool || 'Website'} ({row.count})</option>)}</select></label>
-        <label>Website version<select value={filters.version} onChange={event => setFilters({ ...filters, version: event.target.value })}><option value="">All versions</option>{data?.versions.map(row => <option key={row.version} value={row.version}>{row.version || 'Unknown'}</option>)}</select></label>
+        <label>Website version<select value={filters.version} onChange={event => setFilters({ ...filters, version: event.target.value })}><option value="">All versions</option>{data?.versions.map(row => <option key={row.version} value={row.version}>{formatVersion(row.version)} ({row.count})</option>)}</select></label>
         <label className="fa-search">Search<input value={filters.q} maxLength={120} onChange={event => setFilters({ ...filters, q: event.target.value })} placeholder="Message, problem, page or record ID" /></label><button className="fa-button fa-primary" type="submit">Apply filters</button>
       </form>
       {error && <p className="fa-error fa-banner" role="alert">{error}</p>}
       {data && data.trend.length > 1 && <section className="fa-trend" aria-label="Daily feedback trend"><div><h2>Daily responses</h2><p>Good ratings in purple. Other responses in grey. Latest 31 active days.</p></div><div className="fa-trend-bars">{data.trend.map(day => <div key={day.date} className="fa-day" title={`${day.date}: ${day.total} responses, ${day.good} good ratings`}><div style={{ height: `${Math.max(6, day.total / Math.max(...data.trend.map(row => row.total)) * 65)}px` }}><span style={{ height: `${day.good / day.total * 100}%` }} /></div><small>{day.date.slice(5)}</small></div>)}</div></section>}
       <div className="fa-list-heading"><h2>Feedback inbox</h2><span>{loading ? 'Updating…' : `${data?.summary.total ?? 0} responses`}</span></div>
-      <section className="fa-records" aria-label="Visitor responses" aria-busy={loading}>{data?.records.map(record => <RecordCard key={`${record.id}-${record.updated_at}`} record={record} onUpdate={update} />)}{!loading && data?.records.length === 0 && <div className="fa-empty"><MessageSquare size={32} /><h3>{data.summary.total ? 'No more responses on this page' : 'No feedback in this view yet'}</h3><p>New ratings and messages will appear here. Try another date range or clear the filters.</p></div>}</section>
+      <section className="fa-records" aria-label="Visitor responses" aria-busy={loading}>{data?.records.map(record => <RecordCard key={`${record.id}-${record.updated_at}`} record={record} onUpdate={update} latestVersion={data?.versions[0]?.version} />)}{!loading && data?.records.length === 0 && <div className="fa-empty"><MessageSquare size={32} /><h3>{data.summary.total ? 'No more responses on this page' : 'No feedback in this view yet'}</h3><p>New ratings and messages will appear here. Try another date range or clear the filters.</p></div>}</section>
       {data && data.summary.total > data.pageSize && <nav className="fa-pagination" aria-label="Feedback pages"><button type="button" className="fa-button" disabled={loading || page === 0} onClick={() => setPage(value => value - 1)}>Previous</button><span>Page {page + 1} of {Math.ceil(data.summary.total / data.pageSize)}</span><button type="button" className="fa-button" disabled={loading || (page + 1) * data.pageSize >= data.summary.total} onClick={() => setPage(value => value + 1)}>Next</button></nav>}
       <footer className="fa-footer">Times are shown in IST. CSV exports include up to 5,000 matching responses; narrow the dates for larger inboxes. Visitor images are never included.</footer>
     </main>

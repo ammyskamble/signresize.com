@@ -1,10 +1,22 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { execSync } from 'node:child_process';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { readFileSync } from 'node:fs';
 import { BLOG_POSTS } from './src/data/blogPostsData.ts';
+
+function getReleaseVersion() {
+  if (process.env.CF_PAGES_COMMIT_SHA) {
+    return process.env.CF_PAGES_COMMIT_SHA.slice(0, 7);
+  }
+  try {
+    return execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim();
+  } catch {
+    return 'main';
+  }
+}
 
 const hiSlugsWithContent = new Set(BLOG_POSTS.filter((p) => Boolean(p.contentHtml_hi)).map((p) => p.slug));
 const mrSlugsWithContent = new Set(BLOG_POSTS.filter((p) => Boolean(p.contentHtml_mr)).map((p) => p.slug));
@@ -145,7 +157,7 @@ export default defineConfig({
 
   vite: {
     define: {
-      __SIGNRESIZE_RELEASE__: JSON.stringify(process.env.CF_PAGES_COMMIT_SHA || new Date().toISOString()),
+      __SIGNRESIZE_RELEASE__: JSON.stringify(getReleaseVersion()),
     },
     plugins: [tailwindcss()],
     resolve: {
