@@ -194,8 +194,26 @@ export default defineConfig({
         const post = BLOG_POSTS.find(post => post.slug === blogSlug);
         const modified = post && new Date((post.lastUpdated || post.publishDate).replace(/Sept\b/i, 'Sep'));
 
-        if (['/ibps-photo-signature-resize/', '/ibps-signature-resize/', '/us/passport-photo-resizer/', '/rrb-ntpc-undergraduate-document-guide/', '/uppsc-ro-aro-photo-signature-resize/', '/wbpsc-photo-signature-resize/', '/uppsc-signature-resize/', '/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/'].includes(pathname)) {
-          item.lastmod = '2026-11-14';
+        if ([
+          '/',
+          '/photo-resizer/',
+          '/compress-image-to-kb/',
+          '/document-resizer/',
+          '/electronic-signature/',
+          '/signature-generator/',
+          '/resize-signature-to-10kb-20kb/',
+          '/rrb-station-master-signature-resize/',
+          '/rrb-ntpc-undergraduate-document-guide/',
+          '/ibps-photo-signature-resize/',
+          '/ibps-signature-resize/',
+          '/us/passport-photo-resizer/',
+          '/uppsc-ro-aro-photo-signature-resize/',
+          '/wbpsc-photo-signature-resize/',
+          '/uppsc-signature-resize/',
+          '/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/',
+          '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/'
+        ].includes(pathname)) {
+          item.lastmod = '2026-11-16';
         } else if (pathname === '/appsc-signature-resize/') {
           item.lastmod = '2026-11-11';
         } else if (['/teletalk-photo-signature-resize/', '/bd/medical-admission-photo-resizer/', '/bd/', '/pk/css-exam-photo-resizer/', '/pk/fpsc-photo-resizer/', '/jee-main-photo-resize/', '/jee-main-signature-resize/', '/blog/jee-main-2026-session-1-registration-syllabus-photo-signature-guidelines/', '/application-dates/', '/thumb-impression-resize/', '/blog/state-psc-otr-registration-photo-signature-guidelines/', '/blog/up-police-constable-si-2026-top-10-faq-guide/'].includes(pathname)) {
