@@ -9667,7 +9667,9 @@ signatures in capital letters will be rejected summarily without any corresponde
       { label: "NTPC Box Size", value: "35 × 20 mm (CEN 06/2025 & 07/2025)" },
       { label: "Minimum Pixels", value: "140 × 60 px (≥100 DPI)" },
       { label: "Photograph Rule", value: "Live Webcam Capture (No file upload)" },
-      { label: "Official Verification", value: "CEN 08/2026 para 16.5 & 16.6(a)–(b)" }
+      { label: "Official Verification", value: "CEN 08/2026 para 16.5 & 16.6(a)–(b)" },
+      { label: "Station Master Window", value: "Closes 25 Nov 2026 · Correction till 7 Dec 2026" },
+      { label: "NTPC UG Correction", value: "Active Now: 16 Nov – 25 Nov 2026" }
     ],
     contentHtml: `
       <!-- Answer-First Direct Executive Summary for Search Engines & AIO -->
@@ -9709,7 +9711,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       </div>
 
       <h2>Document Upload Compliance for Railway Portals (CEN 08/2026 vs CEN 06/2025)</h2>
-      <p>Railway recruitment notices explicitly enforce strict parameters for candidate uploads. Crucially, <strong>RRB Station Master is governed by CEN 08/2026</strong>, while generic NTPC roles fall under CEN 06/2025 (Graduate) and CEN 07/2025 (Undergraduate). While both share the 30–49 KB digital file limits, their physical scanning boxes differ significantly.</p>
+      <p>Railway recruitment notices explicitly enforce strict parameters for candidate uploads. Crucially, <strong>RRB Station Master is governed by CEN 08/2026</strong>, while generic NTPC roles fall under CEN 06/2025 (Graduate) and CEN 07/2025 (Undergraduate). If you are preparing for undergraduate categories (Junior Clerk cum Typist, Accounts Clerk, Trains Clerk), verify the complete checklist of <a href="/rrb-ntpc-undergraduate-document-guide/" class="text-primary underline font-semibold">RRB NTPC documents required</a> before beginning your application. While both cycles share the 30–49 KB digital file limits, their physical scanning boxes differ significantly.</p>
 
       <!-- Accurate Comparison Table: Station Master vs NTPC -->
       <div class="overflow-x-auto my-6 rounded-xl border border-border shadow-2xs">
@@ -9877,6 +9879,46 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         </div>
       </div>
 
+      <h2>RRB Application Correction Window 2026: Modification Dates &amp; Re-Upload Rules</h2>
+      <p>Candidates who made mistakes during form submission or had their uploaded files flagged by automated portal scrutiny can fix them during the official modification window. Railway Recruitment Boards operate strict, scheduled correction windows for each Centralised Employment Notice (CEN):</p>
+
+      <!-- Active Dates Comparison Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+        <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500/30 text-foreground">
+          <div class="flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400 mb-2">
+            <span>🟢 ACTIVE NOW</span>
+            <span>CEN 07/2026 (Undergraduate)</span>
+          </div>
+          <h4 class="font-extrabold text-sm sm:text-base text-foreground mb-1">RRB NTPC UG Correction Window</h4>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Online applications closed on 15 November 2026. The official <strong>modification window is active from 16 November to 25 November 2026 (11:59 PM)</strong>. If your signature was flagged as blurry, oversized, or written in capital letters, re-upload it immediately. Review the full list of <a href="/rrb-ntpc-undergraduate-document-guide/" class="text-primary underline font-semibold">RRB NTPC documents required</a> to verify your file formatting before the 25 Nov deadline.
+          </p>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground">
+          <div class="flex items-center justify-between text-xs font-bold text-primary mb-2">
+            <span>⏳ CLOSING SOON &amp; UPCOMING</span>
+            <span>CEN 08/2026 (Station Master)</span>
+          </div>
+          <h4 class="font-extrabold text-sm sm:text-base text-foreground mb-1">Station Master Application &amp; Correction</h4>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Online applications for RRB Station Master close on <strong>25 November 2026</strong>. Immediately following registration closure, the official <strong>correction window opens on 26 November and runs until 7 December 2026 (11:59 PM)</strong>. Bookmark this schedule to correct signature errors or category updates on <code>rrbapply.gov.in</code>.
+          </p>
+        </div>
+      </div>
+
+      <div class="my-6 p-4 rounded-xl bg-muted/60 border border-border text-foreground">
+        <h4 class="font-bold text-xs sm:text-sm text-foreground flex items-center gap-2 mb-2">
+          <span>🛠️</span> Key Rules for the RRB Application Modification Window
+        </h4>
+        <ul class="space-y-2 text-xs text-muted-foreground leading-relaxed">
+          <li><strong>Modification Fee:</strong> A non-refundable fee of <strong>₹250 per modification request</strong> must be paid online via debit card, credit card, UPI, or net banking.</li>
+          <li><strong>Permitted Corrections:</strong> You can re-upload your scanned signature (must be strictly 30–49 KB JPG), re-capture your live webcam photograph, and correct educational details or address entries.</li>
+          <li><strong>Strictly Non-Editable Fields:</strong> As per RRB guidelines, candidates <strong>cannot change their chosen RRB zone, registered name, mobile number, or email ID</strong> during the correction window.</li>
+          <li><strong>Signature Correction Protocol:</strong> If replacing a rejected signature, sign in black ballpoint ink on unruled white paper inside the prescribed box (50×20 mm for Station Master CEN 08/2026; 35×20 mm for NTPC CEN 07/2026), ensure running handwriting (no capital letters), and lock the file size to 30–49 KB using SignResize before uploading.</li>
+        </ul>
+      </div>
+
       <h2>Recommended Daily Study Strategy</h2>
       <p>Divide your daily preparation into 3 focused blocks: 2 hours for Arithmetic speed drills, 1.5 hours for Logical Reasoning puzzle practice, and 2 hours for General Science and Current Affairs revision.</p>
     `,
@@ -9908,6 +9950,10 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       {
         question: "What are the rules for SC/ST community certificate upload in RRB?",
         answer: "Candidates belonging to SC/ST categories who opt for free sleeper train travel passes must upload a clear scanned copy of their community certificate in PDF format strictly under 500 KB (recommended 100–400 KB)."
+      },
+      {
+        question: "When are the RRB Station Master and NTPC application correction windows?",
+        answer: "For RRB NTPC Undergraduate (CEN 07/2026), the modification/correction window is active right now from 16 November to 25 November 2026 (11:59 PM). For RRB Station Master (CEN 08/2026), online applications close on 25 November 2026, and the official correction window runs from 26 November to 7 December 2026. Candidates can modify eligible fields or re-upload a compliant 30–49 KB JPG signature on rrbapply.gov.in by paying a ₹250 modification fee."
       }
     ]
   },
