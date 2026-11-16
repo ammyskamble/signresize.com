@@ -9650,7 +9650,6 @@ signatures in capital letters will be rejected summarily without any corresponde
   {
     slug: "rrb-ntpc-2026-master-document-rules-preparation-strategy",
     title: "RRB NTPC & Station Master 2026: Signature Rules, Document Upload & Exam Preparation",
-    metaTitle: "RRB NTPC & Station Master 2026 Signature Size: 30–49 KB, 140×60 px | SignResize",
     metaDescription: "Official RRB Station Master & NTPC signature rules (CEN 08/2026 & CEN 06/2026): strictly 30–49 KB JPG, min 140×60 px, black ink. Learn the 50×20 mm vs 35×20 mm box differences and avoid the 30–70 KB rejection trap.",
     excerpt: "Official RRB NTPC & Station Master (CEN 08/2026) signature specifications: strictly 30–49 KB JPG, min 140×60 px, black ink, 50×20 mm box rules, live webcam photo instructions, and the 30–70 KB resizer trap warning.",
     category: "Study Prep",

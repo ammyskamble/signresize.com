@@ -133,7 +133,7 @@ export const FOCUSED_EXAM_PAGES: ExamPageInfo[] = [ossscPhoto, sbi, {
   presetId: 'rrb-station-master',
   datePublished: '2026-11-12T09:00:00+05:30',
   dateModified: '2026-11-16T18:00:00+05:30',
-  pageTitle: 'RRB Station Master Signature Size 2026 (30–49 KB, 140×60 px) Resizer',
+  pageTitle: 'RRB Station Master Signature Size 2026 (30–49 KB) Resizer',
   metaDescription: 'Official RRB Station Master signature size (CEN 08/2026): strictly 30–49 KB JPG/JPEG, minimum 140×60 px (≥100 DPI), black ink on white paper in a 50×20 mm box. Free in-browser tool.',
   keywords: 'rrb station master signature size, rrb station master signature resize, rrb station master signature size in kb, cen 08/2026 signature size, rrb signature 30 to 49 kb, station master signature 50x20 mm, rrb station master document upload size',
   h1: 'RRB Station Master Signature Size (30–49 KB) Resizer',
