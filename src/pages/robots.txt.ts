@@ -7,6 +7,7 @@ Disallow: /cdn-cgi/l/email-protection
 Disallow: /search-index.json
 
 Sitemap: ${new URL('sitemap-index.xml', siteUrl).href}
+LLM-txt: ${new URL('llms.txt', siteUrl).href}
 `.trim();
 
 export const GET: APIRoute = ({ site }) => {

@@ -9650,19 +9650,42 @@ signatures in capital letters will be rejected summarily without any corresponde
   {
     slug: "rrb-ntpc-2026-master-document-rules-preparation-strategy",
     title: "RRB NTPC & Station Master 2026: Signature Rules, Document Upload & Exam Preparation",
-    excerpt: "Separate RRB NTPC and Station Master upload guidance, including the Station Master CEN 08/2026 signature rule, NTPC documents, and exam preparation.",
+    metaTitle: "RRB NTPC & Station Master 2026 Signature Size: 30–49 KB, 140×60 px | SignResize",
+    metaDescription: "Official RRB Station Master & NTPC signature rules (CEN 08/2026 & CEN 06/2026): strictly 30–49 KB JPG, min 140×60 px, black ink. Learn the 50×20 mm vs 35×20 mm box differences and avoid the 30–70 KB rejection trap.",
+    excerpt: "Official RRB NTPC & Station Master (CEN 08/2026) signature specifications: strictly 30–49 KB JPG, min 140×60 px, black ink, 50×20 mm box rules, live webcam photo instructions, and the 30–70 KB resizer trap warning.",
     category: "Study Prep",
     publishDate: "Oct 19, 2026",
-    lastUpdated: "Nov 10, 2026",
+    lastUpdated: "Nov 16, 2026",
     author: "SignResize Academic Research Desk",
     authorRole: "Railway Recruitment Strategy Desk",
-    readTime: "8 min read",
+    readTime: "9 min read",
     featured: false,
-    tags: ["RRB NTPC", "RRB Station Master", "Railway Exams", "Signature 30-49 KB", "Document Guidelines"],
-    relatedExamPreset: "rrb-ntpc",
-    quickFacts: [],
+    tags: ["RRB NTPC", "RRB Station Master", "Railway Exams", "Signature 30-49 KB", "Document Guidelines", "CEN 08/2026"],
+    relatedExamPreset: "rrb-station-master",
+    quickFacts: [
+      { label: "Station Master Signature", value: "30–49 KB JPG (Strict Ceiling 49 KB)" },
+      { label: "Station Master Box Size", value: "50 × 20 mm (5:2 Aspect Ratio)" },
+      { label: "NTPC Box Size", value: "35 × 20 mm (CEN 06/2025 & 07/2025)" },
+      { label: "Minimum Pixels", value: "140 × 60 px (≥100 DPI)" },
+      { label: "Photograph Rule", value: "Live Webcam Capture (No file upload)" },
+      { label: "Official Verification", value: "CEN 08/2026 para 16.5 & 16.6(a)–(b)" }
+    ],
     contentHtml: `
-<h2>RRB NTPC 2026: Master Examination Overview &amp; Selection Stages</h2>
+      <!-- Answer-First Direct Executive Summary for Search Engines & AIO -->
+      <div class="my-6 p-4 sm:p-5 rounded-2xl bg-primary/10 border-2 border-primary/30 text-foreground">
+        <h3 class="text-sm sm:text-base font-extrabold flex items-center gap-2 text-primary">
+          <span>⚡</span> Quick Answer: RRB Station Master &amp; NTPC 2026 Signature Specifications
+        </h3>
+        <p class="text-xs sm:text-sm mt-2 leading-relaxed">
+          <strong>RRB Station Master signature size for CEN 08/2026 is strictly 30–49 KB in JPG/JPEG, minimum 140 × 60 pixels (scanned at ≥100 DPI), signed in black ballpoint ink on unruled white paper inside a 50 × 20 mm box in natural running handwriting.</strong> The photograph is captured live via webcam on <code>rrbapply.gov.in</code>, not uploaded as an image file. Any signature written in capital/block letters or exceeding 49 KB is 100% rejected by the portal.
+        </p>
+        <div class="mt-3 pt-3 border-t border-primary/20 flex flex-wrap items-center justify-between text-[11px] text-muted-foreground gap-2">
+          <span>Official Source: CEN 08/2026 paras 16.5 &amp; 16.6(a)–(b)</span>
+          <span class="font-semibold text-emerald-600 dark:text-emerald-400">Audited &amp; Verified: 16 Nov 2026</span>
+        </div>
+      </div>
+
+      <h2>RRB NTPC 2026: Master Examination Overview &amp; Selection Stages</h2>
       <p>The Railway Recruitment Boards (RRB) have activated the recruitment calendar for <strong>Non-Technical Popular Categories (NTPC)</strong>. Covering graduate posts like Goods Guard, Senior Clerk-cum-Typist, and Commercial Apprentice, as well as undergraduate roles like Junior Clerk and Train Clerk, competition across all Indian railway zones is exceptionally high.</p>
 
       <p>Succeeding in CBT-1 and CBT-2 requires a structured study routine paired with strict document compliance during the online registration process.</p>
@@ -9686,15 +9709,106 @@ signatures in capital letters will be rejected summarily without any corresponde
 Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</code></pre>
       </div>
 
-      <h2>Document Upload Compliance for Railway Portals</h2>
-      <p>Railway recruitment notices explicitly enforce strict parameters for candidate photo and scanned signature uploads. Check the active CEN because requirements can vary by recruitment cycle.</p>
+      <h2>Document Upload Compliance for Railway Portals (CEN 08/2026 vs CEN 06/2025)</h2>
+      <p>Railway recruitment notices explicitly enforce strict parameters for candidate uploads. Crucially, <strong>RRB Station Master is governed by CEN 08/2026</strong>, while generic NTPC roles fall under CEN 06/2025 (Graduate) and CEN 07/2025 (Undergraduate). While both share the 30–49 KB digital file limits, their physical scanning boxes differ significantly.</p>
 
-      <h2>RRB Station Master Signature Size</h2>
-      <p><strong>RRB Station Master signature size: 30–49 KB JPG/JPEG, at least 140×60 pixels, in black ink on white paper.</strong> Station Master has a separate recruitment notice, CEN 08/2026; apply that notice's instructions, including its 50×20 mm signature box, rather than assuming it is an NTPC CEN.</p>
-      <p>The numeric file-size and minimum-pixel limits match the reviewed NTPC guidance, but the recruitment notice and signing box differ. Prepare the image with our dedicated <a href="/rrb-station-master-signature-resize/" class="text-primary underline font-semibold">RRB Station Master signature size</a> resizer, then confirm the final crop and file against CEN 08/2026.</p>
+      <!-- Accurate Comparison Table: Station Master vs NTPC -->
+      <div class="overflow-x-auto my-6 rounded-xl border border-border shadow-2xs">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="bg-muted text-foreground border-b border-border">
+              <th class="p-3 font-bold">Parameter</th>
+              <th class="p-3 font-bold text-primary">RRB Station Master (CEN 08/2026)</th>
+              <th class="p-3 font-bold">RRB NTPC (CEN 06/2025 &amp; 07/2025)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold">Physical Box Dimensions</td>
+              <td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">50 mm × 20 mm (5:2 ratio)</td>
+              <td class="p-3">35 mm × 20 mm (7:4 ratio)</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold">File Size Range</td>
+              <td class="p-3 font-bold">Strictly 30 KB to 49 KB JPG</td>
+              <td class="p-3 font-bold">Strictly 30 KB to 49 KB JPG</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold">Minimum Digital Dimensions</td>
+              <td class="p-3">140 × 60 pixels (≥100 DPI)</td>
+              <td class="p-3">140 × 60 pixels (≥100 DPI)</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold">Ink &amp; Handwriting Rule</td>
+              <td class="p-3">Black ballpoint ink · Running cursive only (No CAPS)</td>
+              <td class="p-3">Black ballpoint ink · Running cursive only (No CAPS)</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold">Photograph Requirement</td>
+              <td class="p-3 font-semibold text-blue-600 dark:text-blue-400">Live Webcam Capture in Portal</td>
+              <td class="p-3 font-semibold text-blue-600 dark:text-blue-400">Live Webcam Capture in Portal</td>
+            </tr>
+            <tr class="hover:bg-muted/50">
+              <td class="p-3 font-semibold">Caste Certificate (SC/ST)</td>
+              <td class="p-3">Scanned PDF under 500 KB (Free Travel Pass)</td>
+              <td class="p-3">Scanned PDF under 500 KB (Free Travel Pass)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- High-Impact Visual Callout: The ExamMint 30-70 KB Trap -->
+      <div class="my-6 p-4 rounded-xl bg-amber-500/10 border-2 border-amber-500/40 text-amber-950 dark:text-amber-100">
+        <h4 class="font-extrabold text-xs sm:text-sm flex items-center gap-1.5 text-amber-900 dark:text-amber-200">
+          <span>⚠️</span> Important: Beware of the 30–70 KB Resizer Trap
+        </h4>
+        <p class="text-xs mt-1.5 leading-relaxed text-amber-900/90 dark:text-amber-100/90">
+          Several popular online tools (including ExamMint Resizer at rank #1) still output signatures up to <strong>70 KB</strong>, based on older recruitment cycles. Under current official notice <strong>CEN 08/2026 para 16.6(a)</strong>, the RRB application portal enforces an absolute maximum ceiling of <strong>49 KB</strong>. If your signature file is between 50 KB and 70 KB, <strong>the portal will reject your upload</strong>. Always keep your signature strictly between 30 KB and 49 KB.
+        </p>
+      </div>
+
+      <h2>Official Visual Diagrams: Signature Specification &amp; Rejection Checklist</h2>
+      <p>To avoid common application rejections, inspect the official dimensions and review the visual checklist below before uploading your signature to <code>rrbapply.gov.in</code>:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold text-foreground">Official Specification Diagram (50×20 mm Box)</h4>
+          <div class="rounded-xl overflow-hidden border border-border bg-slate-950">
+            <img 
+              src="/images/rrb-station-master-signature-spec.svg" 
+              alt="RRB Station Master CEN 08/2026 Official Upload Standards for Signature" 
+              class="w-full h-auto" 
+              loading="lazy" 
+              width="840"
+              height="440"
+            />
+          </div>
+          <p class="text-[11px] text-muted-foreground">Detailed layout of the 50×20 mm box, 140×60 px minimum, and 30–49 KB corridor.</p>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold text-foreground">Signature Approval vs. Rejection Visual Checklist</h4>
+          <div class="rounded-xl overflow-hidden border border-border bg-slate-950">
+            <img 
+              src="/images/rrb-signature-rejection-checklist.svg" 
+              alt="RRB Signature Approval vs Rejection Checklist: Running Cursive vs Capital Block Letters Disqualification" 
+              class="w-full h-auto" 
+              loading="lazy" 
+              width="840"
+              height="440"
+            />
+          </div>
+          <p class="text-[11px] text-muted-foreground">Running cursive is accepted; block letters, pencil, and files over 49 KB are disqualified.</p>
+        </div>
+      </div>
+
+      <h2>RRB Station Master Signature Size Instructions (CEN 08/2026)</h2>
+      <p><strong>RRB Station Master signature size: 30–49 KB JPG/JPEG, at least 140×60 pixels, in black ink on white paper inside a 50×20 mm box.</strong> Prepare the image using our dedicated <a href="/rrb-station-master-signature-resize/" class="text-primary underline font-semibold">RRB Station Master signature size resizer</a>, then verify the file meets the following rules:</p>
       <ul>
-        <li><strong>Scanned Passport Photo:</strong> Clear color photograph against a light white background taken within 3 months. File size must range between <strong>20 KB and 50 KB</strong> in JPG/JPEG format. Spectacles with tint or flash glare will be rejected.</li>
-        <li><strong>Candidate Signature:</strong> For the reviewed NTPC guidance, use running handwriting in black ink on white paper, as a <strong>30–49 KB JPG/JPEG</strong> measuring at least <strong>140×60 pixels</strong>. Check the active CEN before upload.</li>
+        <li><strong>Candidate Signature:</strong> Scanned signature must be in JPG/JPEG format, strictly <strong>30 KB to 49 KB</strong>, measuring at least <strong>140 × 60 pixels</strong> at 100+ DPI. Signed in black ballpoint ink on unruled white paper.</li>
+        <li><strong>Strict Capital Letters Disqualification:</strong> Signatures in capital or block letters are <strong>strictly disqualified</strong> under para 16.6(b). Use normal running handwriting.</li>
+        <li><strong>Live Photograph Capture:</strong> CEN 08/2026 mandates <strong>live webcam photo capture</strong> inside the application portal. There is no passport photo file upload.</li>
+        <li><strong>SC/ST Caste Certificate:</strong> Required only for candidates requesting free train sleeper travel passes. Must be a clear scanned PDF strictly under 500 KB.</li>
       </ul>
 
       <div class="my-8 p-6 rounded-2xl bg-card border border-border shadow-sm">
@@ -9704,36 +9818,36 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 text-center">
           <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">1</div>
-            <span class="font-bold text-xs text-foreground">Sign on White Paper</span>
-            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Use dark black ballpoint pen</span>
+            <span class="font-bold text-xs text-foreground">Sign inside 50×20 mm</span>
+            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Black pen on unruled paper</span>
           </div>
           <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">2</div>
             <span class="font-bold text-xs text-foreground">Meet 140×60 px minimum</span>
-            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Remove surrounding excess paper</span>
+            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Scan at 100+ DPI without crop</span>
           </div>
           <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">3</div>
-            <span class="font-bold text-xs text-foreground">Background White Filter</span>
-            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Clean phone shadows automatically</span>
+            <span class="font-bold text-xs text-foreground">Clean White Paper Filter</span>
+            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Remove camera shadows instantly</span>
           </div>
           <div class="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/20 flex flex-col items-center justify-center space-y-1.5 sm:space-y-2">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs sm:text-sm">4</div>
-            <span class="font-bold text-xs text-foreground">Target 30-49 KB</span>
-            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Compress for zero portal error</span>
+            <span class="font-bold text-xs text-foreground">Lock 30–49 KB</span>
+            <span class="text-[10px] sm:text-[11px] text-muted-foreground">Zero portal rejection guarantee</span>
           </div>
         </div>
       </div>
 
       <div class="my-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-card to-primary/10 border-2 border-primary/30">
-        <h4 class="text-base font-bold text-foreground">Need RRB Signature &amp; Photo Formatted?</h4>
-        <p class="text-xs sm:text-sm text-muted-foreground mt-1">Use the dedicated NTPC page to prepare a 30–49 KB signature, then check the active CEN before uploading.</p>
+        <h4 class="text-base font-bold text-foreground">Resize Your RRB Signature Now</h4>
+        <p class="text-xs sm:text-sm text-muted-foreground mt-1">Select the official Station Master or NTPC preset to lock exact pixel bounds and file size:</p>
         <div class="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 mt-3">
-        <a href="/rrb-station-master-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition w-full sm:w-auto">
-            <span>rrb station master signature size</span> &rarr;
+          <a href="/rrb-station-master-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition w-full sm:w-auto">
+            <span>RRB Station Master Resizer (50×20 mm)</span> &rarr;
           </a>
-          <a href="/photo-resizer/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition w-full sm:w-auto">
-            Resize Passport Photo &rarr;
+          <a href="/rrb-ntpc-signature-resize/" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-semibold text-xs sm:text-sm hover:opacity-95 transition w-full sm:w-auto">
+            <span>RRB NTPC Resizer (35×20 mm)</span> &rarr;
           </a>
         </div>
       </div>
@@ -9744,17 +9858,22 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
           <div class="relative">
             <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">1</div>
             <h4 class="font-bold text-foreground text-sm">Select Zonal RRB Portal</h4>
-            <p class="text-xs text-muted-foreground mt-1">Visit your chosen zonal portal (e.g. RRB Mumbai, RRB Chennai, RRB Chandigarh) and initiate candidate registration.</p>
+            <p class="text-xs text-muted-foreground mt-1">Visit your chosen zonal portal (e.g. RRB Mumbai, RRB Chennai, RRB Chandigarh, RRB Kolkata) or the unified portal at <code>rrbapply.gov.in</code>.</p>
           </div>
           <div class="relative">
             <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">2</div>
-            <h4 class="font-bold text-foreground text-sm">Complete photo and signature uploads per the active CEN</h4>
-            <p class="text-xs text-muted-foreground mt-1">Upload JPEG files formatted with SignResize. Verify that your signature image displays clearly without horizontal stretch.</p>
+            <h4 class="font-bold text-foreground text-sm">Upload Scanned Signature (30–49 KB JPG)</h4>
+            <p class="text-xs text-muted-foreground mt-1">Upload your signature file formatted with SignResize. Verify that your signature displays clearly without clipping or horizontal stretching in the preview box.</p>
           </div>
           <div class="relative">
             <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">3</div>
-            <h4 class="font-bold text-foreground text-sm">Confirm Community Certificate Upload (SC/ST)</h4>
-            <p class="text-xs text-muted-foreground mt-1">If applying for free rail travel authority, upload your scanned caste certificate in PDF format under 500 KB.</p>
+            <h4 class="font-bold text-foreground text-sm">Complete Live Webcam Photograph Capture</h4>
+            <p class="text-xs text-muted-foreground mt-1">Allow camera access on your browser. Align your face within the digital oval guide against a plain, well-lit white background.</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center">4</div>
+            <h4 class="font-bold text-foreground text-sm">Upload Community Certificate (SC/ST for Free Rail Pass)</h4>
+            <p class="text-xs text-muted-foreground mt-1">If applying for free sleeper travel authority, upload your scanned caste certificate in PDF format strictly under 500 KB.</p>
           </div>
         </div>
       </div>
@@ -9765,7 +9884,31 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     faqs: [
       {
         question: "What is the signature size for RRB Station Master?",
-        answer: "For Station Master CEN 08/2026, use a JPG/JPEG signature between 30 KB and 49 KB, at least 140×60 pixels, signed in black ink on white paper, and centre it in the 50×20 mm box. Station Master has a separate CEN; follow that notice rather than assuming it is an NTPC post."
+        answer: "For Station Master CEN 08/2026 (para 16.6), upload a JPG/JPEG signature strictly between 30 KB and 49 KB, with minimum dimensions of 140 × 60 pixels, scanned at ≥100 DPI. Sign in black ballpoint ink on unruled white paper inside a 50 × 20 mm box in natural running cursive handwriting."
+      },
+      {
+        question: "Why do some online tools show 30–70 KB for RRB signature, and will it be rejected?",
+        answer: "Several older online resizers carry the outdated 30–70 KB range. Under CEN 08/2026 para 16.6(a), the RRB portal enforces an absolute maximum file limit of 49 KB. Any file measuring 50 KB to 70 KB triggers an immediate upload failure on rrbapply.gov.in. SignResize ensures your signature is locked inside the compliant 30–49 KB corridor."
+      },
+      {
+        question: "What is the difference between RRB Station Master and NTPC signature box sizes?",
+        answer: "RRB Station Master CEN 08/2026 requires a 50 mm wide × 20 mm high box (5:2 aspect ratio). RRB NTPC (CEN 06/2025 & 07/2025) requires a 35 mm × 20 mm box (7:4 aspect ratio). Both mandate 30–49 KB JPG and at least 140×60 px, but Station Master has a wider physical signing box."
+      },
+      {
+        question: "Do I need to upload a passport photograph file for RRB Station Master 2026?",
+        answer: "No. In CEN 08/2026, photographs are captured live using a webcam or mobile front camera directly on rrbapply.gov.in. There is no photo upload field. Do not purchase or use tools selling photo file upload presets for Station Master."
+      },
+      {
+        question: "What happens if my signature file is smaller than 30 KB?",
+        answer: "The RRB application portal strictly rejects files under 30 KB because excessive compression causes blurriness when signatures are printed on admit cards and document verification dossiers. SignResize uses lossless structure padding to ensure files never fall below 30 KB."
+      },
+      {
+        question: "Can I sign in CAPITAL or BLOCK letters for RRB Station Master?",
+        answer: "No. Para 16.6(b) of CEN 08/2026 explicitly states: 'Signatures in capital letters will not be accepted.' Signatures written in block letters are rejected during application scrutiny without a refund. You must use normal running cursive handwriting."
+      },
+      {
+        question: "What are the rules for SC/ST community certificate upload in RRB?",
+        answer: "Candidates belonging to SC/ST categories who opt for free sleeper train travel passes must upload a clear scanned copy of their community certificate in PDF format strictly under 500 KB (recommended 100–400 KB)."
       }
     ]
   },

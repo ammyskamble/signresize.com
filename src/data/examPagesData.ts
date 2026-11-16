@@ -2,6 +2,8 @@ import { EXAM_PAGE_UPDATES, FOCUSED_EXAM_PAGES } from './focusedExamPages';
 import { GUIDANCE_PAGE_UPDATES } from './examGuidance';
 
 export interface ExamPageInfo {
+  datePublished?: string;
+  dateModified?: string;
   guidanceLabel?: string;
   verifiedOn?: string;
   noindex?: boolean;

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0B132B;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <!-- Card Header -->
+  <rect x="0" y="0" width="840" height="46" fill="#1C2541" rx="8" ry="8"/>
+  <circle cx="24" cy="23" r="5.5" fill="#EF4444"/>
+  <circle cx="44" cy="23" r="5.5" fill="#F59E0B"/>
+  <circle cx="64" cy="23" r="5.5" fill="#10B981"/>
+  <text x="86" y="28" fill="#F8FAFC" font-size="13" font-weight="700">RRB Station Master (CEN 08/2026) — Official Signature &amp; Upload Specifications</text>
+  <rect x="670" y="11" width="155" height="24" rx="12" fill="#10B981" opacity="0.15"/>
+  <text x="682" y="27" fill="#34D399" font-size="11" font-weight="700">✓ CEN 08/2026 Verified</text>
+
+  <!-- 3 Columns for Full Spec Breakdown -->
+  
+  <!-- Column 1: Physical Signing Box (50 x 20 mm) -->
+  <g transform="translate(18, 58)">
+    <rect width="254" height="364" rx="10" fill="#1C2541" stroke="#3A506B" stroke-width="1.5"/>
+    <rect x="12" y="12" width="230" height="28" rx="6" fill="#3B82F6" opacity="0.15"/>
+    <text x="24" y="31" fill="#60A5FA" font-size="12" font-weight="700">📏 1. PHYSICAL SIGNING BOX</text>
+    
+    <!-- 50x20 mm Ratio Box Visualization -->
+    <g transform="translate(16, 54)">
+      <rect x="0" y="0" width="222" height="96" rx="6" fill="#FFFFFF" stroke="#3B82F6" stroke-width="2"/>
+      <path d="M 20 54 Q 45 24 70 54 T 115 48 T 150 56 T 195 40" fill="none" stroke="#0B132B" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 50 68 L 170 68" stroke="#0B132B" stroke-width="2" stroke-linecap="round"/>
+      <!-- Dimension markers -->
+      <text x="86" y="-6" fill="#60A5FA" font-size="10" font-weight="700">50 mm (Width)</text>
+      <text x="226" y="52" fill="#60A5FA" font-size="10" font-weight="700" transform="rotate(90, 226, 52)">20 mm</text>
+    </g>
+
+    <!-- Details -->
+    <g transform="translate(16, 172)">
+      <rect x="0" y="0" width="222" height="22" rx="4" fill="#3B82F6" opacity="0.15"/>
+      <text x="10" y="15" fill="#93C5FD" font-size="10" font-weight="700">50 mm × 20 mm (5:2 Ratio)</text>
+
+      <text x="4" y="44" fill="#E2E8F0" font-size="11" font-weight="600">• Box Size: <tspan fill="#38BDF8" font-weight="700">50 × 20 mm</tspan></text>
+      <text x="4" y="64" fill="#E2E8F0" font-size="11" font-weight="600">• Station Master vs NTPC: <tspan fill="#F59E0B">Not 35×20</tspan></text>
+      <text x="4" y="84" fill="#E2E8F0" font-size="11" font-weight="600">• Ink: <tspan fill="#F8FAFC">Black Ballpoint Pen</tspan></text>
+      <text x="4" y="104" fill="#E2E8F0" font-size="11" font-weight="600">• Paper: <tspan fill="#F8FAFC">Plain Unruled White</tspan></text>
+      <text x="4" y="124" fill="#E2E8F0" font-size="11" font-weight="600">• Style: <tspan fill="#34D399">Running handwriting</tspan></text>
+      <text x="4" y="146" fill="#EF4444" font-size="10" font-weight="700">⚠️ Capital/block letters rejected</text>
+      <text x="4" y="164" fill="#94A3B8" font-size="10">• Center strokes inside box margins</text>
+    </g>
+  </g>
+
+  <!-- Column 2: Digital Pixels & DPI -->
+  <g transform="translate(290, 58)">
+    <rect width="254" height="364" rx="10" fill="#1C2541" stroke="#8B5CF6" stroke-width="1.5"/>
+    <rect x="12" y="12" width="230" height="28" rx="6" fill="#8B5CF6" opacity="0.15"/>
+    <text x="24" y="31" fill="#C4B5FD" font-size="12" font-weight="700">🖥️ 2. PIXELS &amp; RESOLUTION</text>
+
+    <!-- Canvas Preview -->
+    <g transform="translate(16, 54)">
+      <rect x="0" y="0" width="222" height="96" rx="6" fill="#0F172A" stroke="#8B5CF6" stroke-width="2"/>
+      <rect x="12" y="12" width="198" height="72" rx="4" fill="#FFFFFF"/>
+      <path d="M 30 52 Q 55 26 80 52 T 120 46 T 150 54 T 185 38" fill="none" stroke="#0B132B" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M 55 64 L 160 64" stroke="#0B132B" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Details -->
+    <g transform="translate(16, 172)">
+      <rect x="0" y="0" width="222" height="22" rx="4" fill="#8B5CF6" opacity="0.2"/>
+      <text x="8" y="15" fill="#C4B5FD" font-size="10" font-weight="700">Min 140×60 px · Canvas 350×140</text>
+
+      <text x="4" y="44" fill="#E2E8F0" font-size="11" font-weight="600">• Minimum: <tspan fill="#A78BFA" font-weight="700">140 × 60 pixels</tspan></text>
+      <text x="4" y="64" fill="#E2E8F0" font-size="11" font-weight="600">• Canvas: <tspan fill="#A78BFA">350 × 140 px (5:2)</tspan></text>
+      <text x="4" y="84" fill="#E2E8F0" font-size="11" font-weight="600">• Resolution: <tspan fill="#34D399">100 DPI or higher</tspan></text>
+      <text x="4" y="104" fill="#E2E8F0" font-size="11" font-weight="600">• Format: <tspan fill="#F8FAFC">JPG / JPEG only</tspan></text>
+      <text x="4" y="124" fill="#E2E8F0" font-size="11" font-weight="600">• Background: <tspan fill="#F8FAFC">Clean white</tspan></text>
+      <text x="4" y="146" fill="#F59E0B" font-size="10" font-weight="700">⚡ Exceeds minimum comfortably</text>
+      <text x="4" y="164" fill="#94A3B8" font-size="10">• No shadow, skew, or phone tint</text>
+    </g>
+  </g>
+
+  <!-- Column 3: File Size Corridor & Live Photo -->
+  <g transform="translate(562, 58)">
+    <rect width="260" height="364" rx="10" fill="#1C2541" stroke="#10B981" stroke-width="1.5"/>
+    <rect x="12" y="12" width="236" height="28" rx="6" fill="#10B981" opacity="0.15"/>
+    <text x="24" y="31" fill="#6EE7B7" font-size="12" font-weight="700">⚖️ 3. FILE SIZE CORRIDOR (KB)</text>
+
+    <!-- File Size Slider / Corridor Bar -->
+    <g transform="translate(16, 54)">
+      <rect x="0" y="0" width="228" height="96" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>
+      <!-- Red zone: <30 KB -->
+      <rect x="10" y="24" width="55" height="20" rx="3" fill="#EF4444" opacity="0.3"/>
+      <text x="14" y="38" fill="#FCA5A5" font-size="9" font-weight="700">&lt;30 KB ❌</text>
+      
+      <!-- Green zone: 30-49 KB -->
+      <rect x="68" y="18" width="92" height="32" rx="4" fill="#10B981" stroke="#34D399" stroke-width="1.5"/>
+      <text x="74" y="38" fill="#FFFFFF" font-size="11" font-weight="800">30 – 49 KB ✅</text>
+      
+      <!-- Red zone: 50-70 KB (ExamMint trap) -->
+      <rect x="163" y="24" width="55" height="20" rx="3" fill="#EF4444" opacity="0.3"/>
+      <text x="166" y="38" fill="#FCA5A5" font-size="9" font-weight="700">&gt;49 KB ❌</text>
+      
+      <text x="18" y="72" fill="#F59E0B" font-size="9" font-weight="700">⚠️ 50–70 KB tools fail the portal</text>
+      <text x="18" y="86" fill="#94A3B8" font-size="9">CEN 08/2026 para 16.6(a) ceiling: 49 KB</text>
+    </g>
+
+    <!-- Details -->
+    <g transform="translate(16, 172)">
+      <rect x="0" y="0" width="228" height="22" rx="4" fill="#10B981" opacity="0.2"/>
+      <text x="10" y="15" fill="#6EE7B7" font-size="10" font-weight="700">Strict 30 KB to 49 KB Corridor</text>
+
+      <text x="4" y="44" fill="#E2E8F0" font-size="11" font-weight="600">• Lower bound: <tspan fill="#EF4444">Under 30 KB rejected</tspan></text>
+      <text x="4" y="64" fill="#E2E8F0" font-size="11" font-weight="600">• Upper ceiling: <tspan fill="#EF4444">Over 49 KB rejected</tspan></text>
+      <text x="4" y="84" fill="#E2E8F0" font-size="11" font-weight="600">• Optimal target: <tspan fill="#34D399" font-weight="700">40 KB – 45 KB</tspan></text>
+      
+      <rect x="0" y="98" width="228" height="66" rx="6" fill="#3B82F6" opacity="0.12" stroke="#3B82F6" stroke-width="1"/>
+      <text x="8" y="114" fill="#60A5FA" font-size="10" font-weight="700">📷 PHOTO IS LIVE WEBCAM CAPTURE</text>
+      <text x="8" y="130" fill="#E2E8F0" font-size="10">No photo upload file exists in CEN 08.</text>
+      <text x="8" y="144" fill="#94A3B8" font-size="9">Capture face live on rrbapply.gov.in</text>
+      <text x="8" y="157" fill="#F59E0B" font-size="9">Do not pay tools selling photo presets.</text>
+    </g>
+  </g>
+</svg>

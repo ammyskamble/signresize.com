@@ -1,0 +1,29 @@
+# SignResize
+
+> Fast, 100% private in-browser document, photograph, and signature resizer for Indian and international competitive examinations, government recruitment portals, and standardized tests. All image resizing, canvas padding, and compression run strictly client-side on HTML5 Canvas without server uploads.
+
+## Railway Recruitment Board (RRB) Cluster
+
+- [RRB Station Master Signature Resizer (CEN 08/2026)](https://signresize.in/rrb-station-master-signature-resize/): Official specification: 30–49 KB JPG/JPEG, min 140×60 px, ≥100 DPI, black ballpoint ink on unruled white paper, centered inside a 50×20 mm box (5:2 ratio) in natural running handwriting. Capital/block letters are strictly prohibited per para 16.6(b). Note: Photograph is captured live via webcam on rrbapply.gov.in; no photograph file upload exists.
+- [RRB NTPC Signature Resizer (CEN 06/2025 Graduate & CEN 07/2025 Undergraduate)](https://signresize.in/rrb-ntpc-signature-resize/): Official specification: 30–49 KB JPG/JPEG, min 140×60 px, ≥100 DPI, black ink, centered in a 35×20 mm box.
+- [RRB NTPC & Station Master Master Guide](https://signresize.in/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/): Comprehensive upload compliance, the 30–70 KB resizer rejection trap warning, Station Master 50×20 mm vs NTPC 35×20 mm box comparison, and SC/ST travel pass certificate rules.
+
+## Banking (IBPS & SBI) Cluster
+
+- [IBPS Photo & Signature Resizer](https://signresize.in/ibps-photo-signature-resize/): Combined 4-in-1 upload suite verified against IBPS CRP PO/MT-XVI Detailed Notification (Annexure III). Photo: 200×230 px, 20–50 KB JPG. Signature: 140×60 px, 10–20 KB JPG (black ink, running handwriting, capital letters disqualified). Left Thumb Impression: 240×240 px, 20–50 KB JPG. Handwritten Declaration: 800×400 px, 50–100 KB JPG.
+- [IBPS Signature Resizer](https://signresize.in/ibps-signature-resize/): Dedicated signature resizer for 140×60 px, 10–20 KB JPG.
+
+## Staff Selection Commission (SSC) Cluster
+
+- [SSC CGL Signature Resizer](https://signresize.in/ssc-cgl-signature-resize/): 140×60 px, 10–20 KB JPG, black ink on white paper.
+- [SSC Photo Resizer](https://signresize.in/ssc-photo-resize/): 240×320 px, 20–50 KB JPG live capture and upload guidance.
+
+## UPSC Cluster
+
+- [UPSC Civil Services Photo & Signature Resizer](https://signresize.in/upsc-photo-resize/): 350×350 px (min) to 1000×1000 px (max), 20–300 KB JPG, 3:4 or 1:1 aspect ratio with candidate name and date stamp where required.
+
+## Key Technical & Accuracy Differentiators
+
+1. **Dual-Corridor Compression:** Enforces both the upper ceiling (e.g. 49 KB for RRB, 20 KB for IBPS) and the lower floor (e.g. 30 KB for RRB, 10 KB for IBPS/SSC) using lossless JPEG structure padding so files never fail portal file size checks.
+2. **Official Notice Verification:** Every preset is audited against active Centralized Employment Notices (CENs) and official recruitment notifications with explicitly cited paragraph numbers and verification dates.
+3. **No-Upload Privacy:** 100% zero-server architecture. All operations take place in candidate's local browser memory.

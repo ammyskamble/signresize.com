@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0B132B;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <!-- Card Header -->
+  <rect x="0" y="0" width="840" height="46" fill="#1C2541" rx="8" ry="8"/>
+  <circle cx="24" cy="23" r="5.5" fill="#EF4444"/>
+  <circle cx="44" cy="23" r="5.5" fill="#F59E0B"/>
+  <circle cx="64" cy="23" r="5.5" fill="#10B981"/>
+  <text x="86" y="28" fill="#F8FAFC" font-size="13" font-weight="700">RRB Station Master — Signature Approval vs. Rejection Visual Checklist</text>
+  <rect x="668" y="11" width="156" height="24" rx="12" fill="#EF4444" opacity="0.15"/>
+  <text x="680" y="27" fill="#F87171" font-size="11" font-weight="700">⚠️ CEN 08/2026 Para 16</text>
+
+  <!-- Two Main Panels: Left = Accepted, Right = Rejection Checklist -->
+  
+  <!-- Left Panel: 100% Accepted Spec -->
+  <g transform="translate(18, 58)">
+    <rect width="390" height="364" rx="10" fill="#1C2541" stroke="#10B981" stroke-width="2"/>
+    <rect x="12" y="12" width="366" height="30" rx="6" fill="#10B981" opacity="0.15"/>
+    <text x="24" y="32" fill="#34D399" font-size="12" font-weight="800">✅ 100% ACCEPTED SIGNATURE (CEN 08/2026)</text>
+    
+    <!-- Signature Visual Example -->
+    <g transform="translate(20, 52)">
+      <rect x="0" y="0" width="350" height="120" rx="8" fill="#FFFFFF" stroke="#10B981" stroke-width="2"/>
+      <!-- Running handwriting -->
+      <path d="M 35 68 Q 65 30 100 68 T 155 60 T 205 72 T 265 52 T 315 64" fill="none" stroke="#0B132B" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M 75 84 L 275 84" stroke="#0B132B" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="250" y="8" width="90" height="20" rx="4" fill="#10B981" opacity="0.15"/>
+      <text x="258" y="22" fill="#047857" font-size="10" font-weight="700">350×140 (5:2)</text>
+      <rect x="10" y="94" width="125" height="18" rx="4" fill="#047857" opacity="0.1"/>
+      <text x="16" y="107" fill="#047857" font-size="9" font-weight="700">✓ Running Cursive Style</text>
+    </g>
+
+    <!-- Checklist items -->
+    <g transform="translate(20, 186)">
+      <text x="0" y="16" fill="#E2E8F0" font-size="11" font-weight="600">✓ <tspan fill="#34D399" font-weight="700">Natural Running Handwriting:</tspan> Flowing cursive strokes</text>
+      <text x="0" y="38" fill="#E2E8F0" font-size="11" font-weight="600">✓ <tspan fill="#34D399" font-weight="700">Black Ballpoint Pen:</tspan> Deep contrast, zero ink bleed</text>
+      <text x="0" y="60" fill="#E2E8F0" font-size="11" font-weight="600">✓ <tspan fill="#34D399" font-weight="700">Physical Box:</tspan> Centred inside 50 mm × 20 mm box</text>
+      <text x="0" y="82" fill="#E2E8F0" font-size="11" font-weight="600">✓ <tspan fill="#34D399" font-weight="700">Resolution:</tspan> ≥140×60 px (scanned at 100+ DPI)</text>
+      <text x="0" y="104" fill="#E2E8F0" font-size="11" font-weight="600">✓ <tspan fill="#34D399" font-weight="700">File Size Range:</tspan> Strictly 30 KB to 49 KB JPG/JPEG</text>
+      <text x="0" y="126" fill="#E2E8F0" font-size="11" font-weight="600">✓ <tspan fill="#34D399" font-weight="700">Paper:</tspan> Pure unruled white paper, shadow-free</text>
+      
+      <rect x="0" y="140" width="350" height="26" rx="6" fill="#10B981" opacity="0.12"/>
+      <text x="10" y="157" fill="#34D399" font-size="10" font-weight="700">🎯 Tested on rrbapply.gov.in — 100% validation success</text>
+    </g>
+  </g>
+
+  <!-- Right Panel: Common Rejections & Traps -->
+  <g transform="translate(432, 58)">
+    <rect width="390" height="364" rx="10" fill="#1C2541" stroke="#EF4444" stroke-width="2"/>
+    <rect x="12" y="12" width="366" height="30" rx="6" fill="#EF4444" opacity="0.15"/>
+    <text x="24" y="32" fill="#F87171" font-size="12" font-weight="800">❌ TOP 5 DISQUALIFICATION &amp; ERROR TRAPS</text>
+
+    <g transform="translate(16, 52)">
+      <!-- Trap 1: Capital Letters -->
+      <g transform="translate(0, 0)">
+        <rect width="358" height="56" rx="6" fill="#0F172A" stroke="#EF4444" stroke-width="1"/>
+        <text x="10" y="18" fill="#FCA5A5" font-size="11" font-weight="800">1. ALL CAPITAL / BLOCK LETTERS ❌</text>
+        <text x="10" y="34" fill="#CBD5E1" font-size="10">e.g. "RAHUL SHARMA" in capital print letters.</text>
+        <text x="10" y="48" fill="#EF4444" font-size="9" font-weight="700">Para 16.6(b): "Signatures in Capital Letters will NOT be accepted."</text>
+      </g>
+
+      <!-- Trap 2: ExamMint 30-70 KB Trap -->
+      <g transform="translate(0, 62)">
+        <rect width="358" height="56" rx="6" fill="#0F172A" stroke="#F59E0B" stroke-width="1"/>
+        <text x="10" y="18" fill="#FCD34D" font-size="11" font-weight="800">2. THE 30–70 KB RESIZER TRAP (&gt;49 KB) ❌</text>
+        <text x="10" y="34" fill="#CBD5E1" font-size="10">Generic tools output up to 70 KB. CEN 08 ceiling is strictly 49 KB.</text>
+        <text x="10" y="48" fill="#F59E0B" font-size="9" font-weight="700">Any file between 50 KB and 70 KB is rejected by the RRB portal.</text>
+      </g>
+
+      <!-- Trap 3: Under 30 KB -->
+      <g transform="translate(0, 124)">
+        <rect width="358" height="56" rx="6" fill="#0F172A" stroke="#EF4444" stroke-width="1"/>
+        <text x="10" y="18" fill="#FCA5A5" font-size="11" font-weight="800">3. FILE SMALLER THAN 30 KB (&lt;30 KB) ❌</text>
+        <text x="10" y="34" fill="#CBD5E1" font-size="10">Clean phone crops compress to 10–20 KB, failing the 30 KB minimum.</text>
+        <text x="10" y="48" fill="#EF4444" font-size="9" font-weight="700">SignResize adds lossless padding to guarantee 30–49 KB JPG.</text>
+      </g>
+
+      <!-- Trap 4: Wrong Box / Blue ink / Lines -->
+      <g transform="translate(0, 186)">
+        <rect width="358" height="56" rx="6" fill="#0F172A" stroke="#EF4444" stroke-width="1"/>
+        <text x="10" y="18" fill="#FCA5A5" font-size="11" font-weight="800">4. BLUE INK, PENCIL OR RULED LINES ❌</text>
+        <text x="10" y="34" fill="#CBD5E1" font-size="10">Lined notebook paper or blue/gel ink can fail OCR portal checks.</text>
+        <text x="10" y="48" fill="#EF4444" font-size="9" font-weight="700">Always use black ballpoint on plain white unruled paper.</text>
+      </g>
+
+      <!-- Trap 5: Photo Upload Instead of Live Capture -->
+      <g transform="translate(0, 248)">
+        <rect width="358" height="56" rx="6" fill="#0F172A" stroke="#3B82F6" stroke-width="1"/>
+        <text x="10" y="18" fill="#93C5FD" font-size="11" font-weight="800">5. BUYING PHOTO PRESETS (PHOTO IS LIVE) ❌</text>
+        <text x="10" y="34" fill="#CBD5E1" font-size="10">Competitors still sell photo presets; RRB now mandates live webcam capture.</text>
+        <text x="10" y="48" fill="#60A5FA" font-size="9" font-weight="700">Never upload a photo file for CEN 08 — complete live scan in portal.</text>
+      </g>
+    </g>
+  </g>
+</svg>
