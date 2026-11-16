@@ -34,7 +34,7 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
 
     <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="en-BD" href="https://signresize.in/bd/" />
-    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
+    <link rel="alternate" hreflang="x-default" href="https://signresize.in/bd/" />
 
     <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:type" content="website" />
@@ -110,30 +110,126 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
         </div>
       </section>
 
-      <section id="tool-workspace" class="scroll-mt-20 rounded-2xl border border-border bg-card p-5 space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <h2 class="font-bold text-lg">Teletalk photo and signature sizes</h2>
-          <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">November 2026 Admission Season</span>
+      <section id="tool-workspace" class="scroll-mt-20 rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-3">
+          <div>
+            <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">বাংলাদেশ অনলাইন আবেদন নির্দেশিকা</span>
+            <h2 class="font-extrabold text-xl sm:text-2xl text-foreground">Bangladesh Portal Photo &amp; Signature Standards (2026–27)</h2>
+          </div>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+            ✓ Verified 16 Nov 2026
+          </span>
         </div>
-        <p class="text-sm text-muted-foreground">Check the specific application notice before uploading. Standard Teletalk rules (300×300 px photo, 300×80 px signature) apply to DGME Medical, Jagannath University (15 Nov–10 Dec), BCS, DPE, and NTRCA.</p>
-        <p class="text-xs sm:text-sm rounded-xl border border-amber-500/25 bg-amber-500/10 px-3 py-2 text-amber-950 dark:text-amber-100">
-          <strong>Dhaka University (applications 11–25 November 2026):</strong> Check the DU portal notice at <span class="font-mono">admission.eis.du.ac.bd</span> (uses DU portrait photo rules rather than Teletalk 300×300). See the <a class="font-semibold text-primary underline" href="/teletalk-photo-signature-resize/#november-2026-admissions">November 2026 Bangladesh admission season guide</a> or the specs table below.
+
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Bangladesh online application portals use <strong>two distinct specification families</strong>. The majority of government recruitments and admissions run on the <strong>Teletalk All Jobs engine (300×300 px photo &amp; 300×80 px signature)</strong>, while the <strong>Bangladesh Bank e-Recruitment system mandates 600×600 px photos</strong>. Both require exact pixel locks in JPG format with color photographs on plain white backgrounds.
         </p>
-        <table class="w-full text-left text-sm"><thead><tr><th class="p-2">File</th><th class="p-2">Dimensions</th><th class="p-2">File size</th></tr></thead><tbody>
-          <tr><td class="p-2"><a class="text-primary underline" href="/teletalk-photo-signature-resize/">Teletalk Photo Resize</a></td><td class="p-2">300×300 px</td><td class="p-2">10–100 KB</td></tr>
-          <tr><td class="p-2"><a class="text-primary underline" href="/teletalk-photo-signature-resize/">Teletalk Signature Resize</a></td><td class="p-2">300×80 px</td><td class="p-2">5–60 KB</td></tr>
-        </tbody></table>
+
+        <!-- Spec Families Comparison Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+          <div class="p-4 rounded-xl border border-primary/20 bg-primary/5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-primary">Family 1: Teletalk Standard</span>
+              <span class="text-xs font-semibold text-muted-foreground">300×300 / 300×80 px</span>
+            </div>
+            <h3 class="font-bold text-base text-foreground">BCS, DPE, NTRCA, Medical &amp; AllJobs</h3>
+            <p class="text-xs text-muted-foreground">
+              <strong>রঙিন ছবি (Color Photo):</strong> 300×300 pixels (1:1), 10 KB to 100 KB max.<br/>
+              <strong>স্বাক্ষর (Signature):</strong> 300×80 pixels (3.75:1), 5 KB to 60 KB max.<br/>
+              <span class="text-amber-600 dark:text-amber-400 font-semibold">Strict rule:</span> Greyscale or monochrome photographs are rejected by portal pre-validation.
+            </p>
+            <div class="pt-2">
+              <a href="/teletalk-photo-signature-resize/" class="text-xs font-bold text-primary hover:underline inline-flex items-center gap-1">
+                Open Teletalk Master Resizer &rarr;
+              </a>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl border border-amber-500/20 bg-amber-500/5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Family 2: Central Bank Standard</span>
+              <span class="text-xs font-semibold text-muted-foreground">600×600 / 300×80 px</span>
+            </div>
+            <h3 class="font-bold text-base text-foreground">Bangladesh Bank &amp; Combined 8/9 Banks</h3>
+            <p class="text-xs text-muted-foreground">
+              <strong>রঙিন ছবি (Color Photo):</strong> 600×600 pixels (1:1), Maximum 100 KB.<br/>
+              <strong>স্বাক্ষর (Signature):</strong> 300×80 pixels, Maximum 60 KB in JPG.<br/>
+              <span class="text-foreground font-semibold">Portals:</span> erecruitment.bb.org.bd (AD, Officer General, Cash Officer).
+            </p>
+            <div class="pt-2">
+              <a href="/bd/bangladesh-bank-photo-signature-resizer/" class="text-xs font-bold text-primary hover:underline inline-flex items-center gap-1">
+                Open Bangladesh Bank Resizer &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spec Diagrams Visual Proof Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div class="space-y-1.5">
+            <span class="text-xs font-bold text-muted-foreground">Official Teletalk Photograph Format:</span>
+            <img 
+              src="/images/teletalk-photo-spec-300x300.svg" 
+              alt="Teletalk Bangladesh 300x300 Photo Specifications Diagram" 
+              width="760" 
+              height="360" 
+              loading="lazy" 
+              class="w-full rounded-xl border border-border"
+            />
+          </div>
+          <div class="space-y-1.5">
+            <span class="text-xs font-bold text-muted-foreground">Official Teletalk Specimen Signature Format:</span>
+            <img 
+              src="/images/teletalk-signature-spec-300x80.svg" 
+              alt="Teletalk Bangladesh 300x80 Signature Specifications Diagram" 
+              width="760" 
+              height="360" 
+              loading="lazy" 
+              class="w-full rounded-xl border border-border"
+            />
+          </div>
+        </div>
+
+        <!-- Active Admissions & Police Notice Box -->
+        <div class="p-4 rounded-xl border border-blue-500/20 bg-blue-500/5 space-y-2 text-xs sm:text-sm">
+          <div class="flex items-center gap-2 font-bold text-blue-900 dark:text-blue-200">
+            <span>📢 Special Portal Exceptions &amp; Current Windows:</span>
+          </div>
+          <ul class="list-disc pl-5 space-y-1 text-muted-foreground">
+            <li>
+              <strong>Dhaka University (DU EIS - applications 11–25 Nov 2026):</strong> Uses independent university guidelines (30–200 KB portrait) at <span class="font-mono">admission.eis.du.ac.bd</span> rather than standard Teletalk 300×300. Check the <a class="font-semibold text-primary underline" href="/blog/bangladesh-university-medical-admission-photo-signature-guide-2026/">DU &amp; Medical Admission Guide</a>.
+            </li>
+            <li>
+              <strong>Bangladesh Police (SI &amp; TRC Recruitments):</strong> Follows standard Teletalk 300×300 px (≤100 KB) and 300×80 px (≤60 KB) on <span class="font-mono">police.teletalk.com.bd</span>. Candidates can resize directly using the <a class="font-semibold text-primary underline" href="/teletalk-photo-signature-resize/">Teletalk Tool</a>.
+            </li>
+            <li>
+              <strong>Medical (DGME MBBS &amp; BDS 2026–27):</strong> Expected 15–18 Nov 2026 applications on <span class="font-mono">dgme.teletalk.com.bd</span> strictly require color photos with both ears visible; monochrome scans are rejected. Use the dedicated <a class="font-semibold text-primary underline" href="/bd/medical-admission-photo-resizer/">Medical Admission Resizer</a>.
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <!-- 5 Quick-Access Exam Category Cards Grid -->
+      <!-- 6 Quick-Access Dedicated Bangladesh Application Tools Grid -->
       <section class="space-y-4 pt-4">
-        <h2 class="text-xl font-bold text-foreground">Dedicated Bangladesh Application Tools</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-bold text-foreground">Dedicated Bangladesh Application Tools</h2>
+          <span class="text-xs text-muted-foreground">All 6 tools client-side &amp; 100% private</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <a href="/teletalk-photo-signature-resize/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-primary/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">🌐</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Teletalk All Jobs (Master)</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | 300×80 px | alljobs.teletalk.com.bd general portal for all ministries &amp; govt departments.</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open Teletalk Resizer &rarr;</span>
+          </a>
+
           <a href="/bd/bcs-photo-signature-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🏛️</div>
-              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">BCS &amp; BPSC</h3>
-              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | 300×80 px | Cadre &amp; Non-Cadre</p>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">BCS &amp; BPSC (Cadre &amp; Non-Cadre)</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | 300×80 px | 47th / 46th BCS &amp; 9th/10th grade BPSC Non-Cadre posts.</p>
             </div>
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open BCS Tool &rarr;</span>
           </a>
@@ -141,8 +237,8 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
           <a href="/bd/bangladesh-bank-photo-signature-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🏦</div>
-              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Bangladesh Bank</h3>
-              <p class="text-xs text-muted-foreground leading-relaxed">600×600 px | Combined 8/9 Banks &amp; AD</p>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Bangladesh Bank &amp; State Banks</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">600×600 px | 300×80 px | erecruitment.bb.org.bd Combined 8/9 Banks, AD, Officer General.</p>
             </div>
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open Bank Tool &rarr;</span>
           </a>
@@ -150,8 +246,8 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
           <a href="/bd/primary-teacher-dpe-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">📚</div>
-              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">DPE Primary</h3>
-              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | Assistant Teacher 10 Lakh+ Pool</p>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">DPE Primary Assistant Teacher</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | 300×80 px | dpe.teletalk.com.bd 10 Lakh+ Primary Education recruitment pool.</p>
             </div>
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open DPE Tool &rarr;</span>
           </a>
@@ -159,8 +255,8 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
           <a href="/bd/ntrca-photo-signature-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🎓</div>
-              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">NTRCA Teachers</h3>
-              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | 18th &amp; 19th Registration</p>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">NTRCA Teacher Registration</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | 300×80 px | ntrca.teletalk.com.bd 18th &amp; 19th Non-Govt Teacher Registration.</p>
             </div>
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open NTRCA Tool &rarr;</span>
           </a>
@@ -168,9 +264,9 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
           <a href="/bd/medical-admission-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🩺</div>
-              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Medical Admission</h3>
-              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | DGME MBBS &amp; Dental BDS</p>
-              <p class="text-xs font-medium text-emerald-700 dark:text-emerald-300 leading-snug">For MBBS/BDS Admission 2026-27 — applications open mid-November, test 18 December.</p>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">DGME Medical Admission (MBBS/BDS)</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px | 300×80 px | dgme.teletalk.com.bd MBBS &amp; BDS 2026–27 government &amp; private seats.</p>
+              <p class="text-xs font-medium text-emerald-700 dark:text-emerald-300 leading-snug">Applications open mid-Nov 2026 · Admission test 18 Dec 2026.</p>
             </div>
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open Medical Tool &rarr;</span>
           </a>

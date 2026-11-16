@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <linearGradient id="bdGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#006A4E"/>
+      <stop offset="100%" stop-color="#0F5132"/>
+    </linearGradient>
+    <linearGradient id="bdPhotoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window Header -->
+  <rect x="0" y="0" width="760" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <text x="80" y="26" fill="#94A3B8" font-size="12" font-weight="600">Teletalk Bangladesh Portal Photo Spec (300 × 300 px · ≤100 KB · রঙিন ছবি)</text>
+
+  <rect x="20" y="56" width="720" height="284" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left: Visual Dimension Preview -->
+  <rect x="40" y="74" width="230" height="250" rx="8" fill="#0F172A" stroke="#0284C7" stroke-width="1.5"/>
+  <text x="56" y="98" fill="#38BDF8" font-size="12" font-weight="700">Preview &amp; Dimensions</text>
+
+  <!-- Photo Box Representation (300x300 ratio square) -->
+  <rect x="75" y="112" width="160" height="160" rx="4" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+  
+  <!-- Silhouette head & shoulders -->
+  <circle cx="155" cy="165" r="34" fill="#CBD5E1"/>
+  <path d="M110 245 C120 205, 190 205, 200 245 Z" fill="#94A3B8"/>
+
+  <!-- Dimension tags -->
+  <text x="110" y="106" fill="#38BDF8" font-size="11" font-weight="700">300 px (1:1)</text>
+  <line x1="68" y1="112" x2="68" y2="272" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="32" y="198" fill="#38BDF8" font-size="10" font-weight="700" transform="rotate(-90 45,192)">300 px</text>
+  
+  <rect x="75" y="284" width="160" height="24" rx="4" fill="#10B981" opacity="0.18"/>
+  <text x="96" y="300" fill="#34D399" font-size="11" font-weight="700">✓ 48.6 KB (≤ 100 KB)</text>
+
+  <!-- Right: Verification Rules List -->
+  <rect x="290" y="74" width="430" height="250" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="310" y="99" fill="#F8FAFC" font-size="13" font-weight="700">Teletalk Portal Official Photograph Rules (রঙিন ছবি)</text>
+
+  <g transform="translate(310, 114)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Exact Dimensions: <tspan fill="#38BDF8">300 × 300 pixels</tspan> (1:1 Square)</text>
+    <text x="24" y="27" fill="#94A3B8" font-size="11">Teletalk validators strictly reject 301×300 or 299×299 pixel uploads.</text>
+  </g>
+
+  <g transform="translate(310, 156)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">File Size Ceiling: <tspan fill="#38BDF8">Maximum 100 KB</tspan> (JPG / JPEG)</text>
+    <text x="24" y="27" fill="#94A3B8" font-size="11">Standard operating range 10 KB to 100 KB. Formats: .jpg or .jpeg only.</text>
+  </g>
+
+  <g transform="translate(310, 198)">
+    <circle cx="8" cy="8" r="8" fill="#EF4444" opacity="0.2"/>
+    <text x="4" y="12" fill="#F87171" font-size="11" font-weight="700">!</text>
+    <text x="24" y="12" fill="#FCA5A5" font-size="12" font-weight="600">Color Photo Required: <tspan fill="#F87171">No Greyscale / B&amp;W</tspan></text>
+    <text x="24" y="27" fill="#94A3B8" font-size="11">Monochrome, greyscale, or filtered selfies are rejected by scrutiny.</text>
+  </g>
+
+  <g transform="translate(310, 240)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Applicable Portals &amp; Exams:</text>
+    <text x="24" y="27" fill="#38BDF8" font-size="11">BPSC BCS 47th, DPE Primary, NTRCA, DGME Medical, JnU, AllJobs</text>
+  </g>
+</svg>

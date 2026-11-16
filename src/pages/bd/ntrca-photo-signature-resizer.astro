@@ -5,6 +5,7 @@ import Header from '../../components/Header.astro';
 import { SignatureTool } from '../../components/SignatureTool';
 import FaqSection from '../../components/FaqSection.astro';
 import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import CountryBlogSection from '../../components/CountryBlogSection.astro';
 import Footer from '../../components/Footer.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
@@ -36,6 +37,16 @@ const ntrcaFaqs = [
     q: "How does SignResize ensure NTRCA Teletalk upload acceptance?",
     summary: "SignResize enforces hardware-accelerated integer pixel rounding and dynamic JPEG compression to keep your photo strictly within 10–100 KB and signature within 5–60 KB.",
     details: "This eliminates the dreaded 'Image resolution must be exactly 300x300' validation error on the Teletalk portal."
+  },
+  {
+    q: "এনটিআরসিএ শিক্ষক নিবন্ধনে ছবির সাইজ কত? (What is NTRCA photo size in Bangla?)",
+    summary: "এনটিআরসিএ (NTRCA) ১৮তম ও ১৯তম শিক্ষক নিবন্ধন পরীক্ষার জন্য রঙিন ছবির সাইজ ৩০০ × ৩০০ পিক্সেল (সর্বোচ্চ ১০০ KB) এবং স্বাক্ষরের সাইজ ৩০০ × ৮০ পিক্সেল (সর্বোচ্চ ৬০ KB) হতে হবে।",
+    details: "ফাইল দুটি অবশ্যই JPG ফরম্যাটে আপলোড করতে হবে। সাদা ব্যাকগ্রাউন্ডের ছবি এবং সাদা কাগজে কালো কালির স্বাক্ষর গ্রহণযোগ্য।"
+  },
+  {
+    q: "ntrca.teletalk.com.bd-তে ছবির সাইজ ৩০০০×৩০০০ বা ইনভ্যালিড দেখালে কী করবেন?",
+    summary: "টেলিটক সার্ভার স্বয়ংক্রিয়ভাবে স্ক্র্যাপ করে পিক্সেল ভ্যালিডেশন করে। মোবাইল এডিটরে সামান্য ভুল হলেই সাইট আটকে দেয়।",
+    details: "SignResize-এ আপনার ছবি ড্রপ করে NTRCA প্রিসেট বেছে নিন; এটি ব্রাউজারেই সঠিক ৩০০×৩০০ ও ৩০০×৮০ পিক্সেলে লক করে দেয়।"
   }
 ];
 ---
@@ -54,6 +65,10 @@ const ntrcaFaqs = [
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="en-BD" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
     <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:type" content="website" />
@@ -149,6 +164,9 @@ const ntrcaFaqs = [
             <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
               NTRCA Teacher Registration Photo &amp; Signature Resizer <span class="text-primary">(300×300 / 300×80)</span>
             </h1>
+            <div class="text-xs font-semibold text-amber-700 dark:text-amber-400">
+              এনটিআরসিএ শিক্ষক নিবন্ধন রঙিন ছবি ৩০০×৩০০ পিক্সেল (সর্বোচ্চ ১০০ KB) ও স্বাক্ষর ৩০০×৮০ পিক্সেল (সর্বোচ্চ ৬০ KB)
+            </div>
             <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
               Calibrated cropping and size reduction for the 18th &amp; 19th Non-Government Teachers' Registration &amp; Certification Authority (NTRCA) examination portals.
             </p>
@@ -165,6 +183,7 @@ const ntrcaFaqs = [
               onchange="if(this.value) window.location.href=this.value;"
             >
               <option value="/bd/">Bangladesh Main Hub</option>
+              <option value="/teletalk-photo-signature-resize/">Teletalk Photo &amp; Signature</option>
               <option value="/bd/bcs-photo-signature-resizer/">BCS &amp; BPSC (300×300 / 300×80 px)</option>
               <option value="/bd/bangladesh-bank-photo-signature-resizer/">Bangladesh Bank (600×600 / 300×80 px)</option>
               <option value="/bd/primary-teacher-dpe-photo-resizer/">DPE Primary Assistant Teacher</option>
@@ -183,14 +202,32 @@ const ntrcaFaqs = [
       <!-- SEO Educational Guide Section -->
       <section class="space-y-6 pt-6 border-t border-border">
         <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
-          <h2 class="text-2xl font-bold text-foreground">
-            Complete NTRCA Registration Photo &amp; Signature Format Requirements
-          </h2>
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-3">
+            <div>
+              <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">এনটিআরসিএ শিক্ষক নিবন্ধন গাইডলাইন</span>
+              <h2 class="text-2xl font-bold text-foreground">
+                Complete NTRCA Registration Photo &amp; Signature Format Requirements
+              </h2>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              ✓ Verified 16 Nov 2026: Official NTRCA Guidelines
+            </span>
+          </div>
+
           <p class="text-muted-foreground leading-relaxed">
             The <strong>Non-Government Teachers' Registration &amp; Certification Authority (NTRCA)</strong> certifies educators for secondary schools, higher secondary colleges, technical institutions, and madrasahs across Bangladesh. Uploading valid digital files on <em>ntrca.teletalk.com.bd</em> is mandatory to generate your preliminary admit card.
           </p>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+          <div class="p-3.5 rounded-xl border border-rose-500/25 bg-rose-500/10 text-xs sm:text-sm text-rose-950 dark:text-rose-100 font-medium space-y-1">
+            <strong>⚠️ NTRCA Registration Photo &amp; Signature Rules:</strong>
+            <ul class="list-disc pl-5 space-y-0.5 text-xs text-muted-foreground">
+              <li><strong class="text-foreground">Color Photograph Only:</strong> Black-and-white, filtered selfies, or dark background photos fail verification.</li>
+              <li><strong class="text-foreground">Unruled White Paper Signature:</strong> Signature must be executed in black ink on clean plain paper. Capital-letter signatures are disqualified.</li>
+              <li><strong class="text-foreground">Cross-Tier Compatibility:</strong> Valid across School (Assistant Teacher), School-2 (Junior Teacher), and College (Lecturer).</li>
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
             <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
               <h3 class="font-bold text-base text-foreground">NTRCA Photograph</h3>
               <p class="text-xs text-muted-foreground"><strong>300 × 300 pixels</strong>, 10 KB to 100 KB in JPG format. Neutral/white background.</p>
@@ -204,12 +241,51 @@ const ntrcaFaqs = [
               <p class="text-xs text-muted-foreground">School, School-2 (Junior), College (Lecturer), and Madrasah/Technical levels.</p>
             </div>
           </div>
+
+          <!-- Official Visual Diagrams Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+            <div class="space-y-1.5">
+              <span class="text-xs font-bold text-muted-foreground">NTRCA Photo Diagram (রঙিন ছবি ৩০০×৩০০):</span>
+              <img 
+                src="/images/teletalk-photo-spec-300x300.svg" 
+                alt="NTRCA Teacher Registration 300x300 Photo Specification Diagram" 
+                width="760" 
+                height="360" 
+                loading="lazy" 
+                class="w-full rounded-xl border border-border shadow-xs"
+              />
+            </div>
+            <div class="space-y-1.5">
+              <span class="text-xs font-bold text-muted-foreground">NTRCA Signature Diagram (স্বাক্ষর ৩০০×৮০):</span>
+              <img 
+                src="/images/teletalk-signature-spec-300x80.svg" 
+                alt="NTRCA Teacher Registration 300x80 Signature Specification Diagram" 
+                width="760" 
+                height="360" 
+                loading="lazy" 
+                class="w-full rounded-xl border border-border shadow-xs"
+              />
+            </div>
+          </div>
+
+          <!-- In-Cluster Deep Guide Link -->
+          <div class="p-4 rounded-xl border border-primary/20 bg-primary/5 text-xs sm:text-sm space-y-1.5">
+            <h4 class="font-bold text-foreground flex items-center gap-2">
+              <span>🎓</span>
+              <span>Need Master Guidance for All Teletalk Portals?</span>
+            </h4>
+            <p class="text-muted-foreground leading-relaxed">
+              Read our comprehensive Teletalk upload guide covering all government recruitment portals and image troubleshooting: 
+              <a href="/blog/teletalk-bangladesh-photo-signature-resize-guide-300x300-300x80-alljobs-bpsc/" class="text-primary underline font-bold">Teletalk Bangladesh Photo (300×300) &amp; Signature (300×80) Master Guide 2026 &rarr;</a>
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- Specifications Table & FAQ Section -->
+      <!-- Specifications Table, Country Blog Section & FAQ Section -->
       <section class="space-y-6">
         <ExamSpecsTable country="BD" />
+        <CountryBlogSection country="BD" />
         <FaqSection faqs={ntrcaFaqs} title="Frequently Asked Questions (NTRCA Registration)" />
       </section>
     </main>

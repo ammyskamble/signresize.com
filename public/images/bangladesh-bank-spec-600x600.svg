@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <linearGradient id="bbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window Header -->
+  <rect x="0" y="0" width="760" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <text x="80" y="26" fill="#94A3B8" font-size="12" font-weight="600">Bangladesh Bank e-Recruitment Spec (600 × 600 px · ≤100 KB · বাংলাদেশ ব্যাংক)</text>
+
+  <rect x="20" y="56" width="720" height="284" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left: Visual Dimension Preview -->
+  <rect x="40" y="74" width="230" height="250" rx="8" fill="#0F172A" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="56" y="98" fill="#FBBF24" font-size="12" font-weight="700">Preview &amp; Dimensions</text>
+
+  <!-- Photo Box Representation (600x600 ratio square) -->
+  <rect x="75" y="112" width="160" height="160" rx="4" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  
+  <!-- Silhouette head & shoulders -->
+  <circle cx="155" cy="165" r="34" fill="#CBD5E1"/>
+  <path d="M110 245 C120 205, 190 205, 200 245 Z" fill="#94A3B8"/>
+
+  <!-- Dimension tags -->
+  <text x="110" y="106" fill="#FBBF24" font-size="11" font-weight="700">600 px (1:1)</text>
+  <line x1="68" y1="112" x2="68" y2="272" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="32" y="198" fill="#FBBF24" font-size="10" font-weight="700" transform="rotate(-90 45,192)">600 px</text>
+  
+  <rect x="75" y="284" width="160" height="24" rx="4" fill="#10B981" opacity="0.18"/>
+  <text x="96" y="300" fill="#34D399" font-size="11" font-weight="700">✓ 68.2 KB (≤ 100 KB)</text>
+
+  <!-- Right: Verification Rules List -->
+  <rect x="290" y="74" width="430" height="250" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="310" y="99" fill="#F8FAFC" font-size="13" font-weight="700">erecruitment.bb.org.bd Official Upload Rules</text>
+
+  <g transform="translate(310, 114)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Photograph: <tspan fill="#FBBF24">600 × 600 pixels</tspan> (≤ 100 KB JPG)</text>
+    <text x="24" y="27" fill="#94A3B8" font-size="11">High resolution 1:1 portrait. Light grey or white backdrop.</text>
+  </g>
+
+  <g transform="translate(310, 156)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Signature: <tspan fill="#34D399">300 × 80 pixels</tspan> (≤ 60 KB JPG)</text>
+    <text x="24" y="27" fill="#94A3B8" font-size="11">Black or dark blue ink scan on white paper. Clear and unblurred.</text>
+  </g>
+
+  <g transform="translate(310, 198)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Combined 8/9 Banks &amp; Central Bank AD</text>
+    <text x="24" y="27" fill="#94A3B8" font-size="11">Sonali, Janata, Agrani, Rupali, BDBL, Krishi, RAKUB, Karmasangsthan</text>
+  </g>
+
+  <g transform="translate(310, 240)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Official Portal Validator:</text>
+    <text x="24" y="27" fill="#38BDF8" font-size="11">Directly tested and verified against erecruitment.bb.org.bd CV system.</text>
+  </g>
+</svg>

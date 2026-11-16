@@ -5,6 +5,7 @@ import Header from '../../components/Header.astro';
 import { SignatureTool } from '../../components/SignatureTool';
 import FaqSection from '../../components/FaqSection.astro';
 import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import CountryBlogSection from '../../components/CountryBlogSection.astro';
 import Footer from '../../components/Footer.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
@@ -36,6 +37,16 @@ const dpeFaqs = [
     q: "Why do candidates visit cyber-cafes to format photos for Primary Teacher jobs?",
     summary: "Most applicants struggle with manual mobile photo editors that alter pixel dimensions (e.g. 299×299 px) or produce files over 100 KB.",
     details: "SignResize runs entirely inside your mobile browser for free, guaranteeing the exact 300×300 px and 300×80 px dimensions required by dpe.teletalk.com.bd."
+  },
+  {
+    q: "প্রাথমিক সহকারী শিক্ষক নিয়োগে ছবির মাপ কত? (What is DPE Primary Teacher photo size in Bangla?)",
+    summary: "প্রাথমিক শিক্ষা অধিদপ্তর (DPE) সহকারী শিক্ষক নিয়োগে ছবির সাইজ ৩০০ × ৩০০ পিক্সেল (সর্বোচ্চ ১০০ KB) এবং স্বাক্ষরের সাইজ ৩০০ × ৮০ পিক্সেল (সর্বোচ্চ ৬০ KB) হতে হবে।",
+    details: "উভয় ফাইল অবশ্যই JPG/JPEG ফরম্যাটে হতে হবে। সাদা ব্যাকগ্রাউন্ডের সাম্প্রতিক রঙিন ছবি এবং সাদা কাগজে স্পষ্ট স্বাক্ষর ব্যবহার করতে হবে।"
+  },
+  {
+    q: "dpe.teletalk.com.bd ওয়েবসাইটে ছবি আপলোড না হলে কী করবেন?",
+    summary: "ছবির সাইজ ১০০ KB-এর বেশি হলে বা অনুপাত ৩০০×৩০০ না হলে পোর্টালে ইরর দেখায়।",
+    details: "SignResize-এ ছবি আপলোড করে DPE প্রিসেট সিলেক্ট করলেই মুহূর্তেই ১০০% নিখুঁত ডাইমেনশনে ফাইল তৈরি হয়ে যাবে।"
   }
 ];
 ---
@@ -54,6 +65,10 @@ const dpeFaqs = [
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="en-BD" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
     <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:type" content="website" />
@@ -149,6 +164,9 @@ const dpeFaqs = [
             <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
               DPE Primary Teacher Photo &amp; Signature Resizer <span class="text-primary">(300×300 / 300×80)</span>
             </h1>
+            <div class="text-xs font-semibold text-amber-700 dark:text-amber-400">
+              ডিপিই প্রাথমিক সহকারী শিক্ষক নিয়োগ রঙিন ছবি ৩০০×৩০০ পিক্সেল (সর্বোচ্চ ১০০ KB) ও স্বাক্ষর ৩০০×৮০ পিক্সেল (সর্বোচ্চ ৬০ KB)
+            </div>
             <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
               Official 300×300 px (≤ 100 KB) photograph and 300×80 px (≤ 60 KB) signature presets calibrated for the Directorate of Primary Education (DPE) Assistant Teacher recruitment.
             </p>
@@ -165,6 +183,7 @@ const dpeFaqs = [
               onchange="if(this.value) window.location.href=this.value;"
             >
               <option value="/bd/">Bangladesh Main Hub</option>
+              <option value="/teletalk-photo-signature-resize/">Teletalk Photo &amp; Signature</option>
               <option value="/bd/bcs-photo-signature-resizer/">BCS &amp; BPSC (300×300 / 300×80 px)</option>
               <option value="/bd/bangladesh-bank-photo-signature-resizer/">Bangladesh Bank (600×600 / 300×80 px)</option>
               <option value="/bd/primary-teacher-dpe-photo-resizer/" selected>DPE Primary Assistant Teacher</option>
@@ -183,14 +202,32 @@ const dpeFaqs = [
       <!-- SEO Educational Guide Section -->
       <section class="space-y-6 pt-6 border-t border-border">
         <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
-          <h2 class="text-2xl font-bold text-foreground">
-            Complete DPE Primary Assistant Teacher Image Upload Guidelines
-          </h2>
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-3">
+            <div>
+              <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">ডিপিই সহকারী শিক্ষক নিয়োগ গাইডলাইন</span>
+              <h2 class="text-2xl font-bold text-foreground">
+                Complete DPE Primary Assistant Teacher Image Upload Guidelines
+              </h2>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              ✓ Verified 16 Nov 2026: Official DPE Circular
+            </span>
+          </div>
+
           <p class="text-muted-foreground leading-relaxed">
             The <strong>Directorate of Primary Education (DPE)</strong> under the Ministry of Primary and Mass Education conducts the largest mass recruitment in Bangladesh, attracting over 10 to 12 lakh applicants across divisional phases. During registration on <em>dpe.teletalk.com.bd</em>, the upload validator script blocks any file that doesn't strictly adhere to the exact 300×300 and 300×80 pixel standard.
           </p>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+          <div class="p-3.5 rounded-xl border border-rose-500/25 bg-rose-500/10 text-xs sm:text-sm text-rose-950 dark:text-rose-100 font-medium space-y-1">
+            <strong>⚠️ DPE Primary Teacher Photo &amp; Signature Mandatory Rules:</strong>
+            <ul class="list-disc pl-5 space-y-0.5 text-xs text-muted-foreground">
+              <li><strong class="text-foreground">Color Photograph Only:</strong> Black-and-white, greyscale, or phone selfies with background clutter are strictly rejected.</li>
+              <li><strong class="text-foreground">White Paper Signature:</strong> Signature must be executed with black/dark blue ink on blank unruled paper.</li>
+              <li><strong class="text-foreground">Admit Card Reuse:</strong> The exact photo uploaded here is printed on your DPE admit card and verified at the exam center.</li>
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
             <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
               <h3 class="font-bold text-base text-foreground">Teacher Photograph</h3>
               <p class="text-xs text-muted-foreground"><strong>300 × 300 pixels</strong>, 10 KB to 100 KB in JPG format. Clean white background.</p>
@@ -204,12 +241,51 @@ const dpeFaqs = [
               <p class="text-xs text-muted-foreground">Save 50–100 BDT per job form by cropping and compressing directly on your smartphone.</p>
             </div>
           </div>
+
+          <!-- Official Visual Diagrams Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+            <div class="space-y-1.5">
+              <span class="text-xs font-bold text-muted-foreground">DPE Teacher Photo Diagram (রঙিন ছবি ৩০০×৩০০):</span>
+              <img 
+                src="/images/teletalk-photo-spec-300x300.svg" 
+                alt="DPE Primary Teacher 300x300 Photo Specification Diagram" 
+                width="760" 
+                height="360" 
+                loading="lazy" 
+                class="w-full rounded-xl border border-border shadow-xs"
+              />
+            </div>
+            <div class="space-y-1.5">
+              <span class="text-xs font-bold text-muted-foreground">DPE Teacher Signature Diagram (স্বাক্ষর ৩০০×৮০):</span>
+              <img 
+                src="/images/teletalk-signature-spec-300x80.svg" 
+                alt="DPE Primary Teacher 300x80 Signature Specification Diagram" 
+                width="760" 
+                height="360" 
+                loading="lazy" 
+                class="w-full rounded-xl border border-border shadow-xs"
+              />
+            </div>
+          </div>
+
+          <!-- In-Cluster Deep Guide Link -->
+          <div class="p-4 rounded-xl border border-primary/20 bg-primary/5 text-xs sm:text-sm space-y-1.5">
+            <h4 class="font-bold text-foreground flex items-center gap-2">
+              <span>📚</span>
+              <span>Need Master Guidance for All Teletalk Portals?</span>
+            </h4>
+            <p class="text-muted-foreground leading-relaxed">
+              Read our comprehensive Teletalk upload guide covering all government recruitment portals and image troubleshooting: 
+              <a href="/blog/teletalk-bangladesh-photo-signature-resize-guide-300x300-300x80-alljobs-bpsc/" class="text-primary underline font-bold">Teletalk Bangladesh Photo (300×300) &amp; Signature (300×80) Master Guide 2026 &rarr;</a>
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- Specifications Table & FAQ Section -->
+      <!-- Specifications Table, Country Blog Section & FAQ Section -->
       <section class="space-y-6">
         <ExamSpecsTable country="BD" />
+        <CountryBlogSection country="BD" />
         <FaqSection faqs={dpeFaqs} title="Frequently Asked Questions (Primary School Recruitment)" />
       </section>
     </main>

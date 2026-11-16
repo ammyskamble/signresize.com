@@ -5,6 +5,7 @@ import Header from '../../components/Header.astro';
 import { SignatureTool } from '../../components/SignatureTool';
 import FaqSection from '../../components/FaqSection.astro';
 import ExamSpecsTable from '../../components/ExamSpecsTable.astro';
+import CountryBlogSection from '../../components/CountryBlogSection.astro';
 import Footer from '../../components/Footer.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
@@ -36,6 +37,16 @@ const bcsFaqs = [
     q: "Are BPSC Non-Cadre job photo requirements the same as Cadre BCS?",
     summary: "Yes, all BPSC recruitments (10th grade, 9th grade gazetted/non-gazetted, senior staff nurse) use the identical 300×300 px (≤100 KB) and 300×80 px (≤60 KB) format.",
     details: "Both portals operate on bpsc.teletalk.com.bd and share identical image processing validation pipelines."
+  },
+  {
+    q: "বিসিএস আবেদনের ছবি ও স্বাক্ষর মাপ কত? (What are BCS photo and signature size rules in Bangla?)",
+    summary: "বিসিএস (BPSC) ৪৭তম ও নন-ক্যাডার আবেদনের জন্য রঙিন ছবির সাইজ ঠিক ৩০০ × ৩০০ পিক্সেল (সর্বোচ্চ ১০০ KB) এবং স্বাক্ষরের সাইজ ৩০০ × ৮০ পিক্সেল (সর্বোচ্চ ৬০ KB) হতে হবে।",
+    details: "উভয় ফাইল অবশ্যই JPG ফরম্যাটে হতে হবে। সাদা ব্যাকগ্রাউন্ডযুক্ত পরিষ্কার ছবি এবং সাদা কাগজে কালো কালির স্পষ্ট স্বাক্ষর গ্রহণযোগ্য।"
+  },
+  {
+    q: "বিসিএস টেলিটক পোর্টালে ছবি আপলোড না হলে কী করবেন?",
+    summary: "পোর্টালে ইনভ্যালিড ডাইমেনশন বা ফাইল সাইজ দেখানোর প্রধান কারণ হলো পিক্সেলের অমিল বা ফাইলের অতিরিক্ত ওজন।",
+    details: "SignResize টুলে আপনার ছবি আপলোড করে BPSC সিলেক্ট করলে স্বয়ংক্রিয়ভাবে ৩০০×৩০০ পিক্সেল ও ১০০ KB-এর নিচে রিসাইজ হয়ে যাবে, যা প্রথম প্রচেষ্টাতেই bpsc.teletalk.com.bd-তে গৃহীত হবে।"
   }
 ];
 ---
@@ -54,6 +65,10 @@ const bcsFaqs = [
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="en-BD" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
     <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:type" content="website" />
@@ -149,6 +164,9 @@ const bcsFaqs = [
             <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
               BCS Photo &amp; Signature Resizer <span class="text-primary">(300×300 / 300×80)</span>
             </h1>
+            <div class="text-xs font-semibold text-amber-700 dark:text-amber-400">
+              বিসিএস রঙিন ছবি ৩০০×৩০০ পিক্সেল (সর্বোচ্চ ১০০ KB) ও স্বাক্ষর ৩০০×৮০ পিক্সেল (সর্বোচ্চ ৬০ KB)
+            </div>
             <p class="text-muted-foreground text-sm sm:text-base max-w-3xl">
               Calibrated cropping and size reduction for Bangladesh Civil Service (BCS 47th / 46th) Cadre and Non-Cadre applications on the official BPSC Teletalk portal.
             </p>
@@ -165,6 +183,7 @@ const bcsFaqs = [
               onchange="if(this.value) window.location.href=this.value;"
             >
               <option value="/bd/">Bangladesh Main Hub</option>
+              <option value="/teletalk-photo-signature-resize/">Teletalk Photo &amp; Signature</option>
               <option value="/bd/bcs-photo-signature-resizer/" selected>BCS &amp; BPSC (300×300 / 300×80 px)</option>
               <option value="/bd/bangladesh-bank-photo-signature-resizer/">Bangladesh Bank (600×600 / 300×80 px)</option>
               <option value="/bd/primary-teacher-dpe-photo-resizer/">DPE Primary Assistant Teacher</option>
@@ -183,14 +202,32 @@ const bcsFaqs = [
       <!-- SEO Educational Guide Section -->
       <section class="space-y-6 pt-6 border-t border-border">
         <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border space-y-6">
-          <h2 class="text-2xl font-bold text-foreground">
-            BPSC Bangladesh Civil Service (BCS) Photo &amp; Signature Guidelines
-          </h2>
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 pb-3">
+            <div>
+              <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">বিসিএস ক্যাডার ও নন-ক্যাডার গাইডলাইন</span>
+              <h2 class="text-2xl font-bold text-foreground">
+                BPSC Bangladesh Civil Service (BCS) Photo &amp; Signature Guidelines
+              </h2>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              ✓ Verified 16 Nov 2026: Official 47th BCS Notice
+            </span>
+          </div>
+
           <p class="text-muted-foreground leading-relaxed">
             The <strong>Bangladesh Public Service Commission (BPSC)</strong> conducts the prestigious Bangladesh Civil Service (BCS) examination for gazetted cadre posts. During online registration at <em>bpsc.teletalk.com.bd</em>, candidates must upload a standardized color photograph and specimen signature. Incorrect dimensions or excessive file weight cause instantaneous server rejection.
           </p>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+          <div class="p-3.5 rounded-xl border border-rose-500/25 bg-rose-500/10 text-xs sm:text-sm text-rose-950 dark:text-rose-100 font-medium space-y-1">
+            <strong>⚠️ BPSC Color Photograph &amp; Signature Mandatory Rules:</strong>
+            <ul class="list-disc pl-5 space-y-0.5 text-xs text-muted-foreground">
+              <li><strong class="text-foreground">Color Photograph Only:</strong> Black &amp; white, monochrome, or filtered selfie photos are immediately rejected during scrutiny.</li>
+              <li><strong class="text-foreground">Face Coverage:</strong> Full frontal view with 70–80% face coverage, neutral expression, and both ears visible.</li>
+              <li><strong class="text-foreground">Specimen Signature:</strong> Must be signed in black ink on unruled white paper. All-capital / block letter signatures are disqualified.</li>
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
             <div class="p-4 bg-muted/40 rounded-xl border border-border space-y-1">
               <h3 class="font-bold text-base text-foreground">Photograph Specs</h3>
               <p class="text-xs text-muted-foreground"><strong>300 × 300 pixels</strong> (Aspect Ratio 1:1). File size: 10 KB to 100 KB in JPG format.</p>
@@ -204,12 +241,51 @@ const bcsFaqs = [
               <p class="text-xs text-muted-foreground">100% compliant with BPSC client-side checks with clean white paper background extraction.</p>
             </div>
           </div>
+
+          <!-- Official Visual Diagrams Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+            <div class="space-y-1.5">
+              <span class="text-xs font-bold text-muted-foreground">BCS Photo Specification Diagram (রঙিন ছবি ৩০০×৩০০):</span>
+              <img 
+                src="/images/teletalk-photo-spec-300x300.svg" 
+                alt="BPSC BCS 300x300 Photo Specification Diagram" 
+                width="760" 
+                height="360" 
+                loading="lazy" 
+                class="w-full rounded-xl border border-border shadow-xs"
+              />
+            </div>
+            <div class="space-y-1.5">
+              <span class="text-xs font-bold text-muted-foreground">BCS Signature Specification Diagram (স্বাক্ষর ৩০০×৮০):</span>
+              <img 
+                src="/images/teletalk-signature-spec-300x80.svg" 
+                alt="BPSC BCS 300x80 Signature Specification Diagram" 
+                width="760" 
+                height="360" 
+                loading="lazy" 
+                class="w-full rounded-xl border border-border shadow-xs"
+              />
+            </div>
+          </div>
+
+          <!-- In-Cluster Deep Guide Link -->
+          <div class="p-4 rounded-xl border border-primary/20 bg-primary/5 text-xs sm:text-sm space-y-1.5">
+            <h4 class="font-bold text-foreground flex items-center gap-2">
+              <span>📖</span>
+              <span>Need In-Depth BPSC Preparation &amp; Syllabus Details?</span>
+            </h4>
+            <p class="text-muted-foreground leading-relaxed">
+              Read our complete guide covering the 47th BCS preliminary &amp; written syllabus, cadre preference choice strategy, and admit card download instructions: 
+              <a href="/blog/bcs-exam-bangladesh-complete-guide-2026-syllabus-preparation-photo-upload/" class="text-primary underline font-bold">BCS Exam Complete Guide 2026: BPSC Syllabus, Cadre Application &amp; Photo Upload &rarr;</a>
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- Specifications Table & FAQ Section -->
+      <!-- Specifications Table, Country Blog Section & FAQ Section -->
       <section class="space-y-6">
         <ExamSpecsTable country="BD" />
+        <CountryBlogSection country="BD" />
         <FaqSection faqs={bcsFaqs} title="Frequently Asked Questions (BCS & BPSC)" />
       </section>
     </main>

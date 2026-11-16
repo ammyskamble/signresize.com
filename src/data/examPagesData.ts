@@ -3386,7 +3386,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     metaDescription: 'Free Teletalk Bangladesh photo and signature resizer tool. Resize photo to 300x300 px (100 KB) and signature to 300x80 px (60 KB) for Teletalk All Jobs (alljobs.teletalk.com.bd), BCS (BPSC), and NTRCA recruitment portals.',
     keywords: 'teletalk photo resizer 300x300, teletalk signature resizer 300x80, teletalk photo resizer 100kb, bpsc photo resizer bangladesh, ntrca photo resizer, alljobs teletalk photo size editor',
     h1: 'Teletalk Bangladesh Photo & Signature Resizer (300×300 / 300×80)',
-    subheading: 'Official 300×300 px (100 KB max) photo and 300×80 px (60 KB max) signature presets compliant with Teletalk All Jobs, BPSC (BCS), and NTRCA recruitment portals in Bangladesh.',
+    subheading: 'Official 300×300 px (100 KB max) photo and 300×80 px (60 KB max) signature presets compliant with Teletalk All Jobs, BPSC (BCS), and NTRCA recruitment portals in Bangladesh. রঙিন ছবি ৩০০×৩০০ পিক্সেল (সর্বোচ্চ ১০০ KB) ও স্বাক্ষর ৩০০×৮০ পিক্সেল (সর্বোচ্চ ৬০ KB)।',
     authority: 'Teletalk Bangladesh & BPSC (alljobs.teletalk.com.bd)',
     targetExams: 'Teletalk All Jobs Portal, DGME Medical MBBS/BDS Admission, Jagannath University (JnU), BCS (Bangladesh Public Service Commission), NTRCA, Primary School Assistant Teacher, Railway Bangladesh',
     widthPx: 300,
@@ -3399,7 +3399,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black / Dark Blue Ink',
     aspectRatioLabel: '1:1 (300×300 px)',
-    strictNotice: 'Teletalk portals strictly reject photos not matching 300×300 pixels (100 KB max) or signatures not matching 300×80 pixels (60 KB max). Color photos only.',
+    strictNotice: 'Teletalk portals strictly reject photos not matching 300×300 pixels (100 KB max) or signatures not matching 300×80 pixels (60 KB max). Color photos only — greyscale, black-and-white, or inverted selfie scans are rejected by alljobs.teletalk.com.bd.',
     admissionSeason: {
       id: 'november-2026-admissions',
       badge: '2026–27 Admission Windows',
@@ -3454,6 +3454,14 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'Which November 2026 Bangladesh admissions use Teletalk 300×300 and 300×80 upload rules?',
         a: 'DGME Medical MBBS/BDS Admission (expected 15–18 November 2026, test 18 December 2026 on dgme.teletalk.com.bd) and Jagannath University (15 November–10 December 2026) follow Teletalk 300×300 px photo and 300×80 px signature specs. Dhaka University (11–25 November 2026 on admission.eis.du.ac.bd) and Rajshahi University (15–30 November 2026 on admission.ru.ac.bd, 300×400 px + selfie app) use separate university portals.'
+      },
+      {
+        q: 'টেলিটক অনলাইন আবেদনে ছবি ও স্বাক্ষরের মাপ কত? (What are Teletalk photo and signature sizes in Bangla?)',
+        a: 'টেলিটক অল জবস (alljobs.teletalk.com.bd), বিসিএস (BPSC), প্রাথমিক সহকারী শিক্ষক ও এনটিআরসিএ পোর্টালে রঙিন ছবির মাপ ৩০০ × ৩০০ পিক্সেল (সর্বোচ্চ ১০০ KB) এবং স্বাক্ষরের মাপ ৩০০ × ৮০ পিক্সেল (সর্বোচ্চ ৬০ KB) হতে হবে। উভয় ফাইল JPG/JPEG ফরম্যাটে হতে হবে।'
+      },
+      {
+        q: 'টেলিটক পোর্টালে "Photo dimensions must be 300x300 pixels" ইরর দেখালে কী করবেন?',
+        a: 'টেলিটক সার্ভার স্বয়ংক্রিয়ভাবে ইনপুট ছবির পিক্সেল পরীক্ষা করে। ১ পিক্সেল কম বা বেশি (যেমন ২৯৯×২৯৯ বা ৩০১×৩০০) হলেও ফাইল বাতিল হয়। SignResize টুল ব্যবহার করলে স্বয়ংক্রিয়ভাবে সঠিক ৩০০×৩০০ এবং ৩০০×৮০ পিক্সেলে লক হয়ে ফাইল ডাউনলোড হবে, যা প্রথমবারেই গৃহীত হবে।'
       }
     ]
   },

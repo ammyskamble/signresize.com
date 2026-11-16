@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="100%" height="auto" class="rounded-xl shadow-md border border-border" style="background:#0F172A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <defs>
+    <linearGradient id="signGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window Header -->
+  <rect x="0" y="0" width="760" height="42" fill="#1E293B" rx="8" ry="8"/>
+  <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+  <text x="80" y="26" fill="#94A3B8" font-size="12" font-weight="600">Teletalk Bangladesh Portal Signature Spec (300 × 80 px · ≤60 KB · স্বাক্ষর)</text>
+
+  <rect x="20" y="56" width="720" height="284" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Left: Visual Dimension Preview -->
+  <rect x="40" y="74" width="230" height="250" rx="8" fill="#0F172A" stroke="#10B981" stroke-width="1.5"/>
+  <text x="56" y="98" fill="#34D399" font-size="12" font-weight="700">Preview &amp; Dimensions</text>
+
+  <!-- Signature Box Representation (300x80 ratio = 3.75:1) -->
+  <rect x="55" y="145" width="200" height="53.3" rx="4" fill="#FFFFFF" stroke="#10B981" stroke-width="2"/>
+  
+  <!-- Stylized handwriting signature path -->
+  <path d="M75 178 Q95 158 115 172 T155 168 T195 174 T235 162" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M85 186 C125 183, 195 185, 225 182" fill="none" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Dimension tags -->
+  <text x="115" y="136" fill="#34D399" font-size="11" font-weight="700">300 px (3.75:1)</text>
+  <line x1="48" y1="145" x2="48" y2="198" stroke="#34D399" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="24" y="175" fill="#34D399" font-size="10" font-weight="700" transform="rotate(-90 35,172)">80 px</text>
+  
+  <rect x="55" y="240" width="200" height="24" rx="4" fill="#10B981" opacity="0.18"/>
+  <text x="86" y="256" fill="#34D399" font-size="11" font-weight="700">✓ 22.4 KB (≤ 60 KB)</text>
+
+  <!-- Right: Verification Rules List -->
+  <rect x="290" y="74" width="430" height="250" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="310" y="99" fill="#F8FAFC" font-size="13" font-weight="700">Teletalk Portal Official Signature Rules (স্বাক্ষর নির্দেশিকা)</text>
+
+  <g transform="translate(310, 114)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Strict Dimensions: <tspan fill="#34D399">300 × 80 pixels</tspan> (3.75:1 Ratio)</text>
+    <text x="24" y="27" fill="#94A3B8" font-size="11">Exact integer pixel resolution required by Teletalk server scraper.</text>
+  </g>
+
+  <g transform="translate(310, 156)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">File Weight Ceiling: <tspan fill="#34D399">Maximum 60 KB</tspan> (JPG / JPEG)</text>
+    <text x="24" y="27" fill="#94A3B8" font-size="11">Standard range 5 KB to 60 KB. Files above 60 KB fail upload.</text>
+  </g>
+
+  <g transform="translate(310, 198)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Ink &amp; Background: <tspan fill="#34D399">Black Ink on Pure White Paper</tspan></text>
+    <text x="24" y="27" fill="#94A3B8" font-size="11">Running handwriting only. No ALL-CAPITAL / block letter signatures.</text>
+  </g>
+
+  <g transform="translate(310, 240)">
+    <circle cx="8" cy="8" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="4" y="12" fill="#34D399" font-size="11" font-weight="700">✓</text>
+    <text x="24" y="12" fill="#E2E8F0" font-size="12" font-weight="600">Applicable Portals:</text>
+    <text x="24" y="27" fill="#38BDF8" font-size="11">bpsc.teletalk.com.bd, dpe.teletalk.com.bd, ntrca.teletalk.com.bd, alljobs</text>
+  </g>
+</svg>
