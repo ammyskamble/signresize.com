@@ -633,8 +633,8 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     metaDescription: 'Resize signature for UPPSC OTR, Combined State PCS & competitive exams online. Auto-format to 140×60 px, 10–20 KB JPG (complies with UPPSC OTR under-30 KB limit). 100% private in browser.',
     keywords: 'uppsc signature resize, uppsc ro aro signature resize, ro aro sign resize, samiksha adhikari signature resize, uppsc otr signature size, uppsc pcs signature format, up psc signature upload',
     h1: 'UPPSC Signature Resize — 10 KB to 20 KB (140×60 px)',
-    subheading: 'Official 140×60 px format with 10 KB to 20 KB file bounds for UPPSC OTR & Combined State PCS portals (complying with OTR under-30 KB limit). For RO/ARO 2026 3-in-1 uploads, use the dedicated tool.',
-    datesStrip: 'UPPSC RO/ARO 2026 (Advt. A-4/E-1/2026 · 501 posts): Online applications 26 Oct – 26 Nov 2026 · Fee reconciliation & modification till 3 Dec 2026.',
+    subheading: 'Official 140×60 px format with 10 KB to 20 KB file bounds for UPPSC Combined State / Upper Subordinate Services (PCS) & OTR portals (complying with OTR under-30 KB limit).',
+    datesStrip: 'UPPSC Combined State / Upper Subordinate Services (PCS) & OTR: Format signature to official 140×60 px (10–20 KB) online with zero server uploads.',
     verifiedOn: '2026-11-17',
     sources: [
       {
@@ -642,7 +642,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
         url: 'https://uppsc.up.nic.in/CMS/OTR_DOC/OTR_PHOTO_INSTRUCTION.pdf'
       },
       {
-        label: 'UPPSC Active Notifications — Samiksha Adhikari / Sahayak Samiksha Adhikari (Advt. A-4/E-1/2026)',
+        label: 'UPPSC Active Notifications — Combined State / Upper Subordinate Services (PCS)',
         url: 'https://uppsc.up.nic.in/CandidatePages/Notifications.aspx'
       },
       {
@@ -650,12 +650,12 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
         url: 'https://otr.pariksha.nic.in/'
       }
     ],
-    pixelNote: '140×60 px prep preset (OTR PDF specifies physical 6×3 cm @ 200 DPI, no pixel mandate; RO/ARO forms accept 140×60 px)',
+    pixelNote: '140×60 px prep preset (OTR PDF specifies physical 6×3 cm @ 200 DPI, no pixel mandate; UPPSC portals accept 140×60 px)',
     physicalSizeNote: 'Preset default 3.5×1.5 cm; official UPPSC OTR PDF states 6×3 cm (signature) & 5×6 cm (photo) at 200 DPI True Colour',
-    fileSizeNote: 'Official UPPSC RO/ARO 2026 application form specifies 10–20 KB (~15 KB target). The master OTR PDF ceiling is under 30 KB.',
+    fileSizeNote: 'Official UPPSC application portals specify 10–20 KB JPG (~15 KB target). The master OTR PDF ceiling is under 30 KB.',
     relatedTools: ['uppsc-ro-aro-photo-signature-resize', 'thumb-impression-resize', 'photo-resizer', 'upsssc-pet-signature-resize', 'up-police-signature-resize'],
     authority: 'Uttar Pradesh Public Service Commission (UPPSC)',
-    targetExams: 'UPPSC Combined State / Upper Subordinate Services (PCS), UPPSC OTR (One Time Registration), UPPSC RO / ARO',
+    targetExams: 'UPPSC Combined State / Upper Subordinate Services (PCS), UPPSC OTR (One Time Registration)',
     widthPx: 140,
     heightPx: 60,
     widthCm: 3.5,
@@ -670,29 +670,41 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     tips: [
       'Write your full signature on clean, unruled white paper with a black ballpoint pen (initials and ALL CAPITAL / BLOCK letters are rejected by UPPSC).',
       'Keep your signature at 10–20 KB JPG (140×60 px) — this satisfies both UPPSC Combined State / PCS exams and UPPSC OTR (under 30 KB @ 6×3 cm, 200 DPI).',
-      'For dedicated 3-in-1 preparation (photo, signature, thumb impression) tailored to RO/ARO, use our specialized UPPSC RO ARO signature resize tool.',
+      'For UPPSC RO/ARO 2026 3-in-1 preparation (photo, signature, thumb impression), use the dedicated 3-in-1 resizer tool.',
       'Use the Clean White Paper filter to remove phone shadows before uploading to otr.pariksha.nic.in or uppsc.up.nic.in.'
     ],
     faqs: [
       {
         q: 'What is the signature requirement for UPPSC OTR?',
-        a: 'Per the official UPPSC OTR scanning PDF (OTR_PHOTO_INSTRUCTION.pdf), the signature scan box is 6 cm × 3 cm at 200 DPI (True Colour) with a maximum file size under 30 KB (and photograph 5 cm × 6 cm at 200 DPI under 50 KB). Signatures must be in full running handwriting; initials and CAPITAL letters are not permitted. Compressing your signature to 10–20 KB at 140×60 px satisfies both RO/ARO application limits and the OTR under-30 KB rule.'
+        a: 'Per the official UPPSC OTR scanning PDF (OTR_PHOTO_INSTRUCTION.pdf), the signature scan box is 6 cm × 3 cm at 200 DPI (True Colour) with a maximum file size under 30 KB (and photograph 5 cm × 6 cm at 200 DPI under 50 KB). Signatures must be in full running handwriting; initials and CAPITAL letters are not permitted. Compressing your signature to 10–20 KB at 140×60 px satisfies both PCS application limits and the OTR under-30 KB rule.'
       },
       {
-        q: 'What is the UPPSC RO ARO signature size in KB and pixels?',
-        a: 'For UPPSC RO/ARO 2026 (Samiksha Adhikari / Sahayak Samiksha Adhikari, Advt. A-4/E-1/2026), format your scanned signature in JPG format at 140×60 px and strictly 10 KB to 20 KB using black ballpoint ink on plain white unruled paper. To prepare Photo (20–50 KB), Signature (10–20 KB), and Left Thumb (10–20 KB) together, open the dedicated <a href="/uppsc-ro-aro-photo-signature-resize/" class="text-blue-600 font-semibold underline">UPPSC RO ARO signature resize</a> tool.'
+        q: 'What is the UPPSC PCS signature size?',
+        a: 'The UPPSC PCS (Combined State / Upper Subordinate Services) signature must be a JPG/JPEG of 140×60 px, between 10 KB and 20 KB, signed in black ink on white paper in running handwriting, as per the UPPSC OTR rules.'
       },
       {
-        q: 'What are all document upload sizes for UPPSC RO/ARO 2026?',
-        a: 'The RO/ARO 2026 application requires three separate uploads: (1) Passport Photo at 20–50 KB, (2) Candidate Signature at 10–20 KB (140×60 px), and (3) Left Thumb Impression at 10–20 KB using blue or black stamp pad ink. Use our specialized <a href="/uppsc-ro-aro-photo-signature-resize/" class="text-blue-600 font-semibold underline">RO ARO sign resize</a> tool to format all three documents instantly.'
+        q: 'Is the PCS signature size the same as other UPPSC exams?',
+        a: 'Yes. PCS, RO/ARO and other UPPSC recruitments use the same OTR signature window — 140×60 px and 10–20 KB. RO/ARO additionally requires a photo (20–50 KB) and left thumb impression (10–20 KB) in its dedicated 3-in-1 format.'
       },
       {
-        q: 'What is the last date for UPPSC RO/ARO 2026 application and correction?',
-        a: 'For UPPSC RO/ARO Advt. A-4/E-1/2026 (501 posts), online applications and fee payment are open from 26 October to 26 November 2026, with fee reconciliation and application modification open until 3 December 2026 on uppsc.up.nic.in.'
+        q: 'Why is my UPPSC PCS signature rejected on the OTR portal?',
+        a: 'The common reasons are: file above the 30 KB OTR ceiling or below 10 KB, signature in capital/block letters, blue ink instead of black, a photo of a photo (blurry scan), or dimensions other than 140×60 px. Re-resize to 140×60 px and 10–20 KB and upload again.'
       },
       {
-        q: 'Is O Level certificate necessary for UPPSC RO/ARO?',
-        a: 'No. NIELIT O-Level is NOT required for Review Officer (RO / Samiksha Adhikari); simple graduation in any stream is eligible. O-Level (or a recognized 1-year equivalent computer diploma) is compulsory ONLY for Assistant Review Officer (ARO) posts along with 25 WPM Hindi typing speed.'
+        q: 'Can I use blue ink for UPPSC PCS signature?',
+        a: 'No. UPPSC OTR and PCS portal instructions require black ink. Signatures in blue ink, sketch pens, gel pens that bleed, or pencil are rejected by the automatic scanner.'
+      },
+      {
+        q: 'Is UPPSC OTR signature valid for PCS?',
+        a: 'Yes. The signature you upload during UPPSC One Time Registration (OTR) is automatically pulled into your UPPSC PCS application. If your OTR signature meets the 140×60 px, 10–20 KB rule, no re-upload is needed for PCS.'
+      },
+      {
+        q: 'What are the photograph requirements for UPPSC OTR and PCS?',
+        a: 'Under UPPSC OTR guidelines, the passport photo scan box is 5 cm × 6 cm at 200 DPI with a file size under 50 KB (typically 20–50 KB JPG). The background must be clean white or light off-white with 75% facial coverage.'
+      },
+      {
+        q: 'Can I scan my signature with a mobile phone for UPPSC?',
+        a: 'Yes. Take a clear, well-lit photo of your black ink signature on plain white unruled paper. Use SignResize\'s Clean White Paper filter to remove phone shadows and grey tints, then download the exact 140×60 px, 10–20 KB JPG.'
       }
     ]
   },

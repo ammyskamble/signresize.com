@@ -866,7 +866,7 @@ const BASE_EXAM_PRESETS: ExamPreset[] = [
     dpi: 200,
     format: 'JPG',
     aspectRatio: 140 / 60,
-    notes: 'UPPSC OTR PDF specifies 6×3 cm @ 200 DPI under 30 KB (max only, black ink in full — no CAPITAL letters). RO/ARO 2026 Advt. A-4/E-1/2026 and active application portal validate 140×60 px, 10–20 KB JPG (clamped to 10–20 KB to guarantee pass).',
+    notes: 'UPPSC OTR PDF specifies 6×3 cm @ 200 DPI under 30 KB (max only, black ink in full — no CAPITAL letters). UPPSC application portals validate 140×60 px, 10–20 KB JPG (clamped to 10–20 KB to guarantee pass).',
     inkRequirement: 'Black Ink Only',
     isPopular: false,
     targetType: 'signature',

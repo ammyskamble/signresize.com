@@ -804,7 +804,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
               href={post.guideTool?.href || (relatedPreset ? getExamPageUrl(relatedExamSlug) : `/${relatedExamSlug}/`)}
               class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2.5 px-4 rounded-lg transition shadow-2xs"
             >
-              {post.guideTool?.buttonText ? `${post.guideTool.buttonText} →` : 'Open Resizer Canvas →'}
+              Open Resizer Canvas &rarr;
             </a>
           </div>
 
@@ -884,7 +884,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
           <div class="text-[10px] text-muted-foreground truncate">{relatedPreset ? `${relatedPreset.widthPx}×${relatedPreset.heightPx} px • ${relatedPreset.minKb}–${relatedPreset.maxKb} KB (${relatedPreset.inkRequirement})` : '140×60 px • 10–20 KB & 20–50 KB'}</div>
         </div>
         <a href={post.guideTool?.href || `/${relatedExamSlug}/`} class="px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-sm hover:opacity-95 shrink-0 flex items-center gap-1 transition">
-          <span>Resize Now</span>
+          <span>{post.guideTool?.stickyButtonText || 'Resize Now'}</span>
           <span>&rarr;</span>
         </a>
       </div>

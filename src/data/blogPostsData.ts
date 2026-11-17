@@ -52,7 +52,7 @@ export interface BlogPost {
   featured?: boolean;
   relatedExamPreset?: string;
   quickTools?: QuickToolLink[];
-  guideTool?: { href: string; label: string; buttonText?: string };
+  guideTool?: { href: string; label: string; buttonText?: string; stickyButtonText?: string };
   quickFacts?: QuickFact[];
   quickFacts_hi?: QuickFact[];
   quickFacts_mr?: QuickFact[];
@@ -10944,7 +10944,12 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   },
   {
     "slug": "appsc-group-1-2-2026-master-guide-otpr-photo-signature-rules",
-    "guideTool": { "href": "/appsc-signature-resize/", "label": "APPSC Signature Resize 10 to 30 KB (140×60 px · Andhra Pradesh)" },
+    "guideTool": {
+      "href": "/appsc-signature-resize/",
+      "label": "APPSC Signature Resize 10 to 30 KB (140×60 px · Andhra Pradesh)",
+      "buttonText": "APPSC Signature Resize Online",
+      "stickyButtonText": "APPSC Signature Resize 10 to 30 KB"
+    },
     "title": "APPSC 2026 Master Blueprint: Group 1, 2 & Executive Posts Exhaustive Syllabus, OTPR Profile, Pay Scales & Photo-Signature Rules",
     "metaTitle": "APPSC 2026 Master Blueprint: Group 1, 2 & Executive Posts Syllabus, OTPR & Pay Scales",
     "metaDescription": "Exhaustive APPSC 2026 candidate master guide: OTPR registration & edit steps, Group 1 & 2 Prelims/Mains syllabus, AP RPS 2022 pay scales matrix, 85% local reservation rules, 100-mark CPT pattern, and photo signature specs.",
@@ -10953,7 +10958,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     "country": "IN",
     "publishDate": "Oct 09, 2026",
     "publishTime": "08:05 PM IST",
-    "lastUpdated": "Oct 09, 2026",
+    "lastUpdated": "Nov 17, 2026",
     "author": "SignResize Andhra Pradesh PSC Compliance Board",
     "authorRole": "Senior State Civil Services Specialist",
     "readTime": "9 min read",

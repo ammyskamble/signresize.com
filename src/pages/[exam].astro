@@ -86,7 +86,10 @@ const relatedTools = (examData.relatedTools || [])
 
 // Find relevant blog posts for this specific exam tool
 // BPSC articles still need a separate source review; use the reviewed guidance links.
-const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster || isJam) ? [] : BLOG_POSTS.map(post => {
+const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster || isJam) ? [] : BLOG_POSTS.filter(post => {
+  if (examData.slug === 'uppsc-signature-resize' && post.slug.includes('ro-aro')) return false;
+  return true;
+}).map(post => {
   let score = 0;
   const examSlugLower = examData.slug.toLowerCase();
   const examKey = examSlugLower.split('-')[0]; // 'ssc', 'rrb', 'upsc', 'bpsc', etc.
@@ -361,55 +364,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
                   </div>
                 </aside>
               )}
-              {examData.slug === 'uppsc-signature-resize' && (
-                <aside class="mt-4 rounded-2xl border border-primary/30 bg-primary/10 p-4 text-xs space-y-3 shadow-xs" aria-label="UPPSC RO ARO Notice">
-                  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                    <div class="space-y-1">
-                      <strong class="text-sm font-bold text-foreground flex items-center gap-1.5">
-                        <span>📢</span> UPPSC RO/ARO 2026 (Advt. A-4/E-1/2026 · 501 Posts)
-                      </strong>
-                      <p class="text-xs text-muted-foreground leading-relaxed">
-                        OTR PDF allows signatures under 30 KB (6×3 cm @ 200 DPI) and photos under 50 KB (5×6 cm). For RO/ARO 2026 forms, upload Signature (10–20 KB), Photo (20–50 KB), and Left Thumb (10–20 KB). RO does <strong>not</strong> require O-Level; ARO requires O-Level + 25 WPM Hindi typing.
-                      </p>
-                    </div>
-                    <a
-                      href="/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/"
-                      class="shrink-0 px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition flex items-center gap-1.5 shadow-xs"
-                    >
-                      <span>Read Official RO/ARO Guide</span>
-                      <span>&rarr;</span>
-                    </a>
-                  </div>
-                  <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-primary/20">
-                    <span class="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">RO/ARO 2026:</span>
-                    <a
-                      href="/uppsc-ro-aro-photo-signature-resize/"
-                      class="min-h-[36px] inline-flex items-center px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs hover:bg-amber-400 transition shadow-2xs"
-                    >
-                      ⚡ UPPSC RO ARO signature resize &rarr;
-                    </a>
-                    <button
-                      type="button"
-                      data-ro-aro-preset="uppsc-ro-aro-signature"
-                      class="min-h-[36px] px-3 py-1.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition cursor-pointer shadow-2xs"
-                    >
-                      ✍️ RO/ARO Signature: 140×60 px, 10–20 KB
-                    </button>
-                    <a
-                      href="/photo-resizer/?preset=uppsc-ro-aro-photo#tool-workspace"
-                      class="min-h-[36px] inline-flex items-center px-3 py-1.5 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:border-primary/50 transition"
-                    >
-                      📸 Photo: 20–50 KB →
-                    </a>
-                    <a
-                      href="/thumb-impression-resize/?preset=uppsc-ro-aro-thumb#tool-workspace"
-                      class="min-h-[36px] inline-flex items-center px-3 py-1.5 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:border-primary/50 transition"
-                    >
-                      👍 Left Thumb: 10–20 KB →
-                    </a>
-                  </div>
-                </aside>
-              )}
+
               {examData.admissionSeason && (
                 <div class="pt-1">
                   <a
@@ -1417,35 +1372,27 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
               </section>
             )}
 
-            {examData.slug === 'uppsc-signature-resize' && (
-              <section id="uppsc-ro-aro-signature-resize" aria-labelledby="uppsc-ro-aro-heading" class="scroll-mt-20 p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/25 space-y-3">
-                <div class="flex items-center justify-between flex-wrap gap-2">
-                  <h2 id="uppsc-ro-aro-heading" class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
-                    <span>📢</span> UPPSC RO ARO 2026 Notice (Advt. A-4/E-1/2026)
-                  </h2>
-                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                    26 Oct – 26 Nov 2026 · 501 Posts
-                  </span>
+              {examData.slug === 'uppsc-signature-resize' && (
+                <div class="space-y-6">
+                  <section id="uppsc-ro-aro-signature-resize" aria-labelledby="uppsc-ro-aro-heading" class="scroll-mt-20 p-5 rounded-2xl bg-primary/5 border border-primary/25 space-y-2.5">
+                    <h2 id="uppsc-ro-aro-heading" class="text-base sm:text-lg font-bold text-foreground">
+                      UPPSC RO/ARO Signature Resize (Samiksha Adhikari 2026)
+                    </h2>
+                    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      Applying for UPPSC RO/ARO 2026 (Review Officer / Assistant Review Officer)? The signature spec is stricter than other UPPSC posts: 140×60 px, 10–20 KB, black ink on white paper — with photo at 20–50 KB and left thumb impression at 10–20 KB under the OTR rules. Use the dedicated 3-in-1 tool to resize all three exactly to spec: <a href="/uppsc-ro-aro-photo-signature-resize/" class="font-bold text-primary underline">UPPSC RO ARO Signature Resize — 3-in-1 Tool &rarr;</a>
+                    </p>
+                  </section>
+
+                  <section id="uppsc-pcs-signature-resize" aria-labelledby="uppsc-pcs-heading" class="scroll-mt-20 p-5 rounded-2xl bg-card border border-border space-y-2.5 shadow-xs">
+                    <h2 id="uppsc-pcs-heading" class="text-base sm:text-lg font-bold text-foreground">
+                      UPPSC PCS Signature Resize — Combined State / Upper Subordinate Services
+                    </h2>
+                    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      For UPPSC Combined State / Upper Subordinate Services (PCS) applications through OTR, the signature follows the standard UPPSC OTR rule: JPG/JPEG, 140×60 px, 10–20 KB, signed in black ink on plain white paper in running handwriting. The OTR portal rejects signatures above 30 KB, in capital/block letters, or in blue ink. Resize yours exactly to the OTR window with the tool above — the same preset serves PCS and other UPPSC recruitments.
+                    </p>
+                  </section>
                 </div>
-                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Looking for <strong>Samiksha Adhikari / Sahayak Samiksha Adhikari</strong> uploads? While this page formats general UPPSC OTR and PCS signatures (under 30 KB @ 200 DPI), the active RO/ARO application requires all three files: <strong>Photo (20–50 KB)</strong>, <strong>Signature (140×60 px, 10–20 KB)</strong>, and <strong>Left Thumb (10–20 KB)</strong>. Use our dedicated 3-in-1 workspace below:
-                </p>
-                <div class="flex flex-wrap items-center gap-3 pt-1">
-                  <a
-                    href="/uppsc-ro-aro-photo-signature-resize/"
-                    class="min-h-[40px] inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs hover:bg-amber-400 transition shadow-xs"
-                  >
-                    <span>⚡</span> UPPSC RO ARO signature resize &amp; 3-in-1 Studio &rarr;
-                  </a>
-                  <a
-                    href="/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/"
-                    class="min-h-[40px] inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:border-primary/50 transition"
-                  >
-                    <span>📖</span> Read Complete RO/ARO Form Fill Up Guide &rarr;
-                  </a>
-                </div>
-              </section>
-            )}
+              )}
 
             {examData.slug.startsWith('ssc-') && !examGuidance && (
               <div class="p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-3">
@@ -1988,20 +1935,6 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
     </main>
 
     <Footer />
-    {examData.slug === 'uppsc-signature-resize' && (
-      <script is:inline>
-        document.querySelectorAll('[data-ro-aro-preset]').forEach((btn) => {
-          btn.addEventListener('click', () => {
-            const presetId = btn.getAttribute('data-ro-aro-preset');
-            if (!presetId) return;
-            const url = new URL(window.location.href);
-            url.searchParams.set('preset', presetId);
-            window.history.replaceState({}, '', url);
-            window.dispatchEvent(new CustomEvent('signresize-apply-preset', { detail: { presetId } }));
-            document.getElementById('exam-tool')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          });
-        });
-      </script>
-    )}
+
   </body>
 </html>

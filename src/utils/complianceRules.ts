@@ -909,12 +909,12 @@ export function getComplianceAudit(preset: ExamPreset | null, mode: ToolTargetMo
           { icon: '🖋️', title: '1. Running Handwriting (NO CAPITAL LETTERS)', description: 'Full running handwriting is mandatory; initials and capital block letters are disqualified at scrutiny.', severity: 'danger' },
           { icon: '🖊️', title: '2. Black Ink Pen Recommended', description: 'Use a black ballpoint pen on unruled white paper for maximum contrast.', severity: 'warning' },
           isUppscPreset
-            ? { icon: '📏', title: '3. UPPSC OTR (<30 KB) & RO/ARO (10–20 KB)', description: 'UPPSC OTR PDF allows signature under 30 KB at 6×3 cm @ 200 DPI (max only). For RO/ARO 2026 (Advt. A-4/E-1/2026), keep 140×60 px between 10 KB and 20 KB JPG — valid for both.', severity: 'info' }
+            ? { icon: '📏', title: '3. UPPSC OTR (<30 KB) & PCS (10–20 KB)', description: 'UPPSC OTR PDF allows signature under 30 KB at 6×3 cm @ 200 DPI (max only). For PCS & UPPSC portals, keep 140×60 px between 10 KB and 20 KB JPG — valid for both.', severity: 'info' }
             : { icon: '📏', title: '3. Portal Size Limits', description: `${preset?.widthPx || 140} × ${preset?.heightPx || 60} px, strictly ${preset?.minKb || 10} KB to ${preset?.maxKb || 50} KB in JPG.`, severity: 'info' },
           { icon: '📄', title: '4. Clean Paper Surface', description: 'No ruled lines, shadows, or smudged ink strokes around the signature.', severity: 'info' },
         ],
         officialSource: isUppscPreset
-          ? 'UPPSC OTR Scanning Guideline PDF (uppsc.up.nic.in) & Advt. A-4/E-1/2026'
+          ? 'UPPSC OTR Scanning Guideline PDF (uppsc.up.nic.in) & PCS Portal Rules'
           : `${preset?.authority || 'State Public Service Commission'} Guidelines`,
         actionType: 'cleanPaper',
       };

@@ -26,8 +26,10 @@ let examAlertTitle = isUS
   : 'Never miss a 2026 SSC, State PSC, or Railway photo deadline';
 if (currentPath.includes('osssc')) {
   examAlertTitle = 'Never miss a 2026 OSSSC, OPSC, or Railway photo deadline';
+} else if (currentPath.includes('ro-aro')) {
+  examAlertTitle = 'Never miss a 2026 UPPSC RO/ARO or UPSSSC photo deadline';
 } else if (currentPath.includes('uppsc')) {
-  examAlertTitle = 'Never miss a 2026 UPPSC, RO/ARO, or UPSSSC photo deadline';
+  examAlertTitle = 'Never miss a 2026 UPPSC, PCS, or UPSSSC photo deadline';
 } else if (currentPath.includes('wbpsc')) {
   examAlertTitle = 'Never miss a 2026 WBPSC, SSC, or Railway photo deadline';
 } else if (currentPath.includes('mppsc')) {
