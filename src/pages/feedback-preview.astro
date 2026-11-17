@@ -1,0 +1,221 @@
+---
+// src/pages/feedback-preview.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostDownloadFeedbackModal from '../components/PostDownloadFeedbackModal';
+import { SignatureTool } from '../components/SignatureTool';
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post-Download Feedback Pop-up Showcase | SignResize Localhost</title>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body class="bg-background text-foreground antialiased min-h-screen flex flex-col">
+    <Header />
+
+    <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-8 space-y-8">
+      <!-- Title & Notice -->
+      <div class="space-y-2 border-b border-border pb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20">
+          <span>🛠️ Localhost Interactive Showcase</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+          Post-Download Feedback &amp; Review Pop-up Demo
+        </h1>
+        <p class="text-sm text-muted-foreground max-w-2xl leading-relaxed">
+          Compare <strong>Option A (Lightweight Post-Download Celebration Modal)</strong> and <strong>Option B (Automated Existing Full Dialog)</strong>. Test both directly below or with simulated downloads.
+        </p>
+      </div>
+
+      <!-- Quick Action Tester Strip -->
+      <div class="p-6 rounded-2xl bg-card border border-border shadow-sm space-y-4">
+        <h2 class="text-base font-bold text-foreground flex items-center gap-2">
+          <span>⚡</span> 1-Click Interactive Modal Launchers
+        </h2>
+        <div class="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            id="launch-option-a-btn"
+            class="px-5 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm hover:opacity-90 shadow-sm transition flex items-center gap-2 cursor-pointer"
+          >
+            <span>🎉 Launch Option A</span>
+            <span class="text-[11px] font-normal opacity-85">(Lightweight Review Modal)</span>
+          </button>
+
+          <button
+            type="button"
+            id="launch-option-b-btn"
+            class="px-5 py-3 rounded-xl bg-card border border-primary/30 text-primary font-bold text-xs sm:text-sm hover:bg-primary/5 transition flex items-center gap-2 cursor-pointer"
+          >
+            <span>💬 Launch Option B</span>
+            <span class="text-[11px] font-normal opacity-85">(Existing Full Dialog)</span>
+          </button>
+
+          <button
+            type="button"
+            id="reset-session-btn"
+            class="px-4 py-3 rounded-xl bg-muted text-muted-foreground hover:text-foreground font-semibold text-xs transition cursor-pointer"
+          >
+            <span>🔄 Reset Session Flags</span>
+          </button>
+        </div>
+        <p id="reset-status" class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold hidden">
+          ✓ Session storage cleared. Next download will trigger the pop-up again!
+        </p>
+      </div>
+
+      <!-- Comparison Matrix -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1: Option A -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-primary/5 via-card to-card border-2 border-primary/30 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full bg-primary/15 text-primary text-[11px] font-bold">OPTION A (Recommended)</span>
+            <span class="text-xs text-emerald-600 dark:text-emerald-400 font-bold">Highest Conversion</span>
+          </div>
+          <h3 class="text-lg font-bold text-foreground">Dedicated Post-Download Card</h3>
+          <ul class="text-xs text-muted-foreground space-y-2 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Celebrates success</strong> ("Downloaded Successfully") so users feel appreciated.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>3-Emoji rating</strong> (`Perfect`, `Just Okay`, `Had Issues`) captures sentiment in 1 tap.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Quick tag pills</strong> ("Saved my application", "Need another exam preset", "Wrong KB size") eliminate typing friction on mobile.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span>Smooth 900ms delay + session capping (never spams repeatedly).</span>
+            </li>
+          </ul>
+          <div class="pt-2">
+            <a
+              href="/?feedback=a"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
+            >
+              Test Option A on Main Homepage Tool &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Option B -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-card border border-border shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-[11px] font-bold">OPTION B</span>
+            <span class="text-xs text-muted-foreground font-semibold">Standard Form</span>
+          </div>
+          <h3 class="text-lg font-bold text-foreground">Auto-Trigger Existing Full Dialog</h3>
+          <ul class="text-xs text-muted-foreground space-y-2 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500 font-bold">•</span>
+              <span>Directly opens the existing <code class="font-mono text-[10px]">VisitorFeedback.astro</code> dialog modal upon download.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500 font-bold">•</span>
+              <span>Includes all 3 tabs: "My experience", "Report a problem", and "Suggest an idea".</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500 font-bold">•</span>
+              <span>Has full problem dropdown, long textarea, and optional email reply box.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-amber-500 font-bold">⚠️</span>
+              <span>Slightly heavier visual weight for a visitor who just finished downloading.</span>
+            </li>
+          </ul>
+          <div class="pt-2">
+            <a
+              href="/?feedback=b"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
+            >
+              Test Option B on Main Homepage Tool &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Embedded Tool Test Area -->
+      <div class="space-y-4 pt-4 border-t border-border">
+        <div class="space-y-1">
+          <h2 class="text-lg font-bold text-foreground flex items-center gap-2">
+            <span>🧪</span> Live Tool Download Test Ground
+          </h2>
+          <p class="text-xs text-muted-foreground">
+            Upload any sample image below and click <strong>Download JPG</strong>. Watch the pop-up trigger automatically after download!
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-border bg-card p-4 sm:p-6">
+          <SignatureTool client:load targetType="signature" defaultMode="single" />
+        </div>
+      </div>
+
+      <!-- Container for previewing Option A on demand -->
+      <div id="option-a-mount-point"></div>
+    </main>
+
+    <Footer />
+
+    <script>
+      import React from 'react';
+      import ReactDOM from 'react-dom/client';
+      import PostDownloadFeedbackModal from '../components/PostDownloadFeedbackModal';
+
+      // Launch Option A on button click
+      const launchBtnA = document.getElementById('launch-option-a-btn');
+      const mountPoint = document.getElementById('option-a-mount-point');
+      let root: any = null;
+
+      launchBtnA?.addEventListener('click', () => {
+        if (!root && mountPoint) {
+          root = ReactDOM.createRoot(mountPoint);
+        }
+        root?.render(
+          React.createElement(PostDownloadFeedbackModal, {
+            downloaded: false,
+            tool: 'Preview Tester',
+            forceOpen: true,
+            onClose: () => {
+              root?.render(null);
+            }
+          })
+        );
+      });
+
+      // Launch Option B on button click
+      const launchBtnB = document.getElementById('launch-option-b-btn');
+      launchBtnB?.addEventListener('click', () => {
+        window.dispatchEvent(
+          new CustomEvent('open-visitor-feedback', {
+            detail: {
+              kind: 'experience',
+              tool: 'Option B Preview',
+              source: 'download-auto-option-b'
+            }
+          })
+        );
+      });
+
+      // Reset session storage
+      const resetBtn = document.getElementById('reset-session-btn');
+      const resetStatus = document.getElementById('reset-status');
+      resetBtn?.addEventListener('click', () => {
+        sessionStorage.removeItem('signresize-download-feedback-dismissed');
+        sessionStorage.removeItem('signresize-feedback-dismissed');
+        sessionStorage.removeItem('signresize-feedback-b-dismissed');
+        if (resetStatus) {
+          resetStatus.classList.remove('hidden');
+          setTimeout(() => resetStatus.classList.add('hidden'), 3500);
+        }
+      });
+    </script>
+  </body>
+</html>

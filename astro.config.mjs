@@ -182,7 +182,7 @@ export default defineConfig({
           redirectedPaths.has(pathname) ||
           [
             '/404', '/500', '/404.html', '/500.html',
-            '/studio-preview', '/live-layout-preview', '/feedback-admin',
+            '/studio-preview', '/live-layout-preview', '/feedback-admin', '/feedback-preview',
             '/about', '/privacy', '/terms', '/disclaimer', '/contact', '/appsc-tspsc-signature-resize'
           ].includes(pathname)
         ) return false;
