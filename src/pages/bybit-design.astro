@@ -1,0 +1,1188 @@
+---
+// Bybit Global Mantle Landing Page — OpenDesignMD Implementation
+// Specification: How bybitglobal.com is designed (OpenDesignMD)
+// Tokens: action #F7A23B, canvas #000000, surface #141414, surface-elevated #1A1A1A
+---
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bybit Global Mantle — OpenDesignMD Live Preview</title>
+    <meta name="description" content="Pixel-faithful implementation of Bybit Global Mantle landing page based on OpenDesignMD specification." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Google Fonts: IBM Plex Sans + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        --color-action: #F7A23B;
+        --color-action-hover: #E8942E;
+        --color-canvas: #000000;
+        --color-surface: #141414;
+        --color-surface-elevated: #1A1A1A;
+        --color-ink: #FFFFFF;
+        --color-muted-ink: #A0A0A0;
+        --color-border: #2A2A2A;
+        --color-border-subtle: #1F1F1F;
+        --font-primary: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-sans: 'Inter', var(--font-primary);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-canvas);
+        color: var(--color-ink);
+        font-family: var(--font-primary);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      /* Typography tokens from OpenDesignMD spec */
+      .font-hero-display {
+        font-family: var(--font-primary);
+        font-size: clamp(2rem, 5vw, 3rem); /* 3rem desktop */
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+      }
+
+      .font-section-display {
+        font-family: var(--font-primary);
+        font-size: clamp(1.75rem, 4vw, 2.5rem); /* 2.5rem desktop */
+        font-weight: 400;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+      }
+
+      .font-body {
+        font-family: var(--font-primary);
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: 0;
+      }
+
+      .font-body-small {
+        font-family: var(--font-primary);
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: 0;
+      }
+
+      .font-label {
+        font-family: var(--font-primary);
+        font-size: 0.75rem;
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .font-nav {
+        font-family: var(--font-primary);
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      /* Primary Action Pill Button */
+      .btn-primary-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-action);
+        color: #000000;
+        font-family: var(--font-primary);
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.5;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(247, 162, 59, 0.25);
+      }
+
+      .btn-primary-action:hover {
+        background-color: var(--color-action-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 25px rgba(247, 162, 59, 0.4);
+      }
+
+      .btn-primary-action:active {
+        transform: translateY(0);
+      }
+
+      /* Secondary Pill Button */
+      .btn-secondary-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        color: var(--color-ink);
+        border: 1px solid var(--color-border);
+        font-family: var(--font-primary);
+        font-size: 0.875rem;
+        font-weight: 500;
+        padding: 0.625rem 1.25rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      .btn-secondary-pill:hover {
+        border-color: var(--color-action);
+        color: var(--color-action);
+        background-color: rgba(247, 162, 59, 0.05);
+      }
+
+      /* Text link with right arrow */
+      .text-link-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        color: var(--color-action);
+        font-family: var(--font-primary);
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.15s ease;
+        cursor: pointer;
+      }
+
+      .text-link-arrow:hover {
+        color: var(--color-action-hover);
+      }
+
+      .text-link-arrow .arrow-icon {
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+
+      .text-link-arrow:hover .arrow-icon {
+        transform: translateX(4px);
+      }
+
+      /* Category Tag / Pill */
+      .tag-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        background-color: transparent;
+        border: 1px solid var(--color-border);
+        color: var(--color-ink);
+        font-family: var(--font-primary);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      /* Signature Atmospheric Glow */
+      .hero-atmospheric-glow {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(ellipse 90% 65% at 50% 95%, rgba(247, 162, 59, 0.22) 0%, rgba(247, 162, 59, 0.08) 42%, rgba(0, 0, 0, 0) 72%);
+      }
+
+      .card-glow {
+        position: absolute;
+        inset: -20px;
+        background: radial-gradient(circle at 50% 50%, rgba(247, 162, 59, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+        pointer-events: none;
+        border-radius: 2rem;
+        opacity: 0.8;
+      }
+
+      /* Table styling */
+      .vip-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      .vip-table th {
+        padding: 0.875rem 1rem;
+        font-family: var(--font-primary);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--color-muted-ink);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .vip-table td {
+        padding: 1rem;
+        font-family: var(--font-primary);
+        font-size: 0.875rem;
+        color: var(--color-ink);
+        border-bottom: 1px solid var(--color-border-subtle);
+        vertical-align: middle;
+      }
+
+      .vip-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .vip-table tr:hover td {
+        background-color: rgba(255, 255, 255, 0.02);
+      }
+
+      /* Circular Tier Badge */
+      .tier-badge {
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        background-color: #222222;
+        color: var(--color-ink);
+        border: 1px solid var(--color-border);
+      }
+
+      .tier-badge.gold {
+        background: linear-gradient(135deg, #F7A23B, #E8942E);
+        color: #000000;
+        border-color: #F7A23B;
+      }
+
+      /* Social share buttons */
+      .social-share-btn {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        text-decoration: none;
+        transition: transform 0.15s ease, filter 0.15s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .social-share-btn:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+      }
+    </style>
+  </head>
+
+  <body class="relative min-h-screen">
+
+    <!-- Top Design Spec Control Bar (Sticky) -->
+    <header class="sticky top-0 z-50 bg-[#000000]/95 backdrop-blur-md border-b border-[#2A2A2A] px-4 py-3 flex items-center justify-between text-xs">
+      <div class="flex items-center gap-3">
+        <a href="/" class="text-sm font-bold tracking-tight text-white flex items-center gap-1.5 hover:text-[#F7A23B] transition">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#F7A23B] animate-pulse"></span>
+          <span>Bybit Global</span>
+          <span class="text-[#A0A0A0] font-normal">|</span>
+          <span class="text-[#A0A0A0] font-mono text-[11px]">Mantle (MNT) Landing</span>
+        </a>
+        <span class="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] text-[10px] text-[#A0A0A0]">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          OpenDesignMD Verified
+        </span>
+      </div>
+
+      <!-- Quick Section Links -->
+      <nav class="hidden lg:flex items-center gap-5 text-[11px] text-[#A0A0A0]">
+        <a href="#hero" class="hover:text-[#F7A23B] transition">Hero</a>
+        <a href="#card-feature" class="hover:text-[#F7A23B] transition">Bybit Card</a>
+        <a href="#modular-l2" class="hover:text-[#F7A23B] transition">Modular L2</a>
+        <a href="#vip-fees" class="hover:text-[#F7A23B] transition">VIP Fees Table</a>
+        <a href="#referral-section" class="hover:text-[#F7A23B] transition">Referral Modal</a>
+        <a href="#color-tokens" class="hover:text-[#F7A23B] transition">Tokens</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          id="open-referral-modal-btn"
+          class="btn-secondary-pill text-xs py-1.5 px-3"
+          title="Test Interactive Referral Modal"
+        >
+          🎁 Open Referral Modal
+        </button>
+
+        <button
+          type="button"
+          id="toggle-spec-drawer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F7A23B]/10 hover:bg-[#F7A23B]/20 text-[#F7A23B] border border-[#F7A23B]/30 font-semibold transition cursor-pointer"
+        >
+          <span>📜</span>
+          <span>Design MD Spec</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Container (Max width ~1200px as specified) -->
+    <main class="relative z-10">
+
+      <!-- ================================================================= -->
+      <!-- 1. HERO SECTION (Full-bleed atmospheric orange bottom-rising glow) -->
+      <!-- ================================================================= -->
+      <section id="hero" class="relative min-h-[82vh] flex flex-col justify-center items-center text-center px-4 pt-16 pb-24 overflow-hidden">
+        <!-- Atmospheric Bottom-Rising Glow -->
+        <div class="hero-atmospheric-glow"></div>
+
+        <!-- Ambient decorative particle / ring -->
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#F7A23B]/10 to-transparent blur-3xl pointer-events-none rounded-full"></div>
+
+        <div class="relative z-10 max-w-[860px] mx-auto space-y-6">
+          <!-- Uppercase Stage Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141414] border border-[#2A2A2A] text-[#A0A0A0] text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-[#F7A23B]"></span>
+            <span>MANTLE (MNT) ECOSYSTEM HUB</span>
+            <span class="text-[#F7A23B] font-bold">BYBIT GLOBAL</span>
+          </div>
+
+          <!-- Hero Display Headline -->
+          <h1 class="font-hero-display text-white max-w-3xl mx-auto">
+            Empower Your Decentralized Future with Mantle
+          </h1>
+
+          <!-- Body Description -->
+          <p class="font-body text-[#A0A0A0] max-w-2xl mx-auto text-base sm:text-lg">
+            Experience high-performance modular rollup technology on Ethereum with sub-second finality, micro-gas fees, and institutional liquidity on Bybit Global.
+          </p>
+
+          <!-- Primary Action Button (Rounded Pill #F7A23B with Black Text) -->
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#vip-fees" class="btn-primary-action">
+              Trade MNT Now
+            </a>
+            <button type="button" id="hero-referral-btn" class="btn-secondary-pill">
+              Invite &amp; Earn 50,000 MNT →
+            </button>
+          </div>
+
+          <!-- Proof Metrics Bar -->
+          <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-[#1F1F1F] text-center max-w-3xl mx-auto">
+            <div>
+              <div class="text-2xl font-bold text-white tracking-tight">5,000+</div>
+              <div class="font-body-small text-[#A0A0A0] text-xs mt-0.5">Peak TPS Throughput</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-[#F7A23B] tracking-tight">80% Less</div>
+              <div class="font-body-small text-[#A0A0A0] text-xs mt-0.5">Ethereum Gas Cost</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-white tracking-tight">$4.2B+</div>
+              <div class="font-body-small text-[#A0A0A0] text-xs mt-0.5">Ecosystem Treasury</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-white tracking-tight">0.00%</div>
+              <div class="font-body-small text-[#A0A0A0] text-xs mt-0.5">VIP Spot Maker Fee</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- 2. FEATURE SECTION: Bybit Card (Asymmetric Layout 1) -->
+      <!-- ================================================================= -->
+      <section id="card-feature" class="max-w-[1200px] mx-auto px-4 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          
+          <!-- Visual: 3D Studio-Shot Bybit Card Mockup -->
+          <div class="lg:col-span-6 relative flex justify-center">
+            <div class="card-glow"></div>
+            <!-- Card Object -->
+            <div class="relative w-full max-w-[440px] aspect-[1.58/1] rounded-2xl p-6 bg-gradient-to-tr from-[#161616] via-[#1F1F1F] to-[#121212] border border-[#2A2A2A] shadow-2xl flex flex-col justify-between overflow-hidden group hover:border-[#F7A23B]/60 transition duration-300">
+              
+              <!-- Card Surface Reflective Sheen -->
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition duration-1000 pointer-events-none"></div>
+
+              <!-- Top Row: Card Issuer & Logo -->
+              <div class="flex items-center justify-between relative z-10">
+                <div class="flex items-center gap-2">
+                  <span class="font-bold text-lg tracking-wider text-white">BYBIT</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-[#F7A23B]/20 text-[#F7A23B] font-mono font-bold">CARD</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-[#F7A23B]"></span>
+                  <span class="text-xs font-semibold text-white/90">MNT Edition</span>
+                </div>
+              </div>
+
+              <!-- Center: Chip & Contactless -->
+              <div class="flex items-center gap-4 relative z-10 my-4">
+                <div class="w-12 h-9 rounded-md bg-gradient-to-br from-amber-200 via-amber-400 to-amber-600 p-0.5 flex flex-col justify-around shadow-inner">
+                  <div class="border-b border-amber-800/40 h-2"></div>
+                  <div class="border-b border-amber-800/40 h-2"></div>
+                </div>
+                <svg class="w-6 h-6 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.393 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                </svg>
+              </div>
+
+              <!-- Bottom Row: Card Details & Network -->
+              <div class="flex items-end justify-between relative z-10">
+                <div>
+                  <div class="font-mono text-xs text-[#A0A0A0] tracking-widest">•••• •••• •••• 8892</div>
+                  <div class="font-mono text-[10px] text-white/80 mt-1 uppercase">MANTLE CITIZEN VIP</div>
+                </div>
+                <div class="flex items-center -space-x-2">
+                  <div class="w-8 h-8 rounded-full bg-[#EB001B] opacity-90"></div>
+                  <div class="w-8 h-8 rounded-full bg-[#F79E1B] opacity-90"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editorial Content: Text Stack -->
+          <div class="lg:col-span-6 space-y-6">
+            <!-- Tags Row -->
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="tag-pill">BYBIT CARD</span>
+              <span class="tag-pill">BYBIT PAY</span>
+              <span class="tag-pill text-[#F7A23B] border-[#F7A23B]/40">10% CASHBACK</span>
+            </div>
+
+            <!-- Headline -->
+            <h2 class="font-section-display text-white">
+              Spend MNT Anywhere, Earn Daily Crypto Cashback
+            </h2>
+
+            <!-- Description -->
+            <p class="font-body text-[#A0A0A0]">
+              Connect your Mantle (MNT) wallet directly to the Bybit Card. Spend seamlessly across 90 million merchants globally with real-time fiat conversion, zero foreign exchange markup fees, and instant cashback paid in MNT.
+            </p>
+
+            <!-- Key Feature Points -->
+            <div class="space-y-3 pt-2">
+              <div class="flex items-center gap-3 text-sm text-white">
+                <span class="w-5 h-5 rounded-full bg-[#F7A23B]/10 text-[#F7A23B] flex items-center justify-center font-bold text-xs">✓</span>
+                <span>Virtual Card issued in 60 seconds with Apple Pay &amp; Google Pay support</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-white">
+                <span class="w-5 h-5 rounded-full bg-[#F7A23B]/10 text-[#F7A23B] flex items-center justify-center font-bold text-xs">✓</span>
+                <span>Up to 10% cashback tier on dining, travel, and online subscriptions</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-white">
+                <span class="w-5 h-5 rounded-full bg-[#F7A23B]/10 text-[#F7A23B] flex items-center justify-center font-bold text-xs">✓</span>
+                <span>Zero annual fees &amp; no credit checks required</span>
+              </div>
+            </div>
+
+            <!-- Text Links with Arrow -->
+            <div class="pt-4 flex flex-wrap items-center gap-6">
+              <a href="#vip-fees" class="text-link-arrow">
+                <span>Apply for Bybit Card</span>
+                <span class="arrow-icon">→</span>
+              </a>
+              <a href="#referral-section" class="text-link-arrow">
+                <span>Explore Card Tiers &amp; Limits</span>
+                <span class="arrow-icon">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- 3. FEATURE SECTION: Modular L2 Architecture (Asymmetric Layout 2) -->
+      <!-- ================================================================= -->
+      <section id="modular-l2" class="max-w-[1200px] mx-auto px-4 py-20 border-t border-[#1F1F1F]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          
+          <!-- Editorial Content: Text Stack (Left) -->
+          <div class="lg:col-span-6 space-y-6 order-2 lg:order-1">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="tag-pill">EIGENDA INTEGRATION</span>
+              <span class="tag-pill">MODULAR ROLLUP</span>
+              <span class="tag-pill text-[#F7A23B] border-[#F7A23B]/40">ETHEREUM SECURITY</span>
+            </div>
+
+            <h2 class="font-section-display text-white">
+              Hyperscaled Throughput with Modular Data Availability
+            </h2>
+
+            <p class="font-body text-[#A0A0A0]">
+              Mantle combines an optimistic rollup with a decentralized data availability layer powered by EigenDA. Execute up to 5,000 transactions per second with sub-second finality while preserving Ethereum L1 security guarantees.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-xl bg-[#141414] border border-[#2A2A2A]">
+                <div class="font-label text-[#F7A23B]">EXECUTION LAYER</div>
+                <div class="text-base font-bold text-white mt-1">EVM Compatible</div>
+                <div class="font-body-small text-[#A0A0A0] text-xs mt-1">Deploy Solidity contracts without code modification.</div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-[#141414] border border-[#2A2A2A]">
+                <div class="font-label text-[#F7A23B]">SETTLEMENT LAYER</div>
+                <div class="text-base font-bold text-white mt-1">Ethereum L1</div>
+                <div class="font-body-small text-[#A0A0A0] text-xs mt-1">Cryptographic fraud proofs anchored to Ethereum consensus.</div>
+              </div>
+            </div>
+
+            <div class="pt-4 flex flex-wrap items-center gap-6">
+              <a href="#vip-fees" class="text-link-arrow">
+                <span>View Ecosystem dApps</span>
+                <span class="arrow-icon">→</span>
+              </a>
+              <a href="#vip-fees" class="text-link-arrow">
+                <span>Developer Documentation</span>
+                <span class="arrow-icon">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Visual: 3D Rendered Metallic Rings / Ecosystem Stack (Right) -->
+          <div class="lg:col-span-6 relative flex justify-center order-1 lg:order-2">
+            <div class="card-glow"></div>
+            <div class="w-full max-w-[460px] aspect-square rounded-2xl bg-[#141414] border border-[#2A2A2A] p-8 flex flex-col justify-center items-center relative overflow-hidden group">
+              
+              <!-- Orbit Rings Visual -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-72 h-72 rounded-full border border-[#2A2A2A] border-dashed animate-spin-slow"></div>
+                <div class="w-52 h-52 rounded-full border border-[#F7A23B]/30 absolute"></div>
+                <div class="w-32 h-32 rounded-full border border-[#F7A23B]/60 absolute"></div>
+              </div>
+
+              <!-- Glowing Central Core -->
+              <div class="relative z-10 w-24 h-24 rounded-2xl bg-gradient-to-br from-[#F7A23B] to-[#E8942E] flex items-center justify-center shadow-[0_0_50px_rgba(247,162,59,0.4)]">
+                <span class="font-black text-2xl text-black">MNT</span>
+              </div>
+
+              <!-- Floating Node Badges -->
+              <div class="absolute top-6 left-6 px-3 py-1.5 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] text-xs font-mono text-white/90">
+                EigenDA Node
+              </div>
+              <div class="absolute bottom-6 right-6 px-3 py-1.5 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] text-xs font-mono text-[#F7A23B]">
+                Ethereum L1 Anchor
+              </div>
+              <div class="absolute bottom-6 left-6 px-3 py-1.5 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] text-xs font-mono text-emerald-400">
+                0.0001 ETH Avg Gas
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- 4. DATA TABLE: VIP Tiers & Fee Structure -->
+      <!-- ================================================================= -->
+      <section id="vip-fees" class="max-w-[1200px] mx-auto px-4 py-24">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-4 mb-12">
+          <div class="font-label text-[#F7A23B]">INSTITUTIONAL FEE TIERS</div>
+          <h2 class="font-section-display text-white">
+            Trade with VIP Privileges &amp; Lowest Fees
+          </h2>
+          <p class="font-body text-[#A0A0A0]">
+            Holding MNT unlocks preferred trading discounts across Spot and Derivatives markets. Enjoy up to 60% fee reductions, dedicated VIP account managers, and priority OTC execution.
+          </p>
+        </div>
+
+        <!-- Rounded Table Container (Surface #141414, 1rem border-radius, border #2A2A2A) -->
+        <div class="rounded-2xl bg-[#141414] border border-[#2A2A2A] p-4 sm:p-6 lg:p-8 shadow-2xl overflow-x-auto">
+          
+          <div class="flex items-center justify-between pb-4 mb-4 border-b border-[#2A2A2A]">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-sm text-white">Bybit VIP Fee Schedule</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-[#F7A23B]/10 text-[#F7A23B] font-mono font-medium">Updated 2026</span>
+            </div>
+            <div class="text-xs text-[#A0A0A0]">
+              *Hold 500+ MNT for additional 10% discount on all tiers
+            </div>
+          </div>
+
+          <table class="vip-table">
+            <thead>
+              <tr>
+                <th>Tier Level</th>
+                <th>Spot Maker / Taker</th>
+                <th>Futures Maker / Taker</th>
+                <th>Asset Balance / 30D Volume</th>
+                <th>MNT VIP Benefit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Non-VIP -->
+              <tr>
+                <td>
+                  <div class="flex items-center gap-2.5">
+                    <span class="tier-badge">0</span>
+                    <span class="font-medium">Non-VIP</span>
+                  </div>
+                </td>
+                <td><span class="font-mono">0.1000%</span> / <span class="font-mono text-[#A0A0A0]">0.1000%</span></td>
+                <td><span class="font-mono">0.0200%</span> / <span class="font-mono text-[#A0A0A0]">0.0550%</span></td>
+                <td class="font-mono text-xs text-[#A0A0A0]">&lt; $50,000</td>
+                <td><span class="text-xs text-[#A0A0A0]">Standard Access</span></td>
+              </tr>
+
+              <!-- VIP 1 -->
+              <tr>
+                <td>
+                  <div class="flex items-center gap-2.5">
+                    <span class="tier-badge">1</span>
+                    <span class="font-medium">VIP 1</span>
+                  </div>
+                </td>
+                <td><span class="font-mono text-emerald-400">0.0400%</span> / <span class="font-mono text-[#A0A0A0]">0.0600%</span></td>
+                <td><span class="font-mono">0.0160%</span> / <span class="font-mono text-[#A0A0A0]">0.0400%</span></td>
+                <td class="font-mono text-xs text-[#A0A0A0]">&ge; $50,000 or 1,000 MNT</td>
+                <td>
+                  <div class="flex items-center gap-1.5 text-xs text-white">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <span class="px-1.5 py-0.2 rounded bg-[#F7A23B]/20 text-[#F7A23B] font-mono font-bold text-[10px]">MNT</span>
+                    <span>10% Fee Rebate</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- VIP 2 -->
+              <tr>
+                <td>
+                  <div class="flex items-center gap-2.5">
+                    <span class="tier-badge">2</span>
+                    <span class="font-medium">VIP 2</span>
+                  </div>
+                </td>
+                <td><span class="font-mono text-emerald-400">0.0300%</span> / <span class="font-mono text-[#A0A0A0]">0.0500%</span></td>
+                <td><span class="font-mono">0.0140%</span> / <span class="font-mono text-[#A0A0A0]">0.0350%</span></td>
+                <td class="font-mono text-xs text-[#A0A0A0]">&ge; $100,000 or 5,000 MNT</td>
+                <td>
+                  <div class="flex items-center gap-1.5 text-xs text-white">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <span class="px-1.5 py-0.2 rounded bg-[#F7A23B]/20 text-[#F7A23B] font-mono font-bold text-[10px]">MNT</span>
+                    <span>15% Fee Rebate</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- VIP 3 -->
+              <tr>
+                <td>
+                  <div class="flex items-center gap-2.5">
+                    <span class="tier-badge">3</span>
+                    <span class="font-medium">VIP 3</span>
+                  </div>
+                </td>
+                <td><span class="font-mono text-emerald-400">0.0200%</span> / <span class="font-mono text-[#A0A0A0]">0.0400%</span></td>
+                <td><span class="font-mono">0.0100%</span> / <span class="font-mono text-[#A0A0A0]">0.0300%</span></td>
+                <td class="font-mono text-xs text-[#A0A0A0]">&ge; $250,000 or 15,000 MNT</td>
+                <td>
+                  <div class="flex items-center gap-1.5 text-xs text-white">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <span class="px-1.5 py-0.2 rounded bg-[#F7A23B]/20 text-[#F7A23B] font-mono font-bold text-[10px]">MNT</span>
+                    <span>25% Fee Rebate + Dedicated AM</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- VIP 4 -->
+              <tr>
+                <td>
+                  <div class="flex items-center gap-2.5">
+                    <span class="tier-badge">4</span>
+                    <span class="font-medium">VIP 4</span>
+                  </div>
+                </td>
+                <td><span class="font-mono text-emerald-400">0.0100%</span> / <span class="font-mono text-[#A0A0A0]">0.0300%</span></td>
+                <td><span class="font-mono">0.0070%</span> / <span class="font-mono text-[#A0A0A0]">0.0250%</span></td>
+                <td class="font-mono text-xs text-[#A0A0A0]">&ge; $500,000 or 30,000 MNT</td>
+                <td>
+                  <div class="flex items-center gap-1.5 text-xs text-white">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <span class="px-1.5 py-0.2 rounded bg-[#F7A23B]/20 text-[#F7A23B] font-mono font-bold text-[10px]">MNT</span>
+                    <span>35% Fee Rebate + Private Webhook</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- VIP 5 -->
+              <tr>
+                <td>
+                  <div class="flex items-center gap-2.5">
+                    <span class="tier-badge gold">5</span>
+                    <span class="font-medium text-white">VIP 5</span>
+                  </div>
+                </td>
+                <td><span class="font-mono text-[#F7A23B] font-bold">0.0000%</span> / <span class="font-mono text-[#A0A0A0]">0.0200%</span></td>
+                <td><span class="font-mono">0.0040%</span> / <span class="font-mono text-[#A0A0A0]">0.0200%</span></td>
+                <td class="font-mono text-xs text-[#A0A0A0]">&ge; $1,000,000 or 60,000 MNT</td>
+                <td>
+                  <div class="flex items-center gap-1.5 text-xs text-white">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <span class="px-1.5 py-0.2 rounded bg-[#F7A23B]/20 text-[#F7A23B] font-mono font-bold text-[10px]">MNT</span>
+                    <span>45% Fee Rebate + Custom Colocation</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Supreme VIP -->
+              <tr class="bg-[#F7A23B]/5">
+                <td>
+                  <div class="flex items-center gap-2.5">
+                    <span class="tier-badge gold">★</span>
+                    <span class="font-bold text-[#F7A23B]">Supreme VIP</span>
+                  </div>
+                </td>
+                <td><span class="font-mono text-[#F7A23B] font-bold">0.0000%</span> / <span class="font-mono text-emerald-400 font-bold">0.0150%</span></td>
+                <td><span class="font-mono text-[#F7A23B] font-bold">0.0000%</span> / <span class="font-mono text-emerald-400 font-bold">0.0150%</span></td>
+                <td class="font-mono text-xs text-[#F7A23B] font-bold">Institutional / Bespoke</td>
+                <td>
+                  <div class="flex items-center gap-1.5 text-xs text-[#F7A23B] font-bold">
+                    <span>★</span>
+                    <span class="px-1.5 py-0.2 rounded bg-[#F7A23B] text-black font-mono font-bold text-[10px]">60% MNT</span>
+                    <span>Zero Maker Fee + OTC Desk</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="mt-6 pt-4 border-t border-[#1F1F1F] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <span class="text-[#A0A0A0]">Need higher API rate limits or institutional colocation?</span>
+            <a href="#referral-section" class="text-link-arrow text-xs">
+              <span>Contact Institutional Sales</span>
+              <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- 5. REFERRAL SECTION & INTERACTIVE MODAL COMPONENT -->
+      <!-- ================================================================= -->
+      <section id="referral-section" class="max-w-[1200px] mx-auto px-4 py-20 border-t border-[#1F1F1F]">
+        <div class="rounded-2xl bg-[#141414] border border-[#2A2A2A] p-8 sm:p-12 relative overflow-hidden">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-8 space-y-4">
+              <span class="tag-pill text-[#F7A23B] border-[#F7A23B]/40">REFERRAL PROGRAM</span>
+              <h2 class="font-section-display text-white">
+                Invite Friends, Share 50,000 MNT Rewards Pool
+              </h2>
+              <p class="font-body text-[#A0A0A0] max-w-xl">
+                Earn 20% ongoing commission on every trade your referrals make. Your invited friends also receive up to $1,000 welcome bonus in MNT after meeting trading milestones.
+              </p>
+              
+              <!-- Copy Link Input Preview -->
+              <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 max-w-md">
+                <div class="flex-1 bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl px-4 py-2.5 font-mono text-xs text-white/90 flex items-center justify-between">
+                  <span id="preview-ref-code" class="truncate">https://bybitglobal.com/invite?ref=MNT2026</span>
+                  <span class="text-[10px] text-[#A0A0A0] ml-2">Code: MNT2026</span>
+                </div>
+                <button
+                  type="button"
+                  id="preview-copy-btn"
+                  class="btn-primary-action text-xs py-2.5 px-4 shrink-0"
+                >
+                  Copy Link
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] text-center space-y-4">
+              <div class="text-4xl">🎁</div>
+              <div>
+                <div class="text-lg font-bold text-white">Interactive Referral Modal</div>
+                <div class="text-xs text-[#A0A0A0] mt-1">Component specified in OpenDesignMD with 2-column layout &amp; social share grid.</div>
+              </div>
+              <button
+                type="button"
+                id="launch-modal-btn"
+                class="btn-primary-action w-full text-sm py-2.5"
+              >
+                Launch Live Modal
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- 6. DESIGN SYSTEM TOKENS & VERIFICATION TABLE -->
+      <!-- ================================================================= -->
+      <section id="color-tokens" class="max-w-[1200px] mx-auto px-4 py-20 border-t border-[#1F1F1F]">
+        <div class="space-y-4 mb-8">
+          <span class="tag-pill">DESIGN SPEC TOKENS</span>
+          <h2 class="font-section-display text-white">Color &amp; Typography Swatches</h2>
+          <p class="font-body text-[#A0A0A0]">
+            Every token verified against <code class="text-[#F7A23B]">bybitglobal.com</code> design documentation from OpenDesignMD.
+          </p>
+        </div>
+
+        <!-- Color Token Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 text-xs mb-10">
+          
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-[#F7A23B] shadow-inner flex items-center justify-center font-mono font-bold text-black text-xs">#F7A23B</div>
+            <div class="font-bold text-white">action</div>
+            <div class="text-[10px] text-[#A0A0A0]">Primary buttons, text links, accent glow</div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-[#E8942E] shadow-inner flex items-center justify-center font-mono font-bold text-black text-xs">#E8942E</div>
+            <div class="font-bold text-white">action-hover</div>
+            <div class="text-[10px] text-[#A0A0A0]">Button hover states, link hover</div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-[#000000] border border-[#2A2A2A] shadow-inner flex items-center justify-center font-mono font-bold text-white text-xs">#000000</div>
+            <div class="font-bold text-white">canvas</div>
+            <div class="text-[10px] text-[#A0A0A0]">Page background, deepest surface</div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-[#141414] border border-[#2A2A2A] shadow-inner flex items-center justify-center font-mono font-bold text-white text-xs">#141414</div>
+            <div class="font-bold text-white">surface</div>
+            <div class="text-[10px] text-[#A0A0A0]">Cards, table rows, secondary panels</div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] shadow-inner flex items-center justify-center font-mono font-bold text-white text-xs">#1A1A1A</div>
+            <div class="font-bold text-white">surface-elevated</div>
+            <div class="text-[10px] text-[#A0A0A0]">Modals, elevated panels, card background</div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-[#FFFFFF] shadow-inner flex items-center justify-center font-mono font-bold text-black text-xs">#FFFFFF</div>
+            <div class="font-bold text-white">ink</div>
+            <div class="text-[10px] text-[#A0A0A0]">Primary text, headings, body copy</div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-[#A0A0A0] shadow-inner flex items-center justify-center font-mono font-bold text-black text-xs">#A0A0A0</div>
+            <div class="font-bold text-white">muted-ink</div>
+            <div class="text-[10px] text-[#A0A0A0]">Secondary text, captions, table sub-values</div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-[#2A2A2A] shadow-inner flex items-center justify-center font-mono font-bold text-white text-xs">#2A2A2A</div>
+            <div class="font-bold text-white">border</div>
+            <div class="text-[10px] text-[#A0A0A0]">Visible dividers, card outlines</div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-[#1F1F1F] shadow-inner flex items-center justify-center font-mono font-bold text-white text-xs">#1F1F1F</div>
+            <div class="font-bold text-white">border-subtle</div>
+            <div class="text-[10px] text-[#A0A0A0]">Table row separators, faint lines</div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141414] border border-[#2A2A2A] space-y-2">
+            <div class="w-full h-12 rounded-lg bg-gradient-to-r from-[#F7A23B] to-transparent shadow-inner flex items-center justify-center font-mono font-bold text-black text-[10px]">Glow</div>
+            <div class="font-bold text-white">Atmospheric Glow</div>
+            <div class="text-[10px] text-[#A0A0A0]">Rising radial gradient from bottom viewport</div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ================================================================= -->
+    <!-- INTERACTIVE REFERRAL MODAL (SPECIFIED COMPONENT) -->
+    <!-- ================================================================= -->
+    <div id="referral-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity duration-200">
+      
+      <!-- Modal Panel (Surface-Elevated #1A1A1A, 0.75rem / 12px border radius, border #2A2A2A) -->
+      <div class="relative w-full max-w-[760px] bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl shadow-[0_25px_60px_rgba(0,0,0,0.85)] p-6 sm:p-8 overflow-hidden animate-in fade-in zoom-in-95">
+        
+        <!-- Close Button (X in upper right) -->
+        <button
+          type="button"
+          id="close-referral-modal-btn"
+          class="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#141414] hover:bg-[#2A2A2A] text-[#A0A0A0] hover:text-white flex items-center justify-center transition border border-[#2A2A2A] cursor-pointer"
+          aria-label="Close referral modal"
+        >
+          ✕
+        </button>
+
+        <!-- 2-Column Layout as specified -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          
+          <!-- Column 1: Promotional Card Preview (Left) -->
+          <div class="md:col-span-5 rounded-2xl p-5 bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] text-center space-y-3 relative overflow-hidden">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-[#F7A23B] to-[#E8942E] mx-auto flex items-center justify-center shadow-[0_0_30px_rgba(247,162,59,0.35)]">
+              <span class="text-2xl font-black text-black">MNT</span>
+            </div>
+            <div>
+              <div class="font-bold text-sm text-white">Mantle Referral Reward</div>
+              <div class="text-xs text-[#A0A0A0] mt-1">Up to 50,000 MNT pool + 20% trading commission</div>
+            </div>
+            <div class="pt-2 border-t border-[#1F1F1F] font-mono text-[11px] text-[#F7A23B]">
+              Code: <span class="font-bold text-white">MNT2026</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Form & Social Actions (Right) -->
+          <div class="md:col-span-7 space-y-4">
+            <div>
+              <div class="font-label text-[#F7A23B]">INVITE &amp; EARN</div>
+              <h3 class="text-xl font-bold text-white tracking-tight mt-0.5">Share Your Referral Link</h3>
+              <p class="font-body-small text-[#A0A0A0] text-xs mt-1">
+                Your friends will automatically receive a 10% discount on spot trading fees for 30 days.
+              </p>
+            </div>
+
+            <!-- Copy Referral Code Field -->
+            <div class="space-y-1.5">
+              <label class="font-label text-[#A0A0A0] text-[10px]">YOUR UNIQUE REFERRAL URL</label>
+              <div class="flex items-center gap-2">
+                <input
+                  type="text"
+                  id="modal-ref-input"
+                  readonly
+                  value="https://bybitglobal.com/invite?ref=MNT2026"
+                  class="flex-1 bg-[#141414] border border-[#2A2A2A] rounded-lg px-3 py-2 font-mono text-xs text-white focus:outline-none focus:border-[#F7A23B]"
+                />
+                <button
+                  type="button"
+                  id="modal-copy-btn"
+                  class="btn-primary-action text-xs py-2 px-3 shrink-0"
+                >
+                  Copy
+                </button>
+              </div>
+              <span id="copy-toast" class="text-[11px] text-emerald-400 font-medium hidden">✓ Copied to clipboard!</span>
+            </div>
+
+            <!-- Social Share Grid (2 rows as specified) -->
+            <div class="space-y-2 pt-1">
+              <div class="font-label text-[#A0A0A0] text-[10px]">OR SHARE DIRECTLY</div>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <!-- Facebook #1877F2 -->
+                <button type="button" class="social-share-btn bg-[#1877F2]" title="Share on Facebook">
+                  <span class="font-bold text-sm">f</span>
+                </button>
+                <!-- WhatsApp #25D366 -->
+                <button type="button" class="social-share-btn bg-[#25D366]" title="Share on WhatsApp">
+                  <span class="text-sm">💬</span>
+                </button>
+                <!-- LinkedIn #0A66C2 -->
+                <button type="button" class="social-share-btn bg-[#0A66C2]" title="Share on LinkedIn">
+                  <span class="font-bold text-xs">in</span>
+                </button>
+                <!-- Line #06C755 -->
+                <button type="button" class="social-share-btn bg-[#06C755]" title="Share on Line">
+                  <span class="font-bold text-xs">LINE</span>
+                </button>
+                <!-- Telegram #229ED9 -->
+                <button type="button" class="social-share-btn bg-[#229ED9]" title="Share on Telegram">
+                  <span class="text-sm">✈️</span>
+                </button>
+                <!-- X #222222 -->
+                <button type="button" class="social-share-btn bg-[#222222] border border-[#2A2A2A]" title="Share on X">
+                  <span class="font-bold text-sm">𝕏</span>
+                </button>
+                <!-- More (Neutral dark circle with ellipsis) -->
+                <button type="button" class="social-share-btn bg-[#2A2A2A]" title="More Options">
+                  <span class="font-bold text-sm">•••</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SLIDE-OVER DRAWER: OpenDesignMD Full Specification Inspector -->
+    <!-- ================================================================= -->
+    <div id="spec-drawer-backdrop" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden transition-opacity"></div>
+    <aside id="spec-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-xl bg-[#141414] border-l border-[#2A2A2A] shadow-2xl p-6 overflow-y-auto translate-x-full transition-transform duration-300">
+      <div class="flex items-center justify-between pb-4 border-b border-[#2A2A2A]">
+        <div>
+          <div class="font-label text-[#F7A23B]">OPENDESIGNMD REFERENCE</div>
+          <h2 class="text-lg font-bold text-white mt-0.5">How bybitglobal.com is designed</h2>
+        </div>
+        <button type="button" id="close-spec-drawer" class="text-[#A0A0A0] hover:text-white text-lg p-2">✕</button>
+      </div>
+
+      <div class="py-4 space-y-6 text-xs text-[#A0A0A0] leading-relaxed">
+        <div>
+          <h3 class="font-bold text-white uppercase text-[11px] mb-2 text-[#F7A23B]">Color System Checklist</h3>
+          <ul class="space-y-1 list-disc list-inside">
+            <li><strong class="text-white">action (#F7A23B):</strong> Primary buttons, links, glow</li>
+            <li><strong class="text-white">action-hover (#E8942E):</strong> Button hover states</li>
+            <li><strong class="text-white">canvas (#000000):</strong> Page background, deepest surface</li>
+            <li><strong class="text-white">surface (#141414):</strong> Cards, table rows, secondary panels</li>
+            <li><strong class="text-white">surface-elevated (#1A1A1A):</strong> Modals, elevated panels</li>
+            <li><strong class="text-white">ink (#FFFFFF):</strong> Primary text &amp; headings</li>
+            <li><strong class="text-white">muted-ink (#A0A0A0):</strong> Supporting copy &amp; captions</li>
+            <li><strong class="text-white">border (#2A2A2A):</strong> Visible dividers, card outlines</li>
+            <li><strong class="text-white">border-subtle (#1F1F1F):</strong> Table row separators</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white uppercase text-[11px] mb-2 text-[#F7A23B]">Typography Checklist (IBM Plex Sans)</h3>
+          <ul class="space-y-1 list-disc list-inside">
+            <li><strong>hero-display:</strong> 3rem, weight 400, leading 1.1, tracking -0.01em</li>
+            <li><strong>section-display:</strong> 2.5rem, weight 400, leading 1.15, tracking -0.01em</li>
+            <li><strong>body:</strong> 1rem, weight 400, leading 1.5</li>
+            <li><strong>body-small:</strong> 0.875rem, weight 400, leading 1.5</li>
+            <li><strong>label:</strong> 0.75rem, weight 500, leading 1.25, tracking 0.05em (uppercase)</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white uppercase text-[11px] mb-2 text-[#F7A23B]">Components Verified</h3>
+          <ul class="space-y-1 list-disc list-inside">
+            <li>✓ Primary Action Button (Pill 9999px, #F7A23B, black text)</li>
+            <li>✓ Feature Card (#141414, 1rem radius, 2rem padding, #2A2A2A border)</li>
+            <li>✓ Referral Modal (#1A1A1A, 2-column, social share grid)</li>
+            <li>✓ Data Table (VIP 1–5 + Supreme VIP, circular badges, MNT tags)</li>
+            <li>✓ Text link with right arrow (hover shift)</li>
+            <li>✓ Tag/Pill (pill border, transparent, uppercase label)</li>
+            <li>✓ Bottom-rising atmospheric orange gradient glow</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#1F1F1F] bg-[#000000] py-12 px-4 text-center text-xs text-[#A0A0A0]">
+      <div class="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#F7A23B]"></span>
+          <span class="font-bold text-white">Bybit Global</span>
+          <span>•</span>
+          <span>OpenDesignMD Implementation Preview</span>
+        </div>
+        <div class="flex items-center gap-4 font-nav">
+          <a href="/privacy/" class="hover:text-white transition">Privacy Policy</a>
+          <a href="/terms/" class="hover:text-white transition">Terms of Service</a>
+          <a href="/" class="text-[#F7A23B] hover:underline">Return to SignResize Home →</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Client-Side Scripts for Interactive States -->
+    <script>
+      // 1. Referral Modal Controls
+      const modal = document.getElementById('referral-modal');
+      const openModalBtn = document.getElementById('open-referral-modal-btn');
+      const heroRefBtn = document.getElementById('hero-referral-btn');
+      const launchModalBtn = document.getElementById('launch-modal-btn');
+      const closeModalBtn = document.getElementById('close-referral-modal-btn');
+      const modalRefInput = document.getElementById('modal-ref-input') as HTMLInputElement | null;
+      const modalCopyBtn = document.getElementById('modal-copy-btn');
+      const copyToast = document.getElementById('copy-toast');
+      const previewCopyBtn = document.getElementById('preview-copy-btn');
+
+      function openModal() {
+        modal?.classList.remove('hidden');
+      }
+
+      function closeModal() {
+        modal?.classList.add('hidden');
+      }
+
+      openModalBtn?.addEventListener('click', openModal);
+      heroRefBtn?.addEventListener('click', openModal);
+      launchModalBtn?.addEventListener('click', openModal);
+      closeModalBtn?.addEventListener('click', closeModal);
+
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // ESC key to close modal or drawer
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeModal();
+          closeSpecDrawer();
+        }
+      });
+
+      // Copy Link Functionality
+      async function copyText(text: string, triggerBtn?: HTMLElement | null) {
+        try {
+          await navigator.clipboard.writeText(text);
+          if (copyToast) {
+            copyToast.classList.remove('hidden');
+            setTimeout(() => {
+              copyToast.classList.add('hidden');
+            }, 3000);
+          }
+          if (triggerBtn) {
+            const originalText = triggerBtn.textContent;
+            triggerBtn.textContent = 'Copied!';
+            setTimeout(() => {
+              triggerBtn.textContent = originalText;
+            }, 2000);
+          }
+        } catch (err) {
+          console.error('Failed to copy', err);
+        }
+      }
+
+      modalCopyBtn?.addEventListener('click', () => {
+        if (modalRefInput) {
+          copyText(modalRefInput.value, modalCopyBtn);
+        }
+      });
+
+      previewCopyBtn?.addEventListener('click', () => {
+        copyText('https://bybitglobal.com/invite?ref=MNT2026', previewCopyBtn);
+      });
+
+      // 2. Spec Drawer Controls
+      const specDrawer = document.getElementById('spec-drawer');
+      const specBackdrop = document.getElementById('spec-drawer-backdrop');
+      const toggleSpecBtn = document.getElementById('toggle-spec-drawer');
+      const closeSpecBtn = document.getElementById('close-spec-drawer');
+
+      function openSpecDrawer() {
+        specBackdrop?.classList.remove('hidden');
+        specDrawer?.classList.remove('translate-x-full');
+      }
+
+      function closeSpecDrawer() {
+        specBackdrop?.classList.add('hidden');
+        specDrawer?.classList.add('translate-x-full');
+      }
+
+      toggleSpecBtn?.addEventListener('click', () => {
+        if (specDrawer?.classList.contains('translate-x-full')) {
+          openSpecDrawer();
+        } else {
+          closeSpecDrawer();
+        }
+      });
+
+      closeSpecBtn?.addEventListener('click', closeSpecDrawer);
+      specBackdrop?.addEventListener('click', closeSpecDrawer);
+    </script>
+  </body>
+</html>

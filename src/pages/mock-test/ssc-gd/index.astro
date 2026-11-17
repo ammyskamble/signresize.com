@@ -1,0 +1,226 @@
+---
+// src/pages/mock-test/ssc-gd/index.astro
+import '../../../styles/global.css';
+import '../../../styles/minimal-borders.css';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import GoogleAnalytics from '../../../components/GoogleAnalytics.astro';
+import ThemeScript from '../../../components/ThemeScript.astro';
+import { getTestsByExam, getExamById } from '../../../data/mock-tests';
+
+const exam = getExamById('ssc-gd')!;
+const tests = getTestsByExam('ssc-gd');
+const fullMocks = tests.filter(t => t.type === 'full');
+
+const pageTitle = "SSC GD Constable Mock Test Free (No Login) — Real TCS iON CBT";
+const pageDescription = "Practice SSC GD Constable mock tests online for free without login. 80 questions, 60 minutes, 160 marks, -0.25 negative marking, and instant diagnostic weakness reports.";
+const canonicalUrl = "https://signresize.in/mock-test/ssc-gd/";
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mock Tests",
+          "item": "https://signresize.in/mock-test/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SSC GD Constable",
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100">
+    <Header />
+
+    <main class="mx-auto max-w-6xl px-4 py-8 sm:py-12">
+      {/* Breadcrumb */}
+      <nav class="mb-6 flex items-center gap-2 text-xs text-slate-500">
+        <a href="/" class="hover:text-sky-600">Home</a>
+        <span>/</span>
+        <a href="/mock-test/" class="hover:text-sky-600">Mock Tests</a>
+        <span>/</span>
+        <span class="font-semibold text-slate-700 dark:text-slate-300">SSC GD Constable</span>
+      </nav>
+
+      {/* Header Banner */}
+      <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+        <div class="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+              <span>Central Armed Police Forces & SSF</span>
+              <span>·</span>
+              <span>TCS iON CBT Simulator</span>
+            </div>
+            <h1 class="mt-3 text-2xl font-black text-slate-900 sm:text-4xl dark:text-white">
+              SSC GD Constable Mock Tests
+            </h1>
+            <p class="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-400">
+              80 Questions · 60 Minutes · 160 Marks · Official Revised -0.25 Negative Marking · 100% Free Without Login.
+            </p>
+          </div>
+
+          <a
+            href="/mock-test/ssc-gd/cbt-mock-test-1/"
+            class="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-emerald-500 active:scale-95"
+          >
+            Start Full Mock Test 1 →
+          </a>
+        </div>
+
+        {/* Official Pattern Table */}
+        <div class="mt-8 overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800">
+          <div class="bg-slate-100 px-4 py-2.5 text-xs font-bold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+            Official Exam Pattern & Marking Scheme (Revised SSC GD Notification)
+          </div>
+          <table class="w-full text-left text-xs">
+            <thead class="border-b bg-white text-slate-500 dark:border-slate-800 dark:bg-slate-900">
+              <tr>
+                <th class="p-3">Section</th>
+                <th class="p-3 text-center">Questions</th>
+                <th class="p-3 text-center">Marks</th>
+                <th class="p-3 text-center">Negative Marking</th>
+                <th class="p-3 text-right">Time Allowed</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+              {exam.patternTable.map((row) => (
+                <tr>
+                  <td class="p-3 font-semibold text-slate-800 dark:text-white">{row.sectionName.en}</td>
+                  <td class="p-3 text-center font-bold">{row.questions}</td>
+                  <td class="p-3 text-center font-bold">{row.marks}</td>
+                  <td class="p-3 text-center text-rose-600 font-bold">{row.negativeMarkText}</td>
+                  {row.timeText && (
+                    <td class="p-3 text-right text-slate-500" rowspan="4">
+                      <div class="font-bold text-slate-800 dark:text-white">60 Minutes</div>
+                      <div class="text-[10px] text-slate-400">(80m for PwBD)</div>
+                    </td>
+                  )}
+                </tr>
+              ))}
+              <tr class="bg-slate-50 font-bold dark:bg-slate-800/60">
+                <td class="p-3 text-slate-900 dark:text-white">Total</td>
+                <td class="p-3 text-center">80</td>
+                <td class="p-3 text-center">160</td>
+                <td class="p-3 text-center text-rose-600">Strict -0.25 Deducted</td>
+                <td class="p-3 text-right text-emerald-600 dark:text-emerald-400">Composite 60 Min</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Full Mock Tests Section */}
+      <div class="mt-12">
+        <h2 class="text-xl font-black text-slate-900 dark:text-white">
+          Full-Length Mock Tests (80 Questions / 60 Minutes)
+        </h2>
+        <p class="mt-1 text-xs text-slate-500">
+          Complete simulation of the SSC GD Constable CBT with automatic scoring and diagnostic weakness reports.
+        </p>
+
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {fullMocks.map((test) => (
+            <div
+              key={test.id}
+              class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-emerald-500/50 hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
+            >
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-bold uppercase text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                    Full Exam Simulation
+                  </span>
+                  <span class="text-xs font-semibold text-slate-400">
+                    ⏱️ 60 Minutes
+                  </span>
+                </div>
+
+                <h3 class="mt-2 text-lg font-bold text-slate-900 dark:text-white">
+                  {test.title.en}
+                </h3>
+                <p class="text-xs text-slate-500">
+                  {test.title.hi}
+                </p>
+
+                <div class="mt-4 space-y-1 text-xs text-slate-600 dark:text-slate-400">
+                  <p>• 80 questions (20 Reasoning / 20 GK / 20 Maths / 20 Hindi)</p>
+                  <p>• Verified -0.25 negative marking (160 Total Marks)</p>
+                  <p>• Step-by-step solutions with shortcuts included</p>
+                </div>
+              </div>
+
+              <div class="mt-6 border-t border-slate-100 pt-4 dark:border-slate-800">
+                <a
+                  href={`/mock-test/ssc-gd/${test.slug}/`}
+                  class="flex w-full items-center justify-center rounded-xl bg-emerald-600 py-2.5 text-xs font-bold text-white shadow transition hover:bg-emerald-700 active:scale-95"
+                >
+                  Start Mock Test (No Login) →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Cutoff Reference */}
+      <div class="mt-12 rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+        <h3 class="text-sm font-bold text-slate-900 dark:text-white">
+          SSC GD Constable Previous Year Cut-off Benchmarks (Out of 160)
+        </h3>
+        <p class="mt-1 text-xs text-slate-500">
+          SignResize benchmarks your raw score directly against official commission cut-offs without artificial rankings.
+        </p>
+
+        <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5 text-center text-xs">
+          <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/50">
+            <div class="font-bold text-slate-500">UR (General)</div>
+            <div class="mt-1 text-lg font-black text-emerald-600 dark:text-emerald-400">~135.00</div>
+          </div>
+          <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/50">
+            <div class="font-bold text-slate-500">OBC</div>
+            <div class="mt-1 text-lg font-black text-emerald-600 dark:text-emerald-400">~132.00</div>
+          </div>
+          <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/50">
+            <div class="font-bold text-slate-500">EWS</div>
+            <div class="mt-1 text-lg font-black text-emerald-600 dark:text-emerald-400">~128.00</div>
+          </div>
+          <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/50">
+            <div class="font-bold text-slate-500">SC</div>
+            <div class="mt-1 text-lg font-black text-emerald-600 dark:text-emerald-400">~120.00</div>
+          </div>
+          <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/50">
+            <div class="font-bold text-slate-500">ST</div>
+            <div class="mt-1 text-lg font-black text-emerald-600 dark:text-emerald-400">~112.00</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

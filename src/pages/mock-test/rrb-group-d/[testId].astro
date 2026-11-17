@@ -1,0 +1,111 @@
+---
+// src/pages/mock-test/rrb-group-d/[testId].astro
+import '../../../styles/global.css';
+import '../../../styles/minimal-borders.css';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import GoogleAnalytics from '../../../components/GoogleAnalytics.astro';
+import ThemeScript from '../../../components/ThemeScript.astro';
+import { getTestsByExam } from '../../../data/mock-tests';
+import { MockTestEngine } from '../../../components/mock-test/MockTestEngine';
+
+export function getStaticPaths() {
+  const tests = getTestsByExam('rrb-group-d');
+  return tests.map((test) => ({
+    params: { testId: test.slug },
+    props: { manifest: test },
+  }));
+}
+
+const { testId } = Astro.params;
+const { manifest } = Astro.props;
+
+if (!manifest) {
+  return Astro.redirect('/mock-test/rrb-group-d/');
+}
+
+const pageTitle = `${manifest.title.en} — 100% Free Without Login (Real TCS iON CBT) | SignResize`;
+const pageDescription = `Take ${manifest.title.en} online for free without registration. Exact TCS iON examination interface, ${manifest.durationMin} minutes, ${manifest.questions.length} questions, -1/3 negative marking, instant weakness diagnosis, and worked solutions.`;
+const canonicalUrl = `https://signresize.in/mock-test/rrb-group-d/${manifest.slug}/`;
+---
+
+<!doctype html>
+<html lang="en-IN" class="scroll-smooth">
+  <head>
+    <ThemeScript />
+    <GoogleAnalytics />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://signresize.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mock Tests",
+          "item": "https://signresize.in/mock-test/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "RRB Group D",
+          "item": "https://signresize.in/mock-test/rrb-group-d/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": manifest.title.en,
+          "item": canonicalUrl
+        }
+      ]
+    })} />
+  </head>
+  <body class="min-h-screen bg-slate-100 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100">
+    <!-- Main Interactive Test Engine (Client Island) -->
+    <div id="mock-test-root">
+      <MockTestEngine client:only="react" manifest={manifest} />
+    </div>
+
+    {/* Pre-rendered crawlable content for search engines below the interactive engine */}
+    <aside class="mx-auto mt-12 max-w-4xl px-4 py-8 text-xs text-slate-600 dark:text-slate-400">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+        <h2 class="text-sm font-bold text-slate-900 dark:text-white">
+          About {manifest.title.en}
+        </h2>
+        <p class="mt-1 leading-relaxed">
+          This test is designed strictly according to the official Railway Recruitment Cells (RRC / RRB) Group D Level-1 pattern. It provides realistic exam hall practice with verified 1 mark per question, -1/3 negative marking, authentic 5-state question tracking, and bilingual questions in English and Hindi.
+        </p>
+
+        {manifest.syllabusTopics && manifest.syllabusTopics.length > 0 && (
+          <div class="mt-4">
+            <h3 class="font-bold text-slate-800 dark:text-slate-200">Syllabus Covered:</h3>
+            <ul class="mt-1 list-inside list-disc space-y-1">
+              {manifest.syllabusTopics.map((topic) => (
+                <li>{topic.en} ({topic.hi})</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div class="mt-6 border-t border-slate-100 pt-4 dark:border-slate-800">
+          <a href="/mock-test/rrb-group-d/" class="font-semibold text-amber-600 hover:underline dark:text-amber-400">
+            ← Back to all RRB Group D Mock Tests
+          </a>
+        </div>
+      </div>
+    </aside>
+  </body>
+</html>

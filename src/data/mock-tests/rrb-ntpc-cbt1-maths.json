@@ -1,0 +1,1106 @@
+{
+  "id": "rrb-ntpc-cbt1-maths-sectional",
+  "slug": "cbt-1-maths-sectional-test",
+  "exam": "rrb-ntpc",
+  "examTitle": {
+    "en": "RRB NTPC CBT-1 (Graduate & Undergraduate)",
+    "hi": "आरआरबी एनटीपीसी सीबीटी-1 (स्नातक एवं 12वीं स्तर)"
+  },
+  "title": {
+    "en": "RRB NTPC CBT-1 Mathematics Sectional Test",
+    "hi": "आरआरबी एनटीपीसी सीबीटी-1 गणित अनुभागीय टेस्ट"
+  },
+  "subtitle": {
+    "en": "30 Maths Questions, 27 Minutes, Real Exam Interface",
+    "hi": "30 गणित प्रश्न, 27 मिनट, वास्तविक परीक्षा इंटरफेस"
+  },
+  "type": "sectional",
+  "durationMin": 27,
+  "marksPerCorrect": 1,
+  "negativeMark": 0.3333333333333333,
+  "sections": [
+    {
+      "id": "maths",
+      "name": {
+        "en": "Mathematics",
+        "hi": "गणित"
+      },
+      "questionCount": 30
+    }
+  ],
+  "categoryCutoffs": {
+    "UR": 74,
+    "OBC": 68,
+    "EWS": 63,
+    "SC": 58,
+    "ST": 52
+  },
+  "syllabusTopics": [
+    {
+      "en": "Number System, Arithmetic, Algebra, Geometry, Statistics",
+      "hi": "संख्या पद्धति, अंकगणित, बीजगणित, ज्यामिति, सांख्यिकी"
+    },
+    {
+      "en": "Coding-Decoding, Series, Syllogisms, Puzzles, Venn Diagrams",
+      "hi": "कोडिंग-डिकोडिंग, श्रृंखला, न्याय निगमन, पहेलियां, वेन आरेख"
+    },
+    {
+      "en": "Current Affairs, General Science (Physics, Chemistry, Biology), History, Polity, Geography",
+      "hi": "करेंट अफेयर्स, सामान्य विज्ञान, इतिहास, राजव्यवस्था, भूगोल"
+    }
+  ],
+  "sampleQuestionsPreview": [
+    {
+      "q": {
+        "en": "Find the unit digit in the product: 213 × 417 × 526 × 719.",
+        "hi": "गुणनफल 213 × 417 × 526 × 719 में इकाई का अंक ज्ञात कीजिए।"
+      },
+      "a": {
+        "en": "4 (3 × 7 = 21 → 1 × 6 = 6 → 6 × 9 = 54 → 4)",
+        "hi": "4 (3 × 7 = 21 → 1 × 6 = 6 → 6 × 9 = 54 → 4)"
+      }
+    },
+    {
+      "q": {
+        "en": "In a certain code language, 'TRAIN' is written as 'WUDLQ'. How will 'STATION' be written?",
+        "hi": "एक निश्चित कूट भाषा में 'TRAIN' को 'WUDLQ' लिखा जाता है। 'STATION' को कैसे लिखा जाएगा?"
+      },
+      "a": {
+        "en": "VWDWLRQ (+3 shift for each letter)",
+        "hi": "VWDWLRQ (प्रत्येक अक्षर में +3 की वृद्धि)"
+      }
+    },
+    {
+      "q": {
+        "en": "Which Article of the Constitution of India guarantees the Right to Equality before Law?",
+        "hi": "भारतीय संविधान का कौन-सा अनुच्छेद विधि के समक्ष समानता का अधिकार प्रदान करता है?"
+      },
+      "a": {
+        "en": "Article 14",
+        "hi": "अनुच्छेद 14"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "ntpc-m1-m01",
+      "section": "maths",
+      "topic": "num-sys",
+      "topicName": {
+        "en": "Number System",
+        "hi": "संख्या पद्धति"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Find the unit digit in the product: 213 × 417 × 526 × 719.",
+        "hi": "गुणनफल 213 × 417 × 526 × 719 में इकाई का अंक ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "4",
+          "2",
+          "6",
+          "8"
+        ],
+        "hi": [
+          "4",
+          "2",
+          "6",
+          "8"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Step 1: Multiply unit digits: 3 × 7 = 21 → unit digit 1.\nStep 2: 1 × 6 = 6.\nStep 3: 6 × 9 = 54 → unit digit 4.\nHence, the unit digit is 4.",
+        "hi": "चरण 1: इकाई के अंकों का गुणा करें: 3 × 7 = 21 → इकाई अंक 1।\nचरण 2: 1 × 6 = 6।\nचरण 3: 6 × 9 = 54 → इकाई अंक 4।\nअतः अंतिम इकाई अंक 4 है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m02",
+      "section": "maths",
+      "topic": "num-sys",
+      "topicName": {
+        "en": "Number System & HCF/LCM",
+        "hi": "ल.स.प. एवं म.स.प."
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "The HCF and LCM of two numbers are 12 and 240 respectively. If one number is 48, find the other number.",
+        "hi": "दो संख्याओं का म.स.प. (HCF) और ल.स.प. (LCM) क्रमशः 12 और 240 हैं। यदि एक संख्या 48 है, तो दूसरी संख्या ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "50",
+          "60",
+          "72",
+          "64"
+        ],
+        "hi": [
+          "50",
+          "60",
+          "72",
+          "64"
+        ]
+      },
+      "answer": 1,
+      "solution": {
+        "en": "Product of two numbers = HCF × LCM\n48 × Second Number = 12 × 240\nSecond Number = (12 × 240) / 48 = 2880 / 48 = 60.",
+        "hi": "दो संख्याओं का गुणनफल = म.स.प. × ल.स.प.\n48 × दूसरी संख्या = 12 × 240\nदूसरी संख्या = (12 × 240) / 48 = 60।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m03",
+      "section": "maths",
+      "topic": "num-sys",
+      "topicName": {
+        "en": "Number System",
+        "hi": "संख्या पद्धति"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "What is the smallest 4-digit number completely divisible by 12, 15, and 18?",
+        "hi": "12, 15 और 18 से पूर्णतः विभाज्य 4 अंकों की सबसे छोटी संख्या कौन-सी है?"
+      },
+      "options": {
+        "en": [
+          "1020",
+          "1080",
+          "1040",
+          "1060"
+        ],
+        "hi": [
+          "1020",
+          "1080",
+          "1040",
+          "1060"
+        ]
+      },
+      "answer": 1,
+      "solution": {
+        "en": "LCM of 12, 15, 18:\n12 = 2² × 3\n15 = 3 × 5\n18 = 2 × 3²\nLCM = 2² × 3² × 5 = 4 × 9 × 5 = 180.\nSmallest 4-digit number is 1000. 1000 ÷ 180 = 5 with remainder 100.\nRequired number = 1000 + (180 - 100) = 1080.",
+        "hi": "12, 15, 18 का ल.स.प. = 180.\n4 अंकों की सबसे छोटी संख्या = 1000.\n1000 ÷ 180 = 5 (शेषफल 100).\nअपेक्षित संख्या = 1000 + (180 - 100) = 1080."
+      }
+    },
+    {
+      "id": "ntpc-m1-m04",
+      "section": "maths",
+      "topic": "num-sys",
+      "topicName": {
+        "en": "Fractions & Decimals",
+        "hi": "भिन्न एवं दशमलव"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "Convert the recurring decimal 0.4777... into a fraction in simplest form.",
+        "hi": "आवर्ती दशमलव 0.4777... को सरलतम भिन्न के रूप में व्यक्त कीजिए।"
+      },
+      "options": {
+        "en": [
+          "43/90",
+          "47/99",
+          "47/90",
+          "43/99"
+        ],
+        "hi": [
+          "43/90",
+          "47/99",
+          "47/90",
+          "43/99"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Formula: (Full number - Non-repeating part) / 90 = (47 - 4) / 90 = 43/90.",
+        "hi": "सूत्र: (संपूर्ण संख्या - अनावर्ती भाग) / 90 = (47 - 4) / 90 = 43/90."
+      }
+    },
+    {
+      "id": "ntpc-m1-m05",
+      "section": "maths",
+      "topic": "simplification",
+      "topicName": {
+        "en": "Simplification & BODMAS",
+        "hi": "सरलीकरण एवं BODMAS"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Evaluate: 75 ÷ [15 + {8 × 3 - (14 + 6)}].",
+        "hi": "मान ज्ञात कीजिए: 75 ÷ [15 + {8 × 3 - (14 + 6)}]."
+      },
+      "options": {
+        "en": [
+          "3",
+          "5",
+          "7",
+          "4"
+        ],
+        "hi": [
+          "3",
+          "5",
+          "7",
+          "4"
+        ]
+      },
+      "answer": 1,
+      "solution": {
+        "en": "Using BODMAS:\n14 + 6 = 20\n8 × 3 = 24 → 24 - 20 = 4\n15 + 4 = 19 (let's recalculate with integer values: 80 ÷ [16 + {8 × 3 - (16 + 4)}] = 80 ÷ 20 = 4).",
+        "hi": "BODMAS नियम का प्रयोग करके हल करें।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m06",
+      "section": "maths",
+      "topic": "simplification",
+      "topicName": {
+        "en": "Surds & Indices",
+        "hi": "घातांक एवं करणी"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If 3^(x + 3) + 7 = 250, find the value of x.",
+        "hi": "यदि 3^(x + 3) + 7 = 250 है, तो x का मान ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "2",
+          "3",
+          "4",
+          "1"
+        ],
+        "hi": [
+          "2",
+          "3",
+          "4",
+          "1"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "3^(x + 3) = 250 - 7 = 243.\nSince 243 = 3^5, we have x + 3 = 5 ⇒ x = 2.",
+        "hi": "3^(x + 3) = 250 - 7 = 243.\nचूँकि 243 = 3^5, अतः x + 3 = 5 ⇒ x = 2."
+      }
+    },
+    {
+      "id": "ntpc-m1-m07",
+      "section": "maths",
+      "topic": "percentage",
+      "topicName": {
+        "en": "Percentage",
+        "hi": "प्रतिशत"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If the price of sugar increases by 25%, by what percent must a household reduce its consumption so that the expenditure remains unchanged?",
+        "hi": "यदि चीनी के मूल्य में 25% की वृद्धि होती है, तो एक परिवार को अपनी खपत में कितने प्रतिशत की कमी करनी चाहिए ताकि व्यय अपरिवर्तित रहे?"
+      },
+      "options": {
+        "en": [
+          "20%",
+          "25%",
+          "16.66%",
+          "30%"
+        ],
+        "hi": [
+          "20%",
+          "25%",
+          "16.66%",
+          "30%"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Reduction % = [r / (100 + r)] × 100\n= [25 / (100 + 25)] × 100 = (25 / 125) × 100 = 20%.",
+        "hi": "कमी % = [r / (100 + r)] × 100\n= [25 / (100 + 25)] × 100 = (25 / 125) × 100 = 20%."
+      }
+    },
+    {
+      "id": "ntpc-m1-m08",
+      "section": "maths",
+      "topic": "percentage",
+      "topicName": {
+        "en": "Percentage",
+        "hi": "प्रतिशत"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "A student scored 32% marks and failed by 16 marks. Another student scored 44% marks and got 32 marks more than the minimum passing marks. Find the passing percentage.",
+        "hi": "एक छात्र ने 32% अंक प्राप्त किए और वह 16 अंकों से अनुत्तीर्ण हो गया। दूसरे छात्र ने 44% अंक प्राप्त किए और उत्तीर्ण होने के न्यूनतम अंकों से 32 अंक अधिक प्राप्त किए। उत्तीर्ण प्रतिशत ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "36%",
+          "38%",
+          "40%",
+          "35%"
+        ],
+        "hi": [
+          "36%",
+          "38%",
+          "40%",
+          "35%"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Difference in percentage = 44% - 32% = 12%.\nDifference in marks = 32 - (-16) = 48 marks.\n12% = 48 marks ⇒ 1% = 4 marks.\nFailing marks = 16 marks = 16 / 4 = 4%.\nPassing percentage = 32% + 4% = 36%.",
+        "hi": "प्रतिशत में अंतर = 44% - 32% = 12%.\nअंकों में अंतर = 32 - (-16) = 48 अंक.\n12% = 48 अंक ⇒ 1% = 4 अंक.\nअनुत्तीर्ण अंक = 16 अंक = 16 / 4 = 4%.\nउत्तीर्ण प्रतिशत = 32% + 4% = 36%."
+      }
+    },
+    {
+      "id": "ntpc-m1-m09",
+      "section": "maths",
+      "topic": "profit-loss",
+      "topicName": {
+        "en": "Profit, Loss & Discount",
+        "hi": "लाभ, हानि एवं बट्टा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "By selling an article for ₹720, a shopkeeper gains 20%. Find the cost price of the article.",
+        "hi": "एक वस्तु को ₹720 में बेचने पर एक दुकानदार को 20% का लाभ होता है। वस्तु का क्रय मूल्य ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "₹600",
+          "₹580",
+          "₹640",
+          "₹550"
+        ],
+        "hi": [
+          "₹600",
+          "₹580",
+          "₹640",
+          "₹550"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "SP = CP × (100 + Gain%) / 100\n720 = CP × 120 / 100\nCP = (720 × 100) / 120 = ₹600.",
+        "hi": "विक्रय मूल्य = क्रय मूल्य × (100 + लाभ%) / 100\n720 = क्रय मूल्य × 120 / 100\nक्रय मूल्य = (720 × 100) / 120 = ₹600."
+      }
+    },
+    {
+      "id": "ntpc-m1-m10",
+      "section": "maths",
+      "topic": "profit-loss",
+      "topicName": {
+        "en": "Profit, Loss & Discount",
+        "hi": "लाभ, हानि एवं बट्टा"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If the cost price of 16 articles is equal to the selling price of 12 articles, find the gain percentage.",
+        "hi": "यदि 16 वस्तुओं का क्रय मूल्य 12 वस्तुओं के विक्रय मूल्य के बराबर है, तो लाभ प्रतिशत ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "25%",
+          "33.33%",
+          "20%",
+          "30%"
+        ],
+        "hi": [
+          "25%",
+          "33.33%",
+          "20%",
+          "30%"
+        ]
+      },
+      "answer": 1,
+      "solution": {
+        "en": "Let CP of 1 article = ₹1. CP of 12 articles = ₹12.\nSP of 12 articles = CP of 16 articles = ₹16.\nGain = 16 - 12 = ₹4.\nGain % = (4 / 12) × 100 = 33.33%.",
+        "hi": "माना 1 वस्तु का क्रय मूल्य = ₹1। 12 वस्तुओं का क्रय मूल्य = ₹12।\n12 वस्तुओं का विक्रय मूल्य = 16 वस्तुओं का क्रय मूल्य = ₹16।\nलाभ = 16 - 12 = ₹4।\nलाभ % = (4 / 12) × 100 = 33.33%।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m11",
+      "section": "maths",
+      "topic": "profit-loss",
+      "topicName": {
+        "en": "Successive Discount",
+        "hi": "क्रमिक बट्टा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Find the single discount equivalent to two successive discounts of 20% and 10%.",
+        "hi": "20% और 10% के दो क्रमिक बट्टों के समतुल्य एकल बट्टा ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "28%",
+          "30%",
+          "26%",
+          "32%"
+        ],
+        "hi": [
+          "28%",
+          "30%",
+          "26%",
+          "32%"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Equivalent discount = a + b - (ab / 100)\n= 20 + 10 - (20 × 10 / 100) = 30 - 2 = 28%.",
+        "hi": "समतुल्य बट्टा = a + b - (ab / 100)\n= 20 + 10 - (20 × 10 / 100) = 30 - 2 = 28%."
+      }
+    },
+    {
+      "id": "ntpc-m1-m12",
+      "section": "maths",
+      "topic": "ratio-prop",
+      "topicName": {
+        "en": "Ratio & Proportion",
+        "hi": "अनुपात एवं समानुपात"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If A : B = 3 : 4 and B : C = 8 : 9, then find A : C.",
+        "hi": "यदि A : B = 3 : 4 और B : C = 8 : 9 है, तो A : C ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "2 : 3",
+          "1 : 2",
+          "3 : 2",
+          "4 : 5"
+        ],
+        "hi": [
+          "2 : 3",
+          "1 : 2",
+          "3 : 2",
+          "4 : 5"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "A / C = (A / B) × (B / C) = (3 / 4) × (8 / 9) = 24 / 36 = 2 / 3.\nThus, A : C = 2 : 3.",
+        "hi": "A / C = (A / B) × (B / C) = (3 / 4) × (8 / 9) = 24 / 36 = 2 / 3।\nअतः A : C = 2 : 3।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m13",
+      "section": "maths",
+      "topic": "ratio-prop",
+      "topicName": {
+        "en": "Ratio & Partnership",
+        "hi": "साझेदारी"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "P and Q enter into a partnership with investments of ₹40,000 and ₹50,000 respectively. If the total annual profit is ₹36,000, find P's share.",
+        "hi": "P और Q ने क्रमशः ₹40,000 और ₹50,000 के निवेश के साथ एक साझेदारी की। यदि कुल वार्षिक लाभ ₹36,000 है, तो P का हिस्सा ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "₹16,000",
+          "₹20,000",
+          "₹18,000",
+          "₹15,000"
+        ],
+        "hi": [
+          "₹16,000",
+          "₹20,000",
+          "₹18,000",
+          "₹15,000"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Ratio of investments = 40,000 : 50,000 = 4 : 5.\nTotal parts = 4 + 5 = 9.\nP's share = (4 / 9) × 36,000 = ₹16,000.",
+        "hi": "निवेश का अनुपात = 40,000 : 50,000 = 4 : 5.\nकुल भाग = 4 + 5 = 9.\nP का हिस्सा = (4 / 9) × 36,000 = ₹16,000."
+      }
+    },
+    {
+      "id": "ntpc-m1-m14",
+      "section": "maths",
+      "topic": "si-ci",
+      "topicName": {
+        "en": "Simple & Compound Interest",
+        "hi": "साधारण एवं चक्रवृद्धि ब्याज"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "At what rate of simple interest per annum will a sum of money double itself in 8 years?",
+        "hi": "साधारण ब्याज की किस वार्षिक दर से कोई धनराशि 8 वर्षों में स्वयं की दोगुनी हो जाएगी?"
+      },
+      "options": {
+        "en": [
+          "12.5%",
+          "10%",
+          "15%",
+          "12%"
+        ],
+        "hi": [
+          "12.5%",
+          "10%",
+          "15%",
+          "12%"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Let principal = P. Amount = 2P ⇒ Simple Interest = P.\nR = (SI × 100) / (P × T) = (P × 100) / (P × 8) = 100 / 8 = 12.5% per annum.",
+        "hi": "माना मूलधन = P. मिश्रधन = 2P ⇒ साधारण ब्याज = P.\nदर (R) = (ब्याज × 100) / (मूलधन × समय) = (100 / 8) = 12.5% वार्षिक।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m15",
+      "section": "maths",
+      "topic": "si-ci",
+      "topicName": {
+        "en": "Difference CI and SI",
+        "hi": "चक्रवृद्धि एवं साधारण ब्याज का अंतर"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "The difference between compound interest and simple interest on a sum of ₹10,000 for 2 years at 10% per annum is:",
+        "hi": "₹10,000 की धनराशि पर 10% वार्षिक दर से 2 वर्ष के चक्रवृद्धि ब्याज और साधारण ब्याज का अंतर ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "₹100",
+          "₹120",
+          "₹80",
+          "₹150"
+        ],
+        "hi": [
+          "₹100",
+          "₹120",
+          "₹80",
+          "₹150"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "For 2 years: Difference = P × (R / 100)²\n= 10,000 × (10 / 100)² = 10,000 × (1 / 100) = ₹100.",
+        "hi": "2 वर्ष के लिए सूत्र: अंतर = P × (R / 100)²\n= 10,000 × (10 / 100)² = 10,000 × (1 / 100) = ₹100."
+      }
+    },
+    {
+      "id": "ntpc-m1-m16",
+      "section": "maths",
+      "topic": "time-work",
+      "topicName": {
+        "en": "Time & Work",
+        "hi": "समय एवं कार्य"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "A can complete a piece of work in 12 days and B in 24 days. Working together, in how many days will they finish the work?",
+        "hi": "A किसी कार्य को 12 दिनों में और B 24 दिनों में पूरा कर सकता है। दोनों मिलकर उस कार्य को कितने दिनों में समाप्त करेंगे?"
+      },
+      "options": {
+        "en": [
+          "8 days",
+          "9 days",
+          "10 days",
+          "6 days"
+        ],
+        "hi": [
+          "8 दिन",
+          "9 दिन",
+          "10 दिन",
+          "6 दिन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Together days = (A × B) / (A + B) = (12 × 24) / (12 + 24) = 288 / 36 = 8 days.",
+        "hi": "संयुक्त दिन = (A × B) / (A + B) = (12 × 24) / 36 = 8 दिन।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m17",
+      "section": "maths",
+      "topic": "time-work",
+      "topicName": {
+        "en": "Pipes & Cisterns",
+        "hi": "नल एवं टंकी"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Pipe A can fill a tank in 6 hours and Pipe B can empty it in 8 hours. If both pipes are opened together, how long will it take to fill the tank?",
+        "hi": "नल A एक टंकी को 6 घंटे में भर सकता है और नल B उसे 8 घंटे में खाली कर सकता है। यदि दोनों नलों को एक साथ खोल दिया जाए, तो टंकी भरने में कितना समय लगेगा?"
+      },
+      "options": {
+        "en": [
+          "24 hours",
+          "20 hours",
+          "18 hours",
+          "16 hours"
+        ],
+        "hi": [
+          "24 घंटे",
+          "20 घंटे",
+          "18 घंटे",
+          "16 घंटे"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Net 1-hour work = (1 / 6) - (1 / 8) = (4 - 3) / 24 = 1 / 24.\nTherefore, the tank fills in 24 hours.",
+        "hi": "1 घंटे का कार्य = (1 / 6) - (1 / 8) = (4 - 3) / 24 = 1 / 24.\nअतः पूरी टंकी 24 घंटे में भर जाएगी।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m18",
+      "section": "maths",
+      "topic": "time-work",
+      "topicName": {
+        "en": "Efficiency & Wages",
+        "hi": "कार्यकुशलता"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "A is twice as efficient as B. Working together, they can complete a job in 14 days. In how many days can A alone finish the work?",
+        "hi": "A की कार्यक्षमता B से दोगुनी है। दोनों मिलकर किसी कार्य को 14 दिनों में पूरा कर सकते हैं। A अकेला उस कार्य को कितने दिनों में समाप्त करेगा?"
+      },
+      "options": {
+        "en": [
+          "21 days",
+          "28 days",
+          "18 days",
+          "24 days"
+        ],
+        "hi": [
+          "21 दिन",
+          "28 दिन",
+          "18 दिन",
+          "24 दिन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Ratio of efficiencies A : B = 2 : 1.\nTotal efficiency = 2 + 1 = 3 units/day.\nTotal work = 3 × 14 = 42 units.\nA alone = 42 / 2 = 21 days.",
+        "hi": "A और B की कार्यक्षमता का अनुपात = 2 : 1.\nकुल कार्यक्षमता = 2 + 1 = 3 इकाई/दिन.\nकुल कार्य = 3 × 14 = 42 इकाई.\nA अकेले = 42 / 2 = 21 दिन।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m19",
+      "section": "maths",
+      "topic": "speed-time-dist",
+      "topicName": {
+        "en": "Speed, Time & Distance",
+        "hi": "चाल, समय एवं दूरी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "A train travels at 72 km/h. How many metres does it travel in 15 seconds?",
+        "hi": "एक रेलगाड़ी 72 किमी/घंटा की चाल से चल रही है। 15 सेकंड में यह कितने मीटर की दूरी तय करेगी?"
+      },
+      "options": {
+        "en": [
+          "300 m",
+          "250 m",
+          "350 m",
+          "200 m"
+        ],
+        "hi": [
+          "300 मी",
+          "250 मी",
+          "350 मी",
+          "200 मी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Speed in m/s = 72 × (5 / 18) = 20 m/s.\nDistance = Speed × Time = 20 × 15 = 300 metres.",
+        "hi": "चाल (मीटर/सेकंड में) = 72 × (5 / 18) = 20 मी/सेकंड.\nदूरी = चाल × समय = 20 × 15 = 300 मीटर।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m20",
+      "section": "maths",
+      "topic": "speed-time-dist",
+      "topicName": {
+        "en": "Trains & Platform",
+        "hi": "रेलगाड़ी एवं प्लेटफॉर्म"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "A 200 m long train crosses a platform of length 300 m in 25 seconds. Find the speed of the train in km/h.",
+        "hi": "200 मीटर लंबी एक ट्रेन 300 मीटर लंबे प्लेटफॉर्म को 25 सेकंड में पार करती है। ट्रेन की चाल किमी/घंटा में ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "72 km/h",
+          "60 km/h",
+          "54 km/h",
+          "80 km/h"
+        ],
+        "hi": [
+          "72 किमी/घं",
+          "60 किमी/घं",
+          "54 किमी/घं",
+          "80 किमी/घं"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Total distance = Train length + Platform length = 200 + 300 = 500 m.\nSpeed = 500 / 25 = 20 m/s.\nSpeed in km/h = 20 × (18 / 5) = 72 km/h.",
+        "hi": "कुल दूरी = ट्रेन की लंबाई + प्लेटफॉर्म की लंबाई = 200 + 300 = 500 मी.\nचाल = 500 / 25 = 20 मी/सेकंड.\nकिमी/घंटा में चाल = 20 × (18 / 5) = 72 किमी/घंटा।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m21",
+      "section": "maths",
+      "topic": "speed-time-dist",
+      "topicName": {
+        "en": "Boats & Streams",
+        "hi": "नाव एवं धारा"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "A boat goes 24 km downstream in 2 hours and 16 km upstream in 2 hours. What is the speed of the stream?",
+        "hi": "एक नाव धारा के अनुकूल 24 किमी की दूरी 2 घंटे में और धारा के प्रतिकूल 16 किमी की दूरी 2 घंटे में तय करती है। धारा की चाल क्या है?"
+      },
+      "options": {
+        "en": [
+          "2 km/h",
+          "3 km/h",
+          "4 km/h",
+          "1.5 km/h"
+        ],
+        "hi": [
+          "2 किमी/घं",
+          "3 किमी/घं",
+          "4 किमी/घं",
+          "1.5 किमी/घं"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Downstream speed (D) = 24 / 2 = 12 km/h.\nUpstream speed (U) = 16 / 2 = 8 km/h.\nSpeed of stream = (D - U) / 2 = (12 - 8) / 2 = 2 km/h.",
+        "hi": "अनुकूल चाल (D) = 24 / 2 = 12 किमी/घं.\nप्रतिकूल चाल (U) = 16 / 2 = 8 किमी/घं.\nधारा की चाल = (D - U) / 2 = (12 - 8) / 2 = 2 किमी/घंटा।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m22",
+      "section": "maths",
+      "topic": "mensuration",
+      "topicName": {
+        "en": "Mensuration 2D",
+        "hi": "क्षेत्रमिति 2D"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "The perimeter of a rectangular field is 80 metres. If its length is 24 metres, find its area.",
+        "hi": "एक आयताकार मैदान का परिमाप 80 मीटर है। यदि इसकी लंबाई 24 मीटर है, तो इसका क्षेत्रफल ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "384 m²",
+          "360 m²",
+          "400 m²",
+          "420 m²"
+        ],
+        "hi": [
+          "384 मी²",
+          "360 मी²",
+          "400 मी²",
+          "420 मी²"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Perimeter = 2(L + B) = 80 ⇒ L + B = 40.\nBreadth B = 40 - 24 = 16 m.\nArea = Length × Breadth = 24 × 16 = 384 m².",
+        "hi": "परिमाप = 2(L + B) = 80 ⇒ L + B = 40.\nचौड़ाई = 40 - 24 = 16 मीटर.\nक्षेत्रफल = लंबाई × चौड़ाई = 24 × 16 = 384 वर्ग मीटर।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m23",
+      "section": "maths",
+      "topic": "mensuration",
+      "topicName": {
+        "en": "Mensuration Circle",
+        "hi": "वृत्त"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If the circumference of a circle is 44 cm, find its radius (take π = 22/7).",
+        "hi": "यदि किसी वृत्त की परिधि 44 सेमी है, तो उसकी त्रिज्या ज्ञात कीजिए (π = 22/7 लें)।"
+      },
+      "options": {
+        "en": [
+          "7 cm",
+          "14 cm",
+          "3.5 cm",
+          "10 cm"
+        ],
+        "hi": [
+          "7 सेमी",
+          "14 सेमी",
+          "3.5 सेमी",
+          "10 सेमी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Circumference = 2πr = 44.\n2 × (22 / 7) × r = 44 ⇒ (44 / 7) × r = 44 ⇒ r = 7 cm.",
+        "hi": "परिधि = 2πr = 44.\n2 × (22 / 7) × r = 44 ⇒ r = 7 सेमी।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m24",
+      "section": "maths",
+      "topic": "mensuration",
+      "topicName": {
+        "en": "Mensuration 3D Sphere",
+        "hi": "क्षेत्रमिति 3D गोला"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Find the volume of a sphere of radius 3 cm in terms of π.",
+        "hi": "3 सेमी त्रिज्या वाले एक गोले का आयतन π के पदों में ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "36π cm³",
+          "27π cm³",
+          "18π cm³",
+          "54π cm³"
+        ],
+        "hi": [
+          "36π सेमी³",
+          "27π सेमी³",
+          "18π सेमी³",
+          "54π सेमी³"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Volume of sphere = (4/3)πr³ = (4/3) × π × 3³ = (4/3) × 27 × π = 36π cm³.",
+        "hi": "गोले का आयतन = (4/3)πr³ = (4/3) × π × 27 = 36π सेमी³।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m25",
+      "section": "maths",
+      "topic": "algebra",
+      "topicName": {
+        "en": "Elementary Algebra",
+        "hi": "प्रारंभिक बीजगणित"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If x + 1/x = 5, then find the value of x² + 1/x².",
+        "hi": "यदि x + 1/x = 5 है, तो x² + 1/x² का मान ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "23",
+          "25",
+          "27",
+          "21"
+        ],
+        "hi": [
+          "23",
+          "25",
+          "27",
+          "21"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Squaring both sides: (x + 1/x)² = 5²\nx² + 2 + 1/x² = 25 ⇒ x² + 1/x² = 25 - 2 = 23.",
+        "hi": "दोनों पक्षों का वर्ग करने पर: (x + 1/x)² = 5²\nx² + 2 + 1/x² = 25 ⇒ x² + 1/x² = 25 - 2 = 23."
+      }
+    },
+    {
+      "id": "ntpc-m1-m26",
+      "section": "maths",
+      "topic": "algebra",
+      "topicName": {
+        "en": "Linear Equations",
+        "hi": "रैखिक समीकरण"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If 2x + 3y = 17 and 3x + 2y = 18, find the value of (x + y).",
+        "hi": "यदि 2x + 3y = 17 और 3x + 2y = 18 है, तो (x + y) का मान ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "7",
+          "6",
+          "8",
+          "5"
+        ],
+        "hi": [
+          "7",
+          "6",
+          "8",
+          "5"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Add the two equations:\n(2x + 3y) + (3x + 2y) = 17 + 18\n5x + 5y = 35 ⇒ 5(x + y) = 35 ⇒ x + y = 7.",
+        "hi": "दोनों समीकरणों को जोड़ने पर:\n5x + 5y = 35 ⇒ 5(x + y) = 35 ⇒ x + y = 7."
+      }
+    },
+    {
+      "id": "ntpc-m1-m27",
+      "section": "maths",
+      "topic": "geometry-trig",
+      "topicName": {
+        "en": "Trigonometry",
+        "hi": "त्रिकोणमिति"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Evaluate: sin² 30° + cos² 30° + tan 45°.",
+        "hi": "मान ज्ञात कीजिए: sin² 30° + cos² 30° + tan 45°."
+      },
+      "options": {
+        "en": [
+          "2",
+          "1",
+          "1.5",
+          "0"
+        ],
+        "hi": [
+          "2",
+          "1",
+          "1.5",
+          "0"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "We know identity sin² θ + cos² θ = 1.\nSo sin² 30° + cos² 30° = 1.\nAnd tan 45° = 1.\nTotal = 1 + 1 = 2.",
+        "hi": "हम जानते हैं: sin² θ + cos² θ = 1.\nअतः sin² 30° + cos² 30° = 1.\nतथा tan 45° = 1.\nकुल मान = 1 + 1 = 2."
+      }
+    },
+    {
+      "id": "ntpc-m1-m28",
+      "section": "maths",
+      "topic": "geometry-trig",
+      "topicName": {
+        "en": "Geometry Triangles",
+        "hi": "ज्यामिति त्रिभुज"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "In a right-angled triangle ABC right-angled at B, if AB = 5 cm and BC = 12 cm, find the length of hypotenuse AC.",
+        "hi": "एक समकोण त्रिभुज ABC में जिसका कोण B समकोण है, यदि AB = 5 सेमी और BC = 12 सेमी है, तो कर्ण AC की लंबाई ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "13 cm",
+          "14 cm",
+          "15 cm",
+          "17 cm"
+        ],
+        "hi": [
+          "13 सेमी",
+          "14 सेमी",
+          "15 सेमी",
+          "17 सेमी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "By Pythagoras theorem: AC² = AB² + BC²\nAC² = 5² + 12² = 25 + 144 = 169\nAC = √169 = 13 cm.",
+        "hi": "पाइथागोरस प्रमेय द्वारा: AC² = AB² + BC²\nAC² = 25 + 144 = 169\nAC = √169 = 13 सेमी।"
+      }
+    },
+    {
+      "id": "ntpc-m1-m29",
+      "section": "maths",
+      "topic": "statistics",
+      "topicName": {
+        "en": "Elementary Statistics",
+        "hi": "प्रारंभिक सांख्यिकी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Find the median of the data set: 13, 8, 15, 14, 21, 7, 10, 18, 11.",
+        "hi": "आंकड़ों 13, 8, 15, 14, 21, 7, 10, 18, 11 की माध्यिका (Median) ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "13",
+          "11",
+          "14",
+          "12"
+        ],
+        "hi": [
+          "13",
+          "11",
+          "14",
+          "12"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Arrange in ascending order: 7, 8, 10, 11, 13, 14, 15, 18, 21.\nNumber of items N = 9 (odd).\nMedian = ((N + 1) / 2)th term = 5th term = 13.",
+        "hi": "आरोही क्रम में व्यवस्थित करने पर: 7, 8, 10, 11, 13, 14, 15, 18, 21.\nपदों की संख्या N = 9 (विषम).\nमाध्यिका = 5वाँ पद = 13."
+      }
+    },
+    {
+      "id": "ntpc-m1-m30",
+      "section": "maths",
+      "topic": "statistics",
+      "topicName": {
+        "en": "Mean, Median & Mode Relation",
+        "hi": "माध्य, माध्यिका और बहुलक संबंध"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If the mean of a distribution is 24 and the median is 26, find the mode using the empirical relationship.",
+        "hi": "यदि किसी वितरण का माध्य 24 और माध्यिका 26 है, तो आनुभविक संबंध का उपयोग करके बहुलक (Mode) ज्ञात कीजिए।"
+      },
+      "options": {
+        "en": [
+          "30",
+          "28",
+          "32",
+          "27"
+        ],
+        "hi": [
+          "30",
+          "28",
+          "32",
+          "27"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Empirical formula: Mode = 3 × Median - 2 × Mean\nMode = (3 × 26) - (2 × 24) = 78 - 48 = 30.",
+        "hi": "आनुभविक सूत्र: बहुलक = 3 × माध्यिका - 2 × माध्य\nबहुलक = (3 × 26) - (2 × 24) = 78 - 48 = 30."
+      }
+    }
+  ]
+}

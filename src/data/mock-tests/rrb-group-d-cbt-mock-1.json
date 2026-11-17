@@ -1,0 +1,3504 @@
+{
+  "id": "rrb-group-d-cbt-mock-1",
+  "slug": "cbt-mock-test-1",
+  "exam": "rrb-group-d",
+  "examTitle": {
+    "en": "RRB Group D (RRC Level-1)",
+    "hi": "आरआरबी ग्रुप डी (आरआरसी लेवल-1 भर्ती)"
+  },
+  "title": {
+    "en": "RRB Group D CBT Full Mock Test 1",
+    "hi": "आरआरबी ग्रुप डी सीबीटी संपूर्ण मॉक टेस्ट 1"
+  },
+  "subtitle": {
+    "en": "Official RRC Pattern — 100 Questions, 90 Minutes, 100 Marks (-1/3 Negative Marking)",
+    "hi": "आधिकारिक आरआरसी पैटर्न — 100 प्रश्न, 90 मिनट, 100 अंक (-1/3 नकारात्मक अंकन)"
+  },
+  "type": "full",
+  "durationMin": 90,
+  "marksPerCorrect": 1,
+  "negativeMark": 0.3333333333333333,
+  "sections": [
+    {
+      "id": "science",
+      "name": {
+        "en": "General Science",
+        "hi": "सामान्य विज्ञान"
+      },
+      "questionCount": 25
+    },
+    {
+      "id": "maths",
+      "name": {
+        "en": "Mathematics",
+        "hi": "गणित"
+      },
+      "questionCount": 25
+    },
+    {
+      "id": "reasoning",
+      "name": {
+        "en": "General Intelligence & Reasoning",
+        "hi": "सामान्य बुद्धिमत्ता एवं तर्कशक्ति"
+      },
+      "questionCount": 30
+    },
+    {
+      "id": "ga",
+      "name": {
+        "en": "General Awareness & Current Affairs",
+        "hi": "सामान्य जागरूकता एवं समसामयिकी"
+      },
+      "questionCount": 20
+    }
+  ],
+  "categoryCutoffs": {
+    "UR": 68,
+    "OBC": 63,
+    "EWS": 58,
+    "SC": 54,
+    "ST": 49
+  },
+  "syllabusTopics": [
+    {
+      "en": "Physics, Chemistry and Life Sciences (10th Standard CBSE/NCERT level)",
+      "hi": "भौतिक विज्ञान, रसायन विज्ञान एवं जीव विज्ञान (10वीं स्तर एनसीईआरटी)"
+    },
+    {
+      "en": "BODMAS, Decimals, Fractions, LCM, HCF, Ratio, Percentages, Mensuration, Time & Work",
+      "hi": "संख्या पद्धति, सरलीकरण, भिन्न, ल.स.-म.स., प्रतिशत, लाभ-हानि, क्षेत्रमिति, समय और कार्य"
+    },
+    {
+      "en": "Analogies, Series, Coding-Decoding, Relationships, Syllogisms, Venn Diagrams, Directions",
+      "hi": "सादृश्यता, श्रृंखला, कोडिंग-डिकोडिंग, रक्त संबंध, न्याय निगमन, वेन आरेख, दिशा परीक्षण"
+    },
+    {
+      "en": "Indian Railways GK, Science & Tech, Sports, Culture, Personalities, Economics, Politics",
+      "hi": "भारतीय रेलवे सामान्य ज्ञान, विज्ञान एवं प्रौद्योगिकी, खेलकूद, संस्कृति, राजनीति"
+    }
+  ],
+  "sampleQuestionsPreview": [
+    {
+      "q": {
+        "en": "What is the SI unit of force?",
+        "hi": "बल का SI मात्रक क्या है?"
+      },
+      "a": {
+        "en": "Newton",
+        "hi": "न्यूटन"
+      }
+    },
+    {
+      "q": {
+        "en": "In which year did the first passenger train run in India between Mumbai and Thane?",
+        "hi": "भारत में पहली यात्री रेलगाड़ी मुंबई और ठाणे के बीच किस वर्ष चली थी?"
+      },
+      "a": {
+        "en": "1853",
+        "hi": "1853"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "grpd-s01",
+      "section": "science",
+      "topic": "physics-force",
+      "topicName": {
+        "en": "Physics - Force & Motion",
+        "hi": "भौतिक विज्ञान - बल एवं गति"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the SI unit of force?",
+        "hi": "बल का SI मात्रक क्या है?"
+      },
+      "options": {
+        "en": [
+          "Newton",
+          "Joule",
+          "Pascal",
+          "Watt"
+        ],
+        "hi": [
+          "न्यूटन (Newton)",
+          "जूल (Joule)",
+          "पास्कल (Pascal)",
+          "वाट (Watt)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The SI unit of force is Newton (N = kg·m/s²).",
+        "hi": "बल का SI मात्रक न्यूटन है (F = m × a)।"
+      }
+    },
+    {
+      "id": "grpd-s02",
+      "section": "science",
+      "topic": "physics-work",
+      "topicName": {
+        "en": "Physics - Work & Energy",
+        "hi": "भौतिक विज्ञान - कार्य एवं ऊर्जा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "If an object of mass 10 kg is lifted to a height of 5 meters, what is its potential energy? (Take g = 9.8 m/s²)",
+        "hi": "यदि 10 किग्रा द्रव्यमान की एक वस्तु को 5 मीटर की ऊंचाई तक उठाया जाता है, तो उसकी स्थितिज ऊर्जा क्या होगी? (g = 9.8 m/s² लें)"
+      },
+      "options": {
+        "en": [
+          "490 Joules",
+          "450 Joules",
+          "500 Joules",
+          "392 Joules"
+        ],
+        "hi": [
+          "490 जूल",
+          "450 जूल",
+          "500 जूल",
+          "392 जूल"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Potential Energy PE = m × g × h = 10 × 9.8 × 5 = 490 Joules.",
+        "hi": "स्थितिज ऊर्जा = m × g × h = 10 × 9.8 × 5 = 490 जूल।"
+      }
+    },
+    {
+      "id": "grpd-s03",
+      "section": "science",
+      "topic": "physics-sound",
+      "topicName": {
+        "en": "Physics - Sound",
+        "hi": "भौतिक विज्ञान - ध्वनि"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "In which of the following media does sound travel the fastest?",
+        "hi": "ध्वनि की गति निम्नलिखित में से किस माध्यम में सर्वाधिक तीव्र होती है?"
+      },
+      "options": {
+        "en": [
+          "Steel (Solid)",
+          "Water (Liquid)",
+          "Air (Gas)",
+          "Vacuum"
+        ],
+        "hi": [
+          "इस्पात/स्टील (ठोस)",
+          "जल (द्रव)",
+          "वायु (गैस)",
+          "निर्वात"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Sound is a mechanical wave and travels fastest in solids (elastic media) like steel (~5960 m/s). It cannot travel in a vacuum.",
+        "hi": "ध्वनि ठोस माध्यम (जैसे स्टील) में सबसे तेज चलती है और निर्वात में संचरित नहीं हो सकती।"
+      }
+    },
+    {
+      "id": "grpd-s04",
+      "section": "science",
+      "topic": "physics-light",
+      "topicName": {
+        "en": "Physics - Optics",
+        "hi": "भौतिक विज्ञान - प्रकाशिकी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which type of mirror is commonly used as a rear-view mirror in vehicles?",
+        "hi": "वाहनों में पीछे का दृश्य देखने (Rear-view) के लिए किस दर्पण का प्रयोग किया जाता है?"
+      },
+      "options": {
+        "en": [
+          "Convex mirror",
+          "Concave mirror",
+          "Plane mirror",
+          "Parabolic mirror"
+        ],
+        "hi": [
+          "उत्तल दर्पण (Convex)",
+          "अवतल दर्पण (Concave)",
+          "समतल दर्पण (Plane)",
+          "परवलयाकार दर्पण"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Convex mirrors produce an erect, diminished image and provide a wide field of view.",
+        "hi": "उत्तल दर्पण हमेशा सीधा और छोटा प्रतिबिंब बनाता है तथा दृष्टि क्षेत्र विस्तृत प्रदान करता है।"
+      }
+    },
+    {
+      "id": "grpd-s05",
+      "section": "science",
+      "topic": "physics-electricity",
+      "topicName": {
+        "en": "Physics - Electricity",
+        "hi": "भौतिक विज्ञान - विद्युत धारा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "According to Ohm's Law, what is the relation between Voltage (V), Current (I), and Resistance (R)?",
+        "hi": "ओम के नियम के अनुसार विभवांतर (V), धारा (I) और प्रतिरोध (R) के बीच क्या संबंध है?"
+      },
+      "options": {
+        "en": [
+          "V = I × R",
+          "I = V × R",
+          "R = V × I",
+          "V = I / R"
+        ],
+        "hi": [
+          "V = I × R",
+          "I = V × R",
+          "R = V × I",
+          "V = I / R"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Ohm's law states that V = I × R at constant temperature.",
+        "hi": "ओम के नियम के अनुसार नियत ताप पर V = I × R होता है।"
+      }
+    },
+    {
+      "id": "grpd-s06",
+      "section": "science",
+      "topic": "chem-acids",
+      "topicName": {
+        "en": "Chemistry - Acids & Bases",
+        "hi": "रसायन विज्ञान - अम्ल एवं क्षार"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the pH value of pure water at 25°C?",
+        "hi": "25°C पर शुद्ध जल का pH मान क्या होता है?"
+      },
+      "options": {
+        "en": [
+          "7 (Neutral)",
+          "0",
+          "14",
+          "5.5"
+        ],
+        "hi": [
+          "7 (उदासीन)",
+          "0",
+          "14",
+          "5.5"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Pure neutral water has equal concentrations of H+ and OH- ions, corresponding to pH 7.",
+        "hi": "शुद्ध जल का pH मान 7 होता है जो उदासीन प्रकृति को दर्शाता है।"
+      }
+    },
+    {
+      "id": "grpd-s07",
+      "section": "science",
+      "topic": "chem-metals",
+      "topicName": {
+        "en": "Chemistry - Metals",
+        "hi": "रसायन विज्ञान - धातुएं"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which non-metal is a liquid at room temperature?",
+        "hi": "कमरे के सामान्य तापमान पर द्रव अवस्था में पाई जाने वाली एकमात्र अधातु कौन-सी है?"
+      },
+      "options": {
+        "en": [
+          "Bromine",
+          "Mercury",
+          "Chlorine",
+          "Iodine"
+        ],
+        "hi": [
+          "ब्रोमीन (Bromine)",
+          "पारा (Mercury)",
+          "क्लोरीन (Chlorine)",
+          "आयोडीन (Iodine)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Bromine (Br) is the only non-metal that exists as a reddish-brown liquid at room temperature. Mercury is a liquid metal.",
+        "hi": "ब्रोमीन कमरे के तापमान पर तरल रहने वाली एकमात्र अधातु है। पारा एक द्रव धातु है।"
+      }
+    },
+    {
+      "id": "grpd-s08",
+      "section": "science",
+      "topic": "chem-reactions",
+      "topicName": {
+        "en": "Chemistry - Chemical Equations",
+        "hi": "रसायन विज्ञान - रासायनिक अभिक्रियाएं"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Rusting of iron in moist air is an example of which chemical process?",
+        "hi": "नम वायु में लोहे पर जंग लगना किस रासायनिक प्रक्रिया का उदाहरण है?"
+      },
+      "options": {
+        "en": [
+          "Oxidation and Corrosion",
+          "Reduction only",
+          "Thermal decomposition",
+          "Sublimation"
+        ],
+        "hi": [
+          "ऑक्सीकरण एवं संक्षारण",
+          "केवल अपचयन",
+          "तापीय अपघटन",
+          "ऊर्ध्वपातन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Iron reacts with oxygen and moisture to form hydrated iron(III) oxide (Fe2O3·xH2O), an oxidation reaction.",
+        "hi": "लोहा ऑक्सीजन और नमी के साथ क्रिया करके जंग बनाता है, जो एक ऑक्सीकरण और संक्षारण प्रक्रिया है।"
+      }
+    },
+    {
+      "id": "grpd-s09",
+      "section": "science",
+      "topic": "chem-periodic",
+      "topicName": {
+        "en": "Chemistry - Periodic Table",
+        "hi": "रसायन विज्ञान - आवर्त सारणी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Modern Periodic Table was formulated based on atomic numbers by which scientist?",
+        "hi": "परमाणु क्रमांक पर आधारित आधुनिक आवर्त सारणी का प्रतिपादन किस वैज्ञानिक ने किया था?"
+      },
+      "options": {
+        "en": [
+          "Henry Moseley",
+          "Dmitri Mendeleev",
+          "John Newlands",
+          "J.J. Thomson"
+        ],
+        "hi": [
+          "हेनरी मोज़ले (Henry Moseley)",
+          "दिमित्री मेंडेलीव",
+          "जॉन न्यूलैंड्स",
+          "जे.जे. थॉमसन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Henry Moseley arranged elements in order of increasing atomic numbers in 1913.",
+        "hi": "1913 में हेनरी मोज़ले ने तत्वों को उनके परमाणु क्रमांक के बढ़ते क्रम में सजाया।"
+      }
+    },
+    {
+      "id": "grpd-s10",
+      "section": "science",
+      "topic": "chem-gas",
+      "topicName": {
+        "en": "Chemistry - Common Compounds",
+        "hi": "रसायन विज्ञान - सामान्य यौगिक"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the chemical formula of Baking Soda?",
+        "hi": "बेकिंग सोडा (खाने का सोडा) का रासायनिक सूत्र क्या है?"
+      },
+      "options": {
+        "en": [
+          "NaHCO3",
+          "Na2CO3·10H2O",
+          "NaOH",
+          "CaOCl2"
+        ],
+        "hi": [
+          "NaHCO3",
+          "Na2CO3·10H2O",
+          "NaOH",
+          "CaOCl2"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Baking soda is Sodium Hydrogen Carbonate / Sodium Bicarbonate (NaHCO3).",
+        "hi": "बेकिंग सोडा सोडियम बाइकार्बोनेट (NaHCO3) होता है।"
+      }
+    },
+    {
+      "id": "grpd-s11",
+      "section": "science",
+      "topic": "bio-cell",
+      "topicName": {
+        "en": "Biology - Cell Structure",
+        "hi": "जीव विज्ञान - कोशिका"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which cell organelle contains digestive enzymes and is nicknamed the 'Suicide Bag' of the cell?",
+        "hi": "किस कोशिकांग को कोशिका की 'आत्मघाती थैली' (Suicide Bag) कहा जाता है?"
+      },
+      "options": {
+        "en": [
+          "Lysosome",
+          "Centrosome",
+          "Vacuole",
+          "Ribosome"
+        ],
+        "hi": [
+          "लाइसोसोम (Lysosome)",
+          "तारककाय (Centrosome)",
+          "रसधानी (Vacuole)",
+          "राइबोसोम (Ribosome)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Lysosomes contain hydrolytic digestive enzymes that break down waste; if damaged, they can digest the cell itself.",
+        "hi": "लाइसोसोम में पाचक एंजाइम होते हैं जो क्षतिग्रस्त होने पर स्वयं की कोशिका को नष्ट कर सकते हैं।"
+      }
+    },
+    {
+      "id": "grpd-s12",
+      "section": "science",
+      "topic": "bio-plants",
+      "topicName": {
+        "en": "Biology - Plant Tissues",
+        "hi": "जीव विज्ञान - पादप ऊतक"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which plant vascular tissue conducts water and dissolved minerals from roots upwards to leaves?",
+        "hi": "पौधों में जड़ों से पत्तियों तक जल और खनिज लवणों का संवहन कौन-सा ऊतक करता है?"
+      },
+      "options": {
+        "en": [
+          "Xylem",
+          "Phloem",
+          "Collenchyma",
+          "Parenchyma"
+        ],
+        "hi": [
+          "जाइलम (Xylem)",
+          "फ्लोएम (Phloem)",
+          "स्थूलकोण ऊतक",
+          "मृदूतक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Xylem transports water and minerals unidirectionally upwards. Phloem transports food (photosynthates).",
+        "hi": "जाइलम ऊतक जल का संवहन करता है तथा फ्लोएम भोजन का परिवहन करता है।"
+      }
+    },
+    {
+      "id": "grpd-s13",
+      "section": "science",
+      "topic": "bio-human",
+      "topicName": {
+        "en": "Biology - Human Heart",
+        "hi": "जीव विज्ञान - मानव हृदय"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "How many chambers are there in a normal human heart?",
+        "hi": "सामान्य मानव हृदय में कितने कक्ष (Chambers) होते हैं?"
+      },
+      "options": {
+        "en": [
+          "4 chambers",
+          "2 chambers",
+          "3 chambers",
+          "5 chambers"
+        ],
+        "hi": [
+          "4 कक्ष (2 अलिंद, 2 निलय)",
+          "2 कक्ष",
+          "3 कक्ष",
+          "5 कक्ष"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The human heart has 4 chambers: two atria and two ventricles.",
+        "hi": "मानव हृदय में 4 कक्ष (दायां व बायां अलिंद और दायां व बायां निलय) होते हैं।"
+      }
+    },
+    {
+      "id": "grpd-s14",
+      "section": "science",
+      "topic": "bio-genetics",
+      "topicName": {
+        "en": "Biology - Genetics",
+        "hi": "जीव विज्ञान - आनुवंशिकी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Who is recognized as the 'Father of Genetics' for his work on pea plants?",
+        "hi": "मटर के पौधों पर अपने प्रयोगों के लिए किसे 'आनुवंशिकी का जनक' कहा जाता है?"
+      },
+      "options": {
+        "en": [
+          "Gregor Johann Mendel",
+          "Charles Darwin",
+          "Louis Pasteur",
+          "Robert Hooke"
+        ],
+        "hi": [
+          "ग्रेगर जोहान मेंडल",
+          "चार्ल्स डार्विन",
+          "लुई पाश्चर",
+          "रॉबर्ट हुक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Gregor Mendel established the fundamental laws of inheritance through his experiments on Pisum sativum.",
+        "hi": "ग्रेगर मेंडल ने उद्यान मटर पर प्रयोग करके आनुवंशिकता के नियमों की खोज की थी।"
+      }
+    },
+    {
+      "id": "grpd-s15",
+      "section": "science",
+      "topic": "bio-diseases",
+      "topicName": {
+        "en": "Biology - Diseases",
+        "hi": "जीव विज्ञान - मानव रोग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Malaria is caused by which pathogen transmitted through the bite of female Anopheles mosquito?",
+        "hi": "मलेरिया रोग मादा एनाफिलीज़ मच्छर के काटने से किस सूक्ष्मजीव के संक्रमण से होता है?"
+      },
+      "options": {
+        "en": [
+          "Plasmodium (Protozoan)",
+          "Mycobacterium (Bacterium)",
+          "Rhinovirus (Virus)",
+          "Aspergillus (Fungus)"
+        ],
+        "hi": [
+          "प्लाज्मोडियम (प्रोटोजोआ)",
+          "माइकोबैक्टीरियम (जीवाणु)",
+          "राइनोवायरस (विषाणु)",
+          "कवक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Malaria is caused by the unicellular protozoan parasite Plasmodium.",
+        "hi": "मलेरिया प्लाज्मोडियम नामक प्रोटोजोआ परजीवी के कारण होता है।"
+      }
+    },
+    {
+      "id": "grpd-s16",
+      "section": "science",
+      "topic": "physics-energy",
+      "topicName": {
+        "en": "Physics - Energy Forms",
+        "hi": "भौतिक विज्ञान - ऊर्जा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the kinetic energy of an object of mass m moving with velocity v?",
+        "hi": "v वेग से गतिमान m द्रव्यमान की वस्तु की गतिज ऊर्जा का सूत्र क्या है?"
+      },
+      "options": {
+        "en": [
+          "1/2 m v²",
+          "m v",
+          "m g h",
+          "1/2 m² v"
+        ],
+        "hi": [
+          "1/2 m v²",
+          "m v",
+          "m g h",
+          "1/2 m² v"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Kinetic Energy KE = 1/2 × m × v².",
+        "hi": "गतिज ऊर्जा = 1/2 × द्रव्यमान × वेग का वर्ग (1/2 mv²)।"
+      }
+    },
+    {
+      "id": "grpd-s17",
+      "section": "science",
+      "topic": "chem-solutions",
+      "topicName": {
+        "en": "Chemistry - Metals",
+        "hi": "रसायन विज्ञान - धातुएं"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which metal can be easily cut with a regular knife due to its extreme softness?",
+        "hi": "अत्यधिक मुलायम होने के कारण किस धातु को साधारण चाकू से आसानी से काटा जा सकता है?"
+      },
+      "options": {
+        "en": [
+          "Sodium (Na)",
+          "Iron (Fe)",
+          "Aluminium (Al)",
+          "Copper (Cu)"
+        ],
+        "hi": [
+          "सोडियम (Na)",
+          "लोहा (Fe)",
+          "एल्युमिनियम (Al)",
+          "तांबा (Cu)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Alkali metals like Sodium (Na) and Potassium (K) are very soft and can be easily cut with a knife.",
+        "hi": "सोडियम और पोटेशियम क्षार धातुएं बहुत मुलायम होती हैं और चाकू से काटी जा सकती हैं।"
+      }
+    },
+    {
+      "id": "grpd-s18",
+      "section": "science",
+      "topic": "physics-lens",
+      "topicName": {
+        "en": "Physics - Eye & Defects",
+        "hi": "भौतिक विज्ञान - नेत्र दोष"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Myopia (short-sightedness) is corrected using which type of lens?",
+        "hi": "निकट दृष्टि दोष (Myopia) के निवारण के लिए किस लेंस का उपयोग किया जाता है?"
+      },
+      "options": {
+        "en": [
+          "Concave lens",
+          "Convex lens",
+          "Bifocal lens",
+          "Cylindrical lens"
+        ],
+        "hi": [
+          "अवतल लेंस (Concave lens)",
+          "उत्तल लेंस (Convex lens)",
+          "द्विफोकसी लेंस",
+          "बेलनाकार लेंस"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "A concave lens diverges incoming light rays to focus the image correctly onto the retina.",
+        "hi": "निकट दृष्टि दोष में दूर की वस्तु स्पष्ट नहीं दिखती, इसके निवारण हेतु अवतल लेंस का चश्मा लगाया जाता है।"
+      }
+    },
+    {
+      "id": "grpd-s19",
+      "section": "science",
+      "topic": "bio-nutrition",
+      "topicName": {
+        "en": "Biology - Enzymes",
+        "hi": "जीव विज्ञान - पाचक एंजाइम"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which enzyme present in human saliva begins the chemical digestion of dietary starch into maltose?",
+        "hi": "मानव लार (Saliva) में कौन-सा एंजाइम पाया जाता है जो स्टार्च के पाचन की शुरुआत करता है?"
+      },
+      "options": {
+        "en": [
+          "Salivary Amylase (Ptyalin)",
+          "Pepsin",
+          "Trypsin",
+          "Lipase"
+        ],
+        "hi": [
+          "लार एमाइलेज / टायलिन (Ptyalin)",
+          "पेप्सिन",
+          "ट्रिप्सिन",
+          "लाइपेस"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Salivary amylase (ptyalin) breaks down carbohydrates/starch into simpler sugars in the mouth.",
+        "hi": "लार में टायलिन (एमाइलेज) एंजाइम होता है जो स्टार्च को माल्टोज में परिवर्तित करता है।"
+      }
+    },
+    {
+      "id": "grpd-s20",
+      "section": "science",
+      "topic": "physics-units",
+      "topicName": {
+        "en": "Physics - Pressure",
+        "hi": "भौतिक विज्ञान - दाब"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the SI unit of pressure?",
+        "hi": "दाब का SI मात्रक क्या है?"
+      },
+      "options": {
+        "en": [
+          "Pascal",
+          "Newton",
+          "Tesla",
+          "Coulomb"
+        ],
+        "hi": [
+          "पास्कल (Pascal)",
+          "न्यूटन",
+          "टेस्ला",
+          "कूलम्ब"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Pressure is Force per unit Area (N/m²), termed Pascal (Pa).",
+        "hi": "दाब = बल / क्षेत्रफल। इसका SI मात्रक पास्कल (N/m²) है।"
+      }
+    },
+    {
+      "id": "grpd-s21",
+      "section": "science",
+      "topic": "chem-gas",
+      "topicName": {
+        "en": "Chemistry - Noble Gases",
+        "hi": "रसायन विज्ञान - अक्रिय गैसें"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which group of the periodic table contains the noble/inert gases?",
+        "hi": "आवर्त सारणी के किस वर्ग (Group) में अक्रिय/उत्कृष्ट गैसें स्थित हैं?"
+      },
+      "options": {
+        "en": [
+          "Group 18",
+          "Group 1",
+          "Group 17",
+          "Group 2"
+        ],
+        "hi": [
+          "वर्ग 18 (Group 18)",
+          "वर्ग 1",
+          "वर्ग 17",
+          "वर्ग 2"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Group 18 consists of Helium, Neon, Argon, Krypton, Xenon, and Radon with fully filled outer valence shells.",
+        "hi": "वर्ग 18 में हीलियम, नियॉन, ऑर्गन आदि अक्रिय गैसें स्थित हैं जिनका अष्टक पूर्ण होता है।"
+      }
+    },
+    {
+      "id": "grpd-s22",
+      "section": "science",
+      "topic": "bio-hormone",
+      "topicName": {
+        "en": "Biology - Endocrine System",
+        "hi": "जीव विज्ञान - अंतःस्रावी तंत्र"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Insulin hormone, which regulates blood glucose levels, is secreted by which organ?",
+        "hi": "रक्त में शर्करा के स्तर को नियंत्रित करने वाला इंसुलिन हार्मोन किस ग्रंथि/अंग द्वारा स्रावित होता है?"
+      },
+      "options": {
+        "en": [
+          "Pancreas (Islets of Langerhans)",
+          "Liver",
+          "Thyroid",
+          "Kidney"
+        ],
+        "hi": [
+          "अग्न्याशय / पैन्क्रियाज",
+          "यकृत / लिवर",
+          "थायरॉयड",
+          "वृक्क / किडनी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Insulin is produced by the beta cells of the Islets of Langerhans in the Pancreas.",
+        "hi": "इंसुलिन अग्न्याशय के लैंगरहैंस द्वीपिकाओं की बीटा कोशिकाओं से स्रावित होता है।"
+      }
+    },
+    {
+      "id": "grpd-s23",
+      "section": "science",
+      "topic": "physics-heat",
+      "topicName": {
+        "en": "Physics - Temperature",
+        "hi": "भौतिक विज्ञान - तापमान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "At what temperature do the Celsius and Fahrenheit scales read exactly the same value?",
+        "hi": "किस तापमान पर सेल्सियस और फारेनहाइट दोनों पैमानों का मान समान होता है?"
+      },
+      "options": {
+        "en": [
+          "-40°",
+          "0°",
+          "100°",
+          "-32°"
+        ],
+        "hi": [
+          "-40°",
+          "0°",
+          "100°",
+          "-32°"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Using C/5 = (F - 32)/9: When C = F = x, 9x = 5x - 160 -> 4x = -160 -> x = -40°.",
+        "hi": "C/5 = (F - 32)/9 सूत्र से C = F = -40° पर दोनों पैमाने एक समान पाठ्यांक देते हैं।"
+      }
+    },
+    {
+      "id": "grpd-s24",
+      "section": "science",
+      "topic": "chem-acids",
+      "topicName": {
+        "en": "Chemistry - Natural Acids",
+        "hi": "रसायन विज्ञान - प्राकृतिक अम्ल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which acid is naturally present in lemon and citrus fruits?",
+        "hi": "नींबू और खट्टे फलों में प्राकृतिक रूप से कौन-सा अम्ल पाया जाता है?"
+      },
+      "options": {
+        "en": [
+          "Citric acid",
+          "Acetic acid",
+          "Lactic acid",
+          "Tartaric acid"
+        ],
+        "hi": [
+          "साइट्रिक अम्ल (Citric acid)",
+          "एसिटिक अम्ल",
+          "लैक्टिक अम्ल",
+          "टार्टरिक अम्ल"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Citrus fruits contain Citric acid. Vinegar has acetic acid, and milk/curd has lactic acid.",
+        "hi": "नींबू और संतरे में साइट्रिक अम्ल पाया जाता है। सिरके में एसिटिक अम्ल होता है।"
+      }
+    },
+    {
+      "id": "grpd-s25",
+      "section": "science",
+      "topic": "physics-gravity",
+      "topicName": {
+        "en": "Physics - Gravitation",
+        "hi": "भौतिक विज्ञान - गुरुत्वाकर्षण"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the approximate acceleration due to gravity (g) at the surface of the Earth?",
+        "hi": "पृथ्वी की सतह पर गुरुत्वीय त्वरण (g) का मान लगभग कितना होता है?"
+      },
+      "options": {
+        "en": [
+          "9.8 m/s²",
+          "8.9 m/s²",
+          "10.8 m/s²",
+          "6.67 m/s²"
+        ],
+        "hi": [
+          "9.8 मीटर/सेकंड²",
+          "8.9 मीटर/सेकंड²",
+          "10.8 मीटर/सेकंड²",
+          "6.67 मीटर/सेकंड²"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The standard acceleration due to gravity near Earth's surface is 9.8 m/s².",
+        "hi": "पृथ्वी की सतह पर मानक गुरुत्वीय त्वरण 9.8 m/s² होता है।"
+      }
+    },
+    {
+      "id": "grpd-m01",
+      "section": "maths",
+      "topic": "bodmas",
+      "topicName": {
+        "en": "BODMAS Rule",
+        "hi": "बोडमास नियम"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Solve: 24 - 4 × (6 - 2) + 18 ÷ 3",
+        "hi": "हल कीजिए: 24 - 4 × (6 - 2) + 18 ÷ 3"
+      },
+      "options": {
+        "en": [
+          "14",
+          "16",
+          "12",
+          "18"
+        ],
+        "hi": [
+          "14",
+          "16",
+          "12",
+          "18"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "(6 - 2) = 4. 4 × 4 = 16. 18 ÷ 3 = 6. Result = 24 - 16 + 6 = 8 + 6 = 14.",
+        "hi": "(6 - 2) = 4। 4 × 4 = 16। 18 ÷ 3 = 6। अतः 24 - 16 + 6 = 14।"
+      }
+    },
+    {
+      "id": "grpd-m02",
+      "section": "maths",
+      "topic": "fractions",
+      "topicName": {
+        "en": "Fractions & Decimals",
+        "hi": "भिन्न एवं दशमलव"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Evaluate: 3/5 + 1/2 - 3/10",
+        "hi": "मान ज्ञात कीजिए: 3/5 + 1/2 - 3/10"
+      },
+      "options": {
+        "en": [
+          "4/5",
+          "7/10",
+          "1/2",
+          "3/5"
+        ],
+        "hi": [
+          "4/5",
+          "7/10",
+          "1/2",
+          "3/5"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "LCM(5, 2, 10) = 10. (6 + 5 - 3) / 10 = 8 / 10 = 4/5.",
+        "hi": "ल.स. 10 लेने पर: (6 + 5 - 3) / 10 = 8/10 = 4/5।"
+      }
+    },
+    {
+      "id": "grpd-m03",
+      "section": "maths",
+      "topic": "lcm-hcf",
+      "topicName": {
+        "en": "LCM and HCF",
+        "hi": "ल.स. और म.स."
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the HCF of 36 and 84:",
+        "hi": "36 और 84 का महत्तम समापवर्तक (HCF) ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "12",
+          "6",
+          "18",
+          "4"
+        ],
+        "hi": [
+          "12",
+          "6",
+          "18",
+          "4"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "36 = 12 × 3; 84 = 12 × 7. Greatest common divisor is 12.",
+        "hi": "36 और 84 दोनों 12 से पूर्णतः विभाज्य हैं। अतः HCF = 12।"
+      }
+    },
+    {
+      "id": "grpd-m04",
+      "section": "maths",
+      "topic": "percentages",
+      "topicName": {
+        "en": "Percentage",
+        "hi": "प्रतिशत"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "A candidate scored 420 marks out of 600 in an examination. What is his percentage?",
+        "hi": "एक छात्र ने 600 में से 420 अंक प्राप्त किए। उसका प्रतिशत क्या है?"
+      },
+      "options": {
+        "en": [
+          "70%",
+          "68%",
+          "72%",
+          "75%"
+        ],
+        "hi": [
+          "70%",
+          "68%",
+          "72%",
+          "75%"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "(420 / 600) × 100 = 420 / 6 = 70%.",
+        "hi": "(420 / 600) × 100 = 70%।"
+      }
+    },
+    {
+      "id": "grpd-m05",
+      "section": "maths",
+      "topic": "profit-loss",
+      "topicName": {
+        "en": "Profit & Loss",
+        "hi": "लाभ और हानि"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "A table bought for ₹1,500 was sold at a loss of 10%. Find its selling price:",
+        "hi": "₹1,500 में खरीदी गई एक मेज 10% की हानि पर बेची गई। उसका विक्रय मूल्य क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "₹1,350",
+          "₹1,400",
+          "₹1,300",
+          "₹1,380"
+        ],
+        "hi": [
+          "₹1,350",
+          "₹1,400",
+          "₹1,300",
+          "₹1,380"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Loss = 10% of 1500 = ₹150. SP = 1500 - 150 = ₹1,350.",
+        "hi": "हानि = ₹150। विक्रय मूल्य = 1500 - 150 = ₹1,350।"
+      }
+    },
+    {
+      "id": "grpd-m06",
+      "section": "maths",
+      "topic": "ratio",
+      "topicName": {
+        "en": "Ratio & Proportion",
+        "hi": "अनुपात"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "If 3 : 5 = x : 20, find the value of x:",
+        "hi": "यदि 3 : 5 = x : 20 है, तो x का मान ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "12",
+          "15",
+          "10",
+          "18"
+        ],
+        "hi": [
+          "12",
+          "15",
+          "10",
+          "18"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "3/5 = x/20 -> 5x = 60 -> x = 12.",
+        "hi": "3/5 = x/20 -> x = (3 × 20) / 5 = 12।"
+      }
+    },
+    {
+      "id": "grpd-m07",
+      "section": "maths",
+      "topic": "time-work",
+      "topicName": {
+        "en": "Time and Work",
+        "hi": "कार्य और समय"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "A can do a piece of work in 15 days and B can do it in 30 days. Working together, in how many days can they complete the work?",
+        "hi": "A किसी कार्य को 15 दिनों में और B उसे 30 दिनों में पूरा कर सकता है। दोनों मिलकर उस कार्य को कितने दिनों में समाप्त करेंगे?"
+      },
+      "options": {
+        "en": [
+          "10 days",
+          "12 days",
+          "8 days",
+          "15 days"
+        ],
+        "hi": [
+          "10 दिन",
+          "12 दिन",
+          "8 दिन",
+          "15 दिन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Work done together in 1 day = 1/15 + 1/30 = 3/30 = 1/10. Days = 10 days.",
+        "hi": "1 दिन का कार्य = 1/15 + 1/30 = 3/30 = 1/10। अतः 10 दिन लगेंगे।"
+      }
+    },
+    {
+      "id": "grpd-m08",
+      "section": "maths",
+      "topic": "speed-dist",
+      "topicName": {
+        "en": "Speed Time Distance",
+        "hi": "चाल और समय"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "A car travels at 54 km/h. How many meters does it travel in 20 seconds?",
+        "hi": "एक कार 54 किमी/घंटा की गति से चल रही है। 20 सेकंड में वह कितनी दूरी (मीटर में) तय करेगी?"
+      },
+      "options": {
+        "en": [
+          "300 m",
+          "250 m",
+          "200 m",
+          "350 m"
+        ],
+        "hi": [
+          "300 मीटर",
+          "250 मीटर",
+          "200 मीटर",
+          "350 मीटर"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Speed in m/s = 54 × (5/18) = 15 m/s. Distance = 15 × 20 = 300 meters.",
+        "hi": "चाल = 54 × 5/18 = 15 मीटर/सेकंड। दूरी = 15 × 20 = 300 मीटर।"
+      }
+    },
+    {
+      "id": "grpd-m09",
+      "section": "maths",
+      "topic": "si",
+      "topicName": {
+        "en": "Simple Interest",
+        "hi": "साधारण ब्याज"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the simple interest on ₹5,000 for 2 years at 6% per annum:",
+        "hi": "₹5,000 पर 6% वार्षिक दर से 2 वर्ष का साधारण ब्याज क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "₹600",
+          "₹500",
+          "₹700",
+          "₹550"
+        ],
+        "hi": [
+          "₹600",
+          "₹500",
+          "₹700",
+          "₹550"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "SI = (5000 × 6 × 2) / 100 = ₹600.",
+        "hi": "साधारण ब्याज = (5000 × 6 × 2) / 100 = ₹600।"
+      }
+    },
+    {
+      "id": "grpd-m10",
+      "section": "maths",
+      "topic": "ci",
+      "topicName": {
+        "en": "Compound Interest",
+        "hi": "चक्रवृद्धि ब्याज"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the compound interest on ₹8,000 at 5% per annum for 2 years compounded annually?",
+        "hi": "₹8,000 पर 5% वार्षिक दर से 2 वर्ष का चक्रवृद्धि ब्याज ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "₹820",
+          "₹800",
+          "₹850",
+          "₹780"
+        ],
+        "hi": [
+          "₹820",
+          "₹800",
+          "₹850",
+          "₹780"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Amount = 8000 × (1.05)^2 = 8000 × 1.1025 = ₹8,820. CI = 8820 - 8000 = ₹820.",
+        "hi": "मिश्रधन = 8000 × (21/20)^2 = ₹8,820। चक्रवृद्धि ब्याज = 8,820 - 8,000 = ₹820।"
+      }
+    },
+    {
+      "id": "grpd-m11",
+      "section": "maths",
+      "topic": "mensuration-2d",
+      "topicName": {
+        "en": "2D Mensuration",
+        "hi": "क्षेत्रमिति (2D)"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "The perimeter of a square is 64 cm. Find its area:",
+        "hi": "एक वर्ग का परिमाप 64 सेमी है। उसका क्षेत्रफल ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "256 cm²",
+          "128 cm²",
+          "64 cm²",
+          "512 cm²"
+        ],
+        "hi": [
+          "256 सेमी²",
+          "128 सेमी²",
+          "64 सेमी²",
+          "512 सेमी²"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Side = 64 / 4 = 16 cm. Area = 16^2 = 256 cm².",
+        "hi": "भुजा = 64 / 4 = 16 सेमी। क्षेत्रफल = 16 × 16 = 256 वर्ग सेमी।"
+      }
+    },
+    {
+      "id": "grpd-m12",
+      "section": "maths",
+      "topic": "mensuration-circle",
+      "topicName": {
+        "en": "Circle Area",
+        "hi": "वृत्त का क्षेत्रफल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the area of a circle whose radius is 7 cm (take π = 22/7):",
+        "hi": "7 सेमी त्रिज्या वाले वृत्त का क्षेत्रफल ज्ञात कीजिए (π = 22/7):"
+      },
+      "options": {
+        "en": [
+          "154 cm²",
+          "44 cm²",
+          "308 cm²",
+          "88 cm²"
+        ],
+        "hi": [
+          "154 सेमी²",
+          "44 सेमी²",
+          "308 सेमी²",
+          "88 सेमी²"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Area = π r² = (22/7) × 7 × 7 = 154 cm².",
+        "hi": "क्षेत्रफल = π r² = (22/7) × 49 = 154 वर्ग सेमी।"
+      }
+    },
+    {
+      "id": "grpd-m13",
+      "section": "maths",
+      "topic": "algebra",
+      "topicName": {
+        "en": "Algebraic Identity",
+        "hi": "बीजगणित"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "If a + b = 9 and a b = 20, find the value of a² + b²:",
+        "hi": "यदि a + b = 9 और a b = 20 है, तो a² + b² का मान ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "41",
+          "45",
+          "36",
+          "51"
+        ],
+        "hi": [
+          "41",
+          "45",
+          "36",
+          "51"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "a² + b² = (a + b)² - 2ab = 9² - 2(20) = 81 - 40 = 41.",
+        "hi": "a² + b² = (a + b)² - 2ab = 81 - 40 = 41।"
+      }
+    },
+    {
+      "id": "grpd-m14",
+      "section": "maths",
+      "topic": "trigonometry",
+      "topicName": {
+        "en": "Trigonometry Basics",
+        "hi": "त्रिकोणमिति"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the value of (sin² 30° + cos² 30°)?",
+        "hi": "(sin² 30° + cos² 30°) का मान क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "1",
+          "1/2",
+          "0",
+          "2"
+        ],
+        "hi": [
+          "1",
+          "1/2",
+          "0",
+          "2"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Fundamental identity: sin² θ + cos² θ = 1 for any angle θ.",
+        "hi": "सर्वसमिका sin² θ + cos² θ = 1 सदैव सत्य होती है।"
+      }
+    },
+    {
+      "id": "grpd-m15",
+      "section": "maths",
+      "topic": "statistics",
+      "topicName": {
+        "en": "Mean",
+        "hi": "माध्य"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the arithmetic mean of 12, 16, 20, 24, and 28:",
+        "hi": "12, 16, 20, 24 और 28 का समांतर माध्य ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "20",
+          "22",
+          "18",
+          "24"
+        ],
+        "hi": [
+          "20",
+          "22",
+          "18",
+          "24"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Sum = 100. Count = 5. Mean = 100 / 5 = 20.",
+        "hi": "योग = 100। कुल पद = 5। माध्य = 100 / 5 = 20।"
+      }
+    },
+    {
+      "id": "grpd-m16",
+      "section": "maths",
+      "topic": "pipes",
+      "topicName": {
+        "en": "Pipes & Cistern",
+        "hi": "पाइप एवं टंकी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Pipe A fills a cistern in 6 hours and Pipe B fills it in 8 hours. If both run together, how long will they take?",
+        "hi": "नल A एक हौज को 6 घंटे में और नल B उसे 8 घंटे में भर सकता है। दोनों मिलकर उसे कितने समय में भरेंगे?"
+      },
+      "options": {
+        "en": [
+          "24/7 hours (3 hours 25.7 mins)",
+          "7 hours",
+          "14 hours",
+          "4 hours"
+        ],
+        "hi": [
+          "24/7 घंटे (3 घंटे 25.7 मिनट)",
+          "7 घंटे",
+          "14 घंटे",
+          "4 घंटे"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Combined rate = 1/6 + 1/8 = (4 + 3)/24 = 7/24 cistern/hour. Total time = 24/7 hours.",
+        "hi": "1 घंटे का कार्य = 1/6 + 1/8 = 7/24। कुल समय = 24/7 घंटे।"
+      }
+    },
+    {
+      "id": "grpd-m17",
+      "section": "maths",
+      "topic": "trains",
+      "topicName": {
+        "en": "Train & Platform",
+        "hi": "ट्रेन एवं प्लेटफार्म"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "A 150 m long train crosses a 250 m long platform in 20 seconds. What is the speed of the train in km/h?",
+        "hi": "150 मीटर लंबी एक रेलगाड़ी 250 मीटर लंबे प्लेटफार्म को 20 सेकंड में पार करती है। ट्रेन की चाल किमी/घंटा में क्या होगी?"
+      },
+      "options": {
+        "en": [
+          "72 km/h",
+          "54 km/h",
+          "90 km/h",
+          "60 km/h"
+        ],
+        "hi": [
+          "72 किमी/घंटा",
+          "54 किमी/घंटा",
+          "90 किमी/घंटा",
+          "60 किमी/घंटा"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Total distance = 150 + 250 = 400 m. Speed = 400 / 20 = 20 m/s = 20 × (18/5) = 72 km/h.",
+        "hi": "कुल दूरी = 400 मीटर। चाल = 400 / 20 = 20 मीटर/सेकंड = 20 × 18/5 = 72 किमी/घंटा।"
+      }
+    },
+    {
+      "id": "grpd-m18",
+      "section": "maths",
+      "topic": "square-root",
+      "topicName": {
+        "en": "Square Root",
+        "hi": "वर्गमूल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the square root of 1024?",
+        "hi": "1024 का वर्गमूल क्या है?"
+      },
+      "options": {
+        "en": [
+          "32",
+          "28",
+          "34",
+          "36"
+        ],
+        "hi": [
+          "32",
+          "28",
+          "34",
+          "36"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "32 × 32 = 1024. Therefore √1024 = 32.",
+        "hi": "32 × 32 = 1024। अतः वर्गमूल 32 है।"
+      }
+    },
+    {
+      "id": "grpd-m19",
+      "section": "maths",
+      "topic": "averages",
+      "topicName": {
+        "en": "Average Age",
+        "hi": "औसत आयु"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "The average age of 3 brothers is 15 years. If their ages are in the ratio 3 : 5 : 7, what is the age of the youngest brother?",
+        "hi": "3 भाइयों की औसत आयु 15 वर्ष है। यदि उनकी आयु का अनुपात 3 : 5 : 7 है, तो सबसे छोटे भाई की आयु क्या होगी?"
+      },
+      "options": {
+        "en": [
+          "9 years",
+          "12 years",
+          "15 years",
+          "6 years"
+        ],
+        "hi": [
+          "9 वर्ष",
+          "12 वर्ष",
+          "15 वर्ष",
+          "6 वर्ष"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Total sum of ages = 3 × 15 = 45 years. Total ratio parts = 3 + 5 + 7 = 15 parts. 1 part = 3 years. Youngest = 3 × 3 = 9 years.",
+        "hi": "कुल आयु = 45 वर्ष। कुल अनुपात = 15। 1 भाग = 3 वर्ष। सबसे छोटे भाई की आयु = 3 × 3 = 9 वर्ष।"
+      }
+    },
+    {
+      "id": "grpd-m20",
+      "section": "maths",
+      "topic": "discount",
+      "topicName": {
+        "en": "Successive Discount",
+        "hi": "क्रमिक छूट"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What single discount is equivalent to two successive discounts of 20% and 10%?",
+        "hi": "20% और 10% की दो क्रमिक छूटों के समतुल्य एकल छूट क्या होगी?"
+      },
+      "options": {
+        "en": [
+          "28%",
+          "30%",
+          "25%",
+          "27%"
+        ],
+        "hi": [
+          "28%",
+          "30%",
+          "25%",
+          "27%"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Equivalent discount = d1 + d2 - (d1 × d2)/100 = 20 + 10 - 2 = 28%.",
+        "hi": "समतुल्य छूट = d1 + d2 - (d1 × d2)/100 = 20 + 10 - 2 = 28%।"
+      }
+    },
+    {
+      "id": "grpd-m21",
+      "section": "maths",
+      "topic": "divisibility",
+      "topicName": {
+        "en": "Number System Divisibility",
+        "hi": "विभाज्यता नियम"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which of the following numbers is divisible by 11? \n1331, 1421, 1251, 1532",
+        "hi": "इनमें से कौन-सी संख्या 11 से पूर्णतः विभाज्य है? \n1331, 1421, 1251, 1532"
+      },
+      "options": {
+        "en": [
+          "1331",
+          "1421",
+          "1251",
+          "1532"
+        ],
+        "hi": [
+          "1331",
+          "1421",
+          "1251",
+          "1532"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "For 1331: (1 + 3) - (3 + 1) = 4 - 4 = 0. Hence divisible by 11 (11^3 = 1331).",
+        "hi": "विषम और सम स्थानों के अंकों के योग का अंतर शून्य है: (1+3) - (3+1) = 0।"
+      }
+    },
+    {
+      "id": "grpd-m22",
+      "section": "maths",
+      "topic": "partnership",
+      "topicName": {
+        "en": "Partnership",
+        "hi": "साझेदारी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "A and B invest ₹10,000 and ₹15,000 respectively in a business. At the end of the year, total profit is ₹5,000. What is A's share of profit?",
+        "hi": "A और B ने क्रमशः ₹10,000 और ₹15,000 का निवेश किया। वर्ष के अंत में कुल लाभ ₹5,000 हुआ। लाभ में A का हिस्सा क्या है?"
+      },
+      "options": {
+        "en": [
+          "₹2,000",
+          "₹3,000",
+          "₹2,500",
+          "₹1,800"
+        ],
+        "hi": [
+          "₹2,000",
+          "₹3,000",
+          "₹2,500",
+          "₹1,800"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Investment ratio = 10000 : 15000 = 2 : 3. A's share = (2/5) × 5000 = ₹2,000.",
+        "hi": "अनुपात = 2 : 3। A का हिस्सा = (2/5) × 5000 = ₹2,000।"
+      }
+    },
+    {
+      "id": "grpd-m23",
+      "section": "maths",
+      "topic": "mensuration-3d",
+      "topicName": {
+        "en": "Volume of Cylinder",
+        "hi": "बेलन का आयतन"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the volume of a cylinder of base radius 7 cm and height 10 cm (take π = 22/7):",
+        "hi": "7 सेमी आधार त्रिज्या और 10 सेमी ऊंचाई वाले बेलन का आयतन ज्ञात कीजिए (π = 22/7 लें):"
+      },
+      "options": {
+        "en": [
+          "1540 cm³",
+          "1450 cm³",
+          "770 cm³",
+          "3080 cm³"
+        ],
+        "hi": [
+          "1540 सेमी³",
+          "1450 सेमी³",
+          "770 सेमी³",
+          "3080 सेमी³"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Volume = π r² h = (22/7) × 7 × 7 × 10 = 154 × 10 = 1540 cm³.",
+        "hi": "आयतन = π r² h = 22/7 × 49 × 10 = 1540 घन सेमी।"
+      }
+    },
+    {
+      "id": "grpd-m24",
+      "section": "maths",
+      "topic": "mode",
+      "topicName": {
+        "en": "Statistics Mode",
+        "hi": "बहुलक"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the mode of the following dataset: 4, 7, 5, 4, 8, 4, 9, 7",
+        "hi": "दिए गए आंकड़ों का बहुलक (Mode) ज्ञात कीजिए: 4, 7, 5, 4, 8, 4, 9, 7"
+      },
+      "options": {
+        "en": [
+          "4",
+          "7",
+          "5",
+          "8"
+        ],
+        "hi": [
+          "4",
+          "7",
+          "5",
+          "8"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Number 4 appears 3 times (highest frequency), so the mode is 4.",
+        "hi": "संख्या 4 सबसे अधिक बार (3 बार) आई है, अतः बहुलक 4 है।"
+      }
+    },
+    {
+      "id": "grpd-m25",
+      "section": "maths",
+      "topic": "boat-stream",
+      "topicName": {
+        "en": "Boats & Streams",
+        "hi": "नाव और धारा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "If the speed of a boat in still water is 10 km/h and the speed of the stream is 3 km/h, what is the boat's downstream speed?",
+        "hi": "यदि शांत जल में नाव की चाल 10 किमी/घंटा और धारा की चाल 3 किमी/घंटा है, तो धारा के अनुकूल नाव की चाल क्या होगी?"
+      },
+      "options": {
+        "en": [
+          "13 km/h",
+          "7 km/h",
+          "10 km/h",
+          "15 km/h"
+        ],
+        "hi": [
+          "13 किमी/घंटा",
+          "7 किमी/घंटा",
+          "10 किमी/घंटा",
+          "15 किमी/घंटा"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Downstream speed = Speed of boat + Speed of stream = 10 + 3 = 13 km/h.",
+        "hi": "धारा के अनुकूल चाल = 10 + 3 = 13 किमी/घंटा।"
+      }
+    },
+    {
+      "id": "grpd-r01",
+      "section": "reasoning",
+      "topic": "analogy",
+      "topicName": {
+        "en": "Analogy",
+        "hi": "सादृश्यता"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Select the related word: \nTrain : Track :: Bus : ?",
+        "hi": "संबंधित शब्द चुनिए: \nट्रेन : पटरी :: बस : ?"
+      },
+      "options": {
+        "en": [
+          "Road",
+          "Driver",
+          "Passenger",
+          "Fuel"
+        ],
+        "hi": [
+          "सड़क",
+          "चालक",
+          "यात्री",
+          "ईंधन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Trains run on tracks; buses run on roads.",
+        "hi": "ट्रेन पटरी पर चलती है और बस सड़क पर चलती है।"
+      }
+    },
+    {
+      "id": "grpd-r02",
+      "section": "reasoning",
+      "topic": "series",
+      "topicName": {
+        "en": "Number Series",
+        "hi": "संख्या श्रृंखला"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Identify the next number: \n3, 6, 12, 24, ?",
+        "hi": "अगली संख्या पहचानिए: \n3, 6, 12, 24, ?"
+      },
+      "options": {
+        "en": [
+          "48",
+          "36",
+          "42",
+          "50"
+        ],
+        "hi": [
+          "48",
+          "36",
+          "42",
+          "50"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Each term is multiplied by 2: 24 × 2 = 48.",
+        "hi": "प्रत्येक पद 2 से गुणा हो रहा है: 24 × 2 = 48।"
+      }
+    },
+    {
+      "id": "grpd-r03",
+      "section": "reasoning",
+      "topic": "coding",
+      "topicName": {
+        "en": "Coding",
+        "hi": "कोडिंग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "If 'WATER' is coded as 'XBUFS', how is 'FIRE' coded?",
+        "hi": "यदि 'WATER' को 'XBUFS' लिखा जाता है, तो 'FIRE' को क्या लिखा जाएगा?"
+      },
+      "options": {
+        "en": [
+          "GJSF",
+          "GJSE",
+          "HKTF",
+          "FISF"
+        ],
+        "hi": [
+          "GJSF",
+          "GJSE",
+          "HKTF",
+          "FISF"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Every letter is shifted forward by +1: F+1=G, I+1=J, R+1=S, E+1=F -> GJSF.",
+        "hi": "प्रत्येक अक्षर में +1 की वृद्धि: F->G, I->J, R->S, E->F -> GJSF।"
+      }
+    },
+    {
+      "id": "grpd-r04",
+      "section": "reasoning",
+      "topic": "classification",
+      "topicName": {
+        "en": "Odd One Out",
+        "hi": "वर्गीकरण"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the odd word: \nEye, Ear, Nose, Kidney",
+        "hi": "विषम शब्द चुनिए: \nआंख, कान, नाक, वृक्क (किडनी)"
+      },
+      "options": {
+        "en": [
+          "Kidney",
+          "Eye",
+          "Ear",
+          "Nose"
+        ],
+        "hi": [
+          "वृक्क / किडनी",
+          "आंख",
+          "कान",
+          "नाक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Eye, ear, and nose are external sense organs; kidney is an internal organ.",
+        "hi": "आंख, कान, नाक बाह्य ज्ञानेंद्रियां हैं जबकि किडनी आंतरिक अंग है।"
+      }
+    },
+    {
+      "id": "grpd-r05",
+      "section": "reasoning",
+      "topic": "direction",
+      "topicName": {
+        "en": "Direction Test",
+        "hi": "दिशा परीक्षण"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Rohan faces North. He turns 90° clockwise, then 180° anti-clockwise. Which direction is he facing now?",
+        "hi": "रोहन उत्तर की ओर मुख किए हुए है। वह 90° दक्षिणावर्त और फिर 180° वामावर्त मुड़ता है। अब उसका मुख किस दिशा में है?"
+      },
+      "options": {
+        "en": [
+          "West",
+          "East",
+          "South",
+          "North"
+        ],
+        "hi": [
+          "पश्चिम",
+          "पूर्व",
+          "दक्षिण",
+          "उत्तर"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "North + 90° clockwise = East. East + 180° anti-clockwise = West.",
+        "hi": "उत्तर से 90° दक्षिणावर्त = पूर्व। पूर्व से 180° घूमने पर = पश्चिम दिशा।"
+      }
+    },
+    {
+      "id": "grpd-r06",
+      "section": "reasoning",
+      "topic": "blood-rel",
+      "topicName": {
+        "en": "Blood Relations",
+        "hi": "रक्त संबंध"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Pointing to a man, Neha said, 'He is the father of my brother's sister.' How is the man related to Neha?",
+        "hi": "एक व्यक्ति की ओर इशारा करते हुए नेहा ने कहा, 'वह मेरे भाई की बहन के पिता हैं।' वह व्यक्ति नेहा से किस प्रकार संबंधित है?"
+      },
+      "options": {
+        "en": [
+          "Father",
+          "Uncle",
+          "Brother",
+          "Grandfather"
+        ],
+        "hi": [
+          "पिता",
+          "चाचा",
+          "भाई",
+          "दादा"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Neha's brother's sister is Neha herself. Her father is Neha's father.",
+        "hi": "नेहा के भाई की बहन स्वयं नेहा है, और उसके पिता नेहा के भी पिता हैं।"
+      }
+    },
+    {
+      "id": "grpd-r07",
+      "section": "reasoning",
+      "topic": "syllogisms",
+      "topicName": {
+        "en": "Syllogisms",
+        "hi": "न्याय निगमन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Statements: \nSome trees are flowers. \nAll flowers are fruits. \nConclusion: \nSome trees are fruits.",
+        "hi": "कथन: \nकुछ पेड़ फूल हैं। \nसभी फूल फल हैं। \nनिष्कर्ष: \nकुछ पेड़ फल हैं।"
+      },
+      "options": {
+        "en": [
+          "Conclusion follows",
+          "Does not follow",
+          "Either or",
+          "None of these"
+        ],
+        "hi": [
+          "निष्कर्ष अनुसरण करता है",
+          "अनुसरण नहीं करता",
+          "या तो I या II",
+          "इनमें से कोई नहीं"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The overlapping part of trees that are flowers are necessarily fruits.",
+        "hi": "पेड़ का जो भाग फूल है वह फल के अंतर्गत भी आएगा, अतः निष्कर्ष सत्य है।"
+      }
+    },
+    {
+      "id": "grpd-r08",
+      "section": "reasoning",
+      "topic": "venn",
+      "topicName": {
+        "en": "Venn Diagram",
+        "hi": "वेन आरेख"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Identify the correct Venn representation: \nAnimals, Dogs, Cats",
+        "hi": "जानवर, कुत्ते, बिल्लियाँ का सही वेन आरेख क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "Both Dogs and Cats are separate circles inside Animals",
+          "Three intersecting circles",
+          "Three disjoint circles",
+          "Dogs inside Cats inside Animals"
+        ],
+        "hi": [
+          "कुत्ते और बिल्ली दोनों अलग वृत्त हैं जो जानवर के अंदर स्थित हैं",
+          "तीन आपस में काटते वृत्त",
+          "तीन अलग वृत्त",
+          "बिल्ली के अंदर कुत्ता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Both dogs and cats are animals, but cats and dogs are mutually exclusive species.",
+        "hi": "कुत्ता और बिल्ली दोनों जानवर वर्ग के अंतर्गत आते हैं किन्तु आपस में अलग हैं।"
+      }
+    },
+    {
+      "id": "grpd-r09",
+      "section": "reasoning",
+      "topic": "ranking",
+      "topicName": {
+        "en": "Order & Ranking",
+        "hi": "क्रम व्यवस्था"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "In a class of 50 students, Ravi is 15th from the top. What is his position from the bottom?",
+        "hi": "50 विद्यार्थियों की कक्षा में रवि ऊपर से 15वें स्थान पर है। नीचे से उसका स्थान क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "36th",
+          "35th",
+          "34th",
+          "37th"
+        ],
+        "hi": [
+          "36वाँ",
+          "35वाँ",
+          "34वाँ",
+          "37वाँ"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Position from bottom = 50 - 15 + 1 = 36th.",
+        "hi": "नीचे से स्थान = 50 - 15 + 1 = 36वाँ।"
+      }
+    },
+    {
+      "id": "grpd-r10",
+      "section": "reasoning",
+      "topic": "math-operators",
+      "topicName": {
+        "en": "Mathematical Operators",
+        "hi": "चिह्न संक्रियाएं"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "If 'P' denotes '+', 'Q' denotes '-', 'R' denotes '×', and 'S' denotes '÷', find 18 S 3 R 4 P 6:",
+        "hi": "यदि 'P' का अर्थ '+', 'Q' का '-', 'R' का '×', और 'S' का '÷' है, तो 18 S 3 R 4 P 6 का मान क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "30",
+          "28",
+          "24",
+          "32"
+        ],
+        "hi": [
+          "30",
+          "28",
+          "24",
+          "32"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "18 ÷ 3 × 4 + 6 = 6 × 4 + 6 = 24 + 6 = 30.",
+        "hi": "18 ÷ 3 × 4 + 6 = 6 × 4 + 6 = 30।"
+      }
+    },
+    {
+      "id": "grpd-r11",
+      "section": "reasoning",
+      "topic": "mirror-image",
+      "topicName": {
+        "en": "Mirror Image",
+        "hi": "दर्पण प्रतिबिंब"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the mirror image of number '5' when the mirror is placed vertically on its right:",
+        "hi": "जब दर्पण दाईं ओर रखा जाए तो अंक '5' का दर्पण प्रतिबिंब कैसा होगा?"
+      },
+      "options": {
+        "en": [
+          "Laterally inverted 5 facing left",
+          "Upside down 5",
+          "Exact same 5",
+          "Number 2"
+        ],
+        "hi": [
+          "पार्श्व रूप से उल्टा 5",
+          "उल्टा 5",
+          "समान 5",
+          "अंक 2"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "A vertical mirror inverts laterally left to right.",
+        "hi": "ऊर्ध्वाधर दर्पण में पार्श्व परिवर्तन होकर खुला भाग विपरीत दिशा में दिखता है।"
+      }
+    },
+    {
+      "id": "grpd-r12",
+      "section": "reasoning",
+      "topic": "water-image",
+      "topicName": {
+        "en": "Water Image",
+        "hi": "जल प्रतिबिंब"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the water image of the capital letter 'E'?",
+        "hi": "अंग्रेजी के बड़े अक्षर 'E' का जल प्रतिबिंब क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "E (Identical)",
+          "3 (Reversed)",
+          "Upside down E",
+          "None"
+        ],
+        "hi": [
+          "E (समान)",
+          "3",
+          "उल्टा E",
+          "कोई नहीं"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Letter E has horizontal symmetry; its water reflection is identical to 'E'.",
+        "hi": "अक्षर 'E' में क्षैतिज समरूपता होती है, अतः इसका जल प्रतिबिंब 'E' ही रहता है।"
+      }
+    },
+    {
+      "id": "grpd-r13",
+      "section": "reasoning",
+      "topic": "counting-figures",
+      "topicName": {
+        "en": "Counting Triangles",
+        "hi": "त्रिभुज गणना"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "How many triangles are there in a square divided by both its diagonals?",
+        "hi": "दोनों विकर्णों द्वारा विभाजित एक वर्ग में कुल कितने त्रिभुज होते हैं?"
+      },
+      "options": {
+        "en": [
+          "8",
+          "4",
+          "6",
+          "10"
+        ],
+        "hi": [
+          "8",
+          "4",
+          "6",
+          "10"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "There are 4 small single triangles and 4 combination triangles formed by adjacent pairs = 8 triangles.",
+        "hi": "4 छोटे और 4 बड़े मिलाकर कुल 8 त्रिभुज बनते हैं।"
+      }
+    },
+    {
+      "id": "grpd-r14",
+      "section": "reasoning",
+      "topic": "series-alpha",
+      "topicName": {
+        "en": "Letter Series",
+        "hi": "वर्ण श्रृंखला"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Fill in the blank: C, F, I, L, ?",
+        "hi": "रिक्त पद भरिए: C, F, I, L, ?"
+      },
+      "options": {
+        "en": [
+          "O",
+          "P",
+          "N",
+          "M"
+        ],
+        "hi": [
+          "O",
+          "P",
+          "N",
+          "M"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Each letter steps forward by +3: C(3), F(6), I(9), L(12), O(15).",
+        "hi": "प्रत्येक में +3 की वृद्धि: L(12) + 3 = O(15)।"
+      }
+    },
+    {
+      "id": "grpd-r15",
+      "section": "reasoning",
+      "topic": "clock",
+      "topicName": {
+        "en": "Clock Hands",
+        "hi": "घड़ी की सुइयां"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "How many times do the hands of a clock coincide (overlap) in 24 hours?",
+        "hi": "24 घंटे में घड़ी की दोनों सुइयां एक साथ (संपाती) कितनी बार होती हैं?"
+      },
+      "options": {
+        "en": [
+          "22 times",
+          "24 times",
+          "44 times",
+          "20 times"
+        ],
+        "hi": [
+          "22 बार",
+          "24 बार",
+          "44 बार",
+          "20 बार"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "In 12 hours they coincide 11 times (between 11 and 1 they coincide once at 12). In 24 hours = 22 times.",
+        "hi": "12 घंटे में 11 बार और 24 घंटे में 22 बार दोनों सुइयां आपस में मिलती हैं।"
+      }
+    },
+    {
+      "id": "grpd-r16",
+      "section": "reasoning",
+      "topic": "statement-arg",
+      "topicName": {
+        "en": "Statement & Assumptions",
+        "hi": "कथन एवं पूर्वधारणाएं"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Statement: 'Drink boiled water during monsoon to prevent waterborne illnesses.' \nAssumption: Boiling water kills harmful pathogens.",
+        "hi": "कथन: 'जलजनित रोगों से बचने के लिए मानसून में उबला पानी पिएं।' \nपूर्वधारणा: पानी उबालने से हानिकारक रोगाणु नष्ट हो जाते हैं।"
+      },
+      "options": {
+        "en": [
+          "Assumption is implicit",
+          "Assumption is not implicit",
+          "Either or",
+          "Neither"
+        ],
+        "hi": [
+          "पूर्वधारणा अंतर्निहित है",
+          "पूर्वधारणा अंतर्निहित नहीं है",
+          "या तो",
+          "कोई नहीं"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The advice to boil water directly assumes that boiling kills disease-causing germs.",
+        "hi": "उबला पानी पीने की सलाह इस पूर्वधारणा पर आधारित है कि उबालने से कीटाणु मर जाते हैं।"
+      }
+    },
+    {
+      "id": "grpd-r17",
+      "section": "reasoning",
+      "topic": "words-order",
+      "topicName": {
+        "en": "Dictionary Arrangement",
+        "hi": "शब्दकोश क्रम"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which word comes first in alphabetical order? \nRailway, Rainbow, Raincoat, Raise",
+        "hi": "वर्णमाला क्रम में सबसे पहले कौन-सा शब्द आएगा? \nRailway, Rainbow, Raincoat, Raise"
+      },
+      "options": {
+        "en": [
+          "Rainbow",
+          "Raincoat",
+          "Railway",
+          "Raise"
+        ],
+        "hi": [
+          "Rainbow",
+          "Raincoat",
+          "Railway",
+          "Raise"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Comparing letters: 'Rainb...' precedes 'Rainc...', 'Railw...' (wait: R-A-I-L comes before R-A-I-N! L is 12, N is 14. So Railway is first!). Let's check: R-a-i-l-w-a-y: 4th letter is L. R-a-i-n...: 4th letter is N. Since L comes before N, 'Railway' comes first!",
+        "hi": "R-A-I-L (Railway) में चौथा अक्षर L है जो Rainbow/Raincoat के N से पहले आता है।"
+      }
+    },
+    {
+      "id": "grpd-r18",
+      "section": "reasoning",
+      "topic": "cube",
+      "topicName": {
+        "en": "Dice Opposite",
+        "hi": "पासा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "In a standard dice, which number is opposite to 2?",
+        "hi": "एक मानक पासे में 2 के विपरीत कौन-सा अंक होता है?"
+      },
+      "options": {
+        "en": [
+          "5",
+          "4",
+          "3",
+          "6"
+        ],
+        "hi": [
+          "5",
+          "4",
+          "3",
+          "6"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Opposite faces in a standard dice add up to 7: 7 - 2 = 5.",
+        "hi": "मानक पासे में विपरीत फलकों का योग 7 होता है: 7 - 2 = 5।"
+      }
+    },
+    {
+      "id": "grpd-r19",
+      "section": "reasoning",
+      "topic": "analogy-num",
+      "topicName": {
+        "en": "Number Analogy",
+        "hi": "संख्या सादृश्यता"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "9 : 81 :: 12 : ?",
+        "hi": "9 : 81 :: 12 : ?"
+      },
+      "options": {
+        "en": [
+          "144",
+          "124",
+          "132",
+          "140"
+        ],
+        "hi": [
+          "144",
+          "124",
+          "132",
+          "140"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "9^2 = 81, so 12^2 = 144.",
+        "hi": "9 का वर्ग 81 है, अतः 12 का वर्ग 144 होगा।"
+      }
+    },
+    {
+      "id": "grpd-r20",
+      "section": "reasoning",
+      "topic": "classification-num",
+      "topicName": {
+        "en": "Odd Number",
+        "hi": "विषम संख्या"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the odd one out: 27, 64, 125, 144",
+        "hi": "विषम संख्या चुनिए: 27, 64, 125, 144"
+      },
+      "options": {
+        "en": [
+          "144 (Square, not a cube)",
+          "27",
+          "64",
+          "125"
+        ],
+        "hi": [
+          "144 (यह वर्ग है, घन नहीं)",
+          "27",
+          "64",
+          "125"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "27 = 3^3, 64 = 4^3, 125 = 5^3 are cubes of integers. 144 = 12^2 is a square, not a cube of an integer.",
+        "hi": "अन्य सभी पूर्ण घन संख्याएं हैं (3^3, 4^3, 5^3) जबकि 144 एक पूर्ण वर्ग (12^2) है।"
+      }
+    },
+    {
+      "id": "grpd-r21",
+      "section": "reasoning",
+      "topic": "series-double",
+      "topicName": {
+        "en": "Alternate Series",
+        "hi": "एकांतर श्रृंखला"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Find the next term: 2, 5, 4, 10, 6, 15, 8, ?",
+        "hi": "अगला पद ज्ञात कीजिए: 2, 5, 4, 10, 6, 15, 8, ?"
+      },
+      "options": {
+        "en": [
+          "20",
+          "18",
+          "25",
+          "16"
+        ],
+        "hi": [
+          "20",
+          "18",
+          "25",
+          "16"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Two interleaved series: 2, 4, 6, 8 (evens) and 5, 10, 15, 20 (multiples of 5). Next is 20.",
+        "hi": "दो एकांतर श्रृंखलाएं हैं: पहली (2, 4, 6, 8) और दूसरी (5, 10, 15, 20)। अगला पद 20 होगा।"
+      }
+    },
+    {
+      "id": "grpd-r22",
+      "section": "reasoning",
+      "topic": "coding-substitution",
+      "topicName": {
+        "en": "Substitution",
+        "hi": "प्रतिस्थापन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "If 'white' is called 'black', 'black' is called 'red', 'red' is called 'green', what is the color of human blood?",
+        "hi": "यदि 'सफेद' को 'काला', 'काला' को 'लाल', और 'लाल' को 'हरा' कहा जाए, तो मानव रक्त का रंग कैसा होगा?"
+      },
+      "options": {
+        "en": [
+          "Green",
+          "Red",
+          "Black",
+          "White"
+        ],
+        "hi": [
+          "हरा (Green)",
+          "लाल",
+          "काला",
+          "सफेद"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Blood is red, and red is called green.",
+        "hi": "रक्त का रंग लाल होता है, और लाल को 'हरा' कहा गया है।"
+      }
+    },
+    {
+      "id": "grpd-r23",
+      "section": "reasoning",
+      "topic": "calendar",
+      "topicName": {
+        "en": "Calendar Odd Days",
+        "hi": "कैलेंडर"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "How many odd days are there in a standard non-leap year of 365 days?",
+        "hi": "365 दिनों के एक सामान्य वर्ष में कितने विषम दिन (Odd Days) होते हैं?"
+      },
+      "options": {
+        "en": [
+          "1 odd day",
+          "2 odd days",
+          "0 odd days",
+          "3 odd days"
+        ],
+        "hi": [
+          "1 विषम दिन",
+          "2 विषम दिन",
+          "0 विषम दिन",
+          "3 विषम दिन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "365 ÷ 7 = 52 weeks + 1 remaining day = 1 odd day.",
+        "hi": "365 को 7 से भाग देने पर 52 सप्ताह और 1 शेष दिन बचता है।"
+      }
+    },
+    {
+      "id": "grpd-r24",
+      "section": "reasoning",
+      "topic": "sitting-circular",
+      "topicName": {
+        "en": "Circle Seating",
+        "hi": "वृत्ताकार बैठक"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Four persons P, Q, R, S sit around a circular table facing the center. If P is opposite to R, who is opposite to Q?",
+        "hi": "चार व्यक्ति P, Q, R, S केंद्र की ओर मुख करके एक गोल मेज के चारों ओर बैठे हैं। यदि P, R के सामने है, तो Q के सामने कौन होगा?"
+      },
+      "options": {
+        "en": [
+          "S",
+          "P",
+          "R",
+          "Cannot be determined"
+        ],
+        "hi": [
+          "S",
+          "P",
+          "R",
+          "तय नहीं किया जा सकता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "In a 4-person table with two opposite pairs, if P is opposite to R, then Q must be opposite to S.",
+        "hi": "चार व्यक्तियों में यदि P और R आमने-सामने हैं तो Q और S आमने-सामने होंगे।"
+      }
+    },
+    {
+      "id": "grpd-r25",
+      "section": "reasoning",
+      "topic": "pattern-analogy",
+      "topicName": {
+        "en": "Letter Pairs",
+        "hi": "अक्षर युग्म"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "AZ : BY :: CX : ?",
+        "hi": "AZ : BY :: CX : ?"
+      },
+      "options": {
+        "en": [
+          "DW",
+          "EV",
+          "DU",
+          "DX"
+        ],
+        "hi": [
+          "DW",
+          "EV",
+          "DU",
+          "DX"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Forward alphabetical order paired with reverse alphabetical order: A-Z, B-Y, C-X, D-W.",
+        "hi": "विपरीत वर्णमाला युग्म: A-Z, B-Y, C-X, D-W।"
+      }
+    },
+    {
+      "id": "grpd-r26",
+      "section": "reasoning",
+      "topic": "embedded",
+      "topicName": {
+        "en": "Hidden Shape",
+        "hi": "सन्निहित आकृति"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which shape consists of exactly 3 straight edges and 3 angles?",
+        "hi": "वह आकृति कौन-सी है जिसमें 3 सीधी भुजाएं और 3 कोण होते हैं?"
+      },
+      "options": {
+        "en": [
+          "Triangle",
+          "Square",
+          "Circle",
+          "Pentagon"
+        ],
+        "hi": [
+          "त्रिभुज (Triangle)",
+          "वर्ग",
+          "वृत्त",
+          "पंचभुज"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "A triangle by definition has three straight sides and three vertices/angles.",
+        "hi": "तीन भुजाओं और तीन कोणों वाली आकृति त्रिभुज कहलाती है।"
+      }
+    },
+    {
+      "id": "grpd-r27",
+      "section": "reasoning",
+      "topic": "blood-rel",
+      "topicName": {
+        "en": "Family Tree",
+        "hi": "परिवार वृक्ष"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "M is the mother of K. K is the sister of T. How is M related to T?",
+        "hi": "M, K की माता है। K, T की बहन है। M का T से क्या संबंध है?"
+      },
+      "options": {
+        "en": [
+          "Mother",
+          "Aunt",
+          "Sister",
+          "Grandmother"
+        ],
+        "hi": [
+          "माता",
+          "मौसी/चाची",
+          "बहन",
+          "दादी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "K and T are siblings, so M is also the mother of T.",
+        "hi": "K और T भाई-बहन हैं, अतः M दोनों की माता है।"
+      }
+    },
+    {
+      "id": "grpd-r28",
+      "section": "reasoning",
+      "topic": "syllogisms",
+      "topicName": {
+        "en": "Syllogism 2",
+        "hi": "न्याय निगमन 2"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Statements: \nNo cat is dog. \nAll dogs are animals. \nConclusion: \nSome animals are dogs.",
+        "hi": "कथन: \nकोई बिल्ली कुत्ता नहीं है। \nसभी कुत्ते जानवर हैं। \nनिष्कर्ष: \nकुछ जानवर कुत्ते हैं।"
+      },
+      "options": {
+        "en": [
+          "Conclusion follows",
+          "Does not follow",
+          "Either or",
+          "Neither"
+        ],
+        "hi": [
+          "निष्कर्ष अनुसरण करता है",
+          "अनुसरण नहीं करता",
+          "या तो",
+          "कोई नहीं"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Since all dogs are animals, those animals that are dogs validate 'some animals are dogs'.",
+        "hi": "चूँकि सभी कुत्ते जानवर हैं, इसलिए कुछ जानवर कुत्ते अवश्य हैं।"
+      }
+    },
+    {
+      "id": "grpd-r29",
+      "section": "reasoning",
+      "topic": "venn-profession",
+      "topicName": {
+        "en": "Venn 2",
+        "hi": "वेन 2"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which relationship best represents: Teachers, Men, Authors?",
+        "hi": "शिक्षक, पुरुष, लेखक के बीच कौन-सा वेन आरेख सही है?"
+      },
+      "options": {
+        "en": [
+          "Three intersecting circles overlapping in the center",
+          "Three concentric circles",
+          "Three completely separate circles",
+          "One circle containing two disjoint circles"
+        ],
+        "hi": [
+          "तीनों एक दूसरे को परस्पर काटते हुए वृत्त",
+          "तीन संकेन्द्रीय वृत्त",
+          "तीन अलग-अलग वृत्त",
+          "एक बड़े वृत्त में दो छोटे वृत्त"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "A man can be both a teacher and an author simultaneously, hence a 3-way overlap.",
+        "hi": "एक पुरुष शिक्षक भी हो सकता है और लेखक भी, अतः तीनों परस्पर संबंधित हो सकते हैं।"
+      }
+    },
+    {
+      "id": "grpd-r30",
+      "section": "reasoning",
+      "topic": "direction-final",
+      "topicName": {
+        "en": "Direction 2",
+        "hi": "दिशा 2"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "If you walk towards the rising sun in the morning, which direction is towards your left?",
+        "hi": "यदि आप सुबह उगते सूर्य की ओर मुख करके चल रहे हैं, तो आपकी बाईं ओर कौन-सी दिशा होगी?"
+      },
+      "options": {
+        "en": [
+          "North",
+          "South",
+          "West",
+          "East"
+        ],
+        "hi": [
+          "उत्तर (North)",
+          "दक्षिण",
+          "पश्चिम",
+          "पूर्व"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Facing East in the morning puts North on your left and South on your right.",
+        "hi": "पूर्व दिशा की ओर मुख होने पर बायां हाथ उत्तर दिशा की ओर होता है।"
+      }
+    },
+    {
+      "id": "grpd-ga01",
+      "section": "ga",
+      "topic": "railways",
+      "topicName": {
+        "en": "Indian Railways GK",
+        "hi": "भारतीय रेलवे सामान्य ज्ञान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "In which year did the first passenger train run in India between Mumbai (Bori Bunder) and Thane?",
+        "hi": "भारत में पहली यात्री रेलगाड़ी मुंबई (बोरी बंदर) और ठाणे के बीच किस वर्ष चली थी?"
+      },
+      "options": {
+        "en": [
+          "1853",
+          "1857",
+          "1885",
+          "1905"
+        ],
+        "hi": [
+          "1853",
+          "1857",
+          "1885",
+          "1905"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The historic first passenger train ran on 16 April 1853 covering a distance of 34 km.",
+        "hi": "16 अप्रैल 1853 को लॉर्ड डलहौजी के काल में पहली यात्री ट्रेन चलाई गई थी।"
+      }
+    },
+    {
+      "id": "grpd-ga02",
+      "section": "ga",
+      "topic": "railways",
+      "topicName": {
+        "en": "Railway Zones",
+        "hi": "रेलवे जोन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Where is the headquarters of Northern Railway situated?",
+        "hi": "उत्तर रेलवे (Northern Railway) का मुख्यालय कहाँ स्थित है?"
+      },
+      "options": {
+        "en": [
+          "New Delhi",
+          "Gorakhpur",
+          "Prayagraj",
+          "Kolkata"
+        ],
+        "hi": [
+          "नई दिल्ली",
+          "गोरखपुर",
+          "प्रयागराज",
+          "कोलकाता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Northern Railway headquarters is located in New Delhi.",
+        "hi": "उत्तर रेलवे का जोनल मुख्यालय नई दिल्ली में स्थित है।"
+      }
+    },
+    {
+      "id": "grpd-ga03",
+      "section": "ga",
+      "topic": "polity",
+      "topicName": {
+        "en": "Constitution",
+        "hi": "संविधान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Who is recognized as the 'Father of the Indian Constitution'?",
+        "hi": "भारतीय संविधान के जनक के रूप में किसे जाना जाता है?"
+      },
+      "options": {
+        "en": [
+          "Dr. B.R. Ambedkar",
+          "Mahatma Gandhi",
+          "Dr. Rajendra Prasad",
+          "Jawaharlal Nehru"
+        ],
+        "hi": [
+          "डॉ. बी.आर. अम्बेडकर",
+          "महात्मा गांधी",
+          "डॉ. राजेन्द्र प्रसाद",
+          "जवाहरलाल नेहरू"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Dr. Bhimrao Ramji Ambedkar, Chairman of the Drafting Committee, is the chief architect of the Indian Constitution.",
+        "hi": "प्रारूप समिति के अध्यक्ष डॉ. भीमराव अम्बेडकर को भारतीय संविधान का जनक कहा जाता है।"
+      }
+    },
+    {
+      "id": "grpd-ga04",
+      "section": "ga",
+      "topic": "history",
+      "topicName": {
+        "en": "Ancient History",
+        "hi": "प्राचीन इतिहास"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Who was the founder of the Maurya Empire with capital at Pataliputra?",
+        "hi": "पाटलिपुत्र को राजधानी बनाकर मौर्य साम्राज्य की स्थापना किसने की थी?"
+      },
+      "options": {
+        "en": [
+          "Chandragupta Maurya",
+          "Ashoka the Great",
+          "Bindusara",
+          "Harsha"
+        ],
+        "hi": [
+          "चन्द्रगुप्त मौर्य",
+          "सम्राट अशोक",
+          "बिन्दुसार",
+          "हर्षवर्धन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Chandragupta Maurya founded the Maurya Empire with guidance from Chanakya in 322 BCE.",
+        "hi": "चाणक्य की सहायता से चन्द्रगुप्त मौर्य ने मौर्य वंश की स्थापना की थी।"
+      }
+    },
+    {
+      "id": "grpd-ga05",
+      "section": "ga",
+      "topic": "geography",
+      "topicName": {
+        "en": "Indian Geography",
+        "hi": "भारतीय भूगोल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which Indian state has the longest coastline on the mainland?",
+        "hi": "भारत की मुख्य भूमि पर सबसे लंबी तटरेखा वाला राज्य कौन-सा है?"
+      },
+      "options": {
+        "en": [
+          "Gujarat",
+          "Andhra Pradesh",
+          "Tamil Nadu",
+          "Maharashtra"
+        ],
+        "hi": [
+          "गुजरात",
+          "आंध्र प्रदेश",
+          "तमिलनाडु",
+          "महाराष्ट्र"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Gujarat has the longest coastline in India, extending over approximately 1,600 km.",
+        "hi": "गुजरात की तटरेखा भारत में सबसे लंबी (लगभग 1,600 किमी) है।"
+      }
+    },
+    {
+      "id": "grpd-ga06",
+      "section": "ga",
+      "topic": "economy",
+      "topicName": {
+        "en": "Banking",
+        "hi": "बैंकिंग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Where is the central headquarters of the Reserve Bank of India (RBI) located?",
+        "hi": "भारतीय रिजर्व बैंक (RBI) का केंद्रीय मुख्यालय कहाँ स्थित है?"
+      },
+      "options": {
+        "en": [
+          "Mumbai",
+          "New Delhi",
+          "Kolkata",
+          "Chennai"
+        ],
+        "hi": [
+          "मुंबई",
+          "नई दिल्ली",
+          "कोलकाता",
+          "चेन्नई"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The RBI was initially established in Kolkata in 1935 and permanently moved to Mumbai in 1937.",
+        "hi": "आरबीआई का मुख्यालय मुंबई में स्थित है।"
+      }
+    },
+    {
+      "id": "grpd-ga07",
+      "section": "ga",
+      "topic": "space",
+      "topicName": {
+        "en": "Science & Tech",
+        "hi": "अंतरिक्ष एवं प्रौद्योगिकी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Where is the Satish Dhawan Space Centre (SHAR) of ISRO located?",
+        "hi": "इसरो का सतीश धवन अंतरिक्ष केंद्र (SHAR) कहाँ स्थित है?"
+      },
+      "options": {
+        "en": [
+          "Sriharikota (Andhra Pradesh)",
+          "Thiruvananthapuram (Kerala)",
+          "Bengaluru (Karnataka)",
+          "Chandipur (Odisha)"
+        ],
+        "hi": [
+          "श्रीहरिकोटा (आंध्र प्रदेश)",
+          "तिरुवनंतपुरम (केरल)",
+          "बेंगलुरु (कर्नाटक)",
+          "चांदीपुर (ओडिशा)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Satish Dhawan Space Centre is India's primary rocket launch centre located in Sriharikota, Andhra Pradesh.",
+        "hi": "सतीश धवन अंतरिक्ष केंद्र श्रीहरिकोटा (आंध्र प्रदेश) में स्थित भारत का प्रमुख प्रक्षेपण केंद्र है।"
+      }
+    },
+    {
+      "id": "grpd-ga08",
+      "section": "ga",
+      "topic": "polity",
+      "topicName": {
+        "en": "Parliament",
+        "hi": "संसद"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the tenure of an elected member of the Rajya Sabha (Council of States)?",
+        "hi": "राज्यसभा के एक निर्वाचित सदस्य का कार्यकाल कितने वर्ष का होता है?"
+      },
+      "options": {
+        "en": [
+          "6 years",
+          "5 years",
+          "4 years",
+          "Permanent without term"
+        ],
+        "hi": [
+          "6 वर्ष",
+          "5 वर्ष",
+          "4 वर्ष",
+          "स्थायी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Rajya Sabha is a permanent house, and its members are elected for a term of 6 years, with one-third retiring every two years.",
+        "hi": "राज्यसभा एक स्थायी सदन है जिसके सदस्यों का कार्यकाल 6 वर्ष होता है।"
+      }
+    },
+    {
+      "id": "grpd-ga09",
+      "section": "ga",
+      "topic": "sports",
+      "topicName": {
+        "en": "Cricket",
+        "hi": "क्रिकेट"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which country won the inaugural ICC Men's T20 World Cup held in South Africa in 2007?",
+        "hi": "2007 में दक्षिण अफ्रीका में आयोजित पहला आईसीसी पुरुष टी20 विश्व कप किस देश ने जीता था?"
+      },
+      "options": {
+        "en": [
+          "India",
+          "Pakistan",
+          "Australia",
+          "West Indies"
+        ],
+        "hi": [
+          "भारत",
+          "पाकिस्तान",
+          "ऑस्ट्रेलिया",
+          "वेस्टइंडीज"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "India under MS Dhoni defeated Pakistan in the final to lift the first T20 World Cup in 2007.",
+        "hi": "महेंद्र सिंह धोनी की कप्तानी में भारत ने पाकिस्तान को हराकर पहला टी20 विश्व कप जीता था।"
+      }
+    },
+    {
+      "id": "grpd-ga10",
+      "section": "ga",
+      "topic": "culture",
+      "topicName": {
+        "en": "Festivals",
+        "hi": "सांस्कृतिक उत्सव"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Hornbill Festival is celebrated every year in which north-eastern state of India?",
+        "hi": "हॉर्नबिल महोत्सव प्रत्येक वर्ष किस पूर्वोत्तर राज्य में मनाया जाता है?"
+      },
+      "options": {
+        "en": [
+          "Nagaland",
+          "Manipur",
+          "Mizoram",
+          "Arunachal Pradesh"
+        ],
+        "hi": [
+          "नागालैंड",
+          "मणिपुर",
+          "मिजोरम",
+          "अरुणाचल प्रदेश"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Hornbill Festival, known as the 'Festival of Festivals', is held in Kohima/Kisama, Nagaland.",
+        "hi": "हॉर्नबिल उत्सव नागालैंड का सबसे प्रसिद्ध सांस्कृतिक त्योहार है।"
+      }
+    },
+    {
+      "id": "grpd-ga11",
+      "section": "ga",
+      "topic": "history",
+      "topicName": {
+        "en": "1857 Revolt",
+        "hi": "1857 की क्रांति"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "From which military cantonment did Mangal Pandey ignite the uprising of 1857?",
+        "hi": "मंगल पांडे ने 1857 के विद्रोह की शुरुआत किस सैनिक छावनी से की थी?"
+      },
+      "options": {
+        "en": [
+          "Barrackpore",
+          "Meerut",
+          "Kanpur",
+          "Jhansi"
+        ],
+        "hi": [
+          "बैरकपुर",
+          "मेरठ",
+          "कानपुर",
+          "झांसी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Mangal Pandey revolted against the greased cartridges at Barrackpore on 29 March 1857.",
+        "hi": "मंगल पांडे ने 29 मार्च 1857 को बैरकपुर छावनी में विद्रोह का बिगुल फूंका था।"
+      }
+    },
+    {
+      "id": "grpd-ga12",
+      "section": "ga",
+      "topic": "geography",
+      "topicName": {
+        "en": "Soil in India",
+        "hi": "भारतीय मृदा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which soil is most suitable for cotton cultivation in India?",
+        "hi": "भारत में कपास की खेती के लिए सबसे उपयुक्त मिट्टी कौन-सी है?"
+      },
+      "options": {
+        "en": [
+          "Black soil (Regur soil)",
+          "Alluvial soil",
+          "Red soil",
+          "Laterite soil"
+        ],
+        "hi": [
+          "काली मिट्टी (रेगुर मिट्टी)",
+          "जलोढ़ मिट्टी",
+          "लाल मिट्टी",
+          "लैटेराइट मिट्टी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Black cotton soil (Regur) has high clay content and water retention capacity ideal for cotton.",
+        "hi": "काली मिट्टी को रेगुर मिट्टी भी कहते हैं जो कपास उत्पादन के लिए सर्वाधिक उपयुक्त होती है।"
+      }
+    },
+    {
+      "id": "grpd-ga13",
+      "section": "ga",
+      "topic": "polity",
+      "topicName": {
+        "en": "Fundamental Rights",
+        "hi": "मौलिक अधिकार"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Which Fundamental Right was described by Dr. B.R. Ambedkar as the 'Heart and Soul of the Constitution'?",
+        "hi": "डॉ. बी.आर. अम्बेडकर ने किस मौलिक अधिकार को 'संविधान का हृदय और आत्मा' कहा था?"
+      },
+      "options": {
+        "en": [
+          "Right to Constitutional Remedies (Article 32)",
+          "Right to Equality",
+          "Right to Freedom",
+          "Right to Freedom of Religion"
+        ],
+        "hi": [
+          "संवैधानिक उपचारों का अधिकार (अनुच्छेद 32)",
+          "समानता का अधिकार",
+          "स्वतंत्रता का अधिकार",
+          "धार्मिक स्वतंत्रता का अधिकार"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Article 32 guarantees the right to move the Supreme Court for enforcement of fundamental rights.",
+        "hi": "अनुच्छेद 32 (संवैधानिक उपचारों का अधिकार) को डॉ. अम्बेडकर ने संविधान की आत्मा कहा था।"
+      }
+    },
+    {
+      "id": "grpd-ga14",
+      "section": "ga",
+      "topic": "railways",
+      "topicName": {
+        "en": "Vande Bharat",
+        "hi": "वंदे भारत एक्सप्रेस"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Where was the first Vande Bharat Express (Train 18) launched in India in February 2019?",
+        "hi": "फरवरी 2019 में भारत की पहली वंदे भारत एक्सप्रेस किन दो शहरों के बीच चलाई गई थी?"
+      },
+      "options": {
+        "en": [
+          "New Delhi to Varanasi",
+          "New Delhi to Katra",
+          "Mumbai to Ahmedabad",
+          "Chennai to Bengaluru"
+        ],
+        "hi": [
+          "नई दिल्ली से वाराणसी",
+          "नई दिल्ली से कटरा",
+          "मुंबई से अहमदाबाद",
+          "चेन्नई से बेंगलुरु"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The maiden Vande Bharat Express was flagged off between New Delhi and Varanasi on 15 February 2019.",
+        "hi": "पहली वंदे भारत एक्सप्रेस 15 फरवरी 2019 को नई दिल्ली और वाराणसी के बीच शुरू हुई थी।"
+      }
+    },
+    {
+      "id": "grpd-ga15",
+      "section": "ga",
+      "topic": "awards",
+      "topicName": {
+        "en": "Civilian Honors",
+        "hi": "नागरिक सम्मान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "What is the highest civilian award of the Republic of India?",
+        "hi": "भारत गणराज्य का सर्वोच्च नागरिक सम्मान कौन-सा है?"
+      },
+      "options": {
+        "en": [
+          "Bharat Ratna",
+          "Padma Vibhushan",
+          "Padma Bhushan",
+          "Param Vir Chakra"
+        ],
+        "hi": [
+          "भारत रत्न",
+          "पद्म विभूषण",
+          "पद्म भूषण",
+          "परमवीर चक्र"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Bharat Ratna, instituted in 1954, is the highest civilian honor in India.",
+        "hi": "भारत रत्न देश का सर्वोच्च नागरिक पुरस्कार है।"
+      }
+    },
+    {
+      "id": "grpd-ga16",
+      "section": "ga",
+      "topic": "history",
+      "topicName": {
+        "en": "Sultans of Delhi",
+        "hi": "दिल्ली सल्तनत"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Who built the Qutub Minar in Delhi (started by Qutb-ud-din Aibak and completed by Iltutmish)?",
+        "hi": "दिल्ली में कुतुब मीनार का निर्माण किसने पूरा करवाया था?"
+      },
+      "options": {
+        "en": [
+          "Shams-ud-din Iltutmish",
+          "Alauddin Khilji",
+          "Balban",
+          "Firoz Shah Tughlaq"
+        ],
+        "hi": [
+          "शम्स-उद-दीन इल्तुतमिश",
+          "अलाउद्दीन खिलजी",
+          "बलबन",
+          "फिरोज शाह तुगलक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Qutb-ud-din Aibak started it in 1199, and his successor Iltutmish added three storeys to complete it.",
+        "hi": "कुतुब मीनार की नींव कुतुबुद्दीन ऐबक ने रखी और इसे इल्तुतमिश ने पूरा करवाया।"
+      }
+    },
+    {
+      "id": "grpd-ga17",
+      "section": "ga",
+      "topic": "environment",
+      "topicName": {
+        "en": "World Days",
+        "hi": "पर्यावरण दिवस"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "World Environment Day is celebrated internationally every year on which date?",
+        "hi": "विश्व पर्यावरण दिवस प्रत्येक वर्ष किस तिथि को मनाया जाता है?"
+      },
+      "options": {
+        "en": [
+          "5 June",
+          "22 April",
+          "21 June",
+          "16 September"
+        ],
+        "hi": [
+          "5 जून",
+          "22 अप्रैल",
+          "21 जून",
+          "16 सितंबर"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "World Environment Day has been celebrated on 5 June since 1973 by the United Nations Environment Programme (UNEP).",
+        "hi": "संयुक्त राष्ट्र द्वारा प्रतिवर्ष 5 जून को विश्व पर्यावरण दिवस मनाया जाता है।"
+      }
+    },
+    {
+      "id": "grpd-ga18",
+      "section": "ga",
+      "topic": "geography",
+      "topicName": {
+        "en": "Dams of India",
+        "hi": "भारत के बांध"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "Hirakud Dam, the longest earthen dam in India, is constructed across which river in Odisha?",
+        "hi": "भारत का सबसे लंबा बांध हीराकुंड बांध ओडिशा में किस नदी पर निर्मित है?"
+      },
+      "options": {
+        "en": [
+          "Mahanadi",
+          "Godavari",
+          "Krishna",
+          "Cauvery"
+        ],
+        "hi": [
+          "महानदी",
+          "गोदावरी",
+          "कृष्णा",
+          "कावेरी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Hirakud Dam is built across the Mahanadi River near Sambalpur in Odisha.",
+        "hi": "हीराकुंड बांध ओडिशा में महानदी पर बनाया गया है।"
+      }
+    },
+    {
+      "id": "grpd-ga19",
+      "section": "ga",
+      "topic": "sports",
+      "topicName": {
+        "en": "National Game",
+        "hi": "राष्ट्रीय खेल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "With which sport is the prestigious Santosh Trophy associated?",
+        "hi": "प्रतिष्ठित संतोष ट्रॉफी किस खेल से संबंधित है?"
+      },
+      "options": {
+        "en": [
+          "Football",
+          "Cricket",
+          "Hockey",
+          "Badminton"
+        ],
+        "hi": [
+          "फुटबॉल",
+          "क्रिकेट",
+          "हॉकी",
+          "बैडमिंटन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Santosh Trophy is an annual inter-state football tournament in India organized by AIFF.",
+        "hi": "संतोष ट्रॉफी भारत की राष्ट्रीय अंतर-राज्यीय फुटबॉल प्रतियोगिता है।"
+      }
+    },
+    {
+      "id": "grpd-ga20",
+      "section": "ga",
+      "topic": "polity",
+      "topicName": {
+        "en": "Preamble",
+        "hi": "प्रस्तावना"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "RRB Group D 2022",
+      "text": {
+        "en": "In which year was the Constitution of India formally adopted by the Constituent Assembly?",
+        "hi": "संविधान सभा द्वारा भारतीय संविधान को औपचारिक रूप से किस तिथि को अंगीकृत किया गया था?"
+      },
+      "options": {
+        "en": [
+          "26 November 1949",
+          "26 January 1950",
+          "15 August 1947",
+          "9 December 1946"
+        ],
+        "hi": [
+          "26 नवंबर 1949",
+          "26 जनवरी 1950",
+          "15 अगस्त 1947",
+          "9 दिसंबर 1946"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Constitution was adopted on 26 November 1949 (Constitution Day) and came into full effect on 26 January 1950 (Republic Day).",
+        "hi": "26 नवंबर 1949 को संविधान अंगीकृत किया गया और 26 जनवरी 1950 को पूर्णतः लागू हुआ।"
+      }
+    }
+  ]
+}

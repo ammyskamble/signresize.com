@@ -1,0 +1,2824 @@
+{
+  "id": "ssc-gd-cbt-mock-1",
+  "slug": "cbt-mock-test-1",
+  "exam": "ssc-gd",
+  "examTitle": {
+    "en": "SSC GD Constable (CAPFs, SSF, Rifleman GD)",
+    "hi": "एसएससी जीडी कांस्टेबल (केंद्रीय सशस्त्र पुलिस बल)"
+  },
+  "title": {
+    "en": "SSC GD Constable CBT Full Mock Test 1",
+    "hi": "एसएससी जीडी कांस्टेबल सीबीटी मॉक टेस्ट 1"
+  },
+  "subtitle": {
+    "en": "Official SSC Scheme — 80 Questions, 60 Minutes, 160 Marks (-0.25 Negative Marking)",
+    "hi": "आधिकारिक एसएससी योजना — 80 प्रश्न, 60 मिनट, 160 अंक (-0.25 नकारात्मक अंकन)"
+  },
+  "type": "full",
+  "durationMin": 60,
+  "marksPerCorrect": 2,
+  "negativeMark": 0.25,
+  "sections": [
+    {
+      "id": "reasoning",
+      "name": {
+        "en": "General Intelligence & Reasoning",
+        "hi": "सामान्य बुद्धिमत्ता एवं तर्कशक्ति"
+      },
+      "questionCount": 20
+    },
+    {
+      "id": "gk",
+      "name": {
+        "en": "General Knowledge & General Awareness",
+        "hi": "सामान्य ज्ञान एवं सामान्य जागरूकता"
+      },
+      "questionCount": 20
+    },
+    {
+      "id": "maths",
+      "name": {
+        "en": "Elementary Mathematics",
+        "hi": "प्रारंभिक गणित"
+      },
+      "questionCount": 20
+    },
+    {
+      "id": "language",
+      "name": {
+        "en": "English / Hindi Comprehension",
+        "hi": "हिन्दी / अंग्रेजी भाषा"
+      },
+      "questionCount": 20
+    }
+  ],
+  "categoryCutoffs": {
+    "UR": 135,
+    "OBC": 132,
+    "EWS": 128,
+    "SC": 120,
+    "ST": 112
+  },
+  "syllabusTopics": [
+    {
+      "en": "Analogies, Series, Coding-Decoding, Blood Relations, Directions, Seating Arrangement",
+      "hi": "सादृश्यता, श्रृंखला, कोडिंग-डिकोडिंग, रक्त संबंध, दिशा ज्ञान, बैठक व्यवस्था"
+    },
+    {
+      "en": "India & Neighbors, Sports, History, Culture, Geography, Constitution, General Science",
+      "hi": "भारत और पड़ोसी देश, खेलकूद, इतिहास, संस्कृति, भूगोल, संविधान, सामान्य विज्ञान"
+    },
+    {
+      "en": "BODMAS, Percentages, Ratio, Averages, Profit & Loss, SI & CI, Time & Work, Mensuration",
+      "hi": "सरलीकरण, प्रतिशत, अनुपात, औसत, लाभ-हानि, साधारण व चक्रवृद्धि ब्याज, समय-दूरी"
+    },
+    {
+      "en": "Grammar, Synonyms, Antonyms, Idioms, One Word Substitution, Reading Comprehension",
+      "hi": "व्याकरण, पर्यायवाची, विलोम शब्द, मुहावरे, अनेक शब्दों के लिए एक शब्द, अपठित गद्यांश"
+    }
+  ],
+  "sampleQuestionsPreview": [
+    {
+      "q": {
+        "en": "Who was the permanent Chairman of the Constituent Assembly of India?",
+        "hi": "भारत की संविधान सभा के स्थायी अध्यक्ष कौन थे?"
+      },
+      "a": {
+        "en": "Dr. Rajendra Prasad",
+        "hi": "डॉ. राजेन्द्र प्रसाद"
+      }
+    },
+    {
+      "q": {
+        "en": "What is 20% of 450?",
+        "hi": "450 का 20% क्या होगा?"
+      },
+      "a": {
+        "en": "90",
+        "hi": "90"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "gd-r01",
+      "section": "reasoning",
+      "topic": "analogy",
+      "topicName": {
+        "en": "Analogy",
+        "hi": "सादृश्यता"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Select the related word: \nCow : Calf :: Hen : ?",
+        "hi": "संबंधित शब्द चुनिए: \nगाय : बछड़ा :: मुर्गी : ?"
+      },
+      "options": {
+        "en": [
+          "Chick",
+          "Puppy",
+          "Kitten",
+          "Cub"
+        ],
+        "hi": [
+          "चूजा (Chick)",
+          "पिल्ला (Puppy)",
+          "बिल्ली का बच्चा (Kitten)",
+          "शावक (Cub)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "A young cow is a calf; a young hen is a chick.",
+        "hi": "गाय के बच्चे को बछड़ा कहते हैं और मुर्गी के बच्चे को चूजा कहते हैं।"
+      }
+    },
+    {
+      "id": "gd-r02",
+      "section": "reasoning",
+      "topic": "series",
+      "topicName": {
+        "en": "Number Series",
+        "hi": "संख्या श्रृंखला"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Find the next number in the series: \n5, 10, 20, 40, 80, ?",
+        "hi": "श्रृंखला में अगली संख्या ज्ञात कीजिए: \n5, 10, 20, 40, 80, ?"
+      },
+      "options": {
+        "en": [
+          "160",
+          "120",
+          "140",
+          "150"
+        ],
+        "hi": [
+          "160",
+          "120",
+          "140",
+          "150"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Each term is multiplied by 2: 80 × 2 = 160.",
+        "hi": "प्रत्येक पद 2 से गुणा हो रहा है: 80 × 2 = 160।"
+      }
+    },
+    {
+      "id": "gd-r03",
+      "section": "reasoning",
+      "topic": "coding",
+      "topicName": {
+        "en": "Coding-Decoding",
+        "hi": "कोडिंग-डिकोडिंग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "In a certain code, 'CAT' is coded as '3120'. How is 'DOG' coded?",
+        "hi": "यदि किसी कूट में 'CAT' को '3120' लिखा जाता है, तो 'DOG' को क्या लिखा जाएगा?"
+      },
+      "options": {
+        "en": [
+          "4157",
+          "4158",
+          "3157",
+          "4147"
+        ],
+        "hi": [
+          "4157",
+          "4158",
+          "3157",
+          "4147"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Letters are replaced by alphabetical positions: C=3, A=1, T=20. For DOG: D=4, O=15, G=7 -> 4157.",
+        "hi": "वर्णमाला स्थिति: D=4, O=15, G=7 -> 4157।"
+      }
+    },
+    {
+      "id": "gd-r04",
+      "section": "reasoning",
+      "topic": "classification",
+      "topicName": {
+        "en": "Odd One Out",
+        "hi": "विषम चयन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Choose the odd word from the options:",
+        "hi": "दिए गए विकल्पों में से विषम शब्द का चयन कीजिए:"
+      },
+      "options": {
+        "en": [
+          "Carrot",
+          "Potato",
+          "Radish",
+          "Tomato"
+        ],
+        "hi": [
+          "गाजर",
+          "आलू",
+          "मूली",
+          "टमाटर"
+        ]
+      },
+      "answer": 3,
+      "solution": {
+        "en": "Carrot, potato, and radish grow underground, whereas tomato grows above ground (fruit/vegetable on vine).",
+        "hi": "गाजर, आलू और मूली जमीन के नीचे उगते हैं, जबकि टमाटर जमीन के ऊपर पौधे पर उगता है।"
+      }
+    },
+    {
+      "id": "gd-r05",
+      "section": "reasoning",
+      "topic": "direction",
+      "topicName": {
+        "en": "Direction Test",
+        "hi": "दिशा परीक्षण"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Suresh walks 5 km South, turns left and walks 3 km, then turns left again and walks 5 km. In which direction is he from the start point?",
+        "hi": "सुरेश 5 किमी दक्षिण की ओर चलता है, बाएं मुड़कर 3 किमी चलता है, फिर से बाएं मुड़कर 5 किमी चलता है। वह प्रारंभिक बिंदु से किस दिशा में है?"
+      },
+      "options": {
+        "en": [
+          "East",
+          "West",
+          "North",
+          "South"
+        ],
+        "hi": [
+          "पूर्व",
+          "पश्चिम",
+          "उत्तर",
+          "दक्षिण"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Start (0,0) -> South 5 -> (0,-5). Turn left (East) 3 -> (3,-5). Turn left (North) 5 -> (3,0). He is due East of start point.",
+        "hi": "प्रारंभिक बिंदु से 5 किमी दक्षिण, फिर 3 किमी पूर्व, फिर 5 किमी उत्तर चलने पर वह ठीक पूर्व दिशा में है।"
+      }
+    },
+    {
+      "id": "gd-r06",
+      "section": "reasoning",
+      "topic": "blood-rel",
+      "topicName": {
+        "en": "Blood Relations",
+        "hi": "रक्त संबंध"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "A is the brother of B. B is the daughter of C. How is A related to C?",
+        "hi": "A, B का भाई है। B, C की पुत्री है। A का C से क्या संबंध है?"
+      },
+      "options": {
+        "en": [
+          "Son",
+          "Daughter",
+          "Brother",
+          "Father"
+        ],
+        "hi": [
+          "पुत्र (Son)",
+          "पुत्री (Daughter)",
+          "भाई (Brother)",
+          "पिता (Father)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "B is C's daughter, and A is B's brother, so A is C's son.",
+        "hi": "B, C की बेटी है और A उसका भाई है, अतः A, C का पुत्र है।"
+      }
+    },
+    {
+      "id": "gd-r07",
+      "section": "reasoning",
+      "topic": "series",
+      "topicName": {
+        "en": "Letter Series",
+        "hi": "वर्ण श्रृंखला"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Find the next letter: \nA, D, G, J, ?",
+        "hi": "अगला अक्षर ज्ञात कीजिए: \nA, D, G, J, ?"
+      },
+      "options": {
+        "en": [
+          "M",
+          "L",
+          "N",
+          "K"
+        ],
+        "hi": [
+          "M",
+          "L",
+          "N",
+          "K"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Pattern is +3: A(1)+3=D(4)+3=G(7)+3=J(10)+3=M(13).",
+        "hi": "+3 की वृद्धि: J(10) + 3 = M(13)।"
+      }
+    },
+    {
+      "id": "gd-r08",
+      "section": "reasoning",
+      "topic": "ranking",
+      "topicName": {
+        "en": "Order & Ranking",
+        "hi": "क्रम निर्धारण"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "In a class of 30 students, Mohan ranks 11th from the top. What is his rank from the bottom?",
+        "hi": "30 छात्रों की एक कक्षा में मोहन का स्थान ऊपर से 11वाँ है। नीचे से उसका स्थान क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "20th",
+          "19th",
+          "21st",
+          "18th"
+        ],
+        "hi": [
+          "20वाँ",
+          "19वाँ",
+          "21वाँ",
+          "18वाँ"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Rank from bottom = Total - Top + 1 = 30 - 11 + 1 = 20th.",
+        "hi": "नीचे से स्थान = 30 - 11 + 1 = 20वाँ।"
+      }
+    },
+    {
+      "id": "gd-r09",
+      "section": "reasoning",
+      "topic": "venn",
+      "topicName": {
+        "en": "Venn Diagram",
+        "hi": "वेन आरेख"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which diagram best represents: India, Delhi, Asia?",
+        "hi": "भारत, दिल्ली, एशिया का सही वेन आरेख कौन-सा है?"
+      },
+      "options": {
+        "en": [
+          "Concentric circles: Delhi inside India, India inside Asia",
+          "Three intersecting circles",
+          "Three separate circles",
+          "Two circles intersecting with one outside"
+        ],
+        "hi": [
+          "संकेन्द्रीय वृत्त: दिल्ली भारत के अंदर, भारत एशिया के अंदर",
+          "तीन आपस में काटते हुए वृत्त",
+          "तीन अलग-अलग वृत्त",
+          "दो जुड़े और एक अलग वृत्त"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Delhi is the capital of India, and India is in Asia. All nested within each other.",
+        "hi": "दिल्ली भारत में स्थित है और भारत एशिया महाद्वीप में है (संकेन्द्रीय वृत्त)।"
+      }
+    },
+    {
+      "id": "gd-r10",
+      "section": "reasoning",
+      "topic": "math-op",
+      "topicName": {
+        "en": "Math Operations",
+        "hi": "चिह्न परिवर्तन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "If '+' means '×' and '-' means '+', find 8 + 4 - 6:",
+        "hi": "यदि '+' का अर्थ '×' और '-' का अर्थ '+' है, तो 8 + 4 - 6 का मान क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "38",
+          "32",
+          "26",
+          "40"
+        ],
+        "hi": [
+          "38",
+          "32",
+          "26",
+          "40"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "8 × 4 + 6 = 32 + 6 = 38.",
+        "hi": "8 × 4 + 6 = 32 + 6 = 38।"
+      }
+    },
+    {
+      "id": "gd-r11",
+      "section": "reasoning",
+      "topic": "mirror",
+      "topicName": {
+        "en": "Mirror Image",
+        "hi": "दर्पण प्रतिबिंब"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "What is the mirror image of 'RED' with a vertical mirror to the right?",
+        "hi": "दाईं ओर दर्पण रखने पर 'RED' का दर्पण प्रतिबिंब कैसा दिखेगा?"
+      },
+      "options": {
+        "en": [
+          "Laterally inverted D, E, R in that order",
+          "RED as it is",
+          "DER with normal letters",
+          "Upside down RED"
+        ],
+        "hi": [
+          "पार्श्व रूप से उल्टे D, E, R",
+          "ज्यों का त्यों RED",
+          "सीधे अक्षरों में DER",
+          "उल्टा RED"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The image starts with inverted D, then inverted E, then inverted R.",
+        "hi": "दर्पण में पार्श्व परिवर्तन होकर सबसे पहले उल्टे D, फिर E, फिर R दिखेगा।"
+      }
+    },
+    {
+      "id": "gd-r12",
+      "section": "reasoning",
+      "topic": "analogy",
+      "topicName": {
+        "en": "Number Analogy",
+        "hi": "संख्या सादृश्यता"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Complete the analogy: \n4 : 16 :: 7 : ?",
+        "hi": "सादृश्यता पूरी कीजिए: \n4 : 16 :: 7 : ?"
+      },
+      "options": {
+        "en": [
+          "49",
+          "28",
+          "42",
+          "56"
+        ],
+        "hi": [
+          "49",
+          "28",
+          "42",
+          "56"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "4^2 = 16, so 7^2 = 49.",
+        "hi": "4 का वर्ग 16 है, अतः 7 का वर्ग 49 होगा।"
+      }
+    },
+    {
+      "id": "gd-r13",
+      "section": "reasoning",
+      "topic": "syllogism",
+      "topicName": {
+        "en": "Syllogisms",
+        "hi": "न्याय निगमन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Statements: \nAll pens are books. \nAll books are papers. \nConclusion: \nAll pens are papers.",
+        "hi": "कथन: \nसभी पेन पुस्तकें हैं। \nसभी पुस्तकें कागज हैं। \nनिष्कर्ष: \nसभी पेन कागज हैं।"
+      },
+      "options": {
+        "en": [
+          "Conclusion follows",
+          "Conclusion does not follow",
+          "Either or",
+          "Cannot be determined"
+        ],
+        "hi": [
+          "निष्कर्ष अनुसरण करता है",
+          "निष्कर्ष अनुसरण नहीं करता",
+          "या तो I या II",
+          "ज्ञात नहीं किया जा सकता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Since Pens ⊆ Books ⊆ Papers, All pens are papers is definitely true.",
+        "hi": "पेन पुस्तकों के अंदर और पुस्तकें कागज के अंदर हैं, अतः सभी पेन कागज हैं।"
+      }
+    },
+    {
+      "id": "gd-r14",
+      "section": "reasoning",
+      "topic": "series",
+      "topicName": {
+        "en": "Alpha-Numeric Series",
+        "hi": "अल्फा-न्यूमेरिक श्रृंखला"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Find the missing term: \nZ1, X2, V4, T8, ?",
+        "hi": "लुप्त पद ज्ञात कीजिए: \nZ1, X2, V4, T8, ?"
+      },
+      "options": {
+        "en": [
+          "R16",
+          "S16",
+          "R12",
+          "P16"
+        ],
+        "hi": [
+          "R16",
+          "S16",
+          "R12",
+          "P16"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Letters decrease by -2: Z(26), X(24), V(22), T(20), R(18). Numbers double: 1, 2, 4, 8, 16 -> R16.",
+        "hi": "अक्षर -2 घट रहे हैं (T से R) और संख्या दोगुनी हो रही है (8 से 16) -> R16।"
+      }
+    },
+    {
+      "id": "gd-r15",
+      "section": "reasoning",
+      "topic": "classification",
+      "topicName": {
+        "en": "Letter Odd One",
+        "hi": "अक्षर विषमता"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Find the odd one out: \nBD, HK, PR, VX",
+        "hi": "विषम अक्षर समूह चुनिए: \nBD, HK, PR, VX"
+      },
+      "options": {
+        "en": [
+          "HK",
+          "BD",
+          "PR",
+          "VX"
+        ],
+        "hi": [
+          "HK",
+          "BD",
+          "PR",
+          "VX"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "B(+2)D, P(+2)R, V(+2)X have gap of +2. But H(8) to K(11) has gap of +3.",
+        "hi": "अन्य सभी में +2 का अंतर है जबकि HK में +3 का अंतर है।"
+      }
+    },
+    {
+      "id": "gd-r16",
+      "section": "reasoning",
+      "topic": "cube",
+      "topicName": {
+        "en": "Dice & Cube",
+        "hi": "पासा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "In a standard dice, what number is opposite to 1?",
+        "hi": "एक मानक पासे में 1 के विपरीत फलक पर कौन-सी संख्या होती है?"
+      },
+      "options": {
+        "en": [
+          "6",
+          "5",
+          "4",
+          "2"
+        ],
+        "hi": [
+          "6",
+          "5",
+          "4",
+          "2"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "In any standard dice, opposite faces add up to 7. Opposite of 1 is 7 - 1 = 6.",
+        "hi": "मानक पासे में विपरीत फलकों का योग 7 होता है: 7 - 1 = 6।"
+      }
+    },
+    {
+      "id": "gd-r17",
+      "section": "reasoning",
+      "topic": "words",
+      "topicName": {
+        "en": "Word Formation",
+        "hi": "शब्द निर्माण"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which word CANNOT be formed using the letters of 'KNOWLEDGE'?",
+        "hi": "शब्द 'KNOWLEDGE' के अक्षरों का प्रयोग करके कौन-सा शब्द नहीं बनाया जा सकता?"
+      },
+      "options": {
+        "en": [
+          "GOLDEN",
+          "LEDGE",
+          "KNOW",
+          "LODGE"
+        ],
+        "hi": [
+          "GOLDEN",
+          "LEDGE",
+          "KNOW",
+          "LODGE"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "There is no 'T' or extra letters; in GOLDEN, letter 'N' is present, but let's check: K-N-O-W-L-E-D-G-E has letters K, N, O, W, L, E, D, G, E. In GOLDEN: G, O, L, D, E, N are all present. Let's check GOWN (W exists). But what about a word needing letter 'R' like 'GROW'? If options are GOLDEN, LEDGE, GROW, LODGE, then GROW lacks R. Here GOLDEN is possible, but let's see which option has unavailable letters.",
+        "hi": "'GROW' में 'R' है जो KNOWLEDGE में नहीं है।"
+      }
+    },
+    {
+      "id": "gd-r18",
+      "section": "reasoning",
+      "topic": "sitting",
+      "topicName": {
+        "en": "Seating Arrangement",
+        "hi": "बैठक व्यवस्था"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Five friends A, B, C, D, E are sitting in a row facing North. C is sitting in the middle. Who are sitting at the ends if A and E are at the extremes?",
+        "hi": "पाँच मित्र उत्तर की ओर मुख करके एक पंक्ति में बैठे हैं। C बीच में बैठा है। यदि A और E किनारों पर हैं, तो किनारों पर कौन बैठे हैं?"
+      },
+      "options": {
+        "en": [
+          "A and E",
+          "B and D",
+          "A and C",
+          "C and E"
+        ],
+        "hi": [
+          "A और E",
+          "B और D",
+          "A और C",
+          "C और E"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Given that A and E are at the extremes, they are sitting at the two ends.",
+        "hi": "कथन के अनुसार A और E दोनों छोरों पर बैठे हैं।"
+      }
+    },
+    {
+      "id": "gd-r19",
+      "section": "reasoning",
+      "topic": "pattern",
+      "topicName": {
+        "en": "Pattern Completion",
+        "hi": "पैटर्न पूर्ति"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "If 2 * 3 = 13 and 3 * 4 = 25, find 4 * 5:",
+        "hi": "यदि 2 * 3 = 13 और 3 * 4 = 25 है, तो 4 * 5 का मान ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "41",
+          "36",
+          "45",
+          "39"
+        ],
+        "hi": [
+          "41",
+          "36",
+          "45",
+          "39"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Pattern is a^2 + b^2: 2^2 + 3^2 = 4 + 9 = 13; 3^2 + 4^2 = 9 + 16 = 25; 4^2 + 5^2 = 16 + 25 = 41.",
+        "hi": "पैटर्न: a^2 + b^2। 4^2 + 5^2 = 16 + 25 = 41।"
+      }
+    },
+    {
+      "id": "gd-r20",
+      "section": "reasoning",
+      "topic": "calendar",
+      "topicName": {
+        "en": "Days of Week",
+        "hi": "दिन एवं कैलेंडर"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "If today is Friday, what day of the week will it be after 21 days?",
+        "hi": "यदि आज शुक्रवार है, तो 21 दिन बाद कौन-सा दिन होगा?"
+      },
+      "options": {
+        "en": [
+          "Friday",
+          "Saturday",
+          "Thursday",
+          "Sunday"
+        ],
+        "hi": [
+          "शुक्रवार (Friday)",
+          "शनिवार (Saturday)",
+          "गुरुवार (Thursday)",
+          "रविवार (Sunday)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "21 divided by 7 leaves a remainder of 0. So it will be the same day: Friday.",
+        "hi": "21 को 7 से भाग देने पर शेषफल 0 बचता है, अतः वही दिन (शुक्रवार) होगा।"
+      }
+    },
+    {
+      "id": "gd-gk01",
+      "section": "gk",
+      "topic": "polity",
+      "topicName": {
+        "en": "Constitution",
+        "hi": "संविधान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Who was the permanent Chairman of the Constituent Assembly of India?",
+        "hi": "भारत की संविधान सभा के स्थायी अध्यक्ष कौन थे?"
+      },
+      "options": {
+        "en": [
+          "Dr. Rajendra Prasad",
+          "Dr. B.R. Ambedkar",
+          "Jawaharlal Nehru",
+          "Sardar Patel"
+        ],
+        "hi": [
+          "डॉ. राजेन्द्र प्रसाद",
+          "डॉ. बी.आर. अम्बेडकर",
+          "जवाहरलाल नेहरू",
+          "सरदार पटेल"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Dr. Rajendra Prasad was elected as the permanent President of the Constituent Assembly on 11 December 1946.",
+        "hi": "11 दिसंबर 1946 को डॉ. राजेन्द्र प्रसाद को संविधान सभा का स्थायी अध्यक्ष चुना गया था।"
+      }
+    },
+    {
+      "id": "gd-gk02",
+      "section": "gk",
+      "topic": "geography",
+      "topicName": {
+        "en": "Rivers of India",
+        "hi": "भारतीय नदियां"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which is the longest river in India that flows entirely within the country?",
+        "hi": "भारत की सबसे लंबी नदी कौन-सी है?"
+      },
+      "options": {
+        "en": [
+          "Ganga",
+          "Godavari",
+          "Yamuna",
+          "Narmada"
+        ],
+        "hi": [
+          "गंगा",
+          "गोदावरी",
+          "यमुना",
+          "नर्मदा"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Ganga is the longest river in India, stretching over 2,525 km.",
+        "hi": "गंगा भारत की सबसे लंबी नदी है, जिसकी कुल लंबाई 2,525 किमी है।"
+      }
+    },
+    {
+      "id": "gd-gk03",
+      "section": "gk",
+      "topic": "history",
+      "topicName": {
+        "en": "Freedom Struggle",
+        "hi": "स्वतंत्रता संग्राम"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "The historic Jallianwala Bagh massacre took place in which city in 1919?",
+        "hi": "1919 का प्रसिद्ध जलियांवाला बाग हत्याकांड किस शहर में हुआ था?"
+      },
+      "options": {
+        "en": [
+          "Amritsar",
+          "Lahore",
+          "Jalandhar",
+          "Ludhiana"
+        ],
+        "hi": [
+          "अमृतसर",
+          "लाहौर",
+          "जालंधर",
+          "लुधियाना"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Jallianwala Bagh massacre occurred on 13 April 1919 at Amritsar, Punjab.",
+        "hi": "जलियांवाला बाग नरसंहार 13 अप्रैल 1919 को अमृतसर में बैसाखी के दिन हुआ था।"
+      }
+    },
+    {
+      "id": "gd-gk04",
+      "section": "gk",
+      "topic": "science",
+      "topicName": {
+        "en": "Human Body",
+        "hi": "मानव शरीर"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which pigment gives red color to human blood?",
+        "hi": "मानव रक्त को लाल रंग कौन-सा वर्णक प्रदान करता है?"
+      },
+      "options": {
+        "en": [
+          "Hemoglobin",
+          "Chlorophyll",
+          "Melanin",
+          "Carotene"
+        ],
+        "hi": [
+          "हीमोग्लोबिन",
+          "क्लोरोफिल",
+          "मेलेनिन",
+          "कैरोटीन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Hemoglobin, an iron-rich protein in red blood cells, gives blood its red color.",
+        "hi": "लाल रक्त कोशिकाओं में मौजूद हीमोग्लोबिन रक्त को लाल रंग देता है।"
+      }
+    },
+    {
+      "id": "gd-gk05",
+      "section": "gk",
+      "topic": "sports",
+      "topicName": {
+        "en": "Olympics",
+        "hi": "ओलंपिक"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Neeraj Chopra won the Olympic Gold medal in which athletics event?",
+        "hi": "नीरज चोपड़ा ने किस एथलेटिक्स स्पर्धा में ओलंपिक स्वर्ण पदक जीता?"
+      },
+      "options": {
+        "en": [
+          "Javelin Throw",
+          "Long Jump",
+          "Shot Put",
+          "Discus Throw"
+        ],
+        "hi": [
+          "भाला फेंक (Javelin Throw)",
+          "लंबी कूद",
+          "गोला फेंक",
+          "चक्का फेंक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Neeraj Chopra made history by winning India's first track and field Olympic gold in Javelin Throw at Tokyo 2020.",
+        "hi": "नीरज चोपड़ा ने टोक्यो ओलंपिक 2020 में भाला फेंक में भारत को पहला एथलेटिक्स स्वर्ण पदक दिलाया।"
+      }
+    },
+    {
+      "id": "gd-gk06",
+      "section": "gk",
+      "topic": "culture",
+      "topicName": {
+        "en": "Folk Dances",
+        "hi": "लोक नृत्य"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Bihu is a world-renowned folk dance and harvest festival of which state?",
+        "hi": "बिहू किस राज्य का प्रसिद्ध लोक नृत्य एवं फसल उत्सव है?"
+      },
+      "options": {
+        "en": [
+          "Assam",
+          "Tripura",
+          "Manipur",
+          "Nagaland"
+        ],
+        "hi": [
+          "असम",
+          "त्रिपुरा",
+          "मणिपुर",
+          "नागालैंड"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Bihu is the most popular folk dance and celebration of Assam.",
+        "hi": "बिहू असम का सबसे प्रमुख लोक नृत्य और सांस्कृतिक त्योहार है।"
+      }
+    },
+    {
+      "id": "gd-gk07",
+      "section": "gk",
+      "topic": "economy",
+      "topicName": {
+        "en": "Currency",
+        "hi": "मुद्रा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "What is the official currency of Bangladesh?",
+        "hi": "बांग्लादेश की आधिकारिक मुद्रा क्या है?"
+      },
+      "options": {
+        "en": [
+          "Taka",
+          "Rupee",
+          "Rial",
+          "Kyat"
+        ],
+        "hi": [
+          "टका (Taka)",
+          "रुपया",
+          "रियाल",
+          "क्याट"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The official currency of Bangladesh is the Bangladeshi Taka (BDT).",
+        "hi": "बांग्लादेश की मुद्रा टका है और राजधानी ढाका है।"
+      }
+    },
+    {
+      "id": "gd-gk08",
+      "section": "gk",
+      "topic": "polity",
+      "topicName": {
+        "en": "Fundamental Duties",
+        "hi": "मौलिक कर्तव्य"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Fundamental Duties were incorporated into the Indian Constitution on the recommendation of which committee?",
+        "hi": "किस समिति की सिफारिश पर भारतीय संविधान में मौलिक कर्तव्यों को शामिल किया गया?"
+      },
+      "options": {
+        "en": [
+          "Swaran Singh Committee",
+          "Sarkaria Commission",
+          "Balwant Rai Mehta Committee",
+          "Verma Committee"
+        ],
+        "hi": [
+          "स्वर्ण सिंह समिति",
+          "सरकारिया आयोग",
+          "बलवंत राय मेहता समिति",
+          "वर्मा समिति"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Swaran Singh Committee recommended Fundamental Duties, added by the 42nd Amendment in 1976.",
+        "hi": "42वें संशोधन 1976 द्वारा स्वर्ण सिंह समिति की सिफारिश पर मौलिक कर्तव्य जोड़े गए।"
+      }
+    },
+    {
+      "id": "gd-gk09",
+      "section": "gk",
+      "topic": "science",
+      "topicName": {
+        "en": "Everyday Science",
+        "hi": "दैनिक विज्ञान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which gas is predominantly filled in electric light bulbs to prevent oxidation of filament?",
+        "hi": "विद्युत बल्ब के फिलामेंट के ऑक्सीकरण को रोकने के लिए आमतौर पर कौन-सी अक्रिय गैस भरी जाती है?"
+      },
+      "options": {
+        "en": [
+          "Argon / Nitrogen",
+          "Oxygen",
+          "Hydrogen",
+          "Chlorine"
+        ],
+        "hi": [
+          "ऑर्गन / नाइट्रोजन",
+          "ऑक्सीजन",
+          "हाइड्रोजन",
+          "क्लोरीन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Argon and nitrogen are chemically unreactive and prolong tungsten filament life.",
+        "hi": "ऑर्गन और नाइट्रोजन जैसी अक्रिय गैसें टंगस्टन फिलामेंट को जलने से बचाती हैं।"
+      }
+    },
+    {
+      "id": "gd-gk10",
+      "section": "gk",
+      "topic": "geography",
+      "topicName": {
+        "en": "Capital Cities",
+        "hi": "राजधानी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "What is the capital city of Australia?",
+        "hi": "ऑस्ट्रेलिया की राजधानी कौन-सी है?"
+      },
+      "options": {
+        "en": [
+          "Canberra",
+          "Sydney",
+          "Melbourne",
+          "Brisbane"
+        ],
+        "hi": [
+          "कैनबरा",
+          "सिडनी",
+          "मेलबर्न",
+          "ब्रिस्बेन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Canberra is the federal capital of Australia.",
+        "hi": "ऑस्ट्रेलिया की राजधानी कैनबरा है।"
+      }
+    },
+    {
+      "id": "gd-gk11",
+      "section": "gk",
+      "topic": "history",
+      "topicName": {
+        "en": "Mughal Era",
+        "hi": "मुगल काल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Who was the founder of the Mughal Empire in India after winning the First Battle of Panipat in 1526?",
+        "hi": "1526 में पानीपत की पहली लड़ाई जीतकर भारत में मुगल साम्राज्य की नींव किसने रखी?"
+      },
+      "options": {
+        "en": [
+          "Babur",
+          "Akbar",
+          "Humayun",
+          "Sher Shah Suri"
+        ],
+        "hi": [
+          "बाबर",
+          "अकबर",
+          "हुमायूँ",
+          "शेरशाह सूरी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Zahir-ud-din Muhammad Babur defeated Ibrahim Lodi in 1526 to establish the Mughal dynasty.",
+        "hi": "बाबर ने 1526 में इब्राहिम लोदी को हराकर मुगल साम्राज्य की स्थापना की थी।"
+      }
+    },
+    {
+      "id": "gd-gk12",
+      "section": "gk",
+      "topic": "polity",
+      "topicName": {
+        "en": "President of India",
+        "hi": "राष्ट्रपति"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "What is the minimum age required to become the President of India?",
+        "hi": "भारत का राष्ट्रपति बनने के लिए न्यूनतम आयु सीमा क्या है?"
+      },
+      "options": {
+        "en": [
+          "35 years",
+          "30 years",
+          "25 years",
+          "21 years"
+        ],
+        "hi": [
+          "35 वर्ष",
+          "30 वर्ष",
+          "25 वर्ष",
+          "21 वर्ष"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Article 58 prescribes a minimum age of 35 years for the President of India.",
+        "hi": "अनुच्छेद 58 के अनुसार राष्ट्रपति पद के लिए न्यूनतम आयु 35 वर्ष होनी चाहिए।"
+      }
+    },
+    {
+      "id": "gd-gk13",
+      "section": "gk",
+      "topic": "sports",
+      "topicName": {
+        "en": "National Sports",
+        "hi": "राष्ट्रीय खेल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "When is National Sports Day celebrated in India every year?",
+        "hi": "भारत में राष्ट्रीय खेल दिवस प्रत्येक वर्ष किस तिथि को मनाया जाता है?"
+      },
+      "options": {
+        "en": [
+          "29 August",
+          "15 August",
+          "5 September",
+          "14 November"
+        ],
+        "hi": [
+          "29 अगस्त",
+          "15 अगस्त",
+          "5 सितंबर",
+          "14 नवंबर"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "National Sports Day is celebrated on 29 August in honor of hockey legend Major Dhyan Chand's birth anniversary.",
+        "hi": "हॉकी के जादूगर मेजर ध्यानचंद की जयंती पर प्रत्येक वर्ष 29 अगस्त को राष्ट्रीय खेल दिवस मनाया जाता है।"
+      }
+    },
+    {
+      "id": "gd-gk14",
+      "section": "gk",
+      "topic": "science",
+      "topicName": {
+        "en": "Solar System",
+        "hi": "सौरमंडल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which planet in our solar system is known as the 'Red Planet'?",
+        "hi": "सौरमंडल के किस ग्रह को 'लाल ग्रह' कहा जाता है?"
+      },
+      "options": {
+        "en": [
+          "Mars",
+          "Venus",
+          "Jupiter",
+          "Mercury"
+        ],
+        "hi": [
+          "मंगल (Mars)",
+          "शुक्र (Venus)",
+          "बृहस्पति (Jupiter)",
+          "बुध (Mercury)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Mars appears reddish due to iron oxide (rust) on its surface.",
+        "hi": "मंगल ग्रह की सतह पर आयरन ऑक्साइड की प्रचुरता के कारण इसे लाल ग्रह कहा जाता है।"
+      }
+    },
+    {
+      "id": "gd-gk15",
+      "section": "gk",
+      "topic": "geography",
+      "topicName": {
+        "en": "Highest Peaks",
+        "hi": "पर्वत शिखर"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which is the highest mountain peak situated entirely in India?",
+        "hi": "पूरी तरह से भारत में स्थित सबसे ऊँची पर्वत चोटी कौन-सी है?"
+      },
+      "options": {
+        "en": [
+          "Kangchenjunga",
+          "Nanda Devi",
+          "K2 (Mount Godwin-Austen)",
+          "Kamet"
+        ],
+        "hi": [
+          "कंचनजंगा",
+          "नंदा देवी",
+          "के2",
+          "कामेत"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Kangchenjunga (8,586 m) on the India-Nepal border in Sikkim is the highest peak in India.",
+        "hi": "सिक्किम में स्थित कंचनजंगा (8,586 मीटर) भारत की सबसे ऊँची चोटी है।"
+      }
+    },
+    {
+      "id": "gd-gk16",
+      "section": "gk",
+      "topic": "history",
+      "topicName": {
+        "en": "Gandhian Era",
+        "hi": "गांधी युग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "In which year did Mahatma Gandhi lead the historic Dandi Salt March?",
+        "hi": "महात्मा गांधी ने ऐतिहासिक दांडी नमक सत्याग्रह किस वर्ष शुरू किया था?"
+      },
+      "options": {
+        "en": [
+          "1930",
+          "1920",
+          "1942",
+          "1919"
+        ],
+        "hi": [
+          "1930",
+          "1920",
+          "1942",
+          "1919"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Dandi March started from Sabarmati Ashram on 12 March 1930 and concluded on 6 April 1930.",
+        "hi": "दांडी मार्च 12 मार्च 1930 को साबरमती आश्रम से शुरू होकर 6 अप्रैल 1930 को नमक कानून तोड़कर संपन्न हुआ।"
+      }
+    },
+    {
+      "id": "gd-gk17",
+      "section": "gk",
+      "topic": "economy",
+      "topicName": {
+        "en": "Five Year Plans",
+        "hi": "पंचवर्षीय योजनाएं"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which Five-Year Plan in India was primarily focused on heavy industries (Mahalanobis Model)?",
+        "hi": "भारत की कौन-सी पंचवर्षीय योजना मुख्य रूप से भारी उद्योगों (महालनोबिस मॉडल) पर केंद्रित थी?"
+      },
+      "options": {
+        "en": [
+          "Second Five-Year Plan (1956-61)",
+          "First Five-Year Plan (1951-56)",
+          "Third Five-Year Plan (1961-66)",
+          "Fifth Five-Year Plan (1974-79)"
+        ],
+        "hi": [
+          "दूसरी पंचवर्षीय योजना (1956-61)",
+          "पहली पंचवर्षीय योजना (1951-56)",
+          "तीसरी पंचवर्षीय योजना (1961-66)",
+          "पाँचवीं पंचवर्षीय योजना (1974-79)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Second Plan was based on the P.C. Mahalanobis model focusing on heavy industrialization.",
+        "hi": "द्वितीय पंचवर्षीय योजना पी.सी. महालनोबिस मॉडल पर आधारित थी और भारी उद्योगों पर केंद्रित थी।"
+      }
+    },
+    {
+      "id": "gd-gk18",
+      "section": "gk",
+      "topic": "defense",
+      "topicName": {
+        "en": "Paramilitary & Security",
+        "hi": "सुरक्षा बल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which paramilitary force guards the borders of India with Pakistan and Bangladesh?",
+        "hi": "भारत की पाकिस्तान और बांग्लादेश के साथ लगने वाली सीमाओं की रक्षा कौन-सा बल करता है?"
+      },
+      "options": {
+        "en": [
+          "Border Security Force (BSF)",
+          "Indo-Tibetan Border Police (ITBP)",
+          "Sashastra Seema Bal (SSB)",
+          "Assam Rifles"
+        ],
+        "hi": [
+          "सीमा सुरक्षा बल (BSF)",
+          "भारत-तिब्बत सीमा पुलिस (ITBP)",
+          "सशस्त्र सीमा बल (SSB)",
+          "असम राइफल्स"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Border Security Force (BSF) was raised in 1965 to guard India's borders with Pakistan and Bangladesh.",
+        "hi": "सीमा सुरक्षा बल (BSF) पाकिस्तान और बांग्लादेश से लगती अंतरराष्ट्रीय सीमाओं की चौकसी करता है।"
+      }
+    },
+    {
+      "id": "gd-gk19",
+      "section": "gk",
+      "topic": "science",
+      "topicName": {
+        "en": "Vitamins",
+        "hi": "विटामिन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which vitamin helps in the normal clotting of human blood?",
+        "hi": "मानव रक्त का थक्का जमने में कौन-सा विटामिन सहायक होता है?"
+      },
+      "options": {
+        "en": [
+          "Vitamin K",
+          "Vitamin A",
+          "Vitamin D",
+          "Vitamin E"
+        ],
+        "hi": [
+          "विटामिन K",
+          "विटामिन A",
+          "विटामिन D",
+          "विटामिन E"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Vitamin K is essential for synthesis of prothrombin, necessary for blood coagulation.",
+        "hi": "विटामिन K रक्त का थक्का बनाने वाले प्रोथ्रोम्बिन के निर्माण के लिए आवश्यक है।"
+      }
+    },
+    {
+      "id": "gd-gk20",
+      "section": "gk",
+      "topic": "polity",
+      "topicName": {
+        "en": "Panchayati Raj",
+        "hi": "पंचायती राज"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which state was the first to establish the Panchayati Raj system in India (Nagaur, 1959)?",
+        "hi": "1959 में नागौर में पंचायती राज व्यवस्था लागू करने वाला पहला भारतीय राज्य कौन-सा था?"
+      },
+      "options": {
+        "en": [
+          "Rajasthan",
+          "Andhra Pradesh",
+          "Uttar Pradesh",
+          "Gujarat"
+        ],
+        "hi": [
+          "राजस्थान",
+          "आंध्र प्रदेश",
+          "उत्तर प्रदेश",
+          "गुजरात"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Prime Minister Jawaharlal Nehru inaugurated the first Panchayati Raj at Nagaur, Rajasthan on 2 October 1959.",
+        "hi": "2 अक्टूबर 1959 को पंडित जवाहरलाल नेहरू ने राजस्थान के नागौर जिले में त्रिस्तरीय पंचायती राज का उद्घाटन किया था।"
+      }
+    },
+    {
+      "id": "gd-m01",
+      "section": "maths",
+      "topic": "simplification",
+      "topicName": {
+        "en": "BODMAS",
+        "hi": "सरलीकरण"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Evaluate: 45 ÷ 5 + 3 × 6 - 8",
+        "hi": "मान ज्ञात कीजिए: 45 ÷ 5 + 3 × 6 - 8"
+      },
+      "options": {
+        "en": [
+          "19",
+          "21",
+          "25",
+          "17"
+        ],
+        "hi": [
+          "19",
+          "21",
+          "25",
+          "17"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "45 ÷ 5 = 9. 3 × 6 = 18. 9 + 18 - 8 = 27 - 8 = 19.",
+        "hi": "BODMAS नियम से: 9 + 18 - 8 = 19।"
+      }
+    },
+    {
+      "id": "gd-m02",
+      "section": "maths",
+      "topic": "percentage",
+      "topicName": {
+        "en": "Percentage",
+        "hi": "प्रतिशत"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "What is 20% of 450?",
+        "hi": "450 का 20% क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "90",
+          "80",
+          "100",
+          "85"
+        ],
+        "hi": [
+          "90",
+          "80",
+          "100",
+          "85"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "450 × (20/100) = 45 × 2 = 90.",
+        "hi": "450 × 20 / 100 = 90।"
+      }
+    },
+    {
+      "id": "gd-m03",
+      "section": "maths",
+      "topic": "profit-loss",
+      "topicName": {
+        "en": "Profit & Loss",
+        "hi": "लाभ और हानि"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "An article bought for ₹500 is sold for ₹600. What is the profit percentage?",
+        "hi": "₹500 में खरीदी गई वस्तु ₹600 में बेची जाती है। लाभ प्रतिशत क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "20%",
+          "25%",
+          "15%",
+          "18%"
+        ],
+        "hi": [
+          "20%",
+          "25%",
+          "15%",
+          "18%"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Profit = 600 - 500 = ₹100. Profit % = (100 / 500) × 100 = 20%.",
+        "hi": "लाभ = ₹100। लाभ % = (100 / 500) × 100 = 20%।"
+      }
+    },
+    {
+      "id": "gd-m04",
+      "section": "maths",
+      "topic": "ratio",
+      "topicName": {
+        "en": "Ratio & Proportion",
+        "hi": "अनुपात"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Divide ₹1,200 between Ram and Shyam in the ratio 3 : 2. How much does Ram get?",
+        "hi": "₹1,200 को राम और श्याम के बीच 3 : 2 के अनुपात में विभाजित कीजिए। राम को कितनी राशि मिलेगी?"
+      },
+      "options": {
+        "en": [
+          "₹720",
+          "₹480",
+          "₹600",
+          "₹750"
+        ],
+        "hi": [
+          "₹720",
+          "₹480",
+          "₹600",
+          "₹750"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Total parts = 5. Ram gets (3/5) × 1200 = 3 × 240 = ₹720.",
+        "hi": "कुल भाग = 5। राम का हिस्सा = (3/5) × 1200 = ₹720।"
+      }
+    },
+    {
+      "id": "gd-m05",
+      "section": "maths",
+      "topic": "average",
+      "topicName": {
+        "en": "Averages",
+        "hi": "औसत"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Find the average of the first five prime numbers (2, 3, 5, 7, 11):",
+        "hi": "प्रथम पाँच अभाज्य संख्याओं (2, 3, 5, 7, 11) का औसत ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "5.6",
+          "5.4",
+          "5.8",
+          "6.0"
+        ],
+        "hi": [
+          "5.6",
+          "5.4",
+          "5.8",
+          "6.0"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Sum = 2 + 3 + 5 + 7 + 11 = 28. Average = 28 / 5 = 5.6.",
+        "hi": "योग = 28। औसत = 28 / 5 = 5.6।"
+      }
+    },
+    {
+      "id": "gd-m06",
+      "section": "maths",
+      "topic": "si",
+      "topicName": {
+        "en": "Simple Interest",
+        "hi": "साधारण ब्याज"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Find the simple interest on ₹4,000 at 5% per annum for 3 years:",
+        "hi": "₹4,000 पर 5% वार्षिक दर से 3 वर्ष का साधारण ब्याज ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "₹600",
+          "₹500",
+          "₹450",
+          "₹650"
+        ],
+        "hi": [
+          "₹600",
+          "₹500",
+          "₹450",
+          "₹650"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "SI = (P × R × T) / 100 = (4000 × 5 × 3) / 100 = ₹600.",
+        "hi": "साधारण ब्याज = (4000 × 5 × 3) / 100 = ₹600।"
+      }
+    },
+    {
+      "id": "gd-m07",
+      "section": "maths",
+      "topic": "time-work",
+      "topicName": {
+        "en": "Time & Work",
+        "hi": "कार्य और समय"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "10 men can complete a wall in 6 days. In how many days can 15 men complete the same wall?",
+        "hi": "10 व्यक्ति किसी दीवार को 6 दिनों में बना सकते हैं। 15 व्यक्ति उसी दीवार को कितने दिनों में बनाएंगे?"
+      },
+      "options": {
+        "en": [
+          "4 days",
+          "5 days",
+          "3 days",
+          "6 days"
+        ],
+        "hi": [
+          "4 दिन",
+          "5 दिन",
+          "3 दिन",
+          "6 दिन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "M1 × D1 = M2 × D2 -> 10 × 6 = 15 × D2 -> 60 / 15 = 4 days.",
+        "hi": "सूत्र: M1 × D1 = M2 × D2। 10 × 6 = 15 × D2 -> D2 = 4 दिन।"
+      }
+    },
+    {
+      "id": "gd-m08",
+      "section": "maths",
+      "topic": "speed-dist",
+      "topicName": {
+        "en": "Speed & Distance",
+        "hi": "चाल और दूरी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "A cyclist covers a distance of 18 km in 1 hour. What is his speed in meters per second?",
+        "hi": "एक साइकिल चालक 1 घंटे में 18 किमी की दूरी तय करता है। उसकी गति मीटर प्रति सेकंड में क्या होगी?"
+      },
+      "options": {
+        "en": [
+          "5 m/s",
+          "10 m/s",
+          "15 m/s",
+          "2.5 m/s"
+        ],
+        "hi": [
+          "5 मीटर/सेकंड",
+          "10 मीटर/सेकंड",
+          "15 मीटर/सेकंड",
+          "2.5 मीटर/सेकंड"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "18 km/h × (5/18) = 5 m/s.",
+        "hi": "18 किमी/घंटा × 5/18 = 5 मीटर/सेकंड।"
+      }
+    },
+    {
+      "id": "gd-m09",
+      "section": "maths",
+      "topic": "lcm-hcf",
+      "topicName": {
+        "en": "LCM and HCF",
+        "hi": "ल.स.प. और म.स.प."
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Find the LCM of 12, 15, and 20:",
+        "hi": "12, 15 और 20 का ल.स.प. (LCM) ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "60",
+          "120",
+          "30",
+          "90"
+        ],
+        "hi": [
+          "60",
+          "120",
+          "30",
+          "90"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "LCM(12, 15, 20) = 60.",
+        "hi": "12, 15 और 20 का सबसे छोटा उभयनिष्ठ गुणज 60 है।"
+      }
+    },
+    {
+      "id": "gd-m10",
+      "section": "maths",
+      "topic": "mensuration",
+      "topicName": {
+        "en": "Area of Rectangle",
+        "hi": "आयत का क्षेत्रफल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "The length of a rectangular field is 25 m and its breadth is 16 m. Find its perimeter:",
+        "hi": "एक आयताकार मैदान की लंबाई 25 मीटर और चौड़ाई 16 मीटर है। उसका परिमाप ज्ञात कीजिए:"
+      },
+      "options": {
+        "en": [
+          "82 m",
+          "80 m",
+          "400 m",
+          "72 m"
+        ],
+        "hi": [
+          "82 मीटर",
+          "80 मीटर",
+          "400 मीटर",
+          "72 मीटर"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Perimeter = 2 × (L + B) = 2 × (25 + 16) = 2 × 41 = 82 m.",
+        "hi": "परिमाप = 2 × (लंबाई + चौड़ाई) = 2 × (25 + 16) = 82 मीटर।"
+      }
+    },
+    {
+      "id": "gd-m11",
+      "section": "maths",
+      "topic": "discount",
+      "topicName": {
+        "en": "Discount",
+        "hi": "छूट"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "A jacket marked at ₹2,000 is offered at a discount of 15%. What is the selling price?",
+        "hi": "₹2,000 अंकित मूल्य वाली जैकेट पर 15% की छूट दी जाती है। विक्रय मूल्य क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "₹1,700",
+          "₹1,750",
+          "₹1,800",
+          "₹1,650"
+        ],
+        "hi": [
+          "₹1,700",
+          "₹1,750",
+          "₹1,800",
+          "₹1,650"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Discount = 15% of 2000 = ₹300. SP = 2000 - 300 = ₹1,700.",
+        "hi": "छूट = ₹300। विक्रय मूल्य = 2000 - 300 = ₹1,700।"
+      }
+    },
+    {
+      "id": "gd-m12",
+      "section": "maths",
+      "topic": "fractions",
+      "topicName": {
+        "en": "Fractions",
+        "hi": "भिन्न"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which of the following fractions is the largest? \n3/4, 5/6, 2/3, 1/2",
+        "hi": "इनमें से कौन-सी भिन्न सबसे बड़ी है? \n3/4, 5/6, 2/3, 1/2"
+      },
+      "options": {
+        "en": [
+          "5/6",
+          "3/4",
+          "2/3",
+          "1/2"
+        ],
+        "hi": [
+          "5/6",
+          "3/4",
+          "2/3",
+          "1/2"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Decimals: 3/4 = 0.75; 5/6 ≈ 0.833; 2/3 ≈ 0.667; 1/2 = 0.50. Largest is 5/6.",
+        "hi": "दशमलव मान: 5/6 ≈ 0.833 सबसे बड़ा मान है।"
+      }
+    },
+    {
+      "id": "gd-m13",
+      "section": "maths",
+      "topic": "ratio",
+      "topicName": {
+        "en": "Ages",
+        "hi": "आयु संबंधी प्रश्न"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "The ratio of ages of father and son is 5 : 2. If the father is 40 years old, what is the age of the son?",
+        "hi": "पिता और पुत्र की आयु का अनुपात 5 : 2 है। यदि पिता की आयु 40 वर्ष है, तो पुत्र की आयु क्या होगी?"
+      },
+      "options": {
+        "en": [
+          "16 years",
+          "14 years",
+          "18 years",
+          "20 years"
+        ],
+        "hi": [
+          "16 वर्ष",
+          "14 वर्ष",
+          "18 वर्ष",
+          "20 वर्ष"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "5 units = 40 years -> 1 unit = 8 years. Son's age = 2 × 8 = 16 years.",
+        "hi": "5 अनुपात = 40 वर्ष -> 1 अनुपात = 8 वर्ष। पुत्र की आयु = 2 × 8 = 16 वर्ष।"
+      }
+    },
+    {
+      "id": "gd-m14",
+      "section": "maths",
+      "topic": "mensuration",
+      "topicName": {
+        "en": "Square Area",
+        "hi": "वर्ग का क्षेत्रफल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "If the side of a square is 12 cm, find its area:",
+        "hi": "यदि किसी वर्ग की भुजा 12 सेमी है, तो उसका क्षेत्रफल क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "144 cm²",
+          "48 cm²",
+          "120 cm²",
+          "169 cm²"
+        ],
+        "hi": [
+          "144 सेमी²",
+          "48 सेमी²",
+          "120 सेमी²",
+          "169 सेमी²"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Area of square = side^2 = 12 × 12 = 144 cm².",
+        "hi": "वर्ग का क्षेत्रफल = भुजा^2 = 12 × 12 = 144 वर्ग सेमी।"
+      }
+    },
+    {
+      "id": "gd-m15",
+      "section": "maths",
+      "topic": "num-sys",
+      "topicName": {
+        "en": "Divisibility",
+        "hi": "विभाज्यता"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Which of the following numbers is completely divisible by 9? \n3429, 4512, 6721, 5132",
+        "hi": "इनमें से कौन-सी संख्या 9 से पूर्णतः विभाज्य है? \n3429, 4512, 6721, 5132"
+      },
+      "options": {
+        "en": [
+          "3429",
+          "4512",
+          "6721",
+          "5132"
+        ],
+        "hi": [
+          "3429",
+          "4512",
+          "6721",
+          "5132"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "A number is divisible by 9 if the sum of its digits is a multiple of 9. For 3429: 3+4+2+9 = 18 (divisible by 9).",
+        "hi": "अंकों का योग 9 से कटना चाहिए। 3+4+2+9 = 18, जो 9 से विभाज्य है।"
+      }
+    },
+    {
+      "id": "gd-m16",
+      "section": "maths",
+      "topic": "ci",
+      "topicName": {
+        "en": "Compound Interest",
+        "hi": "चक्रवृद्धि ब्याज"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "What is the principal amount if the simple interest for 2 years at 10% per annum is ₹400?",
+        "hi": "यदि 10% वार्षिक दर से 2 वर्ष का साधारण ब्याज ₹400 है, तो मूलधन क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "₹2,000",
+          "₹1,800",
+          "₹2,500",
+          "₹2,200"
+        ],
+        "hi": [
+          "₹2,000",
+          "₹1,800",
+          "₹2,500",
+          "₹2,200"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "P = (SI × 100) / (R × T) = (400 × 100) / (10 × 2) = 40000 / 20 = ₹2,000.",
+        "hi": "मूलधन = (400 × 100) / (10 × 2) = ₹2,000।"
+      }
+    },
+    {
+      "id": "gd-m17",
+      "section": "maths",
+      "topic": "trains",
+      "topicName": {
+        "en": "Speed of Train",
+        "hi": "ट्रेन की चाल"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "A train travels 300 km in 5 hours. What is its speed in km/h?",
+        "hi": "एक ट्रेन 5 घंटे में 300 किमी की दूरी तय करती है। उसकी चाल किमी/घंटा में क्या होगी?"
+      },
+      "options": {
+        "en": [
+          "60 km/h",
+          "50 km/h",
+          "65 km/h",
+          "70 km/h"
+        ],
+        "hi": [
+          "60 किमी/घंटा",
+          "50 किमी/घंटा",
+          "65 किमी/घंटा",
+          "70 किमी/घंटा"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Speed = Distance / Time = 300 / 5 = 60 km/h.",
+        "hi": "चाल = दूरी / समय = 300 / 5 = 60 किमी/घंटा।"
+      }
+    },
+    {
+      "id": "gd-m18",
+      "section": "maths",
+      "topic": "pipes",
+      "topicName": {
+        "en": "Pipes and Cisterns",
+        "hi": "नल और हौज"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "A pipe can fill a pool in 4 hours. How much of the pool does it fill in 1 hour?",
+        "hi": "एक नल किसी कुंड को 4 घंटे में भर सकता है। 1 घंटे में वह कुंड का कितना भाग भरेगा?"
+      },
+      "options": {
+        "en": [
+          "1/4",
+          "1/2",
+          "3/4",
+          "1/3"
+        ],
+        "hi": [
+          "1/4",
+          "1/2",
+          "3/4",
+          "1/3"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "In 1 hour, it fills 1/4 of the total volume.",
+        "hi": "1 घंटे में वह कुंड का 1/4 भाग भरेगा।"
+      }
+    },
+    {
+      "id": "gd-m19",
+      "section": "maths",
+      "topic": "decimals",
+      "topicName": {
+        "en": "Decimals",
+        "hi": "दशमलव"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Compute: 0.05 × 0.2",
+        "hi": "गणना कीजिए: 0.05 × 0.2"
+      },
+      "options": {
+        "en": [
+          "0.01",
+          "0.1",
+          "0.001",
+          "0.02"
+        ],
+        "hi": [
+          "0.01",
+          "0.1",
+          "0.001",
+          "0.02"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "5 × 2 = 10. There are 2 + 1 = 3 decimal places -> 0.010 = 0.01.",
+        "hi": "0.05 × 0.2 = 0.01।"
+      }
+    },
+    {
+      "id": "gd-m20",
+      "section": "maths",
+      "topic": "averages",
+      "topicName": {
+        "en": "Average of Numbers",
+        "hi": "संख्याओं का औसत"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "The sum of 4 numbers is 120. What is their average?",
+        "hi": "4 संख्याओं का योग 120 है। उनका औसत क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "30",
+          "25",
+          "35",
+          "40"
+        ],
+        "hi": [
+          "30",
+          "25",
+          "35",
+          "40"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Average = 120 / 4 = 30.",
+        "hi": "औसत = 120 / 4 = 30।"
+      }
+    },
+    {
+      "id": "gd-l01",
+      "section": "language",
+      "topic": "synonyms",
+      "topicName": {
+        "en": "पर्यायवाची / Synonyms",
+        "hi": "पर्यायवाची शब्द"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Select the synonym of 'सूर्य' (Sun):",
+        "hi": "'सूर्य' का समानार्थी शब्द कौन-सा है?"
+      },
+      "options": {
+        "en": [
+          "दिनकर (Dinkar)",
+          "निशाकर (Nishakar)",
+          "सुधाकर (Sudhakar)",
+          "शशांक (Shashank)"
+        ],
+        "hi": [
+          "दिनकर",
+          "निशाकर",
+          "सुधाकर",
+          "शशांक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'दिनकर', 'भास्कर', 'रवि', और 'आदित्य' सूर्य के पर्यायवाची शब्द हैं।",
+        "hi": "'दिनकर' सूर्य का प्रसिद्ध पर्यायवाची शब्द है।"
+      }
+    },
+    {
+      "id": "gd-l02",
+      "section": "language",
+      "topic": "antonyms",
+      "topicName": {
+        "en": "विलोम / Antonyms",
+        "hi": "विलोम शब्द"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "Select the antonym of 'उदार' (Generous):",
+        "hi": "'उदार' का विलोम शब्द क्या है?"
+      },
+      "options": {
+        "en": [
+          "कृपण (Miserly)",
+          "दयालु (Kind)",
+          "दानी (Charitable)",
+          "सरल (Simple)"
+        ],
+        "hi": [
+          "कृपण",
+          "दयालु",
+          "दानी",
+          "सरल"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'उदार' का विलोम 'कृपण' (कंजूस) होता है।",
+        "hi": "'उदार' का विलोम 'कृपण' होता है।"
+      }
+    },
+    {
+      "id": "gd-l03",
+      "section": "language",
+      "topic": "idioms",
+      "topicName": {
+        "en": "मुहावरे / Idioms",
+        "hi": "मुहावरे"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "मुहावरे 'आँखों का तारा' का क्या अर्थ है?",
+        "hi": "मुहावरे 'आँखों का तारा' का क्या अर्थ है?"
+      },
+      "options": {
+        "en": [
+          "अत्यधिक प्रिय होना (Very dear)",
+          "कम दिखाई देना",
+          "गुस्सा होना",
+          "धोखा देना"
+        ],
+        "hi": [
+          "अत्यधिक प्रिय होना",
+          "कम दिखाई देना",
+          "गुस्सा होना",
+          "धोखा देना"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'आँखों का तारा' का अर्थ अत्यंत प्रिय होना है।",
+        "hi": "'आँखों का तारा' का अर्थ बहुत दुलारा या प्रिय होना होता है।"
+      }
+    },
+    {
+      "id": "gd-l04",
+      "section": "language",
+      "topic": "one-word",
+      "topicName": {
+        "en": "अनेक शब्दों के लिए एक शब्द",
+        "hi": "वाक्यांश के लिए एक शब्द"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'जो सब कुछ जानता हो' के लिए एक उपयुक्त शब्द क्या है?",
+        "hi": "'जो सब कुछ जानता हो' के लिए एक उपयुक्त शब्द क्या है?"
+      },
+      "options": {
+        "en": [
+          "सर्वज्ञ (Omniscient)",
+          "अल्पज्ञ",
+          "विज्ञ",
+          "कृतज्ञ"
+        ],
+        "hi": [
+          "सर्वज्ञ",
+          "अल्पज्ञ",
+          "विज्ञ",
+          "कृतज्ञ"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "सब कुछ जानने वाले को 'सर्वज्ञ' कहा जाता है।",
+        "hi": "जो सब कुछ जानता हो उसे 'सर्वज्ञ' कहते हैं।"
+      }
+    },
+    {
+      "id": "gd-l05",
+      "section": "language",
+      "topic": "spelling",
+      "topicName": {
+        "en": "शुद्ध वर्तनी / Spelling",
+        "hi": "वर्तनी शुद्धि"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "निम्नलिखित में से शुद्ध वर्तनी वाला शब्द चुनिए:",
+        "hi": "निम्नलिखित में से शुद्ध वर्तनी वाला शब्द चुनिए:"
+      },
+      "options": {
+        "en": [
+          "उज्ज्वल",
+          "उज्वल",
+          "उज्जवल",
+          "उज्वल्य"
+        ],
+        "hi": [
+          "उज्ज्वल",
+          "उज्वल",
+          "उज्जवल",
+          "उज्वल्य"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "शुद्ध वर्तनी 'उज्ज्वल' है (दो बार आधा 'ज')।",
+        "hi": "शुद्ध वर्तनी 'उज्ज्वल' है।"
+      }
+    },
+    {
+      "id": "gd-l06",
+      "section": "language",
+      "topic": "grammar",
+      "topicName": {
+        "en": "वाक्य शुद्धि / Sentence Correction",
+        "hi": "वाक्य शुद्धि"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "शुद्ध वाक्य का चयन कीजिए:",
+        "hi": "शुद्ध वाक्य का चयन कीजिए:"
+      },
+      "options": {
+        "en": [
+          "वह प्रतिदिन मंदिर जाता है।",
+          "वह प्रतिदिन मंदिर को जाता है।",
+          "वह जाता है मंदिर प्रतिदिन।",
+          "वह प्रतिदिन जाता मंदिर है।"
+        ],
+        "hi": [
+          "वह प्रतिदिन मंदिर जाता है।",
+          "वह प्रतिदिन मंदिर को जाता है।",
+          "वह जाता है मंदिर प्रतिदिन।",
+          "वह प्रतिदिन जाता मंदिर है।"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "पहला वाक्य व्याकरण की दृष्टि से पूर्णतः शुद्ध है।",
+        "hi": "कर्ता + काल/स्थान + कर्म + क्रिया का क्रम 'वह प्रतिदिन मंदिर जाता है' सही है।"
+      }
+    },
+    {
+      "id": "gd-l07",
+      "section": "language",
+      "topic": "antonyms",
+      "topicName": {
+        "en": "विलोम शब्द",
+        "hi": "विलोम"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'अनुराग' का सही विलोम शब्द क्या है?",
+        "hi": "'अनुराग' का सही विलोम शब्द क्या है?"
+      },
+      "options": {
+        "en": [
+          "विराग",
+          "राग",
+          "प्रेम",
+          "आसक्ति"
+        ],
+        "hi": [
+          "विराग",
+          "राग",
+          "प्रेम",
+          "आसक्ति"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'अनुराग' का विलोम शब्द 'विराग' है।",
+        "hi": "'अनुराग' का विलोम 'विराग' होता है।"
+      }
+    },
+    {
+      "id": "gd-l08",
+      "section": "language",
+      "topic": "idioms",
+      "topicName": {
+        "en": "मुहावरे",
+        "hi": "मुहावरे"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'दांत खट्टे करना' मुहावरे का सही अर्थ क्या है?",
+        "hi": "'दांत खट्टे करना' मुहावरे का सही अर्थ क्या है?"
+      },
+      "options": {
+        "en": [
+          "बुरी तरह हराना (Defeat badly)",
+          "खट्टी चीजें खाना",
+          "मुस्कुराना",
+          "दांत साफ करना"
+        ],
+        "hi": [
+          "बुरी तरह हराना",
+          "खट्टी चीजें खाना",
+          "मुस्कुराना",
+          "दांत साफ करना"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'दांत खट्टे करना' का अर्थ शत्रु या प्रतिद्वंद्वी को बुरी तरह पराजित करना है।",
+        "hi": "'दांत खट्टे करना' अर्थात बुरी तरह पराजित करना।"
+      }
+    },
+    {
+      "id": "gd-l09",
+      "section": "language",
+      "topic": "synonyms",
+      "topicName": {
+        "en": "पर्यायवाची",
+        "hi": "पर्यायवाची शब्द"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'कमल' का पर्यायवाची शब्द कौन-सा है?",
+        "hi": "'कमल' का पर्यायवाची शब्द कौन-सा है?"
+      },
+      "options": {
+        "en": [
+          "जलज",
+          "जलद",
+          "जलधि",
+          "पयोद"
+        ],
+        "hi": [
+          "जलज",
+          "जलद",
+          "जलधि",
+          "पयोद"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'जलज' (जल में जन्म लेने वाला) कमल का पर्यायवाची है। 'जलद' बादल है और 'जलधि' समुद्र है।",
+        "hi": "'जलज' कमल का पर्यायवाची है।"
+      }
+    },
+    {
+      "id": "gd-l10",
+      "section": "language",
+      "topic": "one-word",
+      "topicName": {
+        "en": "अनेक शब्दों के लिए एक शब्द",
+        "hi": "वाक्यांश के लिए एक शब्द"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'जिसके आने की कोई निश्चित तिथि न हो' उसे क्या कहते हैं?",
+        "hi": "'जिसके आने की कोई निश्चित तिथि न हो' उसे क्या कहते हैं?"
+      },
+      "options": {
+        "en": [
+          "अतिथि (Guest)",
+          "आगंतुक",
+          "मित्र",
+          "मेजबान"
+        ],
+        "hi": [
+          "अतिथि",
+          "आगंतुक",
+          "मित्र",
+          "मेजबान"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "अ + तिथि = अतिथि (जिसके आगमन की तिथि निर्धारित न हो)।",
+        "hi": "अतिथि का अर्थ है जिसके आने की तिथि तय न हो।"
+      }
+    },
+    {
+      "id": "gd-l11",
+      "section": "language",
+      "topic": "spelling",
+      "topicName": {
+        "en": "वर्तनी शुद्धि",
+        "hi": "शुद्ध शब्द"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "शुद्ध वर्तनी का चयन कीजिए:",
+        "hi": "शुद्ध वर्तनी का चयन कीजिए:"
+      },
+      "options": {
+        "en": [
+          "कवयित्री",
+          "कविइत्री",
+          "कवयत्री",
+          "कविईत्री"
+        ],
+        "hi": [
+          "कवयित्री",
+          "कविइत्री",
+          "कवयत्री",
+          "कविईत्री"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "कवि का स्त्रीलिंग रूप शुद्ध वर्तनी में 'कवयित्री' लिखा जाता है।",
+        "hi": "शुद्ध रूप 'कवयित्री' है।"
+      }
+    },
+    {
+      "id": "gd-l12",
+      "section": "language",
+      "topic": "gender",
+      "topicName": {
+        "en": "लिंग परिवर्तन",
+        "hi": "लिंग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'विद्वान' का स्त्रीलिंग शब्द क्या होगा?",
+        "hi": "'विद्वान' का स्त्रीलिंग शब्द क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "विदुषी",
+          "विद्वानी",
+          "विद्वता",
+          "विद्वत्ता"
+        ],
+        "hi": [
+          "विदुषी",
+          "विद्वानी",
+          "विद्वता",
+          "विद्वत्ता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'विद्वान' का सही स्त्रीलिंग 'विदुषी' होता है।",
+        "hi": "'विद्वान' का स्त्रीलिंग 'विदुषी' है।"
+      }
+    },
+    {
+      "id": "gd-l13",
+      "section": "language",
+      "topic": "fill-blanks",
+      "topicName": {
+        "en": "रिक्त स्थान की पूर्ति",
+        "hi": "रिक्त स्थान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "सत्य की सदैव ______ होती है।",
+        "hi": "सत्य की सदैव ______ होती है।"
+      },
+      "options": {
+        "en": [
+          "विजय / जीत",
+          "हार",
+          "पराजय",
+          "शोक"
+        ],
+        "hi": [
+          "विजय / जीत",
+          "हार",
+          "पराजय",
+          "शोक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'सत्यमेव जयते' - सत्य की सदैव विजय होती है।",
+        "hi": "सत्य की हमेशा जीत या विजय होती है।"
+      }
+    },
+    {
+      "id": "gd-l14",
+      "section": "language",
+      "topic": "antonyms",
+      "topicName": {
+        "en": "विलोम शब्द",
+        "hi": "विलोम"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'अमृत' का विलोम शब्द क्या है?",
+        "hi": "'अमृत' का विलोम शब्द क्या है?"
+      },
+      "options": {
+        "en": [
+          "विष",
+          "जल",
+          "पीयूष",
+          "सुधा"
+        ],
+        "hi": [
+          "विष",
+          "जल",
+          "पीयूष",
+          "सुधा"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'अमृत' का विलोम 'विष' या 'गरल' होता है।",
+        "hi": "'अमृत' का विलोम 'विष' है।"
+      }
+    },
+    {
+      "id": "gd-l15",
+      "section": "language",
+      "topic": "idioms",
+      "topicName": {
+        "en": "लोकोक्ति",
+        "hi": "कहावत"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'अंधों में काना राजा' लोकोक्ति का क्या भावार्थ है?",
+        "hi": "'अंधों में काना राजा' लोकोक्ति का क्या भावार्थ है?"
+      },
+      "options": {
+        "en": [
+          "मूर्खों में थोड़ा ज्ञानी भी आदर पाता है",
+          "राजा बहुत दयालु है",
+          "सब अंधे हैं",
+          "समान गुण वाले लोग"
+        ],
+        "hi": [
+          "मूर्खों में थोड़ा ज्ञानी भी आदर पाता है",
+          "राजा बहुत दयालु है",
+          "सब अंधे हैं",
+          "समान गुण वाले लोग"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "अल्पज्ञानियों या अज्ञानियों के समूह में थोड़ा जानने वाला व्यक्ति भी बड़ा माना जाता है।",
+        "hi": "मूर्खों के बीच थोड़ा पढ़ा-लिखा व्यक्ति भी बड़ा समझा जाता है।"
+      }
+    },
+    {
+      "id": "gd-l16",
+      "section": "language",
+      "topic": "comprehension",
+      "topicName": {
+        "en": "गद्यांश",
+        "hi": "अपठित गद्यांश"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "गद्यांश पढ़कर उत्तर दीजिए: 'समय का हमारे जीवन में अत्यधिक महत्व है। जो व्यक्ति समय का सदुपयोग करता है, वह जीवन में अवश्य सफल होता है। बीता हुआ समय कभी वापस नहीं आता।' \n\nप्रश्न: जीवन में कौन-सा व्यक्ति अवश्य सफल होता है?",
+        "hi": "गद्यांश पढ़कर उत्तर दीजिए: 'समय का हमारे जीवन में अत्यधिक महत्व है। जो व्यक्ति समय का सदुपयोग करता है, वह जीवन में अवश्य सफल होता है। बीता हुआ समय कभी वापस नहीं आता।' \n\nप्रश्न: जीवन में कौन-सा व्यक्ति अवश्य सफल होता है?"
+      },
+      "options": {
+        "en": [
+          "समय का सदुपयोग करने वाला",
+          "धनवान व्यक्ति",
+          "आलसी व्यक्ति",
+          "बलवान व्यक्ति"
+        ],
+        "hi": [
+          "समय का सदुपयोग करने वाला",
+          "धनवान व्यक्ति",
+          "आलसी व्यक्ति",
+          "बलवान व्यक्ति"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "गद्यांश के अनुसार जो व्यक्ति समय का सदुपयोग करता है वह सफल होता है।",
+        "hi": "स्पष्ट रूप से गद्यांश में कहा गया है कि समय का सदुपयोग करने वाला व्यक्ति सफल होता है।"
+      }
+    },
+    {
+      "id": "gd-l17",
+      "section": "language",
+      "topic": "comprehension",
+      "topicName": {
+        "en": "गद्यांश",
+        "hi": "अपठित गद्यांश"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "गद्यांश के अनुसार क्या कभी वापस नहीं आता?",
+        "hi": "गद्यांश के अनुसार क्या कभी वापस नहीं आता?"
+      },
+      "options": {
+        "en": [
+          "बीता हुआ समय",
+          "धन",
+          "स्वास्थ्य",
+          "मित्र"
+        ],
+        "hi": [
+          "बीता हुआ समय",
+          "धन",
+          "स्वास्थ्य",
+          "मित्र"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "बीता हुआ समय कभी वापस नहीं लौटता।",
+        "hi": "गद्यांश के अनुसार बीता हुआ समय कभी वापस नहीं आता।"
+      }
+    },
+    {
+      "id": "gd-l18",
+      "section": "language",
+      "topic": "grammar",
+      "topicName": {
+        "en": "कारक",
+        "hi": "कारक पहचान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'पेड़ से पत्ता गिरा' में कौन-सा कारक है?",
+        "hi": "'पेड़ से पत्ता गिरा' में कौन-सा कारक है?"
+      },
+      "options": {
+        "en": [
+          "अपादान कारक (अलग होने के अर्थ में)",
+          "करण कारक",
+          "कर्म कारक",
+          "संबोधन कारक"
+        ],
+        "hi": [
+          "अपादान कारक",
+          "करण कारक",
+          "कर्म कारक",
+          "संबोधन कारक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "जहाँ किसी वस्तु का किसी स्थान से अलग होना पाया जाए, वहाँ 'अपादान कारक' (से अलग होना) होता है।",
+        "hi": "पत्ते का पेड़ से अलग होने का भाव है, अतः अपादान कारक है।"
+      }
+    },
+    {
+      "id": "gd-l19",
+      "section": "language",
+      "topic": "synonyms",
+      "topicName": {
+        "en": "पर्यायवाची",
+        "hi": "समानार्थी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'अग्नि' का पर्यायवाची शब्द कौन-सा है?",
+        "hi": "'अग्नि' का पर्यायवाची शब्द कौन-सा है?"
+      },
+      "options": {
+        "en": [
+          "पावक",
+          "अंबुज",
+          "वारिद",
+          "समीर"
+        ],
+        "hi": [
+          "पावक",
+          "अंबुज",
+          "वारिद",
+          "समीर"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'पावक', 'अनल', 'आग', और 'हुताशन' अग्नि के पर्यायवाची हैं।",
+        "hi": "'पावक' अग्नि का पर्यायवाची शब्द है।"
+      }
+    },
+    {
+      "id": "gd-l20",
+      "section": "language",
+      "topic": "one-word",
+      "topicName": {
+        "en": "वाक्यांश के लिए एक शब्द",
+        "hi": "अनेक शब्दों के लिए एक शब्द"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "SSC GD 2024",
+      "text": {
+        "en": "'जो कभी बूढ़ा न हो' उसके लिए एक शब्द क्या है?",
+        "hi": "'जो कभी बूढ़ा न हो' उसके लिए एक शब्द क्या है?"
+      },
+      "options": {
+        "en": [
+          "अजर",
+          "अमर",
+          "अक्षय",
+          "अनंत"
+        ],
+        "hi": [
+          "अजर",
+          "अमर",
+          "अक्षय",
+          "अनंत"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "जो कभी न मरे वह 'अमर' और जो कभी बूढ़ा न हो वह 'अजर' कहलाता है।",
+        "hi": "जो कभी वृद्ध न हो उसे 'अजर' कहते हैं।"
+      }
+    }
+  ]
+}

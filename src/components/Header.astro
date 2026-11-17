@@ -91,28 +91,18 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
         <div
           id="tools-dropdown-panel"
           class="nav-dropdown-panel invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-0 top-full pt-1.5 z-50 pointer-events-none group-hover:pointer-events-auto before:content-[''] before:absolute before:-top-3 before:inset-x-0 before:h-3"
-          style="width: 560px; max-width: calc(100vw - 2rem);"
+          style="width: 580px; max-width: calc(100vw - 2rem);"
         >
           <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-slate-200 dark:border-slate-700 p-3 ring-1 ring-black/5 dark:ring-white/10 pointer-events-auto space-y-2.5">
             <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-primary px-1 border-b border-slate-100 dark:border-slate-800 pb-1.5">
               <span>All Resizing &amp; Generation Tools</span>
-              <span class="font-mono text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">SUITE</span>
+              <span class="font-mono text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">100% FREE</span>
             </div>
 
-            <div class="grid grid-cols-2 gap-2">
-              <!-- Column 1: Core Resizers & Inking -->
-              <div class="space-y-0.5">
-                <div class="text-[9px] font-bold text-muted-foreground uppercase px-2 py-0.5">Resizing &amp; Inking</div>
-                <a
-                  href="/resize-signature-to-10kb-20kb/"
-                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-                >
-                  <span class="text-sm p-1 rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shrink-0">✍️</span>
-                  <div class="min-w-0">
-                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Signature Resizer</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">10–20 KB for exams</div>
-                  </div>
-                </a>
+            <div class="grid grid-cols-2 gap-2.5">
+              <!-- Column 1: Core Resizers (Photo, Document, Signature, Compress) -->
+              <div class="space-y-1">
+                <div class="text-[9px] font-bold text-muted-foreground uppercase px-2 py-0.5">Photo &amp; Document Resizers</div>
 
                 <a
                   href="/photo-resizer/"
@@ -121,7 +111,7 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
                   <span class="text-sm p-1 rounded-md bg-sky-500/10 text-sky-600 dark:text-sky-400 shrink-0">📷</span>
                   <div class="min-w-0">
                     <div class="font-bold text-xs group-hover/item:text-primary truncate">Photo Resizer</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">20–50 KB &amp; 3.5×4.5 cm</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Passport, 20–50 KB &amp; 3.5×4.5 cm</div>
                   </div>
                 </a>
 
@@ -132,7 +122,18 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
                   <span class="text-sm p-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">📄</span>
                   <div class="min-w-0">
                     <div class="font-bold text-xs group-hover/item:text-primary truncate">Document Resizer</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">Certificates to 100–300 KB</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Certificates &amp; Marksheets (100–300 KB)</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/resize-signature-to-10kb-20kb/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shrink-0">✍️</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Signature Resizer</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">10–20 KB &amp; 140×60 px for exams</div>
                   </div>
                 </a>
 
@@ -142,8 +143,57 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
                 >
                   <span class="text-sm p-1 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 shrink-0">⚡</span>
                   <div class="min-w-0">
-                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Compress Image</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">Custom target KB size</div>
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Compress Image to KB</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Exact target KB with quality retain</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/admit-card-photo-print-sheet/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-400 shrink-0">🖨️</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Admit Card Photo Sheet</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Print 4×6 passport photos sheet</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Column 2: Background Cleaners & Generators -->
+              <div class="space-y-1">
+                <div class="text-[9px] font-bold text-muted-foreground uppercase px-2 py-0.5">Background &amp; Creation</div>
+
+                <a
+                  href="/background-remover/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-primary/10 text-primary shrink-0">🪄</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Signature BG Remover</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Paper clean &amp; transparent PNG</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/photo-background-remover/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 shrink-0">👤</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Photo BG Remover</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">White background portrait cutout</div>
+                  </div>
+                </a>
+
+                <a
+                  href="/make-signature-background-white/"
+                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
+                >
+                  <span class="text-sm p-1 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 shrink-0">🧹</span>
+                  <div class="min-w-0">
+                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Make 100% White</div>
+                    <div class="text-[10px] text-muted-foreground leading-tight">Clear yellow tint &amp; shadow</div>
                   </div>
                 </a>
 
@@ -169,112 +219,282 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
                   </div>
                 </a>
               </div>
-
-              <!-- Column 2: Background Cleaners & Presets -->
-              <div class="space-y-0.5">
-                <div class="text-[9px] font-bold text-muted-foreground uppercase px-2 py-0.5">Background Cleaners</div>
-                <a
-                  href="/background-remover/"
-                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-                >
-                  <span class="text-sm p-1 rounded-md bg-primary/10 text-primary shrink-0">🪄</span>
-                  <div class="min-w-0">
-                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Signature BG Remover</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">Paper clean &amp; PNG ink</div>
-                  </div>
-                </a>
-
-                <a
-                  href="/photo-background-remover/"
-                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-                >
-                  <span class="text-sm p-1 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 shrink-0">👤</span>
-                  <div class="min-w-0">
-                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Photo BG Remover</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">Portrait cutouts &amp; colour</div>
-                  </div>
-                </a>
-
-                <a
-                  href="/make-signature-background-white/"
-                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-                >
-                  <span class="text-sm p-1 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 shrink-0">🧹</span>
-                  <div class="min-w-0">
-                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Make 100% White</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">Clear yellow tint &amp; shadow</div>
-                  </div>
-                </a>
-
-                <div class="text-[9px] font-bold text-muted-foreground uppercase px-2 pt-1 pb-0.5">Presets &amp; Guides</div>
-                {isUS ? (
-                  <a
-                    href="/us/passport-photo-print-sheet/"
-                    class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-                  >
-                    <span class="text-sm p-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">🖨️</span>
-                    <div class="min-w-0">
-                      <div class="font-bold text-xs group-hover/item:text-primary truncate">4×6 Passport Sheet</div>
-                      <div class="text-[10px] text-muted-foreground leading-tight">$0.35 print hack</div>
-                    </div>
-                  </a>
-                ) : (
-                  <a
-                    href="/ssc-cgl-signature-resize/"
-                    class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-                  >
-                    <span class="text-sm p-1 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0">🎨</span>
-                    <div class="min-w-0">
-                      <div class="font-bold text-xs group-hover/item:text-primary truncate">SSC CGL Preset</div>
-                      <div class="text-[10px] text-muted-foreground leading-tight">140×60 px &amp; 10–20 KB</div>
-                    </div>
-                  </a>
-                )}
-
-                <a
-                  href="/blog/how-to-change-signature-in-outlook/"
-                  class="flex items-center gap-2 p-1.5 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition group/item"
-                >
-                  <span class="text-sm p-1 rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shrink-0">📧</span>
-                  <div class="min-w-0">
-                    <div class="font-bold text-xs group-hover/item:text-primary truncate">Outlook Signature Guide</div>
-                    <div class="text-[10px] text-muted-foreground leading-tight">Web &amp; desktop setup</div>
-                  </div>
-                </a>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 2. Photo Resizer -->
-
+      <!-- 3. Mock Tests -->
       <a
-        href="/photo-resizer/"
+        href="/mock-test/"
         class:list={[
-          "px-2 lg:px-2.5 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1 font-semibold",
-          isPhoto
+          "px-2.5 lg:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 font-semibold",
+          currentPath.startsWith('/mock-test')
             ? "bg-primary/10 text-primary border border-primary/25 shadow-2xs"
             : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
         ]}
+        title="100% Free Mock Tests (No Login, Real TCS iON Interface)"
       >
-        <span>Photo Resizer</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 animate-pulse"></span>
+        <span>Mock Tests</span>
+        <span class="rounded-full bg-emerald-100 dark:bg-emerald-950 px-1.5 py-0.2 text-[9px] font-black text-emerald-800 dark:text-emerald-300">FREE</span>
       </a>
 
-      <!-- 3. Document Resizer -->
-      <a
-        href="/document-resizer/"
-        class:list={[
-          "px-2 lg:px-2.5 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1 font-semibold",
-          isDoc
-            ? "bg-primary/10 text-primary border border-primary/25 shadow-2xs"
-            : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
-        ]}
-      >
-        <span>Document Resizer</span>
-      </a>
+      <!-- 4. Exams & Jobs Mega Menu -->
+      {!isUS && (
+      <div class="relative group py-2" id="exams-nav-group" data-nav-group="exams">
+        <button
+          type="button"
+          id="exams-menu-btn" data-dropdown-btn="exams"
+          class="px-2.5 lg:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span>Exams &amp; Jobs</span>
+          <svg class="dropdown-chevron w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
 
-      <!-- International Tab Dropdown -->
+        <!-- Dropdown Panel (High-Density Mega Menu) -->
+        <div
+          id="exams-dropdown-panel"
+          class="nav-dropdown-panel invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-1/2 -translate-x-1/2 top-full pt-1.5 w-[820px] max-w-[96vw] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_45px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_50px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-800 p-3 sm:p-3.5 z-50 ring-1 ring-black/5 dark:ring-white/10 pointer-events-none group-hover:pointer-events-auto before:content-[''] before:absolute before:-top-3 before:inset-x-0 before:h-3"
+        >
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 text-xs">
+            
+            <!-- Column 1: Central & Banking -->
+            <div class="space-y-1">
+              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                <span>Central &amp; Banking</span>
+                <span class="font-mono text-[9px] text-muted-foreground">6 Exams</span>
+              </div>
+              <ul class="space-y-0.5">
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ssc-cgl" data-slug="ssc-cgl-signature-resize">
+                    <span class="font-bold text-primary leading-snug">★ SSC CGL (140×60)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-primary/10 text-primary font-bold shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ssc" data-slug="ssc-signature-resize">
+                    <span class="font-medium leading-snug">SSC (CHSL, MTS, GD)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">140×60</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ibps" data-slug="ibps-signature-resize">
+                    <span class="font-medium leading-snug">IBPS PO &amp; Clerk</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="sbi-signature" data-slug="sbi-signature-resize">
+                    <span class="font-medium leading-snug">SBI PO &amp; Clerk</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="upsc" data-slug="upsc-signature-resize">
+                    <span class="font-medium leading-snug">UPSC CSE &amp; IFoS</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">350×350</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="rbi" data-slug="rbi-signature-resize">
+                    <span class="font-medium leading-snug">RBI Grade B &amp; Asst</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 2: Railways & Defense -->
+            <div class="space-y-1">
+              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                <span>Railways &amp; Defense</span>
+                <span class="font-mono text-[9px] text-muted-foreground">8 Exams</span>
+              </div>
+              <ul class="space-y-0.5">
+                <li>
+                  <a href="/nda-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
+                    <span class="font-medium leading-snug">NDA I 2027 (UPSC)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground shrink-0">20–100K</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/cds-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
+                    <span class="font-medium leading-snug">CDS I 2027 (UPSC)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground shrink-0">20–100K</span>
+                  </a>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="rrb" data-slug="rrb-signature-resize">
+                    <span class="font-medium leading-snug">RRB (NTPC, ALP, Tech)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">140×60</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="afcat" data-slug="afcat-signature-resize">
+                    <span class="font-medium leading-snug">AFCAT (Air Force)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="agniveer" data-slug="agniveer-signature-resize">
+                    <span class="font-medium leading-snug">Agniveer Army Rally</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="coastguard" data-slug="indian-coast-guard-signature-resize">
+                    <span class="font-medium leading-snug">Coast Guard (Navik &amp; Yantrik)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="capf-ac" data-slug="capf-signature-resize">
+                    <span class="font-medium leading-snug">CAPF (BSF, CISF, CRPF)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ctet-exam" data-slug="ctet-signature-resize">
+                    <span class="font-medium leading-snug">CTET &amp; State TET</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–30K</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Entrance & Law -->
+            <div class="space-y-1">
+              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                <span>Entrance &amp; Law</span>
+                <span class="font-mono text-[9px] text-muted-foreground">6 Exams</span>
+              </div>
+              <ul class="space-y-0.5">
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="neet" data-slug="nta-neet-jee-signature-resize">
+                    <span class="font-medium leading-snug">NEET UG</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">4–30K</span>
+                  </button>
+                </li>
+                <li>
+                  <a href="/jee-main-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
+                    <span class="font-medium leading-snug">JEE Main 2027</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground shrink-0">10–100 KB</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/gate-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
+                    <span class="font-medium leading-snug">GATE 2027</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">3–300 KB</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/iit-jam-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
+                    <span class="font-medium leading-snug">IIT JAM 2027</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">50–150 KB</span>
+                  </a>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="cat" data-slug="cat-signature-resize">
+                    <span class="font-medium leading-snug">CAT (IIMs)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–80K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="clat" data-slug="clat-signature-resize">
+                    <span class="font-medium leading-snug">CLAT &amp; AILET Law</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="cuet-ug" data-slug="cuet-signature-resize">
+                    <span class="font-medium leading-snug">CUET UG Entrance</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 4: Police & State PSC -->
+            <div class="space-y-1">
+              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                <span>Police &amp; State PSC</span>
+                <span class="font-mono text-[9px] text-muted-foreground">7 Portals</span>
+              </div>
+              <ul class="space-y-0.5">
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="up-police" data-slug="up-police-signature-resize">
+                    <span class="font-medium leading-snug">UP Police Constable &amp; SI</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="maharashtra-police" data-slug="maharashtra-police-signature-resize">
+                    <span class="font-medium leading-snug">Maharashtra Police Bharti</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">5–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="bpsc" data-slug="bpsc-signature-resize">
+                    <span class="font-medium leading-snug">BPSC (Bihar PSC)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="tnpsc" data-slug="tnpsc-signature-resize">
+                    <span class="font-medium leading-snug">TNPSC (Group 4, 2, VAO)</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="mppsc-preset" data-slug="mppsc-signature-resize">
+                    <span class="font-medium leading-snug">MPPSC &amp; MP Police</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="uppsc-ro-aro-signature" data-slug="uppsc-ro-aro-photo-signature-resize">
+                    <span class="font-medium leading-snug">UPPSC RO/ARO 3-in-1</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold shrink-0">10–20K</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="wbpsc-west-bengal" data-slug="wbpsc-photo-signature-resize">
+                    <span class="font-medium leading-snug">WBPSC Photo &amp; Sign</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">140×60</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="rpsc-ras" data-slug="rpsc-signature-resize">
+                    <span class="font-medium leading-snug">RPSC &amp; Rajasthan Police</span>
+                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">20–50K</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Mega Menu Footer -->
+          <div class="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-muted-foreground px-1">
+            <a href="/government-jobs/" class:list={["text-primary font-bold hover:underline flex items-center gap-1", isJobs ? "text-primary" : ""]}>
+              <span>🏛️ Govt Jobs Calendar 2026</span>
+              <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 font-bold">LIVE</span>
+            </a>
+            <a href="/#exam-specs" class="text-primary font-bold hover:underline flex items-center gap-1">
+              <span>All 65+ Exam Specifications</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      )}
+
+      <!-- 5. International Tab Dropdown -->
       <div class="relative group py-2" id="international-nav-group" data-nav-group="intl">
         <button
           type="button"
@@ -673,265 +893,11 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
           </div>
         </div>
       </div>
-
-      <!-- 5. EXAMS & JOBS MERGED MEGA MENU -->
-      {!isUS && (
-      <div class="relative group py-2" id="exams-nav-group" data-nav-group="exams">
-        <button
-          type="button"
-          id="exams-menu-btn" data-dropdown-btn="exams"
-          class="px-2 lg:px-2.5 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
-          aria-expanded="false"
-          aria-haspopup="true"
-        >
-          <span>Exams &amp; Jobs</span>
-          <svg class="dropdown-chevron w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </button>
-
-        <!-- Dropdown Panel (High-Density Mega Menu) -->
-        <div
-          id="exams-dropdown-panel"
-          class="nav-dropdown-panel invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-150 absolute left-1/2 -translate-x-1/2 top-full pt-1.5 w-[820px] max-w-[96vw] bg-white dark:bg-slate-900 rounded-2xl shadow-[0_20px_45px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_50px_rgba(0,0,0,0.8)] border border-slate-200 dark:border-slate-800 p-3 sm:p-3.5 z-50 ring-1 ring-black/5 dark:ring-white/10 pointer-events-none group-hover:pointer-events-auto before:content-[''] before:absolute before:-top-3 before:inset-x-0 before:h-3"
-        >
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 text-xs">
-            
-            <!-- Column 1: Central & Banking -->
-            <div class="space-y-1">
-              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-                <span>Central &amp; Banking</span>
-                <span class="font-mono text-[9px] text-muted-foreground">6 Exams</span>
-              </div>
-              <ul class="space-y-0.5">
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ssc-cgl" data-slug="ssc-cgl-signature-resize">
-                    <span class="font-bold text-primary leading-snug">★ SSC CGL (140×60)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-primary/10 text-primary font-bold shrink-0">10–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ssc" data-slug="ssc-signature-resize">
-                    <span class="font-medium leading-snug">SSC (CHSL, MTS, GD)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">140×60</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ibps" data-slug="ibps-signature-resize">
-                    <span class="font-medium leading-snug">IBPS PO &amp; Clerk</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="sbi-signature" data-slug="sbi-signature-resize">
-                    <span class="font-medium leading-snug">SBI PO &amp; Clerk</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="upsc" data-slug="upsc-signature-resize">
-                    <span class="font-medium leading-snug">UPSC CSE &amp; IFoS</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">350×350</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="rbi" data-slug="rbi-signature-resize">
-                    <span class="font-medium leading-snug">RBI Grade B &amp; Asst</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Column 2: Railways & Defense -->
-            <div class="space-y-1">
-              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-                <span>Railways &amp; Defense</span>
-                <span class="font-mono text-[9px] text-muted-foreground">8 Exams</span>
-              </div>
-              <ul class="space-y-0.5">
-                <li>
-                  <a href="/nda-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
-                    <span class="font-medium leading-snug">NDA I 2027 (UPSC)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground shrink-0">20–100K</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/cds-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
-                    <span class="font-medium leading-snug">CDS I 2027 (UPSC)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground shrink-0">20–100K</span>
-                  </a>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="rrb" data-slug="rrb-signature-resize">
-                    <span class="font-medium leading-snug">RRB (NTPC, ALP, Tech)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">140×60</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="afcat" data-slug="afcat-signature-resize">
-                    <span class="font-medium leading-snug">AFCAT (Air Force)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="agniveer" data-slug="agniveer-signature-resize">
-                    <span class="font-medium leading-snug">Agniveer Army Rally</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="coastguard" data-slug="indian-coast-guard-signature-resize">
-                    <span class="font-medium leading-snug">Coast Guard (Navik &amp; Yantrik)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="capf-ac" data-slug="capf-signature-resize">
-                    <span class="font-medium leading-snug">CAPF (BSF, CISF, CRPF)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="ctet-exam" data-slug="ctet-signature-resize">
-                    <span class="font-medium leading-snug">CTET &amp; State TET</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–30K</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Column 3: Entrance & Law -->
-            <div class="space-y-1">
-              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-                <span>Entrance &amp; Law</span>
-                <span class="font-mono text-[9px] text-muted-foreground">6 Exams</span>
-              </div>
-              <ul class="space-y-0.5">
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="neet" data-slug="nta-neet-jee-signature-resize">
-                    <span class="font-medium leading-snug">NEET UG</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">4–30K</span>
-                  </button>
-                </li>
-                <li>
-                  <a href="/jee-main-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
-                    <span class="font-medium leading-snug">JEE Main 2027</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground shrink-0">10–100 KB</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/gate-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
-                    <span class="font-medium leading-snug">GATE 2027</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">3–300 KB</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/iit-jam-signature-resize/" class="text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-muted px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 text-[11px]">
-                    <span class="font-medium leading-snug">IIT JAM 2027</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">50–150 KB</span>
-                  </a>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="cat" data-slug="cat-signature-resize">
-                    <span class="font-medium leading-snug">CAT (IIMs)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–80K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="clat" data-slug="clat-signature-resize">
-                    <span class="font-medium leading-snug">CLAT &amp; AILET Law</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="cuet-ug" data-slug="cuet-signature-resize">
-                    <span class="font-medium leading-snug">CUET UG Entrance</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Column 4: Police & State PSC -->
-            <div class="space-y-1">
-              <div class="font-bold text-[10px] text-primary uppercase tracking-wider px-1 pb-1 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-                <span>Police &amp; State PSC</span>
-                <span class="font-mono text-[9px] text-muted-foreground">7 Portals</span>
-              </div>
-              <ul class="space-y-0.5">
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="up-police" data-slug="up-police-signature-resize">
-                    <span class="font-medium leading-snug">UP Police Constable &amp; SI</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="maharashtra-police" data-slug="maharashtra-police-signature-resize">
-                    <span class="font-medium leading-snug">Maharashtra Police Bharti</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">5–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="bpsc" data-slug="bpsc-signature-resize">
-                    <span class="font-medium leading-snug">BPSC (Bihar PSC)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="tnpsc" data-slug="tnpsc-signature-resize">
-                    <span class="font-medium leading-snug">TNPSC (Group 4, 2, VAO)</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="mppsc-preset" data-slug="mppsc-signature-resize">
-                    <span class="font-medium leading-snug">MPPSC &amp; MP Police</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">10–50K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="uppsc-ro-aro-signature" data-slug="uppsc-ro-aro-photo-signature-resize">
-                    <span class="font-medium leading-snug">UPPSC RO/ARO 3-in-1</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold shrink-0">10–20K</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="wbpsc-west-bengal" data-slug="wbpsc-photo-signature-resize">
-                    <span class="font-medium leading-snug">WBPSC Photo &amp; Sign</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">140×60</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="preset-btn text-left text-slate-800 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 px-2 py-1.5 rounded-lg w-full transition flex items-center justify-between gap-1.5 group/item cursor-pointer text-[11px]" data-exam="rpsc-ras" data-slug="rpsc-signature-resize">
-                    <span class="font-medium leading-snug">RPSC &amp; Rajasthan Police</span>
-                    <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-muted/60 text-muted-foreground group-hover/item:text-primary group-hover/item:bg-primary/10 shrink-0">20–50K</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
-          <!-- Mega Menu Footer -->
-          <div class="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-muted-foreground px-1">
-            <a href="/government-jobs/" class:list={["text-primary font-bold hover:underline flex items-center gap-1", isJobs ? "text-primary" : ""]}>
-              <span>🏛️ Govt Jobs Calendar 2026</span>
-              <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 font-bold">LIVE</span>
-            </a>
-            <a href="/#exam-specs" class="text-primary font-bold hover:underline flex items-center gap-1">
-              <span>All 65+ Exam Specifications</span>
-              <span>→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      )}
       <!-- 6. Blog -->
       <a
         href="/blog/"
         class:list={[
-          "px-2 lg:px-2.5 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 font-semibold",
+          "px-2.5 lg:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 font-semibold",
           isBlog
             ? "bg-primary/10 text-primary border border-primary/25 shadow-2xs"
             : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
@@ -1093,13 +1059,13 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
         <a href="/mr/" data-lang="mr" class="mobile-lang-pill px-2.5 py-1 min-h-[30px] min-w-[32px] flex items-center justify-center rounded-md font-medium text-xs text-muted-foreground hover:text-foreground transition leading-none">मर</a>
       </div>
 
-      <!-- Blog Quick Link -->
+      <!-- Mock Tests Quick Link -->
       <a
-        href="/blog/"
-        class="inline-flex items-center gap-1 px-2.5 py-1.5 min-h-[32px] rounded-lg text-xs font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-400 hover:bg-amber-500/20 transition shrink-0"
+        href="/mock-test/"
+        class="inline-flex items-center gap-1 px-2.5 py-1.5 min-h-[32px] rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/20 transition shrink-0"
       >
-        <span>📢</span>
-        <span>Blog</span>
+        <span>📝</span>
+        <span>Mock Tests</span>
       </a>
 
       <!-- Govt Jobs Quick Link -->
@@ -1110,6 +1076,15 @@ const isInternational = currentPath.startsWith('/us') || currentPath.startsWith(
         <span>🏛️</span>
         <span>Jobs</span>
         <span class="text-[8px] px-1 py-0.2 rounded bg-rose-600 text-white font-bold uppercase leading-none">Live</span>
+      </a>
+
+      <!-- Blog Quick Link -->
+      <a
+        href="/blog/"
+        class="inline-flex items-center gap-1 px-2.5 py-1.5 min-h-[32px] rounded-lg text-xs font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-400 hover:bg-amber-500/20 transition shrink-0"
+      >
+        <span>📢</span>
+        <span>Blog</span>
       </a>
 
       <!-- Search Button pushed to far right -->

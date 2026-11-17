@@ -1,0 +1,1446 @@
+{
+  "id": "rrb-ntpc-cbt1-ga-sectional",
+  "slug": "cbt-1-ga-sectional-test",
+  "exam": "rrb-ntpc",
+  "examTitle": {
+    "en": "RRB NTPC CBT-1 (Graduate & Undergraduate)",
+    "hi": "आरआरबी एनटीपीसी सीबीटी-1 (स्नातक एवं 12वीं स्तर)"
+  },
+  "title": {
+    "en": "RRB NTPC CBT-1 General Awareness Sectional Test",
+    "hi": "आरआरबी एनटीपीसी सीबीटी-1 सामान्य जागरूकता अनुभागीय टेस्ट"
+  },
+  "subtitle": {
+    "en": "40 GA Questions, 36 Minutes, Real Exam Interface",
+    "hi": "40 सामान्य जागरूकता प्रश्न, 36 मिनट, वास्तविक परीक्षा इंटरफेस"
+  },
+  "type": "sectional",
+  "durationMin": 36,
+  "marksPerCorrect": 1,
+  "negativeMark": 0.3333333333333333,
+  "sections": [
+    {
+      "id": "ga",
+      "name": {
+        "en": "General Awareness",
+        "hi": "सामान्य जागरूकता"
+      },
+      "questionCount": 40
+    }
+  ],
+  "categoryCutoffs": {
+    "UR": 74,
+    "OBC": 68,
+    "EWS": 63,
+    "SC": 58,
+    "ST": 52
+  },
+  "syllabusTopics": [
+    {
+      "en": "Number System, Arithmetic, Algebra, Geometry, Statistics",
+      "hi": "संख्या पद्धति, अंकगणित, बीजगणित, ज्यामिति, सांख्यिकी"
+    },
+    {
+      "en": "Coding-Decoding, Series, Syllogisms, Puzzles, Venn Diagrams",
+      "hi": "कोडिंग-डिकोडिंग, श्रृंखला, न्याय निगमन, पहेलियां, वेन आरेख"
+    },
+    {
+      "en": "Current Affairs, General Science (Physics, Chemistry, Biology), History, Polity, Geography",
+      "hi": "करेंट अफेयर्स, सामान्य विज्ञान, इतिहास, राजव्यवस्था, भूगोल"
+    }
+  ],
+  "sampleQuestionsPreview": [
+    {
+      "q": {
+        "en": "Find the unit digit in the product: 213 × 417 × 526 × 719.",
+        "hi": "गुणनफल 213 × 417 × 526 × 719 में इकाई का अंक ज्ञात कीजिए।"
+      },
+      "a": {
+        "en": "4 (3 × 7 = 21 → 1 × 6 = 6 → 6 × 9 = 54 → 4)",
+        "hi": "4 (3 × 7 = 21 → 1 × 6 = 6 → 6 × 9 = 54 → 4)"
+      }
+    },
+    {
+      "q": {
+        "en": "In a certain code language, 'TRAIN' is written as 'WUDLQ'. How will 'STATION' be written?",
+        "hi": "एक निश्चित कूट भाषा में 'TRAIN' को 'WUDLQ' लिखा जाता है। 'STATION' को कैसे लिखा जाएगा?"
+      },
+      "a": {
+        "en": "VWDWLRQ (+3 shift for each letter)",
+        "hi": "VWDWLRQ (प्रत्येक अक्षर में +3 की वृद्धि)"
+      }
+    },
+    {
+      "q": {
+        "en": "Which Article of the Constitution of India guarantees the Right to Equality before Law?",
+        "hi": "भारतीय संविधान का कौन-सा अनुच्छेद विधि के समक्ष समानता का अधिकार प्रदान करता है?"
+      },
+      "a": {
+        "en": "Article 14",
+        "hi": "अनुच्छेद 14"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "ntpc-m1-g01",
+      "section": "ga",
+      "topic": "current-affairs",
+      "topicName": {
+        "en": "Sports & Tournaments",
+        "hi": "खेल एवं प्रतियोगिताएं"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Where will the 2028 Summer Olympic Games be officially held?",
+        "hi": "वर्ष 2028 के ग्रीष्मकालीन ओलंपिक खेलों का आधिकारिक आयोजन कहाँ किया जाएगा?"
+      },
+      "options": {
+        "en": [
+          "Los Angeles, USA",
+          "Brisbane, Australia",
+          "Paris, France",
+          "Tokyo, Japan"
+        ],
+        "hi": [
+          "लॉस एंजिल्स, संयुक्त राज्य अमेरिका",
+          "ब्रिस्बेन, ऑस्ट्रेलिया",
+          "पेरिस, फ्रांस",
+          "टोक्यो, जापान"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The 2024 Olympic Games were held in Paris, France. The 2028 Summer Olympics will take place in Los Angeles, USA, and 2032 in Brisbane, Australia.",
+        "hi": "2024 के ओलंपिक खेल पेरिस में आयोजित हुए। 2028 के ग्रीष्मकालीन ओलंपिक लॉस एंजिल्स (USA) में तथा 2032 के ब्रिस्बेन (ऑस्ट्रेलिया) में आयोजित होंगे।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g02",
+      "section": "ga",
+      "topic": "current-affairs",
+      "topicName": {
+        "en": "Space & Chandrayaan",
+        "hi": "अंतरिक्ष एवं चंद्रयान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "What is the name of the lunar landing site of India's Chandrayaan-3 mission declared by the Government of India?",
+        "hi": "भारत सरकार द्वारा चंद्रयान-3 मिशन के चंद्रमा पर लैंडिंग स्थल का क्या नाम घोषित किया गया है?"
+      },
+      "options": {
+        "en": [
+          "Shiv Shakti Point",
+          "Tiranga Point",
+          "Vikram Sthal",
+          "Kalam Point"
+        ],
+        "hi": [
+          "शिव शक्ति बिंदु (Shiv Shakti Point)",
+          "तिरंगा बिंदु (Tiranga Point)",
+          "विक्रम स्थल",
+          "कलाम बिंदु"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The landing site of Chandrayaan-3 on the lunar south pole was officially named 'Shiv Shakti Point', while the Chandrayaan-2 crash site is known as 'Tiranga Point'.",
+        "hi": "चंद्रयान-3 के लैंडिंग स्थल को 'शिव शक्ति बिंदु' (Shiv Shakti Point) नाम दिया गया है, जबकि चंद्रयान-2 के पदचिह्न स्थल को 'तिरंगा पॉइंट' कहा जाता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g03",
+      "section": "ga",
+      "topic": "current-affairs",
+      "topicName": {
+        "en": "Important Summits",
+        "hi": "महत्वपूर्ण सम्मेलन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which country held the presidency of the G20 in 2024 following India's successful 2023 presidency?",
+        "hi": "भारत की 2023 की सफल अध्यक्षता के बाद 2024 में G20 की अध्यक्षता किस देश ने संभाली?"
+      },
+      "options": {
+        "en": [
+          "Brazil",
+          "South Africa",
+          "Indonesia",
+          "Germany"
+        ],
+        "hi": [
+          "ब्राजील",
+          "दक्षिण अफ्रीका",
+          "इंडोनेशिया",
+          "जर्मनी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Brazil assumed the G20 presidency in 2024, followed by South Africa in 2025.",
+        "hi": "भारत के बाद 2024 में G20 की अध्यक्षता ब्राजील ने की तथा 2025 में दक्षिण अफ्रीका ने संभाली।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g04",
+      "section": "ga",
+      "topic": "current-affairs",
+      "topicName": {
+        "en": "Awards & Honours",
+        "hi": "पुरस्कार एवं सम्मान"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "The prestigious Dadasaheb Phalke Award is conferred in India for outstanding contribution to the field of:",
+        "hi": "भारत में प्रतिष्ठित दादा साहेब फाल्के पुरस्कार किस क्षेत्र में उत्कृष्ट योगदान के लिए प्रदान किया जाता है?"
+      },
+      "options": {
+        "en": [
+          "Indian Cinema",
+          "Literature",
+          "Classical Music",
+          "Journalism"
+        ],
+        "hi": [
+          "भारतीय सिनेमा",
+          "साहित्य",
+          "शास्त्रीय संगीत",
+          "पत्रकारिता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Dadasaheb Phalke Award is India's highest award in cinema, presented annually at the National Film Awards ceremony by the Directorate of Film Festivals.",
+        "hi": "दादा साहेब फाल्के पुरस्कार भारतीय सिनेमा का सर्वोच्च सम्मान है, जो सिनेमा के विकास और संवर्धन में आजीवन योगदान के लिए दिया जाता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g05",
+      "section": "ga",
+      "topic": "current-affairs",
+      "topicName": {
+        "en": "Government Schemes",
+        "hi": "सरकारी योजनाएं"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Under PM-KISAN (Pradhan Mantri Kisan Samman Nidhi), what is the total annual financial support provided to eligible farmer families?",
+        "hi": "PM-KISAN (प्रधानमंत्री किसान सम्मान निधि) योजना के तहत पात्र किसान परिवारों को प्रति वर्ष कुल कितनी वित्तीय सहायता प्रदान की जाती है?"
+      },
+      "options": {
+        "en": [
+          "₹6,000 in 3 installments",
+          "₹5,000 in 2 installments",
+          "₹8,000 in 4 installments",
+          "₹10,000 in 2 installments"
+        ],
+        "hi": [
+          "₹6,000 (3 समान किस्तों में)",
+          "₹5,000 (2 किस्तों में)",
+          "₹8,000 (4 किस्तों में)",
+          "₹10,000 (2 किस्तों में)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Under PM-KISAN, eligible landholding farmer families receive an income support of ₹6,000 per year paid in three equal 4-monthly installments of ₹2,000 each.",
+        "hi": "PM-KISAN योजना के तहत पात्र किसानों को ₹2,000 की तीन समान किस्तों में कुल ₹6,000 वार्षिक सहायता सीधे बैंक खातों में दी जाती है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g06",
+      "section": "ga",
+      "topic": "current-affairs",
+      "topicName": {
+        "en": "Indian Railways Current",
+        "hi": "भारतीय रेलवे करंट अफेयर्स"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "What is the indigenous Automatic Train Protection (ATP) system developed by Indian Railways named?",
+        "hi": "भारतीय रेलवे द्वारा विकसित स्वदेशी स्वचालित ट्रेन सुरक्षा (ATP) प्रणाली का क्या नाम है?"
+      },
+      "options": {
+        "en": [
+          "Kavach",
+          "Suraksha",
+          "Drishti",
+          "Vayu"
+        ],
+        "hi": [
+          "कवच (Kavach)",
+          "सुरक्षा (Suraksha)",
+          "दृष्टि (Drishti)",
+          "वायु (Vayu)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'Kavach' is the indigenously developed Automatic Train Protection (ATP) system by RDSO to prevent Signal Passing At Danger (SPAD) and head-on/rear train collisions.",
+        "hi": "'कवच' (Kavach) भारतीय रेलवे द्वारा विकसित स्वदेशी टक्कर-रोधी एवं स्वचालित ट्रेन सुरक्षा प्रणाली (ATP) है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g07",
+      "section": "ga",
+      "topic": "current-affairs",
+      "topicName": {
+        "en": "Days & Themes",
+        "hi": "दिवस एवं थीम"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "National Science Day in India is celebrated every year on February 28 to commemorate the discovery of:",
+        "hi": "भारत में राष्ट्रीय विज्ञान दिवस प्रत्येक वर्ष 28 फरवरी को किसकी खोज के उपलक्ष्य में मनाया जाता है?"
+      },
+      "options": {
+        "en": [
+          "Raman Effect by C.V. Raman",
+          "Zero by Aryabhata",
+          "Photoelectric effect by S.N. Bose",
+          "Radio Waves by J.C. Bose"
+        ],
+        "hi": [
+          "सी.वी. रमन द्वारा 'रमन प्रभाव'",
+          "आर्यभट्ट द्वारा शून्य की खोज",
+          "एस.एन. बोस द्वारा बोसॉन",
+          "जे.सी. बोस द्वारा रेडियो तरंगें"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "National Science Day is celebrated on February 28 to commemorate Sir C.V. Raman's discovery of the 'Raman Effect' on 28 Feb 1928, for which he won the Nobel Prize in Physics in 1930.",
+        "hi": "28 फरवरी 1928 को सर सी.वी. रमन ने 'रमन प्रभाव' की ऐतिहासिक खोज की थी, जिसके लिए उन्हें 1930 में भौतिकी का नोबेल पुरस्कार मिला था।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g08",
+      "section": "ga",
+      "topic": "current-affairs",
+      "topicName": {
+        "en": "International Organizations",
+        "hi": "अंतर्राष्ट्रीय संगठन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Where is the headquarters of the International Solar Alliance (ISA) located?",
+        "hi": "अंतर्राष्ट्रीय सौर गठबंधन (ISA) का मुख्यालय कहाँ स्थित है?"
+      },
+      "options": {
+        "en": [
+          "Gurugram, India",
+          "Paris, France",
+          "Nairobi, Kenya",
+          "Geneva, Switzerland"
+        ],
+        "hi": [
+          "गुरुग्राम, भारत",
+          "पेरिस, फ्रांस",
+          "नैरोबी, केन्या",
+          "जिनेवा, स्विट्जरलैंड"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The International Solar Alliance (ISA), initiated jointly by India and France, has its headquarters in Gurugram, Haryana, India.",
+        "hi": "अंतर्राष्ट्रीय सौर गठबंधन (ISA) का मुख्यालय गुरुग्राम (हरियाणा, भारत) में स्थित है। इसकी शुरुआत भारत और फ्रांस ने मिलकर की थी।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g09",
+      "section": "ga",
+      "topic": "general-science",
+      "topicName": {
+        "en": "Physics - Optics",
+        "hi": "भौतिकी - प्रकाश"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which type of mirror is commonly used as a rear-view mirror in motor vehicles?",
+        "hi": "मोटर वाहनों में पीछे का दृश्य देखने (रियर-व्यू) के लिए आमतौर पर किस प्रकार के दर्पण का उपयोग किया जाता है?"
+      },
+      "options": {
+        "en": [
+          "Convex mirror",
+          "Concave mirror",
+          "Plane mirror",
+          "Parabolic mirror"
+        ],
+        "hi": [
+          "उत्तल दर्पण (Convex mirror)",
+          "अवतल दर्पण (Concave mirror)",
+          "समतल दर्पण (Plane mirror)",
+          "परवलयाकार दर्पण"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Convex mirrors produce an erect and diminished image and offer a wider field of view, making them ideal as rear-view mirrors in vehicles.",
+        "hi": "उत्तल दर्पण सीधा और छोटा प्रतिबिंब बनाते हैं तथा व्यापक दृष्टि-क्षेत्र (wider field of view) प्रदान करते हैं, इसलिए इनका उपयोग रियर-व्यू मिरर के रूप में किया जाता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g10",
+      "section": "ga",
+      "topic": "general-science",
+      "topicName": {
+        "en": "Physics - Units",
+        "hi": "भौतिकी - मात्रक"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "What is the SI unit of electric potential difference (voltage)?",
+        "hi": "विद्युत विभवांतर (वोल्टेज) का SI मात्रक क्या है?"
+      },
+      "options": {
+        "en": [
+          "Volt",
+          "Ampere",
+          "Ohm",
+          "Watt"
+        ],
+        "hi": [
+          "वोल्ट (Volt)",
+          "एम्पीयर (Ampere)",
+          "ओम (Ohm)",
+          "वाट (Watt)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The SI unit of electric potential difference is Volt (V). Ampere is for current, Ohm is for electrical resistance, and Watt is for power.",
+        "hi": "विद्युत विभवांतर का SI मात्रक वोल्ट (V) है। एम्पीयर विद्युत धारा का, ओम प्रतिरोध का और वाट शक्ति का मात्रक है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g11",
+      "section": "ga",
+      "topic": "general-science",
+      "topicName": {
+        "en": "Chemistry - Acids & Bases",
+        "hi": "रसायन विज्ञान - अम्ल व क्षार"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "What is the pH value of pure distilled water at 25°C?",
+        "hi": "25°C पर शुद्ध आसुत जल का pH मान कितना होता है?"
+      },
+      "options": {
+        "en": [
+          "7 (Neutral)",
+          "0 (Acidic)",
+          "14 (Basic)",
+          "5.5 (Acidic)"
+        ],
+        "hi": [
+          "7 (उदासीन)",
+          "0 (अम्लीय)",
+          "14 (क्षारीय)",
+          "5.5 (अम्लीय)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "At 25°C, pure neutral water has a pH of 7. Values below 7 indicate acidity, and values above 7 indicate basicity.",
+        "hi": "25°C पर शुद्ध जल का pH मान 7 (उदासीन) होता है। 7 से कम मान अम्लीय तथा 7 से अधिक मान क्षारीय होता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g12",
+      "section": "ga",
+      "topic": "general-science",
+      "topicName": {
+        "en": "Chemistry - Metals & Non-metals",
+        "hi": "रसायन - धातु एवं अधातु"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which metal remains in liquid state at standard room temperature?",
+        "hi": "कमरे के सामान्य तापमान पर कौन-सी धातु द्रव अवस्था में पाई जाती है?"
+      },
+      "options": {
+        "en": [
+          "Mercury (Hg)",
+          "Bromine (Br)",
+          "Sodium (Na)",
+          "Lead (Pb)"
+        ],
+        "hi": [
+          "पारा / मरकरी (Hg)",
+          "ब्रोमीन (Br)",
+          "सोडियम (Na)",
+          "सीसा / लेड (Pb)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Mercury (Hg) is the only metal that is liquid at room temperature. Bromine (Br) is a liquid non-metal.",
+        "hi": "पारा (Mercury, Hg) एकमात्र धातु है जो कमरे के तापमान पर द्रव अवस्था में होती है। ब्रोमीन (Br) द्रव अधातु है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g13",
+      "section": "ga",
+      "topic": "general-science",
+      "topicName": {
+        "en": "Biology - Cell Biology",
+        "hi": "जीव विज्ञान - कोशिका"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which organelle is universally known as the 'Powerhouse of the Cell'?",
+        "hi": "कोशिका का 'शक्तिगृह' (पावरहाउस) किसे कहा जाता है?"
+      },
+      "options": {
+        "en": [
+          "Mitochondria",
+          "Ribosome",
+          "Golgi apparatus",
+          "Lysosome"
+        ],
+        "hi": [
+          "माइटोकॉन्ड्रिया (Mitochondria)",
+          "राइबोसोम",
+          "गॉल्जी काय",
+          "लाइसोसोम"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Mitochondria are known as the powerhouse of the cell because they generate most of the chemical energy in the form of ATP.",
+        "hi": "माइटोकॉन्ड्रिया को कोशिका का पावरहाउस कहा जाता है क्योंकि यह कोशिकीय श्वसन द्वारा ऊर्जा (ATP) का उत्पादन करता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g14",
+      "section": "ga",
+      "topic": "general-science",
+      "topicName": {
+        "en": "Biology - Human Body",
+        "hi": "जीव विज्ञान - मानव शरीर"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which blood group is known as the 'Universal Donor'?",
+        "hi": "किस रक्त समूह को 'सार्वभौमिक दाता' (Universal Donor) कहा जाता है?"
+      },
+      "options": {
+        "en": [
+          "O negative (O-)",
+          "AB positive (AB+)",
+          "A positive (A+)",
+          "B negative (B-)"
+        ],
+        "hi": [
+          "O नेगेटिव (O-)",
+          "AB पॉजिटिव (AB+)",
+          "A पॉजिटिव (A+)",
+          "B नेगेटिव (B-)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "O negative (O-) blood lacks A, B, and Rh antigens on red blood cells, making it safe for nearly all recipients (Universal Donor). AB positive is the Universal Recipient.",
+        "hi": "O नेगेटिव (O-) रक्त में कोई A, B या Rh एंटीजन नहीं होता, इसलिए इसे सार्वभौमिक दाता कहा जाता है। AB पॉजिटिव सार्वभौमिक ग्राही होता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g15",
+      "section": "ga",
+      "topic": "general-science",
+      "topicName": {
+        "en": "Physics - Sound",
+        "hi": "भौतिकी - ध्वनि"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "Sound waves cannot travel through which of the following media?",
+        "hi": "ध्वनि तरंगें निम्नलिखित में से किस माध्यम में यात्रा नहीं कर सकती हैं?"
+      },
+      "options": {
+        "en": [
+          "Vacuum",
+          "Solid steel",
+          "Water",
+          "Air"
+        ],
+        "hi": [
+          "निर्वात (Vacuum)",
+          "ठोस स्टील",
+          "जल",
+          "वायु"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Sound waves are mechanical waves that require a material medium (solid, liquid, or gas) to propagate. They cannot travel through vacuum.",
+        "hi": "ध्वनि तरंगें यांत्रिक तरंगें हैं जिन्हें संचरण के लिए माध्यम की आवश्यकता होती है। वे निर्वात में यात्रा नहीं कर सकतीं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g16",
+      "section": "ga",
+      "topic": "general-science",
+      "topicName": {
+        "en": "Chemistry - Common Compounds",
+        "hi": "रसायन - सामान्य यौगिक"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "What is the common chemical name of Baking Soda?",
+        "hi": "बेकिंग सोडा (खाने का सोडा) का रासायनिक नाम क्या है?"
+      },
+      "options": {
+        "en": [
+          "Sodium bicarbonate (NaHCO₃)",
+          "Sodium carbonate (Na₂CO₃)",
+          "Calcium carbonate (CaCO₃)",
+          "Sodium hydroxide (NaOH)"
+        ],
+        "hi": [
+          "सोडियम बाइकार्बोनेट (NaHCO₃)",
+          "सोडियम कार्बोनेट (Na₂CO₃)",
+          "कैल्शियम कार्बोनेट (CaCO₃)",
+          "सोडियम हाइड्रॉक्साइड (NaOH)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Baking Soda is Sodium bicarbonate (NaHCO₃). Washing Soda is Sodium carbonate decahydrate (Na₂CO₃·10H₂O).",
+        "hi": "बेकिंग सोडा का रासायनिक नाम सोडियम बाइकार्बोनेट (NaHCO₃) है। धावन सोडा सोडियम कार्बोनेट (Na₂CO₃) होता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g17",
+      "section": "ga",
+      "topic": "history",
+      "topicName": {
+        "en": "Freedom Struggle",
+        "hi": "स्वतंत्रता संग्राम"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "In which year was the Quit India Movement officially launched by Mahatma Gandhi?",
+        "hi": "महात्मा गांधी द्वारा 'भारत छोड़ो आंदोलन' आधिकारिक तौर पर किस वर्ष शुरू किया गया था?"
+      },
+      "options": {
+        "en": [
+          "1942",
+          "1930",
+          "1920",
+          "1919"
+        ],
+        "hi": [
+          "1942",
+          "1930",
+          "1920",
+          "1919"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Mahatma Gandhi launched the Quit India Movement on 8 August 1942 at the Gowalia Tank Maidan in Bombay with the call 'Do or Die' (Karo ya Maro).",
+        "hi": "8 अगस्त 1942 को बॉम्बे के गोवालिया टैंक मैदान से महात्मा गांधी ने 'करो या मरो' के नारे के साथ भारत छोड़ो आंदोलन शुरू किया था।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g18",
+      "section": "ga",
+      "topic": "history",
+      "topicName": {
+        "en": "Ancient Indian History",
+        "hi": "प्राचीन भारत"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Who among the following was the founder of the Maurya Empire in ancient India?",
+        "hi": "प्राचीन भारत में मौर्य साम्राज्य के संस्थापक निम्नलिखित में से कौन थे?"
+      },
+      "options": {
+        "en": [
+          "Chandragupta Maurya",
+          "Ashoka the Great",
+          "Bindusara",
+          "Samudragupta"
+        ],
+        "hi": [
+          "चन्द्रगुप्त मौर्य",
+          "सम्राट अशोक",
+          "बिन्दुसार",
+          "समुद्रगुप्त"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Chandragupta Maurya founded the Maurya Empire in 322 BCE with the guidance of his mentor and advisor Chanakya (Kautilya).",
+        "hi": "चाणक्य (कौटिल्य) की सहायता से चन्द्रगुप्त मौर्य ने 322 ईसा पूर्व में नंद वंश को समाप्त कर मौर्य साम्राज्य की स्थापना की थी।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g19",
+      "section": "ga",
+      "topic": "history",
+      "topicName": {
+        "en": "Medieval History - Delhi Sultanate",
+        "hi": "मध्यकालीन इतिहास - दिल्ली सल्तनत"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Who among the following was the first and only woman ruler of the Delhi Sultanate?",
+        "hi": "दिल्ली सल्तनत की पहली और एकमात्र महिला शासिका निम्नलिखित में से कौन थीं?"
+      },
+      "options": {
+        "en": [
+          "Razia Sultana",
+          "Nur Jahan",
+          "Chand Bibi",
+          "Rani Durgavati"
+        ],
+        "hi": [
+          "रज़िया सुल्ताना",
+          "नूरजहाँ",
+          "चाँद बीबी",
+          "रानी दुर्गावती"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Razia Sultana (daughter of Sultan Iltutmish) ruled the Delhi Sultanate from 1236 to 1240 and was its only female monarch.",
+        "hi": "इल्तुतमिश की पुत्री रज़िया सुल्ताना ने 1236 से 1240 तक दिल्ली सल्तनत पर शासन किया। वह दिल्ली की गद्दी पर बैठने वाली पहली महिला शासक थीं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g20",
+      "section": "ga",
+      "topic": "history",
+      "topicName": {
+        "en": "Modern History - Battle of Plassey",
+        "hi": "प्लासी का युद्ध"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "The historic Battle of Plassey was fought in which year?",
+        "hi": "ऐतिहासिक प्लासी का युद्ध किस वर्ष लड़ा गया था?"
+      },
+      "options": {
+        "en": [
+          "1757",
+          "1764",
+          "1857",
+          "1761"
+        ],
+        "hi": [
+          "1757",
+          "1764",
+          "1857",
+          "1761"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Battle of Plassey was fought on 23 June 1757 between the British East India Company led by Robert Clive and the Nawab of Bengal, Siraj-ud-Daulah.",
+        "hi": "23 जून 1757 को रॉबर्ट क्लाइव के नेतृत्व में ईस्ट इंडिया कंपनी और बंगाल के नवाब सिराजुद्दौला के बीच प्लासी का युद्ध लड़ा गया था।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g21",
+      "section": "ga",
+      "topic": "history",
+      "topicName": {
+        "en": "Revolt of 1857",
+        "hi": "1857 का विद्रोह"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "From which city did the Revolt of 1857 officially begin on 10 May 1857?",
+        "hi": "10 मई 1857 को 1857 का विद्रोह आधिकारिक तौर पर किस शहर से शुरू हुआ था?"
+      },
+      "options": {
+        "en": [
+          "Meerut",
+          "Barrackpore",
+          "Delhi",
+          "Kanpur"
+        ],
+        "hi": [
+          "मेरठ",
+          "बैरकपुर",
+          "दिल्ली",
+          "कानपुर"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "While Mangal Pandey rebelled at Barrackpore in March 1857, the organized sepoy mutiny broke out in Meerut on 10 May 1857.",
+        "hi": "विद्रोह की शुरुआत 10 मई 1857 को मेरठ छावनी के सिपाहियों द्वारा की गई थी जहाँ से वे दिल्ली की ओर कूच कर गए।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g22",
+      "section": "ga",
+      "topic": "polity",
+      "topicName": {
+        "en": "Constitution of India",
+        "hi": "भारतीय संविधान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which Article of the Constitution of India guarantees the Right to Equality before Law?",
+        "hi": "भारतीय संविधान का कौन-सा अनुच्छेद विधि के समक्ष समानता का अधिकार प्रदान करता है?"
+      },
+      "options": {
+        "en": [
+          "Article 14",
+          "Article 19",
+          "Article 21",
+          "Article 32"
+        ],
+        "hi": [
+          "अनुच्छेद 14",
+          "अनुच्छेद 19",
+          "अनुच्छेद 21",
+          "अनुच्छेद 32"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Article 14 guarantees equality before the law and equal protection of the laws within the territory of India.",
+        "hi": "अनुच्छेद 14 के अनुसार राज्य भारत के राज्यक्षेत्र में किसी व्यक्ति को विधि के समक्ष समानता या विधियों के समान संरक्षण से वंचित नहीं करेगा।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g23",
+      "section": "ga",
+      "topic": "polity",
+      "topicName": {
+        "en": "Constitutional Bodies",
+        "hi": "संवैधानिक निकाय"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Who appoints the Chief Election Commissioner and other Election Commissioners of India?",
+        "hi": "भारत के मुख्य चुनाव आयुक्त और अन्य चुनाव आयुक्तों की नियुक्ति कौन करता है?"
+      },
+      "options": {
+        "en": [
+          "President of India",
+          "Prime Minister of India",
+          "Chief Justice of India",
+          "Speaker of Lok Sabha"
+        ],
+        "hi": [
+          "भारत के राष्ट्रपति",
+          "भारत के प्रधानमंत्री",
+          "भारत के मुख्य न्यायाधीश",
+          "लोकसभा अध्यक्ष"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Under Article 324(2) of the Indian Constitution, the Chief Election Commissioner and other Election Commissioners are appointed by the President of India.",
+        "hi": "अनुच्छेद 324 के अनुसार भारत के मुख्य चुनाव आयुक्त और अन्य चुनाव आयुक्तों की नियुक्ति भारत के राष्ट्रपति द्वारा की जाती है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g24",
+      "section": "ga",
+      "topic": "polity",
+      "topicName": {
+        "en": "Fundamental Rights",
+        "hi": "मौलिक अधिकार"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which constitutional amendment removed the Right to Property from the list of Fundamental Rights?",
+        "hi": "किस संविधान संशोधन द्वारा संपत्ति के अधिकार को मौलिक अधिकारों की सूची से हटा दिया गया?"
+      },
+      "options": {
+        "en": [
+          "44th Amendment Act, 1978",
+          "42nd Amendment Act, 1976",
+          "86th Amendment Act, 2002",
+          "73rd Amendment Act, 1992"
+        ],
+        "hi": [
+          "44वाँ संशोधन अधिनियम, 1978",
+          "42वाँ संशोधन अधिनियम, 1976",
+          "86वाँ संशोधन अधिनियम, 2002",
+          "73वाँ संशोधन अधिनियम, 1992"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The 44th Amendment Act of 1978 removed the Right to Property from Part III (Fundamental Rights) and made it a legal right under Article 300A in Part XII.",
+        "hi": "44वें संविधान संशोधन (1978) द्वारा संपत्ति के अधिकार को मौलिक अधिकारों से हटाकर अनुच्छेद 300A के तहत कानूनी अधिकार बना दिया गया।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g25",
+      "section": "ga",
+      "topic": "polity",
+      "topicName": {
+        "en": "Parliament of India",
+        "hi": "भारतीय संसद"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "Who is the ex-officio Chairman of the Rajya Sabha (Council of States)?",
+        "hi": "राज्यसभा के पदेन सभापति कौन होते हैं?"
+      },
+      "options": {
+        "en": [
+          "Vice-President of India",
+          "President of India",
+          "Prime Minister of India",
+          "Leader of Opposition"
+        ],
+        "hi": [
+          "भारत के उपराष्ट्रपति",
+          "भारत के राष्ट्रपति",
+          "भारत के प्रधानमंत्री",
+          "विपक्ष के नेता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Under Article 64 and Article 89(1), the Vice-President of India is the ex-officio Chairman of the Rajya Sabha.",
+        "hi": "अनुच्छेद 64 के अनुसार भारत के उपराष्ट्रपति राज्यसभा के पदेन सभापति होते हैं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g26",
+      "section": "ga",
+      "topic": "geography",
+      "topicName": {
+        "en": "Indian Rivers",
+        "hi": "भारतीय नदियां"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which of the following west-flowing rivers flows through a rift valley in India?",
+        "hi": "निम्नलिखित में से कौन-सी पश्चिम की ओर बहने वाली नदी भ्रंश घाटी (Rift Valley) से होकर बहती है?"
+      },
+      "options": {
+        "en": [
+          "Narmada",
+          "Godavari",
+          "Krishna",
+          "Cauvery"
+        ],
+        "hi": [
+          "नर्मदा",
+          "गोदावरी",
+          "कृष्णा",
+          "कावेरी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The Narmada and Tapti rivers flow westwards through a rift valley between the Vindhya and Satpura ranges and drain into the Arabian Sea.",
+        "hi": "नर्मदा और ताप्ती नदियां विंध्य और सतपुड़ा पर्वत श्रृंखलाओं के बीच भ्रंश घाटी (Rift Valley) से होकर पश्चिम दिशा में बहती हैं और अरब सागर में गिरती हैं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g27",
+      "section": "ga",
+      "topic": "geography",
+      "topicName": {
+        "en": "Mountain Peaks",
+        "hi": "पर्वत चोटियां"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which is the highest peak in the Western Ghats and in Peninsular India?",
+        "hi": "पश्चिमी घाट और प्रायद्वीपीय भारत की सबसे ऊँची चोटी कौन-सी है?"
+      },
+      "options": {
+        "en": [
+          "Anamudi (2,695 m)",
+          "Doddabetta",
+          "Guru Shikhar",
+          "Mahendragiri"
+        ],
+        "hi": [
+          "अनामुडी (Anamudi, 2,695 मी)",
+          "दोड्डाबेट्टा",
+          "गुरु शिखर",
+          "महेंद्रगिरि"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Anamudi in Kerala (2,695 metres) is the highest peak in the Western Ghats and Peninsular India. Doddabetta is the highest peak of the Nilgiri Hills.",
+        "hi": "अनामुडी (2,695 मीटर, केरल) प्रायद्वीपीय भारत और पश्चिमी घाट की सबसे ऊँची चोटी है। दोड्डाबेट्टा नीलगिरि की सबसे ऊँची चोटी है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g28",
+      "section": "ga",
+      "topic": "geography",
+      "topicName": {
+        "en": "Soils of India",
+        "hi": "भारत की मृदा"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Black soil (Regur soil) in India is most suitable for the cultivation of which crop?",
+        "hi": "भारत में काली मिट्टी (रेगुर मिट्टी) किस फसल की खेती के लिए सबसे उपयुक्त मानी जाती है?"
+      },
+      "options": {
+        "en": [
+          "Cotton",
+          "Tea",
+          "Jute",
+          "Wheat"
+        ],
+        "hi": [
+          "कपास (Cotton)",
+          "चाय (Tea)",
+          "जूट (Jute)",
+          "गेहूं (Wheat)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Black soil (also known as Regur soil or Black Cotton soil) is rich in clay minerals and retains moisture, making it ideal for cotton cultivation.",
+        "hi": "काली मिट्टी को रेगुर या 'काली कपास मिट्टी' भी कहा जाता है क्योंकि यह नमी धारण करने में सक्षम होती है और कपास की खेती के लिए सर्वोत्तम है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g29",
+      "section": "ga",
+      "topic": "geography",
+      "topicName": {
+        "en": "National Parks",
+        "hi": "राष्ट्रीय उद्यान"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "Kaziranga National Park in Assam is world-famous for being the habitat of:",
+        "hi": "असम का काजीरंगा राष्ट्रीय उद्यान किसके प्राकृतिक आवास के लिए विश्व प्रसिद्ध है?"
+      },
+      "options": {
+        "en": [
+          "One-horned Rhinoceros",
+          "Royal Bengal Tiger",
+          "Asiatic Lion",
+          "Snow Leopard"
+        ],
+        "hi": [
+          "एक सींग वाला गैंडा",
+          "रॉयल बंगाल टाइगर",
+          "एशियाई शेर",
+          "हिम तेंदुआ"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Kaziranga National Park in Assam hosts two-thirds of the world's great one-horned rhinoceroses and is a UNESCO World Heritage Site.",
+        "hi": "काजीरंगा राष्ट्रीय उद्यान (असम) दुनिया के दो-तिहाई 'एक सींग वाले गैंडों' का घर है और यूनेस्को की विश्व धरोहर स्थल है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g30",
+      "section": "ga",
+      "topic": "economy",
+      "topicName": {
+        "en": "Indian Economy - RBI",
+        "hi": "भारतीय अर्थव्यवस्था - RBI"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "The rate at which the Reserve Bank of India (RBI) lends money to commercial banks for short-term needs is called:",
+        "hi": "भारतीय रिजर्व बैंक (RBI) जिस दर पर वाणिज्यिक बैंकों को अल्पकालिक आवश्यकताओं के लिए ऋण देता है, उसे क्या कहते हैं?"
+      },
+      "options": {
+        "en": [
+          "Repo Rate",
+          "Reverse Repo Rate",
+          "Cash Reserve Ratio (CRR)",
+          "Statutory Liquidity Ratio (SLR)"
+        ],
+        "hi": [
+          "रेपो दर (Repo Rate)",
+          "रिवर्स रेपो दर",
+          "नकद आरक्षित अनुपात (CRR)",
+          "वैधानिक तरलता अनुपात (SLR)"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Repo Rate (Repurchasing Option) is the rate at which the central bank lends money to commercial banks against government securities.",
+        "hi": "रेपो दर (Repo Rate) वह ब्याज दर है जिस पर RBI वाणिज्यिक बैंकों को उनकी अल्पकालिक जरूरतों के लिए ऋण प्रदान करता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g31",
+      "section": "ga",
+      "topic": "economy",
+      "topicName": {
+        "en": "Inflation & Indices",
+        "hi": "मुद्रास्फीति एवं सूचकांक"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "In India, headline retail inflation is officially measured using which index?",
+        "hi": "भारत में आधिकारिक तौर पर खुदरा मुद्रास्फीति (Headline Inflation) किस सूचकांक का उपयोग करके मापी जाती है?"
+      },
+      "options": {
+        "en": [
+          "Consumer Price Index (CPI)",
+          "Wholesale Price Index (WPI)",
+          "Index of Industrial Production (IIP)",
+          "GDP Deflator"
+        ],
+        "hi": [
+          "उपभोक्ता मूल्य सूचकांक (CPI)",
+          "थोक मूल्य सूचकांक (WPI)",
+          "औद्योगिक उत्पादन सूचकांक (IIP)",
+          "सकल घरेलू उत्पाद अपस्फीतिकारक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Since 2014, the Reserve Bank of India officially uses the Consumer Price Index - Combined (CPI) to measure headline inflation and formulate monetary policy.",
+        "hi": "RBI मौद्रिक नीति और खुदरा महंगाई मापने के लिए उपभोक्ता मूल्य सूचकांक (CPI Combined) को मुख्य आधार मानता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g32",
+      "section": "ga",
+      "topic": "economy",
+      "topicName": {
+        "en": "NITI Aayog & Planning",
+        "hi": "नीति आयोग एवं योजना"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "NITI Aayog replaced the Planning Commission of India on which date?",
+        "hi": "नीति आयोग ने भारत के योजना आयोग का स्थान किस तिथि को लिया था?"
+      },
+      "options": {
+        "en": [
+          "1 January 2015",
+          "15 August 2014",
+          "26 January 2015",
+          "1 April 2015"
+        ],
+        "hi": [
+          "1 जनवरी 2015",
+          "15 अगस्त 2014",
+          "26 जनवरी 2015",
+          "1 अप्रैल 2015"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "NITI (National Institution for Transforming India) Aayog was constituted on 1 January 2015 via a Union Cabinet resolution, replacing the 65-year-old Planning Commission.",
+        "hi": "योजना आयोग के स्थान पर 1 जनवरी 2015 को नीति आयोग (National Institution for Transforming India) का गठन किया गया था।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g33",
+      "section": "ga",
+      "topic": "computers",
+      "topicName": {
+        "en": "Computer Fundamentals",
+        "hi": "कंप्यूटर मूल बातें"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "In computer memory, 1 Gigabyte (1 GB) is exactly equal to how many Megabytes (MB)?",
+        "hi": "कंप्यूटर मेमोरी में, 1 गीगाबाइट (1 GB) कितने मेगाबाइट (MB) के बराबर होता है?"
+      },
+      "options": {
+        "en": [
+          "1024 MB",
+          "1000 MB",
+          "1048 MB",
+          "512 MB"
+        ],
+        "hi": [
+          "1024 MB",
+          "1000 MB",
+          "1048 MB",
+          "512 MB"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "In binary computer data measurement: 1 KB = 1024 Bytes, 1 MB = 1024 KB, and 1 GB = 1024 MB.",
+        "hi": "कंप्यूटर बाइनरी प्रणाली में: 1 KB = 1024 Bytes, 1 MB = 1024 KB तथा 1 GB = 1024 MB होता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g34",
+      "section": "ga",
+      "topic": "computers",
+      "topicName": {
+        "en": "Computer Networking",
+        "hi": "कंप्यूटर नेटवर्किंग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "What does the abbreviation 'URL' stand for in web browsing?",
+        "hi": "वेब ब्राउज़िंग में प्रयुक्त संक्षिप्त नाम 'URL' का पूर्ण रूप क्या है?"
+      },
+      "options": {
+        "en": [
+          "Uniform Resource Locator",
+          "Universal Resource Link",
+          "Unified Reference Locator",
+          "Unique Resource Line"
+        ],
+        "hi": [
+          "यूनिफ़ॉर्म रिसोर्स लोकेटर (Uniform Resource Locator)",
+          "यूनिवर्सल रिसोर्स लिंक",
+          "यूनिफाइड रेफरेंस लोकेटर",
+          "यूनिक रिसोर्स लाइन"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "URL stands for Uniform Resource Locator, which is the global web address used to locate resources on the Internet.",
+        "hi": "URL का पूर्ण रूप 'Uniform Resource Locator' है, जो इंटरनेट पर किसी वेबपेज या संसाधन का अनूठा पता होता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g35",
+      "section": "ga",
+      "topic": "computers",
+      "topicName": {
+        "en": "Computer Hardware & CPU",
+        "hi": "कंप्यूटर हार्डवेयर"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "Which part of the computer's CPU is responsible for carrying out arithmetic and logic operations?",
+        "hi": "कंप्यूटर के CPU का कौन-सा भाग अंकगणितीय और तार्किक गणनाओं को निष्पादित करने के लिए उत्तरदायी है?"
+      },
+      "options": {
+        "en": [
+          "ALU (Arithmetic Logic Unit)",
+          "CU (Control Unit)",
+          "RAM",
+          "Register"
+        ],
+        "hi": [
+          "ALU (Arithmetic Logic Unit)",
+          "CU (कंट्रोल यूनिट)",
+          "RAM",
+          "रजिस्टर"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The ALU (Arithmetic Logic Unit) executes all arithmetic (addition, subtraction, etc.) and logical comparisons inside the Central Processing Unit.",
+        "hi": "ALU (Arithmetic Logic Unit) सेंट्रल प्रोसेसिंग यूनिट का वह घटक है जो सभी अंकगणितीय और तार्किक क्रियाएं करता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g36",
+      "section": "ga",
+      "topic": "static-gk",
+      "topicName": {
+        "en": "Classical Dances of India",
+        "hi": "भारत के शास्त्रीय नृत्य"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "'Kathakali' is a classical dance form that originated in which Indian state?",
+        "hi": "'कथकली' शास्त्रीय नृत्य की उत्पत्ति भारत के किस राज्य में हुई थी?"
+      },
+      "options": {
+        "en": [
+          "Kerala",
+          "Tamil Nadu",
+          "Andhra Pradesh",
+          "Karnataka"
+        ],
+        "hi": [
+          "केरल",
+          "तमिलनाडु",
+          "आंध्र प्रदेश",
+          "कर्नाटक"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Kathakali and Mohiniyattam are classical dances of Kerala. Bharatanatyam is from Tamil Nadu, and Kuchipudi is from Andhra Pradesh.",
+        "hi": "कथकली और मोहिनीअट्टम केरल के प्रमुख शास्त्रीय नृत्य हैं। भरतनाट्यम तमिलनाडु का तथा कुचिपुड़ी आंध्र प्रदेश का शास्त्रीय नृत्य है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g37",
+      "section": "ga",
+      "topic": "static-gk",
+      "topicName": {
+        "en": "Indian Railways Heritage",
+        "hi": "भारतीय रेलवे धरोहर"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "In which year did the first passenger train in India run between Bombay (Bori Bunder) and Thane?",
+        "hi": "भारत में पहली यात्री ट्रेन बॉम्बे (बोरी बंदर) और ठाणे के बीच किस वर्ष चलाई गई थी?"
+      },
+      "options": {
+        "en": [
+          "1853",
+          "1857",
+          "1885",
+          "1850"
+        ],
+        "hi": [
+          "1853",
+          "1857",
+          "1885",
+          "1850"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The first passenger train in India ran on 16 April 1853 between Bori Bunder (Mumbai) and Thane, covering a distance of 34 km with 14 carriages and 3 locomotives (Sindh, Sultan, and Sahib).",
+        "hi": "16 अप्रैल 1853 को भारत में पहली ट्रेन बोरी बंदर (मुंबई) से ठाणे के बीच 34 किमी की दूरी पर चलाई गई थी।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g38",
+      "section": "ga",
+      "topic": "static-gk",
+      "topicName": {
+        "en": "Literature & Books",
+        "hi": "साहित्य एवं पुस्तकें"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Who is the author of the celebrated ancient Sanskrit political treatise 'Arthashastra'?",
+        "hi": "प्रसिद्ध प्राचीन संस्कृत राजनीतिक ग्रंथ 'अर्थशास्त्र' के रचयिता कौन हैं?"
+      },
+      "options": {
+        "en": [
+          "Chanakya (Kautilya)",
+          "Kalidasa",
+          "Banabhatta",
+          "Megasthenes"
+        ],
+        "hi": [
+          "चाणक्य (कौटिल्य)",
+          "कालिदास",
+          "बाणभट्ट",
+          "मेगस्थनीज"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'Arthashastra' was authored by Chanakya (also known as Kautilya or Vishnugupta), the chief advisor to Chandragupta Maurya.",
+        "hi": "अर्थशास्त्र की रचना मौर्य साम्राज्य के प्रधानमंत्री चाणक्य (कौटिल्य / विष्णुगुप्त) ने की थी।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g39",
+      "section": "ga",
+      "topic": "static-gk",
+      "topicName": {
+        "en": "UN Agencies & HQ",
+        "hi": "संयुक्त राष्ट्र एवं मुख्यालय"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Where is the headquarters of UNESCO (United Nations Educational, Scientific and Cultural Organization) located?",
+        "hi": "यूनेस्को (UNESCO) का मुख्यालय कहाँ स्थित है?"
+      },
+      "options": {
+        "en": [
+          "Paris, France",
+          "Geneva, Switzerland",
+          "New York, USA",
+          "Rome, Italy"
+        ],
+        "hi": [
+          "पेरिस, फ्रांस",
+          "जिनेवा, स्विट्जरलैंड",
+          "न्यूयॉर्क, USA",
+          "रोम, इटली"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "UNESCO was established in 1945 and its permanent headquarters is situated in Paris, France.",
+        "hi": "यूनेस्को (UNESCO) का मुख्यालय पेरिस (फ्रांस) में स्थित है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-g40",
+      "section": "ga",
+      "topic": "static-gk",
+      "topicName": {
+        "en": "National Symbols",
+        "hi": "राष्ट्रीय प्रतीक"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "The national motto of India, 'Satyameva Jayate' (Truth alone triumphs), is taken from which Upanishad?",
+        "hi": "भारत का राष्ट्रीय आदर्श वाक्य 'सत्यमेव जयते' किस उपनिषद से लिया गया है?"
+      },
+      "options": {
+        "en": [
+          "Mundaka Upanishad",
+          "Katha Upanishad",
+          "Chandogya Upanishad",
+          "Kena Upanishad"
+        ],
+        "hi": [
+          "मुण्डक उपनिषद (Mundaka Upanishad)",
+          "कठ उपनिषद",
+          "छांदोग्य उपनिषद",
+          "केन उपनिषद"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "'Satyameva Jayate' inscribed below the National Emblem of India is taken from the sacred Mundaka Upanishad.",
+        "hi": "राष्ट्रीय प्रतीक के नीचे अंकित आदर्श वाक्य 'सत्यमेव जयते' मुण्डक उपनिषद से उद्धृत किया गया है।"
+      }
+    }
+  ]
+}

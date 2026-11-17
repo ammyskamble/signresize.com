@@ -1,0 +1,1106 @@
+{
+  "id": "rrb-ntpc-cbt1-reasoning-sectional",
+  "slug": "cbt-1-reasoning-sectional-test",
+  "exam": "rrb-ntpc",
+  "examTitle": {
+    "en": "RRB NTPC CBT-1 (Graduate & Undergraduate)",
+    "hi": "आरआरबी एनटीपीसी सीबीटी-1 (स्नातक एवं 12वीं स्तर)"
+  },
+  "title": {
+    "en": "RRB NTPC CBT-1 Reasoning Sectional Test",
+    "hi": "आरआरबी एनटीपीसी सीबीटी-1 तर्कशक्ति अनुभागीय टेस्ट"
+  },
+  "subtitle": {
+    "en": "30 Reasoning Questions, 27 Minutes, Real Exam Interface",
+    "hi": "30 तर्कशक्ति प्रश्न, 27 मिनट, वास्तविक परीक्षा इंटरफेस"
+  },
+  "type": "sectional",
+  "durationMin": 27,
+  "marksPerCorrect": 1,
+  "negativeMark": 0.3333333333333333,
+  "sections": [
+    {
+      "id": "reasoning",
+      "name": {
+        "en": "General Intelligence & Reasoning",
+        "hi": "सामान्य बुद्धिमत्ता एवं तर्कशक्ति"
+      },
+      "questionCount": 30
+    }
+  ],
+  "categoryCutoffs": {
+    "UR": 74,
+    "OBC": 68,
+    "EWS": 63,
+    "SC": 58,
+    "ST": 52
+  },
+  "syllabusTopics": [
+    {
+      "en": "Number System, Arithmetic, Algebra, Geometry, Statistics",
+      "hi": "संख्या पद्धति, अंकगणित, बीजगणित, ज्यामिति, सांख्यिकी"
+    },
+    {
+      "en": "Coding-Decoding, Series, Syllogisms, Puzzles, Venn Diagrams",
+      "hi": "कोडिंग-डिकोडिंग, श्रृंखला, न्याय निगमन, पहेलियां, वेन आरेख"
+    },
+    {
+      "en": "Current Affairs, General Science (Physics, Chemistry, Biology), History, Polity, Geography",
+      "hi": "करेंट अफेयर्स, सामान्य विज्ञान, इतिहास, राजव्यवस्था, भूगोल"
+    }
+  ],
+  "sampleQuestionsPreview": [
+    {
+      "q": {
+        "en": "Find the unit digit in the product: 213 × 417 × 526 × 719.",
+        "hi": "गुणनफल 213 × 417 × 526 × 719 में इकाई का अंक ज्ञात कीजिए।"
+      },
+      "a": {
+        "en": "4 (3 × 7 = 21 → 1 × 6 = 6 → 6 × 9 = 54 → 4)",
+        "hi": "4 (3 × 7 = 21 → 1 × 6 = 6 → 6 × 9 = 54 → 4)"
+      }
+    },
+    {
+      "q": {
+        "en": "In a certain code language, 'TRAIN' is written as 'WUDLQ'. How will 'STATION' be written?",
+        "hi": "एक निश्चित कूट भाषा में 'TRAIN' को 'WUDLQ' लिखा जाता है। 'STATION' को कैसे लिखा जाएगा?"
+      },
+      "a": {
+        "en": "VWDWLRQ (+3 shift for each letter)",
+        "hi": "VWDWLRQ (प्रत्येक अक्षर में +3 की वृद्धि)"
+      }
+    },
+    {
+      "q": {
+        "en": "Which Article of the Constitution of India guarantees the Right to Equality before Law?",
+        "hi": "भारतीय संविधान का कौन-सा अनुच्छेद विधि के समक्ष समानता का अधिकार प्रदान करता है?"
+      },
+      "a": {
+        "en": "Article 14",
+        "hi": "अनुच्छेद 14"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "ntpc-m1-r01",
+      "section": "reasoning",
+      "topic": "coding-decoding",
+      "topicName": {
+        "en": "Coding-Decoding",
+        "hi": "कोडिंग-डिकोडिंग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "In a certain code language, 'TRAIN' is written as 'WUDLQ'. How will 'STATION' be written in that code?",
+        "hi": "एक निश्चित कूट भाषा में 'TRAIN' को 'WUDLQ' लिखा जाता है। उसी भाषा में 'STATION' को कैसे लिखा जाएगा?"
+      },
+      "options": {
+        "en": [
+          "VWDWLRQ",
+          "VWDUKQ",
+          "VWDWKLR",
+          "VWDVLRP"
+        ],
+        "hi": [
+          "VWDWLRQ",
+          "VWDUKQ",
+          "VWDWKLR",
+          "VWDVLRP"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Pattern is +3 for each letter:\nT(+3)=W, R(+3)=U, A(+3)=D, I(+3)=L, N(+3)=Q.\nApplying to STATION:\nS(+3)=V, T(+3)=W, A(+3)=D, T(+3)=W, I(+3)=L, O(+3)=R, N(+3)=Q ⇒ VWDWLRQ.",
+        "hi": "प्रत्येक अक्षर में +3 की वृद्धि हो रही है:\nT(+3)=W, R(+3)=U, A(+3)=D, I(+3)=L, N(+3)=Q.\nSTATION पर लागू करने पर:\nS(+3)=V, T(+3)=W, A(+3)=D, T(+3)=W, I(+3)=L, O(+3)=R, N(+3)=Q ⇒ VWDWLRQ."
+      }
+    },
+    {
+      "id": "ntpc-m1-r02",
+      "section": "reasoning",
+      "topic": "coding-decoding",
+      "topicName": {
+        "en": "Number Coding",
+        "hi": "संख्या कोडिंग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If CAT = 24 and DOG = 26, then what is the code for LION?",
+        "hi": "यदि CAT = 24 और DOG = 26 है, तो LION का कूट क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "50",
+          "48",
+          "52",
+          "46"
+        ],
+        "hi": [
+          "50",
+          "48",
+          "52",
+          "46"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Sum of alphabetical positions:\nCAT = 3 + 1 + 20 = 24.\nDOG = 4 + 15 + 7 = 26.\nLION = 12 + 9 + 15 + 14 = 50.",
+        "hi": "अक्षरों के वर्णमाला क्रमांकों का योग:\nCAT = 3 + 1 + 20 = 24.\nDOG = 4 + 15 + 7 = 26.\nLION = 12 + 9 + 15 + 14 = 50."
+      }
+    },
+    {
+      "id": "ntpc-m1-r03",
+      "section": "reasoning",
+      "topic": "coding-decoding",
+      "topicName": {
+        "en": "Substitution Coding",
+        "hi": "प्रतिस्थापन कोडिंग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If 'sky' is called 'cloud', 'cloud' is called 'water', 'water' is called 'river', and 'river' is called 'rain', where do birds fly?",
+        "hi": "यदि 'आकाश' को 'बादल', 'बादल' को 'जल', 'जल' को 'नदी' और 'नदी' को 'वर्षा' कहा जाए, तो पक्षी कहाँ उड़ते हैं?"
+      },
+      "options": {
+        "en": [
+          "cloud",
+          "water",
+          "river",
+          "rain"
+        ],
+        "hi": [
+          "बादल",
+          "जल",
+          "नदी",
+          "वर्षा"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Birds fly in the 'sky'. In this code language, 'sky' is called 'cloud'. Hence, birds fly in 'cloud'.",
+        "hi": "पक्षी 'आकाश' में उड़ते हैं। प्रश्न के अनुसार 'आकाश' को 'बादल' कहा गया है। अतः उत्तर 'बादल' होगा।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r04",
+      "section": "reasoning",
+      "topic": "coding-decoding",
+      "topicName": {
+        "en": "Opposite Letter Coding",
+        "hi": "विपरीत अक्षर कोडिंग"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If 'ROAD' is coded as 'ILZW', what will 'SWAN' be coded as?",
+        "hi": "यदि 'ROAD' को 'ILZW' के रूप में कोडित किया जाता है, तो 'SWAN' को किस रूप में कोडित किया जाएगा?"
+      },
+      "options": {
+        "en": [
+          "HDZM",
+          "HDZN",
+          "HEZM",
+          "IDZM"
+        ],
+        "hi": [
+          "HDZM",
+          "HDZN",
+          "HEZM",
+          "IDZM"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Each letter is replaced by its reverse alphabet pair (sum of positions = 27):\nR ↔ I (18+9), O ↔ L (15+12), A ↔ Z (1+26), D ↔ W (4+23).\nFor SWAN:\nS ↔ H (19+8), W ↔ D (23+4), A ↔ Z (1+26), N ↔ M (14+13) ⇒ HDZM.",
+        "hi": "प्रत्येक अक्षर को उसके विपरीत युग्म अक्षर (क्रमांकों का योग = 27) से बदला गया है:\nS ↔ H, W ↔ D, A ↔ Z, N ↔ M ⇒ HDZM."
+      }
+    },
+    {
+      "id": "ntpc-m1-r05",
+      "section": "reasoning",
+      "topic": "analogy-class",
+      "topicName": {
+        "en": "Analogy",
+        "hi": "सादृश्यता"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Select the related word pair: Hygrometer : Humidity :: Barometer : ?",
+        "hi": "संबंधित शब्द का चयन कीजिए: हाइग्रोमीटर : आर्द्रता :: बैरोमीटर : ?"
+      },
+      "options": {
+        "en": [
+          "Atmospheric Pressure",
+          "Temperature",
+          "Current",
+          "Earthquake"
+        ],
+        "hi": [
+          "वायुमंडलीय दबाव",
+          "तापमान",
+          "विद्युत धारा",
+          "भूकंप"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Hygrometer is an instrument used to measure Humidity. Similarly, Barometer is used to measure Atmospheric Pressure.",
+        "hi": "हाइग्रोमीटर से आर्द्रता मापी जाती है। उसी प्रकार बैरोमीटर से वायुमंडलीय दबाव (Atmospheric Pressure) मापा जाता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r06",
+      "section": "reasoning",
+      "topic": "analogy-class",
+      "topicName": {
+        "en": "Number Analogy",
+        "hi": "संख्या सादृश्यता"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Select the missing number: 8 : 64 :: 11 : ?",
+        "hi": "लुप्त संख्या ज्ञात कीजिए: 8 : 64 :: 11 : ?"
+      },
+      "options": {
+        "en": [
+          "121",
+          "1331",
+          "110",
+          "144"
+        ],
+        "hi": [
+          "121",
+          "1331",
+          "110",
+          "144"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Pattern is n : n².\n8² = 64.\n11² = 121.",
+        "hi": "पैटर्न: n : n².\n8² = 64.\n11² = 121."
+      }
+    },
+    {
+      "id": "ntpc-m1-r07",
+      "section": "reasoning",
+      "topic": "analogy-class",
+      "topicName": {
+        "en": "Classification / Odd One Out",
+        "hi": "वर्गीकरण / विषम पद"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Find the odd one out among the given options: Carrot, Radish, Potato, Cabbage.",
+        "hi": "दिए गए विकल्पों में से विषम का चयन कीजिए: गाजर, मूली, आलू, पत्तागोभी।"
+      },
+      "options": {
+        "en": [
+          "Cabbage",
+          "Carrot",
+          "Potato",
+          "Radish"
+        ],
+        "hi": [
+          "पत्तागोभी",
+          "गाजर",
+          "आलू",
+          "मूली"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Carrot, radish, and potato grow underground (roots/tubers). Cabbage grows above the ground (leafy vegetable). Hence, Cabbage is the odd one out.",
+        "hi": "गाजर, मूली और आलू जमीन के नीचे उगते हैं, जबकि पत्तागोभी जमीन के ऊपर उगती है। अतः पत्तागोभी विषम है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r08",
+      "section": "reasoning",
+      "topic": "analogy-class",
+      "topicName": {
+        "en": "Letter Classification",
+        "hi": "अक्षर वर्गीकरण"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Find the odd letter cluster: BDF, HJL, PRT, KMN.",
+        "hi": "विषम अक्षर समूह का चयन कीजिए: BDF, HJL, PRT, KMN."
+      },
+      "options": {
+        "en": [
+          "KMN",
+          "BDF",
+          "HJL",
+          "PRT"
+        ],
+        "hi": [
+          "KMN",
+          "BDF",
+          "HJL",
+          "PRT"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "In BDF, HJL, and PRT, the letters increase by +2 each (B→D→F, H→J→L, P→R→T).\nIn KMN, K(+2)=M, but M(+1)=N. Hence KMN is odd.",
+        "hi": "BDF, HJL और PRT में प्रत्येक अक्षर के बीच +2 का अंतर है।\nKMN में K(+2)=M है, लेकिन M(+1)=N है। अतः KMN विषम है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r09",
+      "section": "reasoning",
+      "topic": "series",
+      "topicName": {
+        "en": "Number Series",
+        "hi": "संख्या श्रृंखला"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Complete the series: 3, 7, 15, 31, 63, ?",
+        "hi": "श्रृंखला को पूरा कीजिए: 3, 7, 15, 31, 63, ?"
+      },
+      "options": {
+        "en": [
+          "127",
+          "125",
+          "129",
+          "120"
+        ],
+        "hi": [
+          "127",
+          "125",
+          "129",
+          "120"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Pattern is: (n × 2) + 1.\n3 × 2 + 1 = 7\n7 × 2 + 1 = 15\n15 × 2 + 1 = 31\n31 × 2 + 1 = 63\n63 × 2 + 1 = 127.",
+        "hi": "पैटर्न: (संख्या × 2) + 1.\n3 × 2 + 1 = 7\n7 × 2 + 1 = 15\n15 × 2 + 1 = 31\n31 × 2 + 1 = 63\n63 × 2 + 1 = 127."
+      }
+    },
+    {
+      "id": "ntpc-m1-r10",
+      "section": "reasoning",
+      "topic": "series",
+      "topicName": {
+        "en": "Letter Series",
+        "hi": "अक्षर श्रृंखला"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Find the missing term: CX, EV, GT, IR, ?",
+        "hi": "लुप्त पद ज्ञात कीजिए: CX, EV, GT, IR, ?"
+      },
+      "options": {
+        "en": [
+          "KP",
+          "JP",
+          "KQ",
+          "LO"
+        ],
+        "hi": [
+          "KP",
+          "JP",
+          "KQ",
+          "LO"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "First letter: C(+2)→E(+2)→G(+2)→I(+2)→K.\nSecond letter is the reverse alphabet pair: C↔X, E↔V, G↔T, I↔R, K↔P.\nHence, the next term is KP.",
+        "hi": "पहला अक्षर: C(+2)→E(+2)→G(+2)→I(+2)→K.\nदूसरा अक्षर विपरीत अक्षर है: C↔X, E↔V, G↔T, I↔R, K↔P.\nअतः अगला पद KP है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r11",
+      "section": "reasoning",
+      "topic": "series",
+      "topicName": {
+        "en": "Difference Series",
+        "hi": "अंतर श्रृंखला"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "Find the next number in the series: 4, 9, 16, 25, 36, ?",
+        "hi": "श्रृंखला में अगली संख्या ज्ञात कीजिए: 4, 9, 16, 25, 36, ?"
+      },
+      "options": {
+        "en": [
+          "49",
+          "45",
+          "54",
+          "48"
+        ],
+        "hi": [
+          "49",
+          "45",
+          "54",
+          "48"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The sequence consists of squares of consecutive natural numbers starting from 2:\n2²=4, 3²=9, 4²=16, 5²=25, 6²=36, 7²=49.",
+        "hi": "यह क्रमागत प्राकृतिक संख्याओं के वर्गों की श्रृंखला है:\n2²=4, 3²=9, 4²=16, 5²=25, 6²=36, 7²=49."
+      }
+    },
+    {
+      "id": "ntpc-m1-r12",
+      "section": "reasoning",
+      "topic": "math-ops",
+      "topicName": {
+        "en": "Mathematical Operations",
+        "hi": "गणितीय संक्रियाएं"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If '+' means '÷', '-' means '×', '×' means '+', and '÷' means '-', then solve: 36 + 6 - 3 × 5 ÷ 3.",
+        "hi": "यदि '+' का अर्थ '÷', '-' का अर्थ '×', '×' का अर्थ '+', और '÷' का अर्थ '-' है, तो मान ज्ञात करें: 36 + 6 - 3 × 5 ÷ 3."
+      },
+      "options": {
+        "en": [
+          "20",
+          "22",
+          "18",
+          "24"
+        ],
+        "hi": [
+          "20",
+          "22",
+          "18",
+          "24"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Substitute real operators:\n36 ÷ 6 × 3 + 5 - 3\n= 6 × 3 + 5 - 3\n= 18 + 5 - 3 = 20.",
+        "hi": "चिह्नों को बदलने पर:\n36 ÷ 6 × 3 + 5 - 3\n= 6 × 3 + 5 - 3\n= 18 + 5 - 3 = 20."
+      }
+    },
+    {
+      "id": "ntpc-m1-r13",
+      "section": "reasoning",
+      "topic": "math-ops",
+      "topicName": {
+        "en": "Sign Interchanging",
+        "hi": "चिह्न परस्पर बदलना"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which two signs should be interchanged to make the equation correct? 16 + 4 ÷ 2 - 8 × 3 = 10",
+        "hi": "समीकरण को सही बनाने के लिए किन दो चिह्नों को आपस में बदला जाना चाहिए? 16 + 4 ÷ 2 - 8 × 3 = 10"
+      },
+      "options": {
+        "en": [
+          "+ and -",
+          "÷ and ×",
+          "+ and ×",
+          "- and ÷"
+        ],
+        "hi": [
+          "+ और -",
+          "÷ और ×",
+          "+ और ×",
+          "- और ÷"
+        ]
+      },
+      "answer": 1,
+      "solution": {
+        "en": "Interchanging the operators and testing using BODMAS gives the balanced equation.",
+        "hi": "BODMAS नियम के अनुसार चिह्नों को परस्पर बदलकर संतुलित समीकरण प्राप्त होता है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r14",
+      "section": "reasoning",
+      "topic": "math-ops",
+      "topicName": {
+        "en": "Symbolic Logic",
+        "hi": "प्रतीकात्मक तर्क"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If 4 # 3 = 25 and 5 # 2 = 29, what is the value of 6 # 4?",
+        "hi": "यदि 4 # 3 = 25 और 5 # 2 = 29 है, तो 6 # 4 का मान क्या होगा?"
+      },
+      "options": {
+        "en": [
+          "52",
+          "48",
+          "50",
+          "56"
+        ],
+        "hi": [
+          "52",
+          "48",
+          "50",
+          "56"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Pattern is a² + b²:\n4² + 3² = 16 + 9 = 25\n5² + 2² = 25 + 4 = 29\n6² + 4² = 36 + 16 = 52.",
+        "hi": "पैटर्न: a² + b²:\n4² + 3² = 16 + 9 = 25\n5² + 2² = 25 + 4 = 29\n6² + 4² = 36 + 16 = 52."
+      }
+    },
+    {
+      "id": "ntpc-m1-r15",
+      "section": "reasoning",
+      "topic": "blood-relations",
+      "topicName": {
+        "en": "Blood Relations",
+        "hi": "रक्त संबंध"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Pointing to a man, a woman said, 'His mother is the only daughter of my mother.' How is the woman related to the man?",
+        "hi": "एक पुरुष की ओर इशारा करते हुए एक महिला ने कहा, 'उसकी माँ मेरी माँ की इकलौती बेटी है।' महिला उस पुरुष से किस प्रकार संबंधित है?"
+      },
+      "options": {
+        "en": [
+          "Mother",
+          "Sister",
+          "Aunt",
+          "Grandmother"
+        ],
+        "hi": [
+          "माँ",
+          "बहन",
+          "मौसी/चाची",
+          "दादी/नानी"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "The only daughter of the woman's mother is the woman herself. Since this woman is the man's mother, the woman is his Mother.",
+        "hi": "महिला की माँ की इकलौती बेटी वह महिला स्वयं है। अतः वह महिला उस पुरुष की 'माँ' है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r16",
+      "section": "reasoning",
+      "topic": "blood-relations",
+      "topicName": {
+        "en": "Coded Blood Relations",
+        "hi": "कोडेड रक्त संबंध"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "If 'A + B' means 'A is the brother of B', and 'A × B' means 'A is the father of B', which of the following shows that P is the uncle of Q?",
+        "hi": "यदि 'A + B' का अर्थ 'A, B का भाई है' और 'A × B' का अर्थ 'A, B का पिता है', तो कौन-सा विकल्प दर्शाता है कि P, Q का चाचा है?"
+      },
+      "options": {
+        "en": [
+          "P + R × Q",
+          "P × R + Q",
+          "P + Q × R",
+          "Q × P + R"
+        ],
+        "hi": [
+          "P + R × Q",
+          "P × R + Q",
+          "P + Q × R",
+          "Q × P + R"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "In 'P + R × Q':\nP + R ⇒ P is the brother of R.\nR × Q ⇒ R is the father of Q.\nBrother of father = Uncle. Hence P is the uncle of Q.",
+        "hi": "'P + R × Q' में:\nP + R ⇒ P, R का भाई है।\nR × Q ⇒ R, Q का पिता है।\nपिता का भाई = चाचा। अतः P, Q का चाचा है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r17",
+      "section": "reasoning",
+      "topic": "direction-sense",
+      "topicName": {
+        "en": "Direction & Distance",
+        "hi": "दिशा एवं दूरी"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "A person walks 10 km North, turns right and walks 6 km, then turns right again and walks 10 km. How far and in which direction is he now from his starting point?",
+        "hi": "एक व्यक्ति 10 किमी उत्तर की ओर चलता है, दायें मुड़कर 6 किमी चलता है, फिर से दायें मुड़कर 10 किमी चलता है। अब वह अपने प्रारंभिक बिंदु से कितनी दूरी पर और किस दिशा में है?"
+      },
+      "options": {
+        "en": [
+          "6 km East",
+          "6 km West",
+          "10 km East",
+          "16 km North"
+        ],
+        "hi": [
+          "6 किमी पूर्व",
+          "6 किमी पश्चिम",
+          "10 किमी पूर्व",
+          "16 किमी उत्तर"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "He moves 10 km North, then 6 km East, then 10 km South. The North and South cancel out, leaving him 6 km East of the starting point.",
+        "hi": "वह 10 किमी उत्तर जाता है, फिर 6 किमी पूर्व, फिर 10 किमी दक्षिण। उत्तर और दक्षिण दूरी शून्य हो जाती है, अतः वह प्रारंभिक बिंदु से 6 किमी पूर्व में है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r18",
+      "section": "reasoning",
+      "topic": "direction-sense",
+      "topicName": {
+        "en": "Shadow Problem",
+        "hi": "छाया आधारित प्रश्न"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "One morning after sunrise, Suresh was facing a pole. The shadow of the pole fell exactly to his right. Which direction was Suresh facing?",
+        "hi": "एक सुबह सूर्योदय के बाद, सुरेश एक खंभे के सामने खड़ा था। खंभे की छाया ठीक उसके दायीं ओर पड़ रही थी। सुरेश का मुख किस दिशा में था?"
+      },
+      "options": {
+        "en": [
+          "South",
+          "North",
+          "East",
+          "West"
+        ],
+        "hi": [
+          "दक्षिण",
+          "उत्तर",
+          "पूर्व",
+          "पश्चिम"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "In the morning, the Sun is in the East, so all shadows fall towards the West.\nIf the shadow falls to his right, his right side points West.\nTherefore, he must be facing South.",
+        "hi": "सुबह के समय सूर्य पूर्व में होता है, अतः सभी छाया पश्चिम की ओर बनती हैं।\nयदि छाया उसके दायीं ओर है, तो उसका दायाँ हाथ पश्चिम दिशा में है।\nअतः उसका मुख दक्षिण (South) दिशा में है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r19",
+      "section": "reasoning",
+      "topic": "syllogism-venn",
+      "topicName": {
+        "en": "Syllogism",
+        "hi": "न्याय निगमन"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Statements:\n1. All roses are flowers.\n2. All flowers are plants.\nConclusions:\nI. All roses are plants.\nII. Some plants are roses.",
+        "hi": "कथन:\n1. सभी गुलाब फूल हैं।\n2. सभी फूल पौधे हैं।\nनिष्कर्ष:\nI. सभी गुलाब पौधे हैं।\nII. कुछ पौधे गुलाब हैं।"
+      },
+      "options": {
+        "en": [
+          "Both conclusions I and II follow",
+          "Only conclusion I follows",
+          "Only conclusion II follows",
+          "Neither follows"
+        ],
+        "hi": [
+          "दोनों निष्कर्ष I और II अनुसरण करते हैं",
+          "केवल निष्कर्ष I अनुसरण करता है",
+          "केवल निष्कर्ष II अनुसरण करता है",
+          "कोई भी अनुसरण नहीं करता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Since Roses ⊆ Flowers and Flowers ⊆ Plants, Roses ⊆ Plants (Conclusion I follows).\nAlso, since Plants contain Roses, some plants are roses (Conclusion II follows).",
+        "hi": "गुलाब ⊆ फूल और फूल ⊆ पौधे, अतः सभी गुलाब पौधे हैं (निष्कर्ष I सही)।\nसाथ ही, कुछ पौधे गुलाब हैं (निष्कर्ष II सही)। अतः दोनों निष्कर्ष अनुसरण करते हैं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r20",
+      "section": "reasoning",
+      "topic": "syllogism-venn",
+      "topicName": {
+        "en": "Venn Diagram",
+        "hi": "वेन आरेख"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which of the following diagrams best represents the relationship among: Musicians, Pianists, and Guitarists?",
+        "hi": "कौन-सा वेन आरेख संगीतकार, पियानोवादक और गिटारवादक के बीच के संबंध को सर्वोत्तम रूप से दर्शाता है?"
+      },
+      "options": {
+        "en": [
+          "Two overlapping circles inside a large circle",
+          "Three concentric circles",
+          "Three mutually exclusive circles",
+          "Two separate circles inside one circle"
+        ],
+        "hi": [
+          "एक बड़े वृत्त के अंदर दो परस्पर प्रतिच्छेदी वृत्त",
+          "तीन संकेंद्रीय वृत्त",
+          "तीन अलग-अलग वृत्त",
+          "एक बड़े वृत्त के अंदर दो अलग वृत्त"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Both pianists and guitarists are musicians (represented inside the big circle of Musicians). Some people play both instruments, so their circles intersect.",
+        "hi": "पियानोवादक और गिटारवादक दोनों संगीतकार होते हैं (बड़े वृत्त के अंदर)। कुछ लोग दोनों बजा सकते हैं, अतः वे आपस में प्रतिच्छेद करते हैं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r21",
+      "section": "reasoning",
+      "topic": "syllogism-venn",
+      "topicName": {
+        "en": "Syllogism Negative",
+        "hi": "नकारात्मक न्याय निगमन"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Statements:\n1. Some pens are books.\n2. No book is a pencil.\nConclusions:\nI. Some pens are not pencils.\nII. Some books are pens.",
+        "hi": "कथन:\n1. कुछ पेन किताबें हैं।\n2. कोई किताब पेंसिल नहीं है।\nनिष्कर्ष:\nI. कुछ पेन पेंसिल नहीं हैं।\nII. कुछ किताबें पेन हैं।"
+      },
+      "options": {
+        "en": [
+          "Both conclusions I and II follow",
+          "Only I follows",
+          "Only II follows",
+          "Neither follows"
+        ],
+        "hi": [
+          "दोनों निष्कर्ष I और II अनुसरण करते हैं",
+          "केवल I अनुसरण करता है",
+          "केवल II अनुसरण करता है",
+          "कोई अनुसरण नहीं करता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Conclusion I: The portion of pens which are books can never be pencils. So Some pens are not pencils is true.\nConclusion II: If some pens are books, then some books are pens is directly true. Hence both follow.",
+        "hi": "निष्कर्ष I: पेन का जो भाग किताब है, वह कभी पेंसिल नहीं हो सकता (I सही है)।\nनिष्कर्ष II: यदि कुछ पेन किताबें हैं, तो कुछ किताबें भी पेन होंगी (II सही है)। अतः दोनों सही हैं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r22",
+      "section": "reasoning",
+      "topic": "seating-puzzle",
+      "topicName": {
+        "en": "Linear Seating Arrangement",
+        "hi": "रैखिक बैठक व्यवस्था"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Five friends A, B, C, D, and E are sitting in a row facing North. C is sitting in the middle. A is to the immediate left of C. B is to the immediate right of E. E is to the right of C. Who is sitting at the extreme right end?",
+        "hi": "पाँच मित्र A, B, C, D और E उत्तर की ओर मुख करके एक पंक्ति में बैठे हैं। C ठीक बीच में बैठा है। A, C के ठीक बायीं ओर है। B, E के ठीक दायीं ओर है। E, C के दायीं ओर है। पंक्ति के अंतिम दायें छोर पर कौन बैठा है?"
+      },
+      "options": {
+        "en": [
+          "B",
+          "E",
+          "D",
+          "A"
+        ],
+        "hi": [
+          "B",
+          "E",
+          "D",
+          "A"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Positions 1 to 5 from left to right:\nC is in the middle → Position 3 is C.\nA is immediate left of C → Position 2 is A.\nRemaining left end Position 1 is D.\nE is to the right of C → Position 4 is E.\nB is immediate right of E → Position 5 is B.\nHence, B is at the extreme right end.",
+        "hi": "बायें से दायें 1 से 5 स्थान:\nC बीच में है → स्थान 3 = C.\nA, C के ठीक बायें है → स्थान 2 = A.\nबायें छोर पर शेष स्थान 1 = D.\nE, C के दायें है → स्थान 4 = E.\nB, E के ठीक दायें है → स्थान 5 = B.\nअतः दायें छोर पर B बैठा है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r23",
+      "section": "reasoning",
+      "topic": "seating-puzzle",
+      "topicName": {
+        "en": "Ranking & Order",
+        "hi": "क्रम एवं व्यवस्था"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "In a row of students, Ramesh is 14th from the left end and 27th from the right end. How many total students are there in the row?",
+        "hi": "छात्रों की एक पंक्ति में, रमेश बायें छोर से 14वें स्थान पर और दायें छोर से 27वें स्थान पर है। पंक्ति में कुल कितने छात्र हैं?"
+      },
+      "options": {
+        "en": [
+          "40",
+          "41",
+          "39",
+          "42"
+        ],
+        "hi": [
+          "40",
+          "41",
+          "39",
+          "42"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Total students = Left position + Right position - 1\n= 14 + 27 - 1 = 41 - 1 = 40.",
+        "hi": "कुल छात्र = बायें से स्थान + दायें से स्थान - 1\n= 14 + 27 - 1 = 41 - 1 = 40."
+      }
+    },
+    {
+      "id": "ntpc-m1-r24",
+      "section": "reasoning",
+      "topic": "seating-puzzle",
+      "topicName": {
+        "en": "Circular Seating Arrangement",
+        "hi": "वृत्ताकार बैठक व्यवस्था"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Four boys P, Q, R, and S are sitting around a circular table facing the centre. P is sitting opposite to R. Q is sitting to the immediate right of P. Who is sitting to the immediate left of R?",
+        "hi": "चार लड़के P, Q, R और S केंद्र की ओर मुख करके एक वृत्ताकार मेज के चारों ओर बैठे हैं। P, R के ठीक सामने बैठा है। Q, P के ठीक दायीं ओर बैठा है। R के ठीक बायीं ओर कौन बैठा है?"
+      },
+      "options": {
+        "en": [
+          "Q",
+          "S",
+          "P",
+          "Cannot be determined"
+        ],
+        "hi": [
+          "Q",
+          "S",
+          "P",
+          "निर्धारित नहीं किया जा सकता"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Let P be at 12 o'clock facing center (South). Right of P is 9 o'clock (West) or counter-clockwise. Since R is opposite at 6 o'clock facing North, R's left is to the West (same direction as Q or S depending on clock orientation). Testing clockwise: P at North, Q at East, R at South, S at West. R faces North, so R's right is East (Q) and R's left is West (S). Let's verify standard clockwise setup: P -> Q -> R -> S. Q is immediate left of R! Hence Q.",
+        "hi": "P, Q, R, S वृत्ताकार मेज पर केंद्र की ओर मुख करके बैठे हैं। P के सामने R है और Q, P के दायें है। R के बायीं ओर Q होगा।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r25",
+      "section": "reasoning",
+      "topic": "seating-puzzle",
+      "topicName": {
+        "en": "Comparison / Ranking",
+        "hi": "तुलनात्मक रैंकिंग"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "Among five friends P, Q, R, S, and T, Q is taller than R but shorter than T. P is the tallest. S is shorter than Q but taller than R. Who is the second tallest?",
+        "hi": "पाँच मित्रों P, Q, R, S और T में, Q, R से लंबा है लेकिन T से छोटा है। P सबसे लंबा है। S, Q से छोटा है लेकिन R से लंबा है। दूसरा सबसे लंबा कौन है?"
+      },
+      "options": {
+        "en": [
+          "T",
+          "Q",
+          "S",
+          "P"
+        ],
+        "hi": [
+          "T",
+          "Q",
+          "S",
+          "P"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "From the clues:\nP is tallest: P > ...\nT > Q > S > R.\nCombining gives: P > T > Q > S > R.\nThe second tallest is T.",
+        "hi": "क्रम निर्धारण:\nP सबसे लंबा है: P > ...\nT > Q > S > R.\nपूर्ण क्रम: P > T > Q > S > R.\nअतः दूसरा सबसे लंबा T है।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r26",
+      "section": "reasoning",
+      "topic": "statement-concl",
+      "topicName": {
+        "en": "Statement & Assumptions",
+        "hi": "कथन एवं पूर्वधारणाएं"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Statement: 'Please do not lean out of the window while the train is in motion.' — Warning in a train compartment.\nAssumptions:\nI. People are in the habit of leaning out of moving trains.\nII. Such warnings prevent potential accidents.",
+        "hi": "कथन: 'कृपया चलती ट्रेन की खिड़की से बाहर न झुकें।' — ट्रेन के डिब्बे में एक चेतावनी।\nपूर्वधारणाएं:\nI. लोगों में चलती ट्रेन से बाहर झुकने की आदत होती है।\nII. ऐसी चेतावनियां संभावित दुर्घटनाओं को रोकती हैं।"
+      },
+      "options": {
+        "en": [
+          "Both I and II are implicit",
+          "Only I is implicit",
+          "Only II is implicit",
+          "Neither is implicit"
+        ],
+        "hi": [
+          "दोनों I और II अंतर्निहित हैं",
+          "केवल I अंतर्निहित है",
+          "केवल II अंतर्निहित है",
+          "कोई भी अंतर्निहित नहीं है"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "A warning is issued because people do tend to lean out (I is implicit) and authorities believe passengers will read and follow the warning to stay safe (II is implicit). Hence both are implicit.",
+        "hi": "चेतावनी इसलिए लगाई जाती है क्योंकि लोग बाहर झुकते हैं (I अंतर्निहित है) और चेतावनी से लोग सावधान होकर दुर्घटना से बचेंगे (II भी अंतर्निहित है)। अतः दोनों पूर्वधारणाएं सही हैं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r27",
+      "section": "reasoning",
+      "topic": "statement-concl",
+      "topicName": {
+        "en": "Statement & Course of Action",
+        "hi": "कथन एवं कार्यवाही"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Statement: Severe water shortage has been reported in several parts of the city due to delayed monsoon.\nCourses of Action:\n1. The municipal body should arrange water tankers to affected areas immediately.\n2. Citizens should be advised to store and judiciously use available water.",
+        "hi": "कथन: मानसून में देरी के कारण शहर के कई हिस्सों में गंभीर जल संकट की सूचना मिली है।\nकार्यवाही:\n1. नगर निगम को प्रभावित क्षेत्रों में तुरंत पानी के टैंकरों की व्यवस्था करनी चाहिए।\n2. नागरिकों को उपलब्ध पानी का संचयन और विवेकपूर्ण उपयोग करने की सलाह दी जानी चाहिए।"
+      },
+      "options": {
+        "en": [
+          "Both 1 and 2 follow",
+          "Only 1 follows",
+          "Only 2 follows",
+          "Neither follows"
+        ],
+        "hi": [
+          "दोनों 1 और 2 सही कार्यवाहियां हैं",
+          "केवल 1 सही है",
+          "केवल 2 सही है",
+          "कोई सही नहीं है"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Action 1 provides immediate relief via water tankers, while Action 2 promotes conservation and responsible consumption. Both are logical and appropriate.",
+        "hi": "कार्यवाही 1 टैंकरों से तत्काल राहत देती है और कार्यवाही 2 जल संरक्षण को बढ़ावा देती है। अतः दोनों कार्यवाहियां उचित हैं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r28",
+      "section": "reasoning",
+      "topic": "statement-concl",
+      "topicName": {
+        "en": "Statement & Conclusions",
+        "hi": "कथन एवं निष्कर्ष"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2019",
+      "text": {
+        "en": "Statement: Morning walks are good for health.\nConclusions:\nI. All healthy people go for morning walks.\nII. Evening walks are harmful to health.",
+        "hi": "कथन: सुबह की सैर स्वास्थ्य के लिए अच्छी होती है।\nनिष्कर्ष:\nI. सभी स्वस्थ व्यक्ति सुबह की सैर पर जाते हैं।\nII. शाम की सैर स्वास्थ्य के लिए हानिकारक होती है।"
+      },
+      "options": {
+        "en": [
+          "Neither I nor II follows",
+          "Only I follows",
+          "Only II follows",
+          "Both follow"
+        ],
+        "hi": [
+          "न तो I और न ही II अनुसरण करता है",
+          "केवल I अनुसरण करता है",
+          "केवल II अनुसरण करता है",
+          "दोनों अनुसरण करते हैं"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Saying morning walk is good does not imply that ALL healthy people do it (Conclusion I fails). Nor does it imply evening walks are bad (Conclusion II fails). Neither follows.",
+        "hi": "सुबह की सैर लाभदायक है, इसका अर्थ यह नहीं कि सभी स्वस्थ लोग सुबह ही टहलते हैं (I गलत) और न ही इसका अर्थ यह है कि शाम की सैर हानिकारक है (II गलत)। अतः कोई अनुसरण नहीं करता।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r29",
+      "section": "reasoning",
+      "topic": "non-verbal",
+      "topicName": {
+        "en": "Mirror Image",
+        "hi": "दर्पण प्रतिबिंब"
+      },
+      "difficulty": "easy",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "Which letter cluster has the exact same mirror image when reflected across a vertical mirror?",
+        "hi": "किस अक्षर समूह का लंबवत दर्पण में प्रतिबिंब बिल्कुल समान रहता है?"
+      },
+      "options": {
+        "en": [
+          "M, A, T, H",
+          "B, C, D, E",
+          "P, Q, R, S",
+          "F, G, J, L"
+        ],
+        "hi": [
+          "M, A, T, H",
+          "B, C, D, E",
+          "P, Q, R, S",
+          "F, G, J, L"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "Letters having vertical line symmetry (identical mirror image across a vertical plane) include: A, H, I, M, O, T, U, V, W, X, Y. All letters in 'M, A, T, H' possess vertical line symmetry.",
+        "hi": "लंबवत दर्पण में सममित रहने वाले अंग्रेजी अक्षर: A, H, I, M, O, T, U, V, W, X, Y हैं। 'M, A, T, H' समूह के सभी अक्षर समान रहते हैं।"
+      }
+    },
+    {
+      "id": "ntpc-m1-r30",
+      "section": "reasoning",
+      "topic": "non-verbal",
+      "topicName": {
+        "en": "Counting of Figures",
+        "hi": "आकृतियों की गणना"
+      },
+      "difficulty": "moderate",
+      "pyqStyle": "CBT-1 2021",
+      "text": {
+        "en": "How many triangles are there in a square with both its diagonals drawn?",
+        "hi": "दोनों विकर्ण खींचे गए एक वर्ग में कुल कितने त्रिभुज होते हैं?"
+      },
+      "options": {
+        "en": [
+          "8",
+          "6",
+          "10",
+          "4"
+        ],
+        "hi": [
+          "8",
+          "6",
+          "10",
+          "4"
+        ]
+      },
+      "answer": 0,
+      "solution": {
+        "en": "A square divided by 2 diagonals produces 4 small single triangles and 4 larger triangles made by pairs of adjacent small triangles (4 × 2 = 8 triangles).",
+        "hi": "दोनों विकर्णों से विभाजित वर्ग में 4 छोटे त्रिभुज तथा 2-2 छोटे त्रिभुजों से मिलकर बने 4 बड़े त्रिभुज होते हैं (कुल = 4 × 2 = 8 त्रिभुज)।"
+      }
+    }
+  ]
+}
