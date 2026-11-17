@@ -804,7 +804,7 @@ const faqSchema = (post.faqs && post.faqs.length > 0) ? {
               href={post.guideTool?.href || (relatedPreset ? getExamPageUrl(relatedExamSlug) : `/${relatedExamSlug}/`)}
               class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-2.5 px-4 rounded-lg transition shadow-2xs"
             >
-              Open Resizer Canvas &rarr;
+              {post.guideTool?.buttonText ? `${post.guideTool.buttonText} →` : 'Open Resizer Canvas →'}
             </a>
           </div>
 

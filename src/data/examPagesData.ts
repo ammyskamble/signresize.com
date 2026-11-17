@@ -630,12 +630,12 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     slug: 'uppsc-signature-resize',
     presetId: 'uppsc',
     pageTitle: 'UPPSC Signature Resize — 10 to 20 KB · 140×60 px Resizer',
-    metaDescription: 'Resize signature for UPPSC RO/ARO 2026 & PCS online. Auto-format to 140×60 px, 10–20 KB JPG (complies with UPPSC OTR under-30 KB limit). 100% private in browser.',
+    metaDescription: 'Resize signature for UPPSC OTR, Combined State PCS & competitive exams online. Auto-format to 140×60 px, 10–20 KB JPG (complies with UPPSC OTR under-30 KB limit). 100% private in browser.',
     keywords: 'uppsc signature resize, uppsc ro aro signature resize, ro aro sign resize, samiksha adhikari signature resize, uppsc otr signature size, uppsc pcs signature format, up psc signature upload',
     h1: 'UPPSC Signature Resize — 10 KB to 20 KB (140×60 px)',
-    subheading: 'Official 140×60 px format with 10 KB to 20 KB file bounds for UPPSC RO/ARO (Advt. A-4/E-1/2026), PCS & OTR portals (complying with OTR under-30 KB limit).',
+    subheading: 'Official 140×60 px format with 10 KB to 20 KB file bounds for UPPSC OTR & Combined State PCS portals (complying with OTR under-30 KB limit). For RO/ARO 2026 3-in-1 uploads, use the dedicated tool.',
     datesStrip: 'UPPSC RO/ARO 2026 (Advt. A-4/E-1/2026 · 501 posts): Online applications 26 Oct – 26 Nov 2026 · Fee reconciliation & modification till 3 Dec 2026.',
-    verifiedOn: '2026-11-14',
+    verifiedOn: '2026-11-17',
     sources: [
       {
         label: 'UPPSC GuideLines for Scanning Photograph with Signature (OTR_PHOTO_INSTRUCTION.pdf)',
@@ -655,7 +655,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     fileSizeNote: 'Official UPPSC RO/ARO 2026 application form specifies 10–20 KB (~15 KB target). The master OTR PDF ceiling is under 30 KB.',
     relatedTools: ['uppsc-ro-aro-photo-signature-resize', 'thumb-impression-resize', 'photo-resizer', 'upsssc-pet-signature-resize', 'up-police-signature-resize'],
     authority: 'Uttar Pradesh Public Service Commission (UPPSC)',
-    targetExams: 'UPPSC RO / ARO (Samiksha Adhikari / Sahayak Samiksha Adhikari), UPPSC Combined State / Upper Subordinate Services (PCS), UPPSC OTR',
+    targetExams: 'UPPSC Combined State / Upper Subordinate Services (PCS), UPPSC OTR (One Time Registration), UPPSC RO / ARO',
     widthPx: 140,
     heightPx: 60,
     widthCm: 3.5,
@@ -666,11 +666,11 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black Ink / Running Handwriting',
     aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'Sign in full running handwriting on plain white paper with black/dark ink — the official UPPSC OTR PDF strictly forbids initials and ALL CAPITAL / BLOCK letters. Use 10–20 KB for RO/ARO 2026 (also meets OTR under-30 KB limit).',
+    strictNotice: 'Sign in full running handwriting on plain white paper with black/dark ink — the official UPPSC OTR PDF strictly forbids initials and ALL CAPITAL / BLOCK letters. Produces 10–20 KB (strictly satisfies UPPSC OTR under-30 KB limit).',
     tips: [
-      'Write your full signature on clean, unruled white paper with a black ballpoint pen (initials and ALL CAPITAL / BLOCK letters are rejected).',
-      'For UPPSC RO/ARO 2026 (Advt. A-4/E-1/2026), keep your signature at 10–20 KB JPG (140×60 px) — this satisfies both the RO/ARO application and UPPSC OTR (under 30 KB @ 6×3 cm, 200 DPI).',
-      'Also prepare your RO/ARO photograph (20–50 KB JPG; OTR PDF allows under 50 KB @ 5×6 cm) and Left Thumb Impression (10–20 KB JPG).',
+      'Write your full signature on clean, unruled white paper with a black ballpoint pen (initials and ALL CAPITAL / BLOCK letters are rejected by UPPSC).',
+      'Keep your signature at 10–20 KB JPG (140×60 px) — this satisfies both UPPSC Combined State / PCS exams and UPPSC OTR (under 30 KB @ 6×3 cm, 200 DPI).',
+      'For dedicated 3-in-1 preparation (photo, signature, thumb impression) tailored to RO/ARO, use our specialized UPPSC RO ARO signature resize tool.',
       'Use the Clean White Paper filter to remove phone shadows before uploading to otr.pariksha.nic.in or uppsc.up.nic.in.'
     ],
     faqs: [
@@ -680,11 +680,11 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       },
       {
         q: 'What is the UPPSC RO ARO signature size in KB and pixels?',
-        a: 'For UPPSC RO/ARO 2026 (Samiksha Adhikari / Sahayak Samiksha Adhikari, Advt. A-4/E-1/2026), format your scanned signature in JPG format at 140×60 px and strictly 10 KB to 20 KB using black ballpoint ink on plain white unruled paper. A 10–20 KB file passes both RO/ARO upload checks and UPPSC OTR (under 30 KB).'
+        a: 'For UPPSC RO/ARO 2026 (Samiksha Adhikari / Sahayak Samiksha Adhikari, Advt. A-4/E-1/2026), format your scanned signature in JPG format at 140×60 px and strictly 10 KB to 20 KB using black ballpoint ink on plain white unruled paper. To prepare Photo (20–50 KB), Signature (10–20 KB), and Left Thumb (10–20 KB) together, open the dedicated <a href="/uppsc-ro-aro-photo-signature-resize/" class="text-blue-600 font-semibold underline">UPPSC RO ARO signature resize</a> tool.'
       },
       {
         q: 'What are all document upload sizes for UPPSC RO/ARO 2026?',
-        a: 'The RO/ARO 2026 application requires three JPG uploads: (1) Passport Photo at 20–50 KB (OTR norm: 5×6 cm @ 200 DPI under 50 KB), (2) Candidate Signature at 10–20 KB (140×60 px; OTR norm: 6×3 cm @ 200 DPI under 30 KB), and (3) Left Thumb Impression at 10–20 KB using blue or black stamp pad ink.'
+        a: 'The RO/ARO 2026 application requires three separate uploads: (1) Passport Photo at 20–50 KB, (2) Candidate Signature at 10–20 KB (140×60 px), and (3) Left Thumb Impression at 10–20 KB using blue or black stamp pad ink. Use our specialized <a href="/uppsc-ro-aro-photo-signature-resize/" class="text-blue-600 font-semibold underline">RO ARO sign resize</a> tool to format all three documents instantly.'
       },
       {
         q: 'What is the last date for UPPSC RO/ARO 2026 application and correction?',

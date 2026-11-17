@@ -75,6 +75,9 @@ const relatedTools = (examData.relatedTools || [])
     if (slug === 'photo-resizer') {
       return { slug, label: 'Passport Photo Resizer' };
     }
+    if (slug === 'uppsc-ro-aro-photo-signature-resize') {
+      return { slug, label: 'UPPSC RO ARO signature resize' };
+    }
     const target = EXAM_PAGES_DATA.find(page => page.slug === slug);
     let label = target?.h1 || slug;
     label = label.replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s*Online\s*-\s*SignResize\s*/gi, '').replace(/–\s*GOAPS Resizer.*$/i, '').trim();
@@ -383,7 +386,7 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
                       href="/uppsc-ro-aro-photo-signature-resize/"
                       class="min-h-[36px] inline-flex items-center px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs hover:bg-amber-400 transition shadow-2xs"
                     >
-                      ⚡ 3-in-1 Combined Tool (Photo + Sign + Thumb) &rarr;
+                      ⚡ UPPSC RO ARO signature resize &rarr;
                     </a>
                     <button
                       type="button"
@@ -1415,88 +1418,31 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
             )}
 
             {examData.slug === 'uppsc-signature-resize' && (
-              <section id="uppsc-ro-aro-signature-resize" aria-labelledby="uppsc-ro-aro-heading" class="scroll-mt-20 p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/25 space-y-4">
+              <section id="uppsc-ro-aro-signature-resize" aria-labelledby="uppsc-ro-aro-heading" class="scroll-mt-20 p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/25 space-y-3">
                 <div class="flex items-center justify-between flex-wrap gap-2">
-                  <h2 id="uppsc-ro-aro-heading" class="text-base sm:text-lg font-bold text-foreground">
-                    UPPSC RO ARO Signature Resize (Advt. A-4/E-1/2026)
+                  <h2 id="uppsc-ro-aro-heading" class="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+                    <span>📢</span> UPPSC RO ARO 2026 Notice (Advt. A-4/E-1/2026)
                   </h2>
-                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
-                    26 Oct – 26 Nov 2026 · Correction till 3 Dec · 501 Posts
+                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                    26 Oct – 26 Nov 2026 · 501 Posts
                   </span>
                 </div>
-                <p class="text-xs text-muted-foreground leading-relaxed">
-                  <strong>RO/ARO 2026 vs. UPPSC OTR rules explained:</strong> The official UPPSC OTR scanning PDF (<code>OTR_PHOTO_INSTRUCTION.pdf</code>) sets maximums only — <strong>Signature under 30 KB (6×3 cm @ 200 DPI)</strong> and <strong>Photo under 50 KB (5×6 cm @ 200 DPI)</strong>, with no CAPITAL letters or initials. For the active <strong>RO/ARO 2026 application</strong>, prepare all three JPG uploads using the specs below (a 10–20 KB signature satisfies both RO/ARO and OTR under-30 KB):
+                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  Looking for <strong>Samiksha Adhikari / Sahayak Samiksha Adhikari</strong> uploads? While this page formats general UPPSC OTR and PCS signatures (under 30 KB @ 200 DPI), the active RO/ARO application requires all three files: <strong>Photo (20–50 KB)</strong>, <strong>Signature (140×60 px, 10–20 KB)</strong>, and <strong>Left Thumb (10–20 KB)</strong>. Use our dedicated 3-in-1 workspace below:
                 </p>
-                <div class="flex flex-wrap items-center gap-2">
+                <div class="flex flex-wrap items-center gap-3 pt-1">
                   <a
                     href="/uppsc-ro-aro-photo-signature-resize/"
-                    class="min-h-[40px] inline-flex items-center px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs hover:bg-amber-400 transition shadow-xs"
+                    class="min-h-[40px] inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs hover:bg-amber-400 transition shadow-xs"
                   >
-                    ⚡ Open UPPSC 3-in-1 Studio (Photo + Sign + Thumb) &rarr;
-                  </a>
-                  <button
-                    type="button"
-                    data-ro-aro-preset="uppsc-ro-aro-signature"
-                    class="min-h-[40px] px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition cursor-pointer shadow-xs"
-                  >
-                    ✍️ Apply Signature Preset: 140×60 px · 10–20 KB
-                  </button>
-                  <a
-                    href="/photo-resizer/?preset=uppsc-ro-aro-photo#tool-workspace"
-                    class="min-h-[40px] inline-flex items-center px-3.5 py-2 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:border-primary/50 transition"
-                  >
-                    📸 RO/ARO Photo (20–50 KB) →
+                    <span>⚡</span> UPPSC RO ARO signature resize &amp; 3-in-1 Studio &rarr;
                   </a>
                   <a
-                    href="/thumb-impression-resize/?preset=uppsc-ro-aro-thumb#tool-workspace"
-                    class="min-h-[40px] inline-flex items-center px-3.5 py-2 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:border-primary/50 transition"
+                    href="/blog/uppsc-ro-aro-2026-top-10-faq-aspirants/"
+                    class="min-h-[40px] inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-card border border-border text-foreground font-semibold text-xs hover:border-primary/50 transition"
                   >
-                    👍 Left Thumb Impression (10–20 KB) →
+                    <span>📖</span> Read Complete RO/ARO Form Fill Up Guide &rarr;
                   </a>
-                </div>
-                <div class="overflow-x-auto rounded-xl border border-border bg-card">
-                  <table class="w-full text-xs text-left">
-                    <thead class="bg-muted text-foreground font-semibold">
-                      <tr>
-                        <th class="p-2.5 border-b border-border">RO/ARO 2026 Upload</th>
-                        <th class="p-2.5 border-b border-border">Application Limit</th>
-                        <th class="p-2.5 border-b border-border">Official UPPSC OTR PDF</th>
-                        <th class="p-2.5 border-b border-border">Tool Action</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-border/60">
-                      <tr>
-                        <td class="p-2.5 font-bold text-foreground">Candidate Signature</td>
-                        <td class="p-2.5 font-mono text-primary font-bold">10–20 KB (140×60 px JPG)</td>
-                        <td class="p-2.5 text-muted-foreground">Under 30 KB · 6×3 cm @ 200 DPI (full script, no ALL CAPS)</td>
-                        <td class="p-2.5">
-                          <button type="button" data-ro-aro-preset="uppsc-ro-aro-signature" class="font-bold text-primary hover:underline cursor-pointer">
-                            Load 140×60 px · 10–20 KB →
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="p-2.5 font-bold text-foreground">Passport Photograph</td>
-                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">20–50 KB JPG</td>
-                        <td class="p-2.5 text-muted-foreground">Under 50 KB · 5×6 cm @ 200 DPI True Colour</td>
-                        <td class="p-2.5">
-                          <a href="/photo-resizer/?preset=uppsc-ro-aro-photo#tool-workspace" class="font-bold text-primary hover:underline">
-                            Resize Photo (20–50 KB) →
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="p-2.5 font-bold text-foreground">Left Thumb Impression (LTI)</td>
-                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">10–20 KB JPG</td>
-                        <td class="p-2.5 text-muted-foreground">Clear unsmudged ridges on white sheet (blue/black ink)</td>
-                        <td class="p-2.5">
-                          <a href="/thumb-impression-resize/?preset=uppsc-ro-aro-thumb#tool-workspace" class="font-bold text-primary hover:underline">
-                            Resize Thumb (10–20 KB) →
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
                 </div>
               </section>
             )}
