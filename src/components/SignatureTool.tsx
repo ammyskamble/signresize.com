@@ -428,6 +428,9 @@ const PRESET_ALIASES: Record<string, string> = {
   du: 'du-admission-photo-bd',
   'du-admission': 'du-admission-photo-bd',
   'du-photo': 'du-admission-photo-bd',
+  ru: 'ru-admission-photo-bd',
+  'ru-admission': 'ru-admission-photo-bd',
+  'ru-photo': 'ru-admission-photo-bd',
   'gst-cluster': 'gst-cluster-photo-bd',
   'gst-photo': 'gst-cluster-photo-bd',
   'gst-sign': 'gst-cluster-sign-bd',
@@ -1211,6 +1214,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         else if (examAnchor.includes('ntrca')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'ntrca-teacher-bd' || p.id === 'ntrca-teacher-photo-bd');
         else if (examAnchor.includes('police')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'police-bd-photo');
         else if (examAnchor.includes('du') || examAnchor.includes('dhaka')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'du-admission-photo-bd');
+        else if (examAnchor.includes('ru') || examAnchor.includes('rajshahi')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'ru-admission-photo-bd');
         else if (examAnchor.includes('medical') || examAnchor.includes('dgme')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'dgme-medical-photo-bd');
         else if (examAnchor.includes('bpsc') || examAnchor.includes('bcs')) targetPreset = PHOTO_PRESETS.find(p => p.id === 'bpsc-bd' || p.id === 'bpsc-photo-bd');
         else targetPreset = PHOTO_PRESETS.find(p => p.id === 'teletalk-bd' || p.id === 'teletalk-photo-bd');
@@ -2632,7 +2636,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       filename = `tnpsc_certificate.${ext}`;
     } else if (isBdActive) {
       if (targetType === 'photo') {
-        filename = selectedPreset?.id?.includes('bank') ? `bangladesh_bank_photo.${ext}` : `teletalk_photo_300x300.${ext}`;
+        filename = selectedPreset?.id?.includes('bank')
+          ? `bangladesh_bank_photo.${ext}`
+          : selectedPreset?.id?.includes('du')
+          ? `du_admission_photo.${ext}`
+          : selectedPreset?.id?.includes('ru')
+          ? `ru_admission_photo.${ext}`
+          : `teletalk_photo_300x300.${ext}`;
       } else if (targetType === 'signature') {
         filename = selectedPreset?.id?.includes('bank') ? `bangladesh_bank_signature.${ext}` : `teletalk_signature_300x80.${ext}`;
       }
@@ -3123,7 +3133,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'teletalk-bd', short: 'Teletalk Photo', label: 'Teletalk Photo 300×300', specs: '300×300 • ≤100 KB' },
         { id: 'teletalk-sign-bd', short: 'Teletalk Sign', label: 'Teletalk Signature 300×80', specs: '300×80 • ≤60 KB' },
         { id: 'bangladesh-bank-photo-bd', short: 'BB Bank Photo', label: 'Bangladesh Bank Photo 600×600', specs: '600×600 • ≤100 KB' },
-        { id: 'du-admission-photo-bd', short: 'DU Admission', label: 'DU Admission Photo 360×480', specs: '360×480 • ≤100 KB' }
+        { id: 'du-admission-photo-bd', short: 'DU Admission', label: 'DU Admission Photo 450×550', specs: '450×550 • ≤20 KB' },
+        { id: 'ru-admission-photo-bd', short: 'RU Admission', label: 'RU Admission Photo 300×400', specs: '300×400 • 50–100 KB' }
       ]
     : isPakistan
     ? (targetType === 'photo'
@@ -3626,7 +3637,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     isPakistan, isIndonesian, isIbpsActive, isSbiActive,
   ]);
   const SettingsPanel = focusedWorkspace ? 'details' : 'div';
-  const workspacePresets = focusedWorkspace ? ALL_COMBINED_PRESETS.filter(p => (!p.country || p.country === 'IN') && presetMode(p) === targetType) : currentPresetList;
+  const workspacePresets = focusedWorkspace ? ALL_COMBINED_PRESETS.filter(p => presetMode(p) === targetType) : currentPresetList;
 
   return (
     <div className={`w-full max-w-7xl mx-auto space-y-6 scroll-mt-24 min-h-[900px] sm:min-h-[800px] lg:min-h-[660px] ${compactStudio ? 'compact-studio' : ''}`} data-has-image={!!sourceImage} data-drag-over={isDragOver} id="tool-workspace" onDragOver={focusedWorkspace ? event => { if (Array.from(event.dataTransfer.types).includes('Files')) { event.preventDefault(); setIsDragOver(true); } } : undefined} onDragLeave={focusedWorkspace ? event => { if (!event.relatedTarget || !event.currentTarget.contains(event.relatedTarget as Node)) setIsDragOver(false); } : undefined} onDrop={focusedWorkspace ? handleDrop : undefined}>

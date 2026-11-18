@@ -232,13 +232,19 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
           let bdCategory = 'Teletalk';
           const pId = preset.id.toLowerCase();
           if (pId.includes('bank')) bdCategory = 'Banks';
-          else if (pId.includes('du') || pId.includes('buet') || pId.includes('medical') || pId.includes('gst')) bdCategory = 'Admission';
+          else if (pId.includes('du') || pId.includes('ru') || pId.includes('buet') || pId.includes('medical') || pId.includes('gst')) bdCategory = 'Admission';
           else if (pId.includes('nsi') || pId.includes('btrc')) bdCategory = 'Specialized';
+
+          const rowDataName = preset.id === 'du-admission-photo-bd'
+            ? 'dhaka university du admission (photo 450x550 px, 20 kb)'
+            : preset.id === 'ru-admission-photo-bd'
+            ? 'rajshahi university ru admission (photo 300x400 px)'
+            : preset.name.toLowerCase().replace(/×/g, 'x');
 
           return (
             <tr
               class="hover:bg-muted/30 transition-colors exam-spec-row"
-              data-name={preset.name.toLowerCase()}
+              data-name={rowDataName}
               data-code={preset.shortCode.toLowerCase()}
               data-authority={preset.authority.toLowerCase()}
               data-category={preset.category}
@@ -264,7 +270,12 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
                     <span class="text-[10px] text-primary opacity-60 group-hover:opacity-100 transition-opacity">→</span>
                   </a>
                 ) : (
-                  <div class="font-semibold text-foreground">{preset.name}</div>
+                  <div class="font-semibold text-foreground">
+                    {preset.name}
+                    {preset.id === 'ru-admission-photo-bd' && (
+                      <span class="block text-xs font-normal text-muted-foreground mt-0.5">রাজশাহী বিশ্ববিদ্যালয় ভর্তি ছবি</span>
+                    )}
+                  </div>
                 )}
                 <div class="text-[11px] text-muted-foreground flex items-center gap-1.5 pt-0.5">
                   <span>{preset.authority}</span>
@@ -278,11 +289,15 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
               </td>
               <td class="py-3 px-4">
                 <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20">
-                  {preset.minKb} KB – {preset.maxKb} KB
+                  {preset.id === 'du-admission-photo-bd' ? 'Max 20 KB' : `${preset.minKb} KB – ${preset.maxKb} KB`}
                 </span>
               </td>
               <td class="py-3 px-4 text-xs text-muted-foreground max-w-xs">
-                {preset.targetType === 'photo' || preset.heightPx === preset.widthPx || preset.widthPx === 360 ? (
+                {preset.id === 'du-admission-photo-bd' ? (
+                  <><span class="font-medium text-foreground">Plain white background only</span>: minimum 450×550 px JPG at 20 KB, as instructed on the DU admission website (admission.eis.du.ac.bd) for 2026-27.</>
+                ) : preset.id === 'ru-admission-photo-bd' ? (
+                  <><span class="font-medium text-foreground">White background</span>, face covering 60–70% of the photo, no filters. JPG. The RU portal also takes a selfie live during application — that step happens on the portal itself.</>
+                ) : preset.targetType === 'photo' || preset.heightPx === preset.widthPx ? (
                   <><span class="font-medium text-foreground">Plain White / Light Background</span>: {preset.notes}</>
                 ) : (
                   <><span class="font-medium text-foreground">{preset.inkRequirement}</span>: {preset.notes}</>

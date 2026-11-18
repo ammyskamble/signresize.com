@@ -226,9 +226,11 @@ export default defineConfig({
           '/blog/rrb-ntpc-2026-master-document-rules-preparation-strategy/'
         ].includes(pathname)) {
           item.lastmod = '2026-11-16';
+        } else if (pathname === '/bd/') {
+          item.lastmod = '2026-11-18';
         } else if (pathname === '/appsc-signature-resize/') {
           item.lastmod = '2026-11-11';
-        } else if (['/teletalk-photo-signature-resize/', '/bd/medical-admission-photo-resizer/', '/bd/', '/pk/css-exam-photo-resizer/', '/pk/fpsc-photo-resizer/', '/jee-main-photo-resize/', '/jee-main-signature-resize/', '/blog/jee-main-2026-session-1-registration-syllabus-photo-signature-guidelines/', '/application-dates/', '/thumb-impression-resize/', '/blog/state-psc-otr-registration-photo-signature-guidelines/', '/blog/up-police-constable-si-2026-top-10-faq-guide/'].includes(pathname)) {
+        } else if (['/teletalk-photo-signature-resize/', '/bd/medical-admission-photo-resizer/', '/pk/css-exam-photo-resizer/', '/pk/fpsc-photo-resizer/', '/jee-main-photo-resize/', '/jee-main-signature-resize/', '/blog/jee-main-2026-session-1-registration-syllabus-photo-signature-guidelines/', '/application-dates/', '/thumb-impression-resize/', '/blog/state-psc-otr-registration-photo-signature-guidelines/', '/blog/up-police-constable-si-2026-top-10-faq-guide/'].includes(pathname)) {
           item.lastmod = '2026-11-10';
         } else if (modified && !Number.isNaN(modified.getTime())) {
           item.lastmod = modified.toISOString().slice(0, 10);
