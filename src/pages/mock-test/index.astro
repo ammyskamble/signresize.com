@@ -23,6 +23,28 @@ const canonicalUrl = "https://signresize.in/mock-test/";
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SignResize" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="https://signresize.in/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content="https://signresize.in/og-image.png" />
 
     <!-- BreadcrumbList Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -275,6 +297,16 @@ const canonicalUrl = "https://signresize.in/mock-test/";
               >
                 Open RRB NTPC Mock Test Hub →
               </a>
+              <div class="mt-3 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-500">
+                <span class="font-medium text-slate-400">Direct Tests:</span>
+                <a href="/mock-test/rrb-ntpc/cbt-1-mock-test-1/" class="font-semibold text-sky-600 underline hover:text-sky-700 dark:text-sky-400">Full Mock 1</a>
+                <span>·</span>
+                <a href="/mock-test/rrb-ntpc/cbt-1-maths-sectional-test/" class="font-semibold text-sky-600 underline hover:text-sky-700 dark:text-sky-400">Maths (30Q)</a>
+                <span>·</span>
+                <a href="/mock-test/rrb-ntpc/cbt-1-reasoning-sectional-test/" class="font-semibold text-sky-600 underline hover:text-sky-700 dark:text-sky-400">Reasoning (30Q)</a>
+                <span>·</span>
+                <a href="/mock-test/rrb-ntpc/cbt-1-ga-sectional-test/" class="font-semibold text-sky-600 underline hover:text-sky-700 dark:text-sky-400">GA (40Q)</a>
+              </div>
             </div>
           </div>
 
@@ -317,6 +349,10 @@ const canonicalUrl = "https://signresize.in/mock-test/";
               >
                 Open SSC CGL Mock Test Hub →
               </a>
+              <div class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-500">
+                <span class="font-medium text-slate-400">Direct Test:</span>
+                <a href="/mock-test/ssc-cgl/tier-1-mock-test-1/" class="font-semibold text-indigo-600 underline hover:text-indigo-700 dark:text-indigo-400">Start 100-Q Tier-1 Mock 1 (200 Marks) →</a>
+              </div>
             </div>
           </div>
 
@@ -359,6 +395,10 @@ const canonicalUrl = "https://signresize.in/mock-test/";
               >
                 Open SSC GD Mock Test Hub →
               </a>
+              <div class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-500">
+                <span class="font-medium text-slate-400">Direct Test:</span>
+                <a href="/mock-test/ssc-gd/cbt-mock-test-1/" class="font-semibold text-emerald-600 underline hover:text-emerald-700 dark:text-emerald-400">Start 80-Q Full Mock 1 (160 Marks) →</a>
+              </div>
             </div>
           </div>
 
@@ -401,6 +441,10 @@ const canonicalUrl = "https://signresize.in/mock-test/";
               >
                 Open RRB Group D Mock Test Hub →
               </a>
+              <div class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-500">
+                <span class="font-medium text-slate-400">Direct Test:</span>
+                <a href="/mock-test/rrb-group-d/cbt-mock-test-1/" class="font-semibold text-amber-600 underline hover:text-amber-700 dark:text-amber-400">Start 100-Q Full Mock 1 (100 Marks) →</a>
+              </div>
             </div>
           </div>
         </div>

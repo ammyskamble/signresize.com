@@ -2,6 +2,7 @@
 # All static rules must precede dynamic rules per Cloudflare Pages specification.
 
 # --- 1. Static Redirects (Clean exact 1-to-1 mappings) ---
+/sitemap-0.xml /sitemap.xml 301
 /signature-resizer / 301
 /signature-resizer/ / 301
 /jobs /government-jobs/ 301

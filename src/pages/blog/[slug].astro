@@ -29,8 +29,11 @@ interface Props {
 
 const { post } = Astro.props;
 
-const pageTitle = post.metaTitle || (post.title.length > 50 ? `${post.title.slice(0, 48)}... | SignResize` : `${post.title} | SignResize`);
-const pageDescription = post.metaDescription || post.excerpt;
+const pageTitle = post.metaTitle || (post.title.length > 48 ? `${post.title.slice(0, 45).trim()}... | SignResize` : `${post.title} | SignResize`);
+const rawDescription = post.metaDescription || post.excerpt;
+const pageDescription = rawDescription.length > 158
+  ? rawDescription.slice(0, 155).replace(/\s+[^ ]*$/, '').trim() + '...'
+  : rawDescription;
 const canonicalUrl = `https://signresize.in/blog/${post.slug}/`;
 
 // Find related preset if specified
@@ -138,7 +141,7 @@ const breadcrumbSchema = {
 // Dynamic BlogPosting & TechArticle Schema
 const articleSchema = {
   "@context": "https://schema.org",
-  "@type": post.category === 'Guidelines & Tips' ? ["BlogPosting", "TechArticle"] : "BlogPosting",
+  "@type": post.category === 'Guidelines & Tips' ? ["Article", "BlogPosting", "TechArticle"] : ["Article", "BlogPosting"],
   "headline": post.title,
   "description": post.excerpt,
   "image": [post.ogImage ? `https://signresize.in${post.ogImage}` : "https://signresize.in/favicon-96x96.png"],

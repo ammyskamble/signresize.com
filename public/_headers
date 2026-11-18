@@ -28,9 +28,9 @@
   Access-Control-Allow-Origin: *
   X-Robots-Tag: noindex
 
-# HTML and root documents: enable Cloudflare edge caching (s-maxage) for ultra-fast TTFB for AI crawlers and search bots
+# HTML and root documents: ensure fresh HTML matching current Vite asset hashes
 /*
-  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, must-revalidate
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
 

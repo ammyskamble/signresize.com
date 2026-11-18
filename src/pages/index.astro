@@ -97,10 +97,10 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
     <meta name="mobile-web-app-capable" content="yes" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- SoftwareApplication & WebApplication Schema.org JSON-LD -->
+    <!-- SoftwareApplication, WebApplication & Product Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": ["WebApplication", "SoftwareApplication", "Product"],
       "name": "SignResize - Online Signature & Photo Resizer Studio",
       "datePublished": "2024-01-01T09:00:00+05:30",
       "dateModified": "2026-11-16T18:00:00+05:30",
@@ -114,7 +114,8 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "INR"
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock"
       },
       "author": {
         "@type": "Person",

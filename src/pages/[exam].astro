@@ -39,6 +39,22 @@ const examGuidance = EXAM_GUIDANCE[examData.slug];
 
 const canonicalUrl = propCanonicalUrl || `https://signresize.in/${examData.slug}/`;
 const ogImageUrl = 'https://signresize.in/og-image.png';
+
+// Optimize title to stay within 60 chars for search engines
+const pageTitle = examData.pageTitle.length > 60
+  ? (examData.pageTitle.includes(' | SignResize')
+      ? examData.pageTitle.replace(/\s*\|\s*SignResize\b/g, '').slice(0, 44).trim() + ' | SignResize'
+      : examData.pageTitle.includes(' - SignResize')
+        ? examData.pageTitle.replace(/\s*-\s*SignResize\b/g, '').slice(0, 44).trim() + ' - SignResize'
+        : examData.pageTitle.slice(0, 57).trim() + '...')
+  : examData.pageTitle;
+
+// Optimize description to stay within 158 chars for search engines
+const rawMetaDesc = examData.metaDescription || '';
+const pageDescription = rawMetaDesc.length > 158
+  ? rawMetaDesc.slice(0, 155).replace(/\s+[^ ]*$/, '').trim() + '...'
+  : rawMetaDesc;
+
 const currentYear = 2026;
 const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
 const isJam = examData.slug.includes('iit-jam');
@@ -85,8 +101,8 @@ const relatedTools = (examData.relatedTools || [])
   });
 
 // Find relevant blog posts for this specific exam tool
-// BPSC articles still need a separate source review; use the reviewed guidance links.
-const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster || isJam) ? [] : BLOG_POSTS.filter(post => {
+// BPSC, Coast Guard, NTPC use custom reviewed guidance sections
+const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) ? [] : BLOG_POSTS.filter(post => {
   if (examData.slug === 'uppsc-signature-resize' && post.slug.includes('ro-aro')) return false;
   return true;
 }).map(post => {
@@ -127,8 +143,8 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{examData.pageTitle}</title>
-    <meta name="description" content={examData.metaDescription} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
     <meta name="keywords" content={examData.keywords} />
     <meta name="author" content="SignResize.in" />
     <meta name="robots" content={examData.noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
@@ -139,8 +155,8 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
 
     <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={examData.pageTitle} />
-    <meta property="og:description" content={examData.metaDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="SignResize" />
     <meta property="og:locale" content="en_IN" />
@@ -150,8 +166,8 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={examData.pageTitle} />
-    <meta name="twitter:description" content={examData.metaDescription} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- PWA & Mobile Meta Tags -->
@@ -170,10 +186,10 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
     <!-- Async Google Fonts -->
     <GoogleFonts />
 
-    <!-- SoftwareApplication & WebApplication Schema -->
+    <!-- SoftwareApplication, WebApplication & Product Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": ["WebApplication", "SoftwareApplication", "Product"],
       "name": examData.h1,
       "datePublished": examData.datePublished || "2026-01-15T09:00:00+05:30",
       "dateModified": examData.dateModified || "2026-11-16T18:00:00+05:30",
@@ -185,7 +201,8 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster |
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "INR"
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock"
       },
       "featureList": [
         `${examData.widthPx}x${examData.heightPx} px exact dimensions`,

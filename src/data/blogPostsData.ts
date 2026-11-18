@@ -9136,6 +9136,8 @@ Fatal Pitfall:       Ignoring Banking Awareness &amp; Degree Background in Inter
     title: "Sarathi Parivahan Photo & Signature Upload Error: Fix 10-20 KB Dimension Mismatch",
     title_hi: "सारथी परिवहन फोटो और हस्ताक्षर अपलोड त्रुटि: 10-20 KB साइज और डायमेंशन कैसे ठीक करें",
     title_mr: "सारथी परिवहन फोटो आणि स्वाक्षरी अपलोड त्रुटी: 10-20 KB आकार आणि नियम",
+    metaTitle: "Fix Sarathi Photo & Signature 10-20 KB Upload Error",
+    metaDescription: "Resolve Sarathi Parivahan 10KB to 20KB upload errors for Learner and Driving Licences. Official photo, signature dimensions and compression fix.",
     excerpt: "Fix the Sarathi Parivahan 'Photo and Signature size should be between 10KB to 20KB' upload error for Learner and Driving Licences. Official specs, aspect ratio and compression steps.",
     excerpt_hi: "ड्राइविंग और लर्नर लाइसेंस के लिए सारथी परिवहन '10KB to 20KB' अपलोड एरर ठीक करें। ऑफिशियल फोटो और सिग्नेचर साइज़ व कम्प्रेशन गाइड।",
     excerpt_mr: "ड्रायव्हिंग आणि लर्नर लायसन्ससाठी सारथी परिवहन '10KB to 20KB' अपलोड त्रुटी दुरुस्त करा. अधिकृत फोटो आणि स्वाक्षरी नियम.",

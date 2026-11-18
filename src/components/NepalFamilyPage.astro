@@ -32,7 +32,7 @@ const ogImageUrl = 'https://signresize.in/og-image.png';
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <link rel="alternate" hreflang="en-NP" href={config.canonicalUrl} />
-    <link rel="alternate" hreflang="x-default" href="https://signresize.in/" />
+    <link rel="alternate" hreflang="x-default" href={config.canonicalUrl} />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={config.pageTitle} />
@@ -41,6 +41,13 @@ const ogImageUrl = 'https://signresize.in/og-image.png';
     <meta property="og:site_name" content="SignResize" />
     <meta property="og:locale" content="en_NP" />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={config.pageTitle} />
+    <meta name="twitter:description" content={config.metaDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <GoogleFonts />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -51,7 +58,7 @@ const ogImageUrl = 'https://signresize.in/og-image.png';
 
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": ["SoftwareApplication", "WebApplication"],
+      "@type": ["SoftwareApplication", "WebApplication", "Product"],
       "name": config.h1,
       "url": config.canonicalUrl,
       "applicationCategory": "UtilitiesApplication",
@@ -62,7 +69,8 @@ const ogImageUrl = 'https://signresize.in/og-image.png';
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "NPR"
+        "priceCurrency": "NPR",
+        "availability": "https://schema.org/InStock"
       },
       "featureList": config.presetChips.map(c => `${c.label}: ${c.specBadge}`)
     })} />
