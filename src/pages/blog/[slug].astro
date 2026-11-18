@@ -29,11 +29,8 @@ interface Props {
 
 const { post } = Astro.props;
 
-const pageTitle = post.metaTitle || (post.title.length > 48 ? `${post.title.slice(0, 45).trim()}... | SignResize` : `${post.title} | SignResize`);
-const rawDescription = post.metaDescription || post.excerpt;
-const pageDescription = rawDescription.length > 158
-  ? rawDescription.slice(0, 155).replace(/\s+[^ ]*$/, '').trim() + '...'
-  : rawDescription;
+const pageTitle = post.metaTitle || (post.title.includes('SignResize') ? post.title : `${post.title} | SignResize`);
+const pageDescription = post.metaDescription || post.excerpt;
 const canonicalUrl = `https://signresize.in/blog/${post.slug}/`;
 
 // Find related preset if specified

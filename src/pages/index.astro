@@ -97,10 +97,10 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
     <meta name="mobile-web-app-capable" content="yes" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- SoftwareApplication, WebApplication & Product Schema.org JSON-LD -->
+    <!-- SoftwareApplication & WebApplication Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": ["WebApplication", "SoftwareApplication", "Product"],
+      "@type": ["WebApplication", "SoftwareApplication"],
       "name": "SignResize - Online Signature & Photo Resizer Studio",
       "datePublished": "2024-01-01T09:00:00+05:30",
       "dateModified": "2026-11-16T18:00:00+05:30",
@@ -111,11 +111,12 @@ const topGuides = BLOG_POSTS.filter(guide => { const titleKey = guide.title.toLo
       "softwareVersion": "2026.2.4",
       "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
       "description": "Free online signature, photo, and document resizer. Crop signatures, customize width and height in cm or pixels, compress to exact KB bounds, and clean background shadows for government exams and official forms.",
+      "image": "https://signresize.in/og-image.png",
+      "screenshot": "https://signresize.in/og-image.png",
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock"
+        "priceCurrency": "INR"
       },
       "author": {
         "@type": "Person",

@@ -33,6 +33,7 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: ${new URL('sitemap-index.xml', siteUrl).href}
+Sitemap: ${new URL('sitemap.xml', siteUrl).href}
 LLM-txt: ${new URL('llms.txt', siteUrl).href}
 `.trim();
 

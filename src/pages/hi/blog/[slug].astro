@@ -29,11 +29,8 @@ const translatedTitle = getBlogPostTitle(post, 'hi');
 const translatedExcerpt = getBlogPostExcerpt(post, 'hi');
 const translatedContent = getBlogPostContent(post, 'hi');
 
-const pageTitle = post.metaTitle_hi || (translatedTitle.length > 45 ? `${translatedTitle.slice(0, 42).trim()}... | SignResize` : `${translatedTitle} | SignResize`);
-const rawDescription = post.metaDescription_hi || translatedExcerpt;
-const pageDescription = rawDescription.length > 158
-  ? rawDescription.slice(0, 155).replace(/\s+[^ ]*$/, '').trim() + '...'
-  : rawDescription;
+const pageTitle = post.metaTitle_hi || `${translatedTitle} | SignResize हिंदी`;
+const pageDescription = post.metaDescription_hi || translatedExcerpt;
 const canonicalUrl = `https://signresize.in/hi/blog/${post.slug}/`;
 
 const relatedPreset = post.relatedExamPreset

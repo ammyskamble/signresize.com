@@ -58,7 +58,7 @@ const ogImageUrl = 'https://signresize.in/og-image.png';
 
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": ["SoftwareApplication", "WebApplication", "Product"],
+      "@type": ["SoftwareApplication", "WebApplication"],
       "name": config.h1,
       "url": config.canonicalUrl,
       "applicationCategory": "UtilitiesApplication",
@@ -66,11 +66,12 @@ const ogImageUrl = 'https://signresize.in/og-image.png';
       "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
       "inLanguage": "en-NP",
       "description": config.metaDescription,
+      "image": ogImageUrl,
+      "screenshot": ogImageUrl,
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "NPR",
-        "availability": "https://schema.org/InStock"
+        "priceCurrency": "NPR"
       },
       "featureList": config.presetChips.map(c => `${c.label}: ${c.specBadge}`)
     })} />

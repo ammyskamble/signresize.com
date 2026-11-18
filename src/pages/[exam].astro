@@ -40,20 +40,8 @@ const examGuidance = EXAM_GUIDANCE[examData.slug];
 const canonicalUrl = propCanonicalUrl || `https://signresize.in/${examData.slug}/`;
 const ogImageUrl = 'https://signresize.in/og-image.png';
 
-// Optimize title to stay within 60 chars for search engines
-const pageTitle = examData.pageTitle.length > 60
-  ? (examData.pageTitle.includes(' | SignResize')
-      ? examData.pageTitle.replace(/\s*\|\s*SignResize\b/g, '').slice(0, 44).trim() + ' | SignResize'
-      : examData.pageTitle.includes(' - SignResize')
-        ? examData.pageTitle.replace(/\s*-\s*SignResize\b/g, '').slice(0, 44).trim() + ' - SignResize'
-        : examData.pageTitle.slice(0, 57).trim() + '...')
-  : examData.pageTitle;
-
-// Optimize description to stay within 158 chars for search engines
-const rawMetaDesc = examData.metaDescription || '';
-const pageDescription = rawMetaDesc.length > 158
-  ? rawMetaDesc.slice(0, 155).replace(/\s+[^ ]*$/, '').trim() + '...'
-  : rawMetaDesc;
+const pageTitle = examData.pageTitle;
+const pageDescription = examData.metaDescription;
 
 const currentYear = 2026;
 const otherExams = EXAM_PAGES_DATA.filter((p) => p.slug !== examData.slug);
@@ -186,10 +174,10 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
     <!-- Async Google Fonts -->
     <GoogleFonts />
 
-    <!-- SoftwareApplication, WebApplication & Product Schema -->
+    <!-- SoftwareApplication & WebApplication Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": ["WebApplication", "SoftwareApplication", "Product"],
+      "@type": ["WebApplication", "SoftwareApplication"],
       "name": examData.h1,
       "datePublished": examData.datePublished || "2026-01-15T09:00:00+05:30",
       "dateModified": examData.dateModified || "2026-11-16T18:00:00+05:30",
@@ -198,11 +186,12 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
       "operatingSystem": "All (Android, iOS, Windows, macOS, Linux)",
       "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas support.",
       "description": examData.metaDescription,
+      "image": ogImageUrl,
+      "screenshot": ogImageUrl,
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock"
+        "priceCurrency": "INR"
       },
       "featureList": [
         `${examData.widthPx}x${examData.heightPx} px exact dimensions`,
