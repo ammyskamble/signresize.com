@@ -3435,7 +3435,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
         {
           name: 'Dhaka University (DU 2026–27)',
           window: 'Applications 11 November (12 PM) – 25 November 2026 (11:59 PM)',
-          specNote: 'admission.eis.du.ac.bd (university portal, not Teletalk) — uses DU portrait photo limits (30–200 KB) rather than 300×300 px; verify exact pixel bounds on the DU portal.'
+          specNote: 'admission.eis.du.ac.bd (university portal, not Teletalk) — requires 450×550 px portrait photo (max 20 KB, target 10–20 KB) in JPG with a plain white background, rather than Teletalk 300×300 px standard.'
         },
         {
           name: 'Rajshahi University (RU 2026–27)',

@@ -36,9 +36,10 @@ const featured = [
   "uti-photo-crop",
   "handwritten-declaration",
 ];
+const duplicateAliasIds = new Set(['teletalk-photo-bd', 'bpsc-photo-bd', 'dpe-primary-teacher-photo-bd', 'ntrca-teacher-photo-bd']);
 const presets = [
   ...new Map(
-    ALL_COMBINED_PRESETS.map((p) => [
+    ALL_COMBINED_PRESETS.filter((p) => !duplicateAliasIds.has(p.id)).map((p) => [
       p.id,
       { ...p, targetType: presetMode(p) },
     ]),
@@ -100,7 +101,7 @@ const directoryPresets = presets.map((p) => ({
       ? `${p.widthCm} × ${p.heightCm} cm`
       : `${((p.widthPx / p.dpi) * 2.54).toFixed(2)} × ${((p.heightPx / p.dpi) * 2.54).toFixed(2)} cm at ${p.dpi} DPI`,
   search:
-    `${p.name} ${p.shortCode || ""} ${p.id} ${p.authority} ${p.category} ${p.targetType || "signature"} ${p.searchTerms || ""}`.toLowerCase(),
+    `${p.country === 'BD' ? 'bangladesh bd ' : ''}${p.name} ${p.shortCode || ""} ${p.id} ${p.authority} ${p.category} ${p.targetType || "signature"} ${p.searchTerms || ""}`.toLowerCase(),
   href: ["wbpsc-west-bengal", "wbpsc-signature-138x59", "wbpsc-photo"].includes(p.id)
     ? "/wbpsc-photo-signature-resize/"
     : ["teletalk-bd", "teletalk-photo-bd", "teletalk-sign-bd"].includes(p.id)

@@ -34,16 +34,19 @@ export function WorkspacePresetPicker({ presets, selected, mode, width, height, 
     selected?.id?.startsWith('us-') ||
     (typeof window !== 'undefined' && window.location.pathname.startsWith('/us'));
 
+  // Known duplicate photo preset aliases to filter from dropdown picker
+  const duplicateAliasIds = new Set(['teletalk-photo-bd', 'bpsc-photo-bd', 'dpe-primary-teacher-photo-bd', 'ntrca-teacher-photo-bd']);
+
   // Scope available presets: when in US context, only surface US presets
-  const scopedPresets = isUS
+  const scopedPresets = (isUS
     ? presets.filter(p => p.country === 'US' || p.id.startsWith('us-'))
-    : presets;
+    : presets).filter(p => !duplicateAliasIds.has(p.id));
 
   // Robust search splitting on spaces and hyphens
   const terms = query.trim().toLowerCase().split(/[\s-]+/).filter(Boolean);
   const matches = scopedPresets.filter(p =>
     terms.every(term =>
-      `${p.id} ${p.name} ${p.shortCode} ${p.authority} ${p.category} ${p.searchTerms || ''} ${p.notes || ''}`
+      `${p.country === 'BD' ? 'bangladesh bd ' : ''}${p.id} ${p.name} ${p.shortCode} ${p.authority} ${p.category} ${p.searchTerms || ''} ${p.notes || ''}`
         .toLowerCase()
         .includes(term)
     )

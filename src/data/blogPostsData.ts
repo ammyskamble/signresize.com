@@ -191,8 +191,8 @@ export const BLOG_POSTS: BlogPost[] = [
   "slug": "bangladesh-university-medical-admission-photo-signature-guide-2026",
   "title": "DU, GST Cluster & Medical (DGME) Admission Photo & Signature Specifications 2026",
   "metaTitle": "Bangladesh University & Medical Admission Photo Resizer 2026",
-  "metaDescription": "Complete guide to Bangladesh admission photo sizes: Dhaka University 360x480 px, DGME MBBS/BDS 300x300 px, BUET & GST cluster online apply photo & signature rules.",
-  "excerpt": "Official guide to Bangladesh university and medical college admission photos: Dhaka University (360×480 px), DGME MBBS/BDS Medical Admission (300×300 px), BUET, and GST Cluster online registration.",
+  "metaDescription": "Complete guide to Bangladesh admission photo sizes: Dhaka University 450x550 px (max 20 KB), DGME MBBS/BDS 300x300 px, BUET & GST cluster online apply photo & signature rules.",
+  "excerpt": "Official guide to Bangladesh university and medical college admission photos: Dhaka University (450×550 px, max 20 KB), DGME MBBS/BDS Medical Admission (300×300 px), BUET, and GST Cluster online registration.",
   "category": "Study Prep",
   "country": "BD",
   "publishDate": "Oct 15, 2026",
@@ -202,7 +202,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "readTime": "10 min read",
   "featured": false,
   "tags": [
-    "Dhaka University Photo Size 360x480",
+    "Dhaka University Photo Size 450x550",
     "Medical Admission Photo Resizer",
     "DGME MBBS Admission",
     "GST Cluster Admission",
@@ -213,11 +213,11 @@ export const BLOG_POSTS: BlogPost[] = [
   "quickFacts": [
     {
       "label": "Dhaka University (DU)",
-      "value": "360 × 480 px (3:4 ratio), 30 KB to 100 KB, JPG (admission.eis.du.ac.bd)"
+      "value": "450 × 550 px, max 20 KB, JPG (admission.eis.du.ac.bd)"
     },
     {
       "label": "Medical MBBS/BDS (DGME)",
-      "value": "300 × 300 px photo (≤100 KB) & 300 × 80 px signature (≤60 KB) on dgme.teletalk.com.bd"
+      "value": "300 × 350 px photo (≤75 KB) & 300 × 80 px signature (≤20 KB) on dgme.teletalk.com.bd"
     },
     {
       "label": "GST Cluster (24 Public Univ)",
@@ -225,7 +225,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     {
       "label": "BUET Engineering",
-      "value": "300 × 300 px photo (≤100 KB) & 300 × 80 px signature (≤60 KB)"
+      "value": "300 × 350 px photo (≤75 KB) & 300 × 80 px signature (≤20 KB)"
     },
     {
       "label": "Format Mandate",
@@ -235,7 +235,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "faqs": [
     {
       "question": "What is the photo size for Dhaka University (DU) Admission 2026?",
-      "answer": "Dhaka University requires a 3:4 portrait photo measuring exactly 360 × 480 pixels with file size between 30 KB and 100 KB on a clear, plain background."
+      "answer": "Dhaka University requires a portrait photo measuring minimum 450 × 550 pixels with file size strictly max 20 KB (target 10–20 KB) on a plain white background."
     },
     {
       "question": "What are the photo dimensions for Medical College MBBS admission in Bangladesh?",
@@ -246,7 +246,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "answer": "Eyeglasses with thick frames, tinted lenses, or sunglasses are strictly prohibited. Plain prescription glasses are permissible only if eyes are clearly visible without flash glare reflections."
     }
   ],
-  "contentHtml": "\n<section class=\"space-y-6\">\n  <div class=\"p-5 rounded-2xl bg-card border border-border space-y-3\">\n    <h3 class=\"text-base sm:text-lg font-bold text-foreground\">🎓 Bangladesh Higher Education Admission Document Standards</h3>\n    <p class=\"text-xs sm:text-sm text-muted-foreground leading-relaxed\">\n      Whether applying for <strong>Dhaka University (DU)</strong>, <strong>DGME Medical College (MBBS/BDS)</strong>, <strong>BUET</strong>, or the <strong>GST 24 Universities Cluster</strong>, each portal validates candidates' headshots with automated aspect-ratio checks. A wrong ratio (like uploading a 1:1 square photo to DU's 3:4 system) leads to immediate rejection during submission.\n    </p>\n  </div>\n\n  <div class=\"overflow-x-auto rounded-xl border border-border\">\n    <table class=\"w-full text-left text-xs sm:text-sm\">\n      <thead class=\"bg-muted text-muted-foreground font-bold uppercase text-[11px]\">\n        <tr>\n          <th class=\"p-3\">Institution / Examination</th>\n          <th class=\"p-3\">Photo Specs</th>\n          <th class=\"p-3\">Signature Specs</th>\n          <th class=\"p-3\">Portal URL</th>\n        </tr>\n      </thead>\n      <tbody class=\"divide-y divide-border\">\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Dhaka University (DU)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">360 × 480 px (3:4, ≤100 KB)</td>\n          <td class=\"p-3 font-mono\">Uploaded with form</td>\n          <td class=\"p-3 font-mono text-xs\">admission.eis.du.ac.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Medical (MBBS & BDS)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">dgme.teletalk.com.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">GST Cluster (24 Universities)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">gstadmission.ac.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">BUET Engineering</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">buet.ac.bd</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</section>\n"
+  "contentHtml": "\n<section class=\"space-y-6\">\n  <div class=\"p-5 rounded-2xl bg-card border border-border space-y-3\">\n    <h3 class=\"text-base sm:text-lg font-bold text-foreground\">🎓 Bangladesh Higher Education Admission Document Standards</h3>\n    <p class=\"text-xs sm:text-sm text-muted-foreground leading-relaxed\">\n      Whether applying for <strong>Dhaka University (DU)</strong>, <strong>DGME Medical College (MBBS/BDS)</strong>, <strong>BUET</strong>, or the <strong>GST 24 Universities Cluster</strong>, each portal validates candidates' headshots with automated aspect-ratio checks. A wrong ratio (like uploading a 1:1 square photo to DU's 3:4 system) leads to immediate rejection during submission.\n    </p>\n  </div>\n\n  <div class=\"overflow-x-auto rounded-xl border border-border\">\n    <table class=\"w-full text-left text-xs sm:text-sm\">\n      <thead class=\"bg-muted text-muted-foreground font-bold uppercase text-[11px]\">\n        <tr>\n          <th class=\"p-3\">Institution / Examination</th>\n          <th class=\"p-3\">Photo Specs</th>\n          <th class=\"p-3\">Signature Specs</th>\n          <th class=\"p-3\">Portal URL</th>\n        </tr>\n      </thead>\n      <tbody class=\"divide-y divide-border\">\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Dhaka University (DU)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">450 × 550 px (max 20 KB)</td>\n          <td class=\"p-3 font-mono\">Uploaded with form</td>\n          <td class=\"p-3 font-mono text-xs\">admission.eis.du.ac.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Medical (MBBS & BDS)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">dgme.teletalk.com.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">GST Cluster (24 Universities)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">gstadmission.ac.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">BUET Engineering</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">buet.ac.bd</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</section>\n"
 }
   ],
   "contentHtml": "\n<section class=\"space-y-6\">\n  <div class=\"p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-3\">\n    <h3 class=\"text-base sm:text-lg font-bold text-foreground\">📌 Bangladesh Bank Portal Distinction (BSCS vs Teletalk)</h3>\n    <p class=\"text-xs sm:text-sm text-muted-foreground leading-relaxed\">\n      A frequent error made by Bangladeshi job seekers is assuming that <strong>Bangladesh Bank</strong> uses the standard Teletalk 300×300 px format. Bangladesh Bank operates on its own proprietary engine at <a href=\"https://erecruitment.bb.org.bd\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"font-bold text-primary underline\">erecruitment.bb.org.bd</a>, which strictly enforces <strong>600×600 pixels</strong> at 300 DPI for photographs.\n    </p>\n  </div>\n\n  <div class=\"overflow-x-auto rounded-xl border border-border\">\n    <table class=\"w-full text-left text-xs sm:text-sm\">\n      <thead class=\"bg-muted text-muted-foreground font-bold uppercase text-[11px]\">\n        <tr>\n          <th class=\"p-3\">Requirement</th>\n          <th class=\"p-3\">Bangladesh Bank Photo</th>\n          <th class=\"p-3\">Bangladesh Bank Signature</th>\n        </tr>\n      </thead>\n      <tbody class=\"divide-y divide-border\">\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Pixel Resolution</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">600 × 600 px (1:1)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (3.75:1)</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">File Size Bounds</td>\n          <td class=\"p-3 font-mono\">10 KB – 100 KB</td>\n          <td class=\"p-3 font-mono\">5 KB – 60 KB</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Resolution / DPI</td>\n          <td class=\"p-3 font-mono\">300 DPI High-Resolution</td>\n          <td class=\"p-3 font-mono\">200–300 DPI</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Background & Styling</td>\n          <td class=\"p-3 text-muted-foreground\">Clean White background; no spectacles or caps</td>\n          <td class=\"p-3 text-muted-foreground\">Black ink on unlined white paper; running script</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <div class=\"space-y-4\">\n    <h3 class=\"text-lg font-bold text-foreground\">Step-by-Step Bangladesh Bank Photo & Signature Resizing</h3>\n    <ol class=\"list-decimal pl-5 space-y-2 text-xs sm:text-sm text-muted-foreground\">\n      <li>Navigate to our dedicated <a href=\"/bd/bangladesh-bank-photo-signature-resizer/\" class=\"text-primary font-bold underline\">Bangladesh Bank Resizer</a>.</li>\n      <li>Upload your formal headshot. The canvas automatically locks to the 600×600 px high-res square ratio.</li>\n      <li>Click <strong>Download Photo</strong> to save your optimized <code>bangladesh_bank_photo.jpg</code> (strictly under 100 KB).</li>\n      <li>Switch to <strong>Signature</strong>, upload your scanned signature, and export <code>bangladesh_bank_signature.jpg</code> (300×80 px, strictly under 60 KB).</li>\n      <li>Log in to <code class=\"font-mono text-xs bg-muted px-1.5 py-0.5 rounded\">erecruitment.bb.org.bd</code>, upload both files to your candidate profile, and submit your application.</li>\n    </ol>\n  </div>\n</section>\n"
@@ -17169,8 +17169,8 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   "slug": "bangladesh-university-medical-admission-photo-signature-guide-2026",
   "title": "DU, GST Cluster & Medical (DGME) Admission Photo & Signature Specifications 2026",
   "metaTitle": "Bangladesh University & Medical Admission Photo Resizer 2026",
-  "metaDescription": "Complete guide to Bangladesh admission photo sizes: Dhaka University 360x480 px, DGME MBBS/BDS 300x300 px, BUET & GST cluster online apply photo & signature rules.",
-  "excerpt": "Official guide to Bangladesh university and medical college admission photos: Dhaka University (360×480 px), DGME MBBS/BDS Medical Admission (300×300 px), BUET, and GST Cluster online registration.",
+  "metaDescription": "Complete guide to Bangladesh admission photo sizes: Dhaka University 450x550 px (max 20 KB), DGME MBBS/BDS 300x300 px, BUET & GST cluster online apply photo & signature rules.",
+  "excerpt": "Official guide to Bangladesh university and medical college admission photos: Dhaka University (450×550 px, max 20 KB), DGME MBBS/BDS Medical Admission (300×300 px), BUET, and GST Cluster online registration.",
   "category": "Study Prep",
   "country": "BD",
   "publishDate": "Oct 15, 2026",
@@ -17180,7 +17180,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   "readTime": "10 min read",
   "featured": false,
   "tags": [
-    "Dhaka University Photo Size 360x480",
+    "Dhaka University Photo Size 450x550",
     "Medical Admission Photo Resizer",
     "DGME MBBS Admission",
     "GST Cluster Admission",
@@ -17191,11 +17191,11 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   "quickFacts": [
     {
       "label": "Dhaka University (DU)",
-      "value": "360 × 480 px (3:4 ratio), 30 KB to 100 KB, JPG (admission.eis.du.ac.bd)"
+      "value": "450 × 550 px, max 20 KB, JPG (admission.eis.du.ac.bd)"
     },
     {
       "label": "Medical MBBS/BDS (DGME)",
-      "value": "300 × 300 px photo (≤100 KB) & 300 × 80 px signature (≤60 KB) on dgme.teletalk.com.bd"
+      "value": "300 × 350 px photo (≤75 KB) & 300 × 80 px signature (≤20 KB) on dgme.teletalk.com.bd"
     },
     {
       "label": "GST Cluster (24 Public Univ)",
@@ -17203,7 +17203,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
     },
     {
       "label": "BUET Engineering",
-      "value": "300 × 300 px photo (≤100 KB) & 300 × 80 px signature (≤60 KB)"
+      "value": "300 × 350 px photo (≤75 KB) & 300 × 80 px signature (≤20 KB)"
     },
     {
       "label": "Format Mandate",
@@ -17213,7 +17213,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
   "faqs": [
     {
       "question": "What is the photo size for Dhaka University (DU) Admission 2026?",
-      "answer": "Dhaka University requires a 3:4 portrait photo measuring exactly 360 × 480 pixels with file size between 30 KB and 100 KB on a clear, plain background."
+      "answer": "Dhaka University requires a portrait photo measuring minimum 450 × 550 pixels with file size strictly max 20 KB (target 10–20 KB) on a plain white background."
     },
     {
       "question": "What are the photo dimensions for Medical College MBBS admission in Bangladesh?",
@@ -17224,7 +17224,7 @@ Shortlisting Ratio for CBT-2 = 1:20 (Twenty times the vacancy count per Zone)</c
       "answer": "Eyeglasses with thick frames, tinted lenses, or sunglasses are strictly prohibited. Plain prescription glasses are permissible only if eyes are clearly visible without flash glare reflections."
     }
   ],
-  "contentHtml": "\n<section class=\"space-y-6\">\n  <div class=\"p-5 rounded-2xl bg-card border border-border space-y-3\">\n    <h3 class=\"text-base sm:text-lg font-bold text-foreground\">🎓 Bangladesh Higher Education Admission Document Standards</h3>\n    <p class=\"text-xs sm:text-sm text-muted-foreground leading-relaxed\">\n      Whether applying for <strong>Dhaka University (DU)</strong>, <strong>DGME Medical College (MBBS/BDS)</strong>, <strong>BUET</strong>, or the <strong>GST 24 Universities Cluster</strong>, each portal validates candidates' headshots with automated aspect-ratio checks. A wrong ratio (like uploading a 1:1 square photo to DU's 3:4 system) leads to immediate rejection during submission.\n    </p>\n  </div>\n\n  <div class=\"overflow-x-auto rounded-xl border border-border\">\n    <table class=\"w-full text-left text-xs sm:text-sm\">\n      <thead class=\"bg-muted text-muted-foreground font-bold uppercase text-[11px]\">\n        <tr>\n          <th class=\"p-3\">Institution / Examination</th>\n          <th class=\"p-3\">Photo Specs</th>\n          <th class=\"p-3\">Signature Specs</th>\n          <th class=\"p-3\">Portal URL</th>\n        </tr>\n      </thead>\n      <tbody class=\"divide-y divide-border\">\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Dhaka University (DU)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">360 × 480 px (3:4, ≤100 KB)</td>\n          <td class=\"p-3 font-mono\">Uploaded with form</td>\n          <td class=\"p-3 font-mono text-xs\">admission.eis.du.ac.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Medical (MBBS & BDS)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">dgme.teletalk.com.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">GST Cluster (24 Universities)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">gstadmission.ac.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">BUET Engineering</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">buet.ac.bd</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</section>\n"
+  "contentHtml": "\n<section class=\"space-y-6\">\n  <div class=\"p-5 rounded-2xl bg-card border border-border space-y-3\">\n    <h3 class=\"text-base sm:text-lg font-bold text-foreground\">🎓 Bangladesh Higher Education Admission Document Standards</h3>\n    <p class=\"text-xs sm:text-sm text-muted-foreground leading-relaxed\">\n      Whether applying for <strong>Dhaka University (DU)</strong>, <strong>DGME Medical College (MBBS/BDS)</strong>, <strong>BUET</strong>, or the <strong>GST 24 Universities Cluster</strong>, each portal validates candidates' headshots with automated aspect-ratio checks. A wrong ratio (like uploading a 1:1 square photo to DU's 3:4 system) leads to immediate rejection during submission.\n    </p>\n  </div>\n\n  <div class=\"overflow-x-auto rounded-xl border border-border\">\n    <table class=\"w-full text-left text-xs sm:text-sm\">\n      <thead class=\"bg-muted text-muted-foreground font-bold uppercase text-[11px]\">\n        <tr>\n          <th class=\"p-3\">Institution / Examination</th>\n          <th class=\"p-3\">Photo Specs</th>\n          <th class=\"p-3\">Signature Specs</th>\n          <th class=\"p-3\">Portal URL</th>\n        </tr>\n      </thead>\n      <tbody class=\"divide-y divide-border\">\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Dhaka University (DU)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">450 × 550 px (max 20 KB)</td>\n          <td class=\"p-3 font-mono\">Uploaded with form</td>\n          <td class=\"p-3 font-mono text-xs\">admission.eis.du.ac.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">Medical (MBBS & BDS)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">dgme.teletalk.com.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">GST Cluster (24 Universities)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">gstadmission.ac.bd</td>\n        </tr>\n        <tr>\n          <td class=\"p-3 font-semibold text-foreground\">BUET Engineering</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 300 px (1:1, ≤100 KB)</td>\n          <td class=\"p-3 font-mono text-primary font-bold\">300 × 80 px (≤60 KB)</td>\n          <td class=\"p-3 font-mono text-xs\">buet.ac.bd</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</section>\n"
 },
   {
     "slug": "bcs-exam-bangladesh-complete-guide-2026-syllabus-preparation-photo-upload",

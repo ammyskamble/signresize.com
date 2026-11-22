@@ -434,6 +434,22 @@ const PRESET_ALIASES: Record<string, string> = {
   'gst-cluster': 'gst-cluster-photo-bd',
   'gst-photo': 'gst-cluster-photo-bd',
   'gst-sign': 'gst-cluster-sign-bd',
+  buet: 'buet-admission-photo-bd',
+  'buet-admission': 'buet-admission-photo-bd',
+  'buet-photo': 'buet-admission-photo-bd',
+  'buet-sign': 'buet-admission-sign-bd',
+  kuet: 'kuet-admission-photo-bd',
+  'kuet-admission': 'kuet-admission-photo-bd',
+  'kuet-photo': 'kuet-admission-photo-bd',
+  ruet: 'ruet-admission-photo-bd',
+  'ruet-admission': 'ruet-admission-photo-bd',
+  'ruet-photo': 'ruet-admission-photo-bd',
+  agri: 'agri-cluster-photo-bd',
+  'agri-cluster': 'agri-cluster-photo-bd',
+  'agri-photo': 'agri-cluster-photo-bd',
+  'agri-sign': 'agri-cluster-sign-bd',
+  'acas-photo': 'agri-cluster-photo-bd',
+  'acas-sign': 'agri-cluster-sign-bd',
   // Pakistan aliases
   ppsc: 'ppsc-pk',
   'ppsc-pk': 'ppsc-pk',
@@ -813,6 +829,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     setIsExamDropdownOpen(false);
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('signresize-preset-applied', { detail: { presetId: preset.id } }));
+      const url = new URL(window.location.href);
+      if (url.searchParams.get('preset') !== preset.id) {
+        url.searchParams.set('preset', preset.id);
+        window.history.replaceState({}, '', url.toString());
+      }
     }
 
     if (!focusedWorkspace && !suppressToast) addToast(
@@ -2457,7 +2478,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
       setHasDownloaded(true);
     } catch (err) {
       console.error('Failed to create ZIP:', err);
@@ -3132,7 +3153,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     ? [
         { id: 'teletalk-bd', short: 'Teletalk Photo', label: 'Teletalk Photo 300×300', specs: '300×300 • ≤100 KB' },
         { id: 'teletalk-sign-bd', short: 'Teletalk Sign', label: 'Teletalk Signature 300×80', specs: '300×80 • ≤60 KB' },
-        { id: 'bangladesh-bank-photo-bd', short: 'BB Bank Photo', label: 'Bangladesh Bank Photo 600×600', specs: '600×600 • ≤100 KB' },
+        { id: 'agri-cluster-photo-bd', short: 'Agri Cluster', label: 'Agri Universities Photo 300×300', specs: '300×300 • ≤100 KB' },
+        { id: 'buet-admission-photo-bd', short: 'BUET Admission', label: 'BUET Admission Photo 300×350', specs: '300×350 • ≤75 KB' },
         { id: 'du-admission-photo-bd', short: 'DU Admission', label: 'DU Admission Photo 450×550', specs: '450×550 • ≤20 KB' },
         { id: 'ru-admission-photo-bd', short: 'RU Admission', label: 'RU Admission Photo 300×400', specs: '300×400 • 50–100 KB' }
       ]
@@ -3666,24 +3688,58 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             </svg>
             <div>
               <p className="text-xs sm:text-sm font-bold text-foreground flex items-center gap-1.5">
-                <span>{selectedPreset?.id?.includes('bank') ? 'Bangladesh Bank BSCS Validator Active' : 'Teletalk Bangladesh 100% Pass Validator Active'}</span>
+                <span>
+                  {selectedPreset?.id?.includes('bank')
+                    ? 'Bangladesh Bank e-Recruitment Validator Active'
+                    : selectedPreset?.id?.includes('buet')
+                    ? 'BUET Admission Portal Validator Active'
+                    : selectedPreset?.id?.includes('kuet')
+                    ? 'KUET Admission Portal Validator Active'
+                    : selectedPreset?.id?.includes('ruet')
+                    ? 'RUET Admission Portal Validator Active'
+                    : selectedPreset?.id?.includes('du-admission')
+                    ? 'Dhaka University (DU EIS) Validator Active'
+                    : selectedPreset?.id?.includes('ru-admission')
+                    ? 'Rajshahi University Admission Validator Active'
+                    : selectedPreset?.id?.includes('agri-cluster')
+                    ? 'Agricultural Cluster (ACAS) Validator Active'
+                    : 'Teletalk Bangladesh 100% Pass Validator Active'}
+                </span>
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
                   <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                   Exact Validation Pass
                 </span>
               </p>
               <p className="text-xs text-muted-foreground">
-                {targetType === 'signature'
-                  ? 'Locked to strictly 300×80 px (≤ 60 KB) on plain white paper · Guaranteed to pass Teletalk All Jobs & BPSC'
+                {selectedPreset?.id === 'du-admission-photo-bd'
+                  ? 'Locked to strictly 450×550 px (max 20 KB) on plain white background · Verified for DU admission.eis.du.ac.bd'
+                  : selectedPreset?.id === 'ru-admission-photo-bd'
+                  ? 'Locked to strictly 300×400 px (50–100 KB) on white background · Verified for RU admission.ru.ac.bd'
+                  : selectedPreset?.id === 'buet-admission-photo-bd'
+                  ? 'Locked to strictly 300×350 px (≤ 75 KB) on light background · Verified for BUET buet.ac.bd'
+                  : selectedPreset?.id === 'buet-admission-sign-bd'
+                  ? 'Locked to strictly 300×80 px (≤ 20 KB) on clean white background · Verified for BUET Admission'
+                  : selectedPreset?.id === 'kuet-admission-photo-bd'
+                  ? 'Locked to strictly 300×350 px (≤ 75 KB) on light background · Verified for KUET admission.kuet.ac.bd'
+                  : selectedPreset?.id === 'ruet-admission-photo-bd'
+                  ? 'Locked to strictly 300×350 px (≤ 75 KB) on light background · Verified for RUET ruet.ac.bd'
+                  : selectedPreset?.id === 'agri-cluster-photo-bd'
+                  ? 'Locked to strictly 300×300 px (≤ 100 KB) on plain white background · Verified for ACAS acas.edu.bd'
+                  : selectedPreset?.id === 'agri-cluster-sign-bd'
+                  ? 'Locked to strictly 300×80 px (≤ 60 KB) on plain white paper · Verified for Agricultural Cluster'
                   : selectedPreset?.id?.includes('bank')
-                  ? 'Locked to strictly 600×600 px (≤ 100 KB) · Guaranteed to pass Bangladesh Bank erecruitment.bb.org.bd'
+                  ? targetType === 'signature'
+                    ? 'Locked to strictly 300×80 px (≤ 60 KB) · Guaranteed to pass Bangladesh Bank'
+                    : 'Locked to strictly 600×600 px (≤ 100 KB) · Guaranteed to pass Bangladesh Bank erecruitment.bb.org.bd'
+                  : targetType === 'signature'
+                  ? 'Locked to strictly 300×80 px (≤ 60 KB) on plain white paper · Guaranteed to pass Teletalk All Jobs & BPSC'
                   : 'Locked to strictly 300×300 px (≤ 100 KB) color photo · Guaranteed to pass alljobs.teletalk.com.bd'}
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-card border border-border text-foreground shadow-2xs">
-              {targetWidthPx} × {targetHeightPx} px · ≤{maxKb} KB
+              {targetWidthPx} × {targetHeightPx} px · {minKb ? `${minKb}–` : '≤'}{maxKb} KB
             </span>
           </div>
         </div>

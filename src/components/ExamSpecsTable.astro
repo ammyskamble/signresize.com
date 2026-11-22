@@ -41,11 +41,30 @@ const countryPresetsMap = {
   ALL: EXAM_PRESETS,
 };
 
+const duplicateAliasIds = new Set(['teletalk-photo-bd', 'bpsc-photo-bd', 'dpe-primary-teacher-photo-bd', 'ntrca-teacher-photo-bd']);
 const ntpcPreset = EXAM_PRESETS.find((preset) => preset.id === 'rrb-ntpc');
 const displayPresets = (countryPresetsMap[country] || countryPresetsMap['IN'])
-  .filter((preset) => preset.id !== 'rrb-ntpc')
+  .filter((preset) => preset.id !== 'rrb-ntpc' && !duplicateAliasIds.has(preset.id))
   .map((preset) => preset.id === 'rrb-railway' && ntpcPreset ? ntpcPreset : preset);
 const quickMatrixPresets = displayPresets.slice(0, 8);
+
+const bdCategoryCounts = {
+  All: displayPresets.length,
+  Teletalk: 0,
+  Banks: 0,
+  Admission: 0,
+  Specialized: 0,
+};
+
+if (country === 'BD') {
+  displayPresets.forEach((p) => {
+    const pId = p.id.toLowerCase();
+    if (pId.includes('bank')) bdCategoryCounts.Banks++;
+    else if (pId.includes('du') || pId.includes('ru') || pId.includes('buet') || pId.includes('kuet') || pId.includes('ruet') || pId.includes('medical') || pId.includes('gst') || pId.includes('agri')) bdCategoryCounts.Admission++;
+    else if (pId.includes('nsi') || pId.includes('btrc')) bdCategoryCounts.Specialized++;
+    else bdCategoryCounts.Teletalk++;
+  });
+}
 
 const countryTitles = {
   PK: "Official Pakistan Recruitment Photo & Signature Guidelines",
@@ -190,11 +209,11 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
       <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-border/70">
         <span class="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mr-1">Categories:</span>
         {[
-          { id: 'All', label: 'All (17)' },
-          { id: 'Teletalk', label: 'Teletalk & Govt (8)' },
-          { id: 'Banks', label: 'Banks (3)' },
-          { id: 'Admission', label: 'University Admission (4)' },
-          { id: 'Specialized', label: 'Specialized (2)' }
+          { id: 'All', label: `All (${bdCategoryCounts.All})` },
+          { id: 'Teletalk', label: `Teletalk & Govt (${bdCategoryCounts.Teletalk})` },
+          { id: 'Banks', label: `Banks (${bdCategoryCounts.Banks})` },
+          { id: 'Admission', label: `University Admission (${bdCategoryCounts.Admission})` },
+          ...(bdCategoryCounts.Specialized > 0 ? [{ id: 'Specialized', label: `Specialized (${bdCategoryCounts.Specialized})` }] : [])
         ].map((cat, idx) => (
           <button
             type="button"
@@ -232,13 +251,15 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
           let bdCategory = 'Teletalk';
           const pId = preset.id.toLowerCase();
           if (pId.includes('bank')) bdCategory = 'Banks';
-          else if (pId.includes('du') || pId.includes('ru') || pId.includes('buet') || pId.includes('medical') || pId.includes('gst')) bdCategory = 'Admission';
+          else if (pId.includes('du') || pId.includes('ru') || pId.includes('buet') || pId.includes('kuet') || pId.includes('ruet') || pId.includes('medical') || pId.includes('gst') || pId.includes('agri')) bdCategory = 'Admission';
           else if (pId.includes('nsi') || pId.includes('btrc')) bdCategory = 'Specialized';
 
           const rowDataName = preset.id === 'du-admission-photo-bd'
             ? 'dhaka university du admission (photo 450x550 px, 20 kb)'
             : preset.id === 'ru-admission-photo-bd'
             ? 'rajshahi university ru admission (photo 300x400 px)'
+            : preset.id === 'agri-cluster-photo-bd'
+            ? 'bd agricultural universities 2026-27 (photo 300x300 px) acas cluster'
             : preset.name.toLowerCase().replace(/×/g, 'x');
 
           return (
@@ -248,6 +269,7 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
               data-code={preset.shortCode.toLowerCase()}
               data-authority={preset.authority.toLowerCase()}
               data-category={preset.category}
+              data-country={preset.country || 'IN'}
               data-bd-category={bdCategory}
             >
               <td class="py-3 px-4">
@@ -359,8 +381,10 @@ const subtitleText = countrySubtitles[country] || countrySubtitles['IN'];
         const code = row.getAttribute('data-code') || '';
         const auth = row.getAttribute('data-authority') || '';
         const bdCat = row.getAttribute('data-bd-category') || '';
+        const rowCountry = row.getAttribute('data-country') || '';
 
-        const matchesSearch = !query || name.includes(query) || code.includes(query) || auth.includes(query);
+        const isBdMatch = (rowCountry === 'BD' || country === 'BD') && ('bangladesh'.includes(query) || 'bd'.includes(query));
+        const matchesSearch = !query || name.includes(query) || code.includes(query) || auth.includes(query) || isBdMatch;
         const matchesCategory = activeBdCategory === 'All' || bdCat === activeBdCategory;
 
         if (matchesSearch && matchesCategory) {
