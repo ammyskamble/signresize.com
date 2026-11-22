@@ -11,7 +11,7 @@ import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 
 const pageTitle = "Bangladesh Photo & Signature Tools Directory (24 Presets) | SignResize";
-const pageDescription = "Find 24 verified Bangladesh photo and signature presets across 6 application tools for Teletalk, BCS, Bangladesh Bank, DPE, NTRCA, and University Admissions (BUET, KUET, RUET, DU, Agri Cluster).";
+const pageDescription = "Find 24 verified Bangladesh photo and signature presets across 12 application tools for Teletalk, BCS, Bangladesh Bank, DPE, NTRCA, Police, and University Admissions (BUET, KUET, RUET, DU, Agri Cluster).";
 const canonicalUrl = "https://signresize.in/bd/";
 const ogImageUrl = "https://signresize.in/og-image.png";
 const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resizer 300x80, bcs photo resizer bangladesh, bangladesh bank photo size 600x600, primary teacher photo resizer, ntrca photo resizer, alljobs teletalk photo editor";
@@ -92,7 +92,7 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
               Bangladesh Photo &amp; Signature Tools
             </h1>
             <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
-              Find 24 verified photo and signature presets across 6 application tools for Teletalk, BCS, Bangladesh Bank, DPE, NTRCA, and University Admissions (BUET, KUET, RUET, DU, Agri Cluster).
+              Find 24 verified photo and signature presets across 12 application tools for Teletalk, BCS, Bangladesh Bank, DPE, NTRCA, Police, and University Admissions (BUET, KUET, RUET, DU, Agri Cluster).
             </p>
           </div>
 
@@ -106,13 +106,23 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
               class="w-full bg-background border border-input text-foreground rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer"
               onchange="if(this.value) window.location.href=this.value;"
             >
-              <option value="/bd/" selected>Bangladesh Main Hub</option>
-              <option value="/teletalk-photo-signature-resize/">Teletalk Photo &amp; Signature</option>
-              <option value="/bd/bcs-photo-signature-resizer/">BCS &amp; BPSC (300×300 / 300×80 px)</option>
-              <option value="/bd/bangladesh-bank-photo-signature-resizer/">Bangladesh Bank (600×600 / 300×80 px)</option>
-              <option value="/bd/primary-teacher-dpe-photo-resizer/">DPE Primary Assistant Teacher</option>
-              <option value="/bd/ntrca-photo-signature-resizer/">NTRCA Teacher Registration</option>
-              <option value="/bd/medical-admission-photo-resizer/">DGME Medical MBBS/BDS Admission</option>
+              <option value="/bd/" selected>Bangladesh Main Hub (All 24 Presets)</option>
+              <optgroup label="Government Recruitment Tools">
+                <option value="/teletalk-photo-signature-resize/">Teletalk All Jobs (300×300 / 300×80)</option>
+                <option value="/bd/bcs-photo-signature-resizer/">BCS &amp; BPSC (300×300 / 300×80 px)</option>
+                <option value="/bd/bangladesh-bank-photo-signature-resizer/">Bangladesh Bank (600×600 / 300×80 px)</option>
+                <option value="/bd/primary-teacher-dpe-photo-resizer/">DPE Primary Assistant Teacher</option>
+                <option value="/bd/ntrca-photo-signature-resizer/">NTRCA Teacher Registration</option>
+                <option value="/?preset=police-constable-photo-bd#tool-workspace">Bangladesh Police (SI &amp; TRC)</option>
+              </optgroup>
+              <optgroup label="University & Medical Admission Tools">
+                <option value="/bd/medical-admission-photo-resizer/">DGME Medical MBBS/BDS Admission</option>
+                <option value="/?preset=agri-cluster-photo-bd#tool-workspace">Agricultural Universities (ACAS Cluster)</option>
+                <option value="/?preset=buet-admission-photo-bd#tool-workspace">BUET Admission (300×350 / 300×80 px)</option>
+                <option value="/?preset=kuet-admission-photo-bd#tool-workspace">KUET &amp; RUET Admission (300×350 px)</option>
+                <option value="/?preset=du-admission-photo-bd#tool-workspace">Dhaka University (DU EIS 450×550 px)</option>
+                <option value="/?preset=ru-admission-photo-bd#tool-workspace">Rajshahi University (RU 300×400 px)</option>
+              </optgroup>
             </select>
           </div>
         </div>
@@ -229,13 +239,14 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
         </div>
       </section>
 
-      <!-- 6 Quick-Access Dedicated Bangladesh Application Tools Grid -->
+      <!-- 12 Quick-Access Dedicated Bangladesh Application Tools Grid -->
       <section class="space-y-4 pt-4">
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-bold text-foreground">Dedicated Bangladesh Application Tools</h2>
-          <span class="text-xs text-muted-foreground">All 6 tools client-side &amp; 100% private</span>
+          <span class="text-xs text-muted-foreground">All 12 portal tools &amp; presets client-side &amp; 100% private</span>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- 1. Teletalk Master -->
           <a href="/teletalk-photo-signature-resize/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-primary/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">🌐</div>
@@ -245,6 +256,7 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open Teletalk Resizer &rarr;</span>
           </a>
 
+          <!-- 2. BCS & BPSC -->
           <a href="/bd/bcs-photo-signature-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🏛️</div>
@@ -254,6 +266,7 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open BCS Tool &rarr;</span>
           </a>
 
+          <!-- 3. Bangladesh Bank -->
           <a href="/bd/bangladesh-bank-photo-signature-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🏦</div>
@@ -263,6 +276,7 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open Bank Tool &rarr;</span>
           </a>
 
+          <!-- 4. DPE Primary Teacher -->
           <a href="/bd/primary-teacher-dpe-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">📚</div>
@@ -272,6 +286,7 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open DPE Tool &rarr;</span>
           </a>
 
+          <!-- 5. NTRCA -->
           <a href="/bd/ntrca-photo-signature-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🎓</div>
@@ -281,6 +296,7 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open NTRCA Tool &rarr;</span>
           </a>
 
+          <!-- 6. DGME Medical Admission -->
           <a href="/bd/medical-admission-photo-resizer/" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
             <div class="space-y-2">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🩺</div>
@@ -289,6 +305,72 @@ const keywordsContent = "teletalk photo resizer 300x300, teletalk signature resi
               <p class="text-xs font-medium text-emerald-700 dark:text-emerald-300 leading-snug">Applications open mid-Nov 2026 · Admission test 18 Dec 2026.</p>
             </div>
             <span class="inline-flex items-center text-xs font-semibold text-primary">Open Medical Tool &rarr;</span>
+          </a>
+
+          <!-- 7. Agricultural Universities Cluster (ACAS) -->
+          <a href="/?preset=agri-cluster-photo-bd#tool-workspace" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-emerald-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg">🌾</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Agricultural Universities (ACAS)</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px (≤100 KB) photo &amp; 300×80 px (≤60 KB) signature | acas.edu.bd 9-university combined cluster.</p>
+              <p class="text-xs font-medium text-emerald-700 dark:text-emerald-300 leading-snug">Applications open 25 November 2026.</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open Agri Cluster Tool &rarr;</span>
+          </a>
+
+          <!-- 8. BUET Undergraduate Admission -->
+          <a href="/?preset=buet-admission-photo-bd#tool-workspace" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-blue-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg">🏛️</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">BUET Undergraduate Admission</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×350 px (≤75 KB) photo &amp; 300×80 px (≤20 KB) signature | buet.ac.bd 1,309 engineering seats.</p>
+              <p class="text-xs font-medium text-blue-700 dark:text-blue-300 leading-snug">Applications 1 Dec 2026 – 7 Jan 2027 · Test 1 Feb 2027.</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open BUET Tool &rarr;</span>
+          </a>
+
+          <!-- 9. KUET & RUET Engineering Admission -->
+          <a href="/?preset=kuet-admission-photo-bd#tool-workspace" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-indigo-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-lg">⚙️</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">KUET &amp; RUET Admission</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×350 px (≤75 KB) photo | admission.kuet.ac.bd &amp; ruet.ac.bd independent engineering portals.</p>
+              <p class="text-xs font-medium text-indigo-700 dark:text-indigo-300 leading-snug">KUET deadline 10 Dec 2026 · RUET test 28 Jan 2027.</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open KUET / RUET Tool &rarr;</span>
+          </a>
+
+          <!-- 10. Dhaka University (DU EIS) -->
+          <a href="/?preset=du-admission-photo-bd#tool-workspace" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-violet-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400 flex items-center justify-center font-bold text-lg">🏫</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Dhaka University (DU EIS)</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">450×550 px portrait photo (max 20 KB) | admission.eis.du.ac.bd plain white background rule.</p>
+              <p class="text-xs font-medium text-rose-600 dark:text-rose-400 leading-snug">Applications 11–25 Nov 2026 (closes Tuesday 11:59 PM).</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open DU Resizer &rarr;</span>
+          </a>
+
+          <!-- 11. Rajshahi University (RU) -->
+          <a href="/?preset=ru-admission-photo-bd#tool-workspace" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-amber-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">🎯</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Rajshahi University (RU)</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×400 px color photo (50–100 KB) | admission.ru.ac.bd white background plus portal selfie.</p>
+              <p class="text-xs font-medium text-amber-700 dark:text-amber-300 leading-snug">Applications 15–30 Nov 2026.</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open RU Tool &rarr;</span>
+          </a>
+
+          <!-- 12. Bangladesh Police -->
+          <a href="/?preset=police-constable-photo-bd#tool-workspace" class="group p-5 bg-card hover:bg-muted/50 rounded-2xl border border-border hover:border-teal-500/40 transition space-y-3 shadow-sm flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold text-lg">👮</div>
+              <h3 class="font-bold text-foreground group-hover:text-primary transition text-base">Bangladesh Police (SI &amp; TRC)</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">300×300 px (≤100 KB) photo &amp; 300×80 px (≤60 KB) signature | police.teletalk.com.bd recruitments.</p>
+              <p class="text-xs font-medium text-teal-700 dark:text-teal-300 leading-snug">Sub-Inspector, Sergeant &amp; Trainee Recruit Constable.</p>
+            </div>
+            <span class="inline-flex items-center text-xs font-semibold text-primary">Open Police Tool &rarr;</span>
           </a>
         </div>
       </section>
