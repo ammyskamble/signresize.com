@@ -16,7 +16,17 @@ export async function processImageOffThread(source: HTMLImageElement, options: I
   const bitmap = await createImageBitmap(source);
   const worker = new Worker(new URL('../workers/imageProcessor.worker.ts', import.meta.url), { type: 'module' });
   return new Promise((resolve, reject) => {
-    const finish = () => worker.terminate();
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      worker.terminate();
+    };
+    const timer = setTimeout(() => {
+      finish();
+      reject(new Error('Image worker timed out after 3500ms'));
+    }, 3500);
     worker.onmessage = (event: MessageEvent<{ result?: ProcessedImageResult; issues?: UploadIssue[]; error?: string }>) => {
       finish();
       if (event.data.error || !event.data.result) reject(new Error(event.data.error || 'Image processing failed'));

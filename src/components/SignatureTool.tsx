@@ -585,8 +585,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     if (!pId) return null;
     return findPresetByKey(pId) || ALL_COMBINED_PRESETS.find(p => p.id === pId || p.shortCode.toLowerCase() === pId.toLowerCase()) || null;
   };
-  const resolvedPreset = useMemo(() => (effectivePresetPropId ? findPresetByKey(effectivePresetPropId) : null), [effectivePresetPropId]);
-  const effectiveInitialMode = resolvedPreset?.targetType || (resolvedPreset ? presetMode(resolvedPreset) : initialMode);
+  const getModeFromUrl = (): ToolTargetMode | null => {
+    if (typeof window === 'undefined') return null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const m = urlParams.get('mode');
+    if (m === 'photo' || m === 'signature' || m === 'document') return m;
+    return null;
+  };
+  const resolvedPreset = useMemo(() => {
+    const urlPreset = getPresetFromUrl();
+    if (urlPreset) return urlPreset;
+    return effectivePresetPropId ? findPresetByKey(effectivePresetPropId) : null;
+  }, [effectivePresetPropId]);
+  const effectiveInitialMode = resolvedPreset?.targetType || (resolvedPreset ? presetMode(resolvedPreset) : (getModeFromUrl() || initialMode));
 
   // Determine target tool mode: 'signature' | 'photo' | 'document'
   const [targetType, setTargetType] = useState<ToolTargetMode>(effectiveInitialMode);
@@ -5843,6 +5854,19 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                         </span>
                       </div>
                     </div>
+                  ) : sourceImage || isProcessing ? (
+                    /* Processing status when image uploaded */
+                    <div className="flex flex-col items-center justify-center text-center space-y-3 py-6 animate-pulse">
+                      <div className="w-9 h-9 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+                      <div className="space-y-1">
+                        <p className="text-xs font-bold text-foreground">
+                          Processing {selectedPreset?.shortCode || (targetType === 'signature' ? 'Signature' : targetType === 'photo' ? 'Photo' : 'Image')}…
+                        </p>
+                        <p className="text-[11px] text-muted-foreground font-mono">
+                          Optimizing to {targetWidthPx} × {targetHeightPx} px ({minKb}–{maxKb} KB)
+                        </p>
+                      </div>
+                    </div>
                   ) : (
                     /* Simulated preview before upload */
                     <div className="flex flex-col items-center justify-center text-center space-y-3 py-2">
@@ -6623,10 +6647,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       {focusedWorkspace && toolMode === 'single' && sourceImage && <MobileConversionBar result={processedResult} busy={isProcessing || isDraggingCrop} error={uploadError} onReview={() => setShowExportChecks(true)} />}
 
       {/* 📱 Mobile Sticky Live Mini-Preview (PiP) Chip + Tap to Fullscreen */}
-      {focusedWorkspace && toolMode === 'single' && sourceImage && !isInspectModalOpen && !showExportChecks && (
+      {toolMode === 'single' && sourceImage && !isInspectModalOpen && !showExportChecks && (
         <div
-          className="sm:hidden fixed bottom-[76px] right-3 z-30 flex flex-col items-end select-none pointer-events-none"
-          style={{ bottom: 'calc(76px + env(safe-area-inset-bottom, 0px))' }}
+          className="sm:hidden fixed right-3 z-30 flex flex-col items-end select-none pointer-events-none"
+          style={{ bottom: focusedWorkspace ? 'calc(76px + env(safe-area-inset-bottom, 0px))' : 'calc(16px + env(safe-area-inset-bottom, 0px))' }}
         >
           {isMiniPreviewCollapsed ? (
             <button
