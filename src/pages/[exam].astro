@@ -305,8 +305,8 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
               <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-mono text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20">
                 {examData.authority}
               </span>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-muted-foreground bg-muted/60 border border-border">
-                <span>🗓️</span> Last updated: 16 Nov 2026
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 border border-emerald-500/25">
+                <span>✓</span> Checked {examData.verifiedOn || '2026-11-23'}
               </span>
               {examData.sources && examData.sources[0] && (
                 <a

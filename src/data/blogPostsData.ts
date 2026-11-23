@@ -1462,6 +1462,32 @@ export const BLOG_POSTS: BlogPost[] = [
       "href": "/jee-main-photo-resize/",
       "label": "JEE Main Photo Resizer (10–200 KB)"
     },
+    quickTools: [
+      {
+        href: "/jee-main-photo-resize/",
+        label: "JEE Main Photo",
+        sublabel: "10–200 KB JPG",
+        icon: "📸"
+      },
+      {
+        href: "/jee-main-signature-resize/",
+        label: "JEE Main Signature",
+        sublabel: "10–100 KB (275×118)",
+        icon: "✍️"
+      },
+      {
+        href: "/live-webcam-photo-checker/",
+        label: "Live Webcam Test",
+        sublabel: "Practice Framing",
+        icon: "📹"
+      },
+      {
+        href: "https://jeemain.nta.nic.in",
+        label: "Official NTA Portal",
+        sublabel: "jeemain.nta.nic.in",
+        icon: "🏛️"
+      }
+    ],
     quickFacts: [
       {
         "label": "Conducting Body",
