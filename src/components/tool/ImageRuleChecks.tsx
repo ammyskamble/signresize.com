@@ -187,7 +187,7 @@ export function ExportChecksDialog({
       {result && (
         <div className="flex flex-col sm:flex-row items-center gap-4 p-3 rounded-xl bg-muted/30 border border-border">
           <img
-            className="max-h-[110px] max-w-[140px] object-contain rounded-lg border border-border/80 shadow-xs bg-card"
+            className="max-h-[140px] sm:max-h-[110px] max-w-[200px] sm:max-w-[140px] object-contain rounded-lg border border-border/80 shadow-xs bg-card transition"
             src={result.dataUrl}
             alt="Your resized image preview"
           />

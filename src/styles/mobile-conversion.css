@@ -28,8 +28,9 @@
   body:has(#tool-workspace:not(.compact-studio)) #tool-workspace #crop-workspace { min-height: 220px; padding: 6px; }
   body:has(#tool-workspace:not(.compact-studio)) #tool-workspace[data-has-image="true"] #crop-workspace { min-height: 220px; }
   body:has(#tool-workspace:not(.compact-studio)) #tool-workspace[data-has-image="false"] #crop-workspace, body:has(#tool-workspace:not(.compact-studio)) #tool-workspace #upload-dropzone { min-height: 190px; }
-  body:has(#tool-workspace) #tool-workspace #source-image { max-height: 340px; }
+  body:has(#tool-workspace) #tool-workspace #source-image { max-height: min(340px, 50vh); max-width: 100%; width: auto; height: auto; object-fit: contain; }
   body:has(#tool-workspace) #tool-workspace .output-canvas { min-height: 140px; padding: 8px; }
+  body:has(#tool-workspace) #tool-workspace .output-canvas img { max-width: 100%; object-fit: contain; }
   body:has(#tool-workspace) #tool-workspace .studio-editor > * + *, body:has(#tool-workspace) #tool-workspace .studio-export > * + * { margin-top: 8px; }
   body:has(#tool-workspace) #tool-workspace .background-fix { padding: 0; }
   body:has(#tool-workspace) #tool-workspace .background-fix button { min-height: 44px; }

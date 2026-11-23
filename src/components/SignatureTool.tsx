@@ -729,12 +729,14 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
 
   // Canvas and results
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const imageWrapperRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const dragRafRef = useRef<number | null>(null);
   const dragBoundsRef = useRef<DOMRect | null>(null);
   const sourceObjectUrlRef = useRef<string | null>(null);
   const uploadSequenceRef = useRef(0);
   const processingSequenceRef = useRef(0);
+  const lastPreviewUrlRef = useRef<string | null>(null);
 
   const [processedResult, setProcessedResult] = useState<ProcessedImageResult | null>(null);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -747,7 +749,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const [previewBg, setPreviewBg] = useState<'white' | 'checker'>('white');
   const [previewScale, setPreviewScale] = useState<number>(1);
   const [isInspectModalOpen, setIsInspectModalOpen] = useState<boolean>(false);
+  const [isInspectFullscreen, setIsInspectFullscreen] = useState<boolean>(false);
   const [inspectZoom, setInspectZoom] = useState<number>(2);
+  const [isMiniPreviewCollapsed, setIsMiniPreviewCollapsed] = useState<boolean>(false);
   const [inspectTab, setInspectTab] = useState<'processed' | 'original' | 'split'>('processed');
 
   // Inline preset browser stays open until explicitly closed.
@@ -780,6 +784,13 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     const frame = requestAnimationFrame(() => document.getElementById('upload-feedback')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
     return () => cancelAnimationFrame(frame);
   }, [sourceImage, uploadError, compactStudio]);
+
+  // Retain last preview URL so mobile mini-preview chip doesn't flicker during re-processing
+  useEffect(() => {
+    if (processedResult?.dataUrl) {
+      lastPreviewUrlRef.current = processedResult.dataUrl;
+    }
+  }, [processedResult?.dataUrl]);
 
   // Apply an exam preset
   const applyPreset = useCallback((preset: ExamPreset, preserveExamContext = false, suppressToast = false) => {
@@ -2754,24 +2765,30 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const naturalW = sourceImage ? (is90or270 ? sourceImage.naturalHeight : sourceImage.naturalWidth) : 600;
   const naturalH = sourceImage ? (is90or270 ? sourceImage.naturalWidth : sourceImage.naturalHeight) : 250;
 
-  // Cropper interaction handlers (Single Mode)
-  const handleCropMouseDown = (e: React.MouseEvent | React.TouchEvent, handle: string) => {
+  // Cropper interaction handlers (Unified W3C Pointer Events for Touch, Mouse, Pen)
+  const handleCropPointerDown = (e: React.PointerEvent, handle: string) => {
     e.stopPropagation();
-    // Read layout once before React writes crop styles. Subsequent move events
-    // use this snapshot, avoiding a forced reflow for every pointer update.
-    dragBoundsRef.current = containerRef.current?.getBoundingClientRect() ?? null;
+    if (e.button !== 0 && e.pointerType === 'mouse') return;
+
+    try {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    } catch {
+      // Ignore if pointer capture is unavailable
+    }
+
+    // Measure against rendered image wrapper so coordinate scaling has exact 1:1 screen mapping
+    const bounds = imageWrapperRef.current?.getBoundingClientRect() ?? containerRef.current?.getBoundingClientRect() ?? null;
+    dragBoundsRef.current = bounds;
     setIsDraggingCrop(true);
     setActiveHandle(handle);
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
-    setDragStart({ x: clientX, y: clientY });
+    setDragStart({ x: e.clientX, y: e.clientY });
     setCropStart({ ...crop });
   };
 
-  const handleContainerMouseMove = (e: React.MouseEvent | React.TouchEvent) => {
-    if (!isDraggingCrop || !containerRef.current) return;
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+  const handleContainerPointerMove = (e: React.PointerEvent) => {
+    if (!isDraggingCrop) return;
+    const clientX = e.clientX;
+    const clientY = e.clientY;
 
     if (dragRafRef.current) {
       cancelAnimationFrame(dragRafRef.current);
@@ -2916,7 +2933,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     });
   };
 
-  const handleContainerMouseUp = () => {
+  const handleContainerPointerUp = () => {
     if (dragRafRef.current) {
       cancelAnimationFrame(dragRafRef.current);
       dragRafRef.current = null;
@@ -2929,14 +2946,18 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   useEffect(() => {
     if (!isDraggingCrop) return;
 
-    window.addEventListener('mouseup', handleContainerMouseUp);
-    window.addEventListener('touchend', handleContainerMouseUp);
-    window.addEventListener('touchcancel', handleContainerMouseUp);
+    window.addEventListener('pointerup', handleContainerPointerUp);
+    window.addEventListener('pointercancel', handleContainerPointerUp);
+    window.addEventListener('mouseup', handleContainerPointerUp);
+    window.addEventListener('touchend', handleContainerPointerUp);
+    window.addEventListener('touchcancel', handleContainerPointerUp);
 
     return () => {
-      window.removeEventListener('mouseup', handleContainerMouseUp);
-      window.removeEventListener('touchend', handleContainerMouseUp);
-      window.removeEventListener('touchcancel', handleContainerMouseUp);
+      window.removeEventListener('pointerup', handleContainerPointerUp);
+      window.removeEventListener('pointercancel', handleContainerPointerUp);
+      window.removeEventListener('mouseup', handleContainerPointerUp);
+      window.removeEventListener('touchend', handleContainerPointerUp);
+      window.removeEventListener('touchcancel', handleContainerPointerUp);
     };
   }, [isDraggingCrop]);
 
@@ -5080,11 +5101,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   {sourceImage ? (
                     <div
                       ref={containerRef}
-                      onMouseMove={handleContainerMouseMove}
-                      onTouchMove={handleContainerMouseMove}
-                      onMouseUp={handleContainerMouseUp}
-                      onTouchEnd={handleContainerMouseUp}
-                      className="w-full h-full flex items-center justify-center cursor-crosshair"
+                      onPointerMove={handleContainerPointerMove}
+                      onPointerUp={handleContainerPointerUp}
+                      className="w-full h-full flex items-center justify-center cursor-crosshair touch-none select-none"
                       style={{
                         touchAction: 'none',
                         cursor: isDraggingCrop
@@ -5103,6 +5122,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                       }}
                     >
                       <div
+                        ref={imageWrapperRef}
                         className="relative inline-block max-w-full max-h-[500px]"
                         style={{
                           transform: `scale(${cropperZoom})`,
@@ -5117,18 +5137,20 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           draggable={false}
                           style={{
                             transform: `rotate(${rotation}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`,
-                            maxHeight: '480px',
+                            maxHeight: 'min(480px, 60vh)',
+                            maxWidth: '100%',
                             width: 'auto',
+                            height: 'auto',
                             display: 'block'
                           }}
-                          className="rounded shadow-xs pointer-events-none"
+                          className="max-w-full rounded shadow-xs pointer-events-none object-contain"
                         />
 
-                        {/* Crop Overlay Box with 8-Point Resize Handles */}
+                        {/* Crop Overlay Box with 8-Point Resize Handles (Unified Pointer Events + touch-action: none) */}
                         <div
                           role="region"
                           tabIndex={0}
-                          aria-label="Crop selection box. Use arrow keys to move, or hold Shift with arrow keys to move faster."
+                          aria-label="Crop selection box. Drag on screen or use arrow keys to adjust."
                           onKeyDown={(e) => {
                             const step = e.shiftKey ? 12 : 3;
                             if (e.key === 'ArrowLeft') {
@@ -5145,16 +5167,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                               setCrop((prev) => ({ ...prev, y: Math.min(Math.max(0, naturalH - prev.height), prev.y + step) }));
                             }
                           }}
-                          onMouseDown={(e) => handleCropMouseDown(e, 'move')}
-                          onTouchStart={(e) => handleCropMouseDown(e, 'move')}
+                          onPointerDown={(e) => handleCropPointerDown(e, 'move')}
                           style={{
                             left: `${(crop.x / naturalW) * 100}%`,
                             top: `${(crop.y / naturalH) * 100}%`,
                             width: `${(crop.width / naturalW) * 100}%`,
                             height: `${(crop.height / naturalH) * 100}%`,
-                            cursor: isDraggingCrop ? 'grabbing' : 'grab'
+                            cursor: isDraggingCrop ? 'grabbing' : 'grab',
+                            touchAction: 'none'
                           }}
-                          className="absolute border-2 border-primary bg-primary/10 shadow-2xl backdrop-contrast-125 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                          className="absolute border-2 border-primary bg-primary/10 shadow-2xl backdrop-contrast-125 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary touch-none select-none"
                         >
                           {/* Grid lines inside crop box */}
                           <div className="w-full h-full grid grid-cols-3 grid-rows-3 pointer-events-none opacity-40">
@@ -5213,66 +5235,58 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                             {crop.width} × {crop.height} px
                           </div>
 
-                          {/* 8-Point Touch-Optimized Precision Resize Handles */}
+                          {/* 8-Point Touch-Optimized Precision Resize Handles (Unified Pointer Events) */}
                           <div
-                            onMouseDown={(e) => handleCropMouseDown(e, 'nw')}
-                            onTouchStart={(e) => handleCropMouseDown(e, 'nw')}
+                            onPointerDown={(e) => handleCropPointerDown(e, 'nw')}
                             className="absolute -top-4 -left-4 w-9 h-9 sm:w-7 sm:h-7 flex items-center justify-center cursor-nwse-resize touch-none select-none z-10"
                             title="Resize Top-Left"
                           >
                             <div className="w-4 h-4 sm:w-3.5 sm:h-3.5 bg-primary rounded-full border-2 border-white shadow-md hover:scale-125 transition-transform pointer-events-none" />
                           </div>
                           <div
-                            onMouseDown={(e) => handleCropMouseDown(e, 'ne')}
-                            onTouchStart={(e) => handleCropMouseDown(e, 'ne')}
+                            onPointerDown={(e) => handleCropPointerDown(e, 'ne')}
                             className="absolute -top-4 -right-4 w-9 h-9 sm:w-7 sm:h-7 flex items-center justify-center cursor-nesw-resize touch-none select-none z-10"
                             title="Resize Top-Right"
                           >
                             <div className="w-4 h-4 sm:w-3.5 sm:h-3.5 bg-primary rounded-full border-2 border-white shadow-md hover:scale-125 transition-transform pointer-events-none" />
                           </div>
                           <div
-                            onMouseDown={(e) => handleCropMouseDown(e, 'sw')}
-                            onTouchStart={(e) => handleCropMouseDown(e, 'sw')}
+                            onPointerDown={(e) => handleCropPointerDown(e, 'sw')}
                             className="absolute -bottom-4 -left-4 w-9 h-9 sm:w-7 sm:h-7 flex items-center justify-center cursor-nesw-resize touch-none select-none z-10"
                             title="Resize Bottom-Left"
                           >
                             <div className="w-4 h-4 sm:w-3.5 sm:h-3.5 bg-primary rounded-full border-2 border-white shadow-md hover:scale-125 transition-transform pointer-events-none" />
                           </div>
                           <div
-                            onMouseDown={(e) => handleCropMouseDown(e, 'se')}
-                            onTouchStart={(e) => handleCropMouseDown(e, 'se')}
+                            onPointerDown={(e) => handleCropPointerDown(e, 'se')}
                             className="absolute -bottom-4 -right-4 w-9 h-9 sm:w-7 sm:h-7 flex items-center justify-center cursor-nwse-resize touch-none select-none z-10"
                             title="Resize Bottom-Right"
                           >
                             <div className="w-4 h-4 sm:w-3.5 sm:h-3.5 bg-primary rounded-full border-2 border-white shadow-md hover:scale-125 transition-transform pointer-events-none" />
                           </div>
                           <div
-                            onMouseDown={(e) => handleCropMouseDown(e, 'n')}
-                            onTouchStart={(e) => handleCropMouseDown(e, 'n')}
+                            onPointerDown={(e) => handleCropPointerDown(e, 'n')}
                             className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-10 h-7 flex items-center justify-center cursor-ns-resize touch-none select-none z-10"
                             title="Resize Top Edge"
                           >
                             <div className="w-6 h-2 bg-primary rounded-full border border-white shadow hover:scale-125 transition-transform pointer-events-none" />
                           </div>
                           <div
-                            onMouseDown={(e) => handleCropMouseDown(e, 's')}
-                            onTouchStart={(e) => handleCropMouseDown(e, 's')}
+                            onPointerDown={(e) => handleCropPointerDown(e, 's')}
                             className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-10 h-7 flex items-center justify-center cursor-ns-resize touch-none select-none z-10"
                             title="Resize Bottom Edge"
                           >
                             <div className="w-6 h-2 bg-primary rounded-full border border-white shadow hover:scale-125 transition-transform pointer-events-none" />
                           </div>
                           <div
-                            onMouseDown={(e) => handleCropMouseDown(e, 'w')}
-                            onTouchStart={(e) => handleCropMouseDown(e, 'w')}
+                            onPointerDown={(e) => handleCropPointerDown(e, 'w')}
                             className="absolute -left-3.5 top-1/2 -translate-y-1/2 w-7 h-10 flex items-center justify-center cursor-ew-resize touch-none select-none z-10"
                             title="Resize Left Edge"
                           >
                             <div className="w-2 h-6 bg-primary rounded-full border border-white shadow hover:scale-125 transition-transform pointer-events-none" />
                           </div>
                           <div
-                            onMouseDown={(e) => handleCropMouseDown(e, 'e')}
-                            onTouchStart={(e) => handleCropMouseDown(e, 'e')}
+                            onPointerDown={(e) => handleCropPointerDown(e, 'e')}
                             className="absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-10 flex items-center justify-center cursor-ew-resize touch-none select-none z-10"
                             title="Resize Right Edge"
                           >
@@ -5805,16 +5819,30 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   }`}
                 >
                   {processedResult ? (
-                    <img
-                      src={processedResult.dataUrl}
-                      alt={modeConfig.previewAlt}
-                      style={{
-                        transform: `scale(${previewScale})`,
-                        transformOrigin: 'center',
-                        transition: 'transform 0.15s ease'
-                      }}
-                      className="max-h-[160px] sm:max-h-[200px] max-w-full object-contain rounded-lg shadow-sm border border-border/40"
-                    />
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => setIsInspectModalOpen(true)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsInspectModalOpen(true); } }}
+                      title="Tap to inspect full-size in preview lightbox"
+                      className="relative group cursor-pointer max-w-full flex items-center justify-center focus-visible:outline-2 focus-visible:outline-primary rounded-xl"
+                    >
+                      <img
+                        src={processedResult.dataUrl}
+                        alt={modeConfig.previewAlt}
+                        style={{
+                          transform: `scale(${previewScale})`,
+                          transformOrigin: 'center',
+                          transition: 'transform 0.15s ease'
+                        }}
+                        className="max-h-[240px] sm:max-h-[220px] max-w-full object-contain rounded-lg shadow-sm border border-border/40 group-hover:ring-2 group-hover:ring-primary/40 transition"
+                      />
+                      <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 rounded-lg flex items-center justify-center transition pointer-events-none">
+                        <span className="text-[11px] font-bold bg-background/90 text-foreground px-2.5 py-1 rounded-md shadow border border-border flex items-center gap-1.5 backdrop-blur-xs">
+                          <Maximize2 className="w-3.5 h-3.5 text-primary" /> Fullscreen Inspect
+                        </span>
+                      </div>
+                    </div>
                   ) : (
                     /* Simulated preview before upload */
                     <div className="flex flex-col items-center justify-center text-center space-y-3 py-2">
@@ -6401,18 +6429,18 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         </Suspense>
       )}
 
-      {/* 🔍 Full-Detail Signature Pixel Inspector & Quality Verification Modal */}
+      {/* 🔍 Full-Detail Signature Pixel Inspector & Quality Verification Modal (Mobile Lightbox / 100dvh Sheet) */}
       {isInspectModalOpen && processedResult && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-150"
+          className={`fixed inset-0 z-50 flex items-center justify-center ${isInspectFullscreen ? 'p-0' : 'p-0 sm:p-4'} bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-150`}
           onClick={() => setIsInspectModalOpen(false)}
         >
           <div
-            className="w-full max-w-2xl bg-card border border-border rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] text-foreground"
+            className={`w-full ${isInspectFullscreen ? 'h-full max-h-[100dvh] rounded-none border-0' : 'h-[100dvh] sm:h-auto sm:max-w-4xl sm:max-h-[92vh] sm:rounded-2xl border-0 sm:border'} bg-card border-border shadow-2xl overflow-hidden flex flex-col text-foreground`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between p-4 border-b border-border bg-muted/30">
+            <div className="flex items-center justify-between p-3.5 sm:p-4 border-b border-border bg-muted/30">
               <div className="space-y-0.5">
                 <h3 className="text-base font-bold flex items-center gap-2 text-foreground">
                   <Maximize2 className="w-4 h-4 text-primary" />
@@ -6422,24 +6450,34 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                   {modeConfig.inspectorDesc}
                 </p>
               </div>
-              <button
-                type="button"
-                onClick={() => setIsInspectModalOpen(false)}
-                className="p-1.5 rounded-xl hover:bg-muted text-muted-foreground hover:text-foreground transition"
-                title="Close Modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => setIsInspectFullscreen((prev) => !prev)}
+                  className="hidden sm:inline-flex p-2 rounded-xl hover:bg-muted text-muted-foreground hover:text-foreground transition cursor-pointer"
+                  title={isInspectFullscreen ? 'Restore Standard Size' : 'Expand Edge-to-Edge Fullscreen'}
+                >
+                  <Maximize className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsInspectModalOpen(false)}
+                  className="p-2 rounded-xl hover:bg-muted text-muted-foreground hover:text-foreground transition cursor-pointer"
+                  title="Close Modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
             {/* Inspection Toolbar: Mode & Zoom Level */}
-            <div className="p-3 border-b border-border bg-card flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div className="p-2.5 sm:p-3 border-b border-border bg-card flex flex-wrap items-center justify-between gap-2.5 text-xs">
               {/* Tab Selector */}
               <div className="flex rounded-lg border border-border p-0.5 bg-muted/40">
                 <button
                   type="button"
                   onClick={() => setInspectTab('processed')}
-                  className={`px-3 py-1 rounded-md font-medium transition ${
+                  className={`px-3 py-1 rounded-md font-medium transition cursor-pointer ${
                     inspectTab === 'processed'
                       ? 'bg-primary text-primary-foreground font-bold shadow-xs'
                       : 'text-muted-foreground hover:text-foreground'
@@ -6450,29 +6488,30 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <button
                   type="button"
                   onClick={() => setInspectTab('original')}
-                  className={`px-3 py-1 rounded-md font-medium transition ${
+                  className={`px-3 py-1 rounded-md font-medium transition cursor-pointer ${
                     inspectTab === 'original'
                       ? 'bg-primary text-primary-foreground font-bold shadow-xs'
                       : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
-                  Raw Source Image
+                  Raw Source
                 </button>
               </div>
 
               {/* Zoom Buttons */}
               <div className="flex items-center gap-1">
-                <span className="text-[11px] font-semibold text-muted-foreground mr-1">Magnification:</span>
+                <span className="text-[11px] font-semibold text-muted-foreground mr-1">Zoom:</span>
                 {[
-                  { z: 1, label: '100% (1x)' },
-                  { z: 2, label: '200% (2x)' },
-                  { z: 3, label: '300% (3x)' }
+                  { z: 1, label: '1x' },
+                  { z: 1.5, label: '1.5x' },
+                  { z: 2, label: '2x' },
+                  { z: 3, label: '3x' }
                 ].map((item) => (
                   <button
                     key={item.z}
                     type="button"
                     onClick={() => setInspectZoom(item.z)}
-                    className={`px-2.5 py-1 rounded-md text-[11px] font-mono transition ${
+                    className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[11px] font-mono transition cursor-pointer ${
                       inspectZoom === item.z
                         ? 'bg-primary text-primary-foreground font-bold'
                         : 'bg-muted/60 text-muted-foreground hover:text-foreground border border-border'
@@ -6484,9 +6523,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
               </div>
             </div>
 
-            {/* Inspection Stage / Canvas View */}
-            <div className="p-6 bg-muted/40 dark:bg-slate-900/50 flex items-center justify-center min-h-[260px] overflow-auto relative">
-              <div className="relative inline-block border border-border/60 rounded-lg shadow-md bg-white overflow-hidden p-2">
+            {/* Inspection Stage / Canvas View with Natural Touch Fit & Pinch Inspection */}
+            <div className="p-4 sm:p-6 bg-muted/40 dark:bg-slate-900/50 flex-1 flex items-center justify-center min-h-[260px] overflow-auto relative">
+              <div className="relative inline-block border border-border/60 rounded-lg shadow-md bg-white overflow-hidden p-2 sm:p-3 max-w-full">
                 {inspectTab === 'processed' ? (
                   <img
                     src={processedResult.dataUrl}
@@ -6496,7 +6535,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                       transformOrigin: 'center',
                       transition: 'transform 0.15s ease-out'
                     }}
-                    className="max-h-48 object-contain select-none"
+                    className="max-h-[50vh] sm:max-h-60 max-w-full object-contain select-none"
                   />
                 ) : (
                   sourceImage && (
@@ -6508,7 +6547,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                         transformOrigin: 'center',
                         transition: 'transform 0.15s ease-out'
                       }}
-                      className="max-h-48 object-contain select-none"
+                      className="max-h-[50vh] sm:max-h-60 max-w-full object-contain select-none"
                     />
                   )
                 )}
@@ -6516,7 +6555,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             </div>
 
             {/* Technical Verification Status Bar */}
-            <div className="p-3 border-t border-border bg-muted/20 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center">
+            <div className="p-2.5 sm:p-3 border-t border-border bg-muted/20 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center">
               <div className="p-2 rounded-lg bg-card border border-border/60">
                 <div className="text-[10px] text-muted-foreground uppercase font-semibold">Dimensions</div>
                 <div className="font-mono font-bold text-foreground">{targetWidthPx} × {targetHeightPx} px</div>
@@ -6580,8 +6619,99 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         </div>
       )}
 
-      {/* Floating Toast Notification Stack */}
+      {/* Floating Toast Notification Stack & Mobile Conversion Bar */}
       {focusedWorkspace && toolMode === 'single' && sourceImage && <MobileConversionBar result={processedResult} busy={isProcessing || isDraggingCrop} error={uploadError} onReview={() => setShowExportChecks(true)} />}
+
+      {/* 📱 Mobile Sticky Live Mini-Preview (PiP) Chip + Tap to Fullscreen */}
+      {focusedWorkspace && toolMode === 'single' && sourceImage && !isInspectModalOpen && !showExportChecks && (
+        <div
+          className="sm:hidden fixed bottom-[76px] right-3 z-30 flex flex-col items-end select-none pointer-events-none"
+          style={{ bottom: 'calc(76px + env(safe-area-inset-bottom, 0px))' }}
+        >
+          {isMiniPreviewCollapsed ? (
+            <button
+              type="button"
+              onClick={() => setIsMiniPreviewCollapsed(false)}
+              aria-label="Expand live preview chip"
+              className="pointer-events-auto p-2 rounded-full bg-card/95 text-foreground shadow-lg border border-border backdrop-blur-md hover:bg-muted flex items-center justify-center cursor-pointer transition active:scale-95"
+              title="Show live mini-preview"
+            >
+              <Eye className="w-4 h-4 text-primary" />
+            </button>
+          ) : (
+            <div className="pointer-events-auto w-[112px] bg-card/95 backdrop-blur-md rounded-xl border border-border shadow-xl overflow-hidden flex flex-col text-foreground transition-all">
+              {/* Mini Header / Minimize Button */}
+              <div className="flex items-center justify-between px-1.5 py-0.5 bg-muted/60 border-b border-border/60 text-[9px] font-bold text-muted-foreground">
+                <span className="flex items-center gap-1 text-[9px] font-semibold text-foreground truncate">
+                  <Eye className="w-2.5 h-2.5 text-primary shrink-0" />
+                  Live Preview
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setIsMiniPreviewCollapsed(true)}
+                  aria-label="Minimize preview chip"
+                  className="p-0.5 rounded hover:bg-muted text-muted-foreground hover:text-foreground cursor-pointer transition"
+                  title="Minimize"
+                >
+                  <ChevronDown className="w-3 h-3" />
+                </button>
+              </div>
+
+              {/* Tappable Thumbnail Stage */}
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => setIsInspectModalOpen(true)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsInspectModalOpen(true); } }}
+                aria-label="Tap to inspect processed preview in fullscreen"
+                className="relative p-1.5 bg-muted/20 flex items-center justify-center min-h-[52px] max-h-[76px] cursor-pointer group active:opacity-90"
+                title="Tap for Fullscreen Inspection"
+              >
+                {(processedResult?.dataUrl || lastPreviewUrlRef.current) ? (
+                  <img
+                    src={processedResult?.dataUrl || lastPreviewUrlRef.current || ''}
+                    alt="Mini preview"
+                    className={`max-h-[56px] max-w-full object-contain rounded border border-border/50 shadow-2xs transition-opacity duration-150 ${isProcessing || isDraggingCrop ? 'opacity-70' : 'opacity-100'}`}
+                  />
+                ) : (
+                  <div className="text-[9px] font-mono text-muted-foreground text-center py-2">
+                    Preparing…
+                  </div>
+                )}
+                {(isProcessing || isDraggingCrop) && (
+                  <div className="absolute inset-0 bg-card/30 backdrop-blur-[0.5px] flex items-center justify-center">
+                    <span className="w-3 h-3 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                  </div>
+                )}
+              </div>
+
+              {/* Status footer with KB and preset bounds pass/check */}
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => setIsInspectModalOpen(true)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsInspectModalOpen(true); } }}
+                className="px-1.5 py-0.5 bg-muted/40 border-t border-border/60 flex items-center justify-between text-[9px] font-mono cursor-pointer"
+              >
+                <span className="font-bold text-foreground">
+                  {processedResult ? `${processedResult.sizeKb} KB` : '...'}
+                </span>
+                {processedResult && selectedPreset && (
+                  <span
+                    className={`font-bold flex items-center gap-0.5 ${
+                      processedResult.sizeKb >= selectedPreset.minSizeKb && processedResult.sizeKb <= selectedPreset.maxSizeKb
+                        ? 'text-emerald-600 dark:text-emerald-400'
+                        : 'text-amber-600 dark:text-amber-400'
+                    }`}
+                  >
+                    {processedResult.sizeKb >= selectedPreset.minSizeKb && processedResult.sizeKb <= selectedPreset.maxSizeKb ? '✓' : '⚠️'}
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
       <ExportChecksDialog
         open={showExportChecks}
         result={processedResult}
