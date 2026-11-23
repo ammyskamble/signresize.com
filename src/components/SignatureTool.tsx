@@ -747,6 +747,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
   const sourceObjectUrlRef = useRef<string | null>(null);
   const uploadSequenceRef = useRef(0);
   const processingSequenceRef = useRef(0);
+  const latestCompletedSequenceRef = useRef(0);
   const lastPreviewUrlRef = useRef<string | null>(null);
 
   const [processedResult, setProcessedResult] = useState<ProcessedImageResult | null>(null);
@@ -1717,6 +1718,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       setSourceFileName(file.name);
       setSourceOriginalSize(file.size);
       setSourceFileType(file.type);
+      latestCompletedSequenceRef.current = 0;
       setProcessedResult(prev => { if (prev?.dataUrl) URL.revokeObjectURL(prev.dataUrl); return null; });
       if (sourceObjectUrlRef.current) {
         URL.revokeObjectURL(sourceObjectUrlRef.current);
@@ -2090,10 +2092,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             format: targetFormat, minKb, maxKb, targetKb: selectedPreset?.recommendedKb || (minKb + maxKb) / 2,
             targetType, candidateName, dateOfPhoto, addNameDateStamp, documentHighContrast, presetNotes: selectedPreset?.notes,
           });
-          if (sequence !== processingSequenceRef.current) { URL.revokeObjectURL(offThread.result.dataUrl); return; }
+          if (sequence < latestCompletedSequenceRef.current) { URL.revokeObjectURL(offThread.result.dataUrl); return; }
+          latestCompletedSequenceRef.current = sequence;
           setBackgroundIssues(offThread.issues);
           setProcessedResult((prev) => {
-            if (prev?.dataUrl) URL.revokeObjectURL(prev.dataUrl);
+            if (prev?.dataUrl && prev.dataUrl !== offThread.result.dataUrl) URL.revokeObjectURL(prev.dataUrl);
             return offThread.result;
           });
           return;
@@ -2157,19 +2160,20 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         selectedPreset?.dpi || 200
       );
 
-      if (sequence !== processingSequenceRef.current) { URL.revokeObjectURL(result.dataUrl); return; }
+      if (sequence < latestCompletedSequenceRef.current) { URL.revokeObjectURL(result.dataUrl); return; }
+      latestCompletedSequenceRef.current = sequence;
       setBackgroundIssues(detectedBgIssues);
       setProcessedResult((prev) => {
-        if (prev?.dataUrl) {
+        if (prev?.dataUrl && prev.dataUrl !== result.dataUrl) {
           URL.revokeObjectURL(prev.dataUrl);
         }
         return result;
       });
     } catch (err) {
       console.error('Error processing image:', err);
-      if (sequence === processingSequenceRef.current) setUploadError('The image could not be processed. Choose a smaller JPG or PNG and upload again.');
+      if (sequence >= latestCompletedSequenceRef.current) setUploadError('The image could not be processed. Choose a smaller JPG or PNG and upload again.');
     } finally {
-      if (sequence === processingSequenceRef.current) setIsProcessing(false);
+      if (sequence >= latestCompletedSequenceRef.current) setIsProcessing(false);
     }
   }, [
     sourceImage,
@@ -2196,12 +2200,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     if (sourceImage && toolMode === 'single' && !isDraggingCrop) {
       setHasDownloaded(false);
       setDownloadedFileName('');
-      setProcessedResult(prev => { if (prev?.dataUrl) URL.revokeObjectURL(prev.dataUrl); return null; });
       setIsProcessing(true);
       const timer = setTimeout(() => {
         processImage();
       }, 80);
-      return () => { clearTimeout(timer); processingSequenceRef.current++; };
+      return () => clearTimeout(timer);
     }
   }, [processImage, sourceImage, toolMode, isDraggingCrop]);
 
@@ -5465,6 +5468,35 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                     </button>
                   </div>
                 </div>
+
+                {/* 📱 Mobile Quick Preview & Jump to Download Bar (Directly below Crop Canvas) */}
+                {sourceImage && (
+                  <div className="sm:hidden flex items-center justify-between gap-2 p-2.5 rounded-xl bg-primary/10 border border-primary/25 text-xs animate-in fade-in duration-150">
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className="font-bold text-primary truncate">
+                        {processedResult ? `✓ ${processedResult.sizeKb} KB · ${processedResult.width}×${processedResult.height} px` : isProcessing ? '⚡ Optimizing…' : 'Preparing preview…'}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <button
+                        type="button"
+                        disabled={!processedResult}
+                        onClick={() => setIsInspectModalOpen(true)}
+                        className="px-2.5 py-1.5 rounded-lg bg-card border border-border text-foreground font-semibold text-xs shadow-2xs hover:bg-muted transition flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                      >
+                        <Eye className="w-3.5 h-3.5 text-primary" /> Inspect Preview
+                      </button>
+                      <button
+                        type="button"
+                        disabled={!processedResult}
+                        onClick={() => document.getElementById('preview-status-text')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                        className="px-2.5 py-1.5 rounded-lg bg-primary text-primary-foreground font-bold text-xs shadow-xs hover:opacity-90 transition flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                      >
+                        <Download className="w-3.5 h-3.5" /> Download
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {sourceImage && (
