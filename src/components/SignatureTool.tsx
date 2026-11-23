@@ -804,6 +804,21 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     }
   }, [processedResult?.dataUrl]);
 
+  // Sync modal state with document.body to manage overflow and hide conflicting floating UI (e.g. ScrollToTop button)
+  useEffect(() => {
+    if (isInspectModalOpen) {
+      document.body.setAttribute('data-modal-active', 'true');
+      document.body.classList.add('modal-open');
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.removeAttribute('data-modal-active');
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [isInspectModalOpen]);
+
   // Apply an exam preset
   const applyPreset = useCallback((preset: ExamPreset, preserveExamContext = false, suppressToast = false) => {
     setSelectedPreset(preset);
@@ -6488,6 +6503,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
       {/* 🔍 Full-Detail Signature Pixel Inspector & Quality Verification Modal (Mobile Lightbox / 100dvh Sheet) */}
       {isInspectModalOpen && processedResult && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={modeConfig.inspectorTitle}
+          data-modal-open="true"
           className={`fixed inset-0 z-50 flex items-center justify-center ${isInspectFullscreen ? 'p-0' : 'p-0 sm:p-4'} bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-150`}
           onClick={() => setIsInspectModalOpen(false)}
         >

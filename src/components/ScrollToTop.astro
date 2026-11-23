@@ -10,7 +10,7 @@
   aria-label="Scroll to top of page"
   title="Back to top"
   hidden
-  class="fixed bottom-16 right-4 sm:bottom-[76px] sm:right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-card/95 dark:bg-slate-900/95 text-foreground border-2 border-border/80 shadow-lg hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-primary/20 backdrop-blur-md transition-all duration-200 hover:text-primary hover:border-primary/60 hover:bg-card hover:scale-105 active:scale-90 focus:outline-none focus:ring-2 focus:ring-primary/50 group cursor-pointer select-none touch-manipulation"
+  class="fixed left-4 bottom-16 right-auto sm:left-auto sm:right-6 sm:bottom-[76px] z-40 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-card/95 dark:bg-slate-900/95 text-foreground border-2 border-border/80 shadow-lg hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-primary/20 backdrop-blur-md transition-all duration-200 hover:text-primary hover:border-primary/60 hover:bg-card hover:scale-105 active:scale-90 focus:outline-none focus:ring-2 focus:ring-primary/50 group cursor-pointer select-none touch-manipulation"
 >
   <svg
     class="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:-translate-y-1"
@@ -25,8 +25,34 @@
 </button>
 
 <style>
-  #scroll-to-top-btn[hidden] { display: none; }
-  #scroll-to-top-btn { bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
+  #scroll-to-top-btn[hidden] { display: none !important; }
+  
+  /* Desktop (sm: >= 640px): bottom-right corner */
+  #scroll-to-top-btn { 
+    right: 1.5rem;
+    left: auto;
+    bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)); 
+  }
+
+  /* Mobile (< 640px): bottom-left corner so it NEVER collides with right-side live preview chip or mobile actions */
+  @media (max-width: 639px) {
+    #scroll-to-top-btn {
+      left: 1rem !important;
+      right: auto !important;
+      bottom: calc(5rem + env(safe-area-inset-bottom, 0px)) !important;
+    }
+  }
+
+  /* Immediately hide when any modal, dialog, preview lightbox, or export check is open */
+  body:has([role="dialog"]) #scroll-to-top-btn,
+  body:has([aria-modal="true"]) #scroll-to-top-btn,
+  body:has([data-modal-open="true"]) #scroll-to-top-btn,
+  body[data-modal-active="true"] #scroll-to-top-btn,
+  body.modal-open #scroll-to-top-btn,
+  body.overflow-hidden #scroll-to-top-btn {
+    display: none !important;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     #scroll-to-top-btn, #scroll-to-top-btn svg { transition: none; }
   }
@@ -36,8 +62,23 @@
   const button = document.getElementById('scroll-to-top-btn');
   const footerLink = document.getElementById('footer-back-to-top');
 
+  function isAnyModalOpen() {
+    return (
+      document.body.classList.contains('modal-open') ||
+      document.body.classList.contains('overflow-hidden') ||
+      document.body.getAttribute('data-modal-active') === 'true' ||
+      document.querySelector('[role="dialog"]') !== null ||
+      document.querySelector('[data-modal-open="true"]') !== null
+    );
+  }
+
   function updateVisibility() {
-    if (button) button.hidden = window.scrollY <= 180;
+    if (!button) return;
+    if (isAnyModalOpen()) {
+      button.hidden = true;
+      return;
+    }
+    button.hidden = window.scrollY <= 180;
   }
 
   function backToTop(event: Event) {
@@ -54,5 +95,15 @@
   footerLink?.addEventListener('click', backToTop);
   window.addEventListener('scroll', updateVisibility, { passive: true });
   window.addEventListener('pageshow', updateVisibility);
+
+  // Monitor DOM for modal dialogs opening/closing
+  const observer = new MutationObserver(() => updateVisibility());
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['class', 'data-modal-active', 'data-modal-open']
+  });
+
   updateVisibility();
 </script>
