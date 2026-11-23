@@ -3844,6 +3844,126 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ]
   },
   {
+    slug: 'gujarat-police-photo-signature-resize',
+    presetId: 'gujarat-police-photo',
+    pageTitle: 'Gujarat Police Photo & Signature Resize — OJAS 15 KB JPG | SignResize',
+    metaDescription: 'Resize your photo and signature for the Gujarat Police (GPRB) OJAS form — photo and signature each under 15 KB JPG, exact OJAS size. Free, private, in your browser.',
+    keywords: 'gujarat police photo resize, gujarat police signature resize, ojas photo signature size 15 kb, gprb photo signature resize, ojas 15 kb jpg resizer, gujarat police recruitment 2026 ojas upload',
+    h1: 'Gujarat Police Photo & Signature Resizer (OJAS)',
+    subheading: 'Official Gujarat Police Recruitment Board (GPRB) & OJAS upload standards: Photo (5.0×3.6 cm, 425×591 px) & Signature (7.5×2.5 cm, 886×295 px) each strictly under 15 KB (≤14.5 KB target).',
+    authority: 'Gujarat Police Recruitment Board (GPRB / OJAS)',
+    targetExams: 'Gujarat Police Lokrakshak Constable (Unarmed, Armed, SRPF), Technical Cadre (Driver Mechanic, Motor Transport Supervisor)',
+    widthPx: 425,
+    heightPx: 591,
+    widthCm: 3.6,
+    heightCm: 5.0,
+    minKb: 1,
+    maxKb: 14.5,
+    recommendedKb: 12,
+    dpi: 300,
+    pixelNote: 'Canvas @ 300 DPI',
+    ink: 'Dark Blue or Black Ink on Plain White Paper',
+    aspectRatioLabel: 'Photo 3.6×5.0 cm (425×591 px) / Sign 7.5×2.5 cm (886×295 px)',
+    strictNotice: 'OJAS accepts only JPG files strictly under 15 KB. Red or green ink signatures and photos over 15 KB fail portal submission. Our compressor targets ≤14,500 bytes for 100% acceptance.',
+    verifiedOn: '2026-11-24',
+    sources: [
+      { label: 'GPRB Advertisements 202627/1–3 & OJAS Upload Instructions', url: 'https://ojas.gujarat.gov.in' }
+    ],
+    relatedTools: ['gpsc-signature-resize', 'photo-resizer', 'document-resizer'],
+    tips: [
+      'Photograph must be 5.0 × 3.6 cm, JPG format, strictly under 15 KB (target ≤ 14.5 KB / 14,500 bytes) with a pure white background.',
+      'Signature must be 7.5 × 2.5 cm, JPG format, strictly under 15 KB signed in dark blue or black ink on unruled white paper.',
+      'Do not use red or green ink, and do not sign on lined/ruled notebook paper.',
+      'OJAS accepts JPG/JPEG only. PNG, WebP, and HEIC files are automatically converted.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo size for Gujarat Police OJAS?',
+        a: 'JPG, under 15 KB, 5.0 × 3.6 cm, recent colour photo on a white background.'
+      },
+      {
+        q: 'What is the signature size for Gujarat Police OJAS?',
+        a: 'JPG, under 15 KB, 7.5 × 2.5 cm, signed in dark blue or black ink on plain white paper.'
+      },
+      {
+        q: 'My photo is 200 KB / 2 MB. Will OJAS accept it?',
+        a: 'No — OJAS rejects anything over 15 KB. Resize it above; the tool lands the file just under the limit and shows the exact byte size before you download.'
+      },
+      {
+        q: 'Can I apply for Gujarat Police from my phone?',
+        a: 'Yes — the OJAS form and this resizer both work in a phone browser. Make the two files here first, then open the OJAS form.'
+      },
+      {
+        q: 'Which posts are in this recruitment?',
+        a: '3,000 Class-3 posts under GPRB Advertisement Nos. 202627/1, 2 and 3 — 2,841 Lokrakshak Constables (Unarmed, Armed, SRPF) and 159 Technical Cadre posts (Driver Mechanic, Motor Transport Supervisor). Applications: 26 November – 16 December 2026 on OJAS.'
+      },
+      {
+        q: 'Is the signature allowed in any ink colour?',
+        a: 'Use dark blue or black ink. Red and green ink signatures are not accepted in the OJAS instructions.'
+      }
+    ]
+  },
+  {
+    slug: 'rssb-je-photo-signature-resize',
+    presetId: 'rssb-je-signature',
+    pageTitle: 'RSSB JE Signature & Thumb Resize 2026 — 560×160 px, 20–50 KB | SignResize',
+    metaDescription: 'RSSB JE (JEN) 2026: the photo is captured live in OTR — what you prepare is your signature (Hindi & English) and left thumb impression, 560×160 px JPEG, 20–50 KB. Free, in your browser.',
+    keywords: 'rssb je signature resize, rssb jen thumb impression, rssb jen signature size 20 to 50 kb, rsmssb je photo signature, sso rajasthan otr signature format, rssb junior engineer 2026 document size',
+    h1: 'RSSB JE (JEN) 2026 — Signature & Thumb Resizer',
+    subheading: 'Official Rajasthan Staff Selection Board (RSSB / RSMSSB) JEN 2026 standards: 560×160 px (7×2 cm box), strictly 20–50 KB JPG for Signature (Hindi & English) and Left Thumb Impression.',
+    authority: 'Rajasthan Staff Selection Board (RSSB / RSMSSB)',
+    targetExams: 'RSSB Junior Engineer (JEN) 2026 Advt 10/2026 (Civil 1,320, Electrical 340, Mechanical 249 — Total 1,909 posts)',
+    widthPx: 560,
+    heightPx: 160,
+    widthCm: 7.0,
+    heightCm: 2.0,
+    minKb: 20,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    pixelNote: 'Range 280×80 to 560×160 px',
+    ink: 'Dark Blue or Black Ink (Hindi & English stacked)',
+    aspectRatioLabel: '7:2 (560×160 px)',
+    strictNotice: 'RSSB requires BOTH Hindi and English signatures in ONE single image inside a 7×2 cm box. Files under 20 KB or over 50 KB are rejected by the SSO portal. Photo is captured LIVE in OTR (no photo upload).',
+    verifiedOn: '2026-11-24',
+    sources: [
+      { label: 'RSSB Advt 10/2026 & OTR Upload Instructions', url: 'https://rssb.rajasthan.gov.in' }
+    ],
+    relatedTools: ['rajasthan-police-signature-resize', 'rajasthan-police-photo-resize', 'document-resizer', 'photo-resizer'],
+    tips: [
+      'Sign in BOTH Hindi and English inside a 7 × 2 cm box on white paper in one single image file.',
+      'Ensure file size stays within 20 KB to 50 KB JPG. Files below 20 KB are auto-padded by our tool to pass portal validation.',
+      'Left thumb impression must also be inside a 7 × 2 cm box, 560 × 160 px, 20–50 KB JPG.',
+      'Photograph is NOT uploaded as a file — it is captured live inside the Rajasthan SSO OTR portal.'
+    ],
+    faqs: [
+      {
+        q: 'What is the photo size for RSSB JE 2026?',
+        a: 'There is no photo file to upload — RSSB captures your photograph live inside the One Time Registration (OTR) on the SSO portal and fetches it into the application.'
+      },
+      {
+        q: 'What is the signature size for RSSB JE 2026?',
+        a: 'Sign in Hindi and English inside a 7 × 2 cm box on white paper and upload one JPG of 560 × 160 px (accepted range 280×80 to 560×160 px), 20–50 KB.'
+      },
+      {
+        q: 'What is the thumb impression size for RSSB JE 2026?',
+        a: 'Left thumb impression (right thumb if the left is unavailable) in a 7 × 2 cm box, JPG, 560 × 160 px, 20–50 KB — the same specification as the signature.'
+      },
+      {
+        q: 'I applied for RSSB JEN in August 2026. Should I apply again?',
+        a: 'No. The window reopened because vacancies rose from 874 to 1,909; applications already submitted remain valid.'
+      },
+      {
+        q: 'Can I change my photo or signature after submitting?',
+        a: 'No — photo, signature and thumb impression cannot be changed after submission. Other corrections cost ₹300 and close 3 days after the last date (20 December 2026).'
+      },
+      {
+        q: 'What is the last date for RSSB JE 2026?',
+        a: '17 December 2026, 11:59 PM, on sso.rajasthan.gov.in. The exam is proposed for 3–5 February 2027.'
+      }
+    ]
+  },
+  {
     slug: 'bssc-signature-resize',
     presetId: 'bssc-inter-level',
     pageTitle: 'BSSC Signature Resize 10 to 20 KB (Hindi & English) Online - SignResize',

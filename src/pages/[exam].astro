@@ -71,9 +71,11 @@ const isBanking = examData.slug.includes('sbi') || examData.slug.includes('ibps'
 const isJee = examData.slug.includes('jee-main');
 const isMaharashtraPolice = examData.slug === 'maharashtra-police-signature-resize';
 const isWbPolice = examData.slug === 'wb-police-signature-resize' || examData.slug === 'wb-police-photo-resize';
+const isGujaratPolice = examData.slug === 'gujarat-police-photo-signature-resize';
+const isRssbJe = examData.slug === 'rssb-je-photo-signature-resize';
 const isNepalLokSewa = examData.slug === 'lok-sewa-photo-resize-nepal';
 const isPhotoPage = examData.presetId.includes('photo') || examData.slug.includes('photo');
-const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc || isMaharashtraPolice || isWbPolice || isJee;
+const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc || isMaharashtraPolice || isWbPolice || isJee || isGujaratPolice || isRssbJe;
 const relatedTools = (examData.relatedTools || [])
   .filter(slug => slug !== examData.slug)
   .map(slug => {
@@ -832,6 +834,94 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
         </aside>
       )}
 
+      {isGujaratPolice && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="Gujarat Police OJAS Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-lg">👮</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">Gujarat Police (GPRB) OJAS Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">OJAS &le;15 KB Standard</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                OJAS accepts only two JPG files: Photo (5.0×3.6 cm, 425×591 px) and Signature (7.5×2.5 cm, 886×295 px), both strictly under 15 KB (≤14.5 KB safety target). Select preset below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <button
+                type="button"
+                onclick="window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: 'gujarat-police-photo' })); document.getElementById('exam-tool')?.scrollIntoView({ behavior: 'smooth' });"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border bg-primary text-primary-foreground border-primary shadow-xs cursor-pointer hover:opacity-95"
+              >
+                <span>📸</span>
+                <span>Photo (425×591 px, &le;15 KB)</span>
+              </button>
+              <button
+                type="button"
+                onclick="window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: 'gujarat-police-sig' })); document.getElementById('exam-tool')?.scrollIntoView({ behavior: 'smooth' });"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border bg-card text-foreground border-border hover:border-primary/50 cursor-pointer"
+              >
+                <span>✍️</span>
+                <span>Signature (886×295 px, &le;15 KB)</span>
+              </button>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-border/50 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+            <span class="flex items-center gap-1.5">
+              <span>🛡️</span>
+              <span><strong>GPRB Advt Nos. 202627/1, 2 &amp; 3:</strong> 3,000 Posts (2,841 Lokrakshak + 159 Technical Cadre). Window: 26 Nov (2:00 PM) – 16 Dec 2026.</span>
+            </span>
+            <span class="text-[11px] font-semibold text-primary">
+              Ceiling: 14,500 Bytes for 100% OJAS Acceptance
+            </span>
+          </div>
+        </aside>
+      )}
+
+      {isRssbJe && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="RSSB JEN 2026 Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-lg">⚙️</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">RSSB JE (JEN) 2026 Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Advt 10/2026 (1,909 Posts)</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                Photograph is captured LIVE inside Rajasthan SSO OTR (no file upload). Prepare your dual-script signature (Hindi &amp; English) and left thumb impression (560×160 px, 20–50 KB each) below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <button
+                type="button"
+                onclick="window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: 'rssb-je-signature' })); document.getElementById('exam-tool')?.scrollIntoView({ behavior: 'smooth' });"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border bg-primary text-primary-foreground border-primary shadow-xs cursor-pointer hover:opacity-95"
+              >
+                <span>✍️</span>
+                <span>Signature (Hindi &amp; English, 20–50 KB)</span>
+              </button>
+              <button
+                type="button"
+                onclick="window.dispatchEvent(new CustomEvent('select-exam-preset', { detail: 'rssb-je-thumb' })); document.getElementById('exam-tool')?.scrollIntoView({ behavior: 'smooth' });"
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border bg-card text-foreground border-border hover:border-primary/50 cursor-pointer"
+              >
+                <span>👍</span>
+                <span>Left Thumb (20–50 KB)</span>
+              </button>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-border/50 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+            <span class="flex items-center gap-1.5">
+              <span>⚠️</span>
+              <span><strong>No Photo Upload:</strong> Photo is captured via live webcam in Rajasthan OTR. Do NOT prepare a separate photo upload file.</span>
+            </span>
+            <span class="text-[11px] font-semibold text-primary">
+              Window: 18 Nov – 17 Dec 2026 · Exam: 3–5 Feb 2027
+            </span>
+          </div>
+        </aside>
+      )}
+
       {isBssc && (
         <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="BSSC Inter-Level Document Suite">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -1221,6 +1311,147 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
                 Provincial Public Service Commissions use separate provincial portals (such as <code class="font-mono text-foreground">onlineppsc.gandaki.gov.np</code> and <code class="font-mono text-foreground">ppsconline.karnali.gov.np</code>) rather than federal <code class="font-mono text-foreground">psconline.psc.gov.np</code>. Open the <a href="/np/pradesh-lok-sewa-photo-resize/" class="text-primary font-semibold underline underline-offset-4">Pradesh Lok Sewa resizer</a>, or browse all active Nepal recruitment tools—including <a href="/np/nepal-telecom-photo-signature-resize/" class="text-primary font-semibold underline underline-offset-4">Nepal Telecom signature resize</a> and <a href="/np/nea-photo-signature-resize/" class="text-primary font-semibold underline underline-offset-4">NEA photo resize</a>—on the <a href="/np/" class="text-primary font-semibold underline underline-offset-4">Nepal resizer hub</a>.
               </p>
             </section>
+          )}
+
+          {isGujaratPolice && (
+            <div class="space-y-6">
+              <!-- Section: Why OJAS rejects photos -->
+              <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-sm space-y-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-xl">⚠️</span>
+                  <h2 class="text-lg sm:text-xl font-bold text-foreground">Why OJAS Rejects Photos and Signatures</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                  <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-2">
+                    <strong class="text-foreground font-bold flex items-center gap-1.5 text-xs uppercase tracking-wider">
+                      <span>📉</span> Over 15 KB File Size
+                    </strong>
+                    <p class="text-muted-foreground leading-relaxed text-xs">
+                      The file is over 15 KB — the single commonest rejection cause. A phone camera photo is usually 2–5 MB; it must come down to strictly under 15 KB. Our resizer targets the size exactly instead of crushing quality blindly: it steps down compression gradually and stops the instant the file fits, keeping your face clear.
+                    </p>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-2">
+                    <strong class="text-foreground font-bold flex items-center gap-1.5 text-xs uppercase tracking-wider">
+                      <span>🔄</span> Incompatible File Format
+                    </strong>
+                    <p class="text-muted-foreground leading-relaxed text-xs">
+                      Wrong format — OJAS takes JPG only. PNG, WebP, and HEIC (iPhone) files trigger an immediate upload error on the portal. SignResize converts every uploaded format into verified JPG automatically.
+                    </p>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-2">
+                    <strong class="text-foreground font-bold flex items-center gap-1.5 text-xs uppercase tracking-wider">
+                      <span>✍️</span> Red/Green Ink or Lined Paper
+                    </strong>
+                    <p class="text-muted-foreground leading-relaxed text-xs">
+                      Signatures in red or green ink, or signed on ruled notebook paper with horizontal lines, violate OJAS instructions. Always sign in dark blue or black ink on plain, unruled white paper.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Section: How to apply on OJAS -->
+              <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-sm space-y-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-xl">📋</span>
+                  <h2 class="text-lg sm:text-xl font-bold text-foreground">How to Apply for Gujarat Police on OJAS (Step-by-Step)</h2>
+                </div>
+                <ol class="space-y-3 text-xs sm:text-sm text-muted-foreground list-decimal list-inside leading-relaxed">
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Keep your two files ready:</strong> Make your photograph (5.0 × 3.6 cm, &lt;15 KB) and signature (7.5 × 2.5 cm, &lt;15 KB) in the tool above and check for the green ticks before starting.
+                  </li>
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Open OJAS portal:</strong> Go to <a href="https://ojas.gujarat.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline">ojas.gujarat.gov.in</a> &rarr; Online Application &rarr; Apply &rarr; select <strong>GPRB</strong> (Gujarat Police Recruitment Board).
+                  </li>
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Choose your cadre:</strong> Select Lokrakshak Constable or Technical Cadre (per Advertisement Nos. 202627/1, 2 and 3). Fill in your details carefully — category, date of birth, and educational qualification cannot be changed later.
+                  </li>
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Upload Photograph &amp; Signature:</strong> Upload your prepared JPG files. The OJAS validator will accept both files instantly when under 14.5 KB.
+                  </li>
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Pay fee and submit:</strong> Pay the application fee (₹100 where applicable) and final-submit before <strong>16 December 2026, 11:59 PM</strong>. Save and print your confirmation receipt.
+                  </li>
+                </ol>
+              </section>
+            </div>
+          )}
+
+          {isRssbJe && (
+            <div class="space-y-6">
+              <!-- Section: Mistakes that get RSSB forms rejected -->
+              <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-sm space-y-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-xl">⚠️</span>
+                  <h2 class="text-lg sm:text-xl font-bold text-foreground">Mistakes That Get RSSB Forms Rejected</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                  <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-2">
+                    <strong class="text-foreground font-bold flex items-center gap-1.5 text-xs uppercase tracking-wider">
+                      <span>✍️</span> Only One Signature Uploaded
+                    </strong>
+                    <p class="text-muted-foreground leading-relaxed text-xs">
+                      RSSB asks for candidate signature in BOTH Hindi and English in the SAME image. Sign both, one above the other, inside a 7 × 2 cm box on plain white paper. Submitting only English or only Hindi violates board rules.
+                    </p>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-2">
+                    <strong class="text-foreground font-bold flex items-center gap-1.5 text-xs uppercase tracking-wider">
+                      <span>📉</span> File Under 20 KB (The Floor Rejection)
+                    </strong>
+                    <p class="text-muted-foreground leading-relaxed text-xs">
+                      A tiny, over-compressed scan under 20 KB fails the portal minimum and gets rejected. SignResize automatically targets the 30–40 KB sweet spot and pads files up to ensure you never fail the 20 KB minimum threshold.
+                    </p>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-2">
+                    <strong class="text-foreground font-bold flex items-center gap-1.5 text-xs uppercase tracking-wider">
+                      <span>📸</span> Phone Photo Instead of Flat Scan
+                    </strong>
+                    <p class="text-muted-foreground leading-relaxed text-xs">
+                      RSSB instructions mandate a clear scan of the signature and thumb impression, not a skewed mobile snapshot. If taking a photo with your mobile, keep the lens parallel, avoid paper shadows, and enable the clean white filter.
+                    </p>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-muted/40 border border-border space-y-2">
+                    <strong class="text-foreground font-bold flex items-center gap-1.5 text-xs uppercase tracking-wider">
+                      <span>🔒</span> Trying to Fix Details Later
+                    </strong>
+                    <p class="text-muted-foreground leading-relaxed text-xs">
+                      Candidate name, father's name, date of birth, photograph, signature, and thumb impression are permanently locked upon submission. Other non-critical corrections cost ₹300 and close 3 days after the application deadline (20 December 2026).
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Section: How to apply -->
+              <section class="rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-sm space-y-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-xl">📋</span>
+                  <h2 class="text-lg sm:text-xl font-bold text-foreground">How to Apply for RSSB JEN 2026 on SSO Rajasthan</h2>
+                </div>
+                <ol class="space-y-3 text-xs sm:text-sm text-muted-foreground list-decimal list-inside leading-relaxed">
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Prepare your files:</strong> Resize your signature (Hindi &amp; English) and left thumb impression above — each strictly JPG, 560 × 160 px, between 20 KB and 50 KB.
+                  </li>
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Log in to SSO Portal:</strong> Sign in at <a href="https://sso.rajasthan.gov.in" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline">sso.rajasthan.gov.in</a> and launch the <strong>Recruitment Portal</strong>.
+                  </li>
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Verify OTR Live Photo:</strong> Complete One Time Registration (OTR) if not already done. The live photo is captured via webcam in OTR with a 5-second countdown timer. Pay the OTR fee (₹600 General, ₹400 reserved) if this is your first application.
+                  </li>
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Select Junior Engineer Recruitment:</strong> Open "Direct Recruitment of Junior Engineer (JEN) 2026", confirm your OTR profile details are populated, and upload the signature and thumb files where prompted.
+                  </li>
+                  <li class="p-2.5 rounded-xl bg-muted/30 border border-border">
+                    <strong class="text-foreground">Final Submit before 17 Dec:</strong> Submit before <strong>17 December 2026, 11:59 PM</strong> and save your application number. (Candidates who applied during the August window: your application stands — do not apply again).
+                  </li>
+                </ol>
+              </section>
+
+              <!-- Cross-link note -->
+              <div class="p-4 rounded-xl bg-card border border-border text-xs text-muted-foreground flex items-center justify-between gap-3 flex-wrap">
+                <span>
+                  💡 <strong>Applying for Rajasthan Police?</strong> Rajasthan Police is a separate recruitment board with separate photo upload rules (photo is uploaded, not live in OTR). Visit the <a href="/rajasthan-police-signature-resize/" class="text-primary font-semibold hover:underline">Rajasthan Police Signature Resizer</a> or <a href="/rajasthan-police-photo-resize/" class="text-primary font-semibold hover:underline">Rajasthan Police Photo Resizer</a>.
+                </span>
+              </div>
+            </div>
           )}
 
           {isNtpc && <div class="space-y-1 rounded-xl border border-border bg-card p-4"><h2 class="text-xl font-bold text-foreground">Resize your NTPC signature</h2><p class="text-sm text-muted-foreground">Upload your signature, adjust the crop, then download the JPG. The NTPC preset targets 30–49 KB; check your active CEN.</p><p class="text-sm text-muted-foreground">Other photo and document presets are available below. For CEN 06/2025, the photo is captured live in the RRB application; an SC/ST certificate for a free travel pass must be a clear PDF under 400 KB. Check the final PDF size and your active notice.</p></div>}

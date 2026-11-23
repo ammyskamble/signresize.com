@@ -272,6 +272,10 @@ const presetSlugMap = new Map([
   ['rajasthan-police-sig', 'rajasthan-police-signature-resize'],
   ['bihar-police-sig', 'bihar-police-signature-resize'],
   ['mp-police-sig', 'mp-police-signature-resize'],
+  ['gujarat-police-photo', 'gujarat-police-photo-signature-resize'],
+  ['gujarat-police-sig', 'gujarat-police-photo-signature-resize'],
+  ['rssb-je-signature', 'rssb-je-photo-signature-resize'],
+  ['rssb-je-thumb', 'rssb-je-photo-signature-resize'],
   ['ib-acio', 'ib-acio-signature-resize'],
   ['ib-acio-photo', 'ib-acio-photo-resize']
 ]);

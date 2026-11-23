@@ -1197,9 +1197,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'thumb-impression-doc' || p.id === 'marksheet-10th');
       }
     }
-    // 20. State Police Bharti (Maharashtra, UP, Rajasthan, Bihar, MP)
+    // 20. State Police Bharti (Maharashtra, UP, Rajasthan, Bihar, MP, Gujarat)
     else if (matchesExam('police')) {
-      if (examAnchor.includes('maharashtra') || examAnchor.includes('mahapolice')) {
+      if (examAnchor.includes('gujarat')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'gujarat-police-sig');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'gujarat-police-photo');
+      } else if (examAnchor.includes('maharashtra') || examAnchor.includes('mahapolice')) {
         if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'maharashtra-police');
         else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'maharashtra-police-photo');
         else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'domicile-certificate');
@@ -1224,6 +1227,11 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'mp-police-photo');
         else if (newType === 'document') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'marksheet-10th');
       }
+    }
+    // 20.1 RSSB / RSMSSB (Rajasthan Staff Selection Board - JEN 2026)
+    else if (matchesExam('rssb', 'rsmssb') || examAnchor.includes('rssb') || examAnchor.includes('rsmssb')) {
+      if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'rssb-je-signature');
+      else if (newType === 'document' || newType === 'thumb') targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'rssb-je-thumb');
     }
     // 21. NTA (NEET & JEE Main)
     else if (examAnchor.includes('jee-main') || matchesExam('jee main', 'jee (main)')) {
@@ -1466,6 +1474,22 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     selectedPreset?.id?.endsWith('-np') ||
     resolvedPreset?.country === 'NP' ||
     initialPresetId?.endsWith('-np')
+  );
+
+  const isGujaratPoliceActive = Boolean(
+    selectedPreset?.id?.includes('gujarat-police') ||
+    selectedPreset?.name?.toLowerCase().includes('gujarat police') ||
+    resolvedPreset?.id?.includes('gujarat-police') ||
+    initialPresetId?.includes('gujarat-police') ||
+    (typeof window !== 'undefined' && window.location.pathname.includes('gujarat-police'))
+  );
+
+  const isRssbActive = Boolean(
+    selectedPreset?.id?.includes('rssb') ||
+    selectedPreset?.name?.toLowerCase().includes('rssb') ||
+    resolvedPreset?.id?.includes('rssb') ||
+    initialPresetId?.includes('rssb') ||
+    (typeof window !== 'undefined' && window.location.pathname.includes('rssb'))
   );
 
   const selectCoastGuardSection = useCallback((section: 'signature' | 'photo' | 'thumb' | 'document') => {
@@ -3281,6 +3305,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     ? [
         { id: 'wbpsc-west-bengal', short: 'WBPSC Sign', label: 'WBPSC Sign (140×60)', specs: '140×60 • 10–20 KB' },
         { id: 'wbpsc-photo', short: 'WBPSC Photo', label: 'WBPSC Photo (138×177)', specs: '138×177 • 20–100 KB' },
+      ]
+    : isGujaratPoliceActive
+    ? [
+        { id: 'gujarat-police-photo', short: 'GPRB Photo', label: 'Gujarat Police Photo (OJAS)', specs: '425×591 • ≤15 KB' },
+        { id: 'gujarat-police-sig', short: 'GPRB Sign', label: 'Gujarat Police Signature (OJAS)', specs: '886×295 • ≤15 KB' },
+      ]
+    : isRssbActive
+    ? [
+        { id: 'rssb-je-signature', short: 'RSSB Sign', label: 'RSSB Signature (Hindi & English)', specs: '560×160 • 20–50 KB' },
+        { id: 'rssb-je-thumb', short: 'RSSB Thumb', label: 'RSSB Left Thumb Impression', specs: '560×160 • 20–50 KB' },
       ]
     : targetType === 'photo'
     ? [
@@ -6055,6 +6089,48 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                           >
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                             <span>{selectedPreset?.id?.includes('bank') ? 'BB Verified' : 'Teletalk Verified'}</span>
+                          </button>
+                        ) : isGujaratPoliceActive && processedResult ? (
+                          processedResult.sizeBytes <= 14500 ? (
+                            <button
+                              type="button"
+                              onClick={() => setShowExportChecks(true)}
+                              className="inline-flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-500/15 border border-emerald-500/40 px-2 py-0.5 rounded text-[11px] cursor-pointer hover:bg-emerald-500/25 transition shadow-2xs"
+                              title="Validated: file is under 14,500 bytes (≤14.5 KB), 100% compliant with OJAS portal standards"
+                            >
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                              <span>OJAS Safe ({(processedResult.sizeBytes / 1024).toFixed(1)} KB)</span>
+                            </button>
+                          ) : processedResult.sizeBytes <= 15360 ? (
+                            <button
+                              type="button"
+                              onClick={() => setShowExportChecks(true)}
+                              className="inline-flex items-center gap-1 font-bold text-amber-700 dark:text-amber-300 bg-amber-500/15 border border-amber-500/40 px-2 py-0.5 rounded text-[11px] cursor-pointer hover:bg-amber-500/25 transition shadow-2xs"
+                              title="File is between 14.5 KB and 15 KB. OJAS strictly enforces under 15 KB. Recommended to land ≤ 14.5 KB."
+                            >
+                              <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
+                              <span>{(processedResult.sizeBytes / 1024).toFixed(1)} KB (Warn: Safe is ≤14.5 KB)</span>
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => setShowExportChecks(true)}
+                              className="inline-flex items-center gap-1 font-bold text-rose-700 dark:text-rose-300 bg-rose-500/15 border border-rose-500/40 px-2 py-0.5 rounded text-[11px] cursor-pointer hover:bg-rose-500/25 transition shadow-2xs"
+                              title="File exceeds 15 KB limit. OJAS portal rejects files over 15 KB."
+                            >
+                              <AlertCircle className="w-3.5 h-3.5 text-rose-600" />
+                              <span>&gt;15 KB (Exceeds OJAS)</span>
+                            </button>
+                          )
+                        ) : isRssbActive && processedResult?.withinTargetBounds ? (
+                          <button
+                            type="button"
+                            onClick={() => setShowExportChecks(true)}
+                            className="inline-flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-500/15 border border-emerald-500/40 px-2 py-0.5 rounded text-[11px] cursor-pointer hover:bg-emerald-500/25 transition shadow-2xs"
+                            title="Validated: 20–50 KB range for Rajasthan SSO OTR JEN 2026 portal"
+                          >
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                            <span>20–50 KB ✓</span>
                           </button>
                         ) : (
                           <button

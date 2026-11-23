@@ -699,6 +699,48 @@ EXAM_GUIDANCE['jee-main-photo-resize'] = {
   changes: 'Added mandatory live webcam correlation instructions, 80% face coverage rules, and Session 1 correction window advisories.',
 };
 
+EXAM_GUIDANCE['gujarat-police-photo-signature-resize'] = {
+  reviewedOn: '2026-11-24',
+  title: 'Gujarat Police Recruitment 2026 (GPRB OJAS) Photo & Signature Specifications',
+  cycle: 'GPRB Advt Nos. 202627/1, 2 and 3 · 3,000 Posts · OJAS Portal',
+  summary: 'Gujarat Police Recruitment 2026 (GPRB, Advertisement Nos. 202627/1, 2 and 3) — 3,000 posts (2,841 Lokrakshak Constable + 159 Technical Cadre). Applications run on OJAS (ojas.gujarat.gov.in) from 26 November 2026 (2:00 PM) to 16 December 2026 (11:59 PM). OJAS accepts only two image files, and both have the same strict limit: Photograph — JPG, under 15 KB, 5.0 × 3.6 cm, white background. Signature — JPG, under 15 KB, 7.5 × 2.5 cm, dark blue or black ink on white paper. Make both files below, check the green ticks, then upload them on OJAS.',
+  rows: [
+    { label: 'Photograph upload', value: '5.0 × 3.6 cm (425 × 591 px at 300 DPI)', evidence: 'Recent colour photo on white background, face clearly visible, both ears uncovered.' },
+    { label: 'Photo file size', value: 'JPG format · strictly under 15 KB (target ≤ 14.5 KB / 14,500 bytes)', evidence: 'OJAS portal rejects any file exceeding 15 KB. Tool steps down quality only until file fits.' },
+    { label: 'Signature upload', value: '7.5 × 2.5 cm (886 × 295 px at 300 DPI)', evidence: 'Dark blue or black ink on plain white paper. Red and green ink signatures are prohibited.' },
+    { label: 'Signature file size', value: 'JPG format · strictly under 15 KB (target ≤ 14.5 KB)', evidence: 'Portal rejects files exceeding 15 KB. Both uploads share the exact same 15 KB ceiling.' },
+    { label: 'Supported formats', value: 'JPG / JPEG only (no PNG/WebP/HEIC)', evidence: 'OJAS only accepts JPG format. Our tool automatically converts iPhone HEIC and PNG to compliant JPG.' },
+    { label: 'Application window', value: '26 November 2026 (2:00 PM) – 16 December 2026 (11:59 PM)', evidence: 'Official online application dates on ojas.gujarat.gov.in for GPRB Advertisements 202627/1–3.' },
+  ],
+  caution: 'OJAS accepts only JPG files strictly under 15 KB. Our compressor targets ≤14,500 bytes to guarantee 100% acceptance whether OJAS measures 15,000 or 15,360 bytes. Category, date of birth, and qualification cannot be changed later.',
+  links: [
+    { href: '/gpsc-signature-resize/', label: 'GPSC Gujarat Administrative signature resizer' },
+    { href: '/photo-resizer/', label: 'Standard passport photo resizer' },
+  ],
+  changes: 'Authoritative launch for GPRB 2026 Advt 202627/1–3 with dual-preset 15 KB (≤14.5 KB safety ceiling) calibration.',
+};
+
+EXAM_GUIDANCE['rssb-je-photo-signature-resize'] = {
+  reviewedOn: '2026-11-24',
+  title: 'RSSB Junior Engineer (JEN) 2026 Signature & Thumb Impression Specifications',
+  cycle: 'RSSB Advt 10/2026 (1,909 Posts) · Rajasthan SSO Portal (sso.rajasthan.gov.in)',
+  summary: 'RSSB Junior Engineer (JEN) 2026, Advertisement No. 10/2026 — 1,909 posts (Civil 1,320 · Electrical 340 · Mechanical 249). Applications reopened 18 November – 17 December 2026 (11:59 PM) on the SSO portal (sso.rajasthan.gov.in). Candidates who applied in the August window do not apply again. Your photograph is NOT uploaded — RSSB captures it live inside your One Time Registration (OTR) and fetches it into the form. The two files you must prepare are Signature (Hindi AND English inside a 7 × 2 cm box, JPG, 560 × 160 px, 20–50 KB) and Left thumb impression (same 7 × 2 cm box, JPG, 560 × 160 px, 20–50 KB).',
+  rows: [
+    { label: 'Photograph upload', value: 'Captured LIVE in OTR (no file upload)', evidence: 'RSSB Advt 04/2026 paras 7–8 & Advt 10/2026 standard. Live webcam capture inside Rajasthan SSO OTR.' },
+    { label: 'Signature upload', value: 'Scan of a 7 × 2 cm box on white paper (560 × 160 px)', evidence: 'Sign in BOTH Hindi and English inside the same 7 × 2 cm box, one above the other, in a single image.' },
+    { label: 'Signature file size', value: 'JPG format · strictly 20 KB to 50 KB (target ~35 KB)', evidence: 'Files below 20 KB or above 50 KB fail portal upload. Tool automatically pads files into the 20–50 KB band.' },
+    { label: 'Left thumb impression', value: 'Scan of a 7 × 2 cm box · 560 × 160 px · 20–50 KB JPG', evidence: 'Clear ridges in blue or black ink. Right thumb allowed only if left thumb is unavailable.' },
+    { label: 'Locked fields notice', value: 'Photo, signature & thumb impression CANNOT be changed', evidence: 'Permanent lock upon final submission. Non-critical corrections cost ₹300 until 20 December 2026.' },
+    { label: 'Window & exam dates', value: '18 Nov – 17 Dec 2026 (11:59 PM) · Exam: 3–5 Feb 2027', evidence: 'Vacancies increased from 874 to 1,909. August-window applications remain valid.' },
+  ],
+  caution: 'Photo, signature and thumb impression cannot be changed after submission. Ensure both Hindi and English signatures are inside the 7×2 cm box, and verify file size is within 20–50 KB before submitting on sso.rajasthan.gov.in.',
+  links: [
+    { href: '/rajasthan-police-signature-resize/', label: 'Rajasthan Police signature resizer (separate exam — live photo in OTR does not apply)' },
+    { href: '/rajasthan-police-photo-resize/', label: 'Rajasthan Police photo resizer (separate exam)' },
+  ],
+  changes: 'Authoritative guidance for JEN Advt 10/2026 clarifying live OTR photo capture, dual Hindi/English signature box, and 20–50 KB floor/ceiling bounds.',
+};
+
 export const GUIDANCE_PRESET_UPDATES: Record<string, Partial<ExamPreset>> = {
   'iit-jam': {
     targetType: 'signature', portalExactSpecsVerified: false,
