@@ -417,6 +417,16 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
         )}
       </section>
 
+      <!-- Primary Canvas Workspace (Directly Below H1 Hero) -->
+      <div id="exam-tool" class="scroll-mt-20 bg-transparent sm:bg-card border-0 sm:border border-border rounded-2xl p-0 sm:p-6 shadow-none sm:shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
+        <SignatureTool 
+          client:idle
+          initialPresetId={examData.presetId} 
+          initialMode={examData.slug.includes('photo') ? 'photo' : 'signature'} 
+          canvasFirst={isStationMaster || isNtpc}
+        />
+      </div>
+
       {examGuidance && !isNtpc && !isStationMaster && <ExamRequirements guidance={examGuidance} sources={examData.sources || []} />}
 
       {relatedTools.length > 0 && !hasDocumentSuite && !examGuidance && !isCoastGuard && !isTnpsc && (
@@ -1295,14 +1305,6 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
               </div>
             </section>
           )}
-          <div id="exam-tool" class="scroll-mt-20 bg-transparent sm:bg-card border-0 sm:border border-border rounded-2xl p-0 sm:p-6 shadow-none sm:shadow-sm min-h-[920px] sm:min-h-[820px] lg:min-h-[680px]">
-            <SignatureTool 
-              client:idle
-              initialPresetId={examData.presetId} 
-              initialMode={examData.slug.includes('photo') ? 'photo' : 'signature'} 
-              canvasFirst={isStationMaster || isNtpc}
-            />
-          </div>
 
           {isNepalLokSewa && (
             <section class="rounded-xl border border-primary/25 bg-primary/5 p-4 space-y-2" aria-label="Provincial and institutional Nepal resizers">
