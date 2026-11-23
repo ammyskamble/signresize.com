@@ -472,7 +472,7 @@ export const NEPAL_EXAM_PAGES: Record<string, NepalPageConfig> = {
       {
         badge: 'RE-ENTRANCE PORTAL · 51×51 MM',
         heading: 'Purbanchal University — Faculty of Engineering BE / B.Arch Re-Entrance 2083/84',
-        meta: 'Notice dated 2083/06/02: Regular deadline 2083 Kartik 19 (5 Nov 2026) · Late fee 2083 Kartik 27 (13 Nov 2026) — verify active round schedule directly on entrance.puexam.edu.np',
+        meta: 'Extension notice 2083/07/18: Regular deadline 24 Nov 2026 (midnight) · Late fee 26 Nov 2026 · Exam 1 Dec 2026, 11:00 AM–1:00 PM — fee Rs 4,000 / Rs 5,000 late — verify active round schedule directly on entrance.puexam.edu.np',
         body: 'Notice Point 8(क) strictly specifies a recent 51 mm × 51 mm digital colour photo with full face visible and plain background in JPEG, JPG, or PNG format (any other size/format is invalid). Because the notice prints no KB ceiling, no KB limit is fabricated here.',
         portalLabel: 'entrance.puexam.edu.np',
         portalUrl: 'https://entrance.puexam.edu.np/',
