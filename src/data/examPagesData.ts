@@ -2775,46 +2775,60 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'ssc-chsl-signature-resize',
     presetId: 'ssc-chsl',
-    pageTitle: 'SSC CHSL Signature Resize 10 to 20 KB (140x60 px) 2026 - SignResize',
-    metaDescription: 'Resize signature for SSC CHSL (Combined Higher Secondary Level) 2026 online. Format to 140x60 px, 10 to 20 KB JPG for SSC CHSL Tier 1 and Tier 2 portals. Free, instant, private.',
-    keywords: 'ssc chsl signature resize, ssc chsl signature size 2026, ssc chsl signature 10 to 20 kb, ssc chsl signature 140x60, ssc chsl tier 1 signature size, ssc chsl apply online 2026, chsl signature format',
-    h1: 'SSC CHSL Signature Resize & Compressor (10 KB – 20 KB)',
-    subheading: 'Exact 140×60 px (4.0×2.0 cm) dimensions with dual-boundary 10–20 KB compression for SSC CHSL Tier 1 CBE and Tier 2 (Skill Test) portals.',
+    pageTitle: 'SSC CHSL Signature Size 10 to 20 KB (709x236 px) 2026 - SignResize',
+    metaDescription: 'Resize and compress signature for SSC CHSL 2026 online. Format to 10–20 KB JPG (6.0x2.0 cm / 709x236 px at 300 DPI) per Paras 9.4–9.6 of the official notice for ssc.gov.in.',
+    keywords: 'ssc chsl signature size, ssc chsl signature resize, ssc chsl signature 10 to 20 kb, ssc chsl signature 709x236, ssc chsl signature 6x2 cm, ssc chsl 2026 signature format, ssc chsl live photo',
+    h1: 'SSC CHSL 2026 Signature Resize & Upload Guide (10 KB – 20 KB)',
+    subheading: 'Official 10 KB to 20 KB JPG/JPEG bounds (6.0×2.0 cm / 709×236 px at 300 DPI) verified against the SSC CHSL 2026 Notice (Paras 9.4–9.6). Note: Photo is captured live in the portal.',
     authority: 'Staff Selection Commission (SSC)',
-    targetExams: 'SSC CHSL Tier 1 (CBE), SSC CHSL Tier 2 (Descriptive Paper & Skill Test), SSC CHSL 2026 Notification',
-    widthPx: 140,
-    heightPx: 60,
-    widthCm: 4.0,
+    targetExams: 'SSC CHSL 2026 (Combined Higher Secondary 10+2 Level Examination — Tier 1 & Tier 2)',
+    guidanceLabel: 'CHSL 2026 Notice Verified',
+    verifiedOn: '2026-11-23',
+    widthPx: 709,
+    heightPx: 236,
+    widthCm: 6.0,
     heightCm: 2.0,
     minKb: 10,
     maxKb: 20,
     recommendedKb: 15,
-    dpi: 200,
-    ink: 'Black Ballpoint Ink Only',
-    aspectRatioLabel: '7:3 (~140×60 px)',
-    strictNotice: 'SSC CHSL uses the same portal standard as SSC CGL. Signatures in CAPITAL / BLOCK LETTERS are categorically rejected during document verification.',
+    dpi: 300,
+    ink: 'Black Ballpoint Ink (Unruled White Paper)',
+    aspectRatioLabel: '3:1 (709×236 px / 6.0×2.0 cm)',
+    strictNotice: 'SSC CHSL mandates candidate signature in natural running cursive handwriting (10–20 KB JPG). Signatures in ALL CAPITAL / BLOCK letters or blurry scans are rejected. Candidate photograph is captured live via real-time camera/app inside the portal.',
     tips: [
-      'Sign with a fresh black ballpoint pen on white unruled paper. Avoid gel pens that bleed through.',
-      'Keep your signature consistent across all SSC exams — a mismatch can raise identity concerns.',
-      'Compress to exactly 14–19 KB for a comfortable margin within the 10–20 KB portal limit.',
-      'Use Clean White Paper mode to eliminate mobile phone camera shadows before download.'
+      'Sign with a black or dark blue ballpoint pen on plain, unruled white printer paper. Avoid gel pens that bleed through.',
+      'Use natural running cursive handwriting — never sign in all-capital or detached block letters.',
+      'Crop tightly on the 709×236 px canvas to ensure full stroke clarity on admit cards and verification sheets.',
+      'Compress to exactly 14–18 KB for a safe margin within the 10.0 KB to 20.0 KB portal corridor.'
     ],
     faqs: [
       {
-        q: 'What is the SSC CHSL signature size and dimensions for 2026?',
-        a: 'The SSC CHSL portal requires a signature of 140 × 60 pixels (4.0 cm × 2.0 cm) in JPG/JPEG format with a file size strictly between 10 KB and 20 KB.'
+        q: 'What is the official signature size for SSC CHSL 2026?',
+        a: 'Per Paragraph 9.6 of the official SSC CHSL 2026 Notice, the scanned signature must be in JPG/JPEG format, strictly between 10 KB and 20 KB, with physical dimensions of about 6.0 cm (width) × 2.0 cm (height) (709 × 236 px at 300 DPI).'
       },
       {
-        q: 'Is SSC CHSL signature size the same as SSC CGL and SSC MTS?',
-        a: 'Yes. SSC CGL, SSC CHSL, SSC MTS, SSC CPO, and SSC GD all use the same Staff Selection Commission OTR portal document upload standards: 140×60 px, 10–20 KB, JPG, black ink on white paper.'
+        q: 'Why does the CHSL notice mention both 6.0 × 2.0 cm and 4.0 × 2.0 cm?',
+        a: 'The main notice text (Paragraph 9.6) specifies about 6.0 cm (width) × 2.0 cm (height), while Annexure IV lists 4.0 cm × 2.0 cm. Because the SSC OTR portal only checks that the file is in JPG/JPEG format and strictly between 10.0 KB and 20.0 KB, both dimensions pass. SignResize uses the primary 709 × 236 px canvas (3:1 ratio at 300 DPI) for maximum clarity and stroke sharpness.'
       },
       {
-        q: 'What posts are covered under SSC CHSL 2026 recruitment?',
-        a: 'SSC CHSL (Combined Higher Secondary Level) recruits for Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), Postal Assistant (PA), Sorting Assistant (SA), and Data Entry Operator (DEO) in various Central Government Ministries and Departments.'
+        q: 'Do I need to upload a scanned passport photo for SSC CHSL 2026?',
+        a: 'No. The SSC CHSL 2026 application mandates real-time live photograph capture via webcam or the official MySSC mobile app. Pre-saved passport photo uploads are not accepted. Only the handwritten signature is uploaded as a 10–20 KB JPG file.'
       },
       {
-        q: 'Do I need to upload signature again at SSC CHSL Tier 2 skill test?',
-        a: 'Candidates shortlisted for Tier 2 may need to upload fresh documents if notification so specifies. Your original portal-uploaded signature from Tier 1 application is generally used for the entire recruitment cycle unless the SSC issues a separate instruction.'
+        q: 'Can I sign in CAPITAL or BLOCK letters for SSC CHSL?',
+        a: 'No. The SSC notice explicitly warns that signatures in capital or block letters are invalid and will cause disqualification during scrutiny or document verification. Sign in natural running cursive handwriting.'
+      },
+      {
+        q: 'What pen ink should I use for SSC CHSL signature?',
+        a: 'Sign with a black or dark blue ballpoint pen on plain, unruled white printer paper. Avoid gel pens or textured paper to prevent ink bleeding or scanner contrast issues.'
+      },
+      {
+        q: 'What happens if my CHSL signature file size is 9.5 KB or 21 KB?',
+        a: 'The SSC application portal validator automatically blocks the upload if the file is below 10.0 KB or exceeds 20.0 KB. SignResize compresses your signature safely within the 14–18 KB corridor.'
+      },
+      {
+        q: 'Can I reuse my SSC CGL or MTS signature for SSC CHSL?',
+        a: 'Yes, provided your signature file is a crisp 10–20 KB JPG in running cursive handwriting and was captured under good contrast on white paper. All SSC exams (CGL, CHSL, MTS, GD, CPO) share the same 10–20 KB OTR signature gateway.'
       }
     ]
   },

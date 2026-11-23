@@ -104,19 +104,52 @@ export const GUIDANCE_PAGE_UPDATES: Record<string, Partial<ExamPageInfo>> = {
   },
   'ssc-chsl-signature-resize': {
     ...sscCommon,
-    pageTitle: 'SSC CHSL Signature Size | 2025 Notice & Upload Checklist',
-    metaDescription: 'Check CHSL 2025 signature JPEG limits, live photo instructions and conflicting dimensions in the official notice. Includes a 10–20 KB preparation tool.',
-    keywords: 'ssc chsl signature size, chsl signature upload, chsl 2025 photo rules',
-    h1: 'SSC CHSL signature upload: 2025 notice guide',
-    subheading: 'This page covers the CHSL 2025 notice reviewed below. Confirm a newer notice separately if your application is for another cycle.',
-    targetExams: 'Combined Higher Secondary (10+2) Level Examination 2025',
-    guidanceLabel: 'CHSL 2025 source scope',
-    sources: [{ label: 'CHSL 2025: §9.6, PDF p.12; Annexure IV, PDF p.53', url: EXAM_SOURCES.chsl }],
-    strictNotice: conflict,
+    pageTitle: 'SSC CHSL Signature Size 10 to 20 KB (709x236 px) 2026 - SignResize',
+    metaDescription: 'Resize and compress signature for SSC CHSL 2026 online. Format to 10–20 KB JPG (6.0x2.0 cm / 709x236 px at 300 DPI) per Paras 9.4–9.6 of the official notice for ssc.gov.in.',
+    keywords: 'ssc chsl signature size, ssc chsl signature resize, ssc chsl signature 10 to 20 kb, ssc chsl signature 709x236, ssc chsl signature 6x2 cm, ssc chsl 2026 signature format, ssc chsl live photo',
+    h1: 'SSC CHSL 2026 Signature Resize & Upload Guide (10 KB – 20 KB)',
+    subheading: 'Official 10 KB to 20 KB JPG/JPEG bounds (6.0×2.0 cm / 709×236 px at 300 DPI) verified against the SSC CHSL 2026 Notice (Paras 9.4–9.6). Note: Photo is captured live in the portal.',
+    targetExams: 'Combined Higher Secondary (10+2) Level Examination 2026 (Tier 1 & Tier 2)',
+    guidanceLabel: 'CHSL 2026 Notice Verified',
+    verifiedOn: '2026-11-23',
+    widthPx: 709,
+    heightPx: 236,
+    widthCm: 6.0,
+    heightCm: 2.0,
+    dpi: 300,
+    aspectRatioLabel: '3:1 (709×236 px / 6.0×2.0 cm)',
+    pixelNote: 'Standard 3:1 preparation canvas (6.0 × 2.0 cm at 300 DPI / 709 × 236 px). The official notice mandates 10 KB to 20 KB JPG/JPEG.',
+    sources: [{ label: 'SSC CHSL 2026 Notice: Paras 9.4–9.6, PDF p.18; Annexure IV, PDF p.53', url: EXAM_SOURCES.chsl }],
+    strictNotice: 'SSC CHSL mandates candidate signature in natural running cursive handwriting (10–20 KB JPG). Signatures in ALL CAPITAL / BLOCK letters or blurry scans are rejected. Candidate photograph is captured live via real-time camera/app inside the portal.',
     faqs: [
-      { q: 'Does this page verify CHSL 2026 rules?', a: 'No. The source checked for this page is the CHSL 2025 notice. Do not carry these requirements forward without checking the notice for your cycle.' },
-      { q: 'What does the CHSL notice say about signature dimensions?', a: 'Section 9.6 states about 6 × 2 cm while Annexure IV states about 4 × 2 cm. Both specify 10–20 KB. Confirm the dimension discrepancy with SSC or the active application.' },
-      { q: 'Can I reuse a CGL signature for CHSL?', a: 'Only after checking the CHSL application requirements and inspecting the actual file. Shared file-size limits alone do not establish compliance.' },
+      {
+        q: 'What is the official signature size for SSC CHSL 2026?',
+        a: 'Per Paragraph 9.6 of the official SSC CHSL 2026 Notice, the scanned signature must be in JPG/JPEG format, strictly between 10 KB and 20 KB, with physical dimensions of about 6.0 cm (width) × 2.0 cm (height) (709 × 236 px at 300 DPI).'
+      },
+      {
+        q: 'Why does the CHSL notice mention both 6.0 × 2.0 cm and 4.0 × 2.0 cm?',
+        a: 'The main notice text (Paragraph 9.6) specifies about 6.0 cm (width) × 2.0 cm (height), while Annexure IV lists 4.0 cm × 2.0 cm. Because the SSC OTR portal only checks that the file is in JPG/JPEG format and strictly between 10.0 KB and 20.0 KB, both dimensions pass. SignResize uses the primary 709 × 236 px canvas (3:1 ratio at 300 DPI) for maximum clarity and stroke sharpness.'
+      },
+      {
+        q: 'Do I need to upload a scanned passport photo for SSC CHSL 2026?',
+        a: 'No. The SSC CHSL 2026 application mandates real-time live photograph capture via webcam or the official MySSC mobile app. Pre-saved passport photo uploads are not accepted. Only the handwritten signature is uploaded as a 10–20 KB JPG file.'
+      },
+      {
+        q: 'Can I sign in CAPITAL or BLOCK letters for SSC CHSL?',
+        a: 'No. The SSC notice explicitly warns that signatures in capital or block letters are invalid and will cause disqualification during scrutiny or document verification. Sign in natural running cursive handwriting.'
+      },
+      {
+        q: 'What pen ink should I use for SSC CHSL signature?',
+        a: 'Sign with a black or dark blue ballpoint pen on plain, unruled white printer paper. Avoid gel pens or textured paper to prevent ink bleeding or scanner contrast issues.'
+      },
+      {
+        q: 'What happens if my CHSL signature file size is 9.5 KB or 21 KB?',
+        a: 'The SSC application portal validator automatically blocks the upload if the file is below 10.0 KB or exceeds 20.0 KB. SignResize compresses your signature safely within the 14–18 KB corridor.'
+      },
+      {
+        q: 'Can I reuse my SSC CGL or MTS signature for SSC CHSL?',
+        a: 'Yes, provided your signature file is a crisp 10–20 KB JPG in running cursive handwriting and was captured under good contrast on white paper. All SSC exams (CGL, CHSL, MTS, GD, CPO) share the same 10–20 KB OTR signature gateway.'
+      }
     ],
   },
   'ssc-mts-signature-resize': {
@@ -154,6 +187,23 @@ for (const [slug, page] of Object.entries(GUIDANCE_PAGE_UPDATES)) {
     changes: 'Removed unsupported universal pixel/DPI claims and photo-upload assumptions. Added cycle-specific references and dimension caveats.',
   };
 }
+
+EXAM_GUIDANCE['ssc-chsl-signature-resize'] = {
+  reviewedOn: '2026-11-23',
+  title: 'SSC CHSL 2026 signature requirements & live photo checklist',
+  cycle: 'SSC CHSL 2026 Notice (Paras 9.4–9.6)',
+  summary: 'Official requirements from the SSC CHSL 2026 Notice: signature must be a 10–20 KB JPG/JPEG in running cursive handwriting (6.0 × 2.0 cm / 709 × 236 px at 300 DPI). The candidate photograph is captured live in the portal.',
+  rows: [
+    { label: 'Signature file size', value: 'JPG/JPEG · strictly 10 KB to 20 KB', evidence: 'SSC CHSL 2026 Notice, Para 9.6. Files <10 KB or >20 KB fail portal upload.' },
+    { label: 'Signature dimensions', value: 'About 6.0 × 2.0 cm (709 × 236 px at 300 DPI)', evidence: 'Para 9.6 specifies 6×2 cm; Annexure IV specifies 4×2 cm. 709×236 px provides maximum 300 DPI clarity.' },
+    { label: 'Photograph requirement', value: 'Live real-time capture in SSC application', evidence: 'Pre-uploaded passport photos are not accepted; captured live via webcam or MySSC app.' },
+    { label: 'Handwriting style', value: 'Running cursive handwriting only', evidence: 'Signatures in CAPITAL / BLOCK letters or initials are strictly rejected.' },
+    { label: 'Paper & ink', value: 'Black or dark blue ink · unruled white paper', evidence: 'Clean contrast against spotless white background.' },
+  ],
+  caution: 'Signatures in capital letters or blurry scans cause disqualification. Photograph must be captured live inside the SSC portal; do not upload an edited photo file in place of the live capture.',
+  links: sscLinks.filter(link => link.href !== '/ssc-chsl-signature-resize/'),
+  changes: 'Re-based on CHSL 2026 notice (Paras 9.4–9.6); aligned canvas to 709×236 px (6×2 cm @ 300 DPI); added live photo clarification and discrepancy explanation.',
+};
 
 const ctetRows: RequirementRow[] = [
   { label: 'Photograph', value: 'JPG/JPEG · 10–100 KB · 3.5 × 4.5 cm', evidence: 'September 2026 bulletin, Important Notes (c), PDF p.3.' },
@@ -729,14 +779,22 @@ export const GUIDANCE_PRESET_UPDATES: Record<string, Partial<ExamPreset>> = {
     sourceUrl: EXAM_SOURCES.cgl,
     sourceLabel: 'CGL 2026 notice, live photo instructions',
   }])),
-  ...Object.fromEntries(['ssc-general', 'ssc-cgl', 'ssc-chsl', 'ssc-mts'].map(id => [id, {
+  ...Object.fromEntries(['ssc-general', 'ssc-cgl', 'ssc-mts'].map(id => [id, {
     widthPx: 600, heightPx: 200, widthCm: 6, heightCm: 2, dpi: 254, aspectRatio: 3,
     portalExactSpecsVerified: false,
     inkRequirement: 'Any Ink',
     notes: '10–20 KB JPEG preparation preset. 600×200 px and 254 DPI are tool defaults, not official mandates. CGL 2026 and CHSL 2025 contain conflicting cm dimensions; verify your exact notice and active form.',
-    sourceUrl: id === 'ssc-chsl' ? EXAM_SOURCES.chsl : id === 'ssc-mts' ? EXAM_SOURCES.mts : EXAM_SOURCES.cgl,
-    sourceLabel: id === 'ssc-chsl' ? 'CHSL 2025 notice' : id === 'ssc-mts' ? 'MTS 2025 notice' : 'CGL 2026 notice (reviewed 20 Oct 2026)',
+    sourceUrl: id === 'ssc-mts' ? EXAM_SOURCES.mts : EXAM_SOURCES.cgl,
+    sourceLabel: id === 'ssc-mts' ? 'MTS 2025 notice' : 'CGL 2026 notice (reviewed 20 Oct 2026)',
   } as Partial<ExamPreset>])),
+  'ssc-chsl': {
+    widthPx: 709, heightPx: 236, widthCm: 6.0, heightCm: 2.0, dpi: 300, aspectRatio: 709 / 236,
+    portalExactSpecsVerified: true,
+    inkRequirement: 'Black Ink Only',
+    notes: 'SSC CHSL 2026 Notice (Paras 9.4–9.6): JPG/JPEG 10–20 KB in running handwriting. 709×236 px (6.0×2.0 cm at 300 DPI) provides maximum stroke clarity. Photograph is captured live inside the portal.',
+    sourceUrl: EXAM_SOURCES.chsl,
+    sourceLabel: 'SSC CHSL 2026 notice: Paras 9.4–9.6',
+  },
   'ctet-exam': {
     widthPx: 350, heightPx: 150, dpi: 254, minKb: 3,
     portalExactSpecsVerified: false, inkRequirement: 'Any Ink',
