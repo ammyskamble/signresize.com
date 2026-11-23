@@ -777,34 +777,57 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
       )}
 
       {isUpsssc && (
-        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="UPSSSC PET Document Suite">
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="UPSSSC PET & OTR Document Suite">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div class="space-y-1">
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 flex-wrap">
                 <span class="text-lg">📜</span>
-                <span class="font-bold text-sm sm:text-base text-foreground">UPSSSC PET &amp; OTR Document Suite</span>
-                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official UPSSSC Specs</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">UPSSSC OTR, PET &amp; Mains Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official UPSSSC Standards</span>
               </div>
               <p class="text-xs text-muted-foreground leading-relaxed">
-                UPSSSC mandates signature with Hindi name underneath (30–50 KB) and passport photograph (50–100 KB). Switch tools below:
+                UPSSSC mandates signature with Hindi name underneath (30–50 KB) and passport photo (50–100 KB). Mains forms carry over your OTR record. Switch tools below:
               </p>
             </div>
             <div class="flex items-center gap-2 flex-wrap shrink-0">
               <a
                 href="/upsssc-pet-signature-resize/"
-                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'upsssc-pet-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+                class={`px-3 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'upsssc-pet-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
               >
                 <span>✍️</span>
                 <span>Signature + Hindi Name (30–50 KB)</span>
               </a>
               <a
                 href="/upsssc-pet-photo-resize/"
-                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'upsssc-pet-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+                class={`px-3 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'upsssc-pet-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
               >
                 <span>📸</span>
                 <span>Photo (50–100 KB)</span>
               </a>
+              <a
+                href="/upsssc-je-photo-signature-resize/"
+                class={`px-3 py-2 rounded-xl text-xs font-semibold transition inline-flex items-center gap-1.5 border ${examData.slug === 'upsssc-je-photo-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>⚙️</span>
+                <span>JE Mains</span>
+              </a>
+              <a
+                href="/upsssc-inter-level-photo-signature-resize/"
+                class={`px-3 py-2 rounded-xl text-xs font-semibold transition inline-flex items-center gap-1.5 border ${examData.slug === 'upsssc-inter-level-photo-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs font-bold' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📄</span>
+                <span>Inter Level</span>
+              </a>
             </div>
+          </div>
+          <div class="pt-2 border-t border-border/50 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+            <span class="flex items-center gap-1.5">
+              <span>⚠️</span>
+              <span><strong>OTR Carry-Over Notice:</strong> UPSSSC Mains applications fetch your photo &amp; signature from your PET-2025/OTR record without fresh upload fields.</span>
+            </span>
+            <span class="text-[11px] font-semibold text-primary">
+              JE Mech (25 Nov) · JE Elec (27 Nov) · Inter Level (1 Dec)
+            </span>
           </div>
         </aside>
       )}

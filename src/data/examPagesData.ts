@@ -3680,26 +3680,26 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     slug: 'upsssc-pet-signature-resize',
     presetId: 'upsssc-pet',
     pageTitle: 'UPSSSC PET Signature Resize 30 to 50 KB (with Hindi Name) Online - SignResize',
-    metaDescription: 'Free UPSSSC PET signature resizer. Format signature to 3.5x1.5 cm (140x60 px) and 30 to 50 KB JPG with official Hindi name placement rule for UPSSSC PET, Lekhpal, and VDO portals.',
+    metaDescription: 'Free UPSSSC PET signature resizer. Format signature to 3.5x1.75 cm (350x175 px) and 30 to 50 KB JPG with official Hindi name placement rule for UPSSSC PET, Lekhpal, and VDO portals.',
     keywords: 'upsssc pet signature resize, upsssc signature resize 30 to 50 kb, upsssc pet signature format in hindi, upsssc signature in hindi and english, upsssc lekhpal signature size, upsssc photo and signature resize, upsssc otr signature',
     h1: 'UPSSSC PET Signature Resizer (30 KB – 50 KB)',
-    subheading: 'Official 3.5×1.5 cm (140×60 px) format with dual-boundary 30 KB to 50 KB compression and mandatory English running signature + Hindi name format compliant with UPSSSC OTR guidelines.',
+    subheading: 'Official 3.5×1.75 cm (350×175 px) format with dual-boundary 30 KB to 50 KB compression and mandatory English running signature + Hindi name format compliant with UPSSSC OTR guidelines.',
     authority: 'Uttar Pradesh Subordinate Services Selection Commission (UPSSSC)',
     targetExams: 'UPSSSC PET 2025/2026, Rajasva Lekhpal, VDO (Gram Vikas Adhikari), Junior Assistant, Forest Guard, Tubewell Operator, UPSSSC OTR',
-    widthPx: 140,
-    heightPx: 60,
+    widthPx: 350,
+    heightPx: 175,
     widthCm: 3.5,
-    heightCm: 1.5,
+    heightCm: 1.75,
     minKb: 30,
     maxKb: 50,
     recommendedKb: 40,
     dpi: 200,
     ink: 'Black or Blue Ink (English Sign + Hindi Name)',
-    aspectRatioLabel: '7:3 (~3.5×1.5 cm)',
-    strictNotice: 'CRITICAL UPSSSC RULE: You must sign in running handwriting in English AND clearly write your full name in HINDI (देवनागरी) directly below the signature inside the same 3.5×1.5 cm frame.',
-    relatedTools: ['upsssc-pet-photo-resize', 'uppsc-signature-resize', 'up-police-signature-resize', 'photo-resizer'],
+    aspectRatioLabel: '2:1 (350×175 px / 3.5×1.75 cm)',
+    strictNotice: 'CRITICAL UPSSSC RULE: You must sign in running handwriting in English AND clearly write your full name in HINDI (देवनागरी) directly below the signature inside the same 3.5×1.75 cm frame.',
+    relatedTools: ['upsssc-pet-photo-resize', 'upsssc-je-photo-signature-resize', 'upsssc-inter-level-photo-signature-resize', 'uppsc-signature-resize'],
     tips: [
-      'Draw a 3.5 cm × 1.5 cm box on plain white paper. Sign in running English at the top half, and write your full legal name in Hindi script directly underneath.',
+      'Draw a 3.5 cm × 1.75 cm box on plain white paper. Sign in running English at the top half, and write your full legal name in Hindi script directly underneath.',
       'Sign with a clear black or dark blue ballpoint pen; avoid faint strokes or smudged ink.',
       'Ensure the cropped image contains both the English signature and the Hindi full name.',
       'Download JPG and check that the resulting file size sits securely between 30.0 KB and 49.9 KB.'
@@ -3707,11 +3707,11 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     faqs: [
       {
         q: 'What is the special signature requirement for UPSSSC PET?',
-        a: 'UPSSSC mandates that the uploaded signature image must contain the candidate\'s regular running cursive signature at the top, followed by their full name clearly written in Hindi script (देवनागरी लिपि) directly underneath within a single 3.5 × 1.5 cm box.'
+        a: 'UPSSSC mandates that the uploaded signature image must contain the candidate\'s regular running cursive signature at the top, followed by their full name clearly written in Hindi script (देवनागरी लिपि) directly underneath within a single 3.5 × 1.75 cm box.'
       },
       {
         q: 'What is the official UPSSSC PET signature size in KB?',
-        a: 'The UPSSSC portal strictly requires the signature image to be between 30 KB and 50 KB in JPG or JPEG format, with dimensions of approximately 3.5 cm in width by 1.5 cm in height (140 × 60 px).'
+        a: 'The UPSSSC portal strictly requires the signature image to be between 30 KB and 50 KB in JPG or JPEG format, with dimensions of approximately 3.5 cm in width by 1.75 cm in height (350 × 175 px).'
       },
       {
         q: 'What is the photograph size for UPSSSC PET?',
@@ -3720,6 +3720,126 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'Will UPSSSC reject signatures written only in English?',
         a: 'Yes, UPSSSC notification guidelines explicitly state that failure to write the candidate\'s name in Hindi below the signature is grounds for application scrutiny or cancellation.'
+      }
+    ]
+  },
+  // UPSSSC Junior Engineer (JE) Mechanical & Electrical Mains
+  {
+    slug: 'upsssc-je-photo-signature-resize',
+    presetId: 'upsssc-pet',
+    pageTitle: 'UPSSSC JE Photo and Signature Resize 2026 - OTR & Mains Rules - SignResize',
+    metaDescription: 'Resize photo (50–100 KB) and signature with Hindi name (30–50 KB) for UPSSSC JE Mechanical (Advt 08-Exam/2024) & JE Electrical (Advt 09-Exam/2024). Understand PET-2025 OTR carry-over rules.',
+    keywords: 'upsssc je photo signature resize, upsssc je signature size 30 to 50 kb, upsssc je mechanical photo resize, upsssc je electrical signature format, upsssc je mains photo upload, upsssc otr signature hindi name',
+    h1: 'UPSSSC JE Photo & Signature Resize Guide (OTR & Mains)',
+    datesStrip: 'JE Mechanical (Advt 08/2024, 1,156 posts): apply by 25 Nov 2026 (correction till 4 Dec) · JE Electrical (Advt 09/2024, 380 posts): apply by 27 Nov 2026 (correction till 4 Dec).',
+    subheading: 'Official specifications for UPSSSC JE Mechanical & Electrical Mains. Understand how PET-2025 carries over your photo and signature, and format fresh files for UPSSSC OTR registration.',
+    guidanceLabel: '2026 JE Notices Verified',
+    verifiedOn: '2026-11-24',
+    sources: [
+      { label: 'UPSSSC JE Mechanical Advt. 08-Exam/2024', url: 'https://upsssc.gov.in/' },
+      { label: 'UPSSSC JE Electrical Advt. 09-Exam/2024', url: 'https://upsssc.gov.in/' }
+    ],
+    pixelNote: 'Taller 2:1 preparation canvas (350×175 px / 3.5×1.75 cm) allowing ample vertical space for English signature strokes plus your full name in Hindi directly below.',
+    authority: 'Uttar Pradesh Subordinate Services Selection Commission (UPSSSC)',
+    targetExams: 'UPSSSC JE Mechanical (Advt 08-Exam/2024), UPSSSC JE Electrical (Advt 09-Exam/2024), JE Civil Mains, UPSSSC OTR',
+    widthPx: 350,
+    heightPx: 175,
+    widthCm: 3.5,
+    heightCm: 1.75,
+    minKb: 30,
+    maxKb: 50,
+    recommendedKb: 40,
+    dpi: 200,
+    ink: 'Black or Blue Ink (Signature + Hindi Name Below)',
+    aspectRatioLabel: '2:1 (350×175 px)',
+    strictNotice: 'UPSSSC Mains applications carry over your existing PET-2025/OTR photo and signature. If registering for OTR, signatures must include your full name in Hindi underneath, and photos must be within 6 months old (50–100 KB). No corrections are allowed after OTR submission.',
+    relatedTools: ['upsssc-pet-photo-resize', 'upsssc-inter-level-photo-signature-resize', 'upsssc-pet-signature-resize', 'uppsc-ro-aro-photo-signature-resize'],
+    tips: [
+      'In the Mains application form, log in with your PET-2025 registration number. Your photo and signature are carried over automatically from your existing OTR database profile.',
+      'If preparing files for UPSSSC One Time Registration (OTR), write your full name clearly in Hindi (देवनागरी) directly underneath your English signature.',
+      'Sign with dark blue or black ink on plain unruled white paper; avoid all-capital English signatures.',
+      'The signature image must be strictly between 30.0 KB and 50.0 KB in JPG format (our 350×175 px canvas targets ~40 KB).'
+    ],
+    faqs: [
+      {
+        q: 'Do I need to upload a fresh photo and signature for UPSSSC JE Mains 2026?',
+        a: 'No. The UPSSSC JE Mechanical (Advt 08/2024) and JE Electrical (Advt 09/2024) application forms authenticate via your PET-2025 registration number and automatically carry over your previously submitted photograph and signature from your UPSSSC OTR profile. There is no file upload field in the Mains form unless your OTR data is incomplete.'
+      },
+      {
+        q: 'Can I change or update my photo and signature during the UPSSSC JE correction window?',
+        a: 'The UPSSSC JE correction window (open till 4 December 2026) allows updating exam-specific eligibility details, category, and fee details, but does not allow modifying the primary identity photo or signature fetched from your locked OTR record.'
+      },
+      {
+        q: 'What is the required signature format for UPSSSC OTR registration?',
+        a: 'The signature must be an image strictly between 30 KB and 50 KB in JPG/JPEG format (3.5 × 1.75 cm / 350 × 175 px). The candidate must sign at the top in running cursive handwriting, and write their full legal name clearly in Hindi script (देवनागरी लिपि) directly below the signature inside the same box.'
+      },
+      {
+        q: 'What are the UPSSSC OTR photograph dimensions and file size?',
+        a: 'The photograph must be a recent colour passport photo (not older than 6 months) against a plain white or light grey background, measuring 3.5 × 4.5 cm (240 × 320 px) with file size strictly between 50 KB and 100 KB.'
+      },
+      {
+        q: 'What happens if a UPSSSC signature is signed in CAPITAL LETTERS?',
+        a: 'Signatures in ALL CAPITAL / BLOCK letters or lacking the candidate\'s handwritten name in Hindi underneath are treated as defective and cause rejection during document verification. Always sign in running cursive.'
+      }
+    ]
+  },
+  // UPSSSC 12th / Inter Level Combined Mains
+  {
+    slug: 'upsssc-inter-level-photo-signature-resize',
+    presetId: 'upsssc-pet',
+    pageTitle: 'UPSSSC Inter Level Photo and Signature Resize 2026 - 12th Mains Rules - SignResize',
+    metaDescription: 'Resize photo (50–100 KB) and signature with Hindi name (30–50 KB) for UPSSSC Inter Level Mains (Advt 10-Exam/2024, 1,784 posts). Complete OTR carry-over and deadline guide.',
+    keywords: 'upsssc inter level photo signature resize, upsssc 12th mains signature format, upsssc advt 10 exam 2024 photo size, upsssc inter level signature in hindi, upsssc otr photo signature rules',
+    h1: 'UPSSSC Inter Level Photo & Signature Resize (12th Mains & OTR)',
+    datesStrip: 'UPSSSC Inter Level Mains (Advt 10/2024, 1,784 posts): apply by 1 Dec 2026 · Correction window open till 8 Dec 2026.',
+    subheading: 'Official upload specifications for UPSSSC Combined Inter-Level (10+2) Mains (Junior Assistant, Clerk & Typist). Understand PET score validation, OTR carry-over, and permanent registration rules.',
+    guidanceLabel: 'Advt 10/2024 Verified',
+    verifiedOn: '2026-11-24',
+    sources: [
+      { label: 'UPSSSC Inter Level Advt. 10-Exam/2024', url: 'https://upsssc.gov.in/' },
+      { label: 'UPSSSC Official Portal (upsssc.gov.in)', url: 'https://upsssc.gov.in/' }
+    ],
+    pixelNote: 'Taller 2:1 preparation canvas (350×175 px / 3.5×1.75 cm) allowing ample vertical space for English signature strokes plus your full name in Hindi directly below.',
+    authority: 'Uttar Pradesh Subordinate Services Selection Commission (UPSSSC)',
+    targetExams: 'UPSSSC Inter-Level Combined Mains (Advt 10-Exam/2024), Junior Assistant, Clerk, Typist, UPSSSC OTR',
+    widthPx: 350,
+    heightPx: 175,
+    widthCm: 3.5,
+    heightCm: 1.75,
+    minKb: 30,
+    maxKb: 50,
+    recommendedKb: 40,
+    dpi: 200,
+    ink: 'Black or Blue Ink (Signature + Hindi Name Below)',
+    aspectRatioLabel: '2:1 (350×175 px)',
+    strictNotice: 'UPSSSC Inter-Level Mains (Advt 10-Exam/2024) carries over your photograph and signature from your PET-2025/OTR record. If registering a new OTR, signatures missing candidate full name in Hindi underneath or photos under 50 KB are rejected permanently without correction.',
+    relatedTools: ['upsssc-pet-photo-resize', 'upsssc-je-photo-signature-resize', 'upsssc-pet-signature-resize', 'bssc-signature-resize'],
+    tips: [
+      'The 12th Inter-Level Mains form authenticates through your PET-2025 scorecard and displays your carried-over photo and signature on the confirmation screen.',
+      'For OTR registration, ensure your signature file includes your running English signature on top and full legal name written in Hindi script below within a single box.',
+      'Check that the signature file is strictly between 30 KB and 50 KB JPG, and passport photo is strictly between 50 KB and 100 KB JPG.',
+      'Because OTR details become permanent once submitted, verify clarity and spelling before locking your UPSSSC OTR.'
+    ],
+    faqs: [
+      {
+        q: 'Why doesn\'t the UPSSSC Inter Level Mains form have an upload photo/signature button?',
+        a: 'Because UPSSSC Mains recruitments are strictly based on the Preliminary Eligibility Test (PET). When you enter your PET-2025 registration number and DOB, the system automatically pulls your verified photograph and signature from your existing OTR database record.'
+      },
+      {
+        q: 'What is the last date to apply and make corrections for UPSSSC Inter Level Mains 2026?',
+        a: 'For Advt. 10-Exam/2024 (1,784 posts), the last date to register and pay application fees is 1 December 2026. The online correction window remains open until 8 December 2026.'
+      },
+      {
+        q: 'Can I replace my photo or signature during the Inter Level correction window (till 8 Dec)?',
+        a: 'No. The correction window allows candidates to modify qualifying education details, category certificates, or gender, but does not permit changing the photo or signature attached to your permanent UPSSSC OTR profile.'
+      },
+      {
+        q: 'What is the signature requirement for UPSSSC OTR and upcoming 2027 exams?',
+        a: 'Sign with a black or dark blue ballpoint pen on plain white paper. Write your full name in Hindi (देवनागरी) directly below the signature. The scanned image must be in JPG format, between 30 KB and 50 KB, and follow a 3.5 × 1.75 cm (350 × 175 px) ratio.'
+      },
+      {
+        q: 'What is the photo size requirement for UPSSSC OTR?',
+        a: 'The photograph must be a recent colour passport photo (taken within the last 6 months) against a white or light grey background, sized between 50 KB and 100 KB in JPG format (3.5 × 4.5 cm / 240 × 320 px).'
       }
     ]
   },
