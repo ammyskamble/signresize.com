@@ -605,6 +605,50 @@ for (const kind of ['signature', 'photo'] as const) {
   };
 }
 
+EXAM_GUIDANCE['jee-main-signature-resize'] = {
+  reviewedOn: '2026-11-23',
+  title: 'JEE Main 2027 signature requirements & upload checklist',
+  cycle: 'NTA JEE Main 2027 Bulletin · Session 1 & 2',
+  summary: 'Official requirements from Page 9 of the JEE (Main) 2027 Information Bulletin: scanned signature strictly between 10 KB and 100 KB in JPG/JPEG format on white paper. No capital block letters.',
+  rows: [
+    { label: 'Signature file size', value: 'JPG/JPEG · strictly 10 KB to 100 KB', evidence: 'NTA JEE (Main) 2027 Bulletin, Page 9. Files under 10 KB (even 9 KB) or over 100 KB fail portal upload.' },
+    { label: 'Physical dimensions', value: '3.5 cm (width) × 1.5 cm (height)', evidence: 'Official physical dimensions cited in NTA Information Bulletin. Preserves 7:3 aspect ratio.' },
+    { label: 'Canvas / resolution', value: '275 × 118 px (at 200 DPI standard)', evidence: 'Standard 200 DPI reproduction of 3.5 × 1.5 cm. NTA validator checks byte bounds and JPG format.' },
+    { label: 'Ink & handwriting', value: 'Black or dark blue ink · running cursive', evidence: 'Unruled plain white paper. Signatures in ALL CAPITAL / BLOCK letters or initials are rejected.' },
+    { label: 'Mandatory photo steps', value: 'Recent passport photo (10–200 KB) + Live webcam capture', evidence: 'Separate uploaded photo and live real-time webcam/QR photo capture required inside application.' },
+    { label: 'Class 10 certificate', value: 'PDF file · 50 KB to 300 KB', evidence: 'Clear scan of Class 10 marksheet/certificate in PDF format strictly within 50–300 KB.' },
+  ],
+  caution: 'Session 1 late fee window closes 26 Nov 2026; correction window runs 27–29 Nov 2026. Session 2 registration opens 5 Jan – 3 Feb 2027. Re-check file size and cursive legibility before submitting on jeemain.nta.nic.in.',
+  links: [
+    { href: '/jee-main-photo-resize/', label: 'JEE Main photo resizer (10–200 KB colour JPG)' },
+    { href: '/live-webcam-photo-checker/', label: 'Practise live webcam photo framing (free)' },
+    { href: '/blog/jee-main-2026-session-1-registration-syllabus-photo-signature-guidelines/', label: 'JEE Main Session 1 & 2 comprehensive guide' },
+  ],
+  changes: 'Updated signature canvas from 140×60 px to standard 275×118 px (200 DPI); added Session 1 correction window dates and Class 10 PDF specifications.',
+};
+
+EXAM_GUIDANCE['jee-main-photo-resize'] = {
+  reviewedOn: '2026-11-23',
+  title: 'JEE Main 2027 photograph specifications & live capture checklist',
+  cycle: 'NTA JEE Main 2027 Bulletin · Session 1 & 2',
+  summary: 'Official requirements from Page 9 of the JEE (Main) 2027 Information Bulletin: recent colour passport photograph in JPG/JPEG between 10 KB and 200 KB, with 80% face coverage against pure white background. Name/date stamp not required.',
+  rows: [
+    { label: 'Uploaded photo size', value: 'JPG/JPEG · strictly 10 KB to 200 KB', evidence: 'NTA JEE (Main) 2027 Bulletin, Page 9. Colour photograph only; black-and-white is prohibited.' },
+    { label: 'Face & background', value: '80% face coverage · pure white background', evidence: 'Both ears visible; no face masks, caps, or tinted spectacles. Clean white background without shadows.' },
+    { label: 'Dimensions & canvas', value: '3.5 × 4.5 cm (300 × 400 px canvas)', evidence: 'Standard passport format. Name and date stamp is not mandated for JEE Main 2027.' },
+    { label: 'Mandatory live capture', value: 'Webcam or phone QR code inside portal', evidence: 'Real-time live capture during application. Algorithmic face matching compares live capture with uploaded studio photo.' },
+    { label: 'Signature upload', value: 'JPG/JPEG · 10 KB to 100 KB (3.5 × 1.5 cm)', evidence: 'Running cursive handwriting in black/dark blue ink; 275 × 118 px preset.' },
+    { label: 'Class 10 certificate', value: 'PDF file · 50 KB to 300 KB', evidence: 'Official PDF document upload bounds on jeemain.nta.nic.in.' },
+  ],
+  caution: 'Session 1 correction window is open 27–29 Nov 2026 for candidates to resolve flagged photos or live webcam mismatches. Session 2 applications open 5 Jan – 3 Feb 2027. Ensure uploaded photo and live capture share identical lighting and pure white backdrop.',
+  links: [
+    { href: '/jee-main-signature-resize/', label: 'JEE Main signature resizer (10–100 KB cursive JPG)' },
+    { href: '/live-webcam-photo-checker/', label: 'Test live webcam framing & lighting before portal upload' },
+    { href: '/blog/jee-main-2026-session-1-registration-syllabus-photo-signature-guidelines/', label: 'JEE Main Session 1 & 2 comprehensive guide' },
+  ],
+  changes: 'Added mandatory live webcam correlation instructions, 80% face coverage rules, and Session 1 correction window advisories.',
+};
+
 export const GUIDANCE_PRESET_UPDATES: Record<string, Partial<ExamPreset>> = {
   'iit-jam': {
     targetType: 'signature', portalExactSpecsVerified: false,

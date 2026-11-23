@@ -594,7 +594,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     metaDescription: 'Resize signature for NTA NEET UG/PG, JEE Main, and CUET exams. Format to 140x60 px (3.5x1.5 cm), 4 KB to 30 KB JPG, running handwriting in black ink on white paper.',
     keywords: 'nta signature resize, neet signature resize 4 to 30 kb, jee main signature size, cuet signature format, nta signature upload, neet 2026 signature resizer',
     h1: 'NTA Signature Resize & Compressor (NEET, JEE Main, CUET)',
-    subheading: 'Exact 3.5×1.5 cm (140×60 px) dimensions with 4 KB to 30 KB bounds for NEET UG / legacy NTA portals (for JEE Main 2027, use 10–100 KB on our JEE Main Signature Resizer).',
+    subheading: 'Exact 3.5×1.5 cm (140×60 px) dimensions with 4 KB to 30 KB bounds for NEET UG / legacy NTA portals (for JEE Main 2027, use 10–100 KB on our 275×118 px JEE Main Signature Resizer).',
     authority: 'National Testing Agency (NTA)',
     targetExams: 'NEET UG, NEET PG, JEE Main Session 1 & 2, JEE Advanced, CUET UG & PG, CMAT, GPAT',
     widthPx: 140,
@@ -4514,23 +4514,23 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
   {
     slug: 'jee-main-signature-resize',
     presetId: 'jee-main-signature',
-    pageTitle: 'JEE Main Signature Resize 10 to 100 KB (140x60 px) Online 2027 - SignResize',
-    metaDescription: 'Resize signature for NTA JEE Main 2027 Session 1 & Session 2 online. Format to JPG/JPEG strictly between 10 KB and 100 KB (140x60 px canvas) per the 2027 Bulletin for jeemain.nta.nic.in.',
-    keywords: 'jee main 2027 signature resize, jee main signature size 10 to 100 kb, jee main signature 140x60, nta jee signature compressor, jee main online application signature format, jee main 2027 signature resizer',
+    pageTitle: 'JEE Main Signature Resize 10 to 100 KB (3.5x1.5 cm) Online 2027 - SignResize',
+    metaDescription: 'Resize signature for NTA JEE Main 2027 Session 1 & Session 2 online. Format to JPG/JPEG strictly between 10 KB and 100 KB (3.5x1.5 cm / 275x118 px canvas at 200 DPI) per the 2027 Bulletin for jeemain.nta.nic.in.',
+    keywords: 'jee main 2027 signature resize, jee main signature size 10 to 100 kb, jee main signature 275x118, jee main signature 3.5x1.5 cm, nta jee signature compressor, jee main online application signature format, jee main 2027 signature resizer, jee main correction window signature',
     h1: 'NTA JEE Main 2027 Signature Resize & Compressor (10 KB – 100 KB)',
     datesStrip: 'JEE Main 2027 Session 1: apply by 22 Nov 2026 (late fee till 26 Nov) · Correction 27–29 Nov · Session 2 applications 5 Jan – 3 Feb 2027.',
-    subheading: 'Official 10 KB to 100 KB JPG/JPEG bounds (140×60 px / 3.5×1.5 cm preparation canvas) verified against the NTA JEE (Main) 2027 Information Bulletin.',
+    subheading: 'Official 10 KB to 100 KB JPG/JPEG bounds (275×118 px / 3.5×1.5 cm preparation canvas at 200 DPI) verified against the NTA JEE (Main) 2027 Information Bulletin.',
     guidanceLabel: '2027 Bulletin Verified',
-    verifiedOn: '2026-11-11',
+    verifiedOn: '2026-11-23',
     sources: [
       { label: 'NTA JEE (Main) 2027 Information Bulletin (Pages 6, 9–10)', url: 'https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/10/202610241890224107.pdf' },
       { label: 'NTA JEE (Main) 2027 Official Portal (jeemain.nta.nic.in)', url: 'https://jeemain.nta.nic.in/' }
     ],
-    pixelNote: 'Preparation canvas (3.5×1.5 cm at 200 DPI). The 2027 Information Bulletin mandates 10 KB to 100 KB JPG/JPEG rather than a fixed pixel dimension.',
+    pixelNote: 'Preparation canvas (3.5×1.5 cm at 200 DPI / 275×118 px). The 2027 Information Bulletin mandates 10 KB to 100 KB JPG/JPEG rather than a fixed pixel dimension.',
     authority: 'National Testing Agency (NTA)',
     targetExams: 'JEE Main 2027 (Session 1 & Session 2), JEE Advanced, B.Tech/B.E. (Paper 1), B.Arch (Paper 2A), B.Planning (Paper 2B)',
-    widthPx: 140,
-    heightPx: 60,
+    widthPx: 275,
+    heightPx: 118,
     widthCm: 3.5,
     heightCm: 1.5,
     minKb: 10,
@@ -4538,19 +4538,27 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     recommendedKb: 25,
     dpi: 200,
     ink: 'Black or Dark Blue Ink (Unruled White Paper)',
-    aspectRatioLabel: '7:3 (~140×60 px canvas)',
+    aspectRatioLabel: '7:3 (275×118 px / 3.5×1.5 cm)',
     strictNotice: 'NTA requires a clearly legible running-hand signature in JPG/JPEG between 10 KB and 100 KB. Do not sign in CAPITAL/BLOCK letters or upload blurry/lined-paper photos.',
     relatedTools: ['jee-main-photo-resize', 'nta-neet-jee-signature-resize', 'gate-signature-resize', 'resize-signature-to-10kb-20kb'],
     tips: [
       'Sign cleanly on spotless unruled white printer paper using black or dark blue ink.',
       'Use natural cursive running handwriting — avoid all-capital or disconnected block letters.',
-      'Crop tightly around the signature strokes so it remains crisp and legible on the admit card.',
+      'Crop tightly around the signature strokes on the 275×118 px canvas so it remains crisp and legible on the admit card.',
       'Verify that the exported JPG/JPEG file is strictly between 10.0 KB and 100.0 KB per the JEE Main 2027 Information Bulletin.'
     ],
     faqs: [
       {
         q: 'What is the signature size for JEE Main 2027 online application?',
-        a: 'According to Page 9 of the official NTA JEE (Main) 2027 Information Bulletin, the scanned signature file must be clearly legible in JPG/JPEG format with a file size strictly between 10 KB and 100 KB.'
+        a: 'According to Page 9 of the official NTA JEE (Main) 2027 Information Bulletin, the scanned signature file must be clearly legible in JPG/JPEG format with a file size strictly between 10 KB and 100 KB. Physical dimensions are 3.5 cm (width) × 1.5 cm (height), rendered cleanly at 200 DPI as 275 × 118 px.'
+      },
+      {
+        q: 'Can I change or re-upload my signature during the JEE Main 2027 Session 1 correction window?',
+        a: 'Yes. For JEE Main 2027 Session 1, NTA opens the correction window from 27 November to 29 November 2026. If your signature was uploaded in capital letters, was blurry, or was flagged by NTA\'s scrutinizing system, you can re-upload a compliant 10–100 KB JPG cursive signature without paying an additional penalty unless changing category.'
+      },
+      {
+        q: 'Why do some JEE Main sources mention 275×118 px while others say 3.5×1.5 cm?',
+        a: 'Page 9 of the official 2027 Information Bulletin defines physical dimensions as 3.5 cm (width) × 1.5 cm (height). When scanned at the standard 200 DPI resolution, 3.5 cm equals 275.6 pixels and 1.5 cm equals 118.1 pixels (275 × 118 px). The NTA online validator checks only that the file is in JPG/JPEG format and between 10 KB and 100 KB, so both dimensions pass perfectly.'
       },
       {
         q: 'Did JEE Main 2027 change signature KB limits from 4–30 KB to 10–100 KB?',
@@ -4563,6 +4571,10 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       {
         q: 'What happens if my JEE Main signature file size is 120 KB or 5 KB?',
         a: 'The NTA portal validator will reject files below 10 KB or above 100 KB. SignResize formats your signature safely within 10–100 KB (targeting ~25 KB by default) while keeping strokes sharp.'
+      },
+      {
+        q: 'What is the Class 10 certificate upload requirement for JEE Main 2027?',
+        a: 'Candidates must upload their scanned Class 10 certificate/marksheet as a clearly readable PDF file strictly between 50 KB and 300 KB. Mobile photos converted improperly or blurry scans exceeding 300 KB fail portal verification.'
       }
     ]
   },
@@ -4572,12 +4584,12 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     presetId: 'jee-main-photo',
     pageTitle: 'JEE Main Photo Resize 10 to 200 KB (3.5x4.5 cm) Online 2027 - SignResize',
     metaDescription: 'Resize passport photo for NTA JEE Main 2027 Session 1 & 2 online. Format recent colour JPG to 10–200 KB (3.5x4.5 cm) with 80% face coverage and white background for jeemain.nta.nic.in.',
-    keywords: 'jee main 2027 photo resize, jee main photo size 10 to 200 kb, jee main photo 3.5x4.5 cm, nta jee main photo compressor online, jee main passport photo format 2027, jee main photo resizer online',
+    keywords: 'jee main 2027 photo resize, jee main photo size 10 to 200 kb, jee main photo 3.5x4.5 cm, nta jee main photo compressor online, jee main passport photo format 2027, jee main photo resizer online, jee main live photo capture, jee main correction window photo',
     h1: 'NTA JEE Main 2027 Photo Resize & Compressor (10 KB – 200 KB)',
     datesStrip: 'JEE Main 2027 Session 1: apply by 22 Nov 2026 (late fee till 26 Nov) · Correction 27–29 Nov · Session 2 applications 5 Jan – 3 Feb 2027.',
     subheading: 'Recent colour passport photograph (10 KB to 200 KB JPG/JPEG) with 80% face visibility including ears, without mask, against a white background per the JEE Main 2027 Bulletin.',
     guidanceLabel: '2027 Bulletin Verified',
-    verifiedOn: '2026-11-11',
+    verifiedOn: '2026-11-23',
     sources: [
       { label: 'NTA JEE (Main) 2027 Information Bulletin (Pages 6, 9–10)', url: 'https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/10/202610241890224107.pdf' },
       { label: 'NTA JEE (Main) 2027 Official Portal (jeemain.nta.nic.in)', url: 'https://jeemain.nta.nic.in/' }
@@ -4595,12 +4607,13 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Recent Colour Photograph (White Background)',
     aspectRatioLabel: '3:4 (3.5×4.5 cm)',
-    strictNotice: 'The 2027 Bulletin mandates a recent colour passport photo (10–200 KB JPG) with 80% face coverage, both ears visible, no mask, and white background, plus live webcam/QR photo capture during form filling.',
-    relatedTools: ['jee-main-signature-resize', 'neet-photo-resize', 'photo-resizer', 'gate-photo-resize'],
+    strictNotice: 'The 2027 Bulletin mandates a recent colour passport photo (10–200 KB JPG) with 80% face coverage, both ears visible, no mask, and white background, plus mandatory real-time live webcam/QR photo capture during form filling.',
+    relatedTools: ['jee-main-signature-resize', 'live-webcam-photo-checker', 'neet-photo-resize', 'photo-resizer', 'gate-photo-resize'],
     tips: [
       'Use a recent colour photograph showing 80% face coverage with both ears clearly visible and no mask.',
       'Background must be pure plain white with even studio lighting and no textures or shadows.',
-      'Complete the separate Live Photograph capture via webcam or mobile QR code on jeemain.nta.nic.in under the same white-background lighting.',
+      'Practise your camera angle and white-background lighting with our Live Webcam Photo Checker before logging into jeemain.nta.nic.in.',
+      'Complete the mandatory Live Photograph capture via webcam or mobile QR code on jeemain.nta.nic.in under the same white-background lighting.',
       'Verify that the exported JPG/JPEG file is strictly between 10 KB and 200 KB (name and date stamp is not required by the 2027 Bulletin).'
     ],
     faqs: [
@@ -4609,12 +4622,24 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
         a: 'Per Page 9 of the NTA JEE (Main) 2027 Information Bulletin, the scanned passport photograph must be a recent colour photo in JPG/JPEG format, 10 KB to 200 KB, with 80% face (including ears, without mask) against a white background.'
       },
       {
+        q: 'Can I replace a rejected photo during the JEE Main 2027 correction window?',
+        a: 'Yes. During the Session 1 correction window (27–29 November 2026), candidates who received NTA SMS/email discrepancies regarding dark backgrounds, non-80% face coverage, spectacles glare, or mismatch with the live webcam capture can re-upload a compliant 10–200 KB colour passport photo.'
+      },
+      {
+        q: 'How do I avoid a discrepancy between my uploaded photo and the live webcam capture?',
+        a: 'Ensure both photos are captured under similar bright, shadowless lighting against a plain white background. Look directly into the camera with a neutral expression, ensuring both ears and forehead are completely visible without caps, sunglasses, or tinted spectacles. Test your webcam framing in advance on SignResize before logging into jeemain.nta.nic.in.'
+      },
+      {
         q: 'Is candidate name and date mandatory on the JEE Main 2027 photograph?',
         a: 'No. Checked against the full JEE (Main) 2027 Information Bulletin: printing candidate name and photo date on the image is not mandated for JEE Main 2027, unlike NEET UG. Use a recent colour passport photo plus the mandatory live webcam/QR capture.'
       },
       {
         q: 'Can I upload a black and white photo for JEE Main 2027?',
         a: 'No — Page 9 of the JEE (Main) 2027 Information Bulletin explicitly states the recent scanned passport photograph "should be in colour with 80% face (including ears, without a mask) against white background." Use a recent colour photo.'
+      },
+      {
+        q: 'What is the Class 10 certificate PDF size for JEE Main 2027?',
+        a: 'Candidates must upload their scanned Class 10 certificate/marksheet as a clearly readable PDF file strictly between 50 KB and 300 KB.'
       }
     ]
   },

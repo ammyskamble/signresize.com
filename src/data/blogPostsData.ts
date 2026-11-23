@@ -1497,7 +1497,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "label": "Signature Dimensions",
-        "value": "10 KB to 100 KB JPG/JPEG (2027 Bulletin; 140 × 60 px prep preset)"
+        "value": "10 KB to 100 KB JPG/JPEG (2027 Bulletin; 275 × 118 px / 3.5×1.5 cm canvas)"
       },
       {
         "label": "Live Capture Rule",
@@ -1683,11 +1683,34 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     contentHtml: `
-  <!-- JEE Main 2027 Session 1 Top Banner -->
-  <div class="mt-2 mb-5 p-4 rounded-2xl bg-primary/10 border border-primary/30 text-xs sm:text-sm text-foreground leading-relaxed">
-    <p>
-      For JEE Main 2027 Session 1 (apply by <strong>22 Nov 2026</strong>, late fee till <strong>26 Nov</strong>, correction <strong>27–29 Nov</strong>), use the 2027 Information Bulletin rules (<strong>Photo: 10–200 KB colour JPG</strong>, no name/date stamp required · <strong>Signature: 10–100 KB JPG</strong>) — <a href="/jee-main-photo-resize/" class="font-bold text-primary underline underline-offset-2">JEE Main 2027 photo tool</a> · <a href="/jee-main-signature-resize/" class="font-bold text-primary underline underline-offset-2">JEE Main 2027 signature tool</a>.
+  <!-- JEE Main 2027 Session 1 & 2 Master Action Banner -->
+  <div class="mt-2 mb-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-primary/5 border-2 border-primary/30 text-foreground space-y-3.5 shadow-sm">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary text-primary-foreground">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+          2027 BULLETIN VERIFIED
+        </span>
+        <span class="text-xs sm:text-sm font-bold text-foreground">JEE Main 2027 Session 1 & 2 Document Portals</span>
+      </div>
+      <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-muted text-muted-foreground font-semibold">
+        Correction: 27–29 Nov 2026 · Session 2: 5 Jan – 3 Feb 2027
+      </span>
+    </div>
+    <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+      Need to resize or fix rejected documents for JEE Main 2027? NTA enforces strict automated portal validators on <strong class="text-foreground">jeemain.nta.nic.in</strong>: Photo strictly 10–200 KB colour JPG (80% face, white background), Signature strictly 10–100 KB JPG (275×118 px / 3.5×1.5 cm), and mandatory Live Webcam capture. Use our free, client-side tools below:
     </p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+      <a href="/jee-main-photo-resize/" class="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:opacity-90 transition shadow-xs text-center">
+        <span>📸</span> Photo Tool (10–200 KB) &rarr;
+      </a>
+      <a href="/jee-main-signature-resize/" class="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-card border border-border text-foreground hover:border-primary/50 font-bold text-xs transition shadow-2xs text-center">
+        <span>✍️</span> Signature Tool (10–100 KB) &rarr;
+      </a>
+      <a href="/live-webcam-photo-checker/" class="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-card border border-border text-foreground hover:border-primary/50 font-bold text-xs transition shadow-2xs text-center">
+        <span>📹</span> Live Webcam Checker &rarr;
+      </a>
+    </div>
   </div>
 
   <!-- Sticky Quick-Jump Pill Bar -->

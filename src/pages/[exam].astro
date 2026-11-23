@@ -68,11 +68,12 @@ const isStationMaster = examData.slug === 'rrb-station-master-signature-resize';
 const isPreparationGuide = isWbpsc || isBpsc || isCoastGuard || isNtpc || isStationMaster || isJam;
 const isTnpsc = examData.slug.includes('tnpsc');
 const isBanking = examData.slug.includes('sbi') || examData.slug.includes('ibps');
+const isJee = examData.slug.includes('jee-main');
 const isMaharashtraPolice = examData.slug === 'maharashtra-police-signature-resize';
 const isWbPolice = examData.slug === 'wb-police-signature-resize' || examData.slug === 'wb-police-photo-resize';
 const isNepalLokSewa = examData.slug === 'lok-sewa-photo-resize-nepal';
 const isPhotoPage = examData.presetId.includes('photo') || examData.slug.includes('photo');
-const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc || isMaharashtraPolice || isWbPolice;
+const hasDocumentSuite = isBanking || isJam || isGate || isSarathi || isPan || isIbAcio || isGds || isSscMts || isCuet || isUpsssc || isBssc || isDsssb || isKeralaPsc || isCtet || isRrb || isWbpsc || isMaharashtraPolice || isWbPolice || isJee;
 const relatedTools = (examData.relatedTools || [])
   .filter(slug => slug !== examData.slug)
   .map(slug => {
@@ -511,6 +512,55 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
                 IIT JAM Resizer →
               </a>
             </div>
+          </div>
+        </aside>
+      )}
+
+      {isJee && (
+        <aside class="rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 via-card to-card p-4 sm:p-5 shadow-sm space-y-3" aria-label="JEE Main 2027 Document Suite">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-lg">📐</span>
+                <span class="font-bold text-sm sm:text-base text-foreground">NTA JEE Main 2027 Document Suite</span>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Official 2027 Bulletin</span>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                NTA requires both uploaded Passport Photo (10–200 KB) and Signature (10–100 KB, 275×118 px), plus live webcam facial matching. Switch tools below:
+              </p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <a
+                href="/jee-main-photo-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'jee-main-photo-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>📸</span>
+                <span>Photo (10–200 KB)</span>
+              </a>
+              <a
+                href="/jee-main-signature-resize/"
+                class={`px-3.5 py-2 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 border ${examData.slug === 'jee-main-signature-resize' ? 'bg-primary text-primary-foreground border-primary shadow-xs' : 'bg-card text-foreground border-border hover:border-primary/50'}`}
+              >
+                <span>✍️</span>
+                <span>Signature (10–100 KB)</span>
+              </a>
+              <a
+                href="/live-webcam-photo-checker/"
+                class="px-3 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-primary transition bg-muted/40 border border-transparent hover:border-border inline-flex items-center gap-1"
+              >
+                <span>📹</span>
+                <span>Live Webcam Test →</span>
+              </a>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-border/50 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+            <span class="flex items-center gap-1.5">
+              <span>⚠️</span>
+              <span><strong>Biometric Scrutiny:</strong> Signatures in CAPITAL / BLOCK letters or mismatching live webcam captures trigger admit card withholding.</span>
+            </span>
+            <span class="text-[11px] font-semibold text-primary">
+              Session 1 Correction: 27–29 Nov 2026 · Session 2: 5 Jan – 3 Feb 2027
+            </span>
           </div>
         </aside>
       )}
@@ -1543,6 +1593,70 @@ const relevantBlogPosts = (isBpsc || isCoastGuard || isNtpc || isStationMaster) 
                     <a href="/gate-photo-resize/" class="text-primary font-semibold hover:underline">GATE Photo Resizer (5–200 KB) →</a>
                   )}
                   <a href="/iit-jam-signature-resize/" class="text-primary font-semibold hover:underline">IIT JAM Resizer →</a>
+                </div>
+              </div>
+            )}
+
+            {isJee && (
+              <div class="p-4 sm:p-5 rounded-2xl bg-primary/5 border border-primary/20 space-y-3">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <h3 class="text-sm font-bold text-foreground flex items-center gap-2">
+                    <span>⚡</span> NTA JEE Main 2027 Official Document Matrix (Session 1 &amp; 2)
+                  </h3>
+                  <span class="text-[11px] font-medium text-primary">NTA 2027 Information Bulletin Standards</span>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-border bg-card">
+                  <table class="w-full text-xs text-left">
+                    <thead class="bg-muted text-foreground font-semibold">
+                      <tr>
+                        <th class="p-2.5 border-b border-border">Document / Step</th>
+                        <th class="p-2.5 border-b border-border">File Size (KB)</th>
+                        <th class="p-2.5 border-b border-border">Pixel / Dimensions</th>
+                        <th class="p-2.5 border-b border-border">Format</th>
+                        <th class="p-2.5 border-b border-border">NTA Portal Compliance Rules</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-border/60">
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">Candidate Photograph</td>
+                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">10 KB – 200 KB</td>
+                        <td class="p-2.5 font-mono">300×400 px (3.5×4.5 cm)</td>
+                        <td class="p-2.5 text-muted-foreground font-mono">JPG / JPEG</td>
+                        <td class="p-2.5 text-muted-foreground">Recent colour photo, 80% face coverage against pure white background, ears visible. Name/date stamp not required.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">Candidate Signature</td>
+                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">10 KB – 100 KB</td>
+                        <td class="p-2.5 font-mono">275×118 px (3.5×1.5 cm)</td>
+                        <td class="p-2.5 text-muted-foreground font-mono">JPG / JPEG</td>
+                        <td class="p-2.5 text-muted-foreground">Black or dark blue ink on white paper in cursive running hand. <strong>CAPITAL/BLOCK letters or files &lt; 10 KB rejected</strong>.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">Live Webcam Photo</td>
+                        <td class="p-2.5 text-muted-foreground">Direct capture</td>
+                        <td class="p-2.5 text-muted-foreground">Webcam / Mobile QR</td>
+                        <td class="p-2.5 text-muted-foreground">Live Stream</td>
+                        <td class="p-2.5 text-muted-foreground">Mandatory real-time facial capture. Must match uploaded studio photo facial structure, lighting, and white background.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-foreground">Class 10 Certificate / Marksheet</td>
+                        <td class="p-2.5 font-mono text-emerald-600 dark:text-emerald-400 font-bold">50 KB – 300 KB</td>
+                        <td class="p-2.5 text-muted-foreground">Full Page Scan</td>
+                        <td class="p-2.5 text-muted-foreground font-mono">PDF</td>
+                        <td class="p-2.5 text-muted-foreground">Legible scan of date of birth proof / Class 10 marksheet. Strictly 50 KB to 300 KB.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 pt-1 text-xs">
+                  <span class="text-muted-foreground font-medium">Quick switch:</span>
+                  {examData.slug !== 'jee-main-photo-resize' && (
+                    <a href="/jee-main-photo-resize/" class="text-primary font-semibold hover:underline">JEE Main Photo Resizer (10–200 KB) →</a>
+                  )}
+                  {examData.slug !== 'jee-main-signature-resize' && (
+                    <a href="/jee-main-signature-resize/" class="text-primary font-semibold hover:underline">JEE Main Signature Resizer (10–100 KB) →</a>
+                  )}
+                  <a href="/live-webcam-photo-checker/" class="text-primary font-semibold hover:underline">Live Webcam Photo Checker →</a>
                 </div>
               </div>
             )}
