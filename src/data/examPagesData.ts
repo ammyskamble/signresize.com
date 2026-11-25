@@ -1734,13 +1734,13 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     metaDescription: 'Prepare your UPSC NDA & NA (I) 2027 signature JPG (20–100 KB, 400×400 px square prep preset) with black-ink triple-signature checklist for upsconline.nic.in. Notification opens 2 Dec 2026.',
     keywords: 'nda signature resize, nda 2027 signature size, upsc nda signature resize 20 to 100 kb, nda triple signature upload, upsc nda 1 2027 signature format, upsconline nda signature size',
     h1: 'UPSC NDA I 2027 Signature Resizer (20–100 KB)',
-    datesStrip: 'UPSC 2027 Calendar: NDA & NA (I) 2027 notification opens 2 Dec 2026 · Apply by 22 Dec 2026 · Exam 11 Apr 2027 · Confirm final PDF rules on upsc.gov.in once released.',
+    datesStrip: 'NDA & NA (I) 2027 · Notification 2 Dec 2026 · Apply by 22 Dec 2026 · Exam 11 Apr 2027',
     subheading: 'Pre-Dec 2 preparation preset (400×400 px square, 20–100 KB JPG/JPEG) aligned to recent upsconline.nic.in CAF signature instructions (triple black-ink vertical sheet). Confirm final rules against the 2 Dec 2026 NDA-I PDF.',
     guidanceLabel: 'Pre-Dec 2 Preparation Guide',
-    verifiedOn: '2026-11-11',
+    verifiedOn: '2026-11-25',
     hidePhysicalSize: true,
     pixelNote: '400×400 px is an editable square preparation canvas sitting inside both 350–500 px (updated CAF) and 350–1000 px (OTR) boundaries.',
-    fileSizeNote: 'Preset bounds 20–100 KB (~45 KB target) fit updated 2026 UPSC CAF guidance (20–100 KB) as well as legacy 20–300 KB ranges; re-verify in the 2 Dec 2026 NDA-I notice.',
+    fileSizeNote: 'Preset bounds 20–100 KB (~45 KB target) match UPSC 2026-cycle upload rules & CAF instructions. Re-verify in the 2 Dec 2026 NDA-I notice.',
     sources: [
       { label: 'UPSC Annual Calendar 2027 (NDA & NA I Notification 2 Dec 2026, Exam 11 Apr 2027)', url: 'https://upsc.gov.in/content/annual-calendar-2027-0' },
       { label: 'UPSC Online Application Portal (upsconline.nic.in)', url: 'https://upsconline.nic.in/' }
@@ -1757,7 +1757,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black Ink Pen on Plain White Unruled Paper',
     aspectRatioLabel: '1:1 Square (400×400 px prep canvas)',
-    strictNotice: 'Recent upsconline.nic.in CAF notices ask candidates to sign THREE times vertically (one below the other) in black ink on plain white paper and upload the combined scan as one JPG between 20 KB and 100 KB. Re-confirm exact instructions when the NDA I 2027 PDF releases on 2 Dec 2026.',
+    strictNotice: 'UPSC 2026 cycle CAF instructions require candidates to sign in black ink on clean white unruled paper (running cursive or 3 vertical stacked signatures on CAF) and upload as one JPG between 20 KB and 100 KB (width 350–500 px). Final specifications subject to verification on 2 Dec 2026 notification release.',
     relatedTools: ['nda-photo-resize', 'cds-signature-resize', 'upsc-signature-resize'],
     tips: [
       'Check the 2 Dec 2026 NDA-I notification & CAF instructions on upsconline.nic.in to see whether the 3-signature vertical strip format is prompted for your form.',
@@ -1792,13 +1792,13 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     metaDescription: 'Prepare your UPSC NDA & NA (I) 2027 passport photo (20–200 KB, 400×400 px JPG) with live webcam capture checklist and optional Name & Date strip for upsconline.nic.in.',
     keywords: 'nda photo resize, upsc nda photo size 20 to 200 kb, nda 2027 passport photo dimensions, upsc nda 1 2027 photo upload, nda photo with name and date',
     h1: 'UPSC NDA I 2027 Photo Resizer (20–200 KB)',
-    datesStrip: 'UPSC 2027 Calendar: NDA & NA (I) 2027 notification opens 2 Dec 2026 · Apply by 22 Dec 2026 · Exam 11 Apr 2027 · Confirm final PDF rules on upsc.gov.in once released.',
+    datesStrip: 'NDA & NA (I) 2027 · Notification 2 Dec 2026 · Apply by 22 Dec 2026 · Exam 11 Apr 2027',
     subheading: 'Pre-Dec 2 preparation preset (400×400 px square, 20–200 KB JPG/JPEG) for upsconline.nic.in upload alongside mandatory portal live webcam/QR photo capture. Re-confirm final rules in the 2 Dec 2026 NDA-I PDF.',
     guidanceLabel: 'Pre-Dec 2 Preparation Guide',
-    verifiedOn: '2026-11-11',
+    verifiedOn: '2026-11-25',
     hidePhysicalSize: true,
     pixelNote: '400×400 px is an editable 1:1 square preparation canvas inside UPSC’s 350×350 px to 1000×1000 px pixel bounds.',
-    fileSizeNote: 'Preset bounds 20–200 KB (~60 KB target) match recent UPSC Defence CAF guidance; check the 2 Dec 2026 notice to verify final ceiling.',
+    fileSizeNote: 'Preset bounds 20–200 KB (~60 KB target) match UPSC 2026-cycle upload rules (draft spec pending 2 Dec 2026 notification verification).',
     sources: [
       { label: 'UPSC Annual Calendar 2027 (NDA & NA I Notification 2 Dec 2026, Exam 11 Apr 2027)', url: 'https://upsc.gov.in/content/annual-calendar-2027-0' },
       { label: 'UPSC Online Application Portal (upsconline.nic.in)', url: 'https://upsconline.nic.in/' }
@@ -1815,7 +1815,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Plain White or Light Background (Colour)',
     aspectRatioLabel: '1:1 Square (400×400 px prep canvas)',
-    strictNotice: 'Do not use a resized photo as a substitute for the live webcam/QR photo capture step on upsconline.nic.in. Keep 75%+ face coverage with both ears visible against a plain white/light backdrop, and check the 2 Dec 2026 NDA-I PDF before adding a Name & Date strip.',
+    strictNotice: 'UPSC also captures your photo live on the portal — this tool prepares the JPG you upload; keep the same photo ready for the live-capture step. Keep 75%+ face coverage with both ears visible against a plain white/light backdrop. Upload specs (20–200 KB JPG) based on UPSC 2026 cycle, pending final notification verification on 2 Dec 2026.',
     relatedTools: ['nda-signature-resize', 'cds-photo-resize', 'upsc-photo-resize', 'photo-resizer'],
     tips: [
       'Ensure your face covers ~75% (3/4th) of the square frame with eyes open, looking straight ahead, and both ears clearly visible.',
@@ -1830,7 +1830,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       },
       {
         q: 'Does NDA 2027 require Live Photo Capture or Name & Date on photo?',
-        a: 'The redesigned upsconline.nic.in CAF portal uses real-time Live Photo Capture via webcam or mobile QR code alongside a recent uploaded JPG. Enable Name & Date imprint only if your 2 Dec 2026 NDA-I notice explicitly requests it.'
+        a: 'UPSC also captures your photo live on the portal — this tool prepares the JPG you upload; keep the same photo ready for the live-capture step. Recent upsconline.nic.in CAF cycles require a colour JPG between 20 KB and 200 KB with 75%+ face coverage alongside live webcam/QR capture. Enable the optional Name & Date imprint only if your 2 Dec 2026 NDA-I notice explicitly requests it.'
       },
       {
         q: 'Are spectacles or beards allowed in NDA passport photo?',
@@ -1846,13 +1846,13 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     metaDescription: 'Prepare your UPSC CDS (I) 2027 signature JPG (20–100 KB, 400×400 px square prep preset) for IMA, INA, AFA & OTA on upsconline.nic.in. Notification opens 2 Dec 2026.',
     keywords: 'cds signature resize, cds 2027 signature size, upsc cds signature resize 20 to 100 kb, cds triple signature upload, upsc cds 1 2027 signature format, ima ina afa ota signature size',
     h1: 'UPSC CDS I 2027 Signature Resizer (20–100 KB)',
-    datesStrip: 'UPSC 2027 Calendar: CDS (I) 2027 notification opens 2 Dec 2026 · Apply by 22 Dec 2026 · Exam 11 Apr 2027 · Confirm final PDF rules on upsc.gov.in once released.',
+    datesStrip: 'CDS (I) 2027 · Notification 2 Dec 2026 · Apply by 22 Dec 2026 · Exam 11 Apr 2027',
     subheading: 'Pre-Dec 2 preparation preset (400×400 px square, 20–100 KB JPG/JPEG) for IMA, INA, AFA & OTA applicants following updated upsconline.nic.in CAF signature rules. Confirm final instructions in the 2 Dec 2026 CDS-I PDF.',
     guidanceLabel: 'Pre-Dec 2 Preparation Guide',
-    verifiedOn: '2026-11-11',
+    verifiedOn: '2026-11-25',
     hidePhysicalSize: true,
     pixelNote: '400×400 px is an editable square preparation canvas sitting inside both 350–500 px (updated CAF) and 350–1000 px (OTR) boundaries.',
-    fileSizeNote: 'Preset bounds 20–100 KB (~45 KB target) satisfy 20–100 KB CAF rules and legacy 20–300 KB bounds; re-verify when the 2 Dec 2026 CDS-I PDF releases.',
+    fileSizeNote: 'Preset bounds 20–100 KB (~45 KB target) match UPSC 2026-cycle upload rules (width 350–500 px). Re-verify when the 2 Dec 2026 CDS-I PDF releases.',
     sources: [
       { label: 'UPSC Annual Calendar 2027 (CDS I Notification 2 Dec 2026, Exam 11 Apr 2027)', url: 'https://upsc.gov.in/content/annual-calendar-2027-0' },
       { label: 'UPSC Online Application Portal (upsconline.nic.in)', url: 'https://upsconline.nic.in/' }
@@ -1869,7 +1869,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Black Ink Pen on Plain White Unruled Paper',
     aspectRatioLabel: '1:1 Square (400×400 px prep canvas)',
-    strictNotice: 'Recent upsconline.nic.in CAF notices ask candidates to sign THREE times vertically (one below the other) in black ink on plain white paper and upload the combined scan as one JPG between 20 KB and 100 KB. Confirm final instructions in the 2 Dec 2026 CDS-I notification PDF.',
+    strictNotice: 'UPSC 2026 cycle CAF instructions require candidates to sign in black ink on clean white unruled paper (running cursive or 3 vertical stacked signatures on CAF) and upload as one JPG between 20 KB and 100 KB (width 350–500 px). Final specifications subject to verification on 2 Dec 2026 notification release.',
     relatedTools: ['cds-photo-resize', 'nda-signature-resize', 'upsc-signature-resize'],
     tips: [
       'Review the 2 Dec 2026 CDS-I notice and upsconline.nic.in upload prompt to confirm whether the 3-signature vertical strip layout is required.',
@@ -1900,13 +1900,13 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     metaDescription: 'Prepare your UPSC CDS (I) 2027 passport photo (20–200 KB, 400×400 px JPG) for IMA, INA, AFA & OTA on upsconline.nic.in with live webcam capture notes.',
     keywords: 'cds photo resize, upsc cds photo size 20 to 200 kb, cds 2027 passport photo dimensions, upsc cds 1 2027 photo upload, ima ina afa ota photo resize',
     h1: 'UPSC CDS I 2027 Photo Resizer (20–200 KB)',
-    datesStrip: 'UPSC 2027 Calendar: CDS (I) 2027 notification opens 2 Dec 2026 · Apply by 22 Dec 2026 · Exam 11 Apr 2027 · Confirm final PDF rules on upsc.gov.in once released.',
+    datesStrip: 'CDS (I) 2027 · Notification 2 Dec 2026 · Apply by 22 Dec 2026 · Exam 11 Apr 2027',
     subheading: 'Pre-Dec 2 preparation preset (400×400 px square, 20–200 KB JPG/JPEG) for IMA, INA, AFA & OTA applicants on upsconline.nic.in alongside mandatory live webcam/QR capture. Re-confirm final rules in the 2 Dec 2026 CDS-I PDF.',
     guidanceLabel: 'Pre-Dec 2 Preparation Guide',
-    verifiedOn: '2026-11-11',
+    verifiedOn: '2026-11-25',
     hidePhysicalSize: true,
     pixelNote: '400×400 px is an editable 1:1 square preparation canvas sitting within 350×350 px to 1000×1000 px.',
-    fileSizeNote: 'Preset bounds 20–200 KB (~60 KB target) align with recent UPSC Defence CAF guidance; confirm exact ceiling in the 2 Dec 2026 CDS-I PDF.',
+    fileSizeNote: 'Preset bounds 20–200 KB (~60 KB target) match UPSC 2026-cycle upload rules (draft spec pending 2 Dec 2026 notification verification).',
     sources: [
       { label: 'UPSC Annual Calendar 2027 (CDS I Notification 2 Dec 2026, Exam 11 Apr 2027)', url: 'https://upsc.gov.in/content/annual-calendar-2027-0' },
       { label: 'UPSC Online Application Portal (upsconline.nic.in)', url: 'https://upsconline.nic.in/' }
@@ -1923,7 +1923,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     dpi: 200,
     ink: 'Plain White or Light Background (Colour)',
     aspectRatioLabel: '1:1 Square (400×400 px prep canvas)',
-    strictNotice: 'Do not treat an edited JPG as a substitute for the live webcam/QR photo capture step on upsconline.nic.in. Keep ~75% face coverage with both ears visible against a plain white/light background, and check the 2 Dec 2026 CDS-I notice for Name & Date strip rules.',
+    strictNotice: 'UPSC also captures your photo live on the portal — this tool prepares the JPG you upload; keep the same photo ready for the live-capture step. Keep ~75% face coverage with both ears visible against a plain white/light background. Upload specs (20–200 KB JPG) based on UPSC 2026 cycle, pending final notification verification on 2 Dec 2026.',
     relatedTools: ['cds-signature-resize', 'nda-photo-resize', 'upsc-photo-resize', 'photo-resizer'],
     tips: [
       'Frame your face to occupy ~75% (3/4th) of the square photo with both ears visible against a clean white or light backdrop.',
@@ -1934,11 +1934,11 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     faqs: [
       {
         q: 'What is the photo size for UPSC CDS I 2027?',
-        a: 'Per UPSC’s 2027 Calendar, CDS (I) 2027 notification releases on 2 Dec 2026 (apply by 22 Dec 2026, exam 11 Apr 2027). Recent upsconline.nic.in rules specify a colour JPG/JPEG between 20 KB and 200 KB in 1:1 square pixels (350–1000 px) plus live webcam capture. Confirm exact limits on 2 Dec.'
+        a: 'Per UPSC’s 2027 Calendar, CDS (I) 2027 notification releases on 2 Dec 2026 (apply by 22 Dec 2026, exam 11 Apr 2027). Recent upsconline.nic.in rules specify a colour JPG/JPEG between 20 KB and 200 KB in 1:1 square pixels (350–1000 px). UPSC also captures your photo live on the portal — this tool prepares the JPG you upload; keep the same photo ready for the live-capture step.'
       },
       {
         q: 'Is Name & Date mandatory on the CDS 2027 passport photo?',
-        a: 'Older UPSC OTR notices mandated Name & Date within 10 days, while newer upsconline.nic.in CAF cycles paired uploaded JPGs with live webcam capture. Check the 2 Dec 2026 CDS-I notice instruction; SignResize includes an optional Name & Date toggle if needed.'
+        a: 'Older UPSC OTR notices mandated Name & Date within 10 days, while newer upsconline.nic.in CAF cycles paired uploaded JPGs (20–200 KB) with live webcam capture. Check the 2 Dec 2026 CDS-I notice instruction; SignResize includes an optional Name & Date toggle if needed.'
       },
       {
         q: 'Can I reuse the same resized photo for CDS IMA, INA, AFA, and OTA?',

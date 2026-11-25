@@ -1492,6 +1492,22 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     (typeof window !== 'undefined' && window.location.pathname.includes('rssb'))
   );
 
+  const isNdaActive = Boolean(
+    selectedPreset?.id?.includes('nda') ||
+    selectedPreset?.name?.toLowerCase().includes('nda') ||
+    resolvedPreset?.id?.includes('nda') ||
+    initialPresetId?.includes('nda') ||
+    (typeof window !== 'undefined' && window.location.pathname.includes('nda'))
+  );
+
+  const isCdsActive = Boolean(
+    selectedPreset?.id?.includes('cds') ||
+    selectedPreset?.name?.toLowerCase().includes('cds') ||
+    resolvedPreset?.id?.includes('cds') ||
+    initialPresetId?.includes('cds') ||
+    (typeof window !== 'undefined' && window.location.pathname.includes('cds'))
+  );
+
   const selectCoastGuardSection = useCallback((section: 'signature' | 'photo' | 'thumb' | 'document') => {
     if (section === 'signature') {
       const p = SIGNATURE_PRESETS.find(x => x.id === 'indian-coast-guard');
@@ -3316,6 +3332,16 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         { id: 'rssb-je-signature', short: 'RSSB Sign', label: 'RSSB Signature (Hindi & English)', specs: '560×160 • 20–50 KB' },
         { id: 'rssb-je-thumb', short: 'RSSB Thumb', label: 'RSSB Left Thumb Impression', specs: '560×160 • 20–50 KB' },
       ]
+    : isNdaActive
+    ? [
+        { id: 'nda-photo', short: 'NDA Photo', label: 'UPSC NDA I 2027 Photo', specs: '400×400 • 20–200 KB' },
+        { id: 'nda-signature', short: 'NDA Sign', label: 'UPSC NDA I 2027 Signature (Triple)', specs: '400×400 • 20–100 KB' },
+      ]
+    : isCdsActive
+    ? [
+        { id: 'cds-photo', short: 'CDS Photo', label: 'UPSC CDS I 2027 Photo', specs: '400×400 • 20–200 KB' },
+        { id: 'cds-signature', short: 'CDS Sign', label: 'UPSC CDS I 2027 Signature (Triple)', specs: '400×400 • 20–100 KB' },
+      ]
     : targetType === 'photo'
     ? [
         { id: 'ssc-cgl-photo', short: 'SSC CGL Photo', label: 'SSC CGL Photo', specs: '240×320 • 20–50 KB' },
@@ -3965,9 +3991,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <PenTool className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 text-center sm:text-left">
-                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Signature' : isTnpscActive ? 'Signature' : isCoastGuardActive ? 'Signature' : isWbpscActive ? 'Signature' : t.tool.signatureMode}</div>
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Signature' : isTnpscActive ? 'Signature' : isCoastGuardActive ? 'Signature' : isWbpscActive ? 'Signature' : isNdaActive ? 'NDA Signature' : isCdsActive ? 'CDS Signature' : t.tool.signatureMode}</div>
                 <div className={`hidden sm:block text-[10px] truncate ${targetType === 'signature' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
-                  {isIbpsActive ? '140×60 px • 10–20 KB' : isTnpscActive ? '140×60 px • 10–20 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '140×60 px • 10–20 KB' : t.tool.signatureSub}
+                  {isIbpsActive ? '140×60 px • 10–20 KB' : isTnpscActive ? '140×60 px • 10–20 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '140×60 px • 10–20 KB' : (isNdaActive || isCdsActive) ? '400×400 px • 20–100 KB' : t.tool.signatureSub}
                 </div>
               </div>
             </div>
@@ -3990,9 +4016,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <Camera className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 text-center sm:text-left">
-                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Photo' : isTnpscActive ? 'Passport Photo' : isCoastGuardActive ? 'Photo' : isWbpscActive ? 'Photo' : t.tool.photoMode}</div>
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Photo' : isTnpscActive ? 'Passport Photo' : isCoastGuardActive ? 'Photo' : isWbpscActive ? 'Photo' : isNdaActive ? 'NDA Photo' : isCdsActive ? 'CDS Photo' : t.tool.photoMode}</div>
                 <div className={`hidden sm:block text-[10px] truncate ${targetType === 'photo' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
-                  {isIbpsActive ? '200×230 px • 20–50 KB' : isTnpscActive ? '200×230 px • 20–50 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '138×177 px • 20–100 KB' : t.tool.photoSub}
+                  {isIbpsActive ? '200×230 px • 20–50 KB' : isTnpscActive ? '200×230 px • 20–50 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '138×177 px • 20–100 KB' : (isNdaActive || isCdsActive) ? '400×400 px • 20–200 KB' : t.tool.photoSub}
                 </div>
               </div>
             </div>
