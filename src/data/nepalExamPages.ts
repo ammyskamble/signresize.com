@@ -301,6 +301,7 @@ export const NEPAL_EXAM_PAGES: Record<string, NepalPageConfig> = {
       },
     ],
     crossLinks: [
+      { href: '/np/nrb-photo-signature-resize/', anchorText: 'Nepal Rastra Bank (NRB) photo & signature resize', context: 'Applying to Nepal Rastra Bank? 61 posts open (closes 3 Dec 2026).' },
       { href: '/np/nea-photo-signature-resize/', anchorText: 'NEA photo resize', context: 'Also applying to Nepal Electricity Authority? (Closes 26 Nov)' },
       { href: '/np/', anchorText: 'Nepal Exam Photo & Signature Resizer Hub', context: 'View all open Nepal deadlines' },
       { href: '/np/lok-sewa-photo-resize-nepal/', anchorText: 'Federal Lok Sewa Photo & Signature Resizer (≤50 KB)', context: 'Need ≤50 KB federal PSC presets instead?' },
@@ -422,6 +423,7 @@ export const NEPAL_EXAM_PAGES: Record<string, NepalPageConfig> = {
       },
     ],
     crossLinks: [
+      { href: '/np/nrb-photo-signature-resize/', anchorText: 'Nepal Rastra Bank (NRB) photo & signature resize', context: 'Applying to Nepal Rastra Bank? 61 posts open (closes 3 Dec 2026).' },
       { href: '/np/nepal-telecom-photo-signature-resize/', anchorText: 'Nepal Telecom signature resize', context: 'Also applying to Nepal Telecom? NTC 06/2083-84 closes 19 Nov (100–200 KB).' },
       { href: '/np/', anchorText: 'Nepal Exam Photo & Signature Resizer Hub', context: 'View all open Nepal recruitment windows' },
       { href: '/np/lok-sewa-photo-resize-nepal/', anchorText: 'Federal Lok Sewa Photo & Signature Resizer (≤50 KB)', context: 'Need federal psconline.psc.gov.np specs?' },
@@ -654,6 +656,125 @@ export const NEPAL_EXAM_PAGES: Record<string, NepalPageConfig> = {
       { href: '/np/', anchorText: 'Nepal Exam Photo & Signature Resizer Hub', context: 'Open job & entrance photo tools in Nepal' },
       { href: '/np/lok-sewa-photo-resize-nepal/', anchorText: 'Federal Lok Sewa Photo & Signature Resizer (≤50 KB)', context: 'Applying to federal psc.gov.np?' },
       { href: '/np/university-entrance-photo-resize/', anchorText: 'University Entrance Photo Resizer — Nepal', context: 'KU ≤500 KB & Purbanchal 51×51 mm' },
+    ],
+  },
+
+  'nrb-photo-signature-resize': {
+    slug: 'nrb-photo-signature-resize',
+    canonicalUrl: 'https://signresize.in/np/nrb-photo-signature-resize/',
+    pageTitle: 'Nepal Rastra Bank Photo & Signature Resize 2026 — NRB Vacancy 2083 | SignResize',
+    metaDescription:
+      'Resize photo and signature for Nepal Rastra Bank (NRB) Vacancy 2083 (Ads 11–15/2083, 61 posts) on jobs.nrb.org.np. Prepared to Nepal federal pattern (≤50 KB). Free, private, in-browser.',
+    keywords:
+      'nrb photo resize, nepal rastra bank signature size, jobs.nrb.org.np photo upload, nrb vacancy 2083 photo size, nrb assistant director photo signature',
+    h1: 'Nepal Rastra Bank (NRB) Photo and Signature Resizer',
+    badgeText: '🇳🇵 Open Competition 2083 · 61 Posts · Closes 3 Dec 2026',
+    datesStrip:
+      'NRB Vacancy 2083 (Ads 11–15/2083) · 61 posts · Apply by 3 Dec 2026 · Double fee till 10 Dec 2026 · Portal: jobs.nrb.org.np',
+    answerParagraph:
+      'For Nepal Rastra Bank (NRB) Vacancy 2083 (Advertisement Nos. 11/2083 to 15/2083, 61 total posts) on jobs.nrb.org.np, applicants must upload a recent passport-size photograph, signature scan, Nepali citizenship, academic certificates/transcripts, character certificate, and (for Assistant posts) PSC pre-qualification certificate. The official notice sets no numeric pixel or file size cap; this tool prepares files to Nepal’s federal upload pattern (≤50 KB JPG). If the active portal displays a different limit, follow the portal’s figure.',
+    initialPresetId: 'nrb-photo-np',
+    initialMode: 'photo',
+    presetChips: [
+      {
+        presetId: 'nrb-photo-np',
+        mode: 'photo',
+        label: 'NRB Passport Photo',
+        specBadge: 'JPG · Pattern ≤50 KB',
+      },
+      {
+        presetId: 'nrb-sign-np',
+        mode: 'signature',
+        label: 'NRB Signature',
+        specBadge: 'JPG · Pattern ≤50 KB',
+      },
+    ],
+    noticesHeading: 'Nepal Rastra Bank Vacancy 2083 (Notice Dated 2083/07/27) Details',
+    notices: [
+      {
+        badge: 'LIVE · REGULAR FEE CLOSES 3 DEC 2026',
+        heading: 'NRB Open Competition 2083 — 61 Officer & Assistant Vacancies',
+        meta: 'Published 2083 Kartik 27 (13 Nov 2026) · Regular Deadline: 3 Dec 2026 (2083 Mangsir 17) · Double Fee: 10 Dec 2026 (2083 Mangsir 24) · Portal: jobs.nrb.org.np',
+        body: 'Official advertisement published on nrb.org.np covering 61 positions across 5 advertisements: Ad 11/2083 Assistant Director (Administration) — 26 posts; Ad 12/2083 Assistant Director (Accounts/Audit) — 3 posts; Ad 13/2083 Assistant Director (Commercial Law) — 2 posts; Ad 14/2083 Assistant Director (IT) — 4 posts; Ad 15/2083 Assistant (Administration) — 26 posts. Application fee is NPR 1,000 for Officer levels (+400 per extra group) and NPR 800 for Assistant (+300 per extra group). Assistant post (15/2083) mandates a valid Public Service Commission (Lok Sewa) pre-qualification examination certificate.',
+        portalLabel: 'jobs.nrb.org.np',
+        portalUrl: 'https://jobs.nrb.org.np/',
+      },
+    ],
+    calloutSection: {
+      heading: 'Nepal Banking Recruitment Cycles & Portal Status',
+      paragraphs: [
+        'Nepal Rastra Bank (NRB) is the current active banking recruitment in Nepal (open until 3 Dec / double fee 10 Dec 2026). Previous commercial bank cycles are currently closed:',
+      ],
+      bullets: [
+        { label: 'Nepal Rastra Bank (NRB 2083)', text: 'LIVE now (61 posts, Ads 11–15/2083). Apply at jobs.nrb.org.np before 3 Dec 2026 (double fee till 10 Dec).' },
+        { label: 'Rastriya Banijya Bank (RBB)', text: 'Closed July 2026 cycle. Watch for upcoming 2083 announcements.' },
+        { label: 'Nepal Bank Limited (NBL) & ADBL', text: 'Closed March 2026 cycles. Next open recruitments awaited.' },
+        { label: 'Assistant Post (15/2083) PSC Rule', text: 'Candidates applying for Assistant Level 4 must hold a valid pre-qualification certificate issued by Public Service Commission (Lok Sewa Aayog).' },
+      ],
+    },
+    specTableHeading: 'Nepal Rastra Bank Upload Guidance & Federal Pattern Specifications',
+    specs: [
+      {
+        parameter: 'Passport Photograph',
+        value: 'Recent passport-size colour JPG (350×450 px, ≤50 KB pattern)',
+        source: "Prepared to the Nepal federal upload pattern (≤50 KB) — NRB's notice sets no file size; if the portal shows a different limit, use the portal's figure",
+      },
+      {
+        parameter: 'Signature Upload',
+        value: 'Clear handwritten JPG on clean white paper (350×150 px, ≤50 KB pattern)',
+        source: "Prepared to the Nepal federal upload pattern (≤50 KB) — NRB's notice sets no file size; if the portal shows a different limit, use the portal's figure",
+      },
+      {
+        parameter: 'Citizenship & Certificates',
+        value: 'Scanned original citizenship, marksheets, character certificate, council/equivalence docs',
+        source: 'Notice Point 8 — upload into designated portal fields on jobs.nrb.org.np',
+      },
+      {
+        parameter: 'PSC Pre-Qualification Certificate',
+        value: 'Mandatory for Assistant (Administration) Ad 15/2083',
+        source: 'NRB Notice 15/2083 eligibility requirement',
+      },
+    ],
+    verificationNote:
+      "Verified from official NRB vacancy notice dated 2083 Kartik 27 (13 Nov 2026) published via nrb.org.np. The published notice does not print explicit numeric KB or pixel bounds for photos and signatures. SignResize applies Nepal's standard federal pattern (≤50 KB JPG) so your files are lightweight, crisp, and ready for validation on jobs.nrb.org.np.",
+    howToHeading: 'How to Apply Online at jobs.nrb.org.np',
+    howToSteps: [
+      'Prepare your recent colour passport photo with the NRB Photo preset above and save as a lightweight JPG (≤50 KB).',
+      'Sign clearly in black or blue ink on clean unruled white paper, crop using NRB Signature, and export as JPG (≤50 KB).',
+      'Scan your Nepali citizenship certificate, educational transcripts, character certificates, and (for Ad 15/2083) your PSC pre-qualification certificate.',
+      'Visit jobs.nrb.org.np (accessible via the CAREER section of nrb.org.np), create an account or log in, select your advertisement, fill in personal details, upload all prepared files, and pay the fee (ConnectIPS/digital banking) before 3 Dec 2026 (or double fee by 10 Dec 2026).',
+    ],
+    officialPortals: [
+      { label: 'NRB Online Job Portal (jobs.nrb.org.np)', url: 'https://jobs.nrb.org.np/' },
+      { label: 'NRB Official Website (nrb.org.np)', url: 'https://www.nrb.org.np/' },
+    ],
+    faqs: [
+      {
+        q: 'What is the photo and signature size for Nepal Rastra Bank (NRB) vacancy?',
+        a: "The official NRB 2083 notice (Kartik 27) requires a recent passport-size photo and signature scan, but specifies no numeric KB or pixel limits in print. SignResize prepares both files to Nepal's federal Lok Sewa pattern (≤50 KB JPG). If the active jobs.nrb.org.np form displays a specific limit during upload, follow the portal's displayed number.",
+      },
+      {
+        q: 'What is the last date to apply for Nepal Rastra Bank Vacancy 2083?',
+        a: 'The regular-fee application deadline is 3 December 2026 (2083 Mangsir 17). Candidates can also submit with double examination fee until 10 December 2026 (2083 Mangsir 24) on jobs.nrb.org.np.',
+      },
+      {
+        q: 'How do I apply for jobs at Nepal Rastra Bank online?',
+        a: 'Go to jobs.nrb.org.np via the CAREER section of nrb.org.np. Register with your email, log in, select your advertised post (Ads 11/2083 to 15/2083), fill out personal and qualification details, upload your photo, signature, citizenship, and certificates, and pay the fee via ConnectIPS before the deadline.',
+      },
+      {
+        q: 'Which posts are open in Nepal Rastra Bank Vacancy 2083?',
+        a: 'A total of 61 posts are open: Assistant Director Administration (26 posts, Ad 11/2083), Assistant Director Accounts/Audit (3 posts, Ad 12/2083), Assistant Director Commercial Law (2 posts, Ad 13/2083), Assistant Director IT (4 posts, Ad 14/2083), and Assistant Administration (26 posts, Ad 15/2083).',
+      },
+      {
+        q: 'Is a PSC (Lok Sewa) pre-qualification certificate required for NRB Assistant post?',
+        a: 'Yes, for Advertisement No. 15/2083 (Assistant Level 4 Administration), applicants must possess a valid pre-qualification examination certificate conducted by the Public Service Commission (Lok Sewa Aayog).',
+      },
+    ],
+    crossLinks: [
+      { href: '/np/nea-photo-signature-resize/', anchorText: 'NEA Photo & Signature Resizer', context: 'Also applying to Nepal Electricity Authority? (Closes 26 Nov / double fee 3 Dec)' },
+      { href: '/np/nepal-telecom-photo-signature-resize/', anchorText: 'Nepal Telecom Photo & Signature Resizer', context: 'NTC technical & administration recruitment' },
+      { href: '/np/lok-sewa-photo-resize-nepal/', anchorText: 'Federal Lok Sewa Photo & Signature Resizer (≤50 KB)', context: 'PSC civil service exam preparation' },
+      { href: '/np/', anchorText: 'Nepal Exam Resizer Hub', context: 'View all active Nepal government recruitment tools' },
     ],
   },
 };

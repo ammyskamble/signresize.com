@@ -475,6 +475,13 @@ const PRESET_ALIASES: Record<string, string> = {
   prc: 'prc-ph',
   loksewa: 'loksewa-np',
   'loksewa-doc': 'loksewa-doc-np',
+  nrb: 'nrb-photo-np',
+  'nrb-photo': 'nrb-photo-np',
+  'nrb-photo-np': 'nrb-photo-np',
+  'nrb-sign': 'nrb-sign-np',
+  'nrb-sign-np': 'nrb-sign-np',
+  'nrb-doc': 'nrb-doc-np',
+  'nrb-doc-np': 'nrb-doc-np',
   'pradesh-loksewa': 'pradesh-loksewa-photo-np',
   'pradesh-loksewa-photo': 'pradesh-loksewa-photo-np',
   'pradesh-loksewa-sign': 'pradesh-loksewa-sign-np',
@@ -982,6 +989,10 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
         if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'nea-sign-np');
         else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'nea-photo-np');
         else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'nea-doc-np');
+      } else if (examAnchor.startsWith('nrb-') || examAnchor.includes('nrb')) {
+        if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'nrb-sign-np');
+        else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === 'nrb-photo-np');
+        else targetPreset = DOCUMENT_PRESETS.find(p => p.id === 'nrb-doc-np');
       } else if (examAnchor.includes('ku-entrance') || examAnchor.includes('pu-entrance') || examAnchor.includes('university-entrance')) {
         if (newType === 'signature') targetPreset = SIGNATURE_PRESETS.find(p => p.id === 'university-entrance-sign-np');
         else if (newType === 'photo') targetPreset = PHOTO_PRESETS.find(p => p.id === (examAnchor.includes('pu-entrance') ? 'pu-entrance-photo-np' : 'ku-entrance-photo-np'));
@@ -1506,6 +1517,15 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     resolvedPreset?.id?.includes('cds') ||
     initialPresetId?.includes('cds') ||
     (typeof window !== 'undefined' && window.location.pathname.includes('cds'))
+  );
+
+  const isNrbActive = Boolean(
+    selectedPreset?.id?.includes('nrb') ||
+    selectedPreset?.name?.toLowerCase().includes('nrb') ||
+    selectedPreset?.name?.toLowerCase().includes('nepal rastra bank') ||
+    resolvedPreset?.id?.includes('nrb') ||
+    initialPresetId?.includes('nrb') ||
+    (typeof window !== 'undefined' && window.location.pathname.includes('nrb'))
   );
 
   const selectCoastGuardSection = useCallback((section: 'signature' | 'photo' | 'thumb' | 'document') => {
@@ -3272,6 +3292,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     : isNpActive
     ? (targetType === 'photo'
         ? [
+            { id: 'nrb-photo-np', short: 'NRB Photo', label: 'NRB Passport Photo', specs: '350×450 • ≤50 KB' },
             { id: 'pradesh-loksewa-photo-np', short: 'Pradesh PPSC Photo', label: 'Pradesh Lok Sewa Photo', specs: '350×450 • 20–200 KB' },
             { id: 'ntc-photo-np', short: 'NTC Photo ≤200KB', label: 'Nepal Telecom Photo', specs: '350×450 • 100–200 KB' },
             { id: 'nea-photo-np', short: 'NEA Photo', label: 'NEA Both-Ears Photo', specs: '350×450 • 20–200 KB' },
@@ -3282,6 +3303,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           ]
         : targetType === 'document'
         ? [
+            { id: 'nrb-doc-np', short: 'NRB Doc', label: 'NRB Citizenship / Cert', specs: 'A4 • ≤500 KB' },
             { id: 'pradesh-loksewa-doc-np', short: 'Pradesh PPSC Doc', label: 'Pradesh Lok Sewa Doc', specs: 'A4 • ≤500 KB' },
             { id: 'ntc-doc-np', short: 'NTC Doc ≤200KB', label: 'Nepal Telecom Citizenship', specs: 'A4 • 100–200 KB' },
             { id: 'nea-doc-np', short: 'NEA Doc', label: 'NEA Citizenship JPG', specs: 'A4 • 20–300 KB' },
@@ -3290,6 +3312,7 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
             { id: 'driving-license-doc-np', short: 'eDLVRS Doc', label: 'Nepal Driving License Doc', specs: 'A4 • ≤500 KB' }
           ]
         : [
+            { id: 'nrb-sign-np', short: 'NRB Sign', label: 'NRB Signature', specs: '350×150 • ≤50 KB' },
             { id: 'pradesh-loksewa-sign-np', short: 'Pradesh PPSC Sign', label: 'Pradesh Lok Sewa Sign', specs: '350×150 • 10–100 KB' },
             { id: 'ntc-sign-np', short: 'NTC Sign ≤200KB', label: 'Nepal Telecom Sign', specs: '350×150 • 100–200 KB' },
             { id: 'nea-sign-np', short: 'NEA Sign', label: 'NEA Signature JPG', specs: '350×150 • 10–100 KB' },
@@ -3341,6 +3364,12 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
     ? [
         { id: 'cds-photo', short: 'CDS Photo', label: 'UPSC CDS I 2027 Photo', specs: '400×400 • 20–200 KB' },
         { id: 'cds-signature', short: 'CDS Sign', label: 'UPSC CDS I 2027 Signature (Triple)', specs: '400×400 • 20–100 KB' },
+      ]
+    : isNrbActive
+    ? [
+        { id: 'nrb-photo-np', short: 'NRB Photo', label: 'NRB Passport Photo', specs: '350×450 • ≤50 KB' },
+        { id: 'nrb-sign-np', short: 'NRB Sign', label: 'NRB Signature', specs: '350×150 • ≤50 KB' },
+        { id: 'nrb-doc-np', short: 'NRB Doc', label: 'NRB Citizenship / Cert', specs: 'A4 • ≤500 KB' },
       ]
     : targetType === 'photo'
     ? [
@@ -3991,9 +4020,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <PenTool className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 text-center sm:text-left">
-                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Signature' : isTnpscActive ? 'Signature' : isCoastGuardActive ? 'Signature' : isWbpscActive ? 'Signature' : isNdaActive ? 'NDA Signature' : isCdsActive ? 'CDS Signature' : t.tool.signatureMode}</div>
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Signature' : isTnpscActive ? 'Signature' : isCoastGuardActive ? 'Signature' : isWbpscActive ? 'Signature' : isNdaActive ? 'NDA Signature' : isCdsActive ? 'CDS Signature' : isNrbActive ? 'NRB Signature' : t.tool.signatureMode}</div>
                 <div className={`hidden sm:block text-[10px] truncate ${targetType === 'signature' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
-                  {isIbpsActive ? '140×60 px • 10–20 KB' : isTnpscActive ? '140×60 px • 10–20 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '140×60 px • 10–20 KB' : (isNdaActive || isCdsActive) ? '400×400 px • 20–100 KB' : t.tool.signatureSub}
+                  {isIbpsActive ? '140×60 px • 10–20 KB' : isTnpscActive ? '140×60 px • 10–20 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '140×60 px • 10–20 KB' : (isNdaActive || isCdsActive) ? '400×400 px • 20–100 KB' : isNrbActive ? '350×150 px • ≤50 KB' : t.tool.signatureSub}
                 </div>
               </div>
             </div>
@@ -4016,9 +4045,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <Camera className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 text-center sm:text-left">
-                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Photo' : isTnpscActive ? 'Passport Photo' : isCoastGuardActive ? 'Photo' : isWbpscActive ? 'Photo' : isNdaActive ? 'NDA Photo' : isCdsActive ? 'CDS Photo' : t.tool.photoMode}</div>
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'IBPS Photo' : isTnpscActive ? 'Passport Photo' : isCoastGuardActive ? 'Photo' : isWbpscActive ? 'Photo' : isNdaActive ? 'NDA Photo' : isCdsActive ? 'CDS Photo' : isNrbActive ? 'NRB Photo' : t.tool.photoMode}</div>
                 <div className={`hidden sm:block text-[10px] truncate ${targetType === 'photo' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
-                  {isIbpsActive ? '200×230 px • 20–50 KB' : isTnpscActive ? '200×230 px • 20–50 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '138×177 px • 20–100 KB' : (isNdaActive || isCdsActive) ? '400×400 px • 20–200 KB' : t.tool.photoSub}
+                  {isIbpsActive ? '200×230 px • 20–50 KB' : isTnpscActive ? '200×230 px • 20–50 KB' : isCoastGuardActive ? '10–100 KB' : isWbpscActive ? '138×177 px • 20–100 KB' : (isNdaActive || isCdsActive) ? '400×400 px • 20–200 KB' : isNrbActive ? '350×450 px • ≤50 KB' : t.tool.photoSub}
                 </div>
               </div>
             </div>
@@ -4041,9 +4070,9 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
                 <FileText className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 text-center sm:text-left">
-                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'Thumb / Declaration' : isTnpscActive ? 'Documents' : isCoastGuardActive ? 'Documents' : isWbpscActive ? 'Documents' : t.tool.documentMode}</div>
+                <div className="font-bold text-[11px] sm:text-xs truncate">{isIbpsActive ? 'Thumb / Declaration' : isTnpscActive ? 'Documents' : isCoastGuardActive ? 'Documents' : isWbpscActive ? 'Documents' : isNrbActive ? 'NRB Document' : t.tool.documentMode}</div>
                 <div className={`hidden sm:block text-[10px] truncate ${targetType === 'document' ? 'text-primary-foreground/90 font-medium' : 'text-muted-foreground'}`}>
-                  {isIbpsActive ? '20–100 KB JPG' : isTnpscActive ? '50–200 KB' : isCoastGuardActive ? '50–150 KB' : isWbpscActive ? '100–300 KB' : t.tool.documentSub}
+                  {isIbpsActive ? '20–100 KB JPG' : isTnpscActive ? '50–200 KB' : isCoastGuardActive ? '50–150 KB' : isWbpscActive ? '100–300 KB' : isNrbActive ? 'A4 • ≤500 KB' : t.tool.documentSub}
                 </div>
               </div>
             </div>

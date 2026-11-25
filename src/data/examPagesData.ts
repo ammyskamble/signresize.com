@@ -5078,6 +5078,35 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
     ]
   },
   {
+    slug: 'nrb-photo-signature-resize',
+    presetId: 'nrb-photo-np',
+    pageTitle: 'Nepal Rastra Bank Photo & Signature Resize 2026 — NRB Vacancy 2083 | SignResize',
+    metaDescription: 'Resize photo and signature for Nepal Rastra Bank (NRB) Vacancy 2083 (Ads 11–15/2083, 61 posts) on jobs.nrb.org.np. Prepared to Nepal federal pattern (≤50 KB). Free, private, in-browser.',
+    keywords: 'nrb photo resize, nepal rastra bank signature size, jobs.nrb.org.np photo upload, nrb vacancy 2083 photo size, nrb assistant director photo signature',
+    h1: 'Nepal Rastra Bank (NRB) Photo and Signature Resizer',
+    subheading: 'Resize photo and signature for Nepal Rastra Bank Vacancy 2083 (61 posts, Ads 11–15/2083) on jobs.nrb.org.np before 3 Dec 2026 (double fee 10 Dec). Prepared to Nepal federal pattern (≤50 KB).',
+    authority: 'Nepal Rastra Bank (NRB)',
+    targetExams: 'Nepal Rastra Bank Open Competition 2083 (Ads 11–15/2083, 61 Posts)',
+    widthPx: 350,
+    heightPx: 450,
+    widthCm: 3.5,
+    heightCm: 4.5,
+    minKb: 10,
+    maxKb: 50,
+    recommendedKb: 35,
+    dpi: 200,
+    ink: 'Passport colour portrait / dark ink signature on clean white paper',
+    aspectRatioLabel: '3.5×4.5 cm (Prepared to Federal ≤50 KB Pattern)',
+    strictNotice: "Prepared to the Nepal federal upload pattern (≤50 KB) — NRB's notice sets no file size; if the portal shows a different limit, use the portal's figure.",
+    relatedTools: ['nea-photo-signature-resize', 'nepal-telecom-photo-signature-resize', 'lok-sewa-photo-resize-nepal'],
+    tips: [
+      'Prepare your photo and signature to the lightweight federal pattern (≤50 KB JPG) for instant acceptance on jobs.nrb.org.np.'
+    ],
+    faqs: [
+      { q: 'What is the photo and signature size for Nepal Rastra Bank (NRB) vacancy?', a: "The official NRB 2083 notice (Kartik 27) requires a recent passport-size photo and signature scan, but specifies no numeric KB or pixel limits in print. SignResize prepares both files to Nepal's federal Lok Sewa pattern (≤50 KB JPG). If the active jobs.nrb.org.np form displays a specific limit during upload, follow the portal's displayed number." }
+    ]
+  },
+  {
     slug: 'university-entrance-photo-resize',
     presetId: 'ku-entrance-photo-np',
     pageTitle: 'Nepal University Entrance Photo Resize 2026 (KU & PU)',

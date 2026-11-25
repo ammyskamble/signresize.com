@@ -244,6 +244,8 @@ const presetSlugMap = new Map([
   ['fpsc-pk', 'fpsc-photo-resizer'],
   ['prc-ph', 'prc-photo-signature-resize-philippines'],
   ['loksewa-np', 'lok-sewa-photo-resize-nepal'],
+  ['nrb-photo-np', 'nrb-photo-signature-resize'],
+  ['nrb-sign-np', 'nrb-photo-signature-resize'],
   ['rrb-ntpc', 'rrb-ntpc-signature-resize'],
   ['upsssc-pet', 'upsssc-pet-signature-resize'],
   ['upsssc-pet-photo', 'upsssc-pet-photo-resize'],
@@ -285,7 +287,7 @@ const examPageMap = new Map(EXAM_PAGES_DATA.map((p) => [p.presetId, p]));
 const getExamUrl = (slug: string | null, presetId: string) => {
   if (!slug) return `/?preset=${encodeURIComponent(presetId)}#tool-workspace`;
   if (slug === 'prc-photo-signature-resize-philippines') return `/ph/${slug}/`;
-  if (slug === 'lok-sewa-photo-resize-nepal') return `/np/${slug}/`;
+  if (slug === 'lok-sewa-photo-resize-nepal' || slug === 'nrb-photo-signature-resize') return `/np/${slug}/`;
   if (slug === 'ppsc-signature-resize' || slug === 'fpsc-photo-resizer' || slug === 'fpsc-photo-resize') return `/pk/${slug}/`;
   return `/${slug}/`;
 };

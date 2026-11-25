@@ -3,6 +3,7 @@ const canonicalExamPaths: Record<string, string> = {
   'pradesh-lok-sewa-photo-resize': 'np/pradesh-lok-sewa-photo-resize',
   'nepal-telecom-photo-signature-resize': 'np/nepal-telecom-photo-signature-resize',
   'nea-photo-signature-resize': 'np/nea-photo-signature-resize',
+  'nrb-photo-signature-resize': 'np/nrb-photo-signature-resize',
   'university-entrance-photo-resize': 'np/university-entrance-photo-resize',
   'driving-license-photo-resize': 'np/driving-license-photo-resize',
   'prc-photo-signature-resize-philippines': 'ph/prc-photo-signature-resize-philippines',
