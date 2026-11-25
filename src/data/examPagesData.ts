@@ -3434,7 +3434,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       items: [
         {
           name: 'DGME Medical (MBBS & BDS 2026–27)',
-          window: 'Applications expected 15–18 November 2026 · Admission test 18 December 2026',
+          window: 'Circular delayed beyond 15–18 November 2026 estimate · Awaited on dgme.teletalk.com.bd · Tentative test 18 December 2026',
           specNote: 'dgme.teletalk.com.bd — Teletalk standard 300×300 px photo (10–100 KB) & 300×80 px signature (5–60 KB). Verify once 2026-27 DGME circular publishes.',
           href: '/bd/medical-admission-photo-resizer/',
           ctaLabel: 'Open Medical Admission Resizer'
@@ -3479,7 +3479,7 @@ const BASE_EXAM_PAGES_DATA: ExamPageInfo[] = [
       },
       {
         q: 'Which November 2026 Bangladesh admissions use Teletalk 300×300 and 300×80 upload rules?',
-        a: 'DGME Medical MBBS/BDS Admission (expected 15–18 November 2026, test 18 December 2026 on dgme.teletalk.com.bd) and Jagannath University (15 November–10 December 2026) follow Teletalk 300×300 px photo and 300×80 px signature specs. Dhaka University (11–25 November 2026 on admission.eis.du.ac.bd) and Rajshahi University (15–30 November 2026 on admission.ru.ac.bd, 300×400 px + selfie app) use separate university portals.'
+        a: 'DGME Medical MBBS/BDS Admission (circular delayed beyond initial 15–18 Nov estimate, test tentatively 18 December 2026 on dgme.teletalk.com.bd) and Jagannath University (15 November–10 December 2026) follow Teletalk 300×300 px photo and 300×80 px signature specs. Dhaka University (11–25 November 2026 on admission.eis.du.ac.bd) and Rajshahi University (15–30 November 2026 on admission.ru.ac.bd, 300×400 px + selfie app) use separate university portals.'
       },
       {
         q: 'টেলিটক অনলাইন আবেদনে ছবি ও স্বাক্ষরের মাপ কত? (What are Teletalk photo and signature sizes in Bangla?)',
