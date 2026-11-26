@@ -11,7 +11,7 @@ import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 
 const pageTitle = "Canada IRCC Visa & Passport Photo Resizer (Express Entry, PR, Study Permit) - SignResize";
-const pageDescription = "Free online Canada Photo Resizer & Crop Tool. Resize images to 420x540 pixels (35x45 mm ratio) for IRCC PR, Express Entry, Study Permits, and 50x70 mm for Canadian Passport Program.";
+const pageDescription = "Free online Canada Photo Resizer & Crop Tool. Resize images to 715×1000 px (50×70 mm, 420 KB–4 MB) for IRCC PR Card, 420×540 px (35×45 mm, 60–240 KB) for Study & Work Permits, and 50×70 mm for Canadian Passports.";
 const canonicalUrl = "https://signresize.in/ca/";
 const ogImageUrl = "https://signresize.in/og-image.png";
 const keywordsContent = "canada visa photo resizer, ircc express entry photo size 420x540, canadian pr photo crop online, study permit photo resizer canada, canadian passport photo size 50x70 mm, ircc digital photo converter free";
@@ -19,11 +19,11 @@ const keywordsContent = "canada visa photo resizer, ircc express entry photo siz
 const caFaqs = [
   {
     q: "What are the exact digital photo dimensions required for IRCC Express Entry and PR applications?",
-    a: "Your digital photo for IRCC Permanent Residency (PR) and Express Entry must have a minimum pixel dimension of 420 pixels wide by 540 pixels tall (35mm x 45mm aspect ratio). The file size must be between 240 KB and 4 MB in JPEG format."
+    a: "Your digital photo for IRCC Permanent Resident (PR) Card and Express Entry portals must measure at least 715 pixels wide by 1000 pixels tall (50 mm × 70 mm print ratio). The file size must be 4 MB or less in JPEG format with a 420 KB minimum quality floor."
   },
   {
     q: "What is the photo requirement for Canadian Study Permits and Work Permits?",
-    a: "IRCC online portals mandate digital photographs measuring at least 420x540 pixels (35x45 mm ratio), file weight between 240 KB and 4 MB, taken against a plain white or off-white background with a neutral expression."
+    a: "IRCC temporary resident portals (Study Permits, Work Permits, Visitor Visas) mandate digital photographs measuring at least 420×540 pixels (35×45 mm frame), file weight between 60 KB and 240 KB in JPEG format, against a plain white or light-colored background."
   },
   {
     q: "What are the standard dimensions for a Canadian Passport photo?",
@@ -91,8 +91,8 @@ const caFaqs = [
       "inLanguage": "en-CA",
       "description": pageDescription,
       "featureList": [
-        "IRCC Express Entry & PR Photo Resizer (420x540 px, 240KB-4MB)",
-        "Study & Work Permit Digital Photo Resizer (420x540 px)",
+        "IRCC Express Entry & PR Photo Resizer (715x1000 px, 420KB-4MB)",
+        "Study & Work Permit Digital Photo Resizer (420x540 px, 60-240KB)",
         "Canadian Passport Photo Resizer (50x70 mm / 600x840 px)"
       ]
     })} />
@@ -110,7 +110,7 @@ const caFaqs = [
               <span>🇨🇦 Official Government of Canada &amp; IRCC Standards</span>
             </div>
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
-              Canada IRCC Visa &amp; Passport Photo Resizer <span class="text-primary">(420×540 px / 50×70 mm)</span>
+              Canada IRCC Visa &amp; Passport Photo Resizer <span class="text-primary">(715×1000 / 420×540 px)</span>
             </h1>
             <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
               Free online tool to crop, format, and compress photographs to exact IRCC &amp; Passport Canada guidelines. Pre-configured for Express Entry, Permanent Residency (PR), Study Permits, Work Permits, and Canadian Passport renewals.
@@ -163,7 +163,7 @@ const caFaqs = [
                 IRCC Express Entry &amp; PR Resizer
               </h3>
               <p class="text-xs text-muted-foreground leading-relaxed">
-                Crop &amp; format digital photo for Permanent Residency (PR) to 420×540 px (35×45 mm ratio), 240 KB–4 MB.
+                Crop &amp; format digital photo for Permanent Residency (PR) to 715×1000 px minimum (50×70 mm ratio), 420 KB–4 MB.
               </p>
             </div>
             <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
@@ -185,7 +185,7 @@ const caFaqs = [
                 Study &amp; Work Permit Resizer
               </h3>
               <p class="text-xs text-muted-foreground leading-relaxed">
-                Format digital photo to 420×540 px, plain white background, for Canadian student visas and work permit portals.
+                Format digital photo to 420×540 px (35×45 mm), 60–240 KB JPEG, for Canadian student visas and work permit portals.
               </p>
             </div>
             <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
@@ -233,9 +233,9 @@ const caFaqs = [
               <span>🍁</span> <span>IRCC PR &amp; Express Entry</span>
             </h4>
             <ul class="text-xs text-muted-foreground space-y-1">
-              <li>• <strong>Pixel Dimensions:</strong> Min 420 × 540 pixels</li>
-              <li>• <strong>Aspect Ratio:</strong> 35 × 45 mm (7:9 ratio)</li>
-              <li>• <strong>File Size:</strong> 240 KB to 4 MB JPEG</li>
+              <li>• <strong>Pixel Dimensions:</strong> Min 715 × 1000 pixels</li>
+              <li>• <strong>Print Frame:</strong> 50 × 70 mm (5:7 ratio)</li>
+              <li>• <strong>File Size:</strong> 420 KB to 4 MB JPEG</li>
               <li>• <strong>Background:</strong> Plain white or off-white</li>
             </ul>
           </div>
@@ -245,8 +245,8 @@ const caFaqs = [
             </h4>
             <ul class="text-xs text-muted-foreground space-y-1">
               <li>• <strong>Pixel Dimensions:</strong> Min 420 × 540 pixels</li>
-              <li>• <strong>Aspect Ratio:</strong> 35 × 45 mm (7:9 ratio)</li>
-              <li>• <strong>File Size:</strong> 240 KB to 4 MB JPEG</li>
+              <li>• <strong>Print Frame:</strong> 35 × 45 mm</li>
+              <li>• <strong>File Size:</strong> 60 KB to 240 KB JPEG</li>
               <li>• <strong>Facial Fit:</strong> Head 31 mm – 36 mm</li>
             </ul>
           </div>
@@ -270,8 +270,8 @@ const caFaqs = [
           For online Permanent Residency confirmation portals and Express Entry e-CoPR issuance, IRCC enforces a strict digital image requirement:
         </p>
         <ul class="text-sm text-muted-foreground space-y-1.5">
-          <li><strong>Minimum Pixel Size:</strong> The image must be at least 420 pixels wide by 540 pixels tall. Higher resolutions (such as 840 × 1080 px or 1200 × 1542 px) are fully supported as long as the 35:45 aspect ratio is maintained.</li>
-          <li><strong>File Weight Boundary:</strong> The resulting file size must measure strictly between <strong>240 KB</strong> (minimum) and <strong>4.0 MB</strong> (maximum). Files under 240 KB are flagged for low resolution, while files exceeding 4 MB trigger server upload timeouts.</li>
+          <li><strong>Minimum Pixel Size:</strong> The image must be at least 715 pixels wide by 1000 pixels tall (up to 2000 × 2800 px), matching the 50 × 70 mm PR card photo ratio.</li>
+          <li><strong>File Weight Boundary:</strong> The resulting file size must be <strong>4.0 MB</strong> or less in JPEG format, with a <strong>420 KB</strong> quality floor so the portal does not reject low-detail uploads.</li>
           <li><strong>Color &amp; Quality:</strong> Photographs must be in full 24-bit sRGB color with no filters, smoothing, or AI face alteration.</li>
           <li><strong>Background &amp; Lighting:</strong> Must be shot against a uniform, plain white or off-white background with no shadows across the face or background wall.</li>
         </ul>
@@ -280,7 +280,7 @@ const caFaqs = [
           2. Study Permit, Work Permit &amp; Visitor Visa Applications
         </h3>
         <p class="text-sm leading-relaxed text-muted-foreground">
-          Applicants applying for a Canadian Study Permit, Co-op Work Permit, Post-Graduation Work Permit (PGWP), or Temporary Resident Visa (TRV) through the IRCC Secure Account portal must upload a digital photograph meeting identical 420×540 pixel specifications.
+          Applicants applying for a Canadian Study Permit, Co-op Work Permit, Post-Graduation Work Permit (PGWP), or Temporary Resident Visa (TRV) through the IRCC Secure Account portal must upload a digital photograph measuring at least 420×540 pixels (35×45 mm frame) with a file size between 60 KB and 240 KB in JPEG format.
         </p>
         <ul class="text-sm text-muted-foreground space-y-1.5">
           <li><strong>Facial Framing:</strong> The face must be centred, looking straight at the camera with a neutral facial expression (mouth closed, no smiling, no frowning).</li>

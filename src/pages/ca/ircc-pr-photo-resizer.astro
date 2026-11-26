@@ -10,28 +10,28 @@ import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 
-const pageTitle = "IRCC Express Entry & PR Photo Resizer (420x540 Pixels & 240KB to 4MB) - SignResize";
-const pageDescription = "Free IRCC Permanent Residency (PR) and Express Entry digital visa photo resizer. Crop and convert photos to 420x540 pixels, 35x45 mm ratio, 240 KB to 4 MB in JPEG format for IRCC portal.";
+const pageTitle = "IRCC Express Entry & PR Photo Resizer (715×1000 px, 50×70 mm & 420 KB–4 MB) - SignResize";
+const pageDescription = "Free IRCC Permanent Residency (PR) Card and Express Entry digital photo resizer. Crop and convert photos to 715×1000 px minimum (50×70 mm ratio), 420 KB to 4 MB in JPEG format for IRCC portal.";
 const canonicalUrl = "https://signresize.in/ca/ircc-pr-photo-resizer/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "ircc pr photo resizer, express entry photo size 420x540, canadian pr photo online crop, ircc digital photo converter free, 35x45 mm photo resizer canada";
+const keywordsContent = "ircc pr photo resizer, express entry photo size 715x1000, canadian pr photo online crop, ircc digital photo converter free, 50x70 mm photo resizer canada";
 
 const irccFaqs = [
   {
-    q: "What are the exact pixel dimensions required for IRCC PR and Express Entry digital photos?",
-    a: "The digital photo for IRCC Permanent Residency (PR) must be vertically oriented, measuring at least 420 pixels wide by 540 pixels tall (a 35mm x 45mm aspect ratio)."
+    q: "What are the exact pixel dimensions and frame size required for IRCC PR Card digital photos?",
+    a: "For IRCC Permanent Resident (PR) Card and citizenship online portals, the digital photo must measure at least 715 pixels wide by 1000 pixels tall (up to 2000×2800 px), matching the 50 mm × 70 mm (2 × 2¾ inches) physical photo frame."
   },
   {
-    q: "What is the allowed file size range for IRCC digital photo uploads?",
-    a: "The digital photo file size must be strictly between 240 KB (minimum) and 4 MB (maximum) in JPEG (.jpg) format."
+    q: "What is the allowed file size range for IRCC PR Card digital photo uploads?",
+    a: "The digital photo file size must be 4 MB or less in JPEG (.jpg/.jpeg) format, with a minimum quality floor of 420 KB so the portal does not reject low-resolution uploads."
   },
   {
     q: "Are eyeglasses permitted in IRCC PR photos?",
     a: "Eyeglasses may be worn only if the eyes are clearly visible and there is no reflection or glare on the lenses. Tinted or dark glasses are prohibited."
   },
   {
-    q: "What background color is required for IRCC digital visa photos?",
-    a: "The photo must be taken against a plain, light-colored background (such as white or off-white) with no objects or wall shadows."
+    q: "What background color is required for IRCC digital PR photos?",
+    a: "The photo must be taken against a plain, untextured white background providing clear contrast with the face, with no objects or wall shadows."
   }
 ];
 ---
@@ -83,8 +83,8 @@ const irccFaqs = [
       "operatingSystem": "All",
       "description": pageDescription,
       "featureList": [
-        "420x540 px Aspect Ratio Crop",
-        "240 KB to 4 MB JPEG Compression",
+        "715x1000 px Minimum (50x70 mm PR Frame) Crop",
+        "420 KB to 4 MB JPEG Compression",
         "100% In-Browser Privacy Protection"
       ]
     })} />
@@ -99,13 +99,16 @@ const irccFaqs = [
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div class="space-y-2">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
-              <span>🇨🇦 IRCC Express Entry &amp; PR Photo Standard</span>
+              <span>🇨🇦 IRCC Permanent Resident (PR) Card Standard</span>
             </div>
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
-              IRCC Express Entry &amp; PR Photo Resizer <span class="text-primary">(420×540 px)</span>
+              IRCC Express Entry &amp; PR Photo Resizer <span class="text-primary">(715×1000 px)</span>
             </h1>
             <p class="text-sm text-muted-foreground max-w-3xl">
-              Format your digital photo to IRCC standards (minimum 420×540 pixels, 35×45 mm aspect ratio, 240 KB to 4 MB JPEG) for online Permanent Residency and Express Entry confirmation portals.
+              Format your digital photo to official IRCC PR Card standards (minimum 715×1000 pixels, 50×70 mm aspect ratio, 420 KB to 4 MB JPEG) for Permanent Residency confirmation and PR Card portals.
+            </p>
+            <p class="text-[11px] font-mono text-muted-foreground">
+              Specs verified 26 Nov 2026 against canada.ca IRCC Permanent Resident Card digital photo guidelines.
             </p>
           </div>
 
@@ -123,20 +126,20 @@ const irccFaqs = [
       <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="md:col-span-2 space-y-4 bg-card border border-border p-6 rounded-2xl">
           <h2 class="text-xl font-bold text-foreground">
-            Official IRCC Express Entry &amp; PR Visa Photo Standard Specs
+            Official IRCC PR Card &amp; Express Entry Photo Standard Specs
           </h2>
           <ul class="space-y-2.5 text-xs sm:text-sm text-muted-foreground">
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Dimensions:</strong> Minimum 420 × 540 pixels (35×45 mm aspect ratio, 7:9 ratio).</span>
+              <span><strong>Dimensions:</strong> Minimum 715 × 1000 pixels (up to 2000 × 2800 px), matching the 50 × 70 mm (2 × 2¾ in) PR frame.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>File Weight:</strong> Between 240 KB and 4 MB in JPEG format.</span>
+              <span><strong>File Weight:</strong> Between 420 KB (quality floor) and 4 MB maximum in JPEG (.jpg/.jpeg) format.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Background:</strong> Plain white or off-white background with no background shadows.</span>
+              <span><strong>Head Size &amp; Background:</strong> Chin to crown 31–36 mm on a plain, untextured white background with no shadows.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
@@ -150,7 +153,7 @@ const irccFaqs = [
           <h3 class="text-base font-bold text-foreground">Related Canada Tools</h3>
           <div class="space-y-2 text-xs">
             <a href="/ca/study-work-permit-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
-              🎓 Study &amp; Work Permit Resizer →
+              🎓 Study &amp; Work Permit Resizer (35×45 mm, 60–240 KB) →
             </a>
             <a href="/ca/canadian-passport-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
               🛂 Canadian Passport Photo Resizer (50×70 mm) →

@@ -10,28 +10,28 @@ import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 
-const pageTitle = "Canada Study & Work Permit Photo Resizer (420x540 Pixels & 240KB-4MB) - SignResize";
-const pageDescription = "Free online Canada Study Permit and Work Permit digital photo resizer. Crop and convert photos to 420x540 pixels, 35x45 mm ratio, 240 KB to 4 MB in JPEG format for IRCC online portals.";
+const pageTitle = "Canada Study & Work Permit Photo Resizer (420×540 px, 60–240 KB) - SignResize";
+const pageDescription = "Free online Canada Study Permit and Work Permit digital photo resizer. Crop and convert photos to 420×540 pixels (35×45 mm frame), 60 KB to 240 KB in JPEG format for IRCC temporary resident portals.";
 const canonicalUrl = "https://signresize.in/ca/study-work-permit-photo-resizer/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "study permit photo resizer canada, work permit photo size 420x540, ircc student visa photo crop, pgwp photo size converter, canadian permit photo resizer free";
+const keywordsContent = "study permit photo resizer canada, work permit photo size 420x540, ircc student visa photo crop 60 240 kb, pgwp photo size converter, canadian permit photo resizer free";
 
 const permitFaqs = [
   {
-    q: "What photo specifications are required for a Canadian Study Permit?",
-    a: "IRCC online portals mandate digital photographs measuring at least 420 pixels wide by 540 pixels tall (35mm x 45mm ratio), with a file size between 240 KB and 4 MB in JPEG format."
+    q: "What photo specifications are required for a Canadian Study Permit or Work Permit?",
+    a: "IRCC temporary resident guidelines specify a 35 mm × 45 mm frame with minimum digital dimensions of 420 × 540 pixels and a file size between 60 KB (minimum) and 240 KB (ideal target) in JPEG format."
   },
   {
     q: "Does Post-Graduation Work Permit (PGWP) require the same photo size as Study Permits?",
-    a: "Yes. PGWP, Co-op Work Permits, Open Work Permits, and Study Permit extensions all follow standard IRCC digital photo specifications (420x540 pixels minimum, 240 KB to 4 MB)."
+    a: "Yes. PGWP, Co-op Work Permits, Open Work Permits, Visitor Visas (TRV), and Study Permit extensions follow IRCC temporary resident digital photo specifications (420×540 pixels minimum, 60 KB to 240 KB)."
   },
   {
     q: "What background color is required for Canadian permit photos?",
-    a: "The photo must be taken against a plain white or off-white background. No dark shadows or patterns should be visible."
+    a: "The photo must be taken against a plain white or light-colored background. No dark shadows or patterns should be visible."
   },
   {
     q: "Can I take my Study Permit photo with a smartphone?",
-    a: "Yes. Stand 4 to 6 feet away from a light-colored wall with even lighting. Frame your head and shoulders, ensure a neutral expression, and crop to 420x540 px using SignResize."
+    a: "Yes. Stand 4 to 6 feet away from a light-colored wall with even lighting. Frame your head and shoulders, ensure a neutral expression, and crop to 420×540 px (60–240 KB) using SignResize."
   }
 ];
 ---
@@ -83,8 +83,8 @@ const permitFaqs = [
       "operatingSystem": "All",
       "description": pageDescription,
       "featureList": [
-        "420x540 px Aspect Ratio Crop",
-        "240 KB to 4 MB File Size Compression",
+        "420x540 px (35x45 mm) Crop",
+        "60 KB to 240 KB JPEG Compression",
         "Client-Side Zero Server Upload Privacy"
       ]
     })} />
@@ -105,7 +105,10 @@ const permitFaqs = [
               Canada Study &amp; Work Permit Photo Resizer <span class="text-primary">(420×540 px)</span>
             </h1>
             <p class="text-sm text-muted-foreground max-w-3xl">
-              Format your digital photo to IRCC standards (minimum 420×540 pixels, 35×45 mm ratio, 240 KB to 4 MB JPEG) for Canadian student visas, PGWP, and work permit application portals.
+              Format your digital photo to IRCC temporary resident standards (minimum 420×540 pixels, 35×45 mm frame, 60 KB to 240 KB JPEG) for Canadian student visas, PGWP, and work permit application portals.
+            </p>
+            <p class="text-[11px] font-mono text-muted-foreground">
+              Specs verified 26 Nov 2026 against canada.ca IRCC temporary resident digital photo guidelines.
             </p>
           </div>
 
@@ -128,19 +131,19 @@ const permitFaqs = [
           <ul class="space-y-2.5 text-xs sm:text-sm text-muted-foreground">
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Dimensions:</strong> Minimum 420 × 540 pixels (35×45 mm aspect ratio).</span>
+              <span><strong>Dimensions:</strong> Minimum 420 × 540 pixels (35 × 45 mm frame).</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>File Weight:</strong> 240 KB to 4 MB in JPEG format.</span>
+              <span><strong>File Weight:</strong> 60 KB (minimum) to 240 KB in JPEG format.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Background:</strong> Plain white or off-white background with balanced lighting.</span>
+              <span><strong>Background:</strong> Plain white or light-colored background with balanced lighting.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Facial Fit:</strong> Head height chin to crown should occupy approximately 70-80% of the vertical frame.</span>
+              <span><strong>Facial Fit:</strong> Head height chin to crown between 31 mm and 36 mm.</span>
             </li>
           </ul>
         </div>
@@ -150,7 +153,7 @@ const permitFaqs = [
           <h3 class="text-base font-bold text-foreground">Related Canada Tools</h3>
           <div class="space-y-2 text-xs">
             <a href="/ca/ircc-pr-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
-              🍁 IRCC Express Entry &amp; PR Resizer →
+              🍁 IRCC Express Entry &amp; PR Resizer (715×1000 px) →
             </a>
             <a href="/ca/canadian-passport-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
               🛂 Canadian Passport Photo Resizer (50×70 mm) →
