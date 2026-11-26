@@ -2,14 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   PenTool,
   Type,
+  Upload,
   Download,
   Trash2,
   Undo,
-  ExternalLink,
-  Check,
   Sparkles,
-  Sliders,
-  Palette
+  Image as ImageIcon,
+  Loader2
 } from 'lucide-react';
 import FeedbackPrompt from './FeedbackPrompt';
 
@@ -40,15 +39,15 @@ const INK_COLORS = [
 ];
 
 interface SignatureCreatorToolProps {
-  initialTab?: 'type' | 'draw';
+  initialTab?: 'type' | 'draw' | 'upload';
 }
 
 export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ initialTab = 'type' }) => {
   const [hasDownloaded, setHasDownloaded] = useState(false);
-  const [tab, setTab] = useState<'type' | 'draw'>(() => {
+  const [tab, setTab] = useState<'type' | 'draw' | 'upload'>(() => {
     if (typeof window !== 'undefined') {
       const modeParam = new URLSearchParams(window.location.search).get('mode');
-      if (modeParam === 'draw' || modeParam === 'type') return modeParam;
+      if (modeParam === 'draw' || modeParam === 'type' || modeParam === 'upload') return modeParam;
     }
     return initialTab;
   });
@@ -67,9 +66,34 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
   const [hasDrawn, setHasDrawn] = useState<boolean>(false);
   const [history, setHistory] = useState<ImageData[]>([]);
 
-  // Canvas refs
+  // Upload Mode States
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [removeBg, setRemoveBg] = useState<boolean>(true);
+  const [cleanupStrength, setCleanupStrength] = useState<number>(48);
+  const [uploadProcessing, setUploadProcessing] = useState<boolean>(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [hasUploadedImage, setHasUploadedImage] = useState<boolean>(false);
+
+  // Canvas & Input refs
   const drawCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const typeCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const uploadCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  // Listen for Famous Signatures gallery selection
+  useEffect(() => {
+    const handleFamousSelect = (e: Event) => {
+      const custom = e as CustomEvent<{ name?: string; fontId?: string }>;
+      if (custom.detail?.name) setText(custom.detail.name);
+      if (custom.detail?.fontId) {
+        const found = SIGNATURE_FONTS.find((f) => f.id === custom.detail.fontId);
+        if (found) setSelectedFont(found);
+      }
+      setTab('type');
+    };
+    window.addEventListener('signresize:load-famous-signature', handleFamousSelect);
+    return () => window.removeEventListener('signresize:load-famous-signature', handleFamousSelect);
+  }, []);
 
   // Load Google Fonts dynamically for the preview and canvas rendering
   useEffect(() => {
@@ -214,9 +238,116 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
     }
   };
 
+  // Process Upload Signature to Canvas
+  useEffect(() => {
+    if (tab !== 'upload' || !uploadedFile) return;
+    let cancelled = false;
+
+    const processUpload = async () => {
+      setUploadProcessing(true);
+      setUploadError(null);
+      try {
+        let sourceBlob: Blob = uploadedFile;
+
+        if (removeBg && typeof Worker !== 'undefined') {
+          const bitmap = await createImageBitmap(uploadedFile);
+          sourceBlob = await new Promise<Blob>((resolve, reject) => {
+            const worker = new Worker('/workers/paper-background-v1.js');
+            worker.onmessage = ({ data }) => {
+              worker.terminate();
+              if (data.error) reject(new Error(data.error));
+              else resolve(data.blob);
+            };
+            worker.onerror = () => {
+              worker.terminate();
+              reject(new Error('Background cleanup failed.'));
+            };
+            worker.postMessage(
+              {
+                image: bitmap,
+                strength: cleanupStrength,
+                background: transparentBg ? 'transparent' : '#ffffff',
+              },
+              [bitmap]
+            );
+          });
+        }
+
+        if (cancelled) return;
+
+        const imgUrl = URL.createObjectURL(sourceBlob);
+        const img = new Image();
+        img.onload = () => {
+          URL.revokeObjectURL(imgUrl);
+          if (cancelled) return;
+          const canvas = uploadCanvasRef.current;
+          if (!canvas) return;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return;
+
+          canvas.width = 600;
+          canvas.height = 240;
+
+          if (transparentBg) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          } else {
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+          }
+
+          const pad = 16;
+          const maxW = canvas.width - pad * 2;
+          const maxH = canvas.height - pad * 2;
+          const scale = Math.min(maxW / img.width, maxH / img.height, 1);
+          const drawW = Math.round(img.width * scale);
+          const drawH = Math.round(img.height * scale);
+          const dx = Math.round((canvas.width - drawW) / 2);
+          const dy = Math.round((canvas.height - drawH) / 2);
+
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(img, dx, dy, drawW, drawH);
+          setHasUploadedImage(true);
+          setUploadProcessing(false);
+        };
+        img.onerror = () => {
+          URL.revokeObjectURL(imgUrl);
+          if (!cancelled) {
+            setUploadError('Could not render image. Please try a JPG or PNG.');
+            setUploadProcessing(false);
+          }
+        };
+        img.src = imgUrl;
+      } catch (err) {
+        if (!cancelled) {
+          setUploadError(err instanceof Error ? err.message : 'Failed to process uploaded image.');
+          setUploadProcessing(false);
+        }
+      }
+    };
+
+    processUpload();
+    return () => {
+      cancelled = true;
+    };
+  }, [tab, uploadedFile, removeBg, cleanupStrength, transparentBg]);
+
+  const handleUploadFile = (file: File | undefined) => {
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      setUploadError('Please upload a valid PNG, JPG, or WebP image.');
+      return;
+    }
+    setUploadError(null);
+    setHasUploadedImage(false);
+    setUploadedFile(file);
+  };
+
   // Export handlers
   const getActiveCanvas = (): HTMLCanvasElement | null => {
-    return tab === 'type' ? typeCanvasRef.current : drawCanvasRef.current;
+    if (tab === 'type') return typeCanvasRef.current;
+    if (tab === 'draw') return drawCanvasRef.current;
+    return uploadCanvasRef.current;
   };
 
   const downloadFile = (format: 'png' | 'jpeg') => {
@@ -250,31 +381,43 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
 
   return (
     <div class="space-y-6">
-      {/* Tab Selector */}
-      <div class="flex items-center gap-2 p-1.5 rounded-2xl bg-muted/40 border border-border max-w-md mx-auto">
+      {/* Tab Selector: Type, Draw, Upload */}
+      <div className="grid grid-cols-3 gap-1.5 p-1.5 rounded-2xl bg-muted/40 border border-border max-w-xl mx-auto">
         <button
           type="button"
           onClick={() => setTab('type')}
-          class={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold transition ${
+          className={`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-xs font-bold transition cursor-pointer ${
             tab === 'type'
               ? 'bg-primary text-primary-foreground shadow'
               : 'text-muted-foreground hover:text-foreground'
           }`}
         >
-          <Type class="w-4 h-4" />
-          <span>Type Signature (Fonts)</span>
+          <Type className="w-4 h-4 shrink-0" />
+          <span>Type</span>
         </button>
         <button
           type="button"
           onClick={() => setTab('draw')}
-          class={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold transition ${
+          className={`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-xs font-bold transition cursor-pointer ${
             tab === 'draw'
               ? 'bg-primary text-primary-foreground shadow'
               : 'text-muted-foreground hover:text-foreground'
           }`}
         >
-          <PenTool class="w-4 h-4" />
-          <span>Draw Signature (Pad)</span>
+          <PenTool className="w-4 h-4 shrink-0" />
+          <span>Draw</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setTab('upload')}
+          className={`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-xs font-bold transition cursor-pointer ${
+            tab === 'upload'
+              ? 'bg-primary text-primary-foreground shadow'
+              : 'text-muted-foreground hover:text-foreground'
+          }`}
+        >
+          <Upload className="w-4 h-4 shrink-0" />
+          <span>Upload</span>
         </button>
       </div>
 
@@ -337,7 +480,7 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
               </div>
             </div>
           </div>
-        ) : (
+        ) : tab === 'draw' ? (
           <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3">
             <div class="flex items-center gap-3">
               <span class="text-xs font-semibold text-foreground">Pen Thickness:</span>
@@ -379,33 +522,92 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
               </button>
             </div>
           </div>
+        ) : (
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <label className="flex items-center gap-2 text-xs font-semibold text-foreground cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={removeBg}
+                  onChange={(e) => setRemoveBg(e.target.checked)}
+                  className="rounded border-border accent-primary cursor-pointer"
+                />
+                <span>Clean Paper Background</span>
+              </label>
+
+              {removeBg && (
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] text-muted-foreground">Cleanup:</span>
+                  <input
+                    type="range"
+                    min="20"
+                    max="80"
+                    value={cleanupStrength}
+                    onChange={(e) => setCleanupStrength(Number(e.target.value))}
+                    className="w-24 accent-primary cursor-pointer"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-muted text-xs font-semibold text-foreground transition cursor-pointer"
+              >
+                <Upload className="w-3.5 h-3.5" />
+                <span>{uploadedFile ? 'Replace Image' : 'Choose Image'}</span>
+              </button>
+              {uploadedFile && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setUploadedFile(null);
+                    setHasUploadedImage(false);
+                    setUploadError(null);
+                  }}
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-border text-xs text-red-600 dark:text-red-400 hover:bg-red-500/10 transition cursor-pointer"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>Clear</span>
+                </button>
+              )}
+            </div>
+          </div>
         )}
 
         {/* Global Color & Background Bar */}
         <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-border text-xs">
-          <div class="flex items-center gap-2">
-            <span class="font-semibold text-foreground">Ink Color:</span>
-            <div class="flex items-center gap-1.5">
-              {INK_COLORS.map((c) => (
-                <button
-                  key={c.id}
-                  type="button"
-                  onClick={() => setInkColor(c.value)}
-                  class={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-[11px] font-medium transition ${
-                    inkColor === c.value
-                      ? 'border-primary bg-primary/10 text-primary font-bold'
-                      : 'border-border bg-card text-muted-foreground hover:bg-muted'
-                  }`}
-                >
-                  <span
-                    class="w-3 h-3 rounded-full border border-black/20"
-                    style={{ backgroundColor: c.value }}
-                  ></span>
-                  <span>{c.label}</span>
-                </button>
-              ))}
+          {tab !== 'upload' ? (
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-foreground">Ink Color:</span>
+              <div class="flex items-center gap-1.5">
+                {INK_COLORS.map((c) => (
+                  <button
+                    key={c.id}
+                    type="button"
+                    onClick={() => setInkColor(c.value)}
+                    class={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-[11px] font-medium transition ${
+                      inkColor === c.value
+                        ? 'border-primary bg-primary/10 text-primary font-bold'
+                        : 'border-border bg-card text-muted-foreground hover:bg-muted'
+                    }`}
+                  >
+                    <span
+                      class="w-3 h-3 rounded-full border border-black/20"
+                      style={{ backgroundColor: c.value }}
+                    ></span>
+                    <span>{c.label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="text-[11px] text-muted-foreground">
+              Upload a photo of your handwritten signature on white paper to extract crisp ink.
+            </div>
+          )}
 
           <div class="flex items-center gap-2">
             <label class="flex items-center gap-2 cursor-pointer select-none">
@@ -427,7 +629,7 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
               ref={typeCanvasRef}
               class="max-w-full h-auto rounded-xl shadow-xs border border-border/60 bg-card"
             />
-          ) : (
+          ) : tab === 'draw' ? (
             <div class="relative w-full max-w-[600px] h-[240px] rounded-xl border border-dashed border-border/80 bg-card shadow-xs overflow-hidden">
               <canvas
                 ref={drawCanvasRef}
@@ -446,6 +648,55 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
                 </div>
               )}
             </div>
+          ) : (
+            <div
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                e.preventDefault();
+                handleUploadFile(e.dataTransfer.files?.[0]);
+              }}
+              className="relative w-full max-w-[600px] h-[240px] rounded-xl border border-dashed border-border/80 bg-card shadow-xs overflow-hidden flex items-center justify-center"
+            >
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                onChange={(e) => handleUploadFile(e.target.files?.[0])}
+                className="hidden"
+              />
+              <canvas
+                ref={uploadCanvasRef}
+                className={`max-w-full max-h-full object-contain ${hasUploadedImage ? 'block' : 'hidden'}`}
+              />
+              {!hasUploadedImage && !uploadProcessing && (
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="flex flex-col items-center justify-center gap-2 p-6 text-center cursor-pointer hover:bg-muted/20 transition w-full h-full"
+                >
+                  <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                    <ImageIcon className="w-5 h-5" />
+                  </div>
+                  <div className="text-xs font-bold text-foreground">
+                    Click to upload or drop your handwritten signature photo
+                  </div>
+                  <div className="text-[11px] text-muted-foreground">
+                    Supports JPG, PNG, WebP • Automatically removes paper background in browser
+                  </div>
+                </button>
+              )}
+              {uploadProcessing && (
+                <div className="absolute inset-0 bg-background/70 backdrop-blur-xs flex flex-col items-center justify-center gap-2 text-xs font-semibold text-foreground">
+                  <Loader2 className="w-5 h-5 animate-spin text-primary" />
+                  <span>Cleaning paper background...</span>
+                </div>
+              )}
+              {uploadError && (
+                <div className="absolute bottom-2 left-2 right-2 px-3 py-1.5 rounded-lg bg-red-500/10 border border-red-500/30 text-[11px] text-red-600 dark:text-red-400 text-center">
+                  {uploadError}
+                </div>
+              )}
+            </div>
           )}
         </div>
 
@@ -453,7 +704,11 @@ export const SignatureCreatorTool: React.FC<SignatureCreatorToolProps> = ({ init
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
           <div className="text-xs text-muted-foreground">
-            {tab === 'type' ? 'Rendered at 600×240 px' : 'Captured in real-time vector canvas'}
+            {tab === 'type'
+              ? 'Rendered at 600×240 px'
+              : tab === 'draw'
+              ? 'Captured in real-time vector canvas'
+              : 'Processed 100% locally at 600×240 px'}
           </div>
 
           <div className="flex items-center gap-2">

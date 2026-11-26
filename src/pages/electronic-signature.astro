@@ -242,6 +242,22 @@ const faqs = [
           <!-- Force Initial Tab to 'draw' for Electronic Signature -->
           <SignatureCreatorTool client:idle initialTab="draw" />
 
+          <!-- Link to Unified Signature Generator Hub -->
+          <div class="rounded-2xl border border-primary/25 bg-primary/5 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-0.5">
+              <div class="text-xs font-bold text-foreground">Need to Type a Cursive Name or Upload Paper Handwriting?</div>
+              <p class="text-[11px] text-muted-foreground">
+                Use our all-in-one Signature Generator hub to <strong>Type, Draw, or Upload</strong> a signature and export a transparent PNG.
+              </p>
+            </div>
+            <a
+              href="/signature-generator/"
+              class="shrink-0 inline-flex items-center justify-center px-3.5 py-2 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:bg-primary/90 transition shadow-xs"
+            >
+              Open Signature Generator →
+            </a>
+          </div>
+
           <!-- Editorial Guide & Legal Compliance Content -->
           <div class="bg-card border border-border rounded-2xl p-5 shadow-xs space-y-6">
             <div class="space-y-3">
@@ -304,7 +320,7 @@ const faqs = [
             <ul class="space-y-2 text-[11px] text-muted-foreground">
               <li>
                 <a href="/signature-generator/" class="flex items-center justify-between p-2 rounded-lg hover:bg-muted/40 transition">
-                  <span class="font-semibold text-foreground">✨ Signature Generator (Type)</span>
+                  <span class="font-semibold text-foreground">✨ Signature Generator Hub (Type, Draw &amp; Upload)</span>
                   <span class="text-primary font-bold">Open →</span>
                 </a>
               </li>

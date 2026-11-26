@@ -103,6 +103,12 @@ const faqs = [
 
     <!-- Async Google Fonts -->
     <GoogleFonts />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Caveat:wght@600;700&family=Cedarville+Cursive&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Homemade+Apple&family=Marck+Script&family=Pacifico&family=Sacramento&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
 
     <!-- SoftwareApplication & WebApplication Schema (Worldwide Target) -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -110,7 +116,7 @@ const faqs = [
       "@type": "WebApplication",
       "name": "Free Online Signature Generator",
       "datePublished": "2026-01-15T09:00:00+05:30",
-      "dateModified": "2026-11-16T18:00:00+05:30",
+      "dateModified": "2026-11-26T16:15:00+05:30",
       "url": canonicalUrl,
       "applicationCategory": "DesignApplication",
       "operatingSystem": "All (Web Browser, Windows, macOS, iOS, Android, Linux)",
@@ -129,9 +135,9 @@ const faqs = [
         "worstRating": "1"
       },
       "featureList": [
-        "Instant name-to-cursive signature generation",
+        "Type, Draw, or Upload signature modes in one tool",
         "10 professional cursive calligraphy font families",
-        "Customizable slant, font sizing, and ink colors",
+        "Interactive drawing pad and handwritten photo background remover",
         "Transparent background PNG download with zero watermarks",
         "100% private client-side canvas generation (GDPR & CCPA compliant)",
         "Legally compliant with US ESIGN, UETA, and EU eIDAS regulations"
@@ -236,22 +242,22 @@ const faqs = [
                 ESIGN &amp; eIDAS Compliant
               </span>
               <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono text-muted-foreground bg-muted/60 border border-border">
-                <span>🗓️</span> Last updated: 16 Nov 2026
+                <span>🗓️</span> Last updated: 26 Nov 2026
               </span>
             </div>
             <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-              Free Online <span class="text-primary">Signature Generator</span> (Cursive &amp; Handwritten)
+              Free Online <span class="text-primary">Signature Generator</span> — Type, Draw or Upload
             </h1>
             <p class="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
-              Create realistic handwritten and cursive signatures from your name in seconds. Choose from 10 elegant typography styles, customize pen ink colors, and download a high-resolution <strong>transparent PNG</strong> or <strong>clean JPG</strong> for PDFs, Google Docs, Word documents, contracts, and email sign-offs.
+              Create realistic handwritten and cursive signatures in seconds. <strong>Type</strong> your name across 10 calligraphy styles, <strong>Draw</strong> on the interactive pad, or <strong>Upload</strong> a photo of your handwriting to extract crisp ink and download a <strong>transparent PNG</strong> or <strong>clean JPG</strong> for PDFs, Google Docs, Word, and contracts.
             </p>
           </div>
 
           <!-- Feature Badges -->
           <div class="flex items-center gap-2 flex-wrap shrink-0">
             <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-2xs">
-              <div class="text-[9px] uppercase font-bold text-muted-foreground">Styles</div>
-              <div class="text-xs font-bold text-primary font-mono">10 Cursive Fonts</div>
+              <div class="text-[9px] uppercase font-bold text-muted-foreground">Modes</div>
+              <div class="text-xs font-bold text-primary font-mono">Type • Draw • Upload</div>
             </div>
             <div class="px-3.5 py-2 rounded-xl bg-card border border-border text-center shadow-2xs">
               <div class="text-[9px] uppercase font-bold text-muted-foreground">Output Format</div>
@@ -268,10 +274,57 @@ const faqs = [
       <!-- Main Layout: Generator Tool Workspace -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         <div class="lg:col-span-8 space-y-6">
-          <!-- Force Initial Tab to 'type' for Signature Generator -->
-          <div class="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs">
+          <!-- Unified Type, Draw & Upload Signature Generator -->
+          <div id="signature-tool-workspace" class="bg-card border border-border rounded-2xl p-4 sm:p-5 shadow-xs scroll-mt-20">
             <SignatureCreatorTool client:idle initialTab="type" />
           </div>
+
+          <!-- Famous Historical Signatures Gallery (Public Domain Inspiration) -->
+          <section id="famous-signatures" class="rounded-2xl border border-border bg-card p-5 shadow-xs space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="space-y-0.5">
+                <h2 class="text-base sm:text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
+                  <span>🖋️</span> Famous Historical Signatures (Public Domain Inspiration)
+                </h2>
+                <p class="text-xs text-muted-foreground">
+                  Explore iconic public-domain penmanship styles and click any card to preview a matching calligraphy font in the generator.
+                </p>
+              </div>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-muted text-muted-foreground border border-border">
+                Public Domain
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {[
+                { name: 'John Hancock', era: '1776 · Declaration of Independence', fontId: 'great-vibes', family: '"Great Vibes", cursive', note: 'Bold, sweeping flourish' },
+                { name: 'Abraham Lincoln', era: '1863 · Emancipation Proclamation', fontId: 'homemade-apple', family: '"Homemade Apple", cursive', note: 'Measured, upright pen' },
+                { name: 'George Washington', era: '1789 · First US President', fontId: 'allura', family: '"Allura", cursive', note: 'Formal executive script' },
+                { name: 'Albert Einstein', era: '1930s · Theoretical Physicist', fontId: 'cedarville', family: '"Cedarville Cursive", cursive', note: 'Quick, angled strokes' },
+                { name: 'Marie Curie', era: '1911 · Nobel Laureate', fontId: 'sacramento', family: '"Sacramento", cursive', note: 'Clean monoline flow' },
+                { name: 'Jane Austen', era: '1811 · Novelist', fontId: 'alex-brush', family: '"Alex Brush", cursive', note: 'Classic literary swash' }
+              ].map((item) => (
+                <button
+                  type="button"
+                  data-famous-name={item.name}
+                  data-famous-font={item.fontId}
+                  class="famous-sig-btn group text-left p-3.5 rounded-xl border border-border bg-muted/20 hover:bg-primary/5 hover:border-primary/40 transition flex flex-col justify-between gap-2 cursor-pointer"
+                >
+                  <div class="text-xl sm:text-2xl text-foreground truncate py-1" style={`font-family: ${item.family};`}>
+                    {item.name}
+                  </div>
+                  <div class="space-y-0.5 border-t border-border/60 pt-2">
+                    <div class="text-[11px] font-bold text-foreground flex items-center justify-between">
+                      <span>{item.name}</span>
+                      <span class="text-primary text-[10px] opacity-80 group-hover:opacity-100">Try →</span>
+                    </div>
+                    <div class="text-[10px] text-muted-foreground truncate">{item.era}</div>
+                    <div class="text-[10px] text-muted-foreground/80 italic">{item.note}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
 
           <!-- Relocated 5-Card Signature Tools Suite Showcase (Secondary Hub Location) -->
           <section id="signature-tools-suite" class="space-y-3 pt-2">
@@ -656,5 +709,18 @@ const faqs = [
     </main>
 
     <Footer />
+    <script is:inline>
+      document.querySelectorAll('.famous-sig-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const name = btn.getAttribute('data-famous-name');
+          const fontId = btn.getAttribute('data-famous-font');
+          window.dispatchEvent(
+            new CustomEvent('signresize:load-famous-signature', { detail: { name, fontId } })
+          );
+          const ws = document.getElementById('signature-tool-workspace');
+          if (ws) ws.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    </script>
   </body>
 </html>
