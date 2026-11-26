@@ -10,28 +10,28 @@ import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import GoogleFonts from '../../components/GoogleFonts.astro';
 import ThemeScript from '../../components/ThemeScript.astro';
 
-const pageTitle = "UTBK-SNBT Pasfoto Resizer (4x6 cm & 80KB to 300KB) - SignResize";
-const pageDescription = "Free online UTBK-SNBT SNPMB pasfoto resizer. Crop and compress pasfoto 4x6 cm to 400x600 pixels, 80 KB to 300 KB in JPEG format for national university entrance registration.";
+const pageTitle = "UTBK-SNBT Pasfoto Resizer (4×6 cm, 40–100 KB JPG) - SignResize";
+const pageDescription = "Ubah ukuran dan kompres pasfoto UTBK-SNBT SNPMB: 4×6 cm (rasio 2:3, minimal 200×300 px, disiapkan pada 400×600 px), format JPG/JPEG, 40–100 KB, latar polos warna apa saja.";
 const canonicalUrl = "https://signresize.in/id/utbk-snbt-photo-resizer/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "utbk snbt photo resizer, pasfoto 4x6 utbk snbt 400x600, kompres foto snpmb 80 300 kb, ubah ukuran pasfoto masuk ptn gratis, edit pasfoto utbk online";
+const keywordsContent = "utbk snbt photo resizer, pasfoto 4x6 utbk snbt 400x600, kompres foto snpmb 40 100 kb, ubah ukuran pasfoto masuk ptn gratis, edit pasfoto utbk online";
 
 const utbkFaqs = [
   {
-    q: "Berapa dimensi piksel dan ukuran pasfoto resmi registrasi akun SNPMB UTBK-SNBT?",
-    a: "Pasfoto resmi SNPMB UTBK-SNBT berukuran 4x6 cm (rasio 3:4) dengan resolusi minimal 400x600 piksel dan ukuran file antara 80 KB hingga 300 KB dalam format JPG/JPEG."
+    q: "Berapa dimensi piksel dan ukuran file pasfoto resmi registrasi akun SNPMB UTBK-SNBT?",
+    a: "Pasfoto resmi SNPMB UTBK-SNBT berukuran 4×6 cm dengan resolusi minimal 200×300 piksel (rasio 2:3 tegak; alat ini menyiapkan kanvas tajam 400×600 piksel agar melampaui batas minimum), ukuran file 40 KB hingga 100 KB, khusus format JPG/JPEG."
   },
   {
     q: "Warna latar belakang apa yang diperbolehkan untuk pasfoto UTBK-SNBT?",
-    a: "SNPMB Kemendikbudristek mensyaratkan latar belakang polos berwarna merah atau biru (atau warna cerah polos sesuai ketentuan sekolah)."
+    a: "Sesuai ketentuan resmi portal SNPMB, latar belakang pasfoto adalah latar polos berwarna apa saja (umumnya merah atau biru)."
   },
   {
     q: "Apakah pasfoto UTBK-SNBT boleh menggunakan filter atau editan kecantikan?",
-    a: "Tidak. Pasfoto wajib berupa foto asli yang jelas, berwajah tajam, berpakaian formal, tanpa filter kecantikan atau AI yang mengubah bentuk wajah."
+    a: "Tidak. Pasfoto wajib berupa foto terbaru yang jelas, wajah menghadap depan, berpakaian rapi/formal, tanpa filter atau editan yang mengubah wajah."
   },
   {
     q: "Mengapa pasfoto saya ditolak oleh portal SNPMB?",
-    a: "Penyebab umum penolakan pasfoto UTBK meliputi ukuran file di bawah 80 KB (terlalu buram), ukuran melebihi 300 KB, rasio tidak sesuai 3:4, atau wajah tidak terlihat jelas."
+    a: "Penyebab umum penolakan pasfoto UTBK meliputi ukuran file di bawah 40 KB atau melebihi 100 KB, resolusi di bawah 200×300 piksel, rasio tidak sesuai 2:3, atau format file bukan JPG/JPEG."
   }
 ];
 ---
@@ -83,8 +83,8 @@ const utbkFaqs = [
       "operatingSystem": "All",
       "description": pageDescription,
       "featureList": [
-        "400x600 px Pasfoto 4x6 cm Crop",
-        "80 KB - 300 KB File Compression",
+        "4x6 cm Pasfoto Crop (2:3, 400x600 px exceeds 200x300 min)",
+        "40 KB - 100 KB JPG/JPEG Compression",
         "100% In-Browser Privacy Protection"
       ]
     })} />
@@ -99,13 +99,16 @@ const utbkFaqs = [
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div class="space-y-2">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
-              <span>🎓 Standar Resmi SNPMB UTBK-SNBT Kemendikbud</span>
+              <span>🎓 Standar Resmi SNPMB UTBK-SNBT</span>
             </div>
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
-              UTBK-SNBT Pasfoto Resizer <span class="text-primary">(4×6 cm / 400×600 px)</span>
+              UTBK-SNBT Pasfoto Resizer <span class="text-primary">(4×6 cm • 40–100 KB)</span>
             </h1>
             <p class="text-sm text-muted-foreground max-w-3xl">
-              Ubah ukuran pasfoto 4×6 cm (400×600 piksel, 80–300 KB, format JPG) untuk pendaftaran akun SNPMB seleksi nasional masuk perguruan tinggi negeri.
+              Ubah ukuran pasfoto 4×6 cm (rasio 2:3, minimal 200×300 piksel — disiapkan di 400×600 px, ukuran file 40–100 KB, format JPG/JPEG) untuk pendaftaran akun SNPMB.
+            </p>
+            <p class="text-[11px] font-mono text-muted-foreground">
+              Spesifikasi diperiksa 26 November 2026 berdasarkan ketentuan resmi pasfoto portal SNPMB (konsisten pada siklus 2024, 2025, dan 2026).
             </p>
           </div>
 
@@ -128,19 +131,19 @@ const utbkFaqs = [
           <ul class="space-y-2.5 text-xs sm:text-sm text-muted-foreground">
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Dimensi &amp; Rasio:</strong> Pasfoto 4×6 cm (400 × 600 piksel, rasio 3:4 tegak).</span>
+              <span><strong>Dimensi &amp; Rasio:</strong> Pasfoto 4×6 cm, resolusi minimal 200 × 300 piksel (rasio 2:3 tegak; kanvas alat disiapkan pada 400 × 600 px agar melampaui batas minimum dengan tajam).</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Ukuran File:</strong> Berada di antara 80 KB hingga 300 KB dalam format JPG/JPEG.</span>
+              <span><strong>Ukuran File &amp; Format:</strong> 40 KB hingga 100 KB, khusus format <strong>JPG/JPEG</strong>.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Kualitas:</strong> Wajah tampak jelas, fokus tajam, berpakaian sekolah/kemeja formal.</span>
+              <span><strong>Latar Belakang:</strong> Latar polos warna apa saja (umumnya merah atau biru).</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Latar Belakang:</strong> Warna polos cerah (merah/biru).</span>
+              <span><strong>Kualitas:</strong> Foto terbaru, wajah tampak jelas menghadap depan, berpakaian sekolah/kemeja rapi.</span>
             </li>
           </ul>
         </div>
@@ -150,7 +153,7 @@ const utbkFaqs = [
           <h3 class="text-base font-bold text-foreground">Alat Terkait Indonesia</h3>
           <div class="space-y-2 text-xs">
             <a href="/id/cpns-sscasn-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
-              🇮🇩 CPNS / SSCASN Photo Resizer →
+              🇮🇩 CPNS / SSCASN Pasfoto Resizer (3:4, 120–200 KB) →
             </a>
             <a href="/id/indonesia-passport-visa-photo-resizer/" class="block p-2.5 rounded-xl bg-card border border-border hover:border-primary transition font-medium text-foreground">
               🛂 Indonesia Passport &amp; eVisa Photo Resizer →

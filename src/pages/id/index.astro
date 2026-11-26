@@ -11,23 +11,23 @@ import ThemeScript from '../../components/ThemeScript.astro';
 import IDToolSwitcher from '../../components/IDToolSwitcher.astro';
 
 const pageTitle = "Indonesia Photo Resizer (CPNS SSCASN, UTBK-SNBT, Paspor Imigrasi) - SignResize";
-const pageDescription = "Free online Indonesia Photo Resizer & Crop Tool. Resize pasfoto to 400x600 px (4x6 cm), 300x400 px (3x4 cm), 100 KB - 500 KB, latar merah/biru/putih for CPNS SSCASN BKN, UTBK-SNBT, and Paspor Imigrasi.";
+const pageDescription = "Free online Indonesia Photo Resizer & Crop Tool. Resize pasfoto 3×4 (120–200 KB) latar merah CPNS SSCASN BKN, 4×6 cm (40–100 KB) UTBK-SNBT, dan 3.5×4.5 cm Paspor Imigrasi.";
 const canonicalUrl = "https://signresize.in/id/";
 const ogImageUrl = "https://signresize.in/og-image.png";
-const keywordsContent = "photo resizer cpns sscasn, edit pasfoto sscasn 400x600, kompres foto cpns 100-300 kb, pasfoto utbk snbt 4x6, ubah ukuran foto paspor imigrasi, crop pasfoto latar merah gratis";
+const keywordsContent = "photo resizer cpns sscasn, edit pasfoto sscasn 3x4, kompres foto cpns 120-200 kb, pasfoto utbk snbt 4x6 40-100 kb, ubah ukuran foto paspor imigrasi, crop pasfoto latar merah gratis";
 
 const idFaqs = [
   {
     q: "Berapa ukuran dan latar belakang pasfoto formal CPNS / SSCASN BKN?",
-    a: "Pasfoto formal pendaftaran CPNS & PPPK di portal SSCASN BKN wajib berasio 3:4 dengan resolusi minimal 400x600 piksel (latar belakang merah / red background). Ukuran file pasfoto berkisar antara 100 KB hingga 300 KB / 500 KB dalam format JPG/JPEG."
+    a: "Pasfoto formal pendaftaran CPNS & PPPK di portal SSCASN BKN berukuran 3×4 cm (rasio aspek 3:4 tegak) dengan latar belakang merah polos, kemeja putih berkerah, dan ukuran file 120 KB hingga 200 KB dalam format JPG/JPEG."
   },
   {
     q: "Apa perbedaan pasfoto formal dan swafoto untuk portal SSCASN CPNS?",
-    a: "Pasfoto formal adalah foto studio resmi latar belakang merah berpakaian rapi (kemeja putih/jas). Swafoto (selfie) adalah foto memegang Kartu Informasi Akun SSCASN dan KTP berbentuk portrait dengan ukuran file 200 KB hingga 500 KB."
+    a: "Pasfoto formal adalah foto resmi latar belakang merah berkemeja putih berkerah (120–200 KB JPG) yang diunggah ke portal. Berdasarkan Buku Petunjuk CASN BKN (§3.1 langkah 12), swafoto diambil langsung secara live melalui kamera di dalam portal saat pembuatan akun (langkah pengenalan wajah, bukan unggah file dan tidak memegang KTP)."
   },
   {
     q: "Berapa ketentuan ukuran pasfoto pendaftaran UTBK-SNBT SNPMB?",
-    a: "Registrasi akun SNPMB untuk UTBK-SNBT memerlukan pasfoto 4x6 cm (400x600 piksel) berasio 3:4, ukuran file 80 KB hingga 300 KB, format JPG/JPEG dengan latar belakang polos berwarna cerah (merah/biru)."
+    a: "Registrasi akun SNPMB untuk UTBK-SNBT memerlukan pasfoto 4×6 cm dengan resolusi minimal 200×300 piksel (rasio 2:3 tegak; disiapkan pada 400×600 px), ukuran file 40 KB hingga 100 KB, khusus format JPG/JPEG dengan latar polos warna apa saja (umumnya merah atau biru)."
   },
   {
     q: "Berapa ukuran pasfoto untuk permohonan paspor dan e-Visa Imigrasi Indonesia?",
@@ -89,8 +89,8 @@ const idFaqs = [
       "inLanguage": "id",
       "description": pageDescription,
       "featureList": [
-        "CPNS SSCASN Formal Pasfoto Latar Merah & Swafoto (400x600 px, 100KB-500KB)",
-        "UTBK-SNBT Pasfoto 4x6 cm (400x600 px, 80KB-300KB)",
+        "CPNS SSCASN Pasfoto Formal Latar Merah (3:4, 120KB-200KB JPG)",
+        "UTBK-SNBT Pasfoto 4x6 cm (2:3, min 200x300 px, 40KB-100KB JPG)",
         "Indonesia Passport & eVisa Photo Resizer (350x450 px, Latar Putih)"
       ]
     })} />
@@ -111,7 +111,7 @@ const idFaqs = [
               Indonesia Photo Resizer <span class="text-primary">(CPNS SSCASN, UTBK &amp; Paspor)</span>
             </h1>
             <p class="text-sm sm:text-base text-muted-foreground max-w-3xl">
-              Alat gratis untuk crop, ubah ukuran (400×600 px / 4×6 cm), ganti latar belakang, dan kompres pasfoto sesuai spesifikasi resmi pendaftaran CPNS BKN, UTBK-SNBT, dan Paspor Imigrasi Indonesia.
+              Alat gratis untuk crop, ubah ukuran pasfoto 3×4 CPNS (120–200 KB), 4×6 cm UTBK-SNBT (40–100 KB), dan 3.5×4.5 cm Paspor Imigrasi Indonesia. Spesifikasi diperiksa 26 November 2026 berdasarkan Buku Petunjuk CASN BKN 2024 dan ketentuan SNPMB 2026.
             </p>
           </div>
         </div>
@@ -161,7 +161,7 @@ const idFaqs = [
                 CPNS / SSCASN Photo Resizer
               </h3>
               <p class="text-xs text-muted-foreground leading-relaxed">
-                Crop &amp; kompres pasfoto formal latar belakang merah (400×600 px) &amp; swafoto (100–500 KB) untuk SSCASN BKN.
+                Crop &amp; kompres pasfoto formal latar merah (3×4 cm / rasio 3:4, 120–200 KB JPG) + panduan swafoto live portal SSCASN BKN.
               </p>
             </div>
             <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
@@ -183,7 +183,7 @@ const idFaqs = [
                 UTBK-SNBT Pasfoto Resizer
               </h3>
               <p class="text-xs text-muted-foreground leading-relaxed">
-                Ubah ukuran pasfoto 4×6 cm (400×600 px, 80–300 KB) untuk pendaftaran akun SNPMB seleksi masuk PTN.
+                Ubah ukuran pasfoto 4×6 cm (rasio 2:3, min 200×300 px — disiapkan 400×600 px, 40–100 KB JPG) untuk pendaftaran akun SNPMB.
               </p>
             </div>
             <div class="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary">
@@ -231,10 +231,10 @@ const idFaqs = [
               <span>🇮🇩</span> <span>CPNS SSCASN BKN</span>
             </h4>
             <ul class="text-xs text-muted-foreground space-y-1">
-              <li>• <strong>Dimensi Piksel:</strong> 400 × 600 px (Rasio 3:4)</li>
+              <li>• <strong>Ukuran &amp; Rasio:</strong> 3×4 cm (Rasio 3:4 / 450×600 px)</li>
               <li>• <strong>Latar Belakang:</strong> Merah Polos (Red BG)</li>
-              <li>• <strong>Ukuran File:</strong> 100 KB hingga 500 KB JPG</li>
-              <li>• <strong>Swafoto:</strong> Portrait 200–500 KB</li>
+              <li>• <strong>Ukuran File:</strong> 120 KB hingga 200 KB JPG/JPEG</li>
+              <li>• <strong>Swafoto:</strong> Kamera live di portal (§3.1 step 12)</li>
             </ul>
           </div>
           <div class="p-4 rounded-xl border border-amber-500/30 bg-amber-500/5 space-y-1">
@@ -242,9 +242,9 @@ const idFaqs = [
               <span>🎓</span> <span>UTBK-SNBT SNPMB</span>
             </h4>
             <ul class="text-xs text-muted-foreground space-y-1">
-              <li>• <strong>Ukuran Pasfoto:</strong> 4 × 6 cm (400 × 600 px)</li>
-              <li>• <strong>Rasio Aspek:</strong> 3:4 Potret Tegak</li>
-              <li>• <strong>Ukuran File:</strong> 80 KB hingga 300 KB JPG</li>
+              <li>• <strong>Ukuran Pasfoto:</strong> 4 × 6 cm (Min 200 × 300 px)</li>
+              <li>• <strong>Rasio Aspek:</strong> 2:3 Tegak (400 × 600 px)</li>
+              <li>• <strong>Ukuran File:</strong> 40 KB hingga 100 KB JPG/JPEG</li>
               <li>• <strong>Kualitas:</strong> Tajam &amp; tanpa editan wajah</li>
             </ul>
           </div>
@@ -268,8 +268,8 @@ const idFaqs = [
           Pada pendaftaran Calon Pegawai Negeri Sipil (CPNS) dan Pegawai Pemerintah dengan Perjanjian Kerja (PPPK) di portal SSCASN BKN (sscasn.bkn.go.id), pelamar wajib mengunggah dua jenis foto:
         </p>
         <ul class="text-sm text-muted-foreground space-y-1.5">
-          <li><strong>Pasfoto Formal Latar Merah:</strong> Foto studio resmi menghadap lurus ke depan dengan latar belakang warna merah polos. Berpakaian sopan (kemeja putih formal/jas), tanpa kacamata hitam, dan daun telinga terlihat jelas (bagi yang tidak berhijab). Resolusi disarankan 400×600 piksel dengan batas ukuran file <strong>100 KB hingga 500 KB</strong>.</li>
-          <li><strong>Swafoto (Selfie):</strong> Foto memegang Kartu Informasi Akun SSCASN dan KTP/Surat Keterangan Kependudukan. Foto harus terlihat jelas dan tidak buram dengan ukuran file <strong>200 KB hingga 500 KB</strong>.</li>
+          <li><strong>Pasfoto Formal Latar Merah:</strong> Foto studio resmi menghadap lurus ke depan dengan latar belakang warna merah polos. Berpakaian sopan (kemeja putih formal/jas), tanpa kacamata hitam, dan daun telinga terlihat jelas (bagi yang tidak berhijab). Ukuran cetak 3×4 cm (rasio 3:4 tegak) dengan batas ukuran file <strong>120 KB hingga 200 KB</strong> format JPG/JPEG (Buku Petunjuk CASN BKN §3.5 tidak menetapkan angka piksel baku).</li>
+          <li><strong>Swafoto (Kamera Live Portal):</strong> Berdasarkan Buku Petunjuk Pendaftaran Seleksi CASN BKN (§3.1 langkah 12), swafoto diambil langsung melalui kamera di dalam portal saat pembuatan akun (langkah pengenalan wajah, bukan file unggahan dan tidak memegang KTP/kartu akun).</li>
         </ul>
 
         <h3 class="text-xl font-bold text-foreground">
@@ -279,9 +279,9 @@ const idFaqs = [
           Calon mahasiswa yang mendaftar UTBK-SNBT pada portal resmi SNPMB (portal-snpmb.bppp.kemdikbud.go.id) wajib memenuhi syarat pasfoto berikut:
         </p>
         <ul class="text-sm text-muted-foreground space-y-1.5">
-          <li><strong>Rasio &amp; Dimensi:</strong> Pasfoto berukuran 4×6 cm berorientasi vertikal (rasio 3:4) dengan resolusi minimal 400×600 piksel.</li>
-          <li><strong>Batas Ukuran File:</strong> Ukuran file pasfoto wajib berada di antara <strong>80 KB</strong> dan <strong>300 KB</strong> dalam format JPEG/JPG. File di bawah 80 KB akan ditolak karena dianggap terlalu buram.</li>
-          <li><strong>Pakaian &amp; Latar Belakang:</strong> Mengenai pakaian sekolah formal atau kemeja rapi dengan latar belakang polos berwarna merah atau biru.</li>
+          <li><strong>Rasio &amp; Dimensi:</strong> Pasfoto berukuran 4×6 cm berorientasi vertikal (rasio 2:3) dengan resolusi minimal 200×300 piksel (disiapkan pada 400×600 px).</li>
+          <li><strong>Batas Ukuran File:</strong> Ukuran file pasfoto wajib berada di antara <strong>40 KB</strong> dan <strong>100 KB</strong> khusus format JPEG/JPG.</li>
+          <li><strong>Pakaian &amp; Latar Belakang:</strong> Mengenakan pakaian sekolah formal atau kemeja rapi dengan latar belakang polos warna apa saja (umumnya merah atau biru).</li>
         </ul>
 
         <h3 class="text-xl font-bold text-foreground">

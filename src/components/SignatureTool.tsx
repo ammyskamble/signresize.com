@@ -3284,8 +3284,8 @@ export const SignatureTool: React.FC<SignatureToolProps> = ({ initialPresetId, d
           ])
     : isIndonesian
     ? [
-        { id: 'id-cpns', short: 'CPNS SSCASN', label: 'CPNS Formal & Swafoto', specs: '400×600 • 100–500 KB' },
-        { id: 'id-utbk', short: 'UTBK-SNBT', label: 'UTBK-SNBT 4×6', specs: '400×600 • 80–300 KB' },
+        { id: 'id-cpns', short: 'CPNS Pasfoto', label: 'CPNS Pasfoto Formal (3:4)', specs: '3:4 (450×600) • 120–200 KB' },
+        { id: 'id-utbk', short: 'UTBK-SNBT', label: 'UTBK-SNBT 4×6 (2:3)', specs: '400×600 • 40–100 KB' },
         { id: 'id-passport', short: 'Paspor RI', label: 'Paspor / eVisa Imigrasi', specs: '350×450 • 100–1000 KB' },
         { id: 'us-ds160', short: 'US DS-160', label: 'US Visa DS-160', specs: '600×600 • 20–240 KB' }
       ]
